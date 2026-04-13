@@ -16,13 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Icons = {
   Quote: () => (
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" className="text-primary">
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <path d="M10 11H6V7H10V11Z" stroke="currentColor" strokeWidth="1.5" />
       <path d="M18 11H14V7H18V11Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
   Verified: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
       <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
@@ -39,19 +39,29 @@ const Icons = {
     </svg>
   ),
   ArrowLeft: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   ArrowRight: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   Youtube: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <path d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12Z" stroke="currentColor" strokeWidth="1.5" />
       <path d="M15 12L10 9V15L15 12Z" fill="currentColor" />
+    </svg>
+  ),
+  Star: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-500">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  ),
+  MessageSquare: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   ),
 };
@@ -92,7 +102,7 @@ const VideoModal = ({ isOpen, onClose, videoId, title }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-red-600 hover:bg-red-700 flex items-center justify-center transition-all duration-300"
         >
           <Icons.Close />
         </motion.button>
@@ -102,7 +112,7 @@ const VideoModal = ({ isOpen, onClose, videoId, title }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ type: "spring", damping: 25 }}
-          className="relative w-full max-w-5xl aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl"
+          className="relative w-full max-w-5xl aspect-video rounded-lg overflow-hidden shadow-2xl border-2 border-gray-700"
           onClick={(e) => e.stopPropagation()}
         >
           <iframe
@@ -141,9 +151,9 @@ const VideoThumbnailCard = ({ video, onClick }) => {
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="relative aspect-video rounded-lg md:rounded-xl overflow-hidden bg-gray-100 shadow-md">
+      <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 shadow-md border-2 border-gray-200 group-hover:border-red-600 transition-colors">
         <img
-          src={imageError ? 'https://via.placeholder.com/320x180?text=FairClaims+Roofing' : `https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
+          src={imageError ? 'https://via.placeholder.com/320x180?text=Mega+Contracting' : `https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
           alt={video.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={() => setImageError(true)}
@@ -153,8 +163,8 @@ const VideoThumbnailCard = ({ video, onClick }) => {
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity" />
-            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center transform transition-transform group-hover:scale-110">
+            <div className="absolute inset-0 bg-red-600 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity" />
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-lg bg-red-600 flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-lg">
               <Icons.Play />
             </div>
           </div>
@@ -162,19 +172,16 @@ const VideoThumbnailCard = ({ video, onClick }) => {
 
         <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
           <div className="flex items-center gap-2 text-white/90 text-xs">
-            <span>{video.duration}</span>
+            <span className="bg-black/50 px-2 py-0.5 rounded">{video.duration}</span>
             {video.views && (
-              <>
-                <span>•</span>
-                <span>{formatViews(video.views)} views</span>
-              </>
+              <span className="bg-black/50 px-2 py-0.5 rounded">{formatViews(video.views)} views</span>
             )}
           </div>
         </div>
       </div>
 
       <div className="mt-2 md:mt-3">
-        <h4 className="font-semibold text-gray-900 text-sm md:text-base line-clamp-1">{video.name}</h4>
+        <h4 className="font-bold text-gray-900 text-sm md:text-base line-clamp-1">{video.name}</h4>
         <p className="text-xs md:text-sm text-gray-500 line-clamp-1">{video.title}</p>
       </div>
     </motion.div>
@@ -224,21 +231,28 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
       className="relative w-full mx-auto"
     >
       <div className={`
-        relative bg-white rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10
-        border transition-all duration-300
+        relative bg-white rounded-lg p-6 md:p-8 lg:p-10
+        border-l-4 shadow-lg transition-all duration-300
         min-h-[320px] md:min-h-[360px] lg:min-h-[400px]
         flex flex-col
         ${isActive
-          ? 'border-primary/30 shadow-xl shadow-primary/10'
-          : 'border-primary/10 shadow-lg shadow-primary/5'
+          ? 'border-l-red-600 shadow-xl'
+          : 'border-l-gray-300 shadow-md'
         }
       `}>
-        <div className="mb-4 md:mb-6 text-primary/40 flex-shrink-0">
+        {/* Rating Stars */}
+        <div className="flex gap-0.5 mb-4 flex-shrink-0">
+          {[...Array(5)].map((_, i) => (
+            <Icons.Star key={i} />
+          ))}
+        </div>
+
+        <div className="mb-4 md:mb-6 text-red-600/30 flex-shrink-0">
           <Icons.Quote />
         </div>
 
         <div className="flex-1 overflow-y-auto mb-4 md:mb-6 pr-2 custom-scrollbar">
-          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
+          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-medium">
             "{testimonial.text}"
           </p>
         </div>
@@ -246,18 +260,17 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
         <div className="flex items-center justify-between gap-4 flex-shrink-0 mt-auto">
           <div className="flex items-center gap-3 md:gap-4 min-w-0">
             <div className="relative flex-shrink-0">
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-md" />
-              <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary font-medium text-sm md:text-base lg:text-lg">
+              <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-lg shadow-lg">
                 {testimonial.avatar}
               </div>
             </div>
 
             <div className="min-w-0">
               <div className="flex items-center gap-1 md:gap-2 flex-wrap">
-                <h4 className="font-semibold text-gray-900 text-sm md:text-base lg:text-lg truncate">
+                <h4 className="font-black text-gray-900 text-sm md:text-base lg:text-lg truncate">
                   {testimonial.name}
                 </h4>
-                <span className="text-primary flex-shrink-0">
+                <span className="text-red-600 flex-shrink-0">
                   <Icons.Verified />
                 </span>
               </div>
@@ -274,16 +287,16 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
               onClick={() => onPlayVideo(testimonial.videoId, testimonial.name)}
               className="relative group flex-shrink-0"
             >
-              <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity" />
-              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-lg bg-red-600 flex items-center justify-center shadow-md hover:bg-red-700 transition-colors">
                 <Icons.Play />
               </div>
             </motion.button>
           )}
         </div>
 
-        <div className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 border-t border-r border-primary/20" />
-        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-6 h-6 md:w-8 md:h-8 border-b border-l border-primary/20" />
+        {/* Decorative corner elements */}
+        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-red-600/20" />
+        <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-red-600/20" />
       </div>
     </motion.div>
   );
@@ -298,11 +311,11 @@ const scrollbarStyles = `
     border-radius: 4px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #C30505;
+    background: #DC2626;
     border-radius: 4px;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #8B0000;
+    background: #B91C1C;
   }
 `;
 
@@ -363,43 +376,51 @@ const Testimonials = () => {
     <>
       <section
         ref={sectionRef}
-        className="relative bg-white py-12 md:py-16 lg:py-20 overflow-hidden"
+        className="relative bg-gray-50 py-12 md:py-16 lg:py-20 overflow-hidden"
       >
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `
-                linear-gradient(to right, #C30505 1px, transparent 1px),
-                linear-gradient(to bottom, #C30505 1px, transparent 1px)
-              `,
-              backgroundSize: '40px 40px',
-            }}
-          />
+        {/* Construction Pattern Background */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23DC2626' stroke-width='2'/%3E%3C/svg%3E")`,
+            backgroundSize: '50px 50px'
+          }} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
-            <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2 md:mb-3 block">
-              {section.badge}
-            </span>
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-red-50/80 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-red-50/50 to-transparent" />
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 md:mb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
+            {/* Fixed Badge - Now properly visible with red background and white icon */}
+            <div className="inline-flex items-center gap-2 bg-red-600 px-5 py-2.5 rounded-lg mb-4 shadow-md">
+              <Icons.MessageSquare />
+              <span className="text-white uppercase tracking-[0.2em] text-xs font-black">
+                {section.badge}
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight">
               {section.headline}
             </h2>
 
-            <p className="text-sm md:text-base lg:text-lg text-gray-500 px-4">
+            <div className="flex justify-center gap-1 mb-4">
+              <div className="w-12 h-1 bg-red-600 rounded-full" />
+              <div className="w-6 h-1 bg-red-400 rounded-full" />
+              <div className="w-3 h-1 bg-red-300 rounded-full" />
+            </div>
+
+            <p className="text-sm md:text-base lg:text-lg text-gray-600 px-4">
               {section.description}
             </p>
 
-            <div className="flex items-center justify-center gap-2 mt-3 md:mt-4">
+            <div className="flex items-center justify-center gap-2 mt-4">
               <Icons.Youtube />
-              <span className="text-xs md:text-sm text-gray-400">{section.featured}</span>
+              <span className="text-xs md:text-sm text-gray-500">{section.featured}</span>
             </div>
-
-            <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-4 md:mt-6 rounded-full" />
           </div>
 
+          {/* Main Testimonial */}
           <div className="max-w-4xl mx-auto mb-12 md:mb-16 lg:mb-20">
             <AnimatePresence mode="wait">
               <motion.div
@@ -419,11 +440,11 @@ const Testimonials = () => {
 
             <div className="flex items-center justify-between mt-4 md:mt-6">
               <div className="flex items-center gap-2">
-                <span className="text-xs md:text-sm font-mono font-medium text-primary">
+                <span className="text-sm md:text-base font-black text-red-600">
                   {String(activeIndex + 1).padStart(2, '0')}
                 </span>
-                <span className="text-xs md:text-sm font-mono text-gray-300">/</span>
-                <span className="text-xs md:text-sm font-mono text-gray-400">
+                <span className="text-sm md:text-base text-gray-300">/</span>
+                <span className="text-sm md:text-base text-gray-400">
                   {String(testimonials.length).padStart(2, '0')}
                 </span>
               </div>
@@ -433,7 +454,7 @@ const Testimonials = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                  className="w-10 h-10 rounded-lg border-2 border-gray-300 flex items-center justify-center hover:border-red-600 hover:bg-red-50 transition-all duration-300"
                 >
                   <Icons.ArrowLeft />
                 </motion.button>
@@ -442,73 +463,34 @@ const Testimonials = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
-                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                  className="w-10 h-10 rounded-lg border-2 border-gray-300 flex items-center justify-center hover:border-red-600 hover:bg-red-50 transition-all duration-300"
                 >
                   <Icons.ArrowRight />
                 </motion.button>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="mb-12 md:mb-16 lg:mb-20 reveal-element">
-            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-              <div className="w-4 md:w-6 h-px bg-gradient-to-r from-primary to-primary/60" />
-              <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-gray-400">
-                Featured Videos
-              </span>
-              <span className="text-[10px] md:text-xs text-primary ml-auto md:ml-2">{stats.totalVideos} videos on YouTube</span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-              {videos.map((video) => (
-                <VideoThumbnailCard
-                  key={video.id}
-                  video={video}
-                  onClick={() => handlePlayVideo(video.videoId, video.title)}
-                />
-              ))}
-            </div>
-
-            <div className="text-center mt-4 md:mt-6">
-              <a
-                href="https://youtube.com/@fairclaimsroofing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
-              >
-                <Icons.Youtube />
-                Watch all {stats.totalVideos} videos on our YouTube channel
-              </a>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4 pt-4 md:pt-6 mt-4 md:mt-6 border-t border-primary/10 reveal-element">
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="flex -space-x-2">
-                {testimonials.slice(0, 4).map((t, i) => (
-                  <div
-                    key={i}
-                    className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-white flex items-center justify-center text-primary text-[8px] md:text-xs font-medium shadow-sm"
-                  >
-                    {t.avatar}
-                  </div>
-                ))}
-              </div>
-              <div className="text-xs md:text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">{stats.subscribers}</span> YouTube subscribers
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm">
-              <span className="text-gray-400">
-                <span className="text-primary font-semibold">{stats.views}</span> views
-              </span>
-              <span className="w-px h-3 md:h-4 bg-primary/20" />
-              <span className="text-gray-400">
-                <span className="text-primary font-semibold">Since 2002</span>
-              </span>
-            </div>
-          </div>
+        {/* Bottom Wave Divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
+          <svg
+            viewBox="0 0 1440 60"
+            className="relative block w-full h-10 md:h-12"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="url(#testimonialsGradient)"
+              d="M0,24L60,26.7C120,29,240,34,360,34C480,34,600,29,720,26.7C840,24,960,24,1080,26.7C1200,29,1320,34,1380,36.7L1440,39L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"
+            />
+            <defs>
+              <linearGradient id="testimonialsGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#DC2626" stopOpacity="0.03" />
+                <stop offset="50%" stopColor="#DC2626" stopOpacity="0.06" />
+                <stop offset="100%" stopColor="#DC2626" stopOpacity="0.03" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
       </section>
 

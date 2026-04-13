@@ -5,67 +5,58 @@ import {
   useTransform,
   useSpring,
   useInView,
-  AnimatePresence
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ceo from "@/assets/fairowner.jpg";
+import ceo from "@/assets/megaowner.png";
+import vectoroverlay from "../assets/Frame.png";
 import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Images = {
-  Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-  Studio: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-};
-
 const Icons = {
   Linkedin: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M4 8h4v12H4V8z" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="6" cy="4" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M10 8h4v2c.6-.8 1.5-2 3-2 2.5 0 4 1.5 4 4v8h-4v-6c0-1.5-.5-2-2-2s-2 .5-2 2v6h-4V8z" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M4 8h4v12H4V8z" stroke="currentColor" strokeWidth="2" />
+      <circle cx="6" cy="4" r="2" stroke="currentColor" strokeWidth="2" />
+      <path d="M10 8h4v2c.6-.8 1.5-2 3-2 2.5 0 4 1.5 4 4v8h-4v-6c0-1.5-.5-2-2-2s-2 .5-2 2v6h-4V8z" stroke="currentColor" strokeWidth="2" />
     </svg>
   ),
   Mail: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M22 7l-10 7L2 7" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" />
+      <path d="M22 7l-10 7L2 7" stroke="currentColor" strokeWidth="2" />
     </svg>
   ),
   Quote: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M10 11H6V7h4v4z" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M18 11h-4V7h4v4z" stroke="currentColor" strokeWidth="1.2" />
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M10 11h-4v-4h4v4zm8 0h-4v-4h4v4zm-8 2v6M18 13v6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M6 17v-6M14 17v-6" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
-  Sparkle: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor" />
+  HardHat: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M4 14h16v4H4v-4z" />
+      <path d="M6 14v-3a6 6 0 0112 0v3" />
+      <circle cx="12" cy="8" r="2" />
     </svg>
   ),
   Award: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 14l-2 6 6-2 6 2-2-6" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="8" r="6" />
+      <path d="M8 14l-2 6 6-2 6 2-2-6" />
     </svg>
   ),
-};
-
-const ParallaxLayer = ({ children, speed = 0.1, className = "" }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 50]);
-
-  return (
-    <motion.div ref={ref} style={{ y }} className={`absolute inset-0 will-change-transform ${className}`}>
-      {children}
-    </motion.div>
-  );
+  Star: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  ),
+  Check: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
+  ),
 };
 
 const CeoPortrait = () => {
@@ -80,73 +71,119 @@ const CeoPortrait = () => {
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
       className="relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/20 to-primary/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
+        {/* Construction frame effect */}
+        <div className="absolute -inset-2 bg-gradient-to-r from-red-600/20 via-red-500/10 to-red-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-700" />
 
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
-          <img
-            src={ceo}
-            alt={ceoData.alt}
-            className="w-full h-[500px] md:h-[600px] object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
-
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <motion.rect
-              x="2"
-              y="2"
-              width="calc(100% - 4px)"
-              height="calc(100% - 4px)"
-              fill="none"
-              stroke="url(#ceoGradient)"
-              strokeWidth="1.2"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={isHovered ? { pathLength: 1, opacity: 0.8 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        <div className="relative rounded-lg overflow-visible shadow-2xl">
+          {/* Image Container */}
+          <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
+            <img
+              src={ceo}
+              alt={ceoData.alt}
+              className="w-full h-[500px] md:h-[600px] object-cover"
+              loading="eager"
             />
-            <defs>
-              <linearGradient id="ceoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#C30505" />
-                <stop offset="100%" stopColor="#8B0000" />
-              </linearGradient>
-            </defs>
-          </svg>
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+            {/* Top Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="absolute top-6 left-6 z-10"
+            >
+              <div className="bg-red-600 text-white px-5 py-2.5 rounded-lg shadow-xl flex items-center gap-2">
+                <Icons.HardHat />
+                <span className="text-sm font-bold tracking-wide">
+                  {ceoData.badges.top}
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Bottom Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.4 }}
+              className="absolute bottom-6 left-6 right-6 z-10"
+            >
+              <div className="bg-white/95 backdrop-blur-sm px-5 py-3 rounded-lg shadow-xl border border-red-200">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-1">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-red-600 border-2 border-white flex items-center justify-center">
+                        <Icons.Star />
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">Certifications</p>
+                    <p className="text-sm font-bold text-red-600">{ceoData.badges.bottom}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Floating Vector Overlay - Top Right Corner */}
+          <motion.div
+            initial={{ x: 80, y: -80, opacity: 0, rotate: -15 }}
+            animate={inView ? { x: 0, y: 0, opacity: 1, rotate: 0 } : {}}
+            transition={{ 
+              delay: 0.5, 
+              duration: 0.9,
+              type: "spring",
+              stiffness: 45,
+              damping: 10
+            }}
+            whileHover={{ 
+              scale: 1.08,
+              rotate: 5,
+              transition: { duration: 0.3 }
+            }}
+            className="absolute z-[100] pointer-events-none"
+            style={{
+              top: "-6%",
+              right: "-8%",
+            }}
+          >
+            <img 
+              src={vectoroverlay} 
+              alt="Mega Contracting" 
+              className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain pointer-events-auto"
+              style={{
+                filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.35))',
+              }}
+            />
+            {/* Glow effect behind the vector */}
+            <div className="absolute inset-0 bg-red-500/20 rounded-full blur-3xl -z-10 scale-150" />
+          </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.3 }}
-          className="absolute top-6 left-6"
-        >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-primary">
-              <Icons.Sparkle />
-              {ceoData.badges.top}
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.4 }}
-          className="absolute bottom-6 right-6"
-        >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-primary">
-              <Icons.Award />
-              {ceoData.badges.bottom}
-            </span>
-          </div>
-        </motion.div>
+        {/* Decorative corner elements */}
+        <div className="absolute -bottom-3 -left-3 w-16 h-16 border-l-4 border-b-4 border-red-600 rounded-bl-2xl pointer-events-none" />
+        <div className="absolute -top-3 -right-3 w-16 h-16 border-t-4 border-r-4 border-red-600 rounded-tr-2xl pointer-events-none" />
       </div>
+    </motion.div>
+  );
+};
+
+const AchievementCard = ({ label, value }: { label: string; value: string }) => {
+  return (
+    <motion.div
+      whileHover={{ y: -3 }}
+      className="bg-white p-4 rounded-xl border-l-4 border-red-600 shadow-md"
+    >
+      <p className="text-2xl font-black text-gray-900">{value}</p>
+      <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">{label}</p>
     </motion.div>
   );
 };
@@ -170,8 +207,8 @@ const Leadership = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          stagger: 0.15,
+          duration: 0.8,
+          stagger: 0.12,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -190,117 +227,113 @@ const Leadership = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white py-14 md:py-18 lg:py-20 overflow-hidden"
+      className="relative bg-gray-50 py-16 md:py-20 lg:py-24 overflow-visible"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #C30505 1px, transparent 1px),
-              linear-gradient(to bottom, #C30505 1px, transparent 1px)
-            `,
-            backgroundSize: '80px 80px',
-          }}
-        />
+      {/* Construction Pattern Background */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23DC2626' stroke-width='2'/%3E%3C/svg%3E")`,
+          backgroundSize: '50px 50px'
+        }} />
       </div>
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
+      {/* Red accent background elements */}
+      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-red-50/80 to-transparent" />
+      <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-red-50/50 to-transparent" />
 
-      <ParallaxLayer speed={0.05} className="z-0">
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/2">
-          <img
-            src={Images.Pattern}
-            alt="Heritage pattern"
-            className="w-full h-full object-cover opacity-[0.02]"
-          />
-        </div>
-      </ParallaxLayer>
-
-      <ParallaxLayer speed={0.08} className="z-0">
-        <div className="absolute top-20 left-0 w-1/4 h-1/3">
-          <img
-            src={Images.Studio}
-            alt="Studio"
-            className="w-full h-full object-cover opacity-[0.02]"
-          />
-        </div>
-      </ParallaxLayer>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
-        <div className="max-w-3xl mx-auto text-center mb-20 leadership-reveal">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-[2px] bg-gradient-to-r from-primary/30 to-primary" />
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-14 leadership-reveal">
+          <div className="inline-flex items-center gap-3 bg-red-50 px-5 py-2 rounded-full border border-red-200 mb-6">
+            
+            <span className="text-red-600 uppercase tracking-[0.2em] text-xs font-black">
               {section.badge}
             </span>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-primary to-primary/30" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight"
+          <h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight"
             dangerouslySetInnerHTML={{ __html: section.headline }}
           />
 
-          <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <div className="flex justify-center gap-1 mb-4">
+            <div className="w-12 h-1 bg-red-600 rounded-full" />
+            <div className="w-6 h-1 bg-red-400 rounded-full" />
+            <div className="w-3 h-1 bg-red-300 rounded-full" />
+          </div>
+
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             {section.description}
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left - Portrait */}
           <div className="leadership-reveal">
             <CeoPortrait />
           </div>
 
-          <div className="space-y-8 leadership-reveal">
+          {/* Right - Content */}
+          <div className="space-y-6 leadership-reveal">
+            {/* Name and Title */}
             <div>
-              <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
+              <h3 className="text-3xl md:text-4xl font-black text-gray-900">
                 {ceo.name}
-                <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
-                  {ceo.title}
-                </span>
               </h3>
+              <p className="text-red-600 font-bold text-lg mt-1">
+                {ceo.title}
+              </p>
+            </div>
 
-              <div className="mt-6 relative">
-                <div className="absolute -left-4 top-0 text-primary/20">
-                  <Icons.Quote />
-                </div>
-                {ceo.quotes.map((quote, idx) => (
-                  <p key={idx} className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
-                    {quote}
-                  </p>
-                ))}
-              </div>
+            {/* Quote Section */}
+            <div className="relative bg-white p-6 rounded-xl shadow-md border border-gray-200">
+             
+              {ceo.quotes.map((quote, idx) => (
+                <p key={idx} className="text-gray-700 text-base leading-relaxed italic">
+                  "{quote}"
+                </p>
+              ))}
+            </div>
 
+            {/* Description */}
+            <div className="space-y-4">
               {ceo.description.map((desc, idx) => (
-                <p key={idx} className="mt-6 space-y-3 text-gray-600 text-sm md:text-base">
+                <p key={idx} className="text-gray-600 text-base leading-relaxed">
                   {desc}
                 </p>
               ))}
+            </div>
 
-              <div className="flex items-center gap-4 mt-8">
-                <motion.a
-                  href={ceo.social.linkedin}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Icons.Linkedin />
-                </motion.a>
-                <motion.a
-                  href={`mailto:${ceo.social.email}`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
-                  aria-label="Email"
-                >
-                  <Icons.Mail />
-                </motion.a>
-                <span className="text-sm text-gray-500 ml-2">{ceo.social.email}</span>
-              </div>
+            {/* Key Achievements */}
+            <div className="grid grid-cols-3 gap-3 pt-4">
+              <AchievementCard label="Experience" value="20+ Years" />
+              <AchievementCard label="Projects" value="$30M+" />
+              <AchievementCard label="Clients" value="1000+" />
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Bottom Wave Divider */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
+        <svg
+          viewBox="0 0 1440 60"
+          className="relative block w-full h-10 md:h-12"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="url(#leadershipGradient)"
+            d="M0,24L60,26.7C120,29,240,34,360,34C480,34,600,29,720,26.7C840,24,960,24,1080,26.7C1200,29,1320,34,1380,36.7L1440,39L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"
+          />
+          <defs>
+            <linearGradient id="leadershipGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#DC2626" stopOpacity="0.03" />
+              <stop offset="50%" stopColor="#DC2626" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#DC2626" stopOpacity="0.03" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </section>
   );

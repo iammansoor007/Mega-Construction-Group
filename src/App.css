@@ -19,11 +19,11 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #C30505aa);
+  filter: drop-shadow(0 0 2em #c30505aa);
 }
 
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #C30505aa);
+  filter: drop-shadow(0 0 2em #c30505aa);
 }
 
 @keyframes logo-spin {
@@ -54,5 +54,10 @@
   .herooooo {
     align-items: center !important;
     justify-content: center !important;
+  }
+}
+@media (min-width: 400px) and (max-width: 700px) {
+  .companylogo {
+    margin-left: 30px !important;
   }
 }

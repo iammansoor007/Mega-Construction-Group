@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroBg from "@/assets/fairbg.png";
+import heroBg from "@/assets/Megaherobg.png";
 import { FiArrowRight, FiChevronDown, FiStar, FiThumbsUp } from "react-icons/fi";
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
 import completeData from "../src/data/completeData.json";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,21 +12,6 @@ const Hero = () => {
   const { badge, headlines, description, buttons, stats } = completeData.hero;
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-    const img = sectionRef.current.querySelector(".hero-parallax-img");
-    if (img) {
-      gsap.to(img, {
-        y: 120,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.5,
-        },
-      });
-    }
-
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
@@ -55,31 +36,31 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen herooooo flex items-end overflow-hidden bg-gradient-to-br from-background via-background/95 to-background isolate
-             md:items-center md:justify-center"
+      className="relative min-h-screen flex items-end overflow-hidden isolate md:items-center md:justify-center"
     >
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10">
-        <motion.img
+        <img
           src={heroBg}
-          alt=""
-          className="hero-parallax-img w-full h-[130%] object-cover absolute -top-[15%] will-change-transform"
-          style={{
-            x: mousePosition.x,
-            y: mousePosition.y - 20,
-          }}
-          transition={{ type: "spring", mass: 0.8, stiffness: 40, damping: 25 }}
+          alt="Mega Contracting NY Group - Construction Services"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-br z-1 opacity-50 from-primary/75 via-primary/50 to-primary/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.12)_0%,_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(255,255,255,0.08)_0%,_transparent_60%)]" />
+      </div>
 
+      {/* Dark Overlay for Text Contrast */}
+      <div className="absolute inset-0 bg-black/50 z-0" />
+
+      {/* Subtle Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-0" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-black/30 z-0" />
+
+      {/* Decorative Animated Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
-          className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-foreground/5 rounded-full blur-3xl"
+          className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1],
+            opacity: [0.05, 0.1, 0.05],
           }}
           transition={{
             duration: 8,
@@ -95,7 +76,7 @@ const Hero = () => {
           className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.05, 0.1, 0.05],
+            opacity: [0.03, 0.07, 0.03],
           }}
           transition={{
             duration: 10,
@@ -109,7 +90,8 @@ const Hero = () => {
         />
       </div>
 
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none z-0">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern
@@ -132,9 +114,10 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Decorative Circles */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <motion.div
-          className="absolute top-[20%] right-[12%] w-40 h-40 border border-foreground/10 rounded-full"
+          className="absolute top-[20%] right-[12%] w-40 h-40 border border-white/10 rounded-full"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.8 }}
@@ -144,7 +127,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute top-[12%] right-[5%] w-72 h-72 border border-foreground/5 rounded-full"
+          className="absolute top-[12%] right-[5%] w-72 h-72 border border-white/5 rounded-full"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 1.0 }}
@@ -154,7 +137,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-[25%] left-[8%] w-56 h-56 border border-foreground/5 rounded-full"
+          className="absolute bottom-[25%] left-[8%] w-56 h-56 border border-white/5 rounded-full"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 1.2 }}
@@ -165,18 +148,19 @@ const Hero = () => {
         />
       </div>
 
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Floating Dots */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1.5 h-1.5 bg-foreground/20 rounded-full blur-[1px]"
+            className="absolute w-1.5 h-1.5 bg-white/20 rounded-full blur-[1px]"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
             animate={{
               y: [0, -40, 0],
-              opacity: [0.1, 0.4, 0.1],
+              opacity: [0.1, 0.35, 0.1],
             }}
             transition={{
               duration: 5 + Math.random() * 3,
@@ -188,7 +172,8 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="section-padding w-full relative z-10 pb-20 md:pb-28">
+      {/* Main Content */}
+      <div className="section-padding w-full relative z-20 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl">
           <motion.div
             className="flex items-center gap-2 mb-2 mt-8 md:-mt-4"
@@ -196,13 +181,13 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div className="w-8 h-px bg-foreground/40 md:w-16" />
-            <span className="font-body text-foreground/80 text-xs md:text-sm uppercase tracking-[0.3em] font-light">
+            <div className="w-8 h-px bg-white/60 md:w-16" />
+            <span className="font-body text-white/90 text-xs md:text-sm uppercase tracking-[0.3em] font-light">
               {badge}
             </span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-7xl font-bold text-foreground mb-2 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-7xl font-bold text-white mb-2 leading-[1.1] tracking-tight drop-shadow-lg">
             {headlines.map((line, i) => (
               <motion.span
                 key={i}
@@ -221,7 +206,7 @@ const Hero = () => {
           </h1>
 
           <motion.p
-            className="text-m sm:text-l md:text-xl text-foreground/80 max-w-2xl mb-6 leading-relaxed font-light"
+            className="text-m sm:text-l md:text-xl text-white/90 max-w-2xl mb-6 leading-relaxed font-light drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
@@ -241,7 +226,7 @@ const Hero = () => {
                 <motion.a
                   key={idx}
                   href={button.href}
-                  className="group bg-primary text-foreground px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  className="group bg-primary text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
                   whileHover={{ scale: 1.03, x: 4 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -252,7 +237,7 @@ const Hero = () => {
                 <motion.a
                   key={idx}
                   href={button.href}
-                  className="group backdrop-blur-sm bg-foreground/5 border border-foreground/20 text-foreground px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-foreground/10 hover:border-foreground/30 transition-all duration-300"
+                  className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -264,7 +249,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap gap-10 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-foreground/10"
+            className="flex flex-wrap gap-10 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.5 }}
@@ -278,12 +263,12 @@ const Hero = () => {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {StatIcon && <StatIcon className="w-7 h-7 md:w-8 md:h-8 text-foreground" />}
+                  {StatIcon && <StatIcon className="w-7 h-7 md:w-8 md:h-8 text-primary drop-shadow-md" />}
                   <div>
-                    <span className="block font-heading text-foreground text-2xl md:text-3xl lg:text-3xl font-bold leading-tight">
+                    <span className="block font-heading text-white text-2xl md:text-3xl lg:text-3xl font-bold leading-tight drop-shadow-md">
                       {stat.value}
                     </span>
-                    <span className="font-body text-foreground/60 text-xs uppercase tracking-wider">
+                    <span className="font-body text-white/80 text-xs uppercase tracking-wider">
                       {stat.label}
                     </span>
                   </div>
@@ -294,13 +279,14 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Scroll Indicator */}
       <motion.div
         className="absolute hidden sm:flex bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 z-20"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.2, duration: 0.6 }}
       >
-        <span className="text-foreground/40 text-[10px] uppercase tracking-[0.3em] font-light">
+        <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-light">
           Discover
         </span>
         <motion.div
@@ -313,7 +299,7 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         >
-          <FiChevronDown className="w-5 h-5 text-foreground/50" />
+          <FiChevronDown className="w-5 h-5 text-white/70" />
         </motion.div>
       </motion.div>
     </section>

@@ -4,8 +4,10 @@ import {
     useReducedMotion
 } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import RoofingExperince from "@/assets/fairabout.png";
+import ConstructionAbout from "@/assets/megaabout.png";
 import completeData from "../src/data/completeData.json";
+import vectoroverlay from '../assets/Frame.png';
+import { FiBriefcase } from "react-icons/fi";
 
 const Counter = memo(({ value, suffix = "", duration = 1.8 }) => {
     const ref = useRef(null);
@@ -61,87 +63,19 @@ const Counter = memo(({ value, suffix = "", duration = 1.8 }) => {
 
 Counter.displayName = "Counter";
 
-const ParticlesBackground = memo(() => {
-    const particlesInit = useCallback(async (engine) => {
-        const { loadSlim } = await import("tsparticles-slim");
-        await loadSlim(engine);
-    }, []);
-
-    const options = useMemo(() => ({
-        fullScreen: { enable: false },
-        particles: {
-            number: {
-                value: 12,
-                density: { enable: true, area: 800 }
-            },
-            color: { value: ["#C30505", "#8B0000"] },
-            shape: { type: "circle" },
-            opacity: {
-                value: 0.15,
-                random: true,
-                animation: { enable: true, speed: 0.5, minimumValue: 0.05 }
-            },
-            size: {
-                value: { min: 0.5, max: 2 },
-                random: true,
-                animation: { enable: true, speed: 2, minimumValue: 0.5 }
-            },
-            move: {
-                enable: true,
-                speed: 0.3,
-                direction: "top",
-                random: true,
-                straight: false,
-                outModes: { default: "out" }
-            },
-            links: {
-                enable: true,
-                distance: 150,
-                color: "#C30505",
-                opacity: 0.1,
-                width: 0.5
-            }
-        },
-        detectRetina: true,
-        fpsLimit: 30
-    }), []);
-
-    const [ParticlesComponent, setParticlesComponent] = useState(null);
-
-    useEffect(() => {
-        import("react-tsparticles").then((module) => {
-            setParticlesComponent(() => module.default);
-        });
-    }, []);
-
-    if (!ParticlesComponent) return null;
-
-    return (
-        <ParticlesComponent
-            id="roofing-particles"
-            init={particlesInit}
-            options={options}
-            className="absolute inset-0 pointer-events-none"
-        />
-    );
-});
-
-ParticlesBackground.displayName = "ParticlesBackground";
-
 const StatCard = memo(({ value, suffix, label }) => {
     return (
         <motion.div
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative bg-white p-4 rounded-2xl border border-gray-200 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+            className="relative bg-white p-3 sm:p-4 md:p-5 rounded-xl border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all duration-300"
         >
             <div className="relative">
-                <span className="text-3xl md:text-4xl font-black text-gray-900">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900">
                     <Counter value={value} suffix={suffix} />
                 </span>
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-primary rounded-full" />
             </div>
-            <p className="text-xs md:text-sm font-semibold text-gray-700 mt-3">
+            <p className="text-xs sm:text-sm font-semibold text-gray-600 mt-1 sm:mt-2 uppercase tracking-wide">
                 {label}
             </p>
         </motion.div>
@@ -150,7 +84,7 @@ const StatCard = memo(({ value, suffix, label }) => {
 
 StatCard.displayName = "StatCard";
 
-export default function AggressiveRoofingSection() {
+export default function ConstructionAboutSection() {
     const sectionRef = useRef(null);
     const shouldReduceMotion = useReducedMotion();
 
@@ -162,159 +96,171 @@ export default function AggressiveRoofingSection() {
             opacity: 1,
             y: 0,
             transition: {
-                delay: custom * 0.15,
-                duration: 0.7,
+                delay: custom * 0.12,
+                duration: 0.6,
                 ease: [0.25, 0.1, 0.25, 1]
             }
         })
     }), []);
 
-    const trustBadgesArray = useMemo(() => [
-        { color: "from-primary to-primary/90", delay: 0.6 },
-        { color: "from-primary/90 to-primary/80", delay: 0.7 },
-        { color: "from-primary/80 to-primary/70", delay: 0.8 },
-        { color: "from-primary/70 to-primary/60", delay: 0.9 }
-    ], []);
-
     return (
         <section
             ref={sectionRef}
-            className="relative bg-white overflow-hidden py-12 md:py-14 lg:py-16"
-            aria-label="Roofing services overview"
+            className="relative bg-gray-50 overflow-visible py-16 md:py-20 lg:py-24"
+            aria-label="About Mega Contracting NY Group"
         >
-            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-20 pointer-events-none rotate-180">
-                <svg
-                    viewBox="0 0 1440 120"
-                    className="relative block w-full h-[50px] sm:h-[70px] md:h-[90px]"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                >
-                    <defs>
-                        <linearGradient id="premium-divider-header" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#C30505" stopOpacity="0.05" />
-                            <stop offset="50%" stopColor="#C30505" stopOpacity="0.1" />
-                            <stop offset="100%" stopColor="#C30505" stopOpacity="0.05" />
-                        </linearGradient>
-                    </defs>
-                    <path
-                        fill="url(#premium-divider-header)"
-                        d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
-                    />
-                </svg>
+            {/* Construction Pattern Background */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23DC2626' stroke-width='1'/%3E%3C/svg%3E")`,
+                    backgroundSize: '40px 40px'
+                }} />
             </div>
 
-            <div className="absolute inset-0">
-                <ParticlesBackground />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(195,5,5,0.02)_0%,_transparent_50%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(195,5,5,0.02)_0%,_transparent_50%)]" />
-                <div className="absolute inset-0 opacity-[0.02]"
-                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' patternUnits='userSpaceOnUse' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23C30505' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")` }} />
-            </div>
-
+            {/* Animated Background Elements */}
             {!shouldReduceMotion && (
                 <>
                     <motion.div
                         animate={{
-                            x: [0, 40, 0],
-                            y: [0, -40, 0],
-                            scale: [1, 1.2, 1]
+                            x: [0, 50, 0],
+                            y: [0, -30, 0],
                         }}
                         transition={{
-                            duration: 20,
+                            duration: 18,
                             repeat: Infinity,
                             ease: "linear"
                         }}
-                        className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+                        className="absolute -top-40 -left-40 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
                     />
                     <motion.div
                         animate={{
-                            x: [0, -40, 0],
-                            y: [0, 40, 0],
-                            scale: [1, 1.2, 1]
+                            x: [0, -50, 0],
+                            y: [0, 30, 0],
                         }}
                         transition={{
-                            duration: 25,
+                            duration: 22,
                             repeat: Infinity,
-                            ease: "linear",
-                            delay: 2
+                            ease: "linear"
                         }}
-                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-3xl"
+                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-red-600/5 rounded-full blur-3xl"
                     />
                 </>
             )}
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24 items-center">
-
+                {/* Equal Height Grid */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                    
+                    {/* Left Column - Image - Equal Height */}
                     <motion.div
                         variants={variants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                         custom={0}
-                        className="relative group"
+                        className="relative lg:h-full lg:min-h-[600px] flex"
                     >
-                        <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
-
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50">
-                            <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+                        {/* Construction Frame */}
+                        <div className="absolute -inset-4 bg-gradient-to-br from-red-600/10 via-red-600/5 to-transparent rounded-2xl" />
+                        
+                        <div className="relative rounded-lg overflow-visible shadow-2xl w-full h-full flex">
+                            <div className="relative w-full h-full rounded-lg overflow-hidden">
                                 <img
-                                    src={RoofingExperince}
+                                    src={ConstructionAbout}
                                     alt={image.alt}
-                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-7000 group-hover:scale-105"
+                                    className="w-full h-full object-cover"
                                     loading="eager"
-                                    width="800"
-                                    height="1000"
                                 />
 
-                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
+                                {/* Experience Badge */}
                                 <motion.div
-                                    initial={{ x: -20, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: 0.8, duration: 0.6 }}
-                                    className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6"
+                                    initial={{ y: 50, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ delay: 0.4, duration: 0.5 }}
+                                    className="absolute bottom-0 left-0 right-0 p-6"
                                 >
-                                    <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
-                                        <span className="flex items-center gap-2 text-sm font-bold text-primary">
-                                            <span className="text-lg">✓</span>
-                                            {image.badge}
-                                        </span>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center shadow-xl">
+                                            <span className="text-white text-2xl font-black">{trustBadges.happyClients}</span>
+                                        </div>
+                                        <div className="text-white">
+                                            <p className="text-sm font-semibold uppercase tracking-wider opacity-90">Projects</p>
+                                            <p className="text-xl font-black">Completed</p>
+                                        </div>
                                     </div>
                                 </motion.div>
                             </div>
+
+                            {/* Vector Overlay - Floating Outside the Frame */}
+                            <motion.div
+                                initial={{ x: 80, y: -80, opacity: 0, rotate: -10 }}
+                                animate={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
+                                transition={{ 
+                                    delay: 0.6, 
+                                    duration: 0.8,
+                                    type: "spring",
+                                    stiffness: 80,
+                                    damping: 12
+                                }}
+                                whileHover={{ 
+                                    scale: 1.08,
+                                    rotate: 5,
+                                    y: -10,
+                                    transition: { duration: 0.3 }
+                                }}
+                                className="absolute -top-12 -right-6 md:-top-16 md:-right-15 lg:-top-20 lg:-right-15 z-30 pointer-events-none"
+                            >
+                                <img 
+                                    src={vectoroverlay} 
+                                    alt="Vector Overlay" 
+                                    className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl pointer-events-auto"
+                                    style={{
+                                        filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.25))'
+                                    }}
+                                />
+                            </motion.div>
                         </div>
+
+                        {/* Decorative Corner Elements */}
+                        <div className="absolute -bottom-3 -left-3 w-24 h-24 border-l-4 border-b-4 border-red-600 rounded-bl-2xl pointer-events-none" />
+                        <div className="absolute -top-3 -right-3 w-24 h-24 border-t-4 border-r-4 border-red-600 rounded-tr-2xl pointer-events-none" />
                     </motion.div>
 
+                    {/* Right Column - Content - Equal Height */}
                     <motion.div
                         variants={variants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                         custom={1}
-                        className="space-y-8"
+                        className="flex flex-col justify-center lg:h-full lg:min-h-[600px] space-y-6"
                     >
+                        {/* Badge */}
                         <motion.div
                             variants={variants}
                             custom={2}
-                            className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10"
+                            className="inline-flex items-center gap-2 sm:gap-3 bg-red-600/10 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full self-start"
                         >
-                            <span className="text-primary text-lg">⚡</span>
-                            <span className="text-primary uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
+                            <FiBriefcase className="text-red-600 w-4 h-4 sm:w-5 sm:h-5" />
+                            <span className="text-red-600 uppercase tracking-[0.2em] text-xs sm:text-sm font-black">
                                 {badge}
                             </span>
                         </motion.div>
 
-                        <div className="space-y-4">
+                        {/* Headline */}
+                        <div className="space-y-3">
                             <motion.h2
                                 variants={variants}
                                 custom={3}
-                                className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight"
+                                className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight"
                             >
                                 <span className="block text-gray-900">
                                     {headline.prefix}
                                 </span>
-                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
+                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800">
                                     {headline.highlight}
                                 </span>
                                 <span className="block text-gray-900">
@@ -325,32 +271,89 @@ export default function AggressiveRoofingSection() {
                             <motion.div
                                 variants={variants}
                                 custom={4}
-                                className="w-24 h-1.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
-                            />
+                                className="flex gap-1"
+                            >
+                                <div className="w-16 h-1 bg-red-600 rounded-full" />
+                                <div className="w-8 h-1 bg-red-400 rounded-full" />
+                                <div className="w-4 h-1 bg-red-300 rounded-full" />
+                            </motion.div>
                         </div>
 
+                        {/* Description */}
                         <motion.p
                             variants={variants}
                             custom={5}
-                            className="text-gray-600 text-lg md:text-xl leading-relaxed"
+                            className="text-gray-700 text-lg leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: description }}
                         />
 
+                        {/* Trust Indicators */}
                         <motion.div
                             variants={variants}
                             custom={6}
-                            className="flex flex-wrap items-center gap-4 pt-2"
+                            className="flex flex-wrap gap-4 py-2"
+                        >
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                                <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="text-sm font-bold text-gray-700">LICENSED & INSURED</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                                <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <span className="text-sm font-bold text-gray-700">BBB A+ RATED</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                                <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <span className="text-sm font-bold text-gray-700">4.9★ RATING</span>
+                            </div>
+                        </motion.div>
+
+                        {/* CTA Buttons */}
+                        <motion.div
+                            variants={variants}
+                            custom={7}
+                            className="flex flex-col sm:flex-row gap-4 pt-2"
                         >
                             {buttons.map((button, idx) => (
                                 button.primary ? (
                                     <motion.a
                                         key={idx}
                                         href={button.href}
-                                        whileHover={{ scale: 1.05 }}
+                                        whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-block"
+                                        className="group relative px-7 py-3.5 bg-red-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 inline-block text-center"
                                     >
-                                        <span className="relative z-10 flex items-center gap-2">
+                                        <span className="relative z-10 flex items-center justify-center gap-2">
+                                            {button.text}
+                                            <svg
+                                                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                                />
+                                            </svg>
+                                        </span>
+                                    </motion.a>
+                                ) : (
+                                    <motion.a
+                                        key={idx}
+                                        href={button.href}
+                                        whileHover={{ scale: 1.03 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className="group inline-block px-7 py-3.5 bg-white text-gray-900 font-bold rounded-lg border-2 border-gray-300 hover:border-red-600 hover:text-red-600 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                                    >
+                                        <span className="flex items-center justify-center gap-2">
                                             {button.text}
                                             <svg
                                                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -367,107 +370,22 @@ export default function AggressiveRoofingSection() {
                                             </svg>
                                         </span>
                                     </motion.a>
-                                ) : (
-                                    <motion.a
-                                        key={idx}
-                                        href={button.href}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.98 }}
-                                        className="group inline-block px-8 py-4 bg-white text-primary font-bold rounded-full border-2 border-primary/20 hover:border-primary shadow-lg hover:shadow-xl transition-all duration-300"
-                                    >
-                                        <span className="flex items-center gap-2">
-                                            {button.text}
-                                            <svg
-                                                className="w-5 h-5 group-hover:rotate-45 transition-transform"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M7 7l7-7M7 7l7 7M7 7h10"
-                                                />
-                                            </svg>
-                                        </span>
-                                    </motion.a>
                                 )
                             ))}
                         </motion.div>
 
+                        {/* Stats Grid - Responsive */}
                         <motion.div
                             variants={variants}
-                            custom={7}
-                            className="grid grid-cols-3 gap-4 pt-8"
+                            custom={8}
+                            className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-6"
                         >
                             {stats.map((stat) => (
                                 <StatCard key={stat.label} {...stat} />
                             ))}
                         </motion.div>
-
-                        <motion.div
-                            variants={variants}
-                            custom={8}
-                            className="flex items-center justify-between sm:justify-start sm:gap-8 pt-4"
-                        >
-                            <div className="flex items-center gap-3">
-                                <div className="flex -space-x-2">
-                                    {trustBadgesArray.map((badge, i) => (
-                                        <motion.div
-                                            key={i}
-                                            initial={{ scale: 0, x: -20 }}
-                                            animate={{ scale: 1, x: 0 }}
-                                            transition={{
-                                                delay: badge.delay,
-                                                type: "spring",
-                                                stiffness: 200,
-                                                damping: 15
-                                            }}
-                                            className={`w-8 h-8 rounded-full bg-gradient-to-br ${badge.color} border-2 border-white shadow-md`}
-                                        />
-                                    ))}
-                                </div>
-                                <div>
-                                    <p className="text-sm font-bold text-primary">{trustBadges.happyClients}+</p>
-                                    <p className="text-xs text-gray-600">Happy Clients</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-2">
-                                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
-                                    <path d="M10 4a1 1 0 011 1v4.586l2.707 2.707a1 1 0 01-1.414 1.414l-3-3A1 1 0 019 10V5a1 1 0 011-1z" />
-                                </svg>
-                                <div>
-                                    <p className="text-sm font-bold text-primary">{trustBadges.emergency}</p>
-                                    <p className="text-xs text-gray-600">Emergency</p>
-                                </div>
-                            </div>
-                        </motion.div>
                     </motion.div>
                 </div>
-            </div>
-
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20 pointer-events-none">
-                <svg
-                    viewBox="0 0 1440 120"
-                    className="relative block w-full h-[50px] sm:h-[70px] md:h-[90px]"
-                    preserveAspectRatio="none"
-                    aria-hidden="true"
-                >
-                    <defs>
-                        <linearGradient id="premium-divider-footer" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#C30505" stopOpacity="0.05" />
-                            <stop offset="50%" stopColor="#C30505" stopOpacity="0.1" />
-                            <stop offset="100%" stopColor="#C30505" stopOpacity="0.05" />
-                        </linearGradient>
-                    </defs>
-                    <path
-                        fill="url(#premium-divider-footer)"
-                        d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
-                    />
-                </svg>
             </div>
         </section>
     );

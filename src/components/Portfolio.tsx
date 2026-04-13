@@ -28,6 +28,32 @@ const imageMap = {
   portfolio5
 };
 
+const Icons = {
+  HardHat: () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M4 14h16v4H4v-4z" />
+      <path d="M6 14v-3a6 6 0 0112 0v3" />
+      <circle cx="12" cy="8" r="2" />
+    </svg>
+  ),
+  Location: () => (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+  ),
+  Arrow: () => (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  Star: () => (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  ),
+};
+
 const MarqueeItem = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
   const itemRef = useRef(null);
@@ -70,7 +96,7 @@ const MarqueeItem = ({ project }) => {
       }}
       className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer will-change-transform transition-transform duration-300"
     >
-      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl shadow-gray-300/50">
+      <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl border-2 border-gray-200">
         <img
           src={imageMap[project.image as keyof typeof imageMap]}
           alt={project.title}
@@ -81,48 +107,64 @@ const MarqueeItem = ({ project }) => {
           }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-        <motion.div
-          className="absolute inset-0 bg-primary/20 mix-blend-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 0.3 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
-
+        {/* Construction Frame Border */}
         {isHovered && (
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
             <motion.rect
-              x="2"
-              y="2"
-              width="calc(100% - 4px)"
-              height="calc(100% - 4px)"
+              x="3"
+              y="3"
+              width="calc(100% - 6px)"
+              height="calc(100% - 6px)"
               fill="none"
-              stroke="#C30505"
-              strokeWidth="1.5"
-              strokeDasharray="6 6"
+              stroke="#DC2626"
+              strokeWidth="2"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
+            />
+            {/* Corner accents */}
+            <motion.path
+              d="M 3 15 L 3 3 L 15 3"
+              fill="none"
+              stroke="#DC2626"
+              strokeWidth="3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            />
+            <motion.path
+              d="M 21 9 L 21 21 L 9 21"
+              fill="none"
+              stroke="#DC2626"
+              strokeWidth="3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
             />
           </svg>
         )}
 
         <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end">
-          <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/30 w-fit mb-1 sm:mb-2">
-            <span className={`w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-gradient-to-r ${project.accent}`} />
-            <span className="text-[8px] sm:text-[10px] font-semibold tracking-wider text-white">
+          {/* Category Badge */}
+          <span className="inline-flex items-center gap-1.5 bg-red-600 px-2.5 py-1 rounded-md w-fit mb-2 shadow-lg">
+            <Icons.HardHat />
+            <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-white uppercase">
               {project.category}
             </span>
           </span>
 
-          <h3 className="text-base sm:text-lg font-bold text-white mb-0.5 sm:mb-1 leading-tight">
+          <h3 className="text-base sm:text-lg font-black text-white mb-1 leading-tight">
             {project.title}
           </h3>
 
-          <div className="flex items-center gap-1.5 sm:gap-2 text-white/70 text-[10px] sm:text-xs mb-0.5 sm:mb-1">
-            <span className="truncate max-w-[80px] sm:max-w-none">{project.location}</span>
-            <span className="w-0.5 sm:w-1 h-0.5 sm:h-1 rounded-full bg-white/30" />
+          <div className="flex items-center gap-2 text-white/80 text-[10px] sm:text-xs mb-1">
+            <span className="flex items-center gap-1">
+              <Icons.Location />
+              <span className="truncate max-w-[80px] sm:max-w-none">{project.location}</span>
+            </span>
+            <span className="w-1 h-1 rounded-full bg-red-600" />
             <span>{project.year}</span>
           </div>
 
@@ -135,33 +177,25 @@ const MarqueeItem = ({ project }) => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="text-white/80 text-[8px] sm:text-[10px] leading-relaxed mb-1 sm:mb-2 line-clamp-2">
+                <p className="text-white/90 text-[9px] sm:text-[10px] leading-relaxed mb-2 line-clamp-2">
                   {project.desc}
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="hidden xs:block">
-                    <span className="text-white/40 text-[6px] sm:text-[8px] uppercase">Architect</span>
-                    <p className="text-white text-[8px] sm:text-[10px] font-light truncate max-w-[80px] sm:max-w-none">
-                      {project.architect}
+                    <span className="text-white/50 text-[7px] sm:text-[8px] uppercase tracking-wider">Scope</span>
+                    <p className="text-white text-[9px] sm:text-[10px] font-medium truncate max-w-[80px] sm:max-w-none">
+                      {project.scope}
                     </p>
                   </div>
                   <motion.button
-                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-primary/30 backdrop-blur-sm rounded-lg text-white text-[8px] sm:text-[10px] font-medium flex items-center gap-0.5 sm:gap-1 hover:bg-primary/50 transition-colors border border-primary/30"
+                    className="px-3 py-1 bg-white text-red-600 rounded-md text-[9px] sm:text-[10px] font-bold flex items-center gap-1 hover:bg-red-50 transition-colors shadow-md"
                     whileHover={{ x: 3 }}
                     onClick={(e) => {
                       e.stopPropagation();
                     }}
                   >
-                    View
-                    <svg
-                      className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    View Project
+                    <Icons.Arrow />
                   </motion.button>
                 </div>
               </motion.div>
@@ -169,8 +203,9 @@ const MarqueeItem = ({ project }) => {
           </AnimatePresence>
         </div>
 
-        <div className="absolute top-2 sm:top-3 left-2 sm:left-3 text-white/20 text-2xl sm:text-3xl font-black">
-          {project.number}
+        {/* Project Number */}
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md">
+          <span className="text-white text-xs font-black">{project.number}</span>
         </div>
       </div>
     </motion.div>
@@ -241,11 +276,8 @@ const InfiniteMarquee = ({ projects, direction = "left", speed = 45 }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-r from-white via-white/90 to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-l from-white via-white/90 to-transparent" />
-
-      <div className="absolute inset-x-0 top-0 h-6 sm:h-8 md:h-12 z-20 pointer-events-none bg-gradient-to-b from-white to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-6 sm:h-8 md:h-12 z-20 pointer-events-none bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-r from-gray-50 via-gray-50/90 to-transparent" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-l from-gray-50 via-gray-50/90 to-transparent" />
 
       <div
         ref={marqueeRef}
@@ -278,15 +310,15 @@ const PremiumLightbox = ({ image, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[100] bg-gray-900/98 backdrop-blur-xl flex items-center justify-center cursor-pointer p-3 sm:p-4 md:p-6"
+      transition={{ duration: 0.4 }}
+      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center cursor-pointer p-3 sm:p-4 md:p-6"
       onClick={onClose}
     >
       <motion.button
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-gradient-to-r from-primary to-primary/80 backdrop-blur-md border border-primary/30 rounded-full px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 text-white text-[10px] sm:text-xs font-medium hover:from-primary/90 hover:to-primary/70 transition-all"
+        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-red-600 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-bold hover:bg-red-700 transition-all shadow-lg"
         onClick={onClose}
       >
         Close
@@ -295,11 +327,11 @@ const PremiumLightbox = ({ image, onClose }) => {
       <motion.img
         src={image}
         alt="Project preview"
-        className="max-w-full max-h-[90vh] object-contain rounded-xl sm:rounded-2xl shadow-2xl"
+        className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+        transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
       />
     </motion.div>
   );
@@ -337,46 +369,51 @@ const Portfolio = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
+      className="relative bg-gray-50 overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
-        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-        <div className="absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-
-        <div className="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-20" />
-        <div className="absolute inset-x-0 bottom-20 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-20" />
-
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fee7e7_1px,transparent_1px),linear-gradient(to_bottom,#fee7e7_1px,transparent_1px)] bg-[size:2rem_2rem] sm:bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] opacity-10 sm:opacity-15 md:opacity-20" />
-
-        <div className="hidden sm:block absolute top-40 -left-20 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="hidden sm:block absolute bottom-40 -right-20 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] bg-primary/5 rounded-full blur-3xl" />
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      {/* Construction Pattern Background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='none' stroke='%23DC2626' stroke-width='2'/%3E%3C/svg%3E")`,
+          backgroundSize: '50px 50px'
+        }} />
       </div>
 
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-red-50/50 to-transparent" />
+      <div className="absolute bottom-0 right-0 w-full h-32 bg-gradient-to-t from-red-50/30 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+        {/* Section Header */}
         <motion.div
           style={{ y: headerParallax }}
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
-            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-r from-primary to-primary/60" />
-            <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase text-primary">
+          <div className="inline-flex items-center gap-3 bg-red-50 px-5 py-2 rounded-full border border-red-200 mb-4">
+            <Icons.Star />
+            <span className="text-red-600 uppercase tracking-[0.2em] text-xs font-black">
               {section.badge}
             </span>
-            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-l from-primary to-primary/60" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight px-2"
-              dangerouslySetInnerHTML={{ __html: section.headline }}
+
+          <h2 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight px-2"
+            dangerouslySetInnerHTML={{ __html: section.headline }}
           />
+
+          <div className="flex justify-center gap-1 mt-4">
+            <div className="w-12 h-1 bg-red-600 rounded-full" />
+            <div className="w-6 h-1 bg-red-400 rounded-full" />
+            <div className="w-3 h-1 bg-red-300 rounded-full" />
+          </div>
         </motion.div>
 
+        {/* Marquee Rows */}
         <div className="space-y-1 sm:space-y-2 md:space-y-0">
           <InfiniteMarquee projects={row1} direction="left" speed={45} />
           <InfiniteMarquee projects={row2} direction="right" speed={40} />
         </div>
 
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -386,20 +423,10 @@ const Portfolio = () => {
         >
           <button
             onClick={() => setLightbox(portfolio1)}
-            className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-xs sm:text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2 hover:scale-105 hover:from-primary/90 hover:to-primary/70"
+            className="group px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 flex items-center gap-2"
           >
             {button.text}
-            <svg
-              width="14"
-              height="14"
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icons.Arrow />
           </button>
         </motion.div>
       </div>
@@ -413,21 +440,22 @@ const Portfolio = () => {
         )}
       </AnimatePresence>
 
+      {/* Bottom Wave Divider */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
         <svg
-          viewBox="0 0 1440 80"
-          className="relative block w-full h-8 sm:h-10 md:h-12 lg:h-16"
+          viewBox="0 0 1440 60"
+          className="relative block w-full h-8 sm:h-10 md:h-12"
           preserveAspectRatio="none"
         >
           <path
-            fill="url(#portfolioWave)"
-            d="M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,37.3C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"
+            fill="url(#portfolioWaveGradient)"
+            d="M0,24L60,26.7C120,29,240,34,360,34C480,34,600,29,720,26.7C840,24,960,24,1080,26.7C1200,29,1320,34,1380,36.7L1440,39L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"
           />
           <defs>
-            <linearGradient id="portfolioWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#C30505" stopOpacity="0.03" />
-              <stop offset="50%" stopColor="#C30505" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#C30505" stopOpacity="0.03" />
+            <linearGradient id="portfolioWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#DC2626" stopOpacity="0.03" />
+              <stop offset="50%" stopColor="#DC2626" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#DC2626" stopOpacity="0.03" />
             </linearGradient>
           </defs>
         </svg>
