@@ -37,7 +37,6 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import completeData from "@/data/completeData.json";
-import SectionHeader from "@/components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -388,21 +387,52 @@ const Services = () => {
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
           <div className="lg:col-span-5">
-            <SectionHeader
-              badge={badge}
-              headline={`${headline.prefix} <br/> <span class="text-red-600">${headline.highlight}</span> <br/> ${headline.suffix}`}
-              description={description[0]}
-              center={false}
-              className="!mb-6"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-6 h-px bg-red-500 opacity-70" />
+                <span className="text-red-600 uppercase tracking-[0.25em] text-[11px] font-black">
+                  {badge}
+                </span>
+                <span className="w-6 h-px bg-red-500 opacity-70" />
+              </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-6 pt-4 border-t border-gray-200">
+              <div className="mb-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] tracking-tight">
+                  {headline.prefix}
+                  <br />
+                  <span className="text-red-600">{headline.highlight}</span>
+                  <br />
+                  <span className="text-gray-900">{headline.suffix}</span>
+                </h2>
+                <div className="flex gap-1.5 mt-5">
+                  <span className="w-10 h-1 bg-red-600 rounded-full" />
+                  <span className="w-5 h-1 bg-red-400 rounded-full" />
+                  <span className="w-2.5 h-1 bg-red-300 rounded-full" />
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                {description.slice(0, 1).map((text: string, idx: number) => (
+                  <p
+                    key={idx}
+                    className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl"
+                    dangerouslySetInnerHTML={{ __html: text }}
+                  />
+                ))}
+              </div>
+
+              <div className="grid grid-cols-3 gap-4 mb-8 pt-6 border-t border-gray-100">
                 {stats.map((stat: any) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">
+                  <div key={stat.label} className="text-left">
+                    <div className="text-2xl md:text-3xl font-black text-red-600 mb-1">
                       <Counter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
                       {stat.label}
                     </div>
                   </div>
@@ -410,7 +440,7 @@ const Services = () => {
               </div>
 
               <CompactServiceCard service={featuredService} />
-            </div>
+            </motion.div>
           </div>
 
           <div className="lg:col-span-7">
@@ -472,14 +502,13 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="mt-8">
-          <SectionHeader
-            badge="Our Services"
-            headline="Full Range of <span class='text-red-600'>Solutions</span>"
-            center={false}
-            className="!mb-8"
-          />
+        <div className="mt-12">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-12 h-1 bg-red-600 rounded-full" />
+            <h3 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tight">
+              Our <span className="text-red-600">Services</span>
+            </h3>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.slice(1).map((service: any, index: number) => (
@@ -511,8 +540,9 @@ const Services = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 };
 
 export default Services;
