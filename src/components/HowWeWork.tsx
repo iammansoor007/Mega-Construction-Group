@@ -13,6 +13,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 import vectoroverlay from "../assets/ctavector.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -745,36 +746,11 @@ const WhyChooseUs = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-14 reveal-title">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 px-5 py-2.5 rounded-xl mb-5 shadow-lg shadow-red-500/30"
-                    >
-                        <Icons.HardHat />
-                        <span className="text-white uppercase tracking-[0.2em] text-xs font-black">
-                            {section.badge}
-                        </span>
-                    </motion.div>
-
-                    <h2
-                        id="why-choose-us-heading"
-                        className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"
-                        dangerouslySetInnerHTML={{ __html: section.headline }}
-                    />
-
-                    <div className="flex justify-center gap-1 mb-4" aria-hidden="true">
-                        <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-500 rounded-full" />
-                        <div className="w-6 h-1 bg-red-400 rounded-full" />
-                        <div className="w-3 h-1 bg-red-300 rounded-full" />
-                    </div>
-
-                    <p className="text-gray-600 text-base max-w-2xl mx-auto">
-                        {section.description}
-                    </p>
-                </div>
+                <SectionHeader
+                    badge={section.badge}
+                    headline={section.headline}
+                    description={section.description}
+                />
 
                 {/* Features Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

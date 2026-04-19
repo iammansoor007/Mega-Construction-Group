@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ceo from "../assets/megaownerprinted.png";
 import vectoroverlay from "../assets/Frame.png";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -244,29 +245,11 @@ const Leadership = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14 leadership-reveal">
-          <div className="inline-flex items-center gap-3 bg-red-50 px-5 py-2 rounded-full border border-red-200 mb-6">
-
-            <span className="text-red-600 uppercase tracking-[0.2em] text-xs font-black">
-              {section.badge}
-            </span>
-          </div>
-
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight"
-            dangerouslySetInnerHTML={{ __html: section.headline }}
-          />
-
-          <div className="flex justify-center gap-1 mb-4">
-            <div className="w-12 h-1 bg-red-600 rounded-full" />
-            <div className="w-6 h-1 bg-red-400 rounded-full" />
-            <div className="w-3 h-1 bg-red-300 rounded-full" />
-          </div>
-
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            {section.description}
-          </p>
-        </div>
+        <SectionHeader
+          badge={section.badge}
+          headline={section.headline}
+          description={section.description}
+        />
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">

@@ -10,6 +10,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 import { useFormState } from "@/context/FormContext";
 import Image from "next/image";
 
@@ -702,23 +703,11 @@ const GetQuote = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-30">
-        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 quote-cinematic">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-            <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
-            <span className="text-[10px] sm:text-xs font-mono tracking-[0.2em] sm:tracking-[0.3em] uppercase text-primary/80">
-              {section.badge}
-            </span>
-            <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-primary via-primary to-transparent" />
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 leading-tight"
-            dangerouslySetInnerHTML={{ __html: section.headline }}
+        <SectionHeader
+            badge={section.badge}
+            headline={section.headline}
+            description={section.description}
           />
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto px-4">
-            {section.description}
-          </p>
-        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}

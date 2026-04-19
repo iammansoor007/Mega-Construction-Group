@@ -15,6 +15,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 import faqvector from "../assets/faqvector.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -942,18 +943,11 @@ const FAQ = () => {
       <FloatingParticles />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 faq-reveal">
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3 block">
-            {section.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 mb-4">
-            {section.headline}
-          </h2>
-          <p className="text-gray-500 text-base md:text-lg">
-            {section.description}
-          </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-6 rounded-full" />
-        </div>
+        <SectionHeader
+            badge={section.badge}
+            headline={section.headline}
+            description={section.description}
+          />
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 md:mb-12 faq-reveal">
           <CategoryFilter

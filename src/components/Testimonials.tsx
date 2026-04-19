@@ -11,6 +11,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -392,34 +393,16 @@ const Testimonials = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
-            {/* Fixed Badge - Now properly visible with red background and white icon */}
-            <div className="inline-flex items-center gap-2 bg-red-600 px-5 py-2.5 rounded-lg mb-4 shadow-md">
-              <Icons.MessageSquare />
-              <span className="text-white uppercase tracking-[0.2em] text-xs font-black">
-                {section.badge}
-              </span>
-            </div>
+          <SectionHeader
+            badge={section.badge}
+            headline={section.headline}
+            description={section.description}
+          />
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight">
-              {section.headline}
-            </h2>
-
-            <div className="flex justify-center gap-1 mb-4">
-              <div className="w-12 h-1 bg-red-600 rounded-full" />
-              <div className="w-6 h-1 bg-red-400 rounded-full" />
-              <div className="w-3 h-1 bg-red-300 rounded-full" />
-            </div>
-
-            <p className="text-sm md:text-base lg:text-lg text-gray-600 px-4">
-              {section.description}
-            </p>
-
-            <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="flex items-center justify-center gap-2 -mt-8 mb-8">
               <Icons.Youtube />
               <span className="text-xs md:text-sm text-gray-500">{section.featured}</span>
             </div>
-          </div>
 
           {/* Main Testimonial */}
           <div className="max-w-4xl mx-auto mb-12 md:mb-16 lg:mb-20">

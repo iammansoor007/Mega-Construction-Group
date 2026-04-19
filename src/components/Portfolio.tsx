@@ -19,6 +19,7 @@ import portfolio3 from "@/assets/portfolio-3.jpg";
 import portfolio4 from "@/assets/portfolio-4.jpg";
 import portfolio5 from "@/assets/portfolio-5.jpg";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -293,33 +294,17 @@ const Portfolio = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          style={{ y: headerParallax }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
-        >
-          <div className="inline-flex items-center gap-3 bg-red-50 px-5 py-2 rounded-full border border-red-200 mb-4">
-            <Icons.Star />
-            <span className="text-red-600 uppercase tracking-[0.2em] text-xs font-black">
-              {section.badge}
-            </span>
-          </div>
-
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight px-2"
-            dangerouslySetInnerHTML={{ __html: section.headline }}
+        <motion.div style={{ y: headerParallax }}>
+          <SectionHeader
+            badge={section.badge}
+            headline={section.headline}
           />
-
-          <div className="flex justify-center gap-1 mt-4">
-            <div className="w-12 h-1 bg-red-600 rounded-full" />
-            <div className="w-6 h-1 bg-red-400 rounded-full" />
-            <div className="w-3 h-1 bg-red-300 rounded-full" />
-          </div>
         </motion.div>
 
         {/* Marquee Rows */}
         <div className="space-y-1 sm:space-y-2 md:space-y-0">
-          <InfiniteMarquee projects={row1} direction="left" speed={45} />
-          <InfiniteMarquee projects={row2} direction="right" speed={40} />
+          <InfiniteMarquee projects={row1} direction="left" />
+          <InfiniteMarquee projects={row2} direction="right" />
         </div>
 
         {/* CTA Button */}
