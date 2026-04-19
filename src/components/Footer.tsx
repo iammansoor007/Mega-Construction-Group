@@ -171,7 +171,7 @@ const Footer = () => {
       </div>
 
       {/* Massive Background Text */}
-      <div className="absolute -bottom-20 -left-20 text-[20vw] font-black text-white/[0.02] select-none pointer-events-none leading-none">
+      <div className="absolute -bottom-20 -left-20 text-[20vw] font-bold text-white/[0.02] select-none pointer-events-none leading-none">
         MEGA
       </div>
 
@@ -182,10 +182,10 @@ const Footer = () => {
           <div className="space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-primary flex items-center justify-center">
-                <span className="text-white font-black text-2xl">MC</span>
+                <span className="text-white font-bold text-2xl">MC</span>
               </div>
               <div>
-                <h2 className="text-xl font-black tracking-tighter uppercase leading-none">{company.name}</h2>
+                <h2 className="text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
                 <div className="h-1 w-12 bg-primary mt-2" />
               </div>
             </div>
@@ -206,7 +206,7 @@ const Footer = () => {
 
           {/* Column 2: Services */}
           <div className="space-y-8">
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
               {services.title}
             </h4>
             <div className="grid gap-3">
@@ -221,7 +221,7 @@ const Footer = () => {
 
           {/* Column 3: Contact */}
           <div className="space-y-8">
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
               Direct Contact
             </h4>
             <div className="space-y-5">
@@ -248,7 +248,7 @@ const Footer = () => {
 
           {/* Column 4: Newsletter & Trust */}
           <div className="space-y-8">
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
               Accreditations
             </h4>
             <div className="grid grid-cols-2 gap-2">
@@ -275,11 +275,11 @@ const Footer = () => {
           >
             {[...Array(12)].map((_, i) => (
               <div key={i} className="flex items-center gap-12 mx-12">
-                <span className="text-[14px] font-black uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
+                <span className="text-[14px] font-bold uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
                   Structural Performance Certified
                 </span>
                 <div className="w-3 h-3 bg-primary rotate-45" />
-                <span className="text-[14px] font-black uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
+                <span className="text-[14px] font-bold uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
                   Mega Construction NY Group
                 </span>
                 <div className="w-3 h-3 bg-primary rotate-45" />

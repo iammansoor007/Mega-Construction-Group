@@ -72,7 +72,7 @@ const StatCard = memo(({ value, suffix, label }: { value: number; suffix: string
             className="relative bg-white p-3 sm:p-4 md:p-5 rounded-xl border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all duration-300"
         >
             <div className="relative">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-gray-900">
+                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
                     <Counter value={value} suffix={suffix} />
                 </span>
             </div>
@@ -147,12 +147,13 @@ export default function ConstructionAboutSection() {
                         <div className="absolute -inset-4 bg-gradient-to-br from-red-600/10 via-red-600/5 to-transparent rounded-2xl" />
 
                         <div className="relative rounded-lg overflow-visible shadow-2xl w-full h-full flex">
-                            <div className="relative w-full h-full rounded-lg overflow-hidden">
+                            <div className="relative w-full h-full rounded-none overflow-hidden">
                                 <Image
                                     src={ConstructionAbout}
                                     alt={image.alt}
                                     className="w-full h-full object-cover smooth-gpu"
                                     priority
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
 
                                 {/* Gradient Overlay */}
@@ -167,11 +168,11 @@ export default function ConstructionAboutSection() {
                                 >
                                     <div className="flex items-center gap-4">
                                         <div className="w-16 h-16 bg-red-600 rounded-lg flex items-center justify-center shadow-xl">
-                                            <span className="text-white text-2xl font-black">{trustBadges.happyClients}</span>
+                                            <span className="text-white text-2xl font-bold">{trustBadges.happyClients}</span>
                                         </div>
                                         <div className="text-white">
                                             <p className="text-sm font-semibold uppercase tracking-wider opacity-90">Projects</p>
-                                            <p className="text-xl font-black">Completed</p>
+                                            <p className="text-xl font-bold">Completed</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -219,16 +220,16 @@ export default function ConstructionAboutSection() {
                         whileInView="visible"
                         viewport={{ once: true, margin: "-50px" }}
                         custom={1}
-                        className="flex flex-col justify-center lg:h-full lg:min-h-[600px] space-y-6"
+                        className="flex flex-col justify-center lg:h-full lg:min-h-[600px] space-y-6 smooth-gpu"
                     >
                         {/* Badge */}
                         <motion.div
                             variants={variants}
                             custom={2}
-                            className="inline-flex items-center gap-2 sm:gap-3 bg-red-600/10 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full self-start"
+                            className="inline-flex items-center gap-2 sm:gap-3 bg-red-600/10 px-4 sm:px-5 py-2 sm:py-2.5 rounded-none self-start"
                         >
                             <FiBriefcase className="text-red-600 w-4 h-4 sm:w-5 sm:h-5" />
-                            <span className="text-red-600 uppercase tracking-[0.2em] text-xs sm:text-sm font-black">
+                            <span className="text-red-600 uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
                                 {badge}
                             </span>
                         </motion.div>
@@ -238,7 +239,7 @@ export default function ConstructionAboutSection() {
                             <motion.h2
                                 variants={variants}
                                 custom={3}
-                                className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight"
+                                className="heading-lg leading-[1.15] tracking-tight"
                             >
                                 <span className="block text-gray-900">
                                     {headline.prefix}
@@ -256,9 +257,9 @@ export default function ConstructionAboutSection() {
                                 custom={4}
                                 className="flex gap-1"
                             >
-                                <div className="w-16 h-1 bg-red-600 rounded-full" />
-                                <div className="w-8 h-1 bg-red-400 rounded-full" />
-                                <div className="w-4 h-1 bg-red-300 rounded-full" />
+                                <div className="w-16 h-1 bg-red-600 rounded-sm" />
+                                <div className="w-8 h-1 bg-red-400 rounded-sm" />
+                                <div className="w-4 h-1 bg-red-300 rounded-sm" />
                             </motion.div>
                         </div>
 
@@ -276,19 +277,19 @@ export default function ConstructionAboutSection() {
                             custom={6}
                             className="flex flex-wrap gap-4 py-2"
                         >
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-none shadow-sm transition-all duration-300">
                                 <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
                                 <span className="text-sm font-bold text-gray-700">LICENSED & INSURED</span>
                             </div>
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-none shadow-sm transition-all duration-300">
                                 <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
                                 <span className="text-sm font-bold text-gray-700">BBB A+ RATED</span>
                             </div>
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
+                            <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-none shadow-sm transition-all duration-300">
                                 <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                 </svg>
@@ -309,7 +310,7 @@ export default function ConstructionAboutSection() {
                                         href={button.href}
                                         whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="group relative px-7 py-3.5 bg-red-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 inline-block text-center"
+                                        className="group relative px-7 py-3.5 bg-red-600 text-white font-bold rounded-none shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 inline-block text-center"
                                     >
                                         <span className="relative z-10 flex items-center justify-center gap-2">
                                             {button.text}
@@ -334,7 +335,7 @@ export default function ConstructionAboutSection() {
                                         href={button.href}
                                         whileHover={{ scale: 1.03 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="group inline-block px-7 py-3.5 bg-white text-gray-900 font-bold rounded-lg border-2 border-gray-300 hover:border-red-600 hover:text-red-600 shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                                        className="group inline-block px-7 py-3.5 bg-white text-gray-900 font-bold rounded-none border-2 border-gray-300 hover:border-red-600 hover:text-red-600 shadow-md hover:shadow-lg transition-all duration-300 text-center"
                                     >
                                         <span className="flex items-center justify-center gap-2">
                                             {button.text}

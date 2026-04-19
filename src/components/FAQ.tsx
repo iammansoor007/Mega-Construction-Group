@@ -235,7 +235,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
         transition={{ duration: 0.3 }}
       >
         <span className={`
-          text-[90px] font-black leading-none tracking-tighter
+          text-[90px] font-bold leading-none tracking-tighter
           ${isOpen ? 'text-primary/15' : 'text-gray-200/80'}
           transition-colors duration-500
         `}>
@@ -657,7 +657,7 @@ const KnowledgeCard = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.2] tracking-tight text-white"
+                className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-white"
               >
                 {knowledgeCard.title}
               </motion.h2>
@@ -800,7 +800,7 @@ const KnowledgeCard = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.15 }}
-                className="text-2xl sm:text-3xl font-black leading-[1.2] text-white"
+                className="text-2xl sm:text-3xl font-bold leading-[1.2] text-white"
               >
                 {knowledgeCard.title}
               </motion.h2>

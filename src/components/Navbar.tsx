@@ -181,7 +181,7 @@ const Navbar = () => {
         {scrolled && (
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         )}
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex items-center justify-between">
             <motion.div
               className="flex logooo items-center space-x-3 group relative text-stable"
@@ -192,7 +192,7 @@ const Navbar = () => {
                 {/* Logo Glow Effect */}
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="h-20 w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10">
+                <div className="h-16 w-32 sm:h-20 sm:w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
                   <Image
                     src={logo}
                     alt="Mega Construction NY Group Logo"
@@ -211,23 +211,32 @@ const Navbar = () => {
                   ref={servicesButtonRef}
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
-                  className={`flex items-center space-x-2 px-5 py-2 font-semibold rounded-full relative group transition-all duration-300 ${scrolled
-                    ? "text-gray-900 hover:bg-white/60 hover:shadow-md hover:shadow-black/5 border border-transparent hover:border-white/40"
-                    : "text-white/90 hover:bg-white/15 hover:text-white border border-transparent hover:border-white/20"
+                  className={`flex items-center space-x-2 px-6 py-3 font-bold rounded-none relative group transition-all duration-500 overflow-hidden ${scrolled
+                    ? "text-gray-900 hover:text-red-600"
+                    : "text-white"
                     }`}
-                  style={{ backdropFilter: 'blur(0px)' }}
-                  whileHover={{ scale: 1.03, backdropFilter: 'blur(8px)' }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <span className="flex items-center space-x-2">
-                    <Wrench className="h-4 w-4" />
+                  {/* Premium Hover Background */}
+                  <motion.div 
+                    className={`absolute inset-0 transition-opacity duration-500 -z-10 ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                  />
+                  
+                  {/* Glossy line accent */}
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                  <span className="flex items-center space-x-2 relative z-10 text-[13px] uppercase tracking-[0.15em]">
+                    <Wrench className="h-3.5 w-3.5 transition-transform duration-500 group-hover:rotate-12" />
                     <span>Services</span>
                   </span>
                   <motion.span
                     animate={{ rotate: activeMegaMenu === "services" ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <ChevronDown className="h-4 w-4 ml-1" />
+                    <ChevronDown className="h-3.5 w-3.5 ml-1 opacity-60 group-hover:opacity-100 transition-colors" />
                   </motion.span>
                 </motion.button>
 
@@ -321,7 +330,7 @@ const Navbar = () => {
                                   {service.features.map((feature) => (
                                     <span
                                       key={feature}
-                                      className={`px-2 py-1 text-xs rounded-full border transition-colors ${hoveredService === service.title
+                                      className={`px-2 py-1 text-[10px] font-bold uppercase tracking-tight rounded-lg border transition-colors ${hoveredService === service.title
                                         ? "bg-primary/10 text-primary border-primary/20"
                                         : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
                                         }`}
@@ -381,13 +390,20 @@ const Navbar = () => {
                         href={link.href}
                         onClick={handleLinkClick}
                         onMouseEnter={() => setActiveMegaMenu(null)}
-                        className={`flex items-center space-x-2 px-5 py-2 font-semibold rounded-full relative group transition-all duration-300 ${scrolled
-                          ? "text-gray-900 hover:bg-white/60 hover:shadow-md hover:shadow-black/5 border border-transparent hover:border-white/40"
-                          : "text-white/90 hover:bg-white/15 hover:text-white border border-transparent hover:border-white/20"
+                        className={`flex items-center space-x-2 px-5 py-3 font-bold rounded-none relative group transition-all duration-300 ${scrolled
+                          ? "text-gray-900 hover:text-red-600"
+                          : "text-white/90 hover:text-white"
                           }`}
                       >
-                        <LinkIcon />
-                        <span>{link.label}</span>
+                         <motion.div 
+                          className={`absolute inset-0 transition-opacity duration-300 -z-10 rounded-xl ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
+                          initial={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
+                        />
+                        <span className="relative z-10 flex items-center space-x-2 text-[13px] uppercase tracking-[0.15em]">
+                          <LinkIcon />
+                          <span>{link.label}</span>
+                        </span>
                       </Link>
                     </motion.div>
                   );
@@ -397,27 +413,38 @@ const Navbar = () => {
 
             <motion.div
               className="hidden lg:flex items-center"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Link
                 href="#contact"
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
                 className={`
-                  group relative px-6 py-2.5 rounded-full font-bold text-sm
-                  transition-all duration-300
+                  group relative px-9 py-4 rounded-none font-bold text-[12px] uppercase tracking-[0.2em]
+                  transition-all duration-500 ease-out overflow-hidden
                   ${scrolled
-                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/35 hover:from-red-700 hover:to-red-600 border border-red-400/30"
-                    : "bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/25 hover:border-white/50 shadow-lg shadow-black/10"
+                    ? "bg-gradient-to-r from-red-600 to-red-800 text-white shadow-[0_15px_30px_-5px_rgba(220,38,38,0.4)]"
+                    : "bg-white text-red-600 shadow-2xl"
                   }
                 `}
               >
-                {/* Shimmer overlay */}
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative z-10 flex items-center space-x-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>Get Free Quote</span>
+                {/* Shine Animation Effect */}
+                <span className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)]">
+                  <span className="relative h-full w-8 bg-white/20 blur-xl animate-shine-slow" />
+                </span>
+
+                {/* Internal Glow for Non-Scrolled */}
+                {!scrolled && (
+                  <div className="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition-colors duration-500" />
+                )}
+
+                {/* Animated Inner Shine Border */}
+                <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
+                
+                <span className="relative z-10 flex items-center justify-center space-x-2.5">
+                  <Calendar className={`h-4 w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "" : "text-red-600"}`} />
+                  <span className="leading-none">{cta.buttonText}</span>
                 </span>
               </Link>
             </motion.div>
@@ -486,7 +513,7 @@ const Navbar = () => {
                 <div className="p-6 border-b border-gray-200 flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="h-16 w-26 rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="h-16 w-26 rounded-none flex items-center justify-center overflow-hidden">
                         <Image
                           src={logo2nd}
                           alt="Company Logo"
@@ -524,7 +551,7 @@ const Navbar = () => {
                               key={service.title}
                               href="#services"
                               onClick={() => setIsMenuOpen(false)}
-                              className="block p-4 rounded-xl border border-gray-200 hover:border-primary/30 hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
+                              className="block p-4 rounded-none border border-gray-200 hover:border-primary/30 hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
                               whileTap={{ scale: 0.98 }}
                             >
                               <div className="flex items-center space-x-3">
@@ -560,7 +587,7 @@ const Navbar = () => {
                               key={link.label}
                               href={link.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
+                              className="flex items-center space-x-3 p-3 rounded-none hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
                               whileTap={{ scale: 0.98 }}
                             >
                               <div className="text-gray-700">
@@ -579,13 +606,15 @@ const Navbar = () => {
 
                 <div className="p-6 border-t border-gray-200 bg-gray-50 flex-shrink-0">
                   <div className="space-y-4">
-                    <a
+                    <motion.a
                       href="#quote"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => setIsMenuOpen(false)}
-                      className="block w-full py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl text-center hover:shadow-xl transition-all duration-300 active:scale-[0.98]"
+                      className="block w-full py-5 bg-red-600 text-white text-xs font-bold uppercase tracking-[0.2em] rounded-none text-center shadow-lg shadow-red-600/20 hover:bg-red-700 transition-all duration-300"
                     >
                       Get Free Quote Now
-                    </a>
+                    </motion.a>
                     <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm">
                       <Star className="h-3 w-3 text-primary" />
                       <span>Premium Service Guaranteed</span>

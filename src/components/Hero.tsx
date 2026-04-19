@@ -74,36 +74,16 @@ const Hero = () => {
       {/* Decorative Animated Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
             <motion.div
-              className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.05, 0.1, 0.05],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{
-                x: x03,
-                y: y03,
-              }}
+              className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl smooth-gpu"
+              animate={{ opacity: [0.05, 0.1, 0.05] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              style={{ x: x03, y: y03 }}
             />
             <motion.div
-              className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.03, 0.07, 0.03],
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{
-                x: xNeg02,
-                y: yNeg02,
-              }}
+              className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl smooth-gpu"
+              animate={{ opacity: [0.03, 0.07, 0.03] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              style={{ x: xNeg02, y: yNeg02 }}
             />
       </div>
 
@@ -131,69 +111,25 @@ const Hero = () => {
         </svg>
       </div>
 
-      {/* Decorative Circles */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      {/* Decorative Parallax Elements - Streamlined for Performance */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <motion.div
-          className="absolute top-[20%] right-[12%] w-40 h-40 border border-white/10 rounded-full"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, delay: 0.8 }}
-          style={{
-            x: x04,
-            y: y04,
-          }}
+          className="absolute top-[15%] right-[10%] w-64 h-64 border border-white/5 rounded-full smooth-gpu"
+          style={{ x: x04, y: y04 }}
         />
         <motion.div
-          className="absolute top-[12%] right-[5%] w-72 h-72 border border-white/5 rounded-full"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, delay: 1.0 }}
-          style={{
-            x: x025,
-            y: y025,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-[25%] left-[8%] w-56 h-56 border border-white/5 rounded-full"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.8, delay: 1.2 }}
-          style={{
-            x: xNeg03,
-            y: yNeg03,
-          }}
+          className="absolute bottom-[20%] left-[5%] w-96 h-96 border border-white/5 rounded-full smooth-gpu"
+          style={{ x: xNeg03, y: yNeg03 }}
         />
       </div>
 
-      {/* Floating Dots */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 bg-white/20 rounded-full blur-[1px]"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0.1, 0.35, 0.1],
-            }}
-            transition={{
-              duration: 5 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 3,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+
 
       {/* Main Content */}
       <div className="section-padding w-full relative z-20 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl">
           <motion.div
-            className="flex items-center gap-2 mb-2 mt-8 md:-mt-4"
+            className="flex items-center gap-2 mb-2 mt-4 md:-mt-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -204,7 +140,7 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-7xl font-bold text-white mb-2 leading-[1.1] tracking-tight drop-shadow-lg">
+          <h1 className="heading-xl text-white mb-4 leading-[1.1] tracking-tight drop-shadow-lg">
             {headlines.map((line, i) => (
               <motion.span
                 key={i}
@@ -223,7 +159,7 @@ const Hero = () => {
           </h1>
 
           <motion.p
-            className="text-m sm:text-l md:text-xl text-white/90 max-w-2xl mb-6 leading-relaxed font-light drop-shadow-md"
+            className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
@@ -232,7 +168,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-5"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.2 }}
@@ -248,7 +184,7 @@ const Hero = () => {
                 >
                   <Link
                     href={button.href}
-                    className="group bg-primary text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                    className="group bg-primary text-white px-8 py-4 font-bold text-lg inline-flex items-center justify-center gap-3 rounded-none hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
                   >
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />}
@@ -263,7 +199,7 @@ const Hero = () => {
                 >
                   <Link
                     href={button.href}
-                    className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                    className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-bold text-lg inline-flex items-center justify-center gap-3 rounded-none hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                   >
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />}

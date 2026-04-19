@@ -31,9 +31,8 @@ export const SectionHeader = ({
           {/* Left accent line */}
           <span className="w-6 h-px bg-red-500 opacity-70" />
           <span
-            className={`text-[11px] font-bold tracking-[0.25em] uppercase ${
-              light ? "text-red-400" : "text-red-600"
-            }`}
+            className={`text-[11px] font-bold tracking-[0.25em] uppercase ${light ? "text-red-400" : "text-red-600"
+              }`}
           >
             {badge}
           </span>
@@ -43,24 +42,22 @@ export const SectionHeader = ({
       )}
 
       <h2
-        className={`text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4 ${
-          light ? "text-white" : "text-gray-900"
-        }`}
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-4 ${light ? "text-white" : "text-gray-900"
+          }`}
         dangerouslySetInnerHTML={{ __html: headline }}
       />
 
       {/* Decorative underline */}
       <div className={`flex gap-1.5 mb-5 ${center ? "justify-center" : ""}`}>
-        <span className="w-10 h-1 bg-red-600 rounded-full" />
-        <span className="w-5 h-1 bg-red-400 rounded-full" />
-        <span className="w-2.5 h-1 bg-red-300 rounded-full" />
+        <span className="w-10 h-1 bg-red-600 rounded-sm" />
+        <span className="w-5 h-1 bg-red-400 rounded-sm" />
+        <span className="w-2.5 h-1 bg-red-300 rounded-sm" />
       </div>
 
       {description && (
         <p
-          className={`text-base md:text-lg leading-relaxed max-w-2xl ${
-            center ? "mx-auto" : ""
-          } ${light ? "text-white/75" : "text-gray-500"}`}
+          className={`text-base md:text-lg leading-relaxed max-w-2xl ${center ? "mx-auto" : ""
+            } ${light ? "text-white/75" : "text-gray-500"}`}
         >
           {description}
         </p>

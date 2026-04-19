@@ -184,7 +184,7 @@ const AchievementCard = ({ label, value }: { label: string; value: string }) => 
       whileHover={{ y: -3 }}
       className="bg-white p-4 rounded-xl border-l-4 border-red-600 shadow-md"
     >
-      <p className="text-2xl font-black text-gray-900">{value}</p>
+      <p className="text-2xl font-bold text-gray-900">{value}</p>
       <p className="text-xs text-gray-500 uppercase tracking-wider mt-1">{label}</p>
     </motion.div>
   );
@@ -262,7 +262,7 @@ const Leadership = () => {
           <div className="space-y-6 leadership-reveal">
             {/* Name and Title */}
             <div>
-              <h3 className="text-3xl md:text-4xl font-black text-gray-900">
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
                 {ceo.name}
               </h3>
               <p className="text-red-600 font-bold text-lg mt-1">

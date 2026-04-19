@@ -75,7 +75,7 @@ const MarqueeItem = ({ project }) => {
         transformPerspective: 1000,
         scale: isHovered ? 1.02 : 1,
       }}
-      className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer smooth-gpu"
+      className="relative w-[180px] sm:w-[240px] md:w-[280px] h-[250px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer smooth-gpu"
     >
       <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl border-2 border-gray-200">
         <Image
@@ -83,7 +83,7 @@ const MarqueeItem = ({ project }) => {
           alt={project.title}
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           fill
-          sizes="(max-width: 768px) 50vw, 25vw"
+          sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
@@ -127,14 +127,14 @@ const MarqueeItem = ({ project }) => {
 
         <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end">
           {/* Category Badge */}
-          <span className="inline-flex items-center gap-1.5 bg-red-600 px-2.5 py-1 rounded-md w-fit mb-2 shadow-lg">
+          <span className="inline-flex items-center gap-1.5 bg-red-600 px-2.5 py-1 rounded-sm w-fit mb-2 shadow-lg">
             <Icons.HardHat />
             <span className="text-[9px] sm:text-[10px] font-bold tracking-wider text-white uppercase">
               {project.category}
             </span>
           </span>
 
-          <h3 className="text-base sm:text-lg font-black text-white mb-1 leading-tight">
+          <h3 className="text-base sm:text-lg font-bold text-white mb-1 leading-tight">
             {project.title}
           </h3>
 
@@ -167,7 +167,7 @@ const MarqueeItem = ({ project }) => {
                     </p>
                   </div>
                   <motion.button
-                    className="px-3 py-1 bg-white text-red-600 rounded-md text-[9px] sm:text-[10px] font-bold flex items-center gap-1 hover:bg-red-50 transition-colors shadow-md"
+                    className="px-3 py-1 bg-white text-red-600 rounded-none text-[9px] sm:text-[10px] font-bold flex items-center gap-1 hover:bg-red-50 transition-colors shadow-md"
                     whileHover={{ x: 3 }}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -183,8 +183,8 @@ const MarqueeItem = ({ project }) => {
         </div>
 
         {/* Project Number */}
-        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md">
-          <span className="text-white text-xs font-black">{project.number}</span>
+        <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-sm">
+          <span className="text-white text-xs font-bold">{project.number}</span>
         </div>
       </div>
     </motion.div>
@@ -230,7 +230,7 @@ const PremiumLightbox = ({ image, onClose }) => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-red-600 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-bold hover:bg-red-700 transition-all shadow-lg"
+        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-red-600 text-white px-4 py-2 rounded-none text-xs sm:text-sm font-bold hover:bg-red-700 transition-all shadow-lg"
         onClick={onClose}
       >
         Close
@@ -317,7 +317,7 @@ const Portfolio = () => {
         >
           <button
             onClick={() => setLightbox(portfolio1)}
-            className="group px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-lg shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 flex items-center gap-2"
+            className="group px-6 py-3 bg-red-600 text-white text-sm font-bold rounded-none shadow-lg hover:shadow-xl hover:bg-red-700 transition-all duration-300 flex items-center gap-2"
           >
             {button.text}
             <Icons.Arrow />

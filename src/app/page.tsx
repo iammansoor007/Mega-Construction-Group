@@ -2,22 +2,24 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Testimonials from "@/components/Testimonials";
 import LoadingScreen from "@/components/LoadingScreen";
-import QuickQuote from "@/components/QuickQuote";
 
-import LeadCapture from "@/components/LeadCapture";
-import Mission from "@/components/Mission";
-import TeamValues from "@/components/TeamValues";
-import QAForm from "@/components/QAForm";
-import FAQ from "@/components/FAQ";
-import Footer from "@/components/Footer";
-import AggressiveRoofingSection from "@/components/RoofingExperts";
-import HowWeWork from "@/components/HowWeWork";
+// Dynamic imports for bundle splitting
+const Services = dynamic(() => import("@/components/Services"), { ssr: true });
+const Portfolio = dynamic(() => import("@/components/Portfolio"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const QuickQuote = dynamic(() => import("@/components/QuickQuote"), { ssr: false });
+const LeadCapture = dynamic(() => import("@/components/LeadCapture"), { ssr: true });
+const Mission = dynamic(() => import("@/components/Mission"), { ssr: true });
+const TeamValues = dynamic(() => import("@/components/TeamValues"), { ssr: true });
+const QAForm = dynamic(() => import("@/components/QAForm"), { ssr: true });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const AggressiveRoofingSection = dynamic(() => import("@/components/RoofingExperts"), { ssr: true });
+const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true });
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

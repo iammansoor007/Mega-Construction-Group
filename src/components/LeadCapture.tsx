@@ -297,7 +297,7 @@ const CTASection = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Column */}
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-200/50">
+                <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg border border-blue-200/50">
                   <Icons.Sparkle />
                   <span className="text-xs font-medium tracking-wider text-blue-700">
                     Mega Construction NY Group • 2005
@@ -339,7 +339,7 @@ const CTASection = () => {
                   href="/contact"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative w-full px-8 py-5 bg-gradient-to-r from-blue-700 to-blue-900 text-white text-xs font-medium tracking-[0.2em] uppercase rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 block text-center"
+                  className="group relative w-full px-8 py-5 bg-gradient-to-r from-blue-700 to-blue-900 text-white text-xs font-bold tracking-[0.2em] uppercase rounded-none overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 block text-center"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     Schedule Consultation
@@ -357,7 +357,7 @@ const CTASection = () => {
                   href="/portfolio"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative w-full px-8 py-5 bg-white text-blue-800 text-xs font-medium tracking-[0.2em] uppercase rounded-full border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 block text-center"
+                  className="group relative w-full px-8 py-5 bg-white text-blue-800 text-xs font-bold tracking-[0.2em] uppercase rounded-none border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 block text-center"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
                     View Portfolio

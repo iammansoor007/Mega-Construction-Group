@@ -269,7 +269,7 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
 
             <div className="min-w-0">
               <div className="flex items-center gap-1 md:gap-2 flex-wrap">
-                <h4 className="font-black text-gray-900 text-sm md:text-base lg:text-lg truncate">
+                <h4 className="font-bold text-gray-900 text-sm md:text-base lg:text-lg truncate">
                   {testimonial.name}
                 </h4>
                 <span className="text-red-600 flex-shrink-0">
@@ -424,7 +424,7 @@ const Testimonials = () => {
 
             <div className="flex items-center justify-between mt-4 md:mt-6">
               <div className="flex items-center gap-2">
-                <span className="text-sm md:text-base font-black text-red-600">
+                <span className="text-sm md:text-base font-bold text-red-600">
                   {String(activeIndex + 1).padStart(2, '0')}
                 </span>
                 <span className="text-sm md:text-base text-gray-300">/</span>

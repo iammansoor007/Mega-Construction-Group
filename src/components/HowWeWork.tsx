@@ -371,7 +371,7 @@ const FeatureCard = memo(({ feature, index }: FeatureCardProps) => {
 
                     {/* Index Number */}
                     <div
-                        className="text-6xl font-black text-gray-100 absolute top-4 right-4 select-none"
+                        className="text-6xl font-bold text-gray-100 absolute top-4 right-4 select-none"
                         style={{ transform: "translateZ(10px)" }}
                     >
                         {String(index + 1).padStart(2, '0')}
@@ -496,7 +496,7 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.2] tracking-tight text-white"
+                                className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.2] tracking-tight text-white"
                             >
                                 {cleanTitle}
                             </motion.h2>
@@ -582,7 +582,7 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl sm:text-4xl font-black leading-[1.2] text-white"
+                            className="text-3xl sm:text-4xl font-bold leading-[1.2] text-white"
                         >
                             {cleanTitle}
                         </motion.h2>

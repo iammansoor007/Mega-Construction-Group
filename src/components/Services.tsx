@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, lazy, Suspense, memo } from "react";
+import { useRef, memo, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -9,8 +9,21 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import serviceDetail from "../assets/megaprintedimage2.png";
 import vectoroverlay from "../assets/Frame - Copy.png";
+
+// Static image imports for instant loading and Next.js optimization
+import imgGenContracting from "@/assets/general-contracting.jpg";
+import imgKitchenBath from "@/assets/megabathroom.jpeg";
+import imgHomeRenovation from "@/assets/home-renovation.jpg";
+import imgCommConstruction from "@/assets/commercial-construction.jpg";
+import imgExcavation from "@/assets/excavation.jpg";
+import imgConcreteMasonry from "@/assets/concrete-masonry.jpg";
+import imgRoofing from "@/assets/megaroofingreal.jpeg";
+import imgHistoricRestoration from "@/assets/megahistoricrestoreation.jpg";
+import imgEmergencyRepairs from "@/assets/megaemergencyrepair.jpg";
+import imgCustomHome from "@/assets/megacustomhome.jpg";
 
 import {
   Wrench,
@@ -40,69 +53,20 @@ import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Lazy load images only when they come into view
-const LazyImage = memo(({ src, alt, className, onError }: { src: any; alt: string; className: string; onError: () => void }) => {
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [loaded, setLoaded] = useState(false);
-  const [inView, setInView] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: "1000px" }
-    );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={imgRef} className={`relative w-full h-full ${className}`}>
-      {inView && (
-        <>
-          {!loaded && (
-            <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
-          )}
-          <img
-            src={typeof src === 'string' ? src : src.src}
-            alt={alt}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"
-              }`}
-            onLoad={() => setLoaded(true)}
-            onError={onError}
-            loading="lazy"
-            decoding="async"
-          />
-        </>
-      )}
-    </div>
-  );
-});
-
-LazyImage.displayName = "LazyImage";
-
-// Image paths mapping - using dynamic imports for code splitting
-const serviceImagePaths: Record<string, () => Promise<{ default: any }>> = {
-  "general-contracting": () => import("@/assets/general-contracting.jpg"),
-  "kitchen-bath": () => import("@/assets/kitchen-bath.jpg"),
-  "home-renovation": () => import("@/assets/home-renovation.jpg"),
-  "commercial-construction": () => import("@/assets/commercial-construction.jpg"),
-  "excavation": () => import("@/assets/excavation.jpg"),
-  "concrete-masonry": () => import("@/assets/concrete-masonry.jpg"),
-  "roofing": () => import("@/assets/roofing.jpg"),
-  "historic-restoration": () => import("@/assets/historic-restoration.jpg"),
-  "emergency-repairs": () => import("@/assets/emergency-repairs.jpg"),
-  "custom-home": () => import("@/assets/custom-home.jpg"),
+// Static mapping for optimized images
+const serviceImageMap: Record<string, any> = {
+  "megaservice1": imgGenContracting,
+  "megaservice2": imgKitchenBath,
+  "megaservice3": imgHomeRenovation,
+  "megaservice4": imgCommConstruction,
+  "megaservice5": imgExcavation,
+  "megaservice6": imgConcreteMasonry,
+  "megaservice7": imgRoofing,
+  "megaservice8": imgHistoricRestoration,
+  "megaservice9": imgEmergencyRepairs,
+  "megaservice10": imgCustomHome,
 };
 
 // Optimized Counter with reduced re-renders
@@ -179,10 +143,10 @@ const CompactServiceCard = memo(({ service }: { service: any }) => {
           </div>
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
-              <h4 className="text-lg font-black text-gray-900 group-hover:text-red-600 transition-colors">
+              <h4 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors">
                 {service.title}
               </h4>
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-2 py-1 rounded-full">
+              <span className="text-xs font-mono text-red-600 bg-red-50 px-2 py-1 rounded-lg">
                 {service.number}
               </span>
             </div>
@@ -210,27 +174,8 @@ CompactServiceCard.displayName = "CompactServiceCard";
 // Optimized Service Card with lazy image loading
 const ServiceCard = memo(({ service, index }: { service: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState<any>(null);
   const cardRef = useRef(null);
-  const inView = useInView(cardRef, { once: true, margin: "200px" });
   const ServiceIcon = iconMap[service.icon] || Wrench;
-
-  // Load image only when card comes into view
-  useEffect(() => {
-    if (!inView || !service.image || imageError) return;
-
-    const imageKey = service.image;
-    const imageLoader = serviceImagePaths[imageKey];
-
-    if (imageLoader) {
-      imageLoader().then(module => {
-        setImageSrc(module.default);
-      }).catch(() => {
-        setImageError(true);
-      });
-    }
-  }, [inView, service.image, imageError]);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -267,31 +212,22 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className="relative group"
+      className="relative group smooth-gpu"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-red-500 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 blur group-hover:blur-md" />
 
       <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-200 group-hover:border-red-300 transition-all duration-300 shadow-md hover:shadow-lg">
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-red-50 to-gray-100">
-          {inView && imageSrc && !imageError ? (
-            <LazyImage
-              src={imageSrc}
-              alt={service.title}
-              className="w-full h-full"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              {!inView ? (
-                <div className="w-full h-full bg-gray-100 animate-pulse" />
-              ) : (
-                <ServiceIcon className="w-16 h-16 text-red-300" />
-              )}
-            </div>
-          )}
+        <div className="relative h-48 overflow-hidden bg-gray-100">
+          <Image
+            src={serviceImageMap[service.image]}
+            alt={service.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-w-768px) 100vw, 33vw"
+          />
 
           <div className="absolute top-4 left-4 z-10">
-            <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-red-600 border border-red-200 shadow-md">
+            <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-red-600 border border-red-200 shadow-md">
               {service.tag}
             </div>
           </div>
@@ -308,7 +244,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
             <div className="p-1 rounded-lg bg-red-50">
               <ServiceIcon className="w-4 h-4 text-red-600" />
             </div>
-            <h3 className="text-base font-black text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
+            <h3 className="text-base font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
               {service.title}
             </h3>
           </div>
@@ -328,7 +264,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
 
           <motion.button
             whileHover={{ x: 3 }}
-            className="w-full py-2 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 transition-all duration-200 text-sm font-black flex items-center justify-center gap-2"
+            className="w-full py-2 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2"
           >
             <span>Learn More</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -341,10 +277,8 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
 
 ServiceCard.displayName = "ServiceCard";
 
-// Main Services Component
 const Services = () => {
   const sectionRef = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -395,14 +329,14 @@ const Services = () => {
             >
               <div className="inline-flex items-center gap-2 mb-4">
                 <span className="w-6 h-px bg-red-500 opacity-70" />
-                <span className="text-red-600 uppercase tracking-[0.25em] text-[11px] font-black">
+                <span className="text-red-600 uppercase tracking-[0.25em] text-[11px] font-bold">
                   {badge}
                 </span>
                 <span className="w-6 h-px bg-red-500 opacity-70" />
               </div>
 
               <div className="mb-6">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-[1.1] tracking-tight">
+                <h2 className="heading-lg text-gray-900 leading-[1.1] tracking-tight">
                   {headline.prefix}
                   <br />
                   <span className="text-red-600">{headline.highlight}</span>
@@ -410,9 +344,9 @@ const Services = () => {
                   <span className="text-gray-900">{headline.suffix}</span>
                 </h2>
                 <div className="flex gap-1.5 mt-5">
-                  <span className="w-10 h-1 bg-red-600 rounded-full" />
-                  <span className="w-5 h-1 bg-red-400 rounded-full" />
-                  <span className="w-2.5 h-1 bg-red-300 rounded-full" />
+                  <span className="w-10 h-1 bg-red-600 rounded-sm" />
+                  <span className="w-5 h-1 bg-red-400 rounded-sm" />
+                  <span className="w-2.5 h-1 bg-red-300 rounded-sm" />
                 </div>
               </div>
 
@@ -429,7 +363,7 @@ const Services = () => {
               <div className="grid grid-cols-3 gap-4 mb-8 pt-6 border-t border-gray-100">
                 {stats.map((stat: any) => (
                   <div key={stat.label} className="text-left">
-                    <div className="text-2xl md:text-3xl font-black text-red-600 mb-1">
+                    <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">
                       <Counter value={stat.value} suffix={stat.suffix} />
                     </div>
                     <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
@@ -446,18 +380,19 @@ const Services = () => {
           <div className="lg:col-span-7">
             <div className="relative">
               <div className="relative rounded-3xl overflow-visible">
-                <motion.div
-                  className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"
-                  style={{ clipPath: clipPathLeftToRight }}
-                >
-                  <motion.img
-                    src={serviceDetail.src}
-                    alt="Mega Contracting NY Group"
-                    className="w-full h-full object-cover"
-                    style={{ scale: imageScale }}
-                    loading="eager"
-                    decoding="async"
-                  />
+                  <motion.div
+                    className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"
+                    style={{ clipPath: clipPathLeftToRight }}
+                  >
+                    <Image
+                      src={serviceDetail}
+                      alt="Mega Contracting NY Group"
+                      fill
+                      className="object-cover"
+                      style={{ scale: imageScale as any }}
+                      priority
+                      sizes="(max-w-1024px) 100vw, 50vw"
+                    />
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -468,7 +403,7 @@ const Services = () => {
                   >
                     <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-3 md:px-6 md:py-4 rounded-tr-2xl shadow-xl">
                       <div className="flex items-end gap-2">
-                        <div className="text-3xl md:text-4xl font-black leading-none">20+</div>
+                        <div className="text-3xl md:text-4xl font-bold leading-none">20+</div>
                         <div className="text-left">
                           <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
                             Years of
@@ -504,13 +439,13 @@ const Services = () => {
 
         <div className="mt-12">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-1 bg-red-600 rounded-full" />
-            <h3 className="text-xl md:text-2xl font-black text-gray-900 uppercase tracking-tight">
+            <div className="w-12 h-1 bg-red-600 rounded-sm" />
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 uppercase tracking-tight">
               Our <span className="text-red-600">Services</span>
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {services.slice(1).map((service: any, index: number) => (
               <ServiceCard key={service.number} service={service} index={index} />
             ))}
@@ -522,7 +457,7 @@ const Services = () => {
           <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-red-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50 group-hover:opacity-70 transition-opacity" />
             <div className="relative z-10 text-center">
-              <h3 className="text-2xl md:text-4xl font-black text-gray-900 mb-4 transition-colors">
+              <h3 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 transition-colors">
                 {cta.title}
               </h3>
             <p className="text-gray-600 text-base max-w-2xl mx-auto mb-6">
@@ -532,7 +467,7 @@ const Services = () => {
                 href={cta.buttonLink}
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-black rounded-xl shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 hover:bg-red-700 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-bold rounded-none shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 hover:bg-red-700 transition-all duration-300"
               >
                 <span>{cta.buttonText}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -124,8 +124,8 @@
     --sidebar-ring: 0 96% 39%;
     /* #C30505 red */
 
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-heading: var(--font-outfit);
+    --font-body: var(--font-inter);
   }
 }
 
@@ -140,7 +140,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-body);
+    font-family: var(--font-inter), sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -151,7 +151,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-outfit), sans-serif;
     letter-spacing: -0.03em;
     line-height: 1.05;
   }
@@ -163,18 +163,20 @@
   }
 
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
+    @apply px-4 sm:px-6 md:px-12 lg:px-24 py-16 md:py-32;
   }
 
   .heading-xl {
-    @apply text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-medium;
+    font-size: clamp(2.5rem, 8vw, 8.5rem);
+    @apply font-medium;
     font-family: var(--font-heading);
     letter-spacing: -0.04em;
     line-height: 0.95;
   }
 
   .heading-lg {
-    @apply text-4xl md:text-5xl lg:text-6xl font-medium;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    @apply font-medium;
     font-family: var(--font-heading);
     letter-spacing: -0.03em;
     line-height: 1;

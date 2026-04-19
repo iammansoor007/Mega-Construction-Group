@@ -154,7 +154,8 @@ ${formData.message}
                         className="absolute inset-0 rounded-full pointer-events-none"
                         style={{
                             background: `radial-gradient(circle, rgba(195,5,5,${0.3 - i * 0.1}) 0%, transparent 70%)`,
-                            willChange: "transform, opacity"
+                            willChange: "transform, opacity",
+                            transform: "translate3d(0,0,0)"
                         }}
                         animate={{
                             scale: [1, 1.8, 1],
@@ -409,7 +410,7 @@ ${formData.message}
                                     </AnimatePresence>
 
                                     {/* Form content */}
-                                    <div className="relative p-8 md:p-10">
+                                    <div className="relative p-5 sm:p-8 md:p-10 smooth-gpu">
                                         {/* Header */}
                                         <motion.div
                                             initial={{ y: -20, opacity: 0 }}
@@ -622,7 +623,7 @@ ${formData.message}
                                                     <motion.button
                                                         type="button"
                                                         onClick={() => setStep(step + 1)}
-                                                        className="ml-auto px-8 py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
+                                                        className="ml-auto px-8 py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium rounded-none shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-300 flex items-center gap-2"
                                                         whileHover={{ scale: 1.02, x: 3 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
@@ -633,7 +634,7 @@ ${formData.message}
                                                     <motion.button
                                                         type="submit"
                                                         disabled={isSubmitting}
-                                                        className="ml-auto px-8 py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium rounded-xl shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
+                                                        className="ml-auto px-8 py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-sm font-medium rounded-none shadow-lg shadow-primary/30 hover:shadow-xl transition-all duration-300 disabled:opacity-50 flex items-center gap-2"
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
                                                     >
@@ -657,7 +658,7 @@ ${formData.message}
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 transition={{ delay: 0.5 }}
-                                                className="flex items-center justify-center gap-4 pt-4 text-xs"
+                                                className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pt-4 text-[10px] sm:text-xs"
                                             >
                                                 <div className="flex items-center gap-2">
                                                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
