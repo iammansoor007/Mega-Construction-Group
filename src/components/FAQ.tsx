@@ -849,27 +849,7 @@ const KnowledgeCard = () => {
                 </motion.a>
               </motion.div>
 
-              {/* Trust Indicators - Mobile */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-6 flex flex-wrap justify-center gap-2"
-              >
-                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-white/70">Quick Response</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-white/70">Expert Support</span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
-                  <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-white/70">24/7 Available</span>
-                </div>
-              </motion.div>
+
             </div>
           </div>
         </div>
@@ -951,10 +931,10 @@ const FAQ = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <SectionHeader
-            badge={section.badge}
-            headline={section.headline}
-            description={section.description}
-          />
+          badge={section.badge}
+          headline={section.headline}
+          description={section.description}
+        />
 
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 md:mb-12 faq-reveal">
           <CategoryFilter

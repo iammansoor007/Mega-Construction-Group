@@ -140,7 +140,7 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="section-padding w-full relative z-20 pb-20 md:pb-28">
-        <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl py-4 sm:py-1">ssss
+        <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl py-4 sm:py-1">
           <motion.div
             className="flex items-center justify-center md:justify-start gap-2 mb-2 mt-4 md:-mt-4"
             initial={{ opacity: 0, x: -20 }}
