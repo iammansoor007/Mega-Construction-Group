@@ -37,6 +37,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import completeData from "@/data/completeData.json";
+import SectionHeader from "@/components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -179,7 +180,7 @@ const CompactServiceCard = memo(({ service }: { service: any }) => {
           </div>
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
-              <h4 className="text-lg font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+              <h4 className="text-lg font-black text-gray-900 group-hover:text-red-600 transition-colors">
                 {service.title}
               </h4>
               <span className="text-xs font-mono text-red-600 bg-red-50 px-2 py-1 rounded-full">
@@ -308,7 +309,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
             <div className="p-1 rounded-lg bg-red-50">
               <ServiceIcon className="w-4 h-4 text-red-600" />
             </div>
-            <h3 className="text-base font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
+            <h3 className="text-base font-black text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
               {service.title}
             </h3>
           </div>
@@ -328,7 +329,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
 
           <motion.button
             whileHover={{ x: 3 }}
-            className="w-full py-2 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 transition-all duration-200 text-sm font-semibold flex items-center justify-center gap-2"
+            className="w-full py-2 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 transition-all duration-200 text-sm font-black flex items-center justify-center gap-2"
           >
             <span>Learn More</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -344,7 +345,6 @@ ServiceCard.displayName = "ServiceCard";
 // Main Services Component
 const Services = () => {
   const sectionRef = useRef(null);
-  const [isClient, setIsClient] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -368,34 +368,9 @@ const Services = () => {
   const { badge, headline, description, stats, services, cta } = completeData.services;
   const featuredService = services[0];
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
-  useEffect(() => {
-    if (!sectionRef.current || !isClient) return;
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".split-text",
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.08,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
-      );
-    }, sectionRef);
 
-    return () => ctx.revert();
-  }, [isClient]);
 
 
 
@@ -413,38 +388,13 @@ const Services = () => {
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
           <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 bg-red-50 px-4 py-2 rounded-full border border-red-200 mb-5">
-                <HardHat className="w-4 h-4 text-red-600" />
-                <span className="text-red-600 uppercase tracking-wider text-xs font-semibold">
-                  {badge}
-                </span>
-              </div>
-
-              <div className="overflow-hidden mb-5">
-                <h2 className="split-text text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.15]">
-                  {headline.prefix}
-                  <br />
-                  <span className="text-red-600">{headline.highlight}</span>
-                  <br />
-                  <span className="text-gray-900">{headline.suffix}</span>
-                </h2>
-              </div>
-
-              <div className="space-y-3 mb-6">
-                {description.slice(0, 1).map((text: string, idx: number) => (
-                  <p
-                    key={idx}
-                    className="text-gray-600 text-base leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: text }}
-                  />
-                ))}
-              </div>
+            <SectionHeader
+              badge={badge}
+              headline={`${headline.prefix} <br/> <span class="text-red-600">${headline.highlight}</span> <br/> ${headline.suffix}`}
+              description={description[0]}
+              center={false}
+              className="!mb-6"
+            />
 
               <div className="grid grid-cols-3 gap-4 mb-6 pt-4 border-t border-gray-200">
                 {stats.map((stat: any) => (
@@ -460,7 +410,7 @@ const Services = () => {
               </div>
 
               <CompactServiceCard service={featuredService} />
-            </motion.div>
+            </div>
           </div>
 
           <div className="lg:col-span-7">
@@ -523,15 +473,13 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div>
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-0.5 bg-gradient-to-r from-red-600 to-red-400" />
-              <span className="text-sm font-semibold tracking-wider uppercase text-red-600">
-                Our Services
-              </span>
-            </div>
-          </div>
+        <div className="mt-8">
+          <SectionHeader
+            badge="Our Services"
+            headline="Full Range of <span class='text-red-600'>Solutions</span>"
+            center={false}
+            className="!mb-8"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.slice(1).map((service: any, index: number) => (
@@ -541,23 +489,25 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="relative bg-gradient-to-r from-red-50 via-white to-gray-50 rounded-2xl p-10 border border-red-200 shadow-md">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-              {cta.title}
-            </h3>
+        <div className="mt-20">
+          <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-red-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50 group-hover:opacity-70 transition-opacity" />
+            <div className="relative z-10 text-center">
+              <h3 className="text-2xl md:text-4xl font-black text-gray-900 mb-4 transition-colors">
+                {cta.title}
+              </h3>
             <p className="text-gray-600 text-base max-w-2xl mx-auto mb-6">
               {cta.description}
             </p>
-            <motion.a
-              href={cta.buttonLink}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg hover:bg-red-700 transition-all duration-200"
-            >
-              <span>{cta.buttonText}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
+              <motion.a
+                href={cta.buttonLink}
+                whileHover={{ scale: 1.03, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-black rounded-xl shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 hover:bg-red-700 transition-all duration-300"
+              >
+                <span>{cta.buttonText}</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
           </div>
         </div>
       </div>
