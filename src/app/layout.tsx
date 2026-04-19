@@ -19,10 +19,7 @@ export const metadata: Metadata = {
   title: "Mega Construction NY Group | Engineering Excellence",
   description: "Premier Construction and Roofing services in NY. Excellence in general contracting, historic restoration, and custom home building.",
   icons: {
-    icon: [
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
+    icon: "/favicon.png",
     apple: [
       { url: "/apple-touch-icon.png" },
     ],
