@@ -16,12 +16,25 @@ const Hero = () => {
 
 
 
-  // Normalize mouse values relative to center for parallax
-  const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
-  const centerY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
+  const [isMounted, setIsMounted] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-  const mouseRelX = useTransform(springX, (val) => (val - centerX) * 0.012);
-  const mouseRelY = useTransform(springY, (val) => (val - centerY) * 0.012);
+  useEffect(() => {
+    setIsMounted(true);
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Normalize mouse values relative to center for parallax
+  const centerX = windowSize.width / 2;
+  const centerY = windowSize.height / 2;
+
+  const mouseRelX = useTransform(springX, (val) => isMounted ? (val - centerX) * 0.012 : 0);
+  const mouseRelY = useTransform(springY, (val) => isMounted ? (val - centerY) * 0.012 : 0);
 
   // Parallax transforms using shared spring values
   const x03 = useTransform(mouseRelX, (val) => val * 0.3);
@@ -132,7 +145,7 @@ const Hero = () => {
             className="flex items-center gap-2 mb-2 mt-4 md:-mt-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             <div className="w-8 h-px bg-white/60 md:w-16" />
             <span className="font-body text-white/90 text-xs md:text-sm uppercase tracking-[0.3em] font-light">
@@ -148,8 +161,8 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 80 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: 0.9,
-                  delay: 0.3 + 0.2 * i,
+                  duration: 0.7,
+                  delay: 0.1 + 0.1 * i,
                   ease: [0.215, 0.61, 0.355, 1],
                 }}
               >
@@ -162,7 +175,7 @@ const Hero = () => {
             className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             {description}
           </motion.p>
@@ -171,7 +184,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-3 sm:gap-5"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.2 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
           >
             {buttons.map((button, idx) => {
               const Icon = iconComponents[button.icon as keyof typeof iconComponents];
@@ -213,7 +226,7 @@ const Hero = () => {
             className="flex flex-wrap gap-10 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.5 }}
+            transition={{ duration: 0.7, delay: 0.7 }}
           >
             {stats.map((stat, idx) => {
               const StatIcon = iconComponents[stat.icon as keyof typeof iconComponents];

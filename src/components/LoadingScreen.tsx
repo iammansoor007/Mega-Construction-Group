@@ -142,13 +142,13 @@ const PremiumLoader = ({ onComplete }: LoaderProps) => {
     <motion.div
       className="fixed inset-0 z-[300]"
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4 }}
     >
       <AnimatePresence mode="wait">
         {phase === 1 && <SimpleDark key="dark" />}
         {phase === 2 && <RoofDraw key="roof" />}
         {phase === 3 && <LogoText key="logo" />}
-        {phase === 4 && <Ready key="ready" onComplete={() => setPhase(4)} />}
+        {phase === 4 && <Ready key="ready" onComplete={onComplete} />}
       </AnimatePresence>
     </motion.div>
   );

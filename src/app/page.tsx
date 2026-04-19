@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -23,6 +23,17 @@ const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true })
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // EMERGENCY FAILSAFE: Force clear loading after 5 seconds
+    const failsafe = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(failsafe);
+  }, []);
 
   return (
     <main className="relative overflow-x-hidden min-h-screen">
@@ -55,41 +66,44 @@ export default function Home() {
         <div className="absolute bottom-0 right-0 w-full h-[50vh] bg-gradient-to-t from-blue-50/10 to-transparent pointer-events-none" />
       </div>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
-      {!loading && (
-        <div className="relative z-10">
-          <Navbar />
-          <Hero />
-          
-            <section id="roofingexperts">
-              <AggressiveRoofingSection />
-            </section>
-            <section id="services">
-              <Services />
-            </section>
-            <TeamValues />
-            <section id="portfolio">
-              <Portfolio />
-            </section>
-            <Testimonials />
-            <section id="about">
-              <HowWeWork />
-            </section>
+      <motion.div 
+        className="relative z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <Navbar />
+        <Hero />
+        
+          <section id="roofingexperts">
+            <AggressiveRoofingSection />
+          </section>
+          <section id="services">
+            <Services />
+          </section>
+          <TeamValues />
+          <section id="portfolio">
+            <Portfolio />
+          </section>
+          <Testimonials />
+          <section id="about">
+            <HowWeWork />
+          </section>
 
-            <section id="contact">
-              <QAForm />
-            </section>
-            <section id="faq">
-              <FAQ />
-            </section>
-            <Footer />
+          <section id="contact">
+            <QAForm />
+          </section>
+          <section id="faq">
+            <FAQ />
+          </section>
+          <Footer />
 
-          <QuickQuote />
-        </div>
-      )}
+        <QuickQuote />
+      </motion.div>
     </main>
   );
 }

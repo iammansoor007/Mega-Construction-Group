@@ -201,7 +201,7 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
   const rotateY = useTransform(springX, [-0.2, 0.2], [-1, 1]);
 
   const handleMouseMove = (e) => {
-    if (window.innerWidth < 768) return;
+    if (typeof window === 'undefined' || window.innerWidth < 768) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -225,8 +225,8 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       style={{
-        rotateX: window.innerWidth >= 768 ? rotateX : 0,
-        rotateY: window.innerWidth >= 768 ? rotateY : 0,
+        rotateX: typeof window !== 'undefined' && window.innerWidth >= 768 ? rotateX : 0,
+        rotateY: typeof window !== 'undefined' && window.innerWidth >= 768 ? rotateY : 0,
         transformPerspective: 1000,
         willChange: "transform"
       }}

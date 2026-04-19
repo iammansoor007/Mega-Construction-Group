@@ -679,8 +679,8 @@ const GetQuote = () => {
         </div>
       </LiquidParallax>
 
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {isClient && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-0.5 h-0.5 bg-primary/20 rounded-full"
