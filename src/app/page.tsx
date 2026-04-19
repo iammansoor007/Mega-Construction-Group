@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, lazy, Suspense, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -10,21 +10,14 @@ import Testimonials from "@/components/Testimonials";
 import LoadingScreen from "@/components/LoadingScreen";
 import QuickQuote from "@/components/QuickQuote";
 
-// Lazy load below-the-fold sections for maximum initial performance
-const LeadCapture = lazy(() => import("@/components/LeadCapture"));
-const Mission = lazy(() => import("@/components/Mission"));
-const TeamValues = lazy(() => import("@/components/TeamValues"));
-const QAForm = lazy(() => import("@/components/QAForm"));
-const FAQ = lazy(() => import("@/components/FAQ"));
-const Footer = lazy(() => import("@/components/Footer"));
-const AggressiveRoofingSection = lazy(() => import("@/components/RoofingExperts"));
-const HowWeWork = lazy(() => import("@/components/HowWeWork"));
-
-const SectionSkeleton = () => (
-  <div className="w-full h-[400px] bg-gray-50/50 animate-pulse flex items-center justify-center">
-    <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin" />
-  </div>
-);
+import LeadCapture from "@/components/LeadCapture";
+import Mission from "@/components/Mission";
+import TeamValues from "@/components/TeamValues";
+import QAForm from "@/components/QAForm";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
+import AggressiveRoofingSection from "@/components/RoofingExperts";
+import HowWeWork from "@/components/HowWeWork";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -69,7 +62,6 @@ export default function Home() {
           <Navbar />
           <Hero />
           
-          <Suspense fallback={<SectionSkeleton />}>
             <section id="roofingexperts">
               <AggressiveRoofingSection />
             </section>
@@ -92,7 +84,6 @@ export default function Home() {
               <FAQ />
             </section>
             <Footer />
-          </Suspense>
 
           <QuickQuote />
         </div>

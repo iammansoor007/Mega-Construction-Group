@@ -5,7 +5,7 @@ import {
 } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
 import Image from "next/image";
-import ConstructionAbout from "../assets/megaprintedimage.png";
+import ConstructionAbout from "../assets/yardsign.png";
 import completeData from "@/data/completeData.json";
 import vectoroverlay from '../assets/Frame.png';
 import { FiBriefcase } from "react-icons/fi";

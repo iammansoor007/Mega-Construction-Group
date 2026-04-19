@@ -733,28 +733,7 @@ const WhyChooseUs = () => {
         return () => ctx.revert();
     }, [isClient, prefersReducedMotion]);
 
-    if (!isClient) {
-        return (
-            <section className="relative bg-white py-16 md:py-20 lg:py-24 overflow-x-clip">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="animate-pulse">
-                        <div className="text-center max-w-3xl mx-auto mb-14">
-                            <div className="inline-flex items-center gap-2 bg-gray-200 px-5 py-2.5 rounded-lg mb-5">
-                                <div className="w-12 h-4 bg-gray-300 rounded" />
-                            </div>
-                            <div className="h-12 bg-gray-200 rounded-lg max-w-2xl mx-auto mb-4" />
-                            <div className="h-4 bg-gray-200 rounded max-w-xl mx-auto" />
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                            {[1, 2, 3].map((i) => (
-                                <div key={i} className="h-64 bg-gray-100 rounded-xl" />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        );
-    }
+
 
     return (
         <section

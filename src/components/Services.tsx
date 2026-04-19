@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import serviceDetail from "@/assets/megaservices.png";
+import serviceDetail from "../assets/megaprintedimage2.png";
 import vectoroverlay from "../assets/Frame - Copy.png";
 
 import {

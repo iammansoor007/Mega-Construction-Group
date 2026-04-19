@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   MARQUEE - Pure CSS GPU compositor animation (zero JS lag)
+   ============================================================ */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 1rem;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0); /* Force GPU layer */
+  -webkit-transform: translateZ(0);
+}
+
+.marquee-track--left {
+  animation: marquee-left 32s linear infinite;
+}
+
+.marquee-track--right {
+  animation: marquee-right 36s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  cursor: default;
+}
+
 @media (min-width: 350px) and (max-width: 750px) {
   .logooo {
     transform: translateX(-25px) !important;

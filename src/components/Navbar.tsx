@@ -31,15 +31,15 @@ import completeData from "@/data/completeData.json";
 
 // Icon mapping
 const iconMap = {
-  Home: () => <Home className="h-5 w-5 text-foreground" />,
-  Briefcase: () => <Briefcase className="h-5 w-5 text-foreground" />,
-  Users: () => <Users className="h-5 w-5 text-foreground" />,
-  MessageSquare: () => <MessageSquare className="h-5 w-5 text-foreground" />,
-  Phone: () => <Phone className="h-5 w-5 text-foreground" />,
-  ClipboardCheck: () => <ClipboardCheck className="h-5 w-5 text-foreground" />,
-  Star: () => <Star className="h-5 w-5 text-foreground" />,
-  Clock: () => <Clock className="h-5 w-5 text-foreground" />,
-  Shield: () => <Shield className="h-5 w-5 text-foreground" />,
+  Home: () => <Home className="h-4 w-4 transition-colors duration-300" />,
+  Briefcase: () => <Briefcase className="h-4 w-4 transition-colors duration-300" />,
+  Users: () => <Users className="h-4 w-4 transition-colors duration-300" />,
+  MessageSquare: () => <MessageSquare className="h-4 w-4 transition-colors duration-300" />,
+  Phone: () => <Phone className="h-4 w-4 transition-colors duration-300" />,
+  ClipboardCheck: () => <ClipboardCheck className="h-4 w-4 transition-colors duration-300" />,
+  Star: () => <Star className="h-4 w-4 transition-colors duration-300" />,
+  Clock: () => <Clock className="h-4 w-4 transition-colors duration-300" />,
+  Shield: () => <Shield className="h-4 w-4 transition-colors duration-300" />,
 };
 
 const serviceIconMap = {
@@ -167,12 +167,20 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "glass-heavy shadow-2xl py-2 border-b border-white/10"
-            : "bg-transparent py-4"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled
+          ? "bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border-b border-white/20 py-4"
+          : "py-3"
+          }`}
+        style={scrolled ? { background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%)' } : {}}
       >
+        {/* Glass shimmer line at top */}
+        {scrolled && (
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+        )}
+        {/* Red accent glow line at bottom on scroll */}
+        {scrolled && (
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+        )}
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             <motion.div
@@ -183,7 +191,7 @@ const Navbar = () => {
               <Link href="/" className="flex items-center space-x-3" onClick={handleLinkClick}>
                 {/* Logo Glow Effect */}
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 <div className="h-20 w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10">
                   <Image
                     src={logo}
@@ -203,25 +211,24 @@ const Navbar = () => {
                   ref={servicesButtonRef}
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
-                  className="flex items-center space-x-2 px-5 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group text-stable"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className={`flex items-center space-x-2 px-5 py-2 font-semibold rounded-full relative group transition-all duration-300 ${scrolled
+                    ? "text-gray-900 hover:bg-white/60 hover:shadow-md hover:shadow-black/5 border border-transparent hover:border-white/40"
+                    : "text-white/90 hover:bg-white/15 hover:text-white border border-transparent hover:border-white/20"
+                    }`}
+                  style={{ backdropFilter: 'blur(0px)' }}
+                  whileHover={{ scale: 1.03, backdropFilter: 'blur(8px)' }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   <span className="flex items-center space-x-2">
-                    <Wrench className="h-4 w-4 text-foreground group-hover:text-primary/80 transition-colors" />
-                    <span className="text-foreground group-hover:text-primary/80 transition-colors">
-                      Services
-                    </span>
+                    <Wrench className="h-4 w-4" />
+                    <span>Services</span>
                   </span>
                   <motion.span
-                    animate={{
-                      rotate: activeMegaMenu === "services" ? 180 : 0,
-                    }}
+                    animate={{ rotate: activeMegaMenu === "services" ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ChevronDown className="h-4 w-4 ml-1 text-foreground group-hover:text-primary/80 transition-colors" />
+                    <ChevronDown className="h-4 w-4 ml-1" />
                   </motion.span>
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary/80 group-hover:w-4/5 transition-all duration-500" />
                 </motion.button>
 
                 <AnimatePresence>
@@ -240,7 +247,7 @@ const Navbar = () => {
                         {services.map((service) => {
                           const ServiceIcon =
                             serviceIconMap[
-                              service.icon as keyof typeof serviceIconMap
+                            service.icon as keyof typeof serviceIconMap
                             ] || serviceIconMap.Home;
                           return (
                             <motion.div
@@ -262,11 +269,10 @@ const Navbar = () => {
                               >
                                 <div className="flex items-start space-x-3 mb-4">
                                   <div
-                                    className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                                      hoveredService === service.title
-                                        ? "bg-primary"
-                                        : "bg-primary/10 group-hover:bg-primary"
-                                    }`}
+                                    className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${hoveredService === service.title
+                                      ? "bg-primary"
+                                      : "bg-primary/10 group-hover:bg-primary"
+                                      }`}
                                   >
                                     <ServiceIcon
                                       isHovered={hoveredService === service.title}
@@ -274,11 +280,10 @@ const Navbar = () => {
                                   </div>
                                   <div>
                                     <h3
-                                      className={`font-bold text-base mb-1 transition-colors ${
-                                        hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-gray-900 group-hover:text-primary"
-                                      }`}
+                                      className={`font-bold text-base mb-1 transition-colors ${hoveredService === service.title
+                                        ? "text-primary"
+                                        : "text-gray-900 group-hover:text-primary"
+                                        }`}
                                     >
                                       {service.title}
                                     </h3>
@@ -295,18 +300,16 @@ const Navbar = () => {
                                       className="flex items-center text-sm transition-colors"
                                     >
                                       <ChevronDown
-                                        className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${
-                                          hoveredService === service.title
-                                            ? "text-primary"
-                                            : "text-gray-400 group-hover:text-primary"
-                                        }`}
+                                        className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${hoveredService === service.title
+                                          ? "text-primary"
+                                          : "text-gray-400 group-hover:text-primary"
+                                          }`}
                                       />
                                       <span
-                                        className={`truncate transition-colors ${
-                                          hoveredService === service.title
-                                            ? "text-primary"
-                                            : "text-gray-700 group-hover:text-primary"
-                                        }`}
+                                        className={`truncate transition-colors ${hoveredService === service.title
+                                          ? "text-primary"
+                                          : "text-gray-700 group-hover:text-primary"
+                                          }`}
                                       >
                                         {item}
                                       </span>
@@ -318,11 +321,10 @@ const Navbar = () => {
                                   {service.features.map((feature) => (
                                     <span
                                       key={feature}
-                                      className={`px-2 py-1 text-xs rounded-full border transition-colors ${
-                                        hoveredService === service.title
-                                          ? "bg-primary/10 text-primary border-primary/20"
-                                          : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
-                                      }`}
+                                      className={`px-2 py-1 text-xs rounded-full border transition-colors ${hoveredService === service.title
+                                        ? "bg-primary/10 text-primary border-primary/20"
+                                        : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
+                                        }`}
                                     >
                                       {feature}
                                     </span>
@@ -379,15 +381,13 @@ const Navbar = () => {
                         href={link.href}
                         onClick={handleLinkClick}
                         onMouseEnter={() => setActiveMegaMenu(null)}
-                        className="flex items-center space-x-2 px-4 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group text-stable"
+                        className={`flex items-center space-x-2 px-5 py-2 font-semibold rounded-full relative group transition-all duration-300 ${scrolled
+                          ? "text-gray-900 hover:bg-white/60 hover:shadow-md hover:shadow-black/5 border border-transparent hover:border-white/40"
+                          : "text-white/90 hover:bg-white/15 hover:text-white border border-transparent hover:border-white/20"
+                          }`}
                       >
-                      <div className="text-foreground group-hover:text-primary/80 transition-colors">
                         <LinkIcon />
-                      </div>
-                      <span className="text-foreground group-hover:text-primary/80 transition-colors">
-                        {link.label}
-                      </span>
-                      <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary/80 group-hover:w-3/4 transition-all duration-500" />
+                        <span>{link.label}</span>
                       </Link>
                     </motion.div>
                   );
@@ -405,19 +405,18 @@ const Navbar = () => {
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
                 className={`
-                  group relative px-7 py-3.5 rounded-xl font-semibold 
-                  transition-all duration-300 border
-                  ${
-                    scrolled
-                      ? "bg-primary text-foreground border-primary/20 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
-                      : "bg-white text-primary border-white/20 hover:bg-white/90 hover:shadow-lg hover:shadow-white/20"
+                  group relative px-6 py-2.5 rounded-full font-bold text-sm
+                  transition-all duration-300
+                  ${scrolled
+                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-500/25 hover:shadow-xl hover:shadow-red-500/35 hover:from-red-700 hover:to-red-600 border border-red-400/30"
+                    : "bg-white/15 backdrop-blur-md text-white border border-white/30 hover:bg-white/25 hover:border-white/50 shadow-lg shadow-black/10"
                   }
                 `}
               >
+                {/* Shimmer overlay */}
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="relative z-10 flex items-center space-x-2">
-                  <Calendar
-                    className={`h-4 w-4 ${scrolled ? "text-foreground" : "text-primary"}`}
-                  />
+                  <Calendar className="h-4 w-4" />
                   <span>Get Free Quote</span>
                 </span>
               </Link>
@@ -426,7 +425,10 @@ const Navbar = () => {
             <div className="flex items-center space-x-4 lg:hidden">
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2.5 rounded-xl bg-muted hover:bg-muted/80 transition-colors"
+                className={`p-2.5 rounded-xl transition-all duration-300 border ${scrolled
+                  ? "bg-white/20 backdrop-blur-md border-white/30 hover:bg-white/30"
+                  : "bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20"
+                  }`}
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}
               >
@@ -438,7 +440,7 @@ const Navbar = () => {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: 90, opacity: 0 }}
                     >
-                      <X className="h-6 w-6 text-foreground" />
+                      <X className={`h-6 w-6 ${scrolled ? "text-gray-900" : "text-white"}`} />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -447,7 +449,7 @@ const Navbar = () => {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: -90, opacity: 0 }}
                     >
-                      <Menu className="h-6 w-6 text-foreground" />
+                      <Menu className={`h-6 w-6 ${scrolled ? "text-gray-900" : "text-white"}`} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -515,7 +517,7 @@ const Navbar = () => {
                         {services.map((service) => {
                           const ServiceIcon =
                             serviceIconMap[
-                              service.icon as keyof typeof serviceIconMap
+                            service.icon as keyof typeof serviceIconMap
                             ] || serviceIconMap.Home;
                           return (
                             <motion.a

@@ -5,10 +5,9 @@ import Image from "next/image";
 import {
   motion,
   AnimatePresence,
-  useMotionValue,
+  useScroll,
   useSpring,
   useTransform,
-  useScroll,
   useInView
 } from "framer-motion";
 import gsap from "gsap";
@@ -191,78 +190,16 @@ const MarqueeItem = ({ project }) => {
   );
 };
 
-const InfiniteMarquee = ({ projects, direction = "left", speed = 45 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const marqueeRef = useRef(null);
-  const animationRef = useRef(null);
-
-  const infiniteProjects = useMemo(() => {
-    // Quad-cloning to ensure absolute coverage for infinity loop
-    return [...projects, ...projects, ...projects, ...projects];
-  }, [projects]);
-
-  useEffect(() => {
-    if (!marqueeRef.current) return;
-
-    const marquee = marqueeRef.current;
-    
-    // Dynamically calculate the total scrollable width of a single set
-    const singleSetWidth = (marquee.scrollWidth / 4); 
-    
-    const distance = direction === "left" ? -singleSetWidth : singleSetWidth;
-
-    if (animationRef.current) {
-      animationRef.current.kill();
-    }
-
-    gsap.set(marquee, { x: 0 });
-
-    animationRef.current = gsap.to(marquee, {
-      x: distance,
-      duration: speed,
-      repeat: -1,
-      ease: "none",
-      force3D: true,
-      modifiers: {
-        x: gsap.utils.unitize(x => {
-          const val = parseFloat(x);
-          return val % singleSetWidth;
-        })
-      }
-    });
-
-    return () => {
-      if (animationRef.current) animationRef.current.kill();
-    };
-  }, [direction, speed, projects.length]); // Use projects.length to ensure stable re-triggers
-
-  useEffect(() => {
-    if (!animationRef.current) return;
-    if (isHovered) {
-      animationRef.current.pause();
-    } else {
-      animationRef.current.resume();
-    }
-  }, [isHovered]);
+const InfiniteMarquee = ({ projects, direction = "left" }: { projects: any[]; direction?: "left" | "right" }) => {
+  // Quadruple the items — animation moves -50% (2 sets), always wider than the viewport
+  const quadrupled = useMemo(() => [
+    ...projects, ...projects, ...projects, ...projects
+  ], [projects]);
 
   return (
-    <div
-      className="relative overflow-hidden py-3 sm:py-4 md:py-6"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-
-
-      <div
-        ref={marqueeRef}
-        className="flex gap-2 sm:gap-3 md:gap-4"
-        style={{
-          willChange: 'transform',
-          display: 'flex',
-          flexWrap: 'nowrap',
-        }}
-      >
-        {infiniteProjects.map((project, index) => (
+    <div className="marquee-wrapper py-3 sm:py-4 md:py-6">
+      <div className={`marquee-track gap-3 md:gap-4 ${direction === "left" ? "marquee-track--left" : "marquee-track--right"}`}>
+        {quadrupled.map((project, index) => (
           <MarqueeItem
             key={`${project.number}-${index}`}
             project={project}

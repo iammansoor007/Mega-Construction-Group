@@ -13,18 +13,8 @@ import { useMousePosition } from "../hooks/useMousePosition";
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { springX, springY } = useMousePosition();
-  const [imageLoaded, setImageLoaded] = useState(false);
 
-  // Diamond-Grade: Decode the heavy 3.5MB background before complex particles start
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = typeof heroBg === 'string' ? heroBg : heroBg.src;
-    img.decode().then(() => {
-      setImageLoaded(true);
-    }).catch(() => {
-      setImageLoaded(true); // Fallback
-    });
-  }, []);
+
 
   // Normalize mouse values relative to center for parallax
   const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
@@ -64,13 +54,12 @@ const Hero = () => {
     >
       <div className="tech-scanner" />
       {/* Background Image Container with GPU Boost */}
-      <div className={`absolute inset-0 -z-10 transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className="absolute inset-0 -z-10">
         <Image
           src={heroBg}
           alt="Mega Construction NY Group - Construction Services"
           className="w-full h-full object-cover smooth-gpu"
           priority
-          onLoad={() => setImageLoaded(true)}
           fill
         />
       </div>
@@ -82,10 +71,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-black/30 z-0" />
 
-      {/* Decorative Animated Elements - Logic Gate: only animate once image is ready to avoid main-thread congestion */}
+      {/* Decorative Animated Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {imageLoaded && (
-          <>
             <motion.div
               className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl"
               animate={{
@@ -118,8 +105,6 @@ const Hero = () => {
                 y: yNeg02,
               }}
             />
-          </>
-        )}
       </div>
 
       {/* Grid Pattern */}
