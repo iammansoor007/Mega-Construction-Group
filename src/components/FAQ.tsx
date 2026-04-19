@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useEffect, useState } from "react";
 import {
   motion,
@@ -6,11 +8,14 @@ import {
   useSpring,
   useInView,
   useMotionValue,
+  useReducedMotion,
   AnimatePresence
 } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
+import faqvector from "../assets/faqvector.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,6 +94,12 @@ const Icons = {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path d="M3 10L12 3L21 10L18 13L12 8L6 13L3 10Z" stroke="currentColor" strokeWidth="1.5" />
       <rect x="8" y="13" width="8" height="8" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  ),
+  HelpCircle: () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 16v.01M12 13a3 3 0 10-3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
 };
@@ -579,121 +590,286 @@ const SearchBar = ({ onSearch }) => {
 const KnowledgeCard = () => {
   const [isHovered, setIsHovered] = useState(false);
   const { knowledgeCard } = completeData.faq;
+  const prefersReducedMotion = useReducedMotion();
+
+  const floatAnimation = prefersReducedMotion
+    ? {}
+    : {
+      initial: { y: 0, opacity: 1 },
+      animate: {
+        y: [0, -12, 0],
+        transition: {
+          y: {
+            repeat: Infinity,
+            duration: 4,
+            ease: "easeInOut",
+          },
+        },
+      },
+    };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative group"
-    >
-      <motion.div
-        animate={isHovered ? {
-          rotateX: 2,
-          rotateY: 2,
-          scale: 1.02,
-          boxShadow: "0 30px 60px -15px rgba(195,5,5,0.3)"
-        } : {
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          boxShadow: "0 20px 40px -15px rgba(195,5,5,0.15)"
-        }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-8 md:p-10 overflow-hidden"
-        style={{ transformPerspective: 1000 }}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff20_1px,transparent_1px),linear-gradient(to_bottom,#ffffff20_1px,transparent_1px)] bg-[size:24px_24px]" />
+    <div className="relative mt-16 md:mt-24 lg:mt-32">
+      {/* CTA Container */}
+      <div className="relative rounded-3xl overflow-visible">
+        {/* Cinematic Gradient Background */}
+        <div
+          className="absolute inset-0 rounded-3xl"
+          style={{
+            background: "linear-gradient(135deg, #C30505 0%, #8B0000 50%, #660000 100%)"
+          }}
+        />
+
+        {/* Ambient Glow Effects */}
+        <div className="hidden md:block absolute right-[10%] top-[10%] w-[400px] h-[400px] bg-white/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="hidden md:block absolute left-[5%] bottom-[20%] w-[250px] h-[250px] bg-black/10 blur-[100px] rounded-full pointer-events-none" />
+
+        {/* Vignette Overlay */}
+        <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle,transparent_60%,rgba(0,0,0,0.35))]" />
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 rounded-3xl opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:30px_30px]" />
         </div>
 
-        {isHovered && (
-          <>
-            {[...Array(6)].map((_, i) => (
+        {/* Main Content */}
+        <div className="relative z-10 px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
+
+          {/* Desktop Layout - Two columns with floating image */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Text Content */}
+            <div className="max-w-xl">
               <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-white/30 rounded-full"
-                initial={{ x: '50%', y: '50%', scale: 0 }}
-                animate={{
-                  x: [`50%`, `${20 + i * 12}%`],
-                  y: [`50%`, `${15 + i * 10}%`],
-                  scale: [0, 2.5, 0],
-                  opacity: [0, 0.5, 0]
-                }}
-                transition={{
-                  duration: 2.2,
-                  delay: i * 0.12,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-          </>
-        )}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block mb-6"
+              >
+                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                  STILL HAVE QUESTIONS?
+                </span>
+              </motion.div>
 
-        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-5">
-            <motion.div
-              animate={isHovered ? {
-                rotate: 360,
-                scale: 1.2,
-                backgroundColor: 'rgba(255,255,255,0.15)'
-              } : {
-                rotate: 0,
-                scale: 1,
-                backgroundColor: 'rgba(255,255,255,0.1)'
-              }}
-              transition={{ duration: 0.8 }}
-              className="w-16 h-16 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20"
-            >
-              <Icons.Chat />
-            </motion.div>
-
-            <div>
-              <h4 className="text-xl md:text-2xl font-semibold text-white mb-2">
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-3xl lg:text-4xl xl:text-5xl font-black leading-[1.2] tracking-tight text-white"
+              >
                 {knowledgeCard.title}
-              </h4>
-              <p className="text-white/80 text-base md:text-lg">
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-4 text-white/80 text-base lg:text-lg max-w-lg"
+              >
                 {knowledgeCard.description}
-              </p>
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8"
+              >
+                <motion.a
+                  href={knowledgeCard.buttonLink}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  className="relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-primary font-bold shadow-2xl overflow-hidden group/btn"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    {knowledgeCard.buttonText}
+                    <motion.svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      animate={isHovered ? { x: 5 } : { x: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </motion.svg>
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-gray-50 to-white"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                </motion.a>
+              </motion.div>
+
+              {/* Trust Indicators */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-8 flex gap-4"
+              >
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-xs text-white/70">Quick Response</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
+                  <span className="text-xs text-white/70">Expert Support</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse" />
+                  <span className="text-xs text-white/70">24/7 Available</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Floating FAQ Vector (Oversized, extending outside) */}
+            <div className="relative">
+              <div
+                className="absolute   bottom-[-30vh] right-0 w-[60%] lg:w-[70%] xl:w-[85%]"
+                style={{ right: '12%' }}
+              >
+                <Image
+                  src={faqvector}
+                  alt="FAQ Support"
+                  className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+                />
+
+                {/* Glow behind the vector */}
+                <div className="absolute inset-0 bg-gradient-to-l from-primary/20 to-transparent rounded-full blur-3xl -z-10" />
+              </div>
             </div>
           </div>
 
-          <motion.a
-            href={knowledgeCard.buttonLink}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative px-7 py-3.5 md:px-8 md:py-4 bg-white text-primary text-xs md:text-sm font-medium rounded-full shadow-2xl overflow-hidden group/btn whitespace-nowrap"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              {knowledgeCard.buttonText}
-              <motion.svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                animate={isHovered ? { x: 5 } : { x: 0 }}
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" />
-              </motion.svg>
-            </span>
+          {/* Mobile Layout - Centered text with vector above */}
+          <div className="md:hidden">
+            {/* Mobile Vector Image - Top */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-red-50 to-white"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </motion.a>
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative mb-8"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-full max-w-[280px] sm:max-w-[350px] mx-auto"
+              >
+                <Image
+                  src={faqvector}
+                  alt="FAQ Support"
+                  className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Mobile Text Content */}
+            <div className="text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-block mb-4"
+              >
+                <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
+                  STILL HAVE QUESTIONS?
+                </span>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="text-2xl sm:text-3xl font-black leading-[1.2] text-white"
+              >
+                {knowledgeCard.title}
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-3 text-white/80 text-sm sm:text-base max-w-md mx-auto"
+              >
+                {knowledgeCard.description}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="mt-6"
+              >
+                <motion.a
+                  href={knowledgeCard.buttonLink}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-primary font-bold shadow-xl"
+                >
+                  {knowledgeCard.buttonText}
+                  <motion.svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </motion.svg>
+                </motion.a>
+              </motion.div>
+
+              {/* Trust Indicators - Mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-6 flex flex-wrap justify-center gap-2"
+              >
+                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-[10px] text-white/70">Quick Response</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
+                  <span className="text-[10px] text-white/70">Expert Support</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+                  <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse" />
+                  <span className="text-[10px] text-white/70">24/7 Available</span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
 
-        <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-white/20" />
-        <div className="absolute bottom-6 right-6 w-12 h-12 border-b-2 border-r-2 border-white/20" />
-      </motion.div>
-    </motion.div>
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none rounded-b-3xl" />
+      </div>
+    </div>
   );
 };
 
@@ -704,7 +880,7 @@ const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { section, categories, items, knowledgeCard } = completeData.faq;
+  const { section, categories, items } = completeData.faq;
 
   const filteredItems = items.filter(item => {
     const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
@@ -755,7 +931,7 @@ const FAQ = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) return null;
+
 
   return (
     <section

@@ -9,7 +9,9 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
+import { useFormState } from "@/context/FormContext";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,23 +91,18 @@ const Icons = {
 };
 
 const LiquidParallax = ({ children, speed = 0.1, className = "" }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.4, 0.6, 0.4]);
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 200]);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ y, opacity }}
-      className={`absolute inset-0 will-change-transform ${className}`}
-    >
-      {children}
-    </motion.div>
+    <div className={`absolute inset-0 pointer-events-none ${className}`}>
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 will-change-transform"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 };
 
@@ -521,15 +518,7 @@ const GetQuote = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedServices, setSelectedServices] = useState([]);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    projectType: '',
-    timeline: '',
-    message: ''
-  });
+  const { formData, updateFormData, clearFormData } = useFormState();
 
   const { section, services, projectTypes, timelines, email, success } = completeData.quote;
 
@@ -542,10 +531,8 @@ const GetQuote = () => {
   };
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    updateFormData({ [name]: value });
   };
 
   const handleSubmit = async (e) => {
@@ -568,7 +555,7 @@ const GetQuote = () => {
     `;
 
     try {
-      const mailtoLink = `mailto:${email}?subject=🔴 Fair Claims Roofing Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+      const mailtoLink = `mailto:${email}?subject=🔴 Mega Construction NY Group Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
 
       try {
         const response = await fetch('https://formsubmit.co/ajax/ammansoor007@gmail.com', {
@@ -578,7 +565,7 @@ const GetQuote = () => {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: `🔴 A5 Roofing Quote Request - ${formData.name}`,
+            _subject: `🔴 Mega Construction NY Group Quote Request - ${formData.name}`,
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -596,15 +583,7 @@ const GetQuote = () => {
           setShowSuccess(true);
           setFormStep(1);
           setSelectedServices([]);
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            company: '',
-            projectType: '',
-            timeline: '',
-            message: ''
-          });
+          clearFormData();
           setIsSubmitting(false);
           return;
         }
@@ -616,15 +595,7 @@ const GetQuote = () => {
       setShowSuccess(true);
       setFormStep(1);
       setSelectedServices([]);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        projectType: '',
-        timeline: '',
-        message: ''
-      });
+      clearFormData();
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -663,7 +634,7 @@ const GetQuote = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) return null;
+
 
   return (
     <section
@@ -687,20 +658,22 @@ const GetQuote = () => {
 
       <LiquidParallax speed={0.05} className="z-0">
         <div className="absolute top-20 right-0 w-2/5 h-3/5">
-          <img
+          <Image
             src={Images.Form}
             alt=""
             className="w-full h-full object-cover opacity-[0.03]"
+            fill
           />
         </div>
       </LiquidParallax>
 
       <LiquidParallax speed={0.08} className="z-0">
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2">
-          <img
+          <Image
             src={Images.Abstract}
             alt=""
             className="w-full h-full object-cover opacity-[0.03]"
+            fill
           />
         </div>
       </LiquidParallax>

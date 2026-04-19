@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -227,6 +227,7 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
         rotateX: window.innerWidth >= 768 ? rotateX : 0,
         rotateY: window.innerWidth >= 768 ? rotateY : 0,
         transformPerspective: 1000,
+        willChange: "transform"
       }}
       className="relative w-full mx-auto"
     >
@@ -370,7 +371,7 @@ const Testimonials = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) return null;
+
 
   return (
     <>

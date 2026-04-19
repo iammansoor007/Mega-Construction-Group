@@ -4,18 +4,19 @@ import {
     useReducedMotion
 } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import ConstructionAbout from "@/assets/megaabout.png";
-import completeData from "../src/data/completeData.json";
+import Image from "next/image";
+import ConstructionAbout from "../assets/megaprintedimage.png";
+import completeData from "@/data/completeData.json";
 import vectoroverlay from '../assets/Frame.png';
 import { FiBriefcase } from "react-icons/fi";
 
-const Counter = memo(({ value, suffix = "", duration = 1.8 }) => {
+const Counter = memo(({ value, suffix = "", duration = 1.8 }: { value: number; suffix?: string; duration?: number }) => {
     const ref = useRef(null);
     const [display, setDisplay] = useState(0);
     const inView = useInView(ref, { once: true, margin: "-50px" });
     const shouldReduceMotion = useReducedMotion();
     const hasAnimatedRef = useRef(false);
-    const animationFrameRef = useRef();
+    const animationFrameRef = useRef<number>();
 
     useEffect(() => {
         if (!inView || hasAnimatedRef.current) return;
@@ -63,7 +64,7 @@ const Counter = memo(({ value, suffix = "", duration = 1.8 }) => {
 
 Counter.displayName = "Counter";
 
-const StatCard = memo(({ value, suffix, label }) => {
+const StatCard = memo(({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
     return (
         <motion.div
             whileHover={{ y: -4 }}
@@ -92,13 +93,13 @@ export default function ConstructionAboutSection() {
 
     const variants = useMemo(() => ({
         hidden: { opacity: 0, y: 30 },
-        visible: (custom) => ({
+        visible: (custom: number) => ({
             opacity: 1,
             y: 0,
             transition: {
                 delay: custom * 0.12,
                 duration: 0.6,
-                ease: [0.25, 0.1, 0.25, 1]
+                ease: [0.25, 0.1, 0.25, 1] as any
             }
         })
     }), []);
@@ -117,32 +118,14 @@ export default function ConstructionAboutSection() {
                 }} />
             </div>
 
-            {/* Animated Background Elements */}
+            {/* Animated Background Elements - Offloaded to CSS for zero main-thread overhead */}
             {!shouldReduceMotion && (
                 <>
-                    <motion.div
-                        animate={{
-                            x: [0, 50, 0],
-                            y: [0, -30, 0],
-                        }}
-                        transition={{
-                            duration: 18,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        className="absolute -top-40 -left-40 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"
+                    <div
+                        className="absolute -top-40 -left-40 w-96 h-96 bg-red-600/5 rounded-full blur-3xl animate-float-slow smooth-gpu"
                     />
-                    <motion.div
-                        animate={{
-                            x: [0, -50, 0],
-                            y: [0, 30, 0],
-                        }}
-                        transition={{
-                            duration: 22,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-red-600/5 rounded-full blur-3xl"
+                    <div
+                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-red-600/5 rounded-full blur-3xl animate-float-reverse smooth-gpu"
                     />
                 </>
             )}
@@ -150,7 +133,7 @@ export default function ConstructionAboutSection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Equal Height Grid */}
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                    
+
                     {/* Left Column - Image - Equal Height */}
                     <motion.div
                         variants={variants}
@@ -162,14 +145,14 @@ export default function ConstructionAboutSection() {
                     >
                         {/* Construction Frame */}
                         <div className="absolute -inset-4 bg-gradient-to-br from-red-600/10 via-red-600/5 to-transparent rounded-2xl" />
-                        
+
                         <div className="relative rounded-lg overflow-visible shadow-2xl w-full h-full flex">
                             <div className="relative w-full h-full rounded-lg overflow-hidden">
-                                <img
+                                <Image
                                     src={ConstructionAbout}
                                     alt={image.alt}
-                                    className="w-full h-full object-cover"
-                                    loading="eager"
+                                    className="w-full h-full object-cover smooth-gpu"
+                                    priority
                                 />
 
                                 {/* Gradient Overlay */}
@@ -198,14 +181,14 @@ export default function ConstructionAboutSection() {
                             <motion.div
                                 initial={{ x: 80, y: -80, opacity: 0, rotate: -10 }}
                                 animate={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
-                                transition={{ 
-                                    delay: 0.6, 
+                                transition={{
+                                    delay: 0.6,
                                     duration: 0.8,
                                     type: "spring",
                                     stiffness: 80,
                                     damping: 12
                                 }}
-                                whileHover={{ 
+                                whileHover={{
                                     scale: 1.08,
                                     rotate: 5,
                                     y: -10,
@@ -213,10 +196,10 @@ export default function ConstructionAboutSection() {
                                 }}
                                 className="absolute -top-12 -right-6 md:-top-16 md:-right-15 lg:-top-20 lg:-right-15 z-30 pointer-events-none"
                             >
-                                <img 
-                                    src={vectoroverlay} 
-                                    alt="Vector Overlay" 
-                                    className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl pointer-events-auto"
+                                <Image
+                                    src={vectoroverlay}
+                                    alt="Vector Overlay"
+                                    className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl pointer-events-auto smooth-gpu"
                                     style={{
                                         filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.25))'
                                     }}

@@ -1,67 +1,152 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo, useMemo, useCallback } from "react";
 import {
     motion,
     useInView,
+    useReducedMotion,
+    Variants,
+    useMotionTemplate,
+    useMotionValue,
+    useSpring,
+    useTransform,
 } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 import vectoroverlay from "../assets/ctavector.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ============================================================================
+// Types
+// ============================================================================
+
+interface Feature {
+    title: string;
+    description: string;
+    icon: string;
+}
+
+interface CTAButton {
+    text: string;
+    href: string;
+    primary: boolean;
+}
+
+interface WhyChooseUsData {
+    section: {
+        badge: string;
+        headline: string;
+        description: string;
+    };
+    features: Feature[];
+    cta: {
+        title: string;
+        description: string;
+        buttons: CTAButton[];
+    };
+}
+
+// ============================================================================
+// Icon Components
+// ============================================================================
+
+interface IconProps {
+    size?: number;
+    className?: string;
+}
+
+const createIcon = (path: React.ReactNode, defaultSize: number = 24) => {
+    return memo(({ size = defaultSize, className = "" }: IconProps) => (
+        <svg
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={className}
+            aria-hidden="true"
+        >
+            {path}
+        </svg>
+    ));
+};
+
 const Icons = {
-    HardHat: () => (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    HardHat: createIcon(
+        <>
             <path d="M4 14h16v4H4v-4z" />
             <path d="M6 14v-3a6 6 0 0112 0v3" />
             <circle cx="12" cy="8" r="2" />
-        </svg>
+        </>
     ),
-    Shield: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-            <path d="M12 2L3 7v7c0 5.5 9 8 9 8s9-2.5 9-8V7l-9-5z" />
-        </svg>
+
+    Shield: createIcon(
+        <path d="M12 2L3 7v7c0 5.5 9 8 9 8s9-2.5 9-8V7l-9-5z" />,
+        32
     ),
-    Award: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+
+    Award: createIcon(
+        <>
             <circle cx="12" cy="8" r="6" />
             <path d="M8 14l-2 6 6-2 6 2-2-6" />
-        </svg>
+        </>,
+        32
     ),
-    Clock: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+
+    Clock: createIcon(
+        <>
             <circle cx="12" cy="12" r="9" />
-            <path d="M12 7v5l3 3" strokeLinecap="round" />
-        </svg>
+            <path d="M12 7v5l3 3" />
+        </>,
+        32
     ),
-    Users: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+
+    Users: createIcon(
+        <>
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
             <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </svg>
+        </>,
+        32
     ),
-    Star: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
+
+    Star: createIcon(
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />,
+        32
     ),
-    Check: () => (
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+
+    Check: createIcon(
+        <>
             <circle cx="12" cy="12" r="10" />
-            <path d="M8 12l3 3 5-5" strokeLinecap="round" />
-        </svg>
+            <path d="M8 12l3 3 5-5" />
+        </>,
+        32
     ),
-    ArrowRight: () => (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+
+    ArrowRight: createIcon(
+        <path d="M5 12h14M12 5l7 7-7 7" />,
+        18
+    ),
+
+    Sparkle: createIcon(
+        <>
+            <path d="M12 3L14 8L19 10L14 12L12 17L10 12L5 10L10 8L12 3Z" />
+            <path d="M19 3L20 5L22 6L20 7L19 9L18 7L16 6L18 5L19 3Z" />
+        </>,
+        20
     ),
 };
 
-const iconMap: Record<string, any> = {
+// ============================================================================
+// Constants
+// ============================================================================
+
+const ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
     Experience: Icons.Clock,
     Honest: Icons.Shield,
     Materials: Icons.Award,
@@ -70,59 +155,564 @@ const iconMap: Record<string, any> = {
     Certified: Icons.Check,
 };
 
-const FeatureCard = ({ feature, index }: { feature: any; index: number }) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const cardRef = useRef(null);
-    const inView = useInView(cardRef, { once: true, margin: "-50px" });
+const ANIMATION_VARIANTS: Record<string, Variants> = {
+    fadeUp: {
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0 },
+    },
+    float: {
+        initial: { y: 0, opacity: 1 },
+        animate: {
+            y: [0, -10, 0],
+            transition: {
+                y: {
+                    repeat: Infinity,
+                    duration: 4,
+                    ease: "easeInOut",
+                },
+            },
+        },
+    },
+    cardReveal: {
+        hidden: {
+            opacity: 0,
+            y: 60,
+            scale: 0.95,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15,
+            }
+        },
+    },
+};
 
-    const FeatureIcon = iconMap[feature.icon] || Icons.Star;
+// ============================================================================
+// Premium Feature Card Component
+// ============================================================================
+
+interface FeatureCardProps {
+    feature: Feature;
+    index: number;
+}
+
+const FeatureCard = memo(({ feature, index }: FeatureCardProps) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+    const inView = useInView(cardRef, { once: true, margin: "-50px" });
+    const prefersReducedMotion = useReducedMotion();
+
+    const [isHovered, setIsHovered] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    // Mouse tracking for 3D tilt effect
+    const mouseX = useMotionValue(0.5);
+    const mouseY = useMotionValue(0.5);
+
+    const springConfig = { damping: 20, stiffness: 300 };
+    const rotateX = useSpring(useTransform(mouseY, [0, 1], [5, -5]), springConfig);
+    const rotateY = useSpring(useTransform(mouseX, [0, 1], [-5, 5]), springConfig);
+    const z = useSpring(useTransform(mouseY, [0, 1], [0, 8]), springConfig);
+
+    const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        mouseX.set(x);
+        mouseY.set(y);
+    }, [mouseX, mouseY]);
+
+    const handleMouseLeave = useCallback(() => {
+        mouseX.set(0.5);
+        mouseY.set(0.5);
+        setIsHovered(false);
+    }, [mouseX, mouseY]);
+
+    const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsFocused(true);
+        }
+    }, []);
+
+    const handleKeyUp = useCallback((e: React.KeyboardEvent) => {
+        if (e.key === "Enter" || e.key === " ") {
+            setIsFocused(false);
+        }
+    }, []);
+
+    const isActive = isHovered || isFocused;
+    const FeatureIcon = ICON_MAP[feature.icon] || Icons.Star;
+
+    const cardVariants = prefersReducedMotion ? {} : ANIMATION_VARIANTS.cardReveal;
+    const animationProps = prefersReducedMotion
+        ? {}
+        : {
+            initial: "hidden",
+            animate: inView ? "visible" : "hidden",
+            variants: cardVariants,
+            transition: { delay: index * 0.1 },
+        };
+
+    const transformStyle = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${z}px)`;
 
     return (
         <motion.div
             ref={cardRef}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
+            {...animationProps}
+            onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="group"
+            onMouseLeave={handleMouseLeave}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
+            style={{ transformStyle: "preserve-3d", transform: transformStyle }}
+            className="group relative h-full cursor-pointer"
+            role="article"
+            aria-labelledby={`feature-title-${index}`}
+            tabIndex={0}
         >
-            <div className="h-full bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-red-200 transition-all duration-300">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center mb-5 group-hover:from-red-600 group-hover:to-red-700 transition-all duration-300">
-                    <div className="text-red-600 group-hover:text-white transition-colors duration-300">
-                        <FeatureIcon />
+            {/* Glow Effect */}
+            <div
+                className={`
+                    absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-red-400 via-red-500 to-red-600 
+                    opacity-0 blur-xl transition-all duration-500
+                    ${isActive ? 'opacity-40' : 'group-hover:opacity-20'}
+                `}
+            />
+
+            {/* Main Card */}
+            <div
+                className={`
+                    relative h-full bg-white rounded-2xl p-8 transition-all duration-300
+                    border border-gray-100 overflow-hidden
+                    ${isActive
+                        ? 'shadow-2xl border-red-200'
+                        : 'shadow-lg hover:shadow-xl'
+                    }
+                `}
+                style={{ transformStyle: "preserve-3d" }}
+            >
+                {/* Animated Background Gradient */}
+                <div
+                    className={`
+                        absolute inset-0 bg-gradient-to-br from-red-50 via-white to-orange-50
+                        opacity-0 transition-opacity duration-700
+                        ${isActive ? 'opacity-100' : 'group-hover:opacity-60'}
+                    `}
+                />
+
+                {/* Decorative Corner Elements */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-100/50 to-transparent rounded-bl-3xl -translate-y-12 translate-x-12 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-red-100/30 to-transparent rounded-tr-3xl -translate-x-8 translate-y-8 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-500" />
+
+                {/* Content */}
+                <div className="relative z-10" style={{ transformStyle: "preserve-3d" }}>
+                    {/* Icon Container */}
+                    <div className="relative mb-6" style={{ transform: "translateZ(20px)" }}>
+                        {/* Icon Glow */}
+                        <div
+                            className={`
+                                absolute inset-0 bg-gradient-to-br from-red-400 to-orange-500 
+                                rounded-2xl blur-xl opacity-0 transition-all duration-500
+                                ${isActive ? 'opacity-40 scale-110' : 'group-hover:opacity-30'}
+                            `}
+                        />
+
+                        {/* Main Icon Circle */}
+                        <div
+                            className={`
+                                relative w-16 h-16 rounded-2xl flex items-center justify-center
+                                transition-all duration-500 transform-gpu
+                                ${isActive
+                                    ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/30 scale-110'
+                                    : 'bg-gradient-to-br from-red-50 to-red-100 group-hover:shadow-md'
+                                }
+                            `}
+                        >
+                            {/* Animated Ring */}
+                            <div
+                                className={`
+                                    absolute inset-0 rounded-2xl border-2 border-red-400/30
+                                    transition-all duration-700
+                                    ${isActive ? 'scale-125 opacity-0' : 'scale-100 opacity-100'}
+                                `}
+                            />
+
+                            <div
+                                className={`
+                                    transition-all duration-300 transform-gpu
+                                    ${isActive ? 'text-white scale-110' : 'text-red-600 group-hover:scale-105'}
+                                `}
+                            >
+                                <FeatureIcon size={32} />
+                            </div>
+                        </div>
+
+                        {/* Sparkle Icon */}
+                        {isActive && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="absolute -top-2 -right-2 text-yellow-400"
+                                style={{ transform: "translateZ(30px)" }}
+                            >
+                                <Icons.Sparkle size={20} />
+                            </motion.div>
+                        )}
                     </div>
-                </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
-                    {feature.title}
-                </h3>
+                    {/* Index Number */}
+                    <div
+                        className="text-6xl font-black text-gray-100 absolute top-4 right-4 select-none"
+                        style={{ transform: "translateZ(10px)" }}
+                    >
+                        {String(index + 1).padStart(2, '0')}
+                    </div>
 
-                <p className="text-sm text-gray-600 leading-relaxed">
-                    {feature.description}
-                </p>
+                    {/* Title */}
+                    <h3
+                        id={`feature-title-${index}`}
+                        className={`
+                            text-xl font-bold mb-3 transition-all duration-300
+                            ${isActive
+                                ? 'text-red-600 translate-x-1'
+                                : 'text-gray-900 group-hover:text-gray-800'
+                            }
+                        `}
+                        style={{ transform: "translateZ(25px)" }}
+                    >
+                        {feature.title}
+                    </h3>
 
-                <div className="flex items-center gap-2 mt-4 text-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-xs font-bold uppercase tracking-wider">Learn More</span>
-                    <Icons.ArrowRight />
+                    {/* Description */}
+                    <p
+                        className="text-gray-600 leading-relaxed text-sm"
+                        style={{ transform: "translateZ(15px)" }}
+                    >
+                        {feature.description}
+                    </p>
+
+                    {/* Learn More Link */}
+                    <div
+                        className={`
+                            flex items-center gap-2 mt-6 text-red-600 transition-all duration-300
+                            ${isActive ? 'opacity-100 translate-x-2' : 'opacity-0 translate-x-0 group-hover:opacity-100 group-hover:translate-x-1'}
+                        `}
+                        style={{ transform: "translateZ(30px)" }}
+                    >
+                        <span className="text-xs font-bold uppercase tracking-wider">
+                            Learn More
+                        </span>
+                        <Icons.ArrowRight size={16} />
+                    </div>
+
+                    {/* Bottom Gradient Line */}
+                    <div
+                        className={`
+                            absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 to-orange-500
+                            transition-all duration-500 origin-left
+                            ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}
+                        `}
+                        style={{ transform: "translateZ(20px)" }}
+                    />
                 </div>
             </div>
         </motion.div>
     );
-};
+});
+
+FeatureCard.displayName = "FeatureCard";
+
+// ============================================================================
+// CTA Section Component
+// ============================================================================
+
+interface CTASectionProps {
+    cta: WhyChooseUsData['cta'];
+}
+
+const CTASection = memo(({ cta }: CTASectionProps) => {
+    const prefersReducedMotion = useReducedMotion();
+    const cleanTitle = useMemo(() => {
+        return cta.title.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    }, [cta.title]);
+
+    const floatAnimation = prefersReducedMotion
+        ? {}
+        : {
+            initial: "initial",
+            animate: "animate",
+            variants: ANIMATION_VARIANTS.float,
+        };
+
+    return (
+        <div className="relative mt-16 md:mt-24 lg:mt-32">
+            {/* CTA Container */}
+            <div className="relative rounded-3xl overflow-hidden">
+                {/* Cinematic Gradient Background */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: "linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%)"
+                    }}
+                />
+
+                {/* Ambient Glow Effects - Desktop only */}
+                <div className="hidden md:block absolute right-[10%] top-[10%] w-[400px] h-[400px] bg-white/10 blur-[140px] rounded-full pointer-events-none" />
+                <div className="hidden md:block absolute left-[5%] bottom-[20%] w-[250px] h-[250px] bg-black/10 blur-[100px] rounded-full pointer-events-none" />
+
+                {/* Vignette Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_60%,rgba(0,0,0,0.3))]" />
+
+                {/* Main Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
+
+                    {/* Desktop Layout - Two columns with floating image */}
+                    <div className="hidden md:grid md:grid-cols-2 gap-8 items-center">
+                        {/* Left Column - Text Content */}
+                        <div className="max-w-xl">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="inline-block mb-6"
+                            >
+                                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                                    READY TO BUILD
+                                </span>
+                            </motion.div>
+
+                            <motion.h2
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.1 }}
+                                className="text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.2] tracking-tight text-white"
+                            >
+                                {cleanTitle}
+                            </motion.h2>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="mt-4 text-white/80 text-lg max-w-lg"
+                            >
+                                {cta.description}
+                            </motion.p>
+
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                                className="mt-8 flex flex-wrap gap-4"
+                            >
+                                {cta.buttons.map((button, idx) => (
+                                    <motion.a
+                                        key={idx}
+                                        href={button.href}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className={`
+                                            px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-lg
+                                            flex items-center gap-2
+                                            ${button.primary
+                                                ? 'bg-white text-red-600 hover:bg-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.3)]'
+                                                : 'bg-transparent text-white border-2 border-white/30 hover:bg-white/10 backdrop-blur-sm'
+                                            }
+                                        `}
+                                    >
+                                        {button.text}
+                                        <Icons.ArrowRight />
+                                    </motion.a>
+                                ))}
+                            </motion.div>
+
+                            {/* Trust Badges */}
+                            <div className="mt-8 flex gap-4">
+                                <TrustBadge label="Licensed & Insured" color="green" />
+                                <TrustBadge label="Free Estimate" color="blue" />
+                                <TrustBadge label="24/7 Support" color="red" />
+                            </div>
+                        </div>
+
+                        {/* Right Column - Floating Image */}
+                        <div className="relative">
+                            <motion.div
+                                {...floatAnimation}
+                                className="absolute right-0 bottom-[-47rem] w-[115%] lg:w-[125%]"
+                                style={{ right: '-20%' }}
+                            >
+                                <Image
+                                    src={vectoroverlay}
+                                    alt="Mega Contracting Professional"
+                                    className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
+
+                    {/* Mobile Layout - Centered text, no image */}
+                    <div className="md:hidden text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="inline-block mb-4"
+                        >
+                            <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
+                                MEGA CONTRACTING
+                            </span>
+                        </motion.div>
+
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.1 }}
+                            className="text-3xl sm:text-4xl font-black leading-[1.2] text-white"
+                        >
+                            {cleanTitle}
+                        </motion.h2>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="mt-3 text-white/80 text-base max-w-md mx-auto"
+                        >
+                            {cta.description}
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+                        >
+                            {cta.buttons.map((button, idx) => (
+                                <motion.a
+                                    key={idx}
+                                    href={button.href}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className={`
+                                        px-6 py-3 rounded-full font-bold transition-all duration-300 shadow-lg
+                                        flex items-center justify-center gap-2
+                                        ${button.primary
+                                            ? 'bg-white text-red-600 hover:bg-gray-100'
+                                            : 'bg-transparent text-white border-2 border-white/30 hover:bg-white/10'
+                                        }
+                                    `}
+                                >
+                                    {button.text}
+                                    <Icons.ArrowRight />
+                                </motion.a>
+                            ))}
+                        </motion.div>
+
+                        {/* Trust Badges - Mobile */}
+                        <div className="mt-6 flex flex-wrap justify-center gap-2">
+                            <TrustBadge label="Licensed & Insured" color="green" />
+                            <TrustBadge label="Free Estimate" color="blue" />
+                            <TrustBadge label="24/7 Support" color="red" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Fade */}
+                <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            </div>
+        </div>
+    );
+});
+
+CTASection.displayName = "CTASection";
+
+// ============================================================================
+// Trust Badge Component
+// ============================================================================
+
+interface TrustBadgeProps {
+    label: string;
+    color: 'green' | 'blue' | 'red';
+}
+
+const TrustBadge = memo(({ label, color }: TrustBadgeProps) => {
+    const colorClasses = {
+        green: 'bg-green-500',
+        blue: 'bg-blue-500',
+        red: 'bg-red-400',
+    };
+
+    return (
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+            <div className={`w-1.5 h-1.5 ${colorClasses[color]} rounded-full animate-pulse`} />
+            <span className="text-xs text-white/70 whitespace-nowrap">{label}</span>
+        </div>
+    );
+});
+
+TrustBadge.displayName = "TrustBadge";
+
+// ============================================================================
+// Diagonal Grid Background Component
+// ============================================================================
+
+const DiagonalGridBackground = memo(() => (
+    <div className="absolute inset-0 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern
+                    id="diagonalGrid"
+                    x="0"
+                    y="0"
+                    width="40"
+                    height="40"
+                    patternUnits="userSpaceOnUse"
+                    patternTransform="rotate(45)"
+                >
+                    <line x1="0" y1="0" x2="0" y2="40" stroke="#DC2626" strokeWidth="0.5" opacity="0.06" />
+                    <line x1="0" y1="0" x2="40" y2="0" stroke="#DC2626" strokeWidth="0.5" opacity="0.06" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#diagonalGrid)" />
+        </svg>
+    </div>
+));
+
+DiagonalGridBackground.displayName = "DiagonalGridBackground";
+
+// ============================================================================
+// Main Component
+// ============================================================================
 
 const WhyChooseUs = () => {
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
     const [isClient, setIsClient] = useState(false);
+    const prefersReducedMotion = useReducedMotion();
 
-    const { section, features, cta } = completeData.whyChooseUs;
+    const { section, features, cta } = completeData.whyChooseUs as WhyChooseUsData;
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
     useEffect(() => {
-        if (!sectionRef.current || !isClient) return;
+        if (!sectionRef.current || !isClient || prefersReducedMotion) return;
 
         const ctx = gsap.context(() => {
             gsap.fromTo('.reveal-title',
@@ -141,46 +731,63 @@ const WhyChooseUs = () => {
         }, sectionRef);
 
         return () => ctx.revert();
-    }, [isClient]);
+    }, [isClient, prefersReducedMotion]);
 
-    if (!isClient) return null;
-
-    const cleanTitle = cta.title.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!isClient) {
+        return (
+            <section className="relative bg-white py-16 md:py-20 lg:py-24 overflow-x-clip">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="animate-pulse">
+                        <div className="text-center max-w-3xl mx-auto mb-14">
+                            <div className="inline-flex items-center gap-2 bg-gray-200 px-5 py-2.5 rounded-lg mb-5">
+                                <div className="w-12 h-4 bg-gray-300 rounded" />
+                            </div>
+                            <div className="h-12 bg-gray-200 rounded-lg max-w-2xl mx-auto mb-4" />
+                            <div className="h-4 bg-gray-200 rounded max-w-xl mx-auto" />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {[1, 2, 3].map((i) => (
+                                <div key={i} className="h-64 bg-gray-100 rounded-xl" />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section
             ref={sectionRef}
             className="relative bg-white py-16 md:py-20 lg:py-24 overflow-x-clip"
+            aria-labelledby="why-choose-us-heading"
         >
-            {/* Diagonal Grid Lines Background */}
-            <div className="absolute inset-0 pointer-events-none">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="diagonalGrid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                            <line x1="0" y1="0" x2="0" y2="40" stroke="#DC2626" strokeWidth="0.5" opacity="0.06" />
-                            <line x1="0" y1="0" x2="40" y2="0" stroke="#DC2626" strokeWidth="0.5" opacity="0.06" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#diagonalGrid)" />
-                </svg>
-            </div>
+            <DiagonalGridBackground />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-14 reveal-title">
-                    <div className="inline-flex items-center gap-2 bg-red-600 px-5 py-2.5 rounded-lg mb-5 shadow-md">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 px-5 py-2.5 rounded-xl mb-5 shadow-lg shadow-red-500/30"
+                    >
                         <Icons.HardHat />
                         <span className="text-white uppercase tracking-[0.2em] text-xs font-black">
                             {section.badge}
                         </span>
-                    </div>
+                    </motion.div>
 
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"
+                    <h2
+                        id="why-choose-us-heading"
+                        className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight"
                         dangerouslySetInnerHTML={{ __html: section.headline }}
                     />
 
-                    <div className="flex justify-center gap-1 mb-4">
-                        <div className="w-12 h-1 bg-red-600 rounded-full" />
+                    <div className="flex justify-center gap-1 mb-4" aria-hidden="true">
+                        <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-500 rounded-full" />
                         <div className="w-6 h-1 bg-red-400 rounded-full" />
                         <div className="w-3 h-1 bg-red-300 rounded-full" />
                     </div>
@@ -191,77 +798,16 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
-                    {features.map((feature: any, index: number) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {features.map((feature, index) => (
                         <FeatureCard key={feature.title} feature={feature} index={index} />
                     ))}
                 </div>
+            </div>
 
-                {/* CTA with Floating Image Effect */}
-                <div className="relative mt-16 md:mt-20 lg:mt-24">
-                    {/* Floating Image - Positioned on the left side, overflowing above */}
-                    <motion.div
-                        initial={{ y: 40, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="absolute left-4 md:left-8 lg:left-12 top-0 -translate-y-1/2 z-30"
-                    >
-                        <img 
-                            src={vectoroverlay} 
-                            alt="Mega Contracting" 
-                            className="w-28 h-28 md:w-40 md:h-40 lg:w-52 lg:h-52 object-contain"
-                            style={{
-                                filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.25))',
-                            }}
-                        />
-                    </motion.div>
-
-                    {/* CTA Box - With left padding to avoid text overlapping image */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="relative bg-gradient-to-r from-red-600 to-red-700 rounded-2xl shadow-xl z-20"
-                    >
-                        {/* Dynamic left padding based on screen size */}
-                        <div className="p-12 md:p-14 lg:p-16 pl-28 md:pl-36 lg:pl-72">
-                            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-                                {/* Text Content */}
-                                <div className="flex-1">
-                                    <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-white mb-2">
-                                        {cleanTitle}
-                                    </h3>
-                                    
-                                    <p className="text-white/80 text-sm md:text-base max-w-xl">
-                                        {cta.description}
-                                    </p>
-                                </div>
-
-                                {/* Buttons */}
-                                <div className="flex flex-col sm:flex-row gap-3 lg:justify-end">
-                                    {cta.buttons.map((button: any, idx: number) => (
-                                        <motion.a
-                                            key={idx}
-                                            href={button.href}
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                            className={`px-5 py-2.5 font-bold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 text-sm whitespace-nowrap ${
-                                                button.primary
-                                                    ? 'bg-white text-red-600 hover:bg-gray-100'
-                                                    : 'bg-transparent text-white border-2 border-white/30 hover:bg-white/10'
-                                            }`}
-                                        >
-                                            {button.text}
-                                            <Icons.ArrowRight />
-                                        </motion.a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
+            {/* CTA Section */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <CTASection cta={cta} />
             </div>
         </section>
     );

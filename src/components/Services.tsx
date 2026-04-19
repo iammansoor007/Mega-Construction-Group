@@ -36,12 +36,12 @@ import {
   Landmark,
   AlertTriangle,
 } from "lucide-react";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // Lazy load images only when they come into view
-const LazyImage = memo(({ src, alt, className, onError }: { src: string; alt: string; className: string; onError: () => void }) => {
+const LazyImage = memo(({ src, alt, className, onError }: { src: any; alt: string; className: string; onError: () => void }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [inView, setInView] = useState(false);
@@ -74,11 +74,10 @@ const LazyImage = memo(({ src, alt, className, onError }: { src: string; alt: st
             <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-lg" />
           )}
           <img
-            src={src}
+            src={typeof src === 'string' ? src : src.src}
             alt={alt}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
+            className={`w-full h-full object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"
+              }`}
             onLoad={() => setLoaded(true)}
             onError={onError}
             loading="lazy"
@@ -93,17 +92,17 @@ const LazyImage = memo(({ src, alt, className, onError }: { src: string; alt: st
 LazyImage.displayName = "LazyImage";
 
 // Image paths mapping - using dynamic imports for code splitting
-const serviceImagePaths: Record<string, () => Promise<{ default: string }>> = {
-  megaservice1: () => import("@/assets/megaservice1.jpg"),
-  megaservice2: () => import("@/assets/megaservice2.jpg"),
-  megaservice3: () => import("@/assets/megaservice3.jpg"),
-  megaservice4: () => import("@/assets/megaservice4.jpg"),
-  megaservice5: () => import("@/assets/megaservice5.jpg"),
-  megaservice6: () => import("@/assets/megaservice6.jpg"),
-  megaservice7: () => import("@/assets/megaservice7.jpg"),
-  megaservice8: () => import("@/assets/megaservice8.jpg"),
-  megaservice9: () => import("@/assets/megaservice9.jpg"),
-  megaservice10: () => import("@/assets/megaservice10.jpg"),
+const serviceImagePaths: Record<string, () => Promise<{ default: any }>> = {
+  "general-contracting": () => import("@/assets/general-contracting.jpg"),
+  "kitchen-bath": () => import("@/assets/kitchen-bath.jpg"),
+  "home-renovation": () => import("@/assets/home-renovation.jpg"),
+  "commercial-construction": () => import("@/assets/commercial-construction.jpg"),
+  "excavation": () => import("@/assets/excavation.jpg"),
+  "concrete-masonry": () => import("@/assets/concrete-masonry.jpg"),
+  "roofing": () => import("@/assets/roofing.jpg"),
+  "historic-restoration": () => import("@/assets/historic-restoration.jpg"),
+  "emergency-repairs": () => import("@/assets/emergency-repairs.jpg"),
+  "custom-home": () => import("@/assets/custom-home.jpg"),
 };
 
 // Optimized Counter with reduced re-renders
@@ -212,7 +211,7 @@ CompactServiceCard.displayName = "CompactServiceCard";
 const ServiceCard = memo(({ service, index }: { service: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<any>(null);
   const cardRef = useRef(null);
   const inView = useInView(cardRef, { once: true, margin: "200px" });
   const ServiceIcon = iconMap[service.icon] || Wrench;
@@ -271,7 +270,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
       className="relative group"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-red-500 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 blur group-hover:blur-md" />
-      
+
       <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-200 group-hover:border-red-300 transition-all duration-300 shadow-md hover:shadow-lg">
         <div className="relative h-48 overflow-hidden bg-gradient-to-br from-red-50 to-gray-100">
           {inView && imageSrc && !imageError ? (
@@ -398,15 +397,7 @@ const Services = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) {
-    return (
-      <section className="relative bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="h-96 bg-gray-100 animate-pulse rounded-3xl" />
-        </div>
-      </section>
-    );
-  }
+
 
   return (
     <section
@@ -480,7 +471,7 @@ const Services = () => {
                   style={{ clipPath: clipPathLeftToRight }}
                 >
                   <motion.img
-                    src={serviceDetail}
+                    src={serviceDetail.src}
                     alt="Mega Contracting NY Group"
                     className="w-full h-full object-cover"
                     style={{ scale: imageScale }}
@@ -519,7 +510,7 @@ const Services = () => {
                   style={{ top: "-10%", left: "-10%" }}
                 >
                   <img
-                    src={vectoroverlay}
+                    src={vectoroverlay.src}
                     alt="Vector Overlay"
                     className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
                     style={{ filter: "drop-shadow(0 15px 20px rgba(0,0,0,0.2))" }}

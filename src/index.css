@@ -174,4 +174,120 @@
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
   }
+
+  /* ====================== */
+  /* THEME: Engineering Excellence (Diamond UI) */
+  /* ====================== */
+
+  :root {
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --blueprint-color: rgba(195, 5, 5, 0.05);
+  }
+
+  .blueprint-grid {
+    background-image: 
+      linear-gradient(var(--blueprint-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--blueprint-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .glass-heavy {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glow-red-subtle {
+    box-shadow: 0 0 40px -10px rgba(195, 5, 5, 0.15);
+  }
+
+  .glow-red-heavy {
+    box-shadow: 0 0 60px -5px rgba(195, 5, 5, 0.3);
+  }
+
+  .technical-grid {
+    background-image: 
+      linear-gradient(rgba(195, 5, 5, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(195, 5, 5, 0.03) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+
+  .aura-glow-soft {
+    filter: drop-shadow(0 0 30px rgba(195, 5, 5, 0.15));
+    transition: filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  .coordinate-stable {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+    font-family: var(--font-inter);
+  }
+
+  .blueprint-line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: blueprint-draw 2s forwards ease-in-out;
+  }
+
+  @keyframes blueprint-draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .text-stroke-white {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .tech-scanner {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, rgba(195, 5, 5, 0.05), transparent);
+    animation: tech-scan 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes tech-scan {
+    0% { top: -100%; }
+    50% { top: 100%; }
+    100% { top: 100%; }
+  }
+
+  /* GPU Acceleration & Performance Utilities */
+  .smooth-gpu {
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+
+  .text-stable {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nitro-iso {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px; /* Placeholder size for layout stability */
+  }
+
+  .gpu-boost {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .content-contain {
+    contain: content;
+  }
+
+  .paint-contain {
+    contain: paint;
+  }
 }

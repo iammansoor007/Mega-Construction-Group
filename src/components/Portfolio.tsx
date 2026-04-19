@@ -1,4 +1,7 @@
+"use client";
+
 import { useRef, useEffect, useState, useCallback, useMemo } from "react";
+import Image from "next/image";
 import {
   motion,
   AnimatePresence,
@@ -10,13 +13,13 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { useMousePosition } from "../hooks/useMousePosition";
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 import portfolio4 from "@/assets/portfolio-4.jpg";
 import portfolio5 from "@/assets/portfolio-5.jpg";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,55 +59,31 @@ const Icons = {
 
 const MarqueeItem = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const itemRef = useRef(null);
+  const { springX: globalX, springY: globalY } = useMousePosition();
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springX = useSpring(x, { stiffness: 200, damping: 20, mass: 0.1 });
-  const springY = useSpring(y, { stiffness: 200, damping: 20, mass: 0.1 });
-
-  const rotateX = useTransform(springY, [-0.4, 0.4], [3, -3]);
-  const rotateY = useTransform(springX, [-0.4, 0.4], [-3, 3]);
-
-  const handleMouseMove = (e) => {
-    if (!itemRef.current || !isHovered) return;
-    const rect = itemRef.current.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.4;
-    const yPct = (mouseY / rect.height - 0.5) * 0.4;
-    x.set(xPct);
-    y.set(yPct);
-  };
+  // Optimized tilt effect using global mouse values to avoid getBoundingClientRect layout thrashes
+  const rotateX = useTransform(globalY, [0, 1000], [4, -4]); 
+  const rotateY = useTransform(globalX, [0, 1000], [-4, 4]);
 
   return (
     <motion.div
-      ref={itemRef}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        x.set(0);
-        y.set(0);
-      }}
-      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
         rotateX: isHovered ? rotateX : 0,
         rotateY: isHovered ? rotateY : 0,
-        transformPerspective: 1200,
+        transformPerspective: 1000,
         scale: isHovered ? 1.02 : 1,
       }}
-      className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer will-change-transform transition-transform duration-300"
+      className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer smooth-gpu"
     >
       <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl border-2 border-gray-200">
-        <img
+        <Image
           src={imageMap[project.image as keyof typeof imageMap]}
           alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            transform: isHovered ? 'scale(1.1)' : 'scale(1)',
-            transition: 'transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1)'
-          }}
+          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
@@ -218,48 +197,44 @@ const InfiniteMarquee = ({ projects, direction = "left", speed = 45 }) => {
   const animationRef = useRef(null);
 
   const infiniteProjects = useMemo(() => {
-    return [...projects, ...projects, ...projects, ...projects, ...projects];
+    // Quad-cloning to ensure absolute coverage for infinity loop
+    return [...projects, ...projects, ...projects, ...projects];
   }, [projects]);
 
   useEffect(() => {
     if (!marqueeRef.current) return;
 
     const marquee = marqueeRef.current;
-    const itemWidth = window.innerWidth < 640 ? 216 : window.innerWidth < 768 ? 256 : 296;
-    const totalWidth = itemWidth * projects.length;
-    const distance = direction === "left" ? -totalWidth : totalWidth;
+    
+    // Dynamically calculate the total scrollable width of a single set
+    const singleSetWidth = (marquee.scrollWidth / 4); 
+    
+    const distance = direction === "left" ? -singleSetWidth : singleSetWidth;
 
     if (animationRef.current) {
       animationRef.current.kill();
     }
 
-    gsap.set(marquee, {
-      x: direction === "left" ? 0 : -totalWidth
-    });
+    gsap.set(marquee, { x: 0 });
 
     animationRef.current = gsap.to(marquee, {
       x: distance,
-      duration: speed * (projects.length / 3),
+      duration: speed,
       repeat: -1,
       ease: "none",
+      force3D: true,
       modifiers: {
-        x: (x) => {
-          const value = parseFloat(x);
-          if (direction === "left") {
-            return value <= -totalWidth ? `${value + totalWidth}px` : `${value}px`;
-          } else {
-            return value >= 0 ? `${value - totalWidth}px` : `${value}px`;
-          }
-        }
+        x: gsap.utils.unitize(x => {
+          const val = parseFloat(x);
+          return val % singleSetWidth;
+        })
       }
     });
 
     return () => {
-      if (animationRef.current) {
-        animationRef.current.kill();
-      }
+      if (animationRef.current) animationRef.current.kill();
     };
-  }, [direction, speed, projects]);
+  }, [direction, speed, projects.length]); // Use projects.length to ensure stable re-triggers
 
   useEffect(() => {
     if (!animationRef.current) return;
@@ -276,8 +251,7 @@ const InfiniteMarquee = ({ projects, direction = "left", speed = 45 }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-r from-gray-50 via-gray-50/90 to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-40 z-20 pointer-events-none bg-gradient-to-l from-gray-50 via-gray-50/90 to-transparent" />
+
 
       <div
         ref={marqueeRef}
@@ -324,15 +298,20 @@ const PremiumLightbox = ({ image, onClose }) => {
         Close
       </motion.button>
 
-      <motion.img
-        src={image}
-        alt="Project preview"
-        className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+      <motion.div
+        className="relative w-full max-w-4xl h-[80vh]"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ duration: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
-      />
+      >
+        <Image
+          src={image}
+          alt="Project preview"
+          className="object-contain rounded-lg shadow-2xl"
+          fill
+        />
+      </motion.div>
     </motion.div>
   );
 };
@@ -340,7 +319,6 @@ const PremiumLightbox = ({ image, onClose }) => {
 const Portfolio = () => {
   const sectionRef = useRef(null);
   const [lightbox, setLightbox] = useState(null);
-  const [isClient, setIsClient] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -357,19 +335,13 @@ const Portfolio = () => {
 
   const { section, projects, button } = completeData.portfolio;
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) return null;
-
   const row1 = projects.slice(0, 3);
   const row2 = projects.slice(2, 5);
 
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gray-50 overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
+      className="relative bg-gray-50 overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 nitro-iso"
     >
       {/* Construction Pattern Background */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
@@ -395,7 +367,7 @@ const Portfolio = () => {
             </span>
           </div>
 
-          <h2 
+          <h2
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight px-2"
             dangerouslySetInnerHTML={{ __html: section.headline }}
           />

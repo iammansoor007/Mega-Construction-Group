@@ -1,4 +1,8 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -23,7 +27,7 @@ import {
 } from "lucide-react";
 import logo from "../assets/Mega-Contracting-Logo.png";
 import logo2nd from "../assets/Mega-Contracting-Logo.png";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 // Icon mapping
 const iconMap = {
@@ -163,29 +167,35 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-background/60 backdrop-blur-xl shadow-lg py-2 border-b border-foreground/10"
+            ? "glass-heavy shadow-2xl py-2 border-b border-white/10"
             : "bg-transparent py-4"
         }`}
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
-            <motion.a
-              href="#"
-              className="flex logooo items-center space-x-3 group"
-              onClick={handleLinkClick}
+            <motion.div
+              className="flex logooo items-center space-x-3 group relative text-stable"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-20 w-48 rounded-2xl flex items-center justify-center overflow-hidden">
-                <img
-                  src={logo}
-                  alt="Company Logo"
-                  className="companylogo h-full w-full object-contain p-1"
-                />
-              </div>
-            </motion.a>
+              <Link href="/" className="flex items-center space-x-3" onClick={handleLinkClick}>
+                {/* Logo Glow Effect */}
+                <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="h-20 w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10">
+                  <Image
+                    src={logo}
+                    alt="Mega Construction NY Group Logo"
+                    className="companylogo h-full w-full object-contain p-1 drop-shadow-2xl smooth-gpu"
+                    priority
+                    width={192}
+                    height={80}
+                  />
+                </div>
+              </Link>
+            </motion.div>
 
             <div className="hidden lg:flex items-center space-x-2">
               <div className="relative">
@@ -193,7 +203,7 @@ const Navbar = () => {
                   ref={servicesButtonRef}
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
-                  className="flex items-center space-x-2 px-5 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group"
+                  className="flex items-center space-x-2 px-5 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group text-stable"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -233,89 +243,93 @@ const Navbar = () => {
                               service.icon as keyof typeof serviceIconMap
                             ] || serviceIconMap.Home;
                           return (
-                            <motion.a
+                            <motion.div
                               key={service.title}
-                              href="#services"
-                              onClick={handleLinkClick}
-                              onMouseEnter={() => {
-                                setHoveredService(service.title);
-                                setIsHoveringMegaMenu(true);
-                              }}
-                              onMouseLeave={() => {
-                                setHoveredService(null);
-                              }}
-                              className="group block p-5 rounded-xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-white"
                               whileHover={{ y: -3 }}
+                              className="flex"
                             >
-                              <div className="flex items-start space-x-3 mb-4">
-                                <div
-                                  className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
-                                    hoveredService === service.title
-                                      ? "bg-primary"
-                                      : "bg-primary/10 group-hover:bg-primary"
-                                  }`}
-                                >
-                                  <ServiceIcon
-                                    isHovered={hoveredService === service.title}
-                                  />
-                                </div>
-                                <div>
-                                  <h3
-                                    className={`font-bold text-base mb-1 transition-colors ${
+                              <Link
+                                href="#services"
+                                onClick={handleLinkClick}
+                                onMouseEnter={() => {
+                                  setHoveredService(service.title);
+                                  setIsHoveringMegaMenu(true);
+                                }}
+                                onMouseLeave={() => {
+                                  setHoveredService(null);
+                                }}
+                                className="group block p-5 rounded-xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-white"
+                              >
+                                <div className="flex items-start space-x-3 mb-4">
+                                  <div
+                                    className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${
                                       hoveredService === service.title
-                                        ? "text-primary"
-                                        : "text-gray-900 group-hover:text-primary"
+                                        ? "bg-primary"
+                                        : "bg-primary/10 group-hover:bg-primary"
                                     }`}
                                   >
-                                    {service.title}
-                                  </h3>
-                                  <p className="text-gray-500 text-xs">
-                                    {service.description}
-                                  </p>
-                                </div>
-                              </div>
-
-                              <div className="space-y-2 mb-4">
-                                {service.items.map((item) => (
-                                  <div
-                                    key={item}
-                                    className="flex items-center text-sm transition-colors"
-                                  >
-                                    <ChevronDown
-                                      className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${
-                                        hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-gray-400 group-hover:text-primary"
-                                      }`}
+                                    <ServiceIcon
+                                      isHovered={hoveredService === service.title}
                                     />
-                                    <span
-                                      className={`truncate transition-colors ${
+                                  </div>
+                                  <div>
+                                    <h3
+                                      className={`font-bold text-base mb-1 transition-colors ${
                                         hoveredService === service.title
                                           ? "text-primary"
-                                          : "text-gray-700 group-hover:text-primary"
+                                          : "text-gray-900 group-hover:text-primary"
                                       }`}
                                     >
-                                      {item}
-                                    </span>
+                                      {service.title}
+                                    </h3>
+                                    <p className="text-gray-500 text-xs">
+                                      {service.description}
+                                    </p>
                                   </div>
-                                ))}
-                              </div>
+                                </div>
 
-                              <div className="flex flex-wrap gap-1.5">
-                                {service.features.map((feature) => (
-                                  <span
-                                    key={feature}
-                                    className={`px-2 py-1 text-xs rounded-full border transition-colors ${
-                                      hoveredService === service.title
-                                        ? "bg-primary/10 text-primary border-primary/20"
-                                        : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
-                                    }`}
-                                  >
-                                    {feature}
-                                  </span>
-                                ))}
-                              </div>
-                            </motion.a>
+                                <div className="space-y-2 mb-4">
+                                  {service.items.map((item) => (
+                                    <div
+                                      key={item}
+                                      className="flex items-center text-sm transition-colors"
+                                    >
+                                      <ChevronDown
+                                        className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${
+                                          hoveredService === service.title
+                                            ? "text-primary"
+                                            : "text-gray-400 group-hover:text-primary"
+                                        }`}
+                                      />
+                                      <span
+                                        className={`truncate transition-colors ${
+                                          hoveredService === service.title
+                                            ? "text-primary"
+                                            : "text-gray-700 group-hover:text-primary"
+                                        }`}
+                                      >
+                                        {item}
+                                      </span>
+                                    </div>
+                                  ))}
+                                </div>
+
+                                <div className="flex flex-wrap gap-1.5">
+                                  {service.features.map((feature) => (
+                                    <span
+                                      key={feature}
+                                      className={`px-2 py-1 text-xs rounded-full border transition-colors ${
+                                        hoveredService === service.title
+                                          ? "bg-primary/10 text-primary border-primary/20"
+                                          : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
+                                      }`}
+                                    >
+                                      {feature}
+                                    </span>
+                                  ))}
+                                </div>
+                              </Link>
+                            </motion.div>
                           );
                         })}
                       </div>
@@ -335,16 +349,14 @@ const Navbar = () => {
                               </p>
                             </div>
                           </div>
-                          <motion.a
+                          <Link
                             href={cta.buttonLink}
                             onClick={handleLinkClick}
                             className="bg-white text-primary px-5 py-2.5 rounded-lg font-semibold hover:shadow-xl hover:bg-white/90 transition-all duration-300 inline-flex items-center space-x-2"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
                           >
                             <FileText className="h-4 w-4" />
                             <span>{cta.buttonText}</span>
-                          </motion.a>
+                          </Link>
                         </div>
                       </div>
                     </motion.div>
@@ -357,15 +369,18 @@ const Navbar = () => {
                   const LinkIcon =
                     iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
                   return (
-                    <motion.a
+                    <motion.div
                       key={link.label}
-                      href={link.href}
-                      onClick={handleLinkClick}
-                      onMouseEnter={() => setActiveMegaMenu(null)}
-                      className="flex items-center space-x-2 px-4 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
+                      className="flex items-center"
                     >
+                      <Link
+                        href={link.href}
+                        onClick={handleLinkClick}
+                        onMouseEnter={() => setActiveMegaMenu(null)}
+                        className="flex items-center space-x-2 px-4 py-2.5 text-foreground hover:text-primary/80 transition-all duration-300 font-semibold rounded-xl relative group text-stable"
+                      >
                       <div className="text-foreground group-hover:text-primary/80 transition-colors">
                         <LinkIcon />
                       </div>
@@ -373,7 +388,8 @@ const Navbar = () => {
                         {link.label}
                       </span>
                       <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary/80 group-hover:w-3/4 transition-all duration-500" />
-                    </motion.a>
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -384,7 +400,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <a
+              <Link
                 href="#contact"
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
@@ -404,7 +420,7 @@ const Navbar = () => {
                   />
                   <span>Get Free Quote</span>
                 </span>
-              </a>
+              </Link>
             </motion.div>
 
             <div className="flex items-center space-x-4 lg:hidden">
@@ -469,10 +485,12 @@ const Navbar = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="h-16 w-26 rounded-xl flex items-center justify-center overflow-hidden">
-                        <img
+                        <Image
                           src={logo2nd}
                           alt="Company Logo"
                           className="h-full w-full object-contain"
+                          width={104}
+                          height={64}
                         />
                       </div>
                     </div>

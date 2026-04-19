@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import teamImage from "@/assets/team-image.jpg";
@@ -21,7 +22,7 @@ const Mission = () => {
       <div className="grid-editorial items-center">
         <div className="md:col-span-5 order-2 md:order-1">
           <div className="mission-image overflow-hidden aspect-[3/4] relative">
-            <img src={teamImage} alt="Our team at work" className="w-full h-full object-cover" />
+            <Image src={teamImage} alt="Our team at work" className="w-full h-full object-cover" priority />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 bg-primary/90 backdrop-blur-sm p-5 border border-foreground/10">
               <div className="grid grid-cols-3 gap-4">
@@ -41,7 +42,7 @@ const Mission = () => {
           <h2 className="heading-lg text-foreground mb-8 mission-headline">Built on<br />Principle.</h2>
           <div className="space-y-6">
             <p className="body-lg text-foreground/90 mission-copy">We believe a roof is not merely a covering — it is the structural crown of every building. Our mission is to elevate roofing from trade to discipline, from commodity to craft.</p>
-            <p className="body-sm text-muted-foreground mission-copy">Founded by structural engineers and master craftsmen, Apex Roofing combines rigorous engineering methodology with artisanal attention to detail.</p>
+            <p className="body-sm text-muted-foreground mission-copy">Founded by structural engineers and master craftsmen, Mega Construction NY Group combines rigorous engineering methodology with artisanal attention to detail.</p>
             <p className="body-sm text-muted-foreground mission-copy italic border-l-2 border-foreground/30 pl-4">"We don't cut corners. We engineer them."</p>
           </div>
         </div>

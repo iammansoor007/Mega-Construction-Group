@@ -6,11 +6,12 @@ import {
   useSpring,
   useInView,
 } from "framer-motion";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ceo from "@/assets/megaowner.png";
+import ceo from "../assets/megaownerprinted.png";
 import vectoroverlay from "../assets/Frame.png";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,11 +84,11 @@ const CeoPortrait = () => {
         <div className="relative rounded-lg overflow-visible shadow-2xl">
           {/* Image Container */}
           <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
-            <img
+            <Image
               src={ceo}
               alt={ceoData.alt}
               className="w-full h-[500px] md:h-[600px] object-cover"
-              loading="eager"
+              priority
             />
 
             {/* Gradient overlay */}
@@ -137,14 +138,14 @@ const CeoPortrait = () => {
           <motion.div
             initial={{ x: 80, y: -80, opacity: 0, rotate: -15 }}
             animate={inView ? { x: 0, y: 0, opacity: 1, rotate: 0 } : {}}
-            transition={{ 
-              delay: 0.5, 
+            transition={{
+              delay: 0.5,
               duration: 0.9,
               type: "spring",
               stiffness: 45,
               damping: 10
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.08,
               rotate: 5,
               transition: { duration: 0.3 }
@@ -155,9 +156,9 @@ const CeoPortrait = () => {
               right: "-8%",
             }}
           >
-            <img 
-              src={vectoroverlay} 
-              alt="Mega Contracting" 
+            <Image
+              src={vectoroverlay}
+              alt="Mega Contracting"
               className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain pointer-events-auto"
               style={{
                 filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.35))',
@@ -222,7 +223,7 @@ const Leadership = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) return null;
+
 
   return (
     <section
@@ -245,13 +246,13 @@ const Leadership = () => {
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-14 leadership-reveal">
           <div className="inline-flex items-center gap-3 bg-red-50 px-5 py-2 rounded-full border border-red-200 mb-6">
-            
+
             <span className="text-red-600 uppercase tracking-[0.2em] text-xs font-black">
               {section.badge}
             </span>
           </div>
 
-          <h2 
+          <h2
             className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 leading-tight"
             dangerouslySetInnerHTML={{ __html: section.headline }}
           />
@@ -288,7 +289,7 @@ const Leadership = () => {
 
             {/* Quote Section */}
             <div className="relative bg-white p-6 rounded-xl shadow-md border border-gray-200">
-             
+
               {ceo.quotes.map((quote, idx) => (
                 <p key={idx} className="text-gray-700 text-base leading-relaxed italic">
                   "{quote}"

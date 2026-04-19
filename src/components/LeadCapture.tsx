@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -189,7 +190,7 @@ const CTASection = () => {
     return () => ctx.revert();
   }, [isClient]);
 
-  if (!isClient) return null;
+
 
   return (
     <section
@@ -221,10 +222,11 @@ const CTASection = () => {
       {/* Hero Image - Subtle */}
       <ParallaxLayer speed={0.1} className="z-0">
         <div className="absolute top-0 right-0 w-2/5 h-full">
-          <img
+          <Image
             src={Images.Hero}
             alt="Modern architecture"
             className="w-full h-full object-cover opacity-5"
+            fill
           />
           <div className="absolute inset-0 bg-gradient-to-l from-white via-white to-transparent" />
         </div>
@@ -232,10 +234,11 @@ const CTASection = () => {
 
       <ParallaxLayer speed={0.15} className="z-0">
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2">
-          <img
+          <Image
             src={Images.Detail}
             alt="Architectural detail"
             className="w-full h-full object-cover opacity-5"
+            fill
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
         </div>
@@ -297,7 +300,7 @@ const CTASection = () => {
                 <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-200/50">
                   <Icons.Sparkle />
                   <span className="text-xs font-medium tracking-wider text-blue-700">
-                    Fair Claims Roofing • 2002
+                    Mega Construction NY Group • 2005
                   </span>
                 </div>
 

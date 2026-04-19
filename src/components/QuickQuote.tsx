@@ -1,17 +1,14 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, Mail, User, Phone, Home, MessageSquare, Zap, Award, ChevronRight } from 'lucide-react';
+import { useFormState } from '../context/FormContext';
 
 const QuickQuote = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        message: ''
-    });
+    const { formData, updateFormData, clearFormData } = useFormState();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [step, setStep] = useState(1);
@@ -28,10 +25,8 @@ const QuickQuote = () => {
 
     // Handle input changes
     const handleInputChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+        updateFormData({ [name]: value });
     };
 
     // Handle form submission
@@ -40,7 +35,7 @@ const QuickQuote = () => {
         setIsSubmitting(true);
 
         const emailContent = `
-🔴 NEW QUICK QUOTE REQUEST - FAIR CLAIMS ROOFING
+🔴 NEW QUICK QUOTE REQUEST - MEGA CONSTRUCTION NY GROUP
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -103,13 +98,7 @@ ${formData.message}
 
     const showSuccess = () => {
         setIsSuccess(true);
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            projectType: '',
-            message: ''
-        });
+        clearFormData();
         setStep(1);
 
         setTimeout(() => {
@@ -162,9 +151,10 @@ ${formData.message}
                 {[...Array(3)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute inset-0 rounded-full"
+                        className="absolute inset-0 rounded-full pointer-events-none"
                         style={{
                             background: `radial-gradient(circle, rgba(195,5,5,${0.3 - i * 0.1}) 0%, transparent 70%)`,
+                            willChange: "transform, opacity"
                         }}
                         animate={{
                             scale: [1, 1.8, 1],
@@ -185,13 +175,14 @@ ${formData.message}
                         {[...Array(8)].map((_, i) => (
                             <motion.div
                                 key={i}
-                                className="absolute w-1 h-1 bg-primary rounded-full"
+                                className="absolute w-1 h-1 bg-primary rounded-full pointer-events-none"
                                 initial={{
                                     x: 0,
                                     y: 0,
                                     scale: 0,
                                     opacity: 0.8
                                 }}
+                                style={{ willChange: "transform, opacity" }}
                                 animate={{
                                     x: Math.cos(i * 45 * (Math.PI / 180)) * 60,
                                     y: Math.sin(i * 45 * (Math.PI / 180)) * 60,

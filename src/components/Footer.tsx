@@ -1,212 +1,78 @@
+"use client";
+
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
-  useInView,
   AnimatePresence
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Images = {
-  Hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-  Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-  Abstract: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-};
-
 const Icons = {
   Linkedin: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M4 8h4v12H4V8z" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="6" cy="4" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M10 8h4v2c.6-.8 1.5-2 3-2 2.5 0 4 1.5 4 4v8h-4v-6c0-1.5-.5-2-2-2s-2 .5-2 2v6h-4V8z" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
     </svg>
   ),
   Twitter: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.8 9 5-.2-2.2.6-4.5 2.5-6 2.5-2 6-1.5 7.5 1 1.1-.2 2.2-.6 3-1 0 0-.5 1.7-2 3 1.1-.1 2-.5 3-1 0 0-.5 1.6-2 3z" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.8 9 5-.2-2.2.6-4.5 2.5-6 2.5-2 6-1.5 7.5 1 1.1-.2 2.2-.6 3-1 0 0-.5 1.7-2 3 1.1-.1 2-.5 3-1 0 0-.5 1.6-2 3z" />
     </svg>
   ),
   Instagram: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="18" cy="6" r="1" fill="currentColor" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   ),
   Mail: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M22 7l-10 7L2 7" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
     </svg>
   ),
   Phone: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   ),
   Location: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
     </svg>
   ),
   ArrowRight: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+      <path d="M5 12h14M12 5l7 7-7 7" />
     </svg>
   ),
   Sparkle: () => (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor" />
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
     </svg>
   ),
   Infinity: () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M13.833 9.167C14.5 8.5 15.3 8 16.5 8C18.5 8 20 9.5 20 12C20 14.5 18.5 16 16.5 16C14.5 16 13 14.5 13 12C13 9.5 11.5 8 9.5 8C7.5 8 6 9.5 6 12C6 14.5 7.5 16 9.5 16C10.7 16 11.5 15.5 12.167 14.833" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  Roofing: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M3 10L12 3L21 10L18 13L12 8L6 13L3 10Z" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M6 13V19H18V13" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Inspection: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Repair: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M16 4L20 8L12 16H8V12L16 4Z" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M4 20H20" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Replacement: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M20 12H4M12 4v16M4 8h16M4 16h16" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Residential: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M3 10L12 3L21 10L18 13L12 8L6 13L3 10Z" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 13V19H16V13" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Commercial: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="4" y="8" width="16" height="12" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 8V4H16V8" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Emergency: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8v4M12 16h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  Maintenance: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8v4l2 2" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Warranty: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M12 2L15 9H22L17 14L19 21L12 17L5 21L7 14L2 9H9L12 2Z" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  ),
-  Financing: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="1.5" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M13.833 9.167C14.5 8.5 15.3 8 16.5 8C18.5 8 20 9.5 20 12C20 14.5 18.5 16 16.5 16C14.5 16 13 14.5 13 12C13 9.5 11.5 8 9.5 8C7.5 8 6 9.5 6 12C6 14.5 7.5 16 9.5 16C10.7 16 11.5 15.5 12.167 14.833" />
     </svg>
   ),
 };
 
 const iconMap = {
-  Repair: Icons.Repair,
-  Replacement: Icons.Replacement,
-  Inspection: Icons.Inspection,
-  Maintenance: Icons.Maintenance,
-  Residential: Icons.Residential,
-  Commercial: Icons.Commercial,
-  Emergency: Icons.Emergency,
-  Roofing: Icons.Roofing,
-  Warranty: Icons.Warranty,
-  Financing: Icons.Financing,
   Linkedin: Icons.Linkedin,
   Twitter: Icons.Twitter,
   Instagram: Icons.Instagram
-};
-
-const ParallaxLayer = ({ children, speed = 0.05, className = "" }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, speed * 50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 0.5, 0.3]);
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{ y, opacity }}
-      className={`absolute inset-0 will-change-transform ${className}`}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-const QuantumParticles = () => {
-  const particles = [...Array(20)].map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 0.5,
-    duration: Math.random() * 20 + 20,
-    delay: Math.random() * 5,
-    opacity: Math.random() * 0.2 + 0.05,
-  }));
-
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-primary/20"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-            filter: 'blur(1px)',
-          }}
-          animate={{
-            y: [0, -30, 0, 30, 0],
-            x: [0, 15, -15, 10, 0],
-            opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            delay: particle.delay,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-    </div>
-  );
 };
 
 const NewsletterForm = () => {
@@ -225,47 +91,38 @@ const NewsletterForm = () => {
 
   return (
     <div className="relative">
-      <form onSubmit={handleSubmit} className="relative">
+      <form onSubmit={handleSubmit} className="relative group">
         <div className={`
-          relative flex items-center bg-gray-50 backdrop-blur-sm rounded-full border transition-all duration-500
-          ${isFocused
-            ? 'border-primary/50 shadow-[0_0_30px_rgba(195,5,5,0.1)]'
-            : 'border-gray-200 hover:border-gray-300'
-          }
+          relative flex items-center bg-[#111] border-2 transition-all duration-300
+          ${isFocused ? 'border-primary shadow-[0_0_20px_rgba(195,5,5,0.1)]' : 'border-white/10'}
         `}>
           <input
             type="email"
-            placeholder="Enter your email"
+            placeholder="Structural Insights Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="w-full bg-transparent px-6 py-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
+            className="w-full bg-transparent px-5 py-3.5 text-sm text-white placeholder:text-white/30 focus:outline-none"
             required
           />
-          <motion.button
+          <button
             type="submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="absolute right-2 px-4 py-2 bg-primary text-white text-xs font-medium rounded-full hover:bg-primary/90 transition-all duration-300 flex items-center gap-2"
+            className="px-6 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300"
           >
-            Subscribe
-            <Icons.ArrowRight />
-          </motion.button>
+            Join
+          </button>
         </div>
       </form>
-
       <AnimatePresence>
         {isSubscribed && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute -bottom-8 left-0 right-0 text-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute -bottom-8 left-0 text-[10px] text-primary font-bold uppercase tracking-tighter"
           >
-            <span className="text-xs text-primary">
-              ✓ Thank you for subscribing
-            </span>
+            Transmission Successful
           </motion.div>
         )}
       </AnimatePresence>
@@ -273,392 +130,179 @@ const NewsletterForm = () => {
   );
 };
 
-const ServiceLinks = () => {
-  const { services } = completeData.footer;
-
-  return (
-    <div className="space-y-4">
-      <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
-        <Icons.Sparkle />
-        {services.title}
-      </h4>
-      <div className="grid grid-cols-1 gap-2">
-        {services.main.map((service) => {
-          const ServiceIcon = iconMap[service.icon as keyof typeof iconMap] || Icons.Roofing;
-          return (
-            <motion.a
-              key={service.label}
-              href={service.href}
-              whileHover={{ x: 5 }}
-              className="inline-flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-all duration-300 group py-1"
-            >
-              <span className="text-gray-400 group-hover:text-primary transition-colors">
-                <ServiceIcon />
-              </span>
-              <span>{service.label}</span>
-            </motion.a>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-const MaterialsSection = () => {
-  const { services } = completeData.footer;
-
-  return (
-    <div className="space-y-3 mt-4">
-      <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
-        {services.materials.title}
-      </h5>
-      <div className="space-y-2">
-        {services.materials.items.map((material) => (
-          <motion.a
-            key={material.label}
-            href={material.href}
-            whileHover={{ x: 5 }}
-            className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-primary/80 transition-colors"
-          >
-            <span className="text-[8px] text-primary/40">●</span>
-            {material.label}
-          </motion.a>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const ContactInfo = () => {
-  const { contact } = completeData.footer;
-
-  return (
-    <div className="space-y-6">
-      <div className="space-y-4">
-        <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
-          <Icons.Sparkle />
-          {contact.title}
-        </h4>
-        <div className="space-y-4">
-          <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
-            <span className="text-gray-400 group-hover:text-primary">
-              <Icons.Mail />
-            </span>
-            {contact.email}
-          </a>
-          <a href={`tel:${contact.phone}`} className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
-            <span className="text-gray-400 group-hover:text-primary">
-              <Icons.Phone />
-            </span>
-            {contact.phone}
-          </a>
-          <div className="flex items-center gap-3 text-sm text-gray-600">
-            <span className="text-gray-400">
-              <Icons.Location />
-            </span>
-            <span>{contact.address}</span>
-          </div>
-          <div className="flex items-center gap-3 text-sm text-gray-600">
-            <span className="text-gray-400">
-              <Icons.Infinity />
-            </span>
-            <span>{contact.emergency}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="space-y-3">
-        <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
-          Service Areas
-        </h5>
-        <p className="text-xs text-gray-500 leading-relaxed">
-          {contact.areas}
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const CertificationsGrid = () => {
-  const { certifications } = completeData.footer;
-
-  return (
-    <div className="grid grid-cols-2 gap-3 mt-4">
-      {certifications.map((cert, i) => {
-        const CertIcon = iconMap[cert.icon as keyof typeof iconMap] || Icons.Warranty;
-        return (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            className="relative p-3 bg-gray-50 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-primary/30 transition-all duration-300 group"
-          >
-            <div className="flex items-center gap-2">
-              <span className="text-gray-400 group-hover:text-primary transition-colors">
-                <CertIcon />
-              </span>
-              <div>
-                <span className="text-xs font-mono text-primary/80">{cert.cert}</span>
-                <p className="text-[10px] text-gray-500">{cert.number}</p>
-              </div>
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-  );
-};
-
-const SocialLinks = () => {
-  const { social } = completeData.footer;
-
-  return (
-    <div className="flex items-center gap-3">
-      {social.map((socialItem) => {
-        const SocialIcon = iconMap[socialItem.icon as keyof typeof iconMap] || Icons.Linkedin;
-        return (
-          <motion.a
-            key={socialItem.platform}
-            href={socialItem.href}
-            whileHover={{ y: -3, scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
-            aria-label={socialItem.platform}
-          >
-            <SocialIcon />
-            <motion.div
-              className="absolute inset-0 rounded-full bg-primary/20 blur-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileHover={{ opacity: 1, scale: 1.2 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.a>
-        );
-      })}
-    </div>
-  );
-};
-
-const LegacyMarquee = () => {
-  const { marquee } = completeData.footer;
-
-  return (
-    <div className="relative overflow-hidden py-8 border-t border-gray-200">
-      <motion.div
-        className="flex whitespace-nowrap"
-        animate={{ x: [0, -1000] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      >
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="flex items-center gap-8 mx-8 group">
-            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
-              <Icons.Sparkle />
-            </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              {marquee.texts[0]}
-            </span>
-            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
-              <Icons.Sparkle />
-            </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              {marquee.texts[1]}
-            </span>
-            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
-              <Icons.Sparkle />
-            </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              {marquee.texts[2]}
-            </span>
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
 const Footer = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
-
-  const { company, quickLinks, bottom } = completeData.footer;
+  const { company, quickLinks, bottom, services, contact, certifications } = completeData.footer;
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {
-    if (!sectionRef.current || !isClient) return;
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.footer-reveal',
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 95%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [isClient]);
-
-  if (!isClient) return null;
 
   return (
-    <footer
-      ref={sectionRef}
-      className="relative bg-white overflow-hidden"
-      style={{
-        background: 'radial-gradient(circle at 50% 0%, #f9fafb, #ffffff)'
-      }}
-    >
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #C30505 1px, transparent 1px),
-              linear-gradient(to bottom, #C30505 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
+    <footer ref={sectionRef} className="relative bg-[#050505] text-white overflow-hidden border-t-4 border-primary">
+      {/* Structural Blueprint Grid (Subtle) */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none blueprint-grid" />
+      
+      {/* Dynamic Quantum Blobs (Visual Depth) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -50, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1]
           }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-primary blur-[120px] rounded-full"
+        />
+        <motion.div
+          animate={{
+            x: [0, -80, 0],
+            y: [0, 80, 0],
+            scale: [1, 1.1, 1],
+            opacity: [0.05, 0.15, 0.05]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 2 }}
+          className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-primary/40 blur-[100px] rounded-full"
         />
       </div>
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
+      {/* Massive Background Text */}
+      <div className="absolute -bottom-20 -left-20 text-[20vw] font-black text-white/[0.02] select-none pointer-events-none leading-none">
+        MEGA
+      </div>
 
-      <ParallaxLayer speed={0.03} className="z-0">
-        <div className="absolute top-40 right-0 w-2/5 h-2/5">
-          <img
-            src={Images.Abstract}
-            alt="Abstract architecture"
-            className="w-full h-full object-cover opacity-[0.02]"
-          />
-        </div>
-      </ParallaxLayer>
-
-      <ParallaxLayer speed={0.05} className="z-0">
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3">
-          <img
-            src={Images.Pattern}
-            alt="Heritage pattern"
-            className="w-full h-full object-cover opacity-[0.02]"
-          />
-        </div>
-      </ParallaxLayer>
-
-      <QuantumParticles />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-gray-200">
-          <div className="lg:col-span-3 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl shadow-primary/30">
-                  <span className="text-white font-bold text-sm text-center leading-tight">FC</span>
-                </div>
-                <div>
-                  <span className="text-gray-900 font-light text-lg block">{company.name}</span>
-                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">{company.tagline}</span>
-                </div>
+      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-24">
+          
+          {/* Column 1: Identity */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 bg-primary flex items-center justify-center">
+                <span className="text-white font-black text-2xl">MC</span>
               </div>
-
-              <p className="text-gray-600 text-xs leading-relaxed">
-                {company.description}
-              </p>
-
-              <SocialLinks />
-            </motion.div>
-
-            <div className="space-y-3">
-              <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-gray-500">
-                Subscribe to insights
-              </h4>
-              <NewsletterForm />
+              <div>
+                <h2 className="text-xl font-black tracking-tighter uppercase leading-none">{company.name}</h2>
+                <div className="h-1 w-12 bg-primary mt-2" />
+              </div>
             </div>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              {quickLinks.map((link) => {
-                const LinkIcon = iconMap[link.icon as keyof typeof iconMap] || Icons.Warranty;
+            <p className="text-gray-400 text-sm leading-relaxed font-medium">
+              {company.description}
+            </p>
+            <div className="flex gap-4">
+              {completeData.footer.social.map((social) => {
+                const Icon = iconMap[social.icon as keyof typeof iconMap] || Icons.Linkedin;
                 return (
-                  <a key={link.label} href={link.href} className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
-                    <LinkIcon /> {link.label}
-                  </a>
+                  <Link key={social.platform} href={social.href} className="p-3 bg-white/5 border border-white/10 hover:bg-primary transition-all duration-300 text-white/50 hover:text-white smooth-gpu">
+                    <Icon />
+                  </Link>
                 );
               })}
             </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <ServiceLinks />
-            <MaterialsSection />
-          </div>
-
-          <div className="lg:col-span-4">
-            <ContactInfo />
-
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2 mb-3">
-                <Icons.Sparkle />
-                Certifications & Accreditations
-              </h4>
-              <CertificationsGrid />
+          {/* Column 2: Services */}
+          <div className="space-y-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+              {services.title}
+            </h4>
+            <div className="grid gap-3">
+              {services.main.map((item) => (
+                <Link key={item.label} href={item.href} className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-stable">
+                  <span className="w-1.5 h-1.5 bg-primary group-hover:w-3 transition-all duration-300" />
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
+
+          {/* Column 3: Contact */}
+          <div className="space-y-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+              Direct Contact
+            </h4>
+            <div className="space-y-5">
+              <a href={`tel:${contact.phone}`} className="flex items-center gap-4 group">
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
+                  <Icons.Phone />
+                </div>
+                <span className="text-sm font-bold">{contact.phone}</span>
+              </a>
+              <a href={`mailto:${contact.email}`} className="flex items-center gap-4 group">
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
+                  <Icons.Mail />
+                </div>
+                <span className="text-sm font-bold">{contact.email}</span>
+              </a>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center">
+                  <Icons.Location />
+                </div>
+                <span className="text-xs text-gray-400 font-medium leading-relaxed">{contact.address}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 4: Newsletter & Trust */}
+          <div className="space-y-8">
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-4">
+              Accreditations
+            </h4>
+            <div className="grid grid-cols-2 gap-2">
+              {certifications.slice(0, 4).map((cert, i) => (
+                <div key={i} className="p-3 bg-white/5 border border-white/10 text-center">
+                  <span className="text-[10px] font-bold block text-white/80">{cert.cert}</span>
+                  <span className="text-[8px] text-primary uppercase tracking-tighter mt-1 block">Verified</span>
+                </div>
+              ))}
+            </div>
+            <div className="pt-4">
+              <NewsletterForm />
+            </div>
+          </div>
+
         </div>
 
-        <LegacyMarquee />
+        {/* Dynamic Legacy Marquee (Grounded) */}
+        <div className="py-12 border-y border-white/5 bg-[#080808] group/marquee">
+          <motion.div
+            className="flex whitespace-nowrap"
+            animate={{ x: [0, -1000] }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          >
+            {[...Array(12)].map((_, i) => (
+              <div key={i} className="flex items-center gap-12 mx-12">
+                <span className="text-[14px] font-black uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
+                  Structural Performance Certified
+                </span>
+                <div className="w-3 h-3 bg-primary rotate-45" />
+                <span className="text-[14px] font-black uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
+                  Mega Construction NY Group
+                </span>
+                <div className="w-3 h-3 bg-primary rotate-45" />
+              </div>
+            ))}
+          </motion.div>
+        </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-gray-500">
-          <div className="flex items-center gap-4">
+        {/* Bottom Bar */}
+        <div className="flex flex-col md:flex-row items-center justify-between py-10 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-6">
             <span>{bottom.copyright}</span>
-            <span className="w-1 h-1 rounded-full bg-gray-300" />
+            <div className="w-1 h-1 bg-primary rounded-full" />
             <span>{bottom.rights}</span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8 mt-4 md:mt-0">
             {bottom.links.map((link) => (
-              <a key={link.label} href={link.href} className="hover:text-primary transition-colors">{link.label}</a>
+              <Link key={link.label} href={link.href} className="hover:text-primary transition-colors text-stable">
+                {link.label}
+              </Link>
             ))}
           </div>
-          <div className="text-gray-400">
-            <span className="font-mono">{bottom.tagline}</span>
-          </div>
         </div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
-        <svg
-          viewBox="0 0 1440 120"
-          className="relative block w-full h-20 md:h-24"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="url(#footerWave)"
-            d="M0,64L60,69.3C120,75,240,85,360,80C480,75,600,53,720,48C840,43,960,53,1080,58.7C1200,64,1320,64,1380,64L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"
-          />
-          <defs>
-            <linearGradient id="footerWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#C30505" stopOpacity="0.03" />
-              <stop offset="50%" stopColor="#C30505" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#C30505" stopOpacity="0.03" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
     </footer>
   );

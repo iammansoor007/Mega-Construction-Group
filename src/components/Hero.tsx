@@ -1,29 +1,53 @@
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import heroBg from "@/assets/Megaherobg.png";
+"use client";
+
+import { motion, useTransform, useMotionValue } from "framer-motion";
+import { useRef, memo, useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import heroBg from '../assets/megaprintedimage5.png';
 import { FiArrowRight, FiChevronDown, FiStar, FiThumbsUp } from "react-icons/fi";
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
-import completeData from "../src/data/completeData.json";
+import completeData from "@/data/completeData.json";
+import { useMousePosition } from "../hooks/useMousePosition";
 
 const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { springX, springY } = useMousePosition();
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Diamond-Grade: Decode the heavy 3.5MB background before complex particles start
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = typeof heroBg === 'string' ? heroBg : heroBg.src;
+    img.decode().then(() => {
+      setImageLoaded(true);
+    }).catch(() => {
+      setImageLoaded(true); // Fallback
+    });
+  }, []);
+
+  // Normalize mouse values relative to center for parallax
+  const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
+  const centerY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
+
+  const mouseRelX = useTransform(springX, (val) => (val - centerX) * 0.012);
+  const mouseRelY = useTransform(springY, (val) => (val - centerY) * 0.012);
+
+  // Parallax transforms using shared spring values
+  const x03 = useTransform(mouseRelX, (val) => val * 0.3);
+  const y03 = useTransform(mouseRelY, (val) => val * 0.3);
+  const xNeg02 = useTransform(mouseRelX, (val) => val * -0.2);
+  const yNeg02 = useTransform(mouseRelY, (val) => val * -0.2);
+  const x04 = useTransform(mouseRelX, (val) => val * 0.4);
+  const y04 = useTransform(mouseRelY, (val) => val * 0.4);
+  const x025 = useTransform(mouseRelX, (val) => val * 0.25);
+  const y025 = useTransform(mouseRelY, (val) => val * 0.25);
+  const xNeg03 = useTransform(mouseRelX, (val) => val * -0.3);
+  const yNeg03 = useTransform(mouseRelY, (val) => val * -0.3);
 
   const { badge, headlines, description, buttons, stats } = completeData.hero;
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      setMousePosition({
-        x: (clientX - innerWidth / 2) * 0.015,
-        y: (clientY - innerHeight / 2) * 0.015,
-      });
-    };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const iconComponents = {
     FiArrowRight: FiArrowRight,
@@ -36,14 +60,18 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-end overflow-hidden isolate md:items-center md:justify-center"
+      className="relative min-h-screen flex items-end overflow-hidden isolate md:items-center md:justify-center blueprint-grid"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <img
+      <div className="tech-scanner" />
+      {/* Background Image Container with GPU Boost */}
+      <div className={`absolute inset-0 -z-10 transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <Image
           src={heroBg}
-          alt="Mega Contracting NY Group - Construction Services"
-          className="w-full h-full object-cover"
+          alt="Mega Construction NY Group - Construction Services"
+          className="w-full h-full object-cover smooth-gpu"
+          priority
+          onLoad={() => setImageLoaded(true)}
+          fill
         />
       </div>
 
@@ -54,40 +82,44 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-black/30 z-0" />
 
-      {/* Decorative Animated Elements */}
+      {/* Decorative Animated Elements - Logic Gate: only animate once image is ready to avoid main-thread congestion */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div
-          className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.05, 0.1, 0.05],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            x: mousePosition.x * 0.3,
-            y: mousePosition.y * 0.3,
-          }}
-        />
-        <motion.div
-          className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.03, 0.07, 0.03],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            x: mousePosition.x * -0.2,
-            y: mousePosition.y * -0.2,
-          }}
-        />
+        {imageLoaded && (
+          <>
+            <motion.div
+              className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.05, 0.1, 0.05],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                x: x03,
+                y: y03,
+              }}
+            />
+            <motion.div
+              className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl"
+              animate={{
+                scale: [1, 1.3, 1],
+                opacity: [0.03, 0.07, 0.03],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                x: xNeg02,
+                y: yNeg02,
+              }}
+            />
+          </>
+        )}
       </div>
 
       {/* Grid Pattern */}
@@ -122,8 +154,8 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 0.8 }}
           style={{
-            x: mousePosition.x * 0.4,
-            y: mousePosition.y * 0.4,
+            x: x04,
+            y: y04,
           }}
         />
         <motion.div
@@ -132,8 +164,8 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 1.0 }}
           style={{
-            x: mousePosition.x * 0.25,
-            y: mousePosition.y * 0.25,
+            x: x025,
+            y: y025,
           }}
         />
         <motion.div
@@ -142,8 +174,8 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, delay: 1.2 }}
           style={{
-            x: mousePosition.x * -0.3,
-            y: mousePosition.y * -0.3,
+            x: xNeg03,
+            y: yNeg03,
           }}
         />
       </div>
@@ -223,27 +255,35 @@ const Hero = () => {
             {buttons.map((button, idx) => {
               const Icon = iconComponents[button.icon as keyof typeof iconComponents];
               return button.primary ? (
-                <motion.a
+                <motion.div
                   key={idx}
-                  href={button.href}
-                  className="group bg-primary text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
                   whileHover={{ scale: 1.03, x: 4 }}
                   whileTap={{ scale: 0.98 }}
+                  className="flex"
                 >
-                  {button.text}
-                  {Icon && <Icon className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />}
-                </motion.a>
+                  <Link
+                    href={button.href}
+                    className="group bg-primary text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                  >
+                    {button.text}
+                    {Icon && <Icon className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />}
+                  </Link>
+                </motion.div>
               ) : (
-                <motion.a
+                <motion.div
                   key={idx}
-                  href={button.href}
-                  className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  className="flex"
                 >
-                  {button.text}
-                  {Icon && <Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />}
-                </motion.a>
+                  <Link
+                    href={button.href}
+                    className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-medium text-lg inline-flex items-center justify-center gap-3 rounded-md hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                  >
+                    {button.text}
+                    {Icon && <Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />}
+                  </Link>
+                </motion.div>
               );
             })}
           </motion.div>
@@ -306,4 +346,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
