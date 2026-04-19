@@ -86,18 +86,18 @@ const Hero = () => {
 
       {/* Decorative Animated Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-            <motion.div
-              className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl smooth-gpu"
-              animate={{ opacity: [0.05, 0.1, 0.05] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              style={{ x: x03, y: y03 }}
-            />
-            <motion.div
-              className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl smooth-gpu"
-              animate={{ opacity: [0.03, 0.07, 0.03] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-              style={{ x: xNeg02, y: yNeg02 }}
-            />
+        <motion.div
+          className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl smooth-gpu"
+          animate={{ opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          style={{ x: x03, y: y03 }}
+        />
+        <motion.div
+          className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl smooth-gpu"
+          animate={{ opacity: [0.03, 0.07, 0.03] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          style={{ x: xNeg02, y: yNeg02 }}
+        />
       </div>
 
       {/* Grid Pattern */}
@@ -140,9 +140,9 @@ const Hero = () => {
 
       {/* Main Content */}
       <div className="section-padding w-full relative z-20 pb-20 md:pb-28">
-        <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl">
+        <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl py-4 sm:py-1">ssss
           <motion.div
-            className="flex items-center gap-2 mb-2 mt-4 md:-mt-4"
+            className="flex items-center justify-center md:justify-start gap-2 mb-2 mt-4 md:-mt-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -153,7 +153,7 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="heading-xl text-white mb-4 leading-[1.1] tracking-tight drop-shadow-lg">
+          <h1 className="heading-xl text-white mb-4 leading-[1.1] tracking-tight drop-shadow-lg text-center md:text-left">
             {headlines.map((line, i) => (
               <motion.span
                 key={i}
@@ -172,7 +172,7 @@ const Hero = () => {
           </h1>
 
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md"
+            className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md text-center md:text-left mx-auto md:mx-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -193,11 +193,11 @@ const Hero = () => {
                   key={idx}
                   whileHover={{ scale: 1.03, x: 4 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex"
+                  className="w-full sm:w-auto"
                 >
                   <Link
                     href={button.href}
-                    className="group bg-primary text-white px-8 py-4 font-bold text-lg inline-flex items-center justify-center gap-3 rounded-none hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                    className="group bg-primary text-white px-8 py-4 font-bold text-lg flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 rounded-none hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
                   >
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />}
@@ -208,11 +208,11 @@ const Hero = () => {
                   key={idx}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex"
+                  className="w-full sm:w-auto"
                 >
                   <Link
                     href={button.href}
-                    className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-bold text-lg inline-flex items-center justify-center gap-3 rounded-none hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                    className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-bold text-lg flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 rounded-none hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                   >
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />}
@@ -223,7 +223,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap gap-10 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
+            className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center md:justify-start gap-y-10 gap-x-5 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}
@@ -233,7 +233,7 @@ const Hero = () => {
               return (
                 <motion.div
                   key={stat.label}
-                  className="flex items-center gap-4"
+                  className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left"
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
                 >

@@ -103,12 +103,12 @@ const NewsletterForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="w-full bg-transparent px-5 py-3.5 text-sm text-white placeholder:text-white/30 focus:outline-none"
+            className="w-full bg-transparent px-3 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm text-white placeholder:text-white/30 focus:outline-none"
             required
           />
           <button
             type="submit"
-            className="px-6 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300"
+            className="px-4 sm:px-6 py-3 sm:py-4 bg-primary text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-300"
           >
             Join
           </button>
@@ -171,21 +171,21 @@ const Footer = () => {
       </div>
 
       {/* Massive Background Text */}
-      <div className="absolute -bottom-20 -left-20 text-[20vw] font-bold text-white/[0.02] select-none pointer-events-none leading-none">
+      <div className="absolute -bottom-10 md:-bottom-20 -left-10 md:-left-20 text-[15vw] md:text-[20vw] font-bold text-white/[0.02] select-none pointer-events-none leading-none">
         MEGA
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 py-12 md:py-24">
           
           {/* Column 1: Identity */}
           <div className="space-y-8">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-primary flex items-center justify-center">
-                <span className="text-white font-bold text-2xl">MC</span>
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-primary flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-xl md:text-2xl">MC</span>
               </div>
               <div>
-                <h2 className="text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
+                <h2 className="text-lg md:text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
                 <div className="h-1 w-12 bg-primary mt-2" />
               </div>
             </div>
@@ -253,13 +253,13 @@ const Footer = () => {
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {certifications.slice(0, 4).map((cert, i) => (
-                <div key={i} className="p-3 bg-white/5 border border-white/10 text-center">
-                  <span className="text-[10px] font-bold block text-white/80">{cert.cert}</span>
-                  <span className="text-[8px] text-primary uppercase tracking-tighter mt-1 block">Verified</span>
+                <div key={i} className="p-2 sm:p-3 bg-white/5 border border-white/10 text-center">
+                  <span className="text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.cert}</span>
+                  <span className="text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-1 block">Verified</span>
                 </div>
               ))}
             </div>
-            <div className="pt-4">
+            <div className="pt-2 sm:pt-4">
               <NewsletterForm />
             </div>
           </div>
@@ -289,10 +289,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between py-10 text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em]">
-          <div className="flex items-center gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between py-8 md:py-10 text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] gap-4 md:gap-0 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
             <span>{bottom.copyright}</span>
-            <div className="w-1 h-1 bg-primary rounded-full" />
+            <div className="hidden sm:block w-1 h-1 bg-primary rounded-full" />
             <span>{bottom.rights}</span>
           </div>
           <div className="flex items-center gap-8 mt-4 md:mt-0">
