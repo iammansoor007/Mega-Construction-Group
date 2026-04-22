@@ -10,20 +10,10 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import serviceDetail from "../assets/megaprintedimage2.png";
 import vectoroverlay from "../assets/Frame - Copy.png";
-
-// Static image imports for instant loading and Next.js optimization
-import imgGenContracting from "@/assets/general-contracting.jpg";
-import imgKitchenBath from "@/assets/megabathroom.jpeg";
-import imgHomeRenovation from "@/assets/home-renovation.jpg";
-import imgCommConstruction from "@/assets/commercial-construction.jpg";
-import imgExcavation from "@/assets/excavation.jpg";
-import imgConcreteMasonry from "@/assets/concrete-masonry.jpg";
-import imgRoofing from "@/assets/megaroofingreal.jpeg";
-import imgHistoricRestoration from "@/assets/megahistoricrestoreation.jpg";
-import imgEmergencyRepairs from "@/assets/megaemergencyrepair.jpg";
-import imgCustomHome from "@/assets/megacustomhome.jpg";
+import { getServiceImage } from "@/data/serviceImages";
 
 import {
   Wrench,
@@ -55,19 +45,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 
-// Static mapping for optimized images
-const serviceImageMap: Record<string, any> = {
-  "megaservice1": imgGenContracting,
-  "megaservice2": imgKitchenBath,
-  "megaservice3": imgHomeRenovation,
-  "megaservice4": imgCommConstruction,
-  "megaservice5": imgExcavation,
-  "megaservice6": imgConcreteMasonry,
-  "megaservice7": imgRoofing,
-  "megaservice8": imgHistoricRestoration,
-  "megaservice9": imgEmergencyRepairs,
-  "megaservice10": imgCustomHome,
-};
 
 // Optimized Counter with reduced re-renders
 const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string }) => {
@@ -171,107 +148,92 @@ const CompactServiceCard = memo(({ service }: { service: any }) => {
 
 CompactServiceCard.displayName = "CompactServiceCard";
 
-// Optimized Service Card with lazy image loading
+// Optimized Service Card with premium UI and full clickability
 const ServiceCard = memo(({ service, index }: { service: any; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef(null);
   const ServiceIcon = iconMap[service.icon] || Wrench;
 
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 100, damping: 10 });
-  const springY = useSpring(y, { stiffness: 100, damping: 10 });
-  const rotateX = useTransform(springY, [-0.5, 0.5], [4, -4]);
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-4, 4]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current) return;
-    const rect = (cardRef.current as HTMLElement).getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.3;
-    const yPct = (mouseY / rect.height - 0.5) * 0.3;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
-
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
-      style={{ rotateX, rotateY, transformPerspective: 1000 }}
-      className="relative group smooth-gpu"
-    >
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-red-500 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 blur group-hover:blur-md" />
+    <Link href={`/services/${service.id}`} className="block h-full group/card">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: index * 0.05 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        whileHover={{ y: -8, scale: 1.01 }}
+        className="relative h-full smooth-gpu"
+      >
+        {/* Animated Glow Border */}
+        <div className="absolute -inset-[1px] bg-gradient-to-br from-red-600 via-red-500 to-transparent rounded-3xl opacity-0 group-hover/card:opacity-100 transition-all duration-500 blur-[2px]" />
 
-      <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-200 group-hover:border-red-300 transition-all duration-300 shadow-md hover:shadow-lg">
-        <div className="relative h-48 overflow-hidden bg-gray-100">
-          <Image
-            src={serviceImageMap[service.image]}
-            alt={service.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-            sizes="(max-w-768px) 100vw, 33vw"
-          />
+        <div className="relative h-full bg-white rounded-3xl overflow-hidden border border-gray-100 group-hover/card:border-red-500/50 transition-all duration-500 shadow-lg group-hover/card:shadow-2xl flex flex-col">
+          {/* Image Container with Overlay */}
+          <div className="relative h-60 overflow-hidden bg-gray-100">
+            <Image
+              src={getServiceImage(service.id)}
+              alt={service.title}
+              fill
+              className="object-cover transition-transform duration-700 group-hover/card:scale-110"
+              sizes="(max-w-768px) 100vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
+            
+            <div className="absolute top-6 left-6 z-20">
+              <div className="bg-black/40 backdrop-blur-xl px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/30 uppercase tracking-widest shadow-xl">
+                {service.tag}
+              </div>
+            </div>
 
-          <div className="absolute top-4 left-4 z-10">
-            <div className="bg-white/95 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-red-600 border border-red-200 shadow-md">
-              {service.tag}
+            <div className="absolute bottom-6 left-6 z-10">
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-2xl bg-red-600 shadow-xl border border-red-500/20 group-hover/card:scale-110 transition-transform duration-500">
+                  <ServiceIcon className="w-5 h-5 text-white" />
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute top-6 right-6">
+              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white font-mono text-sm backdrop-blur-sm">
+                {service.number}
+              </div>
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 z-10">
-            <div className="bg-red-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shadow-lg">
-              {service.number}
-            </div>
-          </div>
-        </div>
-
-        <div className="p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="p-1 rounded-lg bg-red-50">
-              <ServiceIcon className="w-4 h-4 text-red-600" />
-            </div>
-            <h3 className="text-base font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1">
+          <div className="p-8 flex-1 flex flex-col">
+            <h3 className="text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors mb-4 leading-tight">
               {service.title}
             </h3>
+
+            <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">
+              {service.description}
+            </p>
+
+            <div className="space-y-2.5 mb-8 flex-1">
+              {service.features?.slice(0, 3).map((feature: string, i: number) => (
+                <div key={i} className="flex items-center gap-3 text-xs text-gray-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+                  <span className="font-medium">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-6 border-t border-gray-100 flex items-center justify-between group/link">
+              <span className="text-xs font-bold uppercase tracking-widest text-red-600 group-hover/card:tracking-[0.2em] transition-all duration-500">
+                EXPLORE SERVICE
+              </span>
+              <motion.div
+                animate={isHovered ? { x: 5 } : { x: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <ArrowRight className="w-5 h-5 text-red-600" />
+              </motion.div>
+            </div>
           </div>
-
-          <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
-            {service.description}
-          </p>
-
-          <div className="space-y-1.5 mb-4">
-            {service.features?.slice(0, 3).map((feature: string, i: number) => (
-              <div key={i} className="flex items-center gap-2 text-xs text-gray-600">
-                <CheckCircle className="w-3 h-3 text-red-600 flex-shrink-0" />
-                <span className="truncate">{feature}</span>
-              </div>
-            ))}
-          </div>
-
-          <motion.button
-            whileHover={{ x: 3 }}
-            className="w-full py-2 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 hover:border-red-600 transition-all duration-200 text-sm font-bold flex items-center justify-center gap-2"
-          >
-            <span>Learn More</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-          </motion.button>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 });
 
@@ -299,28 +261,20 @@ const Services = () => {
   const imageScale = useTransform(smoothProgress, [0, 0.15], [1.1, 1]);
 
   const { badge, headline, description, stats, services, cta } = completeData.services;
-  const featuredService = services[0];
-
-
-
-
-
-
 
   return (
     <section
       ref={sectionRef}
       className="relative bg-white overflow-visible py-16 md:py-24"
     >
-      {/* Simplified background - reduced DOM elements */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(220,38,38,0.05),transparent_60%)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        {/* Hero Section */}
+        {/* Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 text-stable">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -360,7 +314,7 @@ const Services = () => {
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 mb-8 pt-6 border-t border-gray-100">
+              <div className="grid grid-cols-3 gap-4 pb-6 border-b border-gray-100">
                 {stats.map((stat: any) => (
                   <div key={stat.label} className="text-left">
                     <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">
@@ -372,8 +326,6 @@ const Services = () => {
                   </div>
                 ))}
               </div>
-
-              <CompactServiceCard service={featuredService} />
             </motion.div>
           </div>
 
@@ -419,7 +371,8 @@ const Services = () => {
 
                 <motion.div
                   initial={{ x: -100, y: -100, opacity: 0, rotate: -20 }}
-                  animate={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
+                  whileInView={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 0.8, type: "spring", stiffness: 40, damping: 8 }}
                   className="absolute z-[100] pointer-events-none"
                   style={{ top: "-10%", left: "-10%" }}
@@ -437,16 +390,17 @@ const Services = () => {
           </div>
         </div>
 
+        {/* Services Grid Section */}
         <div className="mt-12">
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-10">
             <div className="w-12 h-1 bg-red-600 rounded-sm" />
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 uppercase tracking-tight">
-              Our <span className="text-red-600">Services</span>
+            <h3 className="text-2xl md:text-4xl font-bold text-gray-900 uppercase tracking-tight">
+              Our <span className="text-red-600">Professional Services</span>
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {services.slice(1).map((service: any, index: number) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {services.map((service: any, index: number) => (
               <ServiceCard key={service.number} service={service} index={index} />
             ))}
           </div>
@@ -465,9 +419,9 @@ const Services = () => {
             </p>
               <motion.a
                 href={cta.buttonLink}
-                whileHover={{ scale: 1.03, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-bold rounded-none shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 hover:bg-red-700 transition-all duration-300"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-red-600 text-white font-bold rounded-2xl shadow-xl shadow-red-600/20 hover:shadow-2xl hover:shadow-red-600/30 hover:bg-red-700 transition-all duration-300 uppercase tracking-widest text-sm"
               >
                 <span>{cta.buttonText}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

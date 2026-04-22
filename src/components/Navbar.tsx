@@ -24,9 +24,16 @@ import {
   Wrench,
   ClipboardCheck,
   Clock,
+  CloudRain,
+  Hammer,
+  Square,
+  Layout,
+  AlertTriangle,
+  PaintBucket,
 } from "lucide-react";
 import logo from "../assets/Mega-Contracting-Logo.png";
 import logo2nd from "../assets/Mega-Contracting-Logo.png";
+import { getServiceImage } from "@/data/serviceImages";
 import completeData from "@/data/completeData.json";
 
 // Icon mapping
@@ -55,6 +62,41 @@ const serviceIconMap = {
   ),
   Wrench: ({ isHovered = false }: { isHovered?: boolean }) => (
     <Wrench
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  CloudRain: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <CloudRain
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  Hammer: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <Hammer
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  Square: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <Square
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  Layout: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <Layout
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  AlertTriangle: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <AlertTriangle
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  PaintBucket: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <PaintBucket
+      className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
+    />
+  ),
+  Shield: ({ isHovered = false }: { isHovered?: boolean }) => (
+    <Shield
       className={`h-5 w-5 ${isHovered ? "text-white" : "text-primary"} transition-colors duration-300`}
     />
   ),
@@ -239,140 +281,6 @@ const Navbar = () => {
                     <ChevronDown className="h-3.5 w-3.5 ml-1 opacity-60 group-hover:opacity-100 transition-colors" />
                   </motion.span>
                 </motion.button>
-
-                <AnimatePresence>
-                  {activeMegaMenu === "services" && (
-                    <motion.div
-                      ref={megaMenuRef}
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      onMouseEnter={handleMegaMenuMouseEnter}
-                      onMouseLeave={handleMegaMenuMouseLeave}
-                      className="absolute left-1/2 transform -translate-x-1/2 xl:left-0 xl:transform-none top-full mt-2 w-[90vw] max-w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 overflow-hidden"
-                      style={{ zIndex: 1000 }}
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        {services.map((service) => {
-                          const ServiceIcon =
-                            serviceIconMap[
-                            service.icon as keyof typeof serviceIconMap
-                            ] || serviceIconMap.Home;
-                          return (
-                            <motion.div
-                              key={service.title}
-                              whileHover={{ y: -3 }}
-                              className="flex"
-                            >
-                              <Link
-                                href="#services"
-                                onClick={handleLinkClick}
-                                onMouseEnter={() => {
-                                  setHoveredService(service.title);
-                                  setIsHoveringMegaMenu(true);
-                                }}
-                                onMouseLeave={() => {
-                                  setHoveredService(null);
-                                }}
-                                className="group block p-5 rounded-xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-white"
-                              >
-                                <div className="flex items-start space-x-3 mb-4">
-                                  <div
-                                    className={`h-10 w-10 rounded-lg flex items-center justify-center transition-colors duration-300 ${hoveredService === service.title
-                                      ? "bg-primary"
-                                      : "bg-primary/10 group-hover:bg-primary"
-                                      }`}
-                                  >
-                                    <ServiceIcon
-                                      isHovered={hoveredService === service.title}
-                                    />
-                                  </div>
-                                  <div>
-                                    <h3
-                                      className={`font-bold text-base mb-1 transition-colors ${hoveredService === service.title
-                                        ? "text-primary"
-                                        : "text-gray-900 group-hover:text-primary"
-                                        }`}
-                                    >
-                                      {service.title}
-                                    </h3>
-                                    <p className="text-gray-500 text-xs">
-                                      {service.description}
-                                    </p>
-                                  </div>
-                                </div>
-
-                                <div className="space-y-2 mb-4">
-                                  {service.items.map((item) => (
-                                    <div
-                                      key={item}
-                                      className="flex items-center text-sm transition-colors"
-                                    >
-                                      <ChevronDown
-                                        className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-gray-400 group-hover:text-primary"
-                                          }`}
-                                      />
-                                      <span
-                                        className={`truncate transition-colors ${hoveredService === service.title
-                                          ? "text-primary"
-                                          : "text-gray-700 group-hover:text-primary"
-                                          }`}
-                                      >
-                                        {item}
-                                      </span>
-                                    </div>
-                                  ))}
-                                </div>
-
-                                <div className="flex flex-wrap gap-1.5">
-                                  {service.features.map((feature) => (
-                                    <span
-                                      key={feature}
-                                      className={`px-2 py-1 text-[10px] font-bold uppercase tracking-tight rounded-lg border transition-colors ${hoveredService === service.title
-                                        ? "bg-primary/10 text-primary border-primary/20"
-                                        : "bg-primary/10 text-primary border-primary/20 group-hover:bg-primary/20"
-                                        }`}
-                                    >
-                                      {feature}
-                                    </span>
-                                  ))}
-                                </div>
-                              </Link>
-                            </motion.div>
-                          );
-                        })}
-                      </div>
-
-                      <div className="pt-6 border-t border-gray-200">
-                        <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-primary to-primary/80 rounded-xl p-5">
-                          <div className="flex items-center space-x-3 mb-4 md:mb-0">
-                            <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center">
-                              <Quote className="h-5 w-5 text-primary" />
-                            </div>
-                            <div className="text-white">
-                              <h4 className="font-bold text-base">
-                                {cta.title}
-                              </h4>
-                              <p className="text-white/80 text-sm">
-                                {cta.description}
-                              </p>
-                            </div>
-                          </div>
-                          <Link
-                            href={cta.buttonLink}
-                            onClick={handleLinkClick}
-                            className="bg-white text-primary px-5 py-2.5 rounded-lg font-semibold hover:shadow-xl hover:bg-white/90 transition-all duration-300 inline-flex items-center space-x-2"
-                          >
-                            <FileText className="h-4 w-4" />
-                            <span>{cta.buttonText}</span>
-                          </Link>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
 
               <div className="flex items-center space-x-1 ml-2">
@@ -487,6 +395,123 @@ const Navbar = () => {
       </nav>
 
       <AnimatePresence>
+        {activeMegaMenu === "services" && (
+          <motion.div
+            ref={megaMenuRef}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={handleMegaMenuMouseEnter}
+            onMouseLeave={handleMegaMenuMouseLeave}
+            className="fixed inset-x-0 mx-auto top-[95px] w-[95vw] max-w-7xl bg-white/95 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.12)] border border-gray-100 p-12 hidden lg:block overflow-hidden"
+            style={{ zIndex: 1000 }}
+          >
+            <div className="flex flex-col lg:flex-row gap-16">
+              {/* Left Side: Services Navigation */}
+              <div className="w-full lg:w-1/4 space-y-2">
+                <div className="mb-8">
+                  <h2 className="text-[11px] font-black uppercase tracking-[0.4em] text-red-600 mb-2">Core Specialization</h2>
+                  <p className="text-2xl font-bold text-gray-900 leading-tight">Roofing & <br/>Masonry Masters</p>
+                </div>
+                
+                <div className="space-y-1">
+                  {services.map((service) => (
+                    <button
+                      key={service.title}
+                      onMouseEnter={() => setHoveredService(service.title)}
+                      className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
+                        hoveredService === service.title ? "bg-gray-900 text-white shadow-xl" : "text-gray-600 hover:bg-gray-50"
+                      }`}
+                    >
+                      <span className="font-bold text-sm tracking-wide">{service.title}</span>
+                      <ChevronDown className={`h-4 w-4 transition-transform ${hoveredService === service.title ? "-rotate-90" : "opacity-0"}`} />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Side: Dynamic Content */}
+              <div className="flex-1 min-h-[400px] border-l border-gray-100 pl-16">
+                <AnimatePresence mode="wait">
+                  {services.find(s => s.title === (hoveredService || services[0].title)) && (
+                    <motion.div
+                      key={hoveredService || 'default'}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="grid grid-cols-2 gap-x-12 gap-y-10"
+                    >
+                      {/* Detailed Sub-services Grid */}
+                      <div className="col-span-1 space-y-8">
+                        <div>
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">
+                            {services.find(s => s.title === (hoveredService || services[0].title))?.title}
+                          </h4>
+                          <p className="text-gray-500 text-sm leading-relaxed">
+                            {services.find(s => s.title === (hoveredService || services[0].title))?.description}
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-4">
+                          {services.find(s => s.title === (hoveredService || services[0].title))?.items.map((item) => (
+                            <Link
+                              key={item}
+                              href={`/services/${services.find(s => s.title === (hoveredService || services[0].title))?.id}`}
+                              onClick={handleLinkClick}
+                              className="group/item flex items-center p-3 rounded-xl hover:bg-red-50 transition-colors"
+                            >
+                              <div className="h-2 w-2 rounded-full bg-red-600 mr-4 opacity-30 group-hover/item:opacity-100 group-hover/item:scale-125 transition-all" />
+                              <span className="text-sm font-semibold text-gray-700 group-hover/item:text-red-700">{item}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Visual Context Panel */}
+                      <div className="col-span-1">
+                        <div className="relative h-full min-h-[300px] rounded-[2rem] overflow-hidden group/img shadow-2xl">
+                          <Image
+                            src={getServiceImage(
+                              services.find(s => s.title === (hoveredService || services[0].title))?.id || "roofing-services"
+                            )}
+                            alt="Service Highlight"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover/img:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                          <div className="absolute bottom-0 left-0 p-8 text-white">
+                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-600/20 backdrop-blur-md border border-red-500/30 text-white text-[10px] font-black uppercase tracking-widest mb-4">
+                              Official Specialization
+                            </div>
+                            <h4 className="text-2xl font-bold leading-tight">Elite New York <br/>Projects Since 2005</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-gray-100 flex items-center justify-between">
+              <p className="text-sm text-gray-500 font-medium">
+                Looking for something specific? <Link href="/#contact" className="text-red-600 font-bold hover:underline">Speak with an expert</Link>
+              </p>
+              <Link
+                href={cta.buttonLink}
+                onClick={handleLinkClick}
+                className="bg-gray-900 text-white px-10 py-4 rounded-2xl font-black text-xs tracking-[0.2em] uppercase hover:bg-red-600 transition-all duration-500 shadow-xl"
+              >
+                {cta.buttonText}
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
         {isMenuOpen && (
           <>
             <motion.div
@@ -547,12 +572,11 @@ const Navbar = () => {
                             service.icon as keyof typeof serviceIconMap
                             ] || serviceIconMap.Home;
                           return (
-                            <motion.a
+                            <Link
                               key={service.title}
-                              href="#services"
+                              href={`/services/${service.id}`}
                               onClick={() => setIsMenuOpen(false)}
                               className="block p-4 rounded-none border border-gray-200 hover:border-primary/30 hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
-                              whileTap={{ scale: 0.98 }}
                             >
                               <div className="flex items-center space-x-3">
                                 <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -567,7 +591,7 @@ const Navbar = () => {
                                   </p>
                                 </div>
                               </div>
-                            </motion.a>
+                            </Link>
                           );
                         })}
                       </div>

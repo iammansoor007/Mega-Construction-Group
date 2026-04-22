@@ -2,81 +2,124 @@
   "navbar": {
     "services": [
       {
-        "title": "GENERAL CONTRACTING",
-        "description": "Full-service construction management for residential and commercial projects",
-        "icon": "Building2",
+        "title": "Roofing Services",
+        "id": "roofing-services",
+        "description": "Commercial & Residential roofing solutions",
+        "icon": "CloudRain",
         "items": [
-          "New Construction",
-          "Home Additions",
-          "Commercial Build-Outs",
-          "Project Management",
-          "Design-Build Services"
+          "Shingle Roofing",
+          "Flat Roofing",
+          "TPO Roofing",
+          "Leakage Repair"
         ],
-        "features": [
-          "10-Year Workmanship",
-          "Licensed & Insured",
-          "Family Owned Since 2005"
-        ]
+        "features": ["Licensed", "Insured", "20+ Yrs Exp"]
       },
       {
-        "title": "HOME RENOVATION",
-        "description": "Complete home remodeling and renovation services throughout New York",
+        "title": "Masonry Work",
+        "id": "masonry-work",
+        "description": "Expert masonry and exterior restoration",
+        "icon": "Hammer",
+        "items": [
+          "Brick Work",
+          "Concrete Work",
+          "Paver Driveway",
+          "Concrete Sidewalk",
+          "Facade Restoration",
+          "Parapet Wall",
+          "Tuck Pointing"
+        ],
+        "features": ["Structural", "Heritage", "Precise"]
+      },
+      {
+        "title": "Concrete Services",
+        "id": "concrete-services",
+        "description": "Concrete and DOB violation removal",
+        "icon": "Square",
+        "items": [
+          "DOB Violation Removal",
+          "Sidewalk Repairs",
+          "Driveways",
+          "Foundations"
+        ],
+        "features": ["Expedited", "Professional", "Durable"]
+      },
+      {
+        "title": "Home Renovation",
+        "id": "home-renovation",
+        "description": "Complete home and interior transformations",
+        "icon": "Layout",
+        "items": [
+          "Kitchen Renovation",
+          "Bathroom Renovation",
+          "Basement Renovation",
+          "Interior Remodeling"
+        ],
+        "features": ["Craftsmanship", "Modern", "Turn-key"]
+      },
+      {
+        "title": "Stucco Services",
+        "id": "stucco",
+        "description": "Premium exterior stucco finishes",
+        "icon": "PaintBucket",
+        "items": [
+          "EIFS Systems",
+          "Stucco Repair",
+          "Traditional Stucco",
+          "Color Matching"
+        ],
+        "features": ["Insulated", "Durable", "Modern"]
+      },
+      {
+        "title": "Custom Home",
+        "id": "custom-home-building",
+        "description": "Bespoke luxury home building",
         "icon": "Home",
         "items": [
-          "Kitchen Remodeling",
-          "Bathroom Renovation",
-          "Basement Finishing",
-          "Whole Home Renovation",
-          "Historic Restoration"
+          "Design-Build",
+          "Luxury Finishes",
+          "Project Management",
+          "Smart Homes"
         ],
-        "features": [
-          "Custom Design",
-          "Quality Craftsmanship",
-          "On-Time Completion"
-        ]
+        "features": ["Premium", "Unique", "Masterpiece"]
       },
       {
-        "title": "COMMERCIAL & ROOFING",
-        "description": "Expert commercial construction and professional roofing solutions",
-        "icon": "Wrench",
+        "title": "Emergency Service",
+        "id": "emergency-service",
+        "description": "24/7 dedicated support team",
+        "icon": "Shield",
         "items": [
-          "Commercial Construction",
-          "Excavation & Site Work",
-          "Concrete & Masonry",
-          "Roof Installation",
-          "Roof Repair & Maintenance"
+          "Rapid Deployment",
+          "Safety Assessment",
+          "Board-up Service",
+          "24/7 Availability"
         ],
-        "features": [
-          "24/7 Emergency Service",
-          "Free Estimates",
-          "BBB A+ Rated"
-        ]
+        "features": ["Always Ready", "Expert Team", "Secure"]
       }
     ],
     "companyLinks": [
       {
         "label": "Home",
-        "href": "#",
+        "href": "/",
         "icon": "Home"
       },
       {
         "label": "Portfolio",
-        "href": "#portfolio",
+        "href": "/#portfolio",
         "icon": "Briefcase"
       },
       {
         "label": "About",
-        "href": "#about",
+        "href": "/#about",
         "icon": "Users"
       },
       {
         "label": "FAQ",
-        "href": "#faq",
+        "href": "/#faq",
         "icon": "MessageSquare"
       },
       {
         "label": "Contact",
-        "href": "#contact",
+        "href": "/#contact",
         "icon": "Phone"
       }
     ],
@@ -112,9 +155,9 @@
   "hero": {
     "badge": "Family Owned Since 2005",
     "headlines": [
-      "Building New York's",
-      "Future with Quality",
-      "Craftsmanship"
+      "We Specialize In",
+      "Roofing & Masonry",
+      "Restoration Works"
     ],
     "description": "Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, our family-owned business brings integrity, expertise, and attention to detail to every project.",
     "buttons": [
@@ -157,9 +200,9 @@
   "about": {
     "badge": "Since 2005",
     "headline": {
-      "prefix": "Mega Contracting",
-      "highlight": "Family-Owned",
-      "suffix": "NY Group."
+      "prefix": "Masters of",
+      "highlight": "Roofing & Masonry",
+      "suffix": "Across New York."
     },
     "description": "Delivering <span class=\"font-semibold text-primary\">superior construction and renovation services</span> across New York with a commitment to quality, integrity, and customer satisfaction.",
     "image": {
@@ -204,9 +247,9 @@
   "services": {
     "badge": "Award Winning Service",
     "headline": {
-      "prefix": "New York's",
-      "highlight": "Premier Construction",
-      "suffix": "& Renovation Company"
+      "prefix": "Elite",
+      "highlight": "Roofing & Masonry",
+      "suffix": "& Building Services."
     },
     "description": [
       "Mega Contracting NY Group is a family-owned business built on core values of integrity, quality, and reliability. From small home renovations to large-scale commercial construction, our experienced team is ready to bring your vision to life.",
@@ -232,142 +275,107 @@
     "services": [
       {
         "number": "01",
-        "title": "General Contracting",
-        "description": "Full-service construction management for residential and commercial projects throughout New York.",
-        "icon": "Building2",
-        "tag": "Construction",
-        "image": "megaservice1",
-        "features": [
-          "New Construction",
-          "Project Management",
-          "Design-Build",
-          "Permitting"
-        ]
-      },
-      {
-        "number": "02",
-        "title": "Kitchen & Bath Remodeling",
-        "description": "Custom kitchen and bathroom renovations that transform your space with modern design and quality craftsmanship.",
-        "icon": "Home",
-        "tag": "Renovation",
-        "image": "megaservice2",
-        "features": [
-          "Custom Cabinetry",
-          "Countertop Installation",
-          "Plumbing & Electrical",
-          "Tile Work"
-        ]
-      },
-      {
-        "number": "03",
-        "title": "Home Renovation",
-        "description": "Complete home remodeling services including additions, basement finishing, and whole-home transformations.",
-        "icon": "Wrench",
-        "tag": "Residential",
-        "image": "megaservice3",
-        "features": [
-          "Home Additions",
-          "Basement Finishing",
-          "Interior Remodeling",
-          "Exterior Updates"
-        ]
-      },
-      {
-        "number": "04",
-        "title": "Commercial Construction",
-        "description": "Expert commercial construction services for offices, retail spaces, and industrial facilities.",
-        "icon": "Building",
-        "tag": "Commercial",
-        "image": "megaservice4",
-        "features": [
-          "Office Build-Outs",
-          "Retail Construction",
-          "Tenant Improvements",
-          "Code Compliance"
-        ]
-      },
-      {
-        "number": "05",
-        "title": "Excavation & Site Work",
-        "description": "Professional excavation and site preparation services for construction projects of all sizes.",
-        "icon": "Truck",
-        "tag": "Site Work",
-        "image": "megaservice5",
-        "features": [
-          "Land Clearing",
-          "Grading",
-          "Foundation Excavation",
-          "Utility Trenching"
-        ]
-      },
-      {
-        "number": "06",
-        "title": "Concrete & Masonry",
-        "description": "Expert concrete and masonry work including foundations, driveways, patios, and retaining walls.",
-        "icon": "Hammer",
-        "tag": "Concrete",
-        "image": "megaservice6",
-        "features": [
-          "Foundations",
-          "Driveways & Patios",
-          "Retaining Walls",
-          "Brick & Stone Work"
-        ]
-      },
-      {
-        "number": "07",
-        "title": "Roofing Services",
-        "description": "Professional roof installation, repair, and maintenance for residential and commercial properties.",
+        "id": "roofing-services",
+        "title": "Roofing Commercial and Residential",
+        "description": "Professional roofing solutions including shingle, flat, and TPO roofing with specialized leakage repair.",
         "icon": "CloudRain",
         "tag": "Roofing",
         "image": "megaservice7",
         "features": [
-          "Roof Installation",
-          "Roof Repair",
-          "Emergency Service",
-          "Inspections"
+          "Shingle Roofing",
+          "Flat Roofing",
+          "TPO Roofing",
+          "Leakage Repair"
         ]
       },
       {
-        "number": "08",
-        "title": "Historic Restoration",
-        "description": "Specialized restoration services preserving the character and integrity of historic New York properties.",
-        "icon": "Landmark",
-        "tag": "Restoration",
-        "image": "megaservice8",
+        "number": "02",
+        "id": "masonry-work",
+        "title": "Masonry Work",
+        "description": "High-quality masonry services including brick work, concrete, and heritage restoration.",
+        "icon": "Hammer",
+        "tag": "Structural",
+        "image": "merabrickwork",
         "features": [
-          "Historic Preservation",
-          "Period-Appropriate Materials",
-          "Structural Assessment",
-          "Landmark Compliance"
+          "Brick Work",
+          "Concrete Work",
+          "Paver Driveway",
+          "Concrete Sidewalk"
         ]
       },
       {
-        "number": "09",
-        "title": "Emergency Repairs",
-        "description": "24/7 emergency repair services for storm damage, structural issues, and urgent construction needs.",
-        "icon": "AlertTriangle",
-        "tag": "Emergency",
-        "image": "megaservice9",
+        "number": "03",
+        "id": "concrete-services",
+        "title": "Concrete Services",
+        "description": "Professional concrete installation and DOB violation removal assistance.",
+        "icon": "Square",
+        "tag": "Concrete",
+        "image": "megaservice5",
         "features": [
-          "24/7 Response",
-          "Storm Damage",
-          "Structural Repairs",
-          "Emergency Stabilization"
+          "DOB Violation Removal",
+          "Sidewalk Repairs",
+          "Driveways",
+          "Foundations"
         ]
       },
       {
-        "number": "10",
+        "number": "04",
+        "id": "home-renovation",
+        "title": "Home Renovation",
+        "description": "Comprehensive home renovation services from kitchens to basements.",
+        "icon": "Layout",
+        "tag": "Interior",
+        "image": "megaservice2",
+        "features": [
+          "Kitchen Renovation",
+          "Bathroom Renovation",
+          "Basement Renovation",
+          "Interior Remodeling"
+        ]
+      },
+      {
+        "number": "05",
+        "id": "stucco",
+        "title": "Stucco Services",
+        "description": "Premium stucco application and repair for modern exterior finishes.",
+        "icon": "PaintBucket",
+        "tag": "Exterior",
+        "image": "megaservice1",
+        "features": [
+          "EIFS Systems",
+          "Stucco Repair",
+          "Traditional Stucco",
+          "Color Matching"
+        ]
+      },
+      {
+        "number": "06",
+        "id": "custom-home-building",
         "title": "Custom Home Building",
-        "description": "Custom home construction tailored to your specifications with premium materials and expert craftsmanship.",
+        "description": "Bespoke luxury home construction tailored to your exact specifications.",
         "icon": "Home",
         "tag": "Custom",
         "image": "megaservice10",
         "features": [
-          "Custom Design",
+          "Design-Build",
           "Luxury Finishes",
-          "Energy Efficient",
-          "Smart Home Integration"
+          "Smart Integration",
+          "Project Management"
+        ]
+      },
+      {
+        "number": "07",
+        "id": "emergency-service",
+        "title": "Emergency Service",
+        "description": "24/7 dedicated support for all your emergency construction and repair needs.",
+        "icon": "Shield",
+        "tag": "24/7 Support",
+        "image": "megaservice8",
+        "features": [
+          "24/7 Availability",
+          "Rapid Deployment",
+          "Emergency Board-up",
+          "Power Failures"
         ]
       }
     ],
