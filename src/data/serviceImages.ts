@@ -101,12 +101,24 @@ export const serviceImages: Record<string, any> = {
 
   // Stucco sub-categories
   "stucco-installation": imgStuccoInstall,
+  "eifs-systems": imgStucco,
+  "stucco-repair": imgStucco,
+  "traditional-stucco": imgStucco,
+  "color-matching": imgStucco,
 
   // Custom Home sub-categories
   "luxury-residences": imgLuxuryResidence,
+  "design-build": imgCustomHome,
+  "luxury-finishes": imgCustomHome,
+  "project-management": imgCustomHome,
+  "smart-homes": imgCustomHome,
 
   // Emergency sub-categories
   "24-7-response": imgEmergencyResponse,
+  "rapid-deployment": imgEmergencyResponse,
+  "safety-assessment": imgEmergencyResponse,
+  "board-up-service": imgEmergencyResponse,
+  "24-7-availability": imgEmergencyResponse,
 };
 
 /**

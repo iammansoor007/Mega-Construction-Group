@@ -292,12 +292,36 @@ export const servicesData: Service[] = [
     features: ["EIFS Systems", "Stucco Repair", "Traditional Stucco", "Color Matching"],
     subcategories: [
       {
-        id: "stucco-installation",
-        title: "Stucco Installation",
-        description: "Expert application of EIFS and traditional stucco systems.",
-        longDescription: "Highly durable and aesthetic exterior finishes that provide excellent insulation and weather protection.",
-        features: ["Mesh Reinforcement", "Finish Coatings", "Architectural Details"],
+        id: "eifs-systems",
+        title: "EIFS Systems",
+        description: "Exterior Insulation and Finish Systems for superior thermal protection.",
+        longDescription: "We specialize in EIFS (Exterior Insulation and Finish Systems), providing high-performance insulation and durable, attractive exterior finishes.",
+        features: ["Energy Efficiency", "Crack Resistance", "Modern Aesthetics"],
         image: "/assets/megaservice1.jpg"
+      },
+      {
+        id: "stucco-repair",
+        title: "Stucco Repair",
+        description: "Professional repair and restoration of damaged stucco surfaces.",
+        longDescription: "Our team expertly repairs cracks, bulges, and water-damaged stucco to restore your building's exterior integrity and appearance.",
+        features: ["Crack Repair", "Texture Matching", "Patching"],
+        image: "/assets/general-contracting.jpg"
+      },
+      {
+        id: "traditional-stucco",
+        title: "Traditional Stucco",
+        description: "Authentic 3-coat stucco application for timeless durability.",
+        longDescription: "We provide traditional cement-based stucco installations that offer unparalleled durability and a classic look for any structure.",
+        features: ["3-Coat System", "Lath Installation", "Time-tested Quality"],
+        image: "/assets/megaservice1.jpg"
+      },
+      {
+        id: "color-matching",
+        title: "Color Matching",
+        description: "Precision stucco color matching and custom finishing.",
+        longDescription: "We ensure seamless repairs and new installations with our expert color-matching techniques, maintaining your property's aesthetic consistency.",
+        features: ["Custom Pigments", "Seamless Blending", "UV Resistant"],
+        image: "/assets/general-contracting.jpg"
       }
     ]
   },
@@ -311,12 +335,36 @@ export const servicesData: Service[] = [
     features: ["Design-Build", "Luxury Finishes", "Smart Integration", "Project Management"],
     subcategories: [
       {
-        id: "luxury-residences",
-        title: "Luxury Residences",
-        description: "Bespoke homes built to the highest architectural standards.",
-        longDescription: "We guide you from blueprints to reality, building high-end custom homes that are as unique as their owners.",
-        features: ["Architectural Design", "Premium Sourcing", "Smart Home Tech"],
+        id: "design-build",
+        title: "Design-Build",
+        description: "Seamless integration of architectural design and expert construction.",
+        longDescription: "Our design-build approach streamlines your custom home project, handling everything from initial blueprints to final construction under one roof.",
+        features: ["Architectural Services", "Streamlined Workflow", "Single Point of Contact"],
         image: "/assets/megacustomhome.jpg"
+      },
+      {
+        id: "luxury-finishes",
+        title: "Luxury Finishes",
+        description: "High-end interior and exterior finishing for custom residences.",
+        longDescription: "We provide premium finishing services including custom millwork, high-end stonework, and artisanal details for luxury homes.",
+        features: ["Custom Millwork", "Premium Materials", "Artisanal Craftsmanship"],
+        image: "/assets/custom-home.jpg"
+      },
+      {
+        id: "project-management",
+        title: "Project Management",
+        description: "Professional oversight and execution of complex custom home projects.",
+        longDescription: "Our project managers ensure your custom home is built on time and within budget, coordinating all trades and quality control measures.",
+        features: ["Budget Oversight", "Timeline Management", "Quality Control"],
+        image: "/assets/megaservice1.jpg"
+      },
+      {
+        id: "smart-homes",
+        title: "Smart Homes",
+        description: "Integration of advanced automation and smart home technology.",
+        longDescription: "We incorporate state-of-the-art smart home systems into your custom residence, including security, lighting, climate, and entertainment control.",
+        features: ["Home Automation", "Integrated Security", "Smart Lighting"],
+        image: "/assets/megaservice2.jpg"
       }
     ]
   },
@@ -330,11 +378,35 @@ export const servicesData: Service[] = [
     features: ["24/7 Availability", "Rapid Deployment", "Board-up", "Power Failures"],
     subcategories: [
       {
-        id: "24-7-response",
-        title: "24/7 Response",
-        description: "Dedicated round-the-clock team for any construction emergency.",
-        longDescription: "Our emergency service team is always on standby to handle structural failures, fire damage, or urgent security board-ups.",
+        id: "rapid-deployment",
+        title: "Rapid Deployment",
+        description: "Immediate response team for urgent construction emergencies.",
+        longDescription: "Our rapid deployment team is on call 24/7 to address structural failures, fire damage, or any urgent property security needs.",
         features: ["Immediate Dispatch", "On-site Assessment", "Safety First"],
+        image: "/assets/megaemergencyrepair.jpg"
+      },
+      {
+        id: "safety-assessment",
+        title: "Safety Assessment",
+        description: "Emergency structural and safety evaluations for damaged properties.",
+        longDescription: "We provide immediate safety assessments and structural diagnostics to identify hazards and plan urgent stabilization measures.",
+        features: ["Structural Checks", "Hazard Identification", "Emergency Planning"],
+        image: "/assets/general-contracting.jpg"
+      },
+      {
+        id: "board-up-service",
+        title: "Board-up Service",
+        description: "Fast and secure emergency board-up for compromised buildings.",
+        longDescription: "We offer professional board-up services to secure your property following fire, vandalism, or structural damage, ensuring immediate protection.",
+        features: ["Secure Windows & Doors", "Property Stabilization", "24/7 Availability"],
+        image: "/assets/excavation.jpg"
+      },
+      {
+        id: "24-7-availability",
+        title: "24/7 Availability",
+        description: "Round-the-clock emergency construction and repair support.",
+        longDescription: "Our emergency teams are available 24 hours a day, 7 days a week, ensuring that critical structural and safety issues are addressed immediately.",
+        features: ["Always Available", "Emergency Response", "Peace of Mind"],
         image: "/assets/megaemergencyrepair.jpg"
       }
     ]
