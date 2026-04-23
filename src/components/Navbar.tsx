@@ -35,6 +35,7 @@ import logo from "../assets/Mega-Contracting-Logo.png";
 import logo2nd from "../assets/Mega-Contracting-Logo.png";
 import { getServiceImage } from "@/data/serviceImages";
 import completeData from "@/data/completeData.json";
+import { servicesData } from "@/data/servicesData";
 
 // Icon mapping
 const iconMap = {
@@ -135,7 +136,7 @@ const Navbar = () => {
       if (!isHoveringMegaMenu) {
         setActiveMegaMenu(null);
       }
-    }, 150);
+    }, 100);
   };
 
   const handleMegaMenuMouseEnter = () => {
@@ -151,7 +152,7 @@ const Navbar = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveMegaMenu(null);
       setHoveredService(null);
-    }, 150);
+    }, 100);
   };
 
   const handleLinkClick = () => {
@@ -398,10 +399,10 @@ const Navbar = () => {
         {activeMegaMenu === "services" && (
           <motion.div
             ref={megaMenuRef}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 12 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.99 }}
+            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
             onMouseEnter={handleMegaMenuMouseEnter}
             onMouseLeave={handleMegaMenuMouseLeave}
             className="fixed inset-x-0 mx-auto top-[95px] w-[95vw] max-w-7xl bg-white/95 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.12)] border border-gray-100 p-12 hidden lg:block overflow-hidden"
@@ -433,64 +434,73 @@ const Navbar = () => {
 
               {/* Right Side: Dynamic Content */}
               <div className="flex-1 min-h-[400px] border-l border-gray-100 pl-16">
-                <AnimatePresence mode="wait">
-                  {services.find(s => s.title === (hoveredService || services[0].title)) && (
-                    <motion.div
-                      key={hoveredService || 'default'}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="grid grid-cols-2 gap-x-12 gap-y-10"
-                    >
-                      {/* Detailed Sub-services Grid */}
-                      <div className="col-span-1 space-y-8">
-                        <div>
-                          <h4 className="text-xl font-bold text-gray-900 mb-2">
-                            {services.find(s => s.title === (hoveredService || services[0].title))?.title}
-                          </h4>
-                          <p className="text-gray-500 text-sm leading-relaxed">
-                            {services.find(s => s.title === (hoveredService || services[0].title))?.description}
-                          </p>
-                        </div>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  {(() => {
+                    const navbarService = services.find(s => s.title === (hoveredService || services[0].title));
+                    if (!navbarService) return null;
+                    
+                    const fullService = servicesData.find(s => s.id === navbarService.id);
+                    if (!fullService) return null;
+                    
+                    return (
+                      <motion.div
+                        key={fullService.id}
+                        initial={{ opacity: 0, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, filter: "blur(4px)" }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        className="grid grid-cols-2 gap-x-12 gap-y-10"
+                      >
+                        {/* Detailed Sub-services Grid */}
+                        <div className="col-span-1 space-y-8">
+                          <div>
+                            <h4 className="text-xl font-bold text-gray-900 mb-2">
+                              {fullService.title}
+                            </h4>
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                              {fullService.description}
+                            </p>
+                          </div>
 
-                        <div className="grid grid-cols-1 gap-4">
-                          {services.find(s => s.title === (hoveredService || services[0].title))?.items.map((item) => (
-                            <Link
-                              key={item}
-                              href={`/services/${services.find(s => s.title === (hoveredService || services[0].title))?.id}`}
-                              onClick={handleLinkClick}
-                              className="group/item flex items-center p-3 rounded-xl hover:bg-red-50 transition-colors"
-                            >
-                              <div className="h-2 w-2 rounded-full bg-red-600 mr-4 opacity-30 group-hover/item:opacity-100 group-hover/item:scale-125 transition-all" />
-                              <span className="text-sm font-semibold text-gray-700 group-hover/item:text-red-700">{item}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Visual Context Panel */}
-                      <div className="col-span-1">
-                        <div className="relative h-full min-h-[300px] rounded-[2rem] overflow-hidden group/img shadow-2xl">
-                          <Image
-                            src={getServiceImage(
-                              services.find(s => s.title === (hoveredService || services[0].title))?.id || "roofing-services"
-                            )}
-                            alt="Service Highlight"
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover/img:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                          <div className="absolute bottom-0 left-0 p-8 text-white">
-                            <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-600/20 backdrop-blur-md border border-red-500/30 text-white text-[10px] font-black uppercase tracking-widest mb-4">
-                              Official Specialization
-                            </div>
-                            <h4 className="text-2xl font-bold leading-tight">Elite New York <br/>Projects Since 2005</h4>
+                          <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                            {fullService.subcategories.map((sub) => (
+                              <Link
+                                key={sub.id}
+                                href={`/services/${fullService.id}/${sub.id}`}
+                                onClick={handleLinkClick}
+                                className="group/item flex items-center p-2.5 rounded-xl hover:bg-red-50 transition-colors"
+                              >
+                                <div className="h-1.5 w-1.5 rounded-full bg-red-600 mr-3 opacity-30 group-hover/item:opacity-100 group-hover/item:scale-125 transition-all" />
+                                <span className="text-[13px] font-semibold text-gray-700 group-hover/item:text-red-700">{sub.title}</span>
+                              </Link>
+                            ))}
                           </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
+
+                        {/* Visual Context Panel */}
+                        <div className="col-span-1 self-start">
+                          <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group/img shadow-2xl">
+                            <Image
+                              src={getServiceImage(fullService.id)}
+                              alt={fullService.title}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover/img:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 p-8 text-white">
+                              <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-600/20 backdrop-blur-md border border-red-500/30 text-white text-[10px] font-black uppercase tracking-widest mb-4">
+                                {fullService.tag} Excellence
+                              </div>
+                              <h4 className="text-2xl font-bold leading-tight">
+                                Professional {fullService.title.split(' ')[0]} <br/>
+                                Solutions in NY
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })()}
                 </AnimatePresence>
               </div>
             </div>
@@ -650,6 +660,20 @@ const Navbar = () => {
           </>
         )}
       </AnimatePresence>
+
+      {/* Hidden Image Preloader for instant Mega Menu transitions */}
+      <div className="hidden lg:block absolute -z-[999] opacity-0 pointer-events-none size-0 overflow-hidden" aria-hidden="true">
+        {services.map((s) => (
+          <Image
+            key={`preload-${s.id}`}
+            src={getServiceImage(s.id)}
+            alt=""
+            width={10}
+            height={10}
+            loading="eager"
+          />
+        ))}
+      </div>
     </>
   );
 };

@@ -10,7 +10,10 @@
           "Shingle Roofing",
           "Flat Roofing",
           "TPO Roofing",
-          "Leakage Repair"
+          "Leakage Repair",
+          "Roof Replacement",
+          "Roof Installation",
+          "Roof Inspection"
         ],
         "features": ["Licensed", "Insured", "20+ Yrs Exp"]
       },
@@ -21,24 +24,29 @@
         "icon": "Hammer",
         "items": [
           "Brick Work",
-          "Concrete Work",
-          "Paver Driveway",
-          "Concrete Sidewalk",
           "Facade Restoration",
           "Parapet Wall",
-          "Tuck Pointing"
+          "Tuck Pointing",
+          "Retaining Walls",
+          "Patios",
+          "Stair Repair & Building",
+          "Fire Escapes",
+          "Chimney Caps & Rebuilds",
+          "Waterproofing"
         ],
         "features": ["Structural", "Heritage", "Precise"]
       },
       {
-        "title": "Concrete Services",
+        "title": "Concrete & Sidewalk Services",
         "id": "concrete-services",
         "description": "Concrete and DOB violation removal",
         "icon": "Square",
         "items": [
-          "DOB Violation Removal",
-          "Sidewalk Repairs",
-          "Driveways",
+          "Driveway Repair",
+          "Sidewalk Violation Removal",
+          "Sidewalk Installation",
+          "Sidewalk Replacement",
+          "Sidewalk Repair",
           "Foundations"
         ],
         "features": ["Expedited", "Professional", "Durable"]
@@ -277,7 +285,7 @@
         "number": "01",
         "id": "roofing-services",
         "title": "Roofing Commercial and Residential",
-        "description": "Professional roofing solutions including shingle, flat, and TPO roofing with specialized leakage repair.",
+        "description": "Professional roofing solutions including replacement, installation, and specialized inspection.",
         "icon": "CloudRain",
         "tag": "Roofing",
         "image": "megaservice7",
@@ -285,37 +293,41 @@
           "Shingle Roofing",
           "Flat Roofing",
           "TPO Roofing",
-          "Leakage Repair"
+          "Leakage Repair",
+          "Roof Replacement",
+          "Roof Installation",
+          "Roof Inspection"
         ]
       },
       {
         "number": "02",
         "id": "masonry-work",
         "title": "Masonry Work",
-        "description": "High-quality masonry services including brick work, concrete, and heritage restoration.",
+        "description": "High-quality masonry services including brick work, restoration, and new construction.",
         "icon": "Hammer",
         "tag": "Structural",
         "image": "merabrickwork",
         "features": [
           "Brick Work",
-          "Concrete Work",
-          "Paver Driveway",
-          "Concrete Sidewalk"
+          "Retaining Walls",
+          "Patios",
+          "Chimney Rebuilds"
         ]
       },
       {
         "number": "03",
         "id": "concrete-services",
-        "title": "Concrete Services",
-        "description": "Professional concrete installation and DOB violation removal assistance.",
+        "title": "Concrete & Sidewalk Services",
+        "description": "Professional concrete installation, sidewalk replacement, and DOB violation removal.",
         "icon": "Square",
         "tag": "Concrete",
         "image": "megaservice5",
         "features": [
-          "DOB Violation Removal",
-          "Sidewalk Repairs",
-          "Driveways",
-          "Foundations"
+          "Driveway Repair",
+          "Sidewalk Violation Removal",
+          "Sidewalk Installation",
+          "Sidewalk Replacement",
+          "Sidewalk Repair"
         ]
       },
       {

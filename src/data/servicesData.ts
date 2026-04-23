@@ -63,8 +63,32 @@ export const servicesData: Service[] = [
         title: "Leakage Repair",
         description: "Precision diagnostics and repair for all types of roof leaks.",
         longDescription: "We use thermal imaging and expert inspections to locate and seal leaks before they cause structural damage.",
-        features: ["Thermal Imaging", "Flash Repairs", "Waterproofing"],
+        features: ["Thermal Imaging", "Flash Repairs", "Waterproofing", "Roof Repairs"],
         image: "/assets/roofing.jpg"
+      },
+      {
+        id: "roof-replacement",
+        title: "Roof Replacement",
+        description: "Professional roof replacement for aging or damaged systems.",
+        longDescription: "Our full roof replacement services ensure your property is protected with the highest quality materials and expert craftsmanship.",
+        features: ["Full Gut & Replace", "Premium Shingles", "Warranty Protected"],
+        image: "/assets/megaroofingreal.jpeg"
+      },
+      {
+        id: "roof-installation",
+        title: "Roof Installation",
+        description: "Expert installation of new roofing systems for all types of buildings.",
+        longDescription: "We specialize in new roof installations for residential and commercial projects, ensuring long-term durability and efficiency.",
+        features: ["New Construction", "Additions", "Certified Installers"],
+        image: "/assets/roofingmain.jpg"
+      },
+      {
+        id: "roof-inspection",
+        title: "Roof Inspection",
+        description: "Comprehensive roof health assessments and diagnostics.",
+        longDescription: "Regular roof inspections help identify issues early, saving you from costly repairs down the line. We provide detailed reports and recommendations.",
+        features: ["Structural Assessment", "Drainage Check", "Drone Inspection"],
+        image: "/assets/rooffair.jpg"
       }
     ]
   },
@@ -75,7 +99,7 @@ export const servicesData: Service[] = [
     icon: "Hammer",
     image: "/assets/merabrickwork.jpeg",
     tag: "Structural",
-    features: ["Brick Work", "Concrete Work", "Paver Driveway", "Concrete Sidewalk"],
+    features: ["Brick Work"],
     subcategories: [
       {
         id: "brick-work",
@@ -84,30 +108,6 @@ export const servicesData: Service[] = [
         longDescription: "From new brick construction to historic building restoration, our masons deliver precise and durable brick work with meticulous attention to detail.",
         features: ["Heritage Restoration", "Custom Brick Patterns", "Tuck Pointing"],
         image: "/assets/merabrickwork.jpeg"
-      },
-      {
-        id: "concrete-work",
-        title: "Concrete Work",
-        description: "High-quality concrete installation and repair for structural and decorative applications.",
-        longDescription: "Our concrete specialists handle everything from structural foundations to decorative surfaces, ensuring strength and longevity.",
-        features: ["Reinforced Concrete", "Stamped Concrete", "Structural Repairs"],
-        image: "/assets/concrete-masonry.jpg"
-      },
-      {
-        id: "paver-driveway",
-        title: "Paver Driveway",
-        description: "Premium paver driveway installation and restoration for lasting curb appeal.",
-        longDescription: "We install and restore paver driveways using high-quality materials that withstand New York weather while enhancing your property's value.",
-        features: ["Custom Paver Patterns", "Durable Materials", "Drainage Solutions"],
-        image: "/assets/megaservice4.jpg"
-      },
-      {
-        id: "concrete-sidewalk",
-        title: "Concrete Sidewalk",
-        description: "DOB-compliant concrete sidewalk installation and repair across New York.",
-        longDescription: "We handle all aspects of sidewalk repair and replacement, including DOB compliance, violation removal, and premium concrete finishing.",
-        features: ["DOB Compliance", "Violation Removal", "ADA Standards"],
-        image: "/assets/excavation.jpg"
       },
       {
         id: "parapet-wall",
@@ -122,8 +122,56 @@ export const servicesData: Service[] = [
         title: "Facade Restoration",
         description: "Complete revitalization of building exteriors to their original glory.",
         longDescription: "Our facade restoration services include cleaning, brick replacement, and stone carving for historic and modern buildings.",
-        features: ["Stone Carving", "Steam Cleaning", "Brick Tinting"],
+        features: ["Stone Carving", "Steam Cleaning", "Brick Tinting", "Facade Repair", "Structural & Interior Restoration"],
         image: "/assets/megaservice8.jpg"
+      },
+      {
+        id: "retaining-walls",
+        title: "Retaining Walls",
+        description: "Structural and decorative retaining wall construction.",
+        longDescription: "We design and build durable retaining walls that manage landscapes, prevent erosion, and enhance your property's aesthetics.",
+        features: ["Stone Walls", "Concrete Blocks", "Erosion Control"],
+        image: "/assets/concrete-masonry.jpg"
+      },
+      {
+        id: "patios",
+        title: "Patios",
+        description: "Custom patio design and installation for outdoor living.",
+        longDescription: "Transform your outdoor space with premium paver, stone, or concrete patios built for comfort and durability.",
+        features: ["Paver Patios", "Stone Work", "Outdoor Living"],
+        image: "/assets/megaservice4.jpg"
+      },
+      {
+        id: "stair-repair-building",
+        title: "Stair Repair & Building",
+        description: "Safe and durable stair construction and restoration.",
+        longDescription: "From building new concrete stairs to restoring historic entryways, we ensure safety and aesthetic appeal.",
+        features: ["Concrete Stairs", "Stone Steps", "Safety Rails"],
+        image: "/assets/merabrickwork.jpeg"
+      },
+      {
+        id: "fire-escapes",
+        title: "Fire Escapes",
+        description: "Professional repair and maintenance of building fire escapes.",
+        longDescription: "We ensure your fire escapes are safe, secure, and compliant with local safety codes through expert repair and painting.",
+        features: ["Structural Repair", "Safety Inspection", "Scraping & Painting"],
+        image: "/assets/megaservice6.jpg"
+      },
+      {
+        id: "chimney-caps-rebuilds",
+        title: "Chimney Caps & Rebuilds",
+        description: "Expert chimney restoration and structural rebuilding.",
+        longDescription: "Our masons specialize in chimney repair, from installing new caps to full structural rebuilds for safety and performance.",
+        features: ["Chimney Caps", "Brick Rebuilding", "Liner Installation"],
+        image: "/assets/megaservice7.jpg"
+      },
+      {
+        id: "waterproofing-solutions",
+        title: "Waterproofing",
+        description: "Comprehensive waterproofing for walls, masonry, and balconies.",
+        longDescription: "Protect your structure from water damage with our specialized waterproofing solutions for all exterior and interior surfaces.",
+        features: ["Wall Waterproofing", "Masonry Waterproofing", "Exterior Waterproofing", "Basement Waterproofing", "Balcony Waterproofing"],
+        image: "/assets/megaroofingreal.jpeg"
       }
     ]
   },
@@ -134,14 +182,54 @@ export const servicesData: Service[] = [
     icon: "Square",
     image: "/assets/excavation.jpg",
     tag: "Concrete",
-    features: ["DOB Violation Removal", "Sidewalk Repairs", "Foundations", "Driveways"],
+    features: ["DOB Violation Removal", "Sidewalk Repairs", "Foundations", "Driveway Repair"],
     subcategories: [
       {
         id: "dob-violation-removal",
         title: "DOB Violation Removal",
         description: "Expert assistance and construction to resolve Department of Buildings violations.",
         longDescription: "We specialize in fixing sidewalk, foundation, and structural issues that lead to DOB citations, handling everything from construction to sign-off.",
-        features: ["Permit Filing", "Code Compliance", "Expedited Repairs"],
+        features: ["Permit Filing", "Code Compliance", "Expedited Repairs", "Sidewalk Violation Removal"],
+        image: "/assets/megaservice5.jpg"
+      },
+      {
+        id: "driveway-repair",
+        title: "Driveway Repair",
+        description: "Premium driveway installation and restoration services.",
+        longDescription: "We specialize in driveway repair and installation, using high-quality materials to ensure durability and lasting curb appeal for your property.",
+        features: ["Custom Paver Patterns", "Concrete Driveways", "Drainage Solutions", "Resurfacing"],
+        image: "/assets/megaservice4.jpg"
+      },
+      {
+        id: "sidewalk-violation-removal",
+        title: "Sidewalk Violation Removal",
+        description: "Expert assistance for Department of Buildings sidewalk violations.",
+        longDescription: "We specialize in resolving NYC DOT and DOB sidewalk violations, handling everything from permit filing to final inspection and sign-off.",
+        features: ["Permit Filing", "Code Compliance", "Expedited Repairs", "DOT Sign-off"],
+        image: "/assets/megaservice5.jpg"
+      },
+      {
+        id: "sidewalk-installation",
+        title: "Sidewalk Installation",
+        description: "New concrete sidewalk construction and installation.",
+        longDescription: "Our team provides professional sidewalk installation for new construction and property additions, ensuring full compliance with NYC standards.",
+        features: ["New Construction", "Reinforced Concrete", "Standard Compliance"],
+        image: "/assets/excavation.jpg"
+      },
+      {
+        id: "sidewalk-replacement",
+        title: "Sidewalk Replacement",
+        description: "Complete removal and replacement of damaged sidewalks.",
+        longDescription: "We provide full-scale sidewalk replacement services, removing old, cracked, or hazardous concrete and replacing it with premium, durable surfaces.",
+        features: ["Full Gut & Replace", "Safety Standards", "Durable Finish"],
+        image: "/assets/concrete-masonry.jpg"
+      },
+      {
+        id: "sidewalk-repair",
+        title: "Sidewalk Repair",
+        description: "Precision repair for cracks, trips, and localized sidewalk damage.",
+        longDescription: "Our sidewalk repair services address localized issues like cracks and uneven surfaces to ensure safety and prevent further deterioration.",
+        features: ["Crack Filling", "Leveling", "Patch Work"],
         image: "/assets/megaservice5.jpg"
       }
     ]
@@ -168,7 +256,11 @@ export const servicesData: Service[] = [
         title: "Bathroom Renovation",
         description: "Spa-like bathroom renovations with luxury tiling, modern fixtures, and waterproofing.",
         longDescription: "Comprehensive bathroom renovation including waterproofing, luxury tile work, and premium fixture installation for the ultimate bathroom experience.",
-        features: ["Shower Systems", "Waterproofing", "Tile Artistry"],
+        features: [
+          "Shower Systems", "Waterproofing", "Tile Artistry",
+          "Bathroom vanity & cabinet installation", "Shower & tub installation",
+          "Bathroom tile installation", "Small bathroom remodeling", "Full bathroom renovation"
+        ],
         image: "/assets/megabathroom.jpeg"
       },
       {

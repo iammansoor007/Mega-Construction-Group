@@ -70,17 +70,28 @@ export const serviceImages: Record<string, any> = {
   "flat-roofing":    imgFlatRoofing,
   "tpo-roofing":     imgTpoRoofing,
   "leakage-repair":  imgLeakageRepair,
+  "roof-replacement": imgRoofing,
+  "roof-installation": imgShingleRoofing,
+  "roof-inspection": imgFlatRoofing,
 
   // Masonry sub-categories
   "brick-work":         imgBrickWork,
-  "concrete-work":      imgConcreteWork,
   "parapet-wall":       imgParapetWall,
   "facade-restoration": imgFacadeRestoration,
-  "paver-driveway":     imgPaverDriveway,
-  "concrete-sidewalk":  imgSidewalk,
+  "driveway-repair":    imgPaverDriveway,
+  "retaining-walls":    imgConcreteWork,
+  "patios":             imgPaverDriveway,
+  "stair-repair-building": imgBrickWork,
+  "fire-escapes":       imgParapetWall,
+  "chimney-caps-rebuilds": imgRoofing,
+  "waterproofing-solutions": imgStucco,
 
   // Concrete sub-categories
   "dob-violation-removal": imgDobViolation,
+  "sidewalk-violation-removal": imgDobViolation,
+  "sidewalk-installation": imgSidewalk,
+  "sidewalk-replacement": imgSidewalk,
+  "sidewalk-repair": imgSidewalk,
 
   // Home Renovation sub-categories
   "kitchen-renovation":  imgKitchenRenovation,
