@@ -1,3 +1,6 @@
+/* Google Fonts - loaded client-side to avoid build-time network dependency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Outfit:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -124,6 +127,8 @@
     --sidebar-ring: 0 96% 39%;
     /* #C30505 red */
 
+    --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-outfit: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-heading: var(--font-outfit);
     --font-body: var(--font-inter);
   }
