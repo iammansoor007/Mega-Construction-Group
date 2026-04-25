@@ -11,6 +11,9 @@ import {
   Construction, Ruler as RulerIcon, Hammer as HammerIcon
 } from "lucide-react";
 
+// Import the simple asset mapping
+import { serviceAssets } from "./serviceAssets";
+
 export interface Benefit {
   title: string;
   description: string;
@@ -47,13 +50,15 @@ export interface Service {
   categoryBenefits?: Benefit[];
 }
 
+// Helper to get assets safely
+const getAsset = (id: string) => serviceAssets[id as keyof typeof serviceAssets] || { title: id, image: "" };
+
 export const servicesData: Service[] = [
   {
     id: "roofing-services",
-    title: "Roofing Commercial and Residential",
+    ...getAsset("roofing-services"),
     description: "Industrial-grade roofing solutions from complete replacement to precision inspection and repair.",
     icon: "CloudRain",
-    image: "/assets/megaroofingreal.jpeg",
     tag: "Roofing",
     features: ["Shingle Roofing", "Flat Roofing", "TPO Roofing", "Leakage Repair", "Replacement", "Installation", "Inspection"],
     categoryBenefits: [
@@ -64,11 +69,10 @@ export const servicesData: Service[] = [
     subcategories: [
       {
         id: "shingle-roofing",
-        title: "Shingle Roofing",
+        ...getAsset("shingle-roofing"),
         description: "Premium asphalt and wood shingle solutions for residential homes.",
-        longDescription: "Our shingle roofing provides exceptional durability and aesthetic variety, ensuring your home is protected and beautiful. We utilize advanced multi-layer systems that exceed industry standards for wind and impact resistance.",
+        longDescription: "Our shingle roofing provides exceptional durability and aesthetic variety, ensuring your home is protected and beautiful.",
         features: ["Impact Resistance", "Algae Protection", "Custom Colors"],
-        image: "/assets/roofingmain.jpg",
         stats: [{ label: "Wind Rating", value: "130 MPH" }, { label: "Warranty", value: "50 Years" }, { label: "Install Time", value: "2-3 Days" }],
         benefits: [
           { title: "High-Performance Underlayment", description: "Superior water barrier compared to standard felt paper.", icon: "Droplets" },
@@ -80,11 +84,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "flat-roofing",
-        title: "Flat Roofing",
+        ...getAsset("flat-roofing"),
         description: "Specialized systems for modern commercial and residential flat roofs.",
-        longDescription: "Expert installation of TPO and EPDM membranes designed for maximum longevity and water resistance in urban environments. We handle complex drainage and HVAC curb integration.",
+        longDescription: "Expert installation of TPO and EPDM membranes designed for maximum longevity and water resistance in urban environments.",
         features: ["Waterproof Membrane", "UV Protection", "Seamless Finish"],
-        image: "/assets/rooffair.jpg",
         stats: [{ label: "Reflectivity", value: "85%" }, { label: "Seamlessness", value: "100%" }, { label: "Avg Lifespan", value: "25 Years" }],
         benefits: [
           { title: "Thermal Efficiency", description: "White membranes reflect UV rays, lowering cooling costs.", icon: "Sun" },
@@ -96,11 +99,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "tpo-roofing",
-        title: "TPO Roofing",
+        ...getAsset("tpo-roofing"),
         description: "Industrial-grade thermoplastic roofing systems for efficiency.",
         longDescription: "TPO is the ideal choice for heat-reflective and energy-efficient roofing, providing long-term protection against New York's variable climate.",
         features: ["Energy Efficient", "Heat Welding", "Sustainability"],
-        image: "/assets/megaservice7.jpg",
         stats: [{ label: "Solar Reflectance", value: "0.87" }, { label: "Strength", value: "Industrial" }, { label: "Thickness", value: "60-80 Mil" }],
         benefits: [
           { title: "Heat-Reflective", description: "Reduces 'Urban Heat Island' effect and cooling loads.", icon: "Zap" },
@@ -112,11 +114,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "roof-leakage-repair",
-        title: "Roof Leakage Repair",
+        ...getAsset("roof-leakage-repair"),
         description: "Precision diagnostics and repair for all types of roof leaks.",
-        longDescription: "We use thermal imaging and expert inspections to locate and seal leaks before they cause structural damage. Our response teams are equipped with the latest diagnostic tools.",
+        longDescription: "We use thermal imaging and expert inspections to locate and seal leaks before they cause structural damage.",
         features: ["Thermal Imaging", "Flash Repairs", "Waterproofing"],
-        image: "/assets/roofing.jpg",
         stats: [{ label: "Response", value: "24 Hours" }, { label: "Accuracy", value: "98%" }, { label: "Repairs", value: "Permanent" }],
         benefits: [
           { title: "Non-Invasive Detection", description: "Thermal cameras find moisture without invasive cutting.", icon: "Eye" },
@@ -128,11 +129,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "roof-replacement",
-        title: "Roof Replacement",
+        ...getAsset("roof-replacement"),
         description: "Complete architectural roof teardown and reconstruction.",
         longDescription: "Our full replacement service includes complete structural analysis, removal of old materials, and installation of a comprehensive multi-layered roofing system.",
         features: ["Structural Analysis", "Full Teardown", "Premium Rebuild"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "ROI", value: "+20%" }, { label: "Longevity", value: "50 Years" }, { label: "Compliance", value: "DOB 100%" }],
         benefits: [
           { title: "Structural Integrity", description: "A fresh start for your building's primary protection.", icon: "Shield" },
@@ -140,15 +140,14 @@ export const servicesData: Service[] = [
           { title: "Code Compliance", description: "Upgrading your roof to meet modern NY safety standards.", icon: "Scale" }
         ],
         process: ["Full Tear-off", "Sheathing Repair", "Ice & Water Shield", "New System Install", "Ventilation Tuning"],
-        faqs: [{ question: "When should a roof be replaced?", answer: "If your roof is over 20-25 years old or has widespread leaking, replacement is often more cost-effective than constant repair." }]
+        faqs: [{ question: "When should a roof be replaced?", answer: "If your roof is over 20-25 years old or has widespread leaking." }]
       },
       {
         id: "roof-installation",
-        title: "Roof Installation",
+        ...getAsset("roof-installation"),
         description: "Professional new construction roofing installation.",
-        longDescription: "We provide precision roofing installation for new builds, working directly with architects and developers to ensure structural perfection and aesthetic alignment.",
+        longDescription: "We provide precision roofing installation for new builds, working directly with architects and developers.",
         features: ["New Construction", "Architectural Alignment", "Master Craftsmanship"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Precision", value: "99.9%" }, { label: "Speed", value: "Optimized" }, { label: "Aesthetic", value: "Premium" }],
         benefits: [
           { title: "Architectural Integration", description: "Roofing that perfectly complements your new design.", icon: "Layout" },
@@ -160,11 +159,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "roof-inspection",
-        title: "Roof Inspection",
+        ...getAsset("roof-inspection"),
         description: "Comprehensive technical roof assessments and certification.",
-        longDescription: "Using thermal imaging and physical analysis, we provide detailed reports on the health of your roofing system for insurance, sale, or maintenance purposes.",
+        longDescription: "Using thermal imaging and physical analysis, we provide detailed reports on the health of your roofing system.",
         features: ["Drone Surveys", "Thermal Imaging", "Certification Reports"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Detail", value: "Microscopic" }, { label: "Reporting", value: "24 Hours" }, { label: "Tech", value: "Advanced" }],
         benefits: [
           { title: "Early Detection", description: "Finding invisible problems before they become catastrophes.", icon: "Search" },
@@ -178,10 +176,9 @@ export const servicesData: Service[] = [
   },
   {
     id: "masonry-work",
-    title: "Masonry Work",
+    ...getAsset("masonry-work"),
     description: "Expert masonry and exterior restoration services for NYC's iconic structures.",
     icon: "Hammer",
-    image: "/assets/merabrickwork.jpeg",
     tag: "Structural",
     features: ["Brick Work", "Replacement", "Grinding & Pointing", "Parapet Walls", "Facade Restoration", "Retaining Walls", "Patios", "Steps Repair", "Fire Escapes", "Chimneys", "Waterproofing", "Rebuilds"],
     categoryBenefits: [
@@ -192,11 +189,10 @@ export const servicesData: Service[] = [
     subcategories: [
       {
         id: "brick-work",
-        title: "Brick Work",
+        ...getAsset("brick-work"),
         description: "Expert bricklaying and heritage brick restoration.",
-        longDescription: "From new brick construction to historic building restoration, our masons deliver precise and durable brick work with meticulous attention to detail.",
+        longDescription: "From new brick construction to historic building restoration, our masons deliver precise and durable brick work.",
         features: ["Heritage Restoration", "Tuck Pointing"],
-        image: "/assets/merabrickwork.jpeg",
         stats: [{ label: "Match Accuracy", value: "99%" }, { label: "Experience", value: "15+ Years" }],
         benefits: [{ title: "Structural Re-pointing", description: "Restoring compressive strength to old walls.", icon: "Layers" }],
         process: ["Surface Prep", "Mortar Matching", "Pointing", "Cleaning"],
@@ -204,11 +200,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "brick-replacement",
-        title: "Brick Replacement",
+        ...getAsset("brick-replacement"),
         description: "Precision replacement of damaged or spalling bricks.",
-        longDescription: "We identify and replace individual damaged bricks to maintain the structural and aesthetic integrity of your masonry, preventing water infiltration.",
+        longDescription: "We identify and replace individual damaged bricks to maintain the structural and aesthetic integrity of your masonry.",
         features: ["Structural Integrity", "Matching Textures"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Match Rate", value: "99%" }, { label: "Weather Proof", value: "100%" }],
         benefits: [{ title: "Water Protection", description: "Seals entry points for moisture.", icon: "Droplets" }],
         process: ["Extraction", "Cavity Prep", "Installation", "Sealing"],
@@ -216,11 +211,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "brick-grinding-pointing",
-        title: "Brick Grinding & Pointing",
+        ...getAsset("brick-grinding-pointing"),
         description: "Technical mortar removal and precision re-pointing.",
-        longDescription: "Our specialized grinding process removes decayed mortar joints and replaces them with premium, weather-resistant mortar to revitalize your facade.",
+        longDescription: "Our specialized grinding process removes decayed mortar joints and replaces them with premium mortar.",
         features: ["Deep Grinding", "Custom Mortar"],
-        image: "/assets/megaservice4.jpg",
         stats: [{ label: "Joint Depth", value: "3/4 Inch" }, { label: "Longevity", value: "25+ Years" }],
         benefits: [{ title: "Reinforcement", description: "Restores load-bearing capacity of joints.", icon: "Lock" }],
         process: ["Grinding", "Joint Cleaning", "Pointing", "Cleanup"],
@@ -228,23 +222,21 @@ export const servicesData: Service[] = [
       },
       {
         id: "parapet-wall",
-        title: "Parapet Wall",
+        ...getAsset("parapet-wall"),
         description: "Structural repair and capping for roof parapet walls.",
-        longDescription: "Parapet walls are critical for roof safety and waterproofing. We specialize in rebuilding, pointing, and capping parapets to meet NYC safety codes.",
+        longDescription: "Parapet walls are critical for roof safety and waterproofing.",
         features: ["Coping Stones", "Structural Rebuild", "Waterproofing"],
-        image: "/assets/megaservice5.jpg",
         stats: [{ label: "Safety", value: "Code A+" }, { label: "Stability", value: "Industrial" }],
         benefits: [{ title: "Roof Security", description: "Ensures the perimeter of your roof is structurally sound.", icon: "Shield" }],
         process: ["Demolition", "Masonry Rebuild", "Flashing Install", "Coping Placement"],
-        faqs: [{ question: "Why do parapet walls leak?", answer: "Usually due to cracked coping stones or failed flashing at the roof junction." }]
+        faqs: [{ question: "Why do parapet walls leak?", answer: "Usually due to cracked coping stones or failed flashing." }]
       },
       {
         id: "facade-restoration",
-        title: "Facade Restoration",
+        ...getAsset("facade-restoration"),
         description: "Complete revitalization of building exteriors.",
-        longDescription: "Complete facade restoration including cleaning, stone carving, and FISP (Local Law 11) compliance for historic and modern buildings.",
+        longDescription: "Complete facade restoration including cleaning, stone carving, and FISP (Local Law 11) compliance.",
         features: ["Law 11 Compliance", "Stone Carving", "Steam Cleaning"],
-        image: "/assets/megaservice8.jpg",
         stats: [{ label: "Law 11", value: "Compliant" }, { label: "Longevity", value: "Extensive" }],
         benefits: [{ title: "Compliance Experts", description: "Navigating NYC DOB and Landmark regulations.", icon: "ClipboardCheck" }],
         process: ["Inspection", "Cleaning", "Repairs", "Detailing", "Sealing"],
@@ -252,23 +244,21 @@ export const servicesData: Service[] = [
       },
       {
         id: "retaining-walls",
-        title: "Retaining Walls",
+        ...getAsset("retaining-walls"),
         description: "Structural masonry walls for soil retention and landscaping.",
-        longDescription: "We build heavy-duty retaining walls using stone, brick, or reinforced concrete to manage soil pressure and create multi-level landscapes.",
+        longDescription: "We build heavy-duty retaining walls using stone, brick, or reinforced concrete.",
         features: ["Soil Retention", "Drainage Systems", "Structural Masonry"],
-        image: "/assets/megaservice6.jpg",
         stats: [{ label: "PSI", value: "4000+" }, { label: "Durability", value: "Life-long" }],
         benefits: [{ title: "Erosion Control", description: "Prevents soil shifting and foundation pressure.", icon: "Activity" }],
         process: ["Excavation", "Footing Pour", "Wall Construction", "Backfill & Drainage"],
-        faqs: [{ question: "Do retaining walls need drainage?", answer: "Yes, 'weep holes' and gravel backfill are essential to prevent water pressure from collapsing the wall." }]
+        faqs: [{ question: "Do retaining walls need drainage?", answer: "Yes, 'weep holes' and gravel backfill are essential." }]
       },
       {
         id: "patios",
-        title: "Patios",
+        ...getAsset("patios"),
         description: "Luxury masonry patios and outdoor living spaces.",
-        longDescription: "Custom-designed patios using bluestone, pavers, or brick to create elegant and durable outdoor environments for NYC homes.",
+        longDescription: "Custom-designed patios using bluestone, pavers, or brick.",
         features: ["Bluestone", "Paver Systems", "Custom Layouts"],
-        image: "/assets/megaservice7.jpg",
         stats: [{ label: "ROI", value: "High" }, { label: "Style", value: "Bespoke" }],
         benefits: [{ title: "Outdoor Living", description: "Increases usable square footage and property value.", icon: "Sun" }],
         process: ["Grading", "Sub-base Prep", "Stone Setting", "Joint Finishing"],
@@ -276,47 +266,43 @@ export const servicesData: Service[] = [
       },
       {
         id: "steps-repair-construction",
-        title: "Steps Repair & Construction",
+        ...getAsset("steps-repair-construction"),
         description: "Precision repair and rebuilding of masonry steps.",
-        longDescription: "We specialize in the structural repair and complete reconstruction of front steps (stoops), using authentic brownstone, granite, or limestone finishes.",
+        longDescription: "We specialize in the structural repair and complete reconstruction of front steps (stoops).",
         features: ["Stoop Restoration", "Safety Treads", "Structural Masonry"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "Safety", value: "100%" }, { label: "Finish", value: "Artisan" }],
         benefits: [{ title: "Curb Appeal", description: "The front stoop is the face of an NYC brownstone.", icon: "Star" }],
         process: ["Structural Demo", "Formwork/Masonry", "Finish Layer", "Safety Coating"],
-        faqs: [{ question: "Can you fix crumbling brownstone steps?", answer: "Yes, we specialize in authentic brownstone patching and full step resurfacing." }]
+        faqs: [{ question: "Can you fix crumbling brownstone steps?", answer: "Yes, we specialize in authentic brownstone patching." }]
       },
       {
         id: "fire-escapes",
-        title: "Fire Escapes",
+        ...getAsset("fire-escapes"),
         description: "Masonry repair around fire escape anchors and safety inspections.",
-        longDescription: "We repair the structural masonry around fire escape anchors to ensure they are securely fastened and compliant with NYC fire safety codes.",
+        longDescription: "We repair the structural masonry around fire escape anchors to ensure they are securely fastened.",
         features: ["Anchor Repair", "Safety Inspection", "Compliance"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Safety", value: "Certified" }, { label: "Compliance", value: "NYC Fire" }],
         benefits: [{ title: "Life Safety", description: "Ensuring emergency exit points are structurally secure.", icon: "ShieldAlert" }],
         process: ["Inspection", "Anchor Stabilization", "Masonry Patching", "Final Testing"],
-        faqs: [{ question: "Does masonry affect fire escape safety?", answer: "Yes, loose or crumbling bricks around anchors are a major safety violation." }]
+        faqs: [{ question: "Does masonry affect fire escape safety?", answer: "Yes, loose or crumbling bricks around anchors are a major violation." }]
       },
       {
         id: "chimney-caps-rebuilds",
-        title: "Chimney Caps & Rebuilds",
+        ...getAsset("chimney-caps-rebuilds"),
         description: "Structural chimney restoration and weather protection.",
-        longDescription: "From rebuilding crumbling chimney stacks to installing industrial-grade caps, we ensure your chimney is safe, functional, and waterproof.",
+        longDescription: "From rebuilding crumbling chimney stacks to installing industrial-grade caps.",
         features: ["Stainless Steel Caps", "Masonry Rebuild", "Flue Repair"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Draft", value: "Optimized" }, { label: "Safety", value: "A+" }],
         benefits: [{ title: "Fire Prevention", description: "Eliminating cracks and debris that cause chimney fires.", icon: "Flame" }],
         process: ["Inspection", "Stack Rebuild", "Lining Check", "Cap Installation"],
-        faqs: [{ question: "Why is my chimney crumbling?", answer: "Usually due to 'freeze-thaw' cycles where water enters cracks and expands as ice." }]
+        faqs: [{ question: "Why is my chimney crumbling?", answer: "Usually due to 'freeze-thaw' cycles." }]
       },
       {
         id: "waterproofing",
-        title: "Waterproofing",
+        ...getAsset("waterproofing"),
         description: "Below-grade and facade waterproofing systems.",
-        longDescription: "Industrial-grade waterproofing for basements, foundations, and exterior walls to prevent water ingress and structural rot.",
+        longDescription: "Industrial-grade waterproofing for basements, foundations, and exterior walls.",
         features: ["French Drains", "Liquid Membranes", "Exterior Sealing"],
-        image: "/assets/megaservice4.jpg",
         stats: [{ label: "Protection", value: "100%" }, { label: "Dryness", value: "Guaranteed" }],
         benefits: [{ title: "Mold Prevention", description: "Stopping water before it creates health hazards.", icon: "CloudRain" }],
         process: ["Excavation", "Membrane Apply", "Drainage Install", "Backfill"],
@@ -324,11 +310,10 @@ export const servicesData: Service[] = [
       },
       {
         id: "reconstruction-rebuilds",
-        title: "Reconstruction & Rebuilds",
+        ...getAsset("reconstruction-rebuilds"),
         description: "Complete structural rebuilding of masonry elements.",
-        longDescription: "Comprehensive reconstructing for collapsed or unstable masonry walls, foundations, and historical elements to original architectural specs.",
+        longDescription: "Comprehensive reconstructing for collapsed or unstable masonry walls and foundations.",
         features: ["Full Rebuild", "Code Compliance", "Historical Accuracy"],
-        image: "/assets/megaservice5.jpg",
         stats: [{ label: "Strength", value: "Industrial" }, { label: "Compliance", value: "100%" }],
         benefits: [{ title: "Structural Renewal", description: "Restoring the core stability of your building.", icon: "HardHat" }],
         process: ["Stabilization", "Demolition", "Architectural Rebuild", "Finishing"],
@@ -338,10 +323,9 @@ export const servicesData: Service[] = [
   },
   {
     id: "concrete-services",
-    title: "Concrete and Sidewalk Services",
+    ...getAsset("concrete-services"),
     description: "Industrial concrete solutions for NYC sidewalks, driveways, and foundations.",
     icon: "Square",
-    image: "/assets/excavation.jpg",
     tag: "Concrete",
     features: ["Driveway Repair", "Sidewalk Repair", "Sidewalk Replacement", "Sidewalk Violation Removal", "DOT Violation", "DOB Violation", "Foundation Work", "Backyard Concrete"],
     categoryBenefits: [
@@ -352,35 +336,32 @@ export const servicesData: Service[] = [
     subcategories: [
       {
         id: "driveway-repair",
-        title: "Driveway Repair",
+        ...getAsset("driveway-repair"),
         description: "Heavy-duty concrete driveway restoration and new pours.",
-        longDescription: "We provide high-strength concrete driveway solutions designed to support vehicle weight and withstand NYC's salt and ice seasons.",
+        longDescription: "We provide high-strength concrete driveway solutions designed to support vehicle weight.",
         features: ["Rebar Reinforcement", "Broom Finish", "Expansion Joints"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "PSI", value: "4500" }, { label: "Cure Time", value: "7 Days" }],
         benefits: [{ title: "Vehicle Support", description: "Reinforced to prevent cracking under weight.", icon: "Truck" }],
         process: ["Base Compaction", "Rebar Grid", "Precision Pour", "Joint Cutting"],
-        faqs: [{ question: "Can a driveway handle a truck?", answer: "Yes, our reinforced 4500 PSI mix is engineered for heavy residential and light commercial loads." }]
+        faqs: [{ question: "Can a driveway handle a truck?", answer: "Yes, our reinforced 4500 PSI mix is engineered for heavy loads." }]
       },
       {
         id: "sidewalk-repair",
-        title: "Sidewalk Repair",
+        ...getAsset("sidewalk-repair"),
         description: "Patching and partial replacement of cracked sidewalks.",
-        longDescription: "Cost-effective solutions for individual sidewalk flags that have cracked or lifted due to tree roots or settling.",
+        longDescription: "Cost-effective solutions for individual sidewalk flags.",
         features: ["Section Replacement", "Root Management", "Code Compliance"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Safety", value: "Restored" }, { label: "Code", value: "NYC Compliant" }],
         benefits: [{ title: "Trip Hazard Removal", description: "Instantly making your property safe for pedestrians.", icon: "Shield" }],
         process: ["Damaged Flag Demo", "Sub-base Leveling", "Sectional Pour", "Broom Finish"],
-        faqs: [{ question: "Do you fix tree root damage?", answer: "Yes, we work with the NYC Parks Dept guidelines to trim roots and level the sidewalk." }]
+        faqs: [{ question: "Do you fix tree root damage?", answer: "Yes, we work with the NYC Parks Dept guidelines." }]
       },
       {
         id: "sidewalk-replacement",
-        title: "Sidewalk Replacement",
+        ...getAsset("sidewalk-replacement"),
         description: "Full-scale concrete sidewalk reconstruction.",
-        longDescription: "Complete removal and replacement of existing sidewalks to meet all NYC DOT and DOB standards for slope, thickness, and finish.",
+        longDescription: "Complete removal and replacement of existing sidewalks to meet all NYC DOT and DOB standards.",
         features: ["Full Demo", "DOT Standards", "Hand Finishing"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Thickness", value: "4 Inch" }, { label: "Standard", value: "NYC DOT" }],
         benefits: [{ title: "Long-term Value", description: "A fresh, durable sidewalk that will last decades.", icon: "TrendingUp" }],
         process: ["Complete Excavation", "DOT Inspection Prep", "Continuous Pour", "Precision Pitching"],
@@ -388,72 +369,66 @@ export const servicesData: Service[] = [
       },
       {
         id: "sidewalk-violation-removal",
-        title: "Sidewalk Violation Removal",
+        ...getAsset("sidewalk-violation-removal"),
         description: "Legal and construction services for DOT sidewalk citations.",
-        longDescription: "We specialize in resolving DOT sidewalk violations, handling everything from permit filing to final inspection sign-off.",
+        longDescription: "We specialize in resolving DOT sidewalk violations, handling everything from permit filing to final sign-off.",
         features: ["DOT Expediting", "Code Repair", "Lien Removal"],
-        image: "/assets/megaservice4.jpg",
         stats: [{ label: "Sign-off", value: "Guaranteed" }, { label: "Fines", value: "Stopped" }],
         benefits: [{ title: "Title Clearance", description: "Removing city liens that prevent property sales.", icon: "FileCheck" }],
         process: ["Violation Review", "DOT Permit Filing", "Certified Repair", "Inspector Walkthrough"],
-        faqs: [{ question: "How fast can you clear a DOT violation?", answer: "Repairs take 1-2 days; city processing for dismissal usually takes 4-8 weeks." }]
+        faqs: [{ question: "How fast can you clear a DOT violation?", answer: "Repairs take 1-2 days; city processing usually takes 4-8 weeks." }]
       },
       {
         id: "dot-violation-removal",
-        title: "DOT Violation Removal",
+        ...getAsset("dot-violation-removal"),
         description: "Specialized assistance for Department of Transportation notices.",
-        longDescription: "Focusing specifically on DOT-issued trip hazard and maintenance violations, we ensure your sidewalk meets NYC safety standards.",
+        longDescription: "Focusing specifically on DOT-issued trip hazard and maintenance violations.",
         features: ["Trip Hazard Fix", "Pitch Correction", "DOT Filing"],
-        image: "/assets/megaservice5.jpg",
         stats: [{ label: "Accuracy", value: "100%" }, { label: "Compliance", value: "NYC DOT" }],
         benefits: [{ title: "Penalty Avoidance", description: "Stop the city from repairing the sidewalk at your expense.", icon: "Gavel" }],
         process: ["DOT Record Search", "Site Correction", "Affidavit Filing", "City Verification"],
-        faqs: [{ question: "What is an Expedited Dismissal?", answer: "A process where we certify the repair directly to the DOT to clear the record faster." }]
+        faqs: [{ question: "What is an Expedited Dismissal?", answer: "A process where we certify the repair directly to the DOT." }]
       },
       {
         id: "dob-violation-removal",
-        title: "DOB Violation Removal",
+        ...getAsset("dob-violation-removal"),
         description: "Resolving Department of Buildings concrete and structural citations.",
-        longDescription: "Handling complex DOB violations related to illegal concrete work, unpermitted structures, or structural safety issues.",
+        longDescription: "Handling complex DOB violations related to illegal concrete work or structural safety issues.",
         features: ["DOB Expediting", "Permit Recovery", "As-Built Filings"],
-        image: "/assets/megaservice6.jpg",
         stats: [{ label: "Status", value: "Cleared" }, { label: "Legal", value: "Handled" }],
         benefits: [{ title: "Safe Property", description: "Ensuring your building meets all DOB safety codes.", icon: "ShieldCheck" }],
         process: ["Violation Analysis", "Architectural Filing", "Corrective Work", "Final DOB Sign-off"],
-        faqs: [{ question: "Can a DOB violation stop my mortgage?", answer: "Yes, lenders usually require clear DOB records before approving loans or refinancing." }]
+        faqs: [{ question: "Can a DOB violation stop my mortgage?", answer: "Yes, lenders usually require clear DOB records before approving loans." }]
       },
       {
         id: "foundation-work",
-        title: "Foundation Work",
+        ...getAsset("foundation-work"),
         description: "Structural concrete foundations and underpinning.",
-        longDescription: "High-strength poured concrete foundations for new builds and structural reinforcement for existing properties.",
+        longDescription: "High-strength poured concrete foundations for new builds and structural reinforcement.",
         features: ["Underpinning", "Poured Foundations", "Waterproofing"],
-        image: "/assets/megaservice7.jpg",
         stats: [{ label: "PSI", value: "4000+" }, { label: "Strength", value: "Industrial" }],
         benefits: [{ title: "Core Stability", description: "The most critical structural element of any building.", icon: "Building2" }],
         process: ["Excavation", "Shuttering", "Rebar Reinforcement", "Concrete Pour"],
-        faqs: [{ question: "Do you do underpinning?", answer: "Yes, we safely deepen or reinforce foundations for basement conversions." }]
+        faqs: [{ question: "Do you do underpinning?", answer: "Yes, we safely deepen or reinforce foundations." }]
       },
       {
         id: "backyard-concrete",
-        title: "Backyard Concrete",
+        ...getAsset("backyard-concrete"),
         description: "Custom backyard concrete slabs and patios.",
-        longDescription: "Professional backyard concrete installations including specialized drainage systems and broom finishes for urban outdoor spaces.",
+        longDescription: "Professional backyard concrete installations including specialized drainage systems.",
         features: ["Patio Slabs", "Drainage Systems", "Broom Finish"],
-        image: "/assets/megaservice8.jpg",
         stats: [{ label: "ROI", value: "High" }, { label: "Pitch", value: "Optimized" }],
-        benefits: [{ title: "Low Maintenance", description: "Durable, clean outdoor surfaces that last decades.", icon: "RefreshCw" }],
+        benefits: [{ title: "Low Maintenance", description: "Durable, clean outdoor surfaces.", icon: "RefreshCw" }],
         process: ["Leveling", "Base Prep", "Reinforcement", "Final Pour"],
-        faqs: [{ question: "Will my backyard drain properly?", answer: "Yes, every project includes a calculated pitch to direct water away from the house." }]
+        faqs: [{ question: "Will my backyard drain properly?", answer: "Yes, every project includes a calculated pitch." }]
       }
     ]
   },
   {
     id: "home-renovation",
-    title: "Home Renovation",
+    ...getAsset("home-renovation"),
     description: "Complete interior transformation from kitchens to full gut renovations.",
     icon: "Layout",
-    image: "/assets/home-renovation.jpg",
     tag: "Interior",
     features: ["Kitchen", "Bathroom", "Basement", "Interior Remodeling"],
     categoryBenefits: [
@@ -464,11 +439,10 @@ export const servicesData: Service[] = [
     subcategories: [
       {
         id: "kitchen-renovation",
-        title: "Kitchen Renovation",
+        ...getAsset("kitchen-renovation"),
         description: "Custom cabinetry and modern kitchen layouts.",
         longDescription: "Complete kitchen overhauls including custom cabinetry, stone countertops, and plumbing/electrical integration.",
         features: ["Custom Cabinets", "Stone Counters", "Modern Plumbing"],
-        image: "/assets/kitchen-bath.jpg",
         stats: [{ label: "Value", value: "+25%" }, { label: "Design", value: "Bespoke" }],
         benefits: [{ title: "ROI", description: "Kitchens offer the highest return on investment.", icon: "DollarSign" }],
         process: ["Design", "Demolition", "Rough-in", "Cabinet Install", "Finishing"],
@@ -476,48 +450,44 @@ export const servicesData: Service[] = [
       },
       {
         id: "bathroom-renovation",
-        title: "Bathroom Renovation",
+        ...getAsset("bathroom-renovation"),
         description: "Luxury bathroom tiling and spa-like features.",
         longDescription: "Comprehensive bathroom renovation including waterproofing, premium tile work, and luxury fixture installation.",
         features: ["Spa Systems", "Waterproofing", "Tile Artistry"],
-        image: "/assets/megabathroom.jpeg",
         stats: [{ label: "Spa Grade", value: "Platinum" }, { label: "Tiling", value: "Precision" }],
         benefits: [{ title: "Waterproofing", description: "Schluter-certified systems for life-long protection.", icon: "Droplets" }],
         process: ["Protection", "Demolition", "Waterproofing", "Tiling", "Fixtures"],
-        faqs: [{ question: "Do you use Schluter systems?", answer: "Yes, we are certified installers for the best waterproofing systems." }]
+        faqs: [{ question: "Do you use Schluter systems?", answer: "Yes, we are certified installers." }]
       },
       {
         id: "basement-renovation",
-        title: "Basement Renovation",
+        ...getAsset("basement-renovation"),
         description: "Transforming basements into functional living spaces.",
-        longDescription: "Converting dark, damp basements into high-end living areas, theaters, or accessory units with full waterproofing.",
+        longDescription: "Converting dark, damp basements into high-end living areas with full waterproofing.",
         features: ["Egress Windows", "Waterproofing", "Recessed Lighting"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "Space", value: "Maximized" }, { label: "Dryness", value: "100%" }],
         benefits: [{ title: "Increased Square Footage", description: "Doubling your home's usable living space.", icon: "Layout" }],
         process: ["Waterproofing", "Framing", "Electrical", "Insulation", "Finishing"],
-        faqs: [{ question: "How do you stop basement leaks?", answer: "We use internal French drains and sump pumps to ensure a dry finish." }]
+        faqs: [{ question: "How do you stop basement leaks?", answer: "We use internal French drains and sump pumps." }]
       },
       {
         id: "interior-remodeling",
-        title: "Interior Remodeling",
+        ...getAsset("interior-remodeling"),
         description: "Full gut renovations and apartment transformations.",
-        longDescription: "Complete interior remodeling including wall removal, structural changes, and high-end finish carpentry for NYC apartments and homes.",
+        longDescription: "Complete interior remodeling including wall removal and high-end finish carpentry for NYC apartments.",
         features: ["Structural Changes", "Finish Carpentry", "Plastering"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Quality", value: "Elite" }, { label: "Details", value: "Artisan" }],
         benefits: [{ title: "Custom Living", description: "A home tailored exactly to your lifestyle.", icon: "Sparkles" }],
         process: ["Planning", "Demolition", "Framing", "Plaster/Drywall", "Flooring/Trim"],
-        faqs: [{ question: "Do you handle Co-op boards?", answer: "Yes, we handle all management paperwork and insurance requirements for NYC buildings." }]
+        faqs: [{ question: "Do you handle Co-op boards?", answer: "Yes, we handle all management paperwork and insurance." }]
       }
     ]
   },
   {
     id: "stucco",
-    title: "Stucco Services",
+    ...getAsset("stucco"),
     description: "Premium exterior stucco application and Californian finishes.",
     icon: "PaintBucket",
-    image: "/assets/general-contracting.jpg",
     tag: "Exterior",
     features: ["EIFS Systems", "Repair", "Traditional", "Color Matching", "Californian Stucco"],
     categoryBenefits: [
@@ -528,22 +498,20 @@ export const servicesData: Service[] = [
     subcategories: [
       {
         id: "eifs-systems",
-        title: "EIFS Systems",
+        ...getAsset("eifs-systems"),
         description: "Superior exterior insulation and finish systems.",
-        longDescription: "Providing high-performance thermal insulation and durable exterior finishes that drastically reduce energy costs.",
+        longDescription: "Providing high-performance thermal insulation and durable exterior finishes.",
         features: ["Energy Efficiency", "Crack Resistance"],
-        image: "/assets/megaservice1.jpg",
         benefits: [{ title: "Thermal Bridge Elimination", description: "Continuous insulation prevents heat loss.", icon: "Thermometer" }],
         process: ["Substrate Prep", "Insulation Install", "Base Coat", "Finish Application"],
         faqs: [{ question: "Is EIFS waterproof?", answer: "Yes, with proper drainage planes, it is highly water-secure." }]
       },
       {
         id: "stucco-repair",
-        title: "Stucco Repair",
+        ...getAsset("stucco-repair"),
         description: "Restoration of cracked or damaged stucco facades.",
-        longDescription: "Precision repair of stucco surfaces to prevent water ingress and restore the original beauty of the exterior.",
+        longDescription: "Precision repair of stucco surfaces to prevent water ingress.",
         features: ["Crack Injection", "Color Matching"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Match", value: "Exact" }, { label: "Seal", value: "100%" }],
         benefits: [{ title: "Water Ingress Stop", description: "Preventing structural rot behind the stucco.", icon: "ShieldAlert" }],
         process: ["Defect Removal", "Lath Check", "Base/Mesh", "Color Match Patch"],
@@ -551,80 +519,73 @@ export const servicesData: Service[] = [
       },
       {
         id: "traditional-stucco",
-        title: "Traditional Stucco",
+        ...getAsset("traditional-stucco"),
         description: "Authentic 3-coat cementitious stucco systems.",
-        longDescription: "High-durability traditional portland cement stucco for a rock-solid, fire-resistant exterior finish.",
+        longDescription: "High-durability traditional portland cement stucco for a rock-solid finish.",
         features: ["3-Coat System", "Fire Resistant"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Strength", value: "Industrial" }, { label: "Longevity", value: "50+ Years" }],
         benefits: [{ title: "Fire Safety", description: "Traditional stucco is non-combustible.", icon: "ShieldCheck" }],
         process: ["Wire Lath", "Scratch Coat", "Brown Coat", "Finish Coat"],
-        faqs: [{ question: "Is traditional stucco better than EIFS?", answer: "Traditional is harder and more impact resistant; EIFS is better for insulation." }]
+        faqs: [{ question: "Is traditional stucco better than EIFS?", answer: "Traditional is harder and more impact resistant." }]
       },
       {
         id: "color-matching",
-        title: "Color Matching",
+        ...getAsset("color-matching"),
         description: "Scientific color matching for exterior finishes.",
-        longDescription: "Using digital analysis and hand-tinted pigments to ensure repair work is invisible on any stucco or masonry surface.",
+        longDescription: "Using digital analysis and hand-tinted pigments to ensure repair work is invisible.",
         features: ["Digital Analysis", "UV Stable Pigments"],
-        image: "/assets/megaservice4.jpg",
         stats: [{ label: "Accuracy", value: "99%" }, { label: "Blend", value: "Seamless" }],
         benefits: [{ title: "Invisible Repairs", description: "Maintains the uniform aesthetic of your property.", icon: "Eye" }],
         process: ["Color Sampling", "Pigment Tuning", "Test Swatch", "Final Application"],
-        faqs: [{ question: "Does color fade over time?", answer: "We use high-grade UV-stable pigments to minimize fading in NYC sun." }]
+        faqs: [{ question: "Does color fade over time?", answer: "We use high-grade UV-stable pigments." }]
       },
       {
         id: "californian-stucco",
-        title: "Californian Stucco",
+        ...getAsset("californian-stucco"),
         description: "Premium heavy-texture traditional stucco finish.",
-        longDescription: "A highly textured, artisan-applied finish that provides a unique and stylish aesthetic for luxury exteriors.",
+        longDescription: "A highly textured, artisan-applied finish that provides a unique aesthetic for luxury exteriors.",
         features: ["Heavy Texture", "Artisan Style"],
-        image: "/assets/megaservice5.jpg",
         stats: [{ label: "Texture", value: "Hand-Crafted" }, { label: "Style", value: "Premium" }],
         benefits: [{ title: "Dynamic Depth", description: "A layered look that reacts to natural light.", icon: "Sparkles" }],
         process: ["Base Prep", "Scratch Coat", "Heavy Texture Layer", "Curing", "Sealing"],
-        faqs: [{ question: "What is California finish?", answer: "A heavy, rustic texture that's very popular for luxury residences." }]
+        faqs: [{ question: "What is California finish?", answer: "A heavy, rustic texture that's very popular." }]
       }
     ]
   },
   {
     id: "custom-home-building",
-    title: "Custom Home Building",
+    ...getAsset("custom-home-building"),
     description: "Bespoke luxury construction from design to project management.",
     icon: "Home",
-    image: "/assets/custom-home.jpg",
     tag: "Custom",
     features: ["Design-Build", "Luxury Finishes", "Project Management", "Smart Homes"],
     subcategories: [
       {
         id: "design-build",
-        title: "Design-Build",
+        ...getAsset("design-build"),
         description: "Integrated architectural design and construction.",
         longDescription: "A streamlined approach handling everything from blueprints to final build under one elite team.",
         features: ["Architectural Services", "Streamlined Workflow"],
-        image: "/assets/megacustomhome.jpg",
         benefits: [{ title: "Budget Control", description: "Design developed alongside cost estimation.", icon: "DollarSign" }],
         process: ["Feasibility", "Design", "Permitting", "Construction", "Handover"]
       },
       {
         id: "luxury-finishes",
-        title: "Luxury Finishes",
+        ...getAsset("luxury-finishes"),
         description: "Artisan interior finishes and premium material selection.",
-        longDescription: "Specializing in exotic stones, custom millwork, and high-end plastering for the most discerning clients.",
+        longDescription: "Specializing in exotic stones, custom millwork, and high-end plastering.",
         features: ["Custom Millwork", "Exotic Stones"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "Quality", value: "Museum Grade" }],
         benefits: [{ title: "Artisan Craft", description: "Finishes applied by the world's best craftsmen.", icon: "Award" }],
         process: ["Selection", "Shop Drawings", "Precision Install", "Final Polishing"],
-        faqs: [{ question: "Do you source materials globally?", answer: "Yes, we source marble from Italy and hardwoods from sustainably managed global forests." }]
+        faqs: [{ question: "Do you source materials globally?", answer: "Yes, we source marble from Italy and hardwoods globally." }]
       },
       {
         id: "project-management",
-        title: "Project Management",
+        ...getAsset("project-management"),
         description: "Professional oversight of complex construction projects.",
-        longDescription: "Managing timelines, sub-contractors, and quality control to ensure your build is on time and over-spec.",
+        longDescription: "Managing timelines, sub-contractors, and quality control.",
         features: ["Timeline Tracking", "Quality Control"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Efficiency", value: "+40%" }],
         benefits: [{ title: "Zero Stress", description: "We handle the complexity so you don't have to.", icon: "ShieldCheck" }],
         process: ["Scheduling", "Vendor Management", "On-site Oversight", "Reporting"],
@@ -632,68 +593,62 @@ export const servicesData: Service[] = [
       },
       {
         id: "smart-homes",
-        title: "Smart Homes",
+        ...getAsset("smart-homes"),
         description: "Integration of high-tech home automation and security.",
-        longDescription: "Building next-generation homes with integrated climate, lighting, and security systems controlled from anywhere.",
+        longDescription: "Building next-generation homes with integrated climate, lighting, and security systems.",
         features: ["Automation", "Security Integration"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Efficiency", value: "+30%" }],
         benefits: [{ title: "Modern Living", description: "A home that anticipates your needs.", icon: "Cpu" }],
         process: ["Network Design", "Hardware Rough-in", "Device Install", "Software Setup"],
-        faqs: [{ question: "Can I control my home from my phone?", answer: "Yes, all systems are fully integrated into a single, secure mobile interface." }]
+        faqs: [{ question: "Can I control my home from my phone?", answer: "Yes, all systems are fully integrated." }]
       }
     ]
   },
   {
     id: "emergency-service",
-    title: "Emergency Service",
+    ...getAsset("emergency-service"),
     description: "24/7 rapid response for structural and property emergencies.",
     icon: "Shield",
-    image: "/assets/general-contracting.jpg",
     tag: "24/7 Support",
     features: ["Rapid Deployment", "Safety Assessment", "Board-Up", "24/7 Service"],
     subcategories: [
       {
         id: "rapid-deployment",
-        title: "Rapid Deployment",
+        ...getAsset("rapid-deployment"),
         description: "Immediate response for urgent property emergencies.",
         longDescription: "On-call 24/7 to address structural failures, storm damage, or urgent property security.",
         features: ["Immediate Dispatch", "Safety First"],
-        image: "/assets/megaemergencyrepair.jpg",
         benefits: [{ title: "Instant Stabilization", description: "Shoring to prevent collapse.", icon: "Anchor" }],
         process: ["Hotline Call", "Mobilization", "Hazard Mitigation", "Stabilization"]
       },
       {
         id: "safety-assessment",
-        title: "Safety Assessment",
+        ...getAsset("safety-assessment"),
         description: "Urgent structural health checks after an incident.",
-        longDescription: "Professional structural evaluation to determine if a building is safe for entry or requires immediate shoring.",
+        longDescription: "Professional structural evaluation to determine if a building is safe for entry.",
         features: ["Structural Evaluation", "Load Analysis"],
-        image: "/assets/megaservice1.jpg",
         stats: [{ label: "Accuracy", value: "100%" }],
         benefits: [{ title: "Peace of Mind", description: "Knowing exactly where your property stands safety-wise.", icon: "ShieldCheck" }],
         process: ["Visual Check", "Equipment Testing", "Risk Analysis", "Report"],
-        faqs: [{ question: "How fast can you assess a building?", answer: "Our emergency teams can be on site within 60 minutes for critical assessments." }]
+        faqs: [{ question: "How fast can you assess a building?", answer: "Our emergency teams can be on site within 60 minutes." }]
       },
       {
         id: "board-up-service",
-        title: "Board-Up Service",
+        ...getAsset("board-up-service"),
         description: "Immediate securing of compromised property openings.",
-        longDescription: "Securing broken windows, doors, and roof holes after fire, storm, or vandalism to prevent further damage.",
+        longDescription: "Securing broken windows, doors, and roof holes after fire or storm.",
         features: ["Secure Boarding", "Roof Tarping"],
-        image: "/assets/megaservice2.jpg",
         stats: [{ label: "Speed", value: "Instant" }],
         benefits: [{ title: "Theft Prevention", description: "Securing your assets immediately after an event.", icon: "Lock" }],
         process: ["Opening Measurement", "Custom Cutting", "Mechanical Fastening", "Weather Proofing"],
-        faqs: [{ question: "Is this temporary?", answer: "Yes, it is a secure temporary measure until permanent repairs can be made." }]
+        faqs: [{ question: "Is this temporary?", answer: "Yes, it is a secure temporary measure." }]
       },
       {
         id: "emergency-24-7",
-        title: "24/7 Emergency Services",
+        ...getAsset("emergency-24-7"),
         description: "Round-the-clock construction and repair response.",
-        longDescription: "Full access to our entire expertise pool at any time of day or night for critical repairs.",
+        longDescription: "Full access to our entire expertise pool at any time of day or night.",
         features: ["All-hours Access", "Elite Technicians"],
-        image: "/assets/megaservice3.jpg",
         stats: [{ label: "Availability", value: "365 Days" }],
         benefits: [{ title: "Always Ready", description: "A partner that never sleeps.", icon: "Clock" }],
         process: ["Intake", "Dispatch", "On-site Response", "Stabilization"],
