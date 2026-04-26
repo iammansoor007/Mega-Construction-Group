@@ -15,7 +15,11 @@
           "Roof Installation",
           "Roof Inspection"
         ],
-        "features": ["Licensed", "Insured", "20+ Yrs Exp"]
+        "features": [
+          "Licensed",
+          "Insured",
+          "20+ Yrs Exp"
+        ]
       },
       {
         "title": "Masonry Work",
@@ -23,18 +27,23 @@
         "description": "Expert masonry and exterior restoration",
         "icon": "Hammer",
         "items": [
-          "Brick Work",
           "Facade Restoration",
           "Parapet Wall",
           "Tuck Pointing",
           "Retaining Walls",
           "Patios",
           "Stair Repair & Building",
-          "Fire Escapes",
+          "Fire Escape Painting",
+          "Window Caulking",
+          "Lintel Replacement",
           "Chimney Caps & Rebuilds",
           "Waterproofing"
         ],
-        "features": ["Structural", "Heritage", "Precise"]
+        "features": [
+          "Structural",
+          "Heritage",
+          "Precise"
+        ]
       },
       {
         "title": "Concrete & Sidewalk Services",
@@ -42,14 +51,18 @@
         "description": "Concrete and DOB violation removal",
         "icon": "Square",
         "items": [
-          "Driveway Repair",
           "Sidewalk Violation Removal",
           "Sidewalk Installation",
+          "Foundations",
           "Sidewalk Replacement",
           "Sidewalk Repair",
-          "Foundations"
+          "Driveway Replacement"
         ],
-        "features": ["Expedited", "Professional", "Durable"]
+        "features": [
+          "Expedited",
+          "Professional",
+          "Durable"
+        ]
       },
       {
         "title": "Home Renovation",
@@ -62,7 +75,11 @@
           "Basement Renovation",
           "Interior Remodeling"
         ],
-        "features": ["Craftsmanship", "Modern", "Turn-key"]
+        "features": [
+          "Craftsmanship",
+          "Modern",
+          "Turn-key"
+        ]
       },
       {
         "title": "Stucco Services",
@@ -70,12 +87,16 @@
         "description": "Premium exterior stucco finishes",
         "icon": "PaintBucket",
         "items": [
-          "EIFS Systems",
           "Stucco Repair",
           "Traditional Stucco",
-          "Color Matching"
+          "Color Matching",
+          "EIFS Systems"
         ],
-        "features": ["Insulated", "Durable", "Modern"]
+        "features": [
+          "Insulated",
+          "Durable",
+          "Modern"
+        ]
       },
       {
         "title": "Custom Home",
@@ -88,7 +109,11 @@
           "Project Management",
           "Smart Homes"
         ],
-        "features": ["Premium", "Unique", "Masterpiece"]
+        "features": [
+          "Premium",
+          "Unique",
+          "Masterpiece"
+        ]
       },
       {
         "title": "Emergency Service",
@@ -101,7 +126,11 @@
           "Board-up Service",
           "24/7 Availability"
         ],
-        "features": ["Always Ready", "Expert Team", "Secure"]
+        "features": [
+          "Always Ready",
+          "Expert Team",
+          "Secure"
+        ]
       }
     ],
     "companyLinks": [
@@ -167,7 +196,7 @@
       "Roofing & Masonry",
       "Restoration Works"
     ],
-    "description": "Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, our family-owned business brings integrity, expertise, and attention to detail to every project.",
+    "description": "Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, our family-owned business brings integrity, expertise, and attention to detail to every project. We are also NYC code-compliant roofing and facade specialists, with proven expertise in Local Law 92, Local Law 94, and Local Law 11 compliance.",
     "buttons": [
       {
         "text": "Get Free Estimate",
@@ -308,10 +337,13 @@
         "tag": "Structural",
         "image": "merabrickwork",
         "features": [
-          "Brick Work",
+          "Brick Pointing",
+          "Window Caulking",
+          "Lintel Replacement",
           "Retaining Walls",
           "Patios",
-          "Chimney Rebuilds"
+          "Chimney Rebuilds",
+          "Fire Escape Painting"
         ]
       },
       {
@@ -323,11 +355,12 @@
         "tag": "Concrete",
         "image": "megaservice5",
         "features": [
-          "Driveway Repair",
           "Sidewalk Violation Removal",
           "Sidewalk Installation",
+          "Foundations",
+          "Sidewalk Repair",
           "Sidewalk Replacement",
-          "Sidewalk Repair"
+          "Driveway Replacement"
         ]
       },
       {
@@ -354,10 +387,10 @@
         "tag": "Exterior",
         "image": "megaservice1",
         "features": [
-          "EIFS Systems",
           "Stucco Repair",
           "Traditional Stucco",
-          "Color Matching"
+          "Color Matching",
+          "EIFS Systems"
         ]
       },
       {
@@ -618,34 +651,34 @@
     },
     "features": [
       {
+        "icon": "Certified",
+        "title": "Licensed & Insured NYC Contractor",
+        "description": "Fully licensed and insured in New York with an A+ rating from the Better Business Bureau, providing total protection for your property."
+      },
+      {
         "icon": "Experience",
         "title": "20+ Years of Construction Excellence",
         "description": "Since 2005, our family-owned business has completed thousands of successful residential and commercial projects throughout New York."
       },
       {
-        "icon": "Honest",
-        "title": "Transparent, Honest Pricing",
-        "description": "We provide detailed, upfront estimates with no hidden fees. You'll know exactly what to expect from start to finish."
-      },
-      {
-        "icon": "Materials",
-        "title": "Premium Quality Materials",
-        "description": "We use only top-quality materials from trusted manufacturers to ensure lasting beauty and durability."
-      },
-      {
-        "icon": "Communication",
-        "title": "Clear Communication",
-        "description": "From initial consultation to project completion, you'll have direct access to your project manager and regular updates."
-      },
-      {
         "icon": "Shield",
-        "title": "10-Year Workmanship Warranty",
-        "description": "We stand behind our work with a comprehensive 10-year warranty on workmanship for your peace of mind."
+        "title": "Experienced in DOB Compliance Work",
+        "description": "Experts in navigating NYC Department of Buildings regulations, FISP/Local Law 11, and historic landmark requirements."
       },
       {
-        "icon": "Certified",
-        "title": "Licensed, Insured & BBB A+ Rated",
-        "description": "Fully licensed and insured in New York with an A+ rating from the Better Business Bureau."
+        "icon": "Building",
+        "title": "Property Managers & Building Owners",
+        "description": "Trusted partner for property managers and building owners, delivering scalable maintenance and restoration solutions across NYC."
+      },
+      {
+        "icon": "Clock",
+        "title": "Fast Turnaround for Violations & Repairs",
+        "description": "Rapid response and expedited service for clearing DOT/DOB violations and performing urgent structural repairs."
+      },
+      {
+        "icon": "Honest",
+        "title": "10-Year Workmanship Warranty",
+        "description": "We stand behind our elite craftsmanship with a comprehensive 10-year warranty on all workmanship for your peace of mind."
       }
     ],
     "stats": [

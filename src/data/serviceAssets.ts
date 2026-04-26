@@ -61,13 +61,9 @@ export const serviceAssets = {
   },
 
   // --- MASONRY SUBCATEGORIES ---
-  "brick-work": {
-    title: "Brick Work",
-    image: "/assets/brickworkrealmega.jpg"
-  },
   "brick-replacement": {
-    title: "Brick Replacement",
-    image: "/assets/brickworkrealmega2.jpg"
+    "title": "Brick Replacement",
+    "image": "/assets/brickworkrealmega2.jpg"
   },
   "brick-grinding-pointing": {
     title: "Brick Grinding & Pointing",
@@ -93,6 +89,18 @@ export const serviceAssets = {
     title: "Steps Repair & Construction",
     image: "/assets/stepsrepairmega.jpg"
   },
+  "fire-escape-painting": {
+    "title": "Fire Escape Painting",
+    "image": "/assets/fireexitmega.jpg"
+  },
+  "window-caulking": {
+    "title": "Window Caulking",
+    "image": "/assets/brickworkrealmega.jpg"
+  },
+  "lintel-replacement": {
+    "title": "Lintel Replacement",
+    "image": "/assets/brickworkrealmega.jpg"
+  },
   "fire-escapes": {
     title: "Fire Escapes",
     image: "/assets/fireexitmega.jpg"
@@ -111,9 +119,9 @@ export const serviceAssets = {
   },
 
   // --- CONCRETE SUBCATEGORIES ---
-  "driveway-repair": {
-    title: "Driveway Repair",
-    image: "/assets/drivewaymega.webp"
+  "driveway-replacement": {
+    "title": "Driveway Replacement",
+    "image": "/assets/drivewaymega.webp"
   },
   "sidewalk-repair": {
     title: "Sidewalk Repair",
@@ -155,33 +163,33 @@ export const serviceAssets = {
   },
   "basement-renovation": {
     title: "Basement Renovation",
-    image: "/assets/megaservice1.jpg"
+    image: "/assets/basementrenovation.webp"
   },
   "interior-remodeling": {
     title: "Interior Remodeling",
-    image: "/assets/megaservice2.jpg"
+    image: "/assets/interiorremodelingmega.webp"
   },
 
   // --- STUCCO SUBCATEGORIES ---
   "eifs-systems": {
     title: "EIFS Systems",
-    image: "/assets/megaservice1.jpg"
+    image: "/assets/eifsstucco.jfif"
   },
   "stucco-repair": {
     title: "Stucco Repair",
-    image: "/assets/megaservice2.jpg"
+    image: "/assets/stuccorepair.jpg"
   },
   "traditional-stucco": {
     title: "Traditional Stucco",
-    image: "/assets/megaservice3.jpg"
+    image: "/assets/traditionalstucoo.png"
   },
   "color-matching": {
     title: "Color Matching",
-    image: "/assets/megaservice4.jpg"
+    image: "/assets/colormatching.webp"
   },
   "californian-stucco": {
     title: "Californian Stucco",
-    image: "/assets/megaservice5.jpg"
+    image: "/assets/californianstucco.jfif"
   },
 
   // --- CUSTOM HOME SUBCATEGORIES ---
@@ -191,32 +199,32 @@ export const serviceAssets = {
   },
   "luxury-finishes": {
     title: "Luxury Finishes",
-    image: "/assets/megaservice1.jpg"
+    image: "/assets/luxuryfinsh.jfif"
   },
   "project-management": {
     title: "Project Management",
-    image: "/assets/megaservice2.jpg"
+    image: "/assets/projectmaangemnt.jpg"
   },
   "smart-homes": {
     title: "Smart Homes",
-    image: "/assets/megaservice3.jpg"
+    image: "/assets/smarthome.webp"
   },
 
   // --- EMERGENCY SUBCATEGORIES ---
   "rapid-deployment": {
     title: "Rapid Deployment",
-    image: "/assets/megaemergencyrepair.jpg"
+    image: "/assets/rapiddevelopement.avif"
   },
   "safety-assessment": {
     title: "Safety Assessment",
-    image: "/assets/megaservice1.jpg"
+    image: "/assets/safetyassesment.jpg"
   },
   "board-up-service": {
     title: "Board-Up Service",
-    image: "/assets/megaservice2.jpg"
+    image: "/assets/boardupservice.jfif"
   },
   "emergency-24-7": {
     title: "24/7 Emergency Services",
-    image: "/assets/megaservice3.jpg"
+    image: "/assets/247emergencyservice.webp"
   }
 };
