@@ -271,7 +271,7 @@ export default function ServiceDetailPage() {
             <div className="relative order-2 lg:order-1">
               <div className="relative aspect-square rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl border-2 border-gray-50">
                 <Image 
-                  src={subCategory.image} 
+                  src={service.secondaryImage || subCategory.image} 
                   alt="Quality Standard" 
                   fill 
                   className="object-cover grayscale-[10%]"

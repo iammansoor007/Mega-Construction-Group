@@ -44,6 +44,7 @@ export interface Service {
   description: string;
   icon: any;
   image: string;
+  secondaryImage?: string; // Image for the craftsmanship section
   tag: string;
   features: string[];
   subcategories: SubCategory[];
@@ -60,6 +61,7 @@ export const servicesData: Service[] = [
     description: "Professional roofing contractor delivering industrial-grade solutions for NYC's toughest weather conditions and architectural challenges.",
     icon: "CloudRain",
     tag: "Roofing",
+    secondaryImage: "/assets/rooffair.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Shingle Roofing", "Flat Roofing", "TPO Roofing", "Leakage Repair", "Replacement", "Installation", "Inspection"],
     categoryBenefits: [
       { title: "20+ Years Experience", description: "Two decades of mastering NY's complex roofing requirements and building codes for absolute peace of mind.", icon: "Award" },
@@ -222,6 +224,7 @@ export const servicesData: Service[] = [
     description: "Expert masonry restoration and exterior repair services for NYC's iconic architectural structures.",
     icon: "Hammer",
     tag: "Structural",
+    secondaryImage: "/assets/brickworkrealmega.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Replacement", "Grinding & Pointing", "Window Caulking", "Lintel Replacement", "Parapet Walls", "Facade Restoration", "Retaining Walls", "Patios", "Steps Repair", "Fire Escape Painting", "Chimneys", "Waterproofing", "Rebuilds"],
     categoryBenefits: [
       { title: "Artisan Craftsmen", description: "Specialized masons trained in historic restoration techniques for landmark and brownstone properties.", icon: "Paintbrush" },
@@ -454,6 +457,7 @@ export const servicesData: Service[] = [
     description: "Industrial concrete solutions for NYC sidewalks, driveways, foundations, and parking areas.",
     icon: "Square",
     tag: "Concrete",
+    secondaryImage: "/assets/concretemega.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Sidewalk Violation Removal", "DOT Violation", "DOB Violation", "Foundation Work", "Backyard Concrete", "Sidewalk Repair", "Sidewalk Replacement", "Driveway Replacement"],
     categoryBenefits: [
       { title: "DOT/DOB Regulatory Experts", description: "Mastery of NYC sidewalk codes, permit requirements, and expedited violation removal processes.", icon: "Scale" },
@@ -605,6 +609,7 @@ export const servicesData: Service[] = [
     description: "Complete interior home transformations from kitchens and bathrooms to full gut renovations.",
     icon: "Layout",
     tag: "Interior",
+    secondaryImage: "/assets/custom-home.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Kitchen Remodeling", "Bathroom Renovation", "Basement Finishing", "Complete Interior Remodeling"],
     categoryBenefits: [
       { title: "Turnkey Project Solutions", description: "From initial design concepts through final inspection, we handle every aspect of your renovation.", icon: "Key" },
@@ -688,6 +693,7 @@ export const servicesData: Service[] = [
     description: "Premium exterior stucco application and California-style finishes for residential and commercial buildings.",
     icon: "PaintBucket",
     tag: "Exterior",
+    secondaryImage: "/assets/general-contracting.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Professional Stucco Repair", "Traditional 3-Coat", "Custom Color Matching", "Californian Finish", "EIFS Systems Installation"],
     categoryBenefits: [
       { title: "High Insulation Value", description: "High R-value exterior insulation systems that significantly reduce energy costs.", icon: "Sun" },
@@ -788,6 +794,7 @@ export const servicesData: Service[] = [
     description: "Bespoke luxury home construction from initial design through complete project management.",
     icon: "Home",
     tag: "Custom",
+    secondaryImage: "/assets/customhome.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Design-Build Services", "Luxury Finish Installation", "Full Project Management", "Smart Home Integration"],
     subcategories: [
       {
@@ -866,6 +873,7 @@ export const servicesData: Service[] = [
     description: "24/7 rapid emergency response for structural failures, storm damage, and property security.",
     icon: "Shield",
     tag: "24/7 Support",
+    secondaryImage: "/assets/megaemergencyrepair.jpg", // TEMP IMAGE - USER WILL REPLACE
     features: ["Rapid Deployment Teams", "Safety Assessment", "Board-Up Service", "24/7 Availability"],
     subcategories: [
       {
