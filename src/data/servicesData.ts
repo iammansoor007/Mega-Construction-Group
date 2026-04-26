@@ -1,7 +1,7 @@
 import {
   Wrench, Home, Building2, Sun, CloudRain, Shield, TreePine,
   Droplets, Hammer, Square, Layout, Building, Truck, Ruler,
-  PaintBucket, HardHat, Landmark, AlertTriangle, Zap, Wind, 
+  PaintBucket, HardHat, Landmark, AlertTriangle, Zap, Wind,
   Award, Scale, FlaskConical, Leaf, Eye, ShieldAlert, CheckCircle,
   Paintbrush, Lock, Sparkles, ClipboardCheck, TrendingUp, Key, Gem,
   Calendar, DollarSign, ChefHat, Thermometer, Cloud, FileCheck,

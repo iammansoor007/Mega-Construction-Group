@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../index.css";
 import { Providers } from "./providers";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Mega Construction NY Group | Engineering Excellence",
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="font-sans bg-white antialiased">
         <Providers>
+          <ScrollToTop />
           {children}
         </Providers>
       </body>

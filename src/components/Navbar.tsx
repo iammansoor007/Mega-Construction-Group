@@ -418,16 +418,18 @@ const Navbar = () => {
                 
                 <div className="space-y-1">
                   {services.map((service) => (
-                    <button
+                    <Link
                       key={service.title}
+                      href={`/services/${service.id}`}
                       onMouseEnter={() => setHoveredService(service.title)}
+                      onClick={handleLinkClick}
                       className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
                         hoveredService === service.title ? "bg-gray-900 text-white shadow-xl" : "text-gray-600 hover:bg-gray-50"
                       }`}
                     >
                       <span className="font-bold text-sm tracking-wide">{service.title}</span>
                       <ChevronDown className={`h-4 w-4 transition-transform ${hoveredService === service.title ? "-rotate-90" : "opacity-0"}`} />
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -454,9 +456,16 @@ const Navbar = () => {
                         {/* Detailed Sub-services Grid */}
                         <div className="col-span-1 space-y-8">
                           <div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-2">
-                              {fullService.title}
-                            </h4>
+                            <Link 
+                              href={`/services/${fullService.id}`}
+                              onClick={handleLinkClick}
+                              className="group/title inline-block"
+                            >
+                              <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover/title:text-red-600 transition-colors flex items-center gap-2">
+                                {fullService.title}
+                                <ChevronDown className="h-4 w-4 -rotate-90 opacity-0 group-hover/title:opacity-100 group-hover/title:translate-x-1 transition-all" />
+                              </h4>
+                            </Link>
                             <p className="text-gray-500 text-sm leading-relaxed">
                               {fullService.description}
                             </p>
@@ -477,27 +486,30 @@ const Navbar = () => {
                           </div>
                         </div>
 
-                        {/* Visual Context Panel */}
-                        <div className="col-span-1 self-start">
-                          <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group/img shadow-2xl">
+                        <Link 
+                          href={`/services/${fullService.id}`}
+                          onClick={handleLinkClick}
+                          className="col-span-1 self-start block group/img-link"
+                        >
+                          <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group/img shadow-2xl transition-all duration-500 group-hover/img-link:shadow-red-500/20 group-hover/img-link:scale-[1.01]">
                             <Image
                               src={getServiceImage(fullService.id)}
                               alt={fullService.title}
                               fill
                               className="object-cover transition-transform duration-700 group-hover/img:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/img-link:opacity-100 transition-opacity" />
                             <div className="absolute bottom-0 left-0 p-8 text-white">
                               <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-600/20 backdrop-blur-md border border-red-500/30 text-white text-[10px] font-black uppercase tracking-widest mb-4">
                                 {fullService.tag} Excellence
                               </div>
-                              <h4 className="text-2xl font-bold leading-tight">
+                              <h4 className="text-2xl font-bold leading-tight group-hover/img-link:text-red-400 transition-colors">
                                 Professional {fullService.title.split(' ')[0]} <br/>
                                 Solutions in NY
                               </h4>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       </motion.div>
                     );
                   })()}
