@@ -175,18 +175,18 @@ const Footer = () => {
         MEGA
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 py-12 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 xs:px-5 md:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 xs:gap-10 md:gap-12 py-8 xs:py-12 md:py-24">
           
           {/* Column 1: Identity */}
-          <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-primary flex items-center justify-center flex-shrink-0">
-                <span className="text-white font-bold text-xl md:text-2xl">MC</span>
+          <div className="space-y-6 xs:space-y-8">
+            <div className="flex items-center gap-3 xs:gap-4">
+              <div className="w-10 h-10 xs:w-12 xs:h-12 md:w-16 md:h-16 bg-primary flex items-center justify-center flex-shrink-0">
+                <span className="text-white font-bold text-lg md:text-2xl">MC</span>
               </div>
               <div>
-                <h2 className="text-lg md:text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
-                <div className="h-1 w-12 bg-primary mt-2" />
+                <h2 className="text-base xs:text-lg md:text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
+                <div className="h-1 w-10 xs:w-12 bg-primary mt-2" />
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed font-medium">
@@ -253,9 +253,9 @@ const Footer = () => {
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {certifications.slice(0, 4).map((cert, i) => (
-                <div key={i} className="p-2 sm:p-3 bg-white/5 border border-white/10 text-center">
-                  <span className="text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.cert}</span>
-                  <span className="text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-1 block">Verified</span>
+                <div key={i} className="p-1.5 xs:p-2 sm:p-3 bg-white/5 border border-white/10 text-center">
+                  <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.cert}</span>
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-0.5 xs:mt-1 block">Verified</span>
                 </div>
               ))}
             </div>
@@ -289,13 +289,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between py-8 md:py-10 text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] gap-4 md:gap-0 text-center md:text-left">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between py-6 xs:py-8 md:py-10 text-[8px] xs:text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] gap-4 md:gap-0 text-center md:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
             <span>{bottom.copyright}</span>
             <div className="hidden sm:block w-1 h-1 bg-primary rounded-full" />
             <span>{bottom.rights}</span>
           </div>
-          <div className="flex items-center gap-8 mt-4 md:mt-0">
+          <div className="flex items-center justify-center flex-wrap gap-4 xs:gap-8 mt-2 xs:mt-4 md:mt-0">
             {bottom.links.map((link) => (
               <Link key={link.label} href={link.href} className="hover:text-primary transition-colors text-stable">
                 {link.label}

@@ -223,7 +223,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center md:justify-start gap-y-10 gap-x-5 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
+            className="grid grid-cols-1 xs:grid-cols-2 md:flex md:flex-wrap items-center justify-center md:justify-start gap-y-6 xs:gap-y-10 gap-x-5 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.7 }}

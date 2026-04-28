@@ -201,8 +201,8 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
             </div>
           </div>
 
-          <div className="p-8 flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors mb-4 leading-tight">
+          <div className="p-6 xs:p-8 flex-1 flex flex-col">
+            <h3 className="text-xl xs:text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors mb-4 leading-tight">
               {service.title}
             </h3>
 
@@ -273,7 +273,7 @@ const Services = () => {
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         {/* Header Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 md:mb-20">
           <div className="lg:col-span-5 text-stable">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -281,16 +281,16 @@ const Services = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 mb-4">
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 w-full">
                 <span className="w-6 h-px bg-red-500 opacity-70" />
-                <span className="text-red-600 uppercase tracking-[0.25em] text-[11px] font-bold">
+                <span className="text-red-600 uppercase tracking-[0.25em] text-[10px] xs:text-[11px] font-bold">
                   {badge}
                 </span>
                 <span className="w-6 h-px bg-red-500 opacity-70" />
               </div>
 
-              <div className="mb-6">
-                <h2 className="heading-lg text-gray-900 leading-[1.1] tracking-tight">
+              <div className="mb-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-[1.1] tracking-tight">
                   {headline.prefix}
                   <br />
                   <span className="text-red-600">{headline.highlight}</span>
@@ -304,23 +304,23 @@ const Services = () => {
                 </div>
               </div>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4 mb-8 text-center lg:text-left">
                 {description.slice(0, 1).map((text: string, idx: number) => (
                   <p
                     key={idx}
-                    className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl"
+                    className="text-gray-600 text-sm md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
                     dangerouslySetInnerHTML={{ __html: text }}
                   />
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pb-6 border-b border-gray-100">
+              <div className="grid grid-cols-2 xs:grid-cols-3 gap-6 xs:gap-4 pb-6 border-b border-gray-100">
                 {stats.map((stat: any) => (
-                  <div key={stat.label} className="text-left">
+                  <div key={stat.label} className="text-left flex flex-col items-center xs:items-start">
                     <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">
                       <Counter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">
+                    <div className="text-[9px] xs:text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none text-center xs:text-left">
                       {stat.label}
                     </div>
                   </div>

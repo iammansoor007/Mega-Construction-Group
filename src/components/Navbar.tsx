@@ -235,11 +235,11 @@ const Navbar = () => {
                 {/* Logo Glow Effect */}
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="h-16 w-32 sm:h-20 sm:w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
+                <div className="h-12 w-28 xs:h-16 xs:w-32 sm:h-20 sm:w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
                   <Image
                     src={logo}
                     alt="Mega Construction NY Group Logo"
-                    className="companylogo h-full w-full object-contain p-1 drop-shadow-2xl smooth-gpu"
+                    className="companylogo h-full w-full object-contain p-0.5 xs:p-1 drop-shadow-2xl smooth-gpu"
                     priority
                     width={192}
                     height={80}
@@ -361,7 +361,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-4 lg:hidden">
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2.5 rounded-xl transition-all duration-300 border ${scrolled
+                className={`p-2 xs:p-2.5 rounded-xl transition-all duration-300 border ${scrolled
                   ? "bg-white/20 backdrop-blur-md border-white/30 hover:bg-white/30"
                   : "bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20"
                   }`}
@@ -560,7 +560,7 @@ const Navbar = () => {
                 <div className="p-6 border-b border-gray-200 flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="h-16 w-26 rounded-none flex items-center justify-center overflow-hidden">
+                      <div className="h-12 w-24 xs:h-16 xs:w-26 rounded-none flex items-center justify-center overflow-hidden">
                         <Image
                           src={logo2nd}
                           alt="Company Logo"
@@ -572,7 +572,7 @@ const Navbar = () => {
                     </div>
                     <motion.button
                       onClick={() => setIsMenuOpen(false)}
-                      className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                      className="p-1.5 xs:p-2 rounded-lg hover:bg-gray-100 transition-colors"
                       whileHover={{ rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                     >

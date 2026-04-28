@@ -214,7 +214,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl sm:text-4xl font-bold leading-[1.2] text-white font-heading"
+                            className="text-2xl xs:text-3xl sm:text-4xl font-bold leading-[1.2] text-white font-heading"
                         >
                             {cleanTitle}
                         </motion.h2>

@@ -226,7 +226,7 @@ export default function ConstructionAboutSection() {
                         <motion.div
                             variants={variants}
                             custom={2}
-                            className="inline-flex items-center gap-2 sm:gap-3 bg-red-600/10 px-4 sm:px-5 py-2 sm:py-2.5 rounded-none self-start"
+                            className="inline-flex items-center gap-2 sm:gap-3 bg-red-600/10 px-4 sm:px-5 py-2 sm:py-2.5 rounded-none self-center lg:self-start"
                         >
                             <FiBriefcase className="text-red-600 w-4 h-4 sm:w-5 sm:h-5" />
                             <span className="text-red-600 uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
@@ -235,11 +235,11 @@ export default function ConstructionAboutSection() {
                         </motion.div>
 
                         {/* Headline */}
-                        <div className="space-y-3">
+                        <div className="space-y-3 flex flex-col items-center lg:items-start text-center lg:text-left">
                             <motion.h2
                                 variants={variants}
                                 custom={3}
-                                className="heading-lg leading-[1.15] tracking-tight"
+                                className="text-3xl xs:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight"
                             >
                                 <span className="block text-gray-900">
                                     {headline.prefix}
@@ -362,7 +362,7 @@ export default function ConstructionAboutSection() {
                         <motion.div
                             variants={variants}
                             custom={8}
-                            className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 pt-6"
+                            className="grid grid-cols-1 xs:grid-cols-3 gap-4 xs:gap-2 sm:gap-3 md:gap-4 pt-6"
                         >
                             {stats.map((stat) => (
                                 <StatCard key={stat.label} {...stat} />
