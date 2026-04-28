@@ -91,89 +91,191 @@ export default function ServiceDetailPage() {
         <Navbar />
 
         {/* ====================== */}
-        {/* HERO (Construction & Renovation Focused) */}
+        {/* ULTRA-CINEMATIC HERO (The Command Suite - Light Edition) */}
         {/* ====================== */}
-        <section className="relative pt-24 pb-16 lg:pt-48 lg:pb-32 bg-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <section className="relative min-h-[95vh] lg:min-h-screen flex items-center pt-20 lg:pt-0 bg-white overflow-hidden">
+          {/* Background Layer with Parallax-like Depth */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={subCategory.image}
+              alt=""
+              fill
+              className="object-cover opacity-10 lg:opacity-15 scale-105"
+              priority
+            />
+            {/* Cinematic Gradients (Light) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent lg:to-white/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60" />
+            
+            {/* Technical Data Grid Overlay (Light Blue/Gray) */}
+            <div className="absolute inset-0 blueprint-grid opacity-[0.08]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#fff_100%)] opacity-80" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 relative z-20 w-full py-16 xs:py-20 lg:py-32">
+            <div className="grid lg:grid-cols-12 gap-10 xs:gap-12 lg:gap-24 items-stretch">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6 md:space-y-8"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, ease: [0.215, 0.61, 0.355, 1] }}
+                className="lg:col-span-6 space-y-8 xs:space-y-10 md:space-y-16 py-6 xs:py-10 lg:py-0 flex flex-col justify-center"
               >
-                <div className="inline-flex items-center gap-3 bg-red-600/5 px-4 py-2 rounded-none border-l-4 border-red-600">
-                  <HardHat className="text-red-600 w-4 h-4 md:w-5 md:h-5" />
-                  <span className="text-red-600 uppercase tracking-[0.2em] text-[10px] font-bold">Industrial Renovation Division</span>
-                </div>
-
-                <div className="space-y-4">
-                  <h1 className="text-[2.5rem] xs:text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[1] md:leading-[0.9] font-heading uppercase break-words">
-                    <span className="block text-gray-900">{subCategory.title.split(' ')[0]}</span>
-                    <span className="block text-red-600">
-                      {subCategory.title.split(' ').slice(1).join(' ')}
+                {/* Meta Header (Clean & Balanced) */}
+                <div className="space-y-6 xs:space-y-8 text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-3 md:gap-6 flex-wrap text-[9px] xs:text-[11px] font-bold uppercase tracking-[0.4em] text-red-600">
+                    <span className="flex items-center gap-2">
+                      <div className="w-2 h-2 md:w-2 md:h-2 bg-red-600 animate-pulse" />
+                      Mega Construction Division
                     </span>
-                  </h1>
-                  <div className="flex gap-2 items-center">
-                    <div className="w-20 md:w-32 h-1.5 md:h-2 bg-red-600 rounded-sm" />
-                    <Ruler className="w-4 h-4 text-gray-300" />
-                    <div className="w-5 md:w-8 h-1.5 md:h-2 bg-red-300 rounded-sm" />
+                    <ChevronRight className="w-3 h-3 text-red-600 hidden xs:block" />
+                    <span className="text-gray-900/40 uppercase tracking-widest">{service.title}</span>
                   </div>
+
+                  <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.85] font-heading uppercase text-gray-900">
+                    <motion.span 
+                      initial={{ opacity: 0, y: 40 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                      className="block text-gray-900"
+                    >
+                      {subCategory.title.split(' ')[0]}
+                    </motion.span>
+                    <motion.span 
+                      initial={{ opacity: 0, x: -40 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="block text-red-600 relative lg:inline-block"
+                    >
+                      {subCategory.title.split(' ').slice(1).join(' ')}
+                      <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden lg:flex items-center gap-2">
+                        <div className="w-8 h-[1px] bg-red-600" />
+                        <div className="w-2 h-2 border border-red-600 rotate-45" />
+                      </div>
+                    </motion.span>
+                  </h1>
                 </div>
 
-                <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-xl font-light">
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-gray-500 text-base xs:text-lg md:text-2xl leading-relaxed max-w-2xl font-light border-l-2 border-red-600/20 pl-4 xs:pl-8 text-center lg:text-left mx-auto lg:mx-0"
+                >
                   {subCategory.longDescription}
-                </p>
+                </motion.p>
 
-                {/* Construction Specs Grid */}
-                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-y-6 xs:gap-y-0 gap-x-4 md:gap-x-6 border-y border-gray-100 py-8 md:py-10">
+                {/* Performance Metrics Bar (Clean) */}
+                <div className="flex flex-wrap justify-center lg:justify-start items-start gap-6 xs:gap-8 md:gap-16">
                   {subCategory.stats?.map((stat, i) => (
-                    <div key={i} className="flex flex-col border-b xs:border-b-0 xs:border-r border-gray-100 last:border-0 pb-4 xs:pb-0 pr-4">
-                      <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">{stat.label}</div>
-                      <div className="text-xl md:text-2xl font-bold text-gray-900 tracking-tighter">{stat.value}</div>
-                    </div>
+                    <motion.div 
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.7 + (i * 0.1) }}
+                      className="relative min-w-[100px] xs:min-w-0"
+                    >
+                      <div className="text-[8px] xs:text-[10px] font-bold text-red-600 uppercase tracking-widest mb-1 xs:mb-2 flex items-center justify-center lg:justify-start gap-2">
+                         <div className="w-1 h-1 bg-red-600 rounded-full" />
+                         {stat.label}
+                      </div>
+                      <div className="text-xl xs:text-2xl md:text-4xl font-bold text-gray-900 tracking-tighter font-heading uppercase text-center lg:text-left">
+                        {stat.value}
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-                  <button className="group px-8 py-5 md:px-12 md:py-6 bg-red-600 text-white font-bold hover:bg-black transition-all duration-700 shadow-xl hover:shadow-black/20 flex items-center justify-center gap-4 uppercase tracking-[0.3em] text-[10px] w-full sm:w-auto">
-                    Start Renovation <Hammer className="w-4 h-4 group-hover:rotate-45 transition-transform" />
+                {/* Original CTA Section */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 }}
+                  className="flex flex-col sm:flex-row gap-4 md:gap-8 pt-4 xs:pt-8"
+                >
+                  <button className="group relative px-8 xs:px-12 py-5 xs:py-6 bg-gray-900 text-white font-black overflow-hidden transition-all duration-500 shadow-2xl hover:shadow-red-600/20 w-full sm:w-auto">
+                    <div className="absolute bottom-0 left-0 h-[2px] bg-red-600 w-0 group-hover:w-full transition-all duration-700" />
+                    <span className="relative z-10 flex items-center justify-center gap-4 uppercase tracking-[0.3em] text-[10px] xs:text-[11px] group-hover:text-red-600 transition-colors">
+                      Request Quote <ArrowRight className="w-4 h-4 xs:w-5 xs:h-5 group-hover:translate-x-2 transition-transform duration-500" />
+                    </span>
+                    <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
-                  <div className="flex items-center justify-center gap-4 px-6 py-5 md:px-8 md:py-6 border border-gray-100 bg-gray-50/50 w-full sm:w-auto group cursor-pointer">
-                    <Phone className="w-4 h-4 md:w-5 md:h-5 text-red-600 group-hover:scale-110 transition-transform" />
-                    <span className="text-xs md:text-sm font-bold text-gray-900">Get Free Estimate</span>
+
+                  <div className="flex items-center justify-center gap-4 px-8 xs:px-10 py-5 xs:py-6 border border-gray-200 bg-white hover:border-red-600 transition-all cursor-pointer group shadow-sm hover:shadow-xl w-full sm:w-auto">
+                    <Phone className="w-4 h-4 xs:w-5 xs:h-5 text-red-600 group-hover:scale-125 transition-transform" />
+                    <span className="text-[10px] xs:text-xs md:text-sm font-bold text-gray-900 uppercase tracking-[0.2em]">Contact Unit</span>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
 
+              {/* BEAUTIFIED IMAGE SIDE (Clean Edition) */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
-                className="relative mt-12 lg:mt-0"
+                initial={{ opacity: 0, scale: 0.95, rotateY: 20 }}
+                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="lg:col-span-6 relative block perspective-1000 order-2 lg:order-2"
               >
-                <div className="relative rounded-[32px] md:rounded-[60px] overflow-hidden shadow-2xl border-4 md:border-[12px] border-white group">
-                  <div className="aspect-[3/4] relative">
-                    <Image
-                      src={subCategory.image}
-                      alt={subCategory.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-[8s]"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-red-600/10 via-transparent to-transparent" />
+                <div className="relative h-full min-h-[350px] xs:min-h-[500px] lg:min-h-[600px] overflow-hidden border border-gray-100 group shadow-[0_40px_100px_rgba(0,0,0,0.08)]">
+                  <Image
+                    src={subCategory.image}
+                    alt={subCategory.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-[15s] grayscale-[20%] group-hover:grayscale-0"
+                  />
+                  
+                  {/* Cinematic Overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60 lg:opacity-40" />
+                  <div className="absolute inset-0 bg-red-600/5 mix-blend-overlay group-hover:opacity-10 transition-opacity" />
+                  
+                  {/* Subtle Tech Accents */}
+                  <motion.div 
+                    animate={{ top: ["0%", "100%", "0%"] }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                    className="absolute left-0 right-0 h-px bg-red-600/20 z-20"
+                  />
+
+                  {/* Clean Corner Targets */}
+                  <div className="absolute top-6 right-6 lg:top-12 lg:right-12 z-30">
+                    <div className="w-8 h-8 xs:w-12 xs:h-12 border-t-2 border-r-2 border-red-600/40" />
                   </div>
-                  {/* Structural Compliance Badge */}
-                  <div className="absolute top-4 right-4 xs:top-6 xs:right-6 md:top-10 md:right-10 bg-white p-3 xs:p-4 md:p-8 shadow-2xl rounded-xl xs:rounded-2xl md:rounded-3xl border border-gray-50">
-                    <Building2 className="w-6 h-6 md:w-8 md:h-8 text-red-600 mb-1 md:mb-2" />
-                    <div className="text-xl xs:text-2xl md:text-4xl font-bold text-red-600 tracking-tighter">NY-A+</div>
-                    <div className="text-[6px] md:text-[8px] font-bold text-gray-400 uppercase tracking-widest leading-tight mt-1">Structural <br /> Grade Certified</div>
+
+                  <div className="absolute bottom-6 left-6 lg:bottom-12 lg:left-12 z-30">
+                    <div className="w-8 h-8 xs:w-12 xs:h-12 border-b-2 border-l-2 border-red-600/40" />
                   </div>
+
+                  {/* Clean Data Card */}
+                  <motion.div 
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="absolute bottom-10 right-10 hidden md:block bg-white/90 backdrop-blur-xl border border-gray-100 p-6 shadow-2xl max-w-[200px] z-30"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-8 h-8 bg-red-600 flex items-center justify-center">
+                        <ShieldCheck className="w-4 h-4 text-white" />
+                      </div>
+                      <div className="text-[10px] font-black text-gray-900 uppercase tracking-widest leading-none">Standard <br /> Quality</div>
+                    </div>
+                    <div className="space-y-3">
+                       <div className="w-full h-1 bg-gray-100">
+                          <div className="w-[100%] h-full bg-red-600" />
+                       </div>
+                       <div className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">NY-A+ Certified</div>
+                    </div>
+                  </motion.div>
                 </div>
-                <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-32 h-32 md:w-64 md:h-64 border-l-[1px] border-b-[1px] border-red-600/20 pointer-events-none rounded-bl-[40px] md:rounded-bl-[80px] z-10" />
               </motion.div>
             </div>
           </div>
+          
+          {/* Scroll Indicator (Refined - Light) */}
+          <motion.div 
+            animate={{ y: [0, 8, 0], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-4"
+          >
+            <span className="text-[8px] font-bold text-gray-400 uppercase tracking-[0.6em]">System_Continue</span>
+            <div className="w-1 h-1 bg-red-600 rotate-45" />
+          </motion.div>
         </section>
 
         {/* DYNAMIC MARQUEE */}
@@ -269,14 +371,23 @@ export default function ServiceDetailPage() {
           <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div className="relative order-2 lg:order-1">
-                <div className="relative aspect-square rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl border-2 border-gray-50">
+                <div className="relative aspect-square rounded-none overflow-hidden shadow-2xl border border-gray-100 group">
                   <Image
                     src={service.secondaryImage || subCategory.image}
                     alt="Quality Standard"
                     fill
-                    className="object-cover grayscale-[10%]"
+                    className="object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-[10s]"
                   />
                   <div className="absolute inset-0 bg-red-600/5 mix-blend-multiply" />
+                  
+                  {/* Technical Scanning Line */}
+                  <motion.div 
+                    animate={{ top: ["0%", "100%", "0%"] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                    className="absolute left-0 right-0 h-[1px] bg-red-600/30 z-20"
+                  />
+                  
+                  <div className="absolute inset-0 blueprint-grid opacity-[0.05]" />
                 </div>
                 {/* Construction Seal */}
                 <div className="absolute -bottom-4 -right-4 xs:-bottom-6 xs:-right-6 md:-bottom-12 md:-right-12 bg-white p-4 xs:p-6 md:p-10 shadow-2xl rounded-2xl md:rounded-3xl max-w-[140px] xs:max-w-[200px] md:max-w-xs border border-gray-50">
