@@ -106,7 +106,7 @@ export default function ServiceDetailPage() {
             {/* Cinematic Gradients (Light) */}
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent lg:to-white/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/60" />
-            
+
             {/* Technical Data Grid Overlay (Light Blue/Gray) */}
             <div className="absolute inset-0 blueprint-grid opacity-[0.08]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#fff_100%)] opacity-80" />
@@ -132,7 +132,7 @@ export default function ServiceDetailPage() {
                   </div>
 
                   <h1 className="text-4xl xs:text-5xl sm:text-7xl lg:text-[7.5rem] font-black tracking-tighter leading-[0.85] font-heading uppercase text-gray-900">
-                    <motion.span 
+                    <motion.span
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2 }}
@@ -140,7 +140,7 @@ export default function ServiceDetailPage() {
                     >
                       {subCategory.title.split(' ')[0]}
                     </motion.span>
-                    <motion.span 
+                    <motion.span
                       initial={{ opacity: 0, x: -40 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 }}
@@ -155,7 +155,7 @@ export default function ServiceDetailPage() {
                   </h1>
                 </div>
 
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -167,7 +167,7 @@ export default function ServiceDetailPage() {
                 {/* Performance Metrics Bar (Clean) */}
                 <div className="flex flex-wrap justify-center lg:justify-start items-start gap-6 xs:gap-8 md:gap-16">
                   {subCategory.stats?.map((stat, i) => (
-                    <motion.div 
+                    <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -175,8 +175,8 @@ export default function ServiceDetailPage() {
                       className="relative min-w-[100px] xs:min-w-0"
                     >
                       <div className="text-[8px] xs:text-[10px] font-bold text-red-600 uppercase tracking-widest mb-1 xs:mb-2 flex items-center justify-center lg:justify-start gap-2">
-                         <div className="w-1 h-1 bg-red-600 rounded-full" />
-                         {stat.label}
+                        <div className="w-1 h-1 bg-red-600 rounded-full" />
+                        {stat.label}
                       </div>
                       <div className="text-xl xs:text-2xl md:text-4xl font-bold text-gray-900 tracking-tighter font-heading uppercase text-center lg:text-left">
                         {stat.value}
@@ -186,7 +186,7 @@ export default function ServiceDetailPage() {
                 </div>
 
                 {/* Original CTA Section */}
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9 }}
@@ -221,13 +221,13 @@ export default function ServiceDetailPage() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-[15s] grayscale-[20%] group-hover:grayscale-0"
                   />
-                  
+
                   {/* Cinematic Overlays */}
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60 lg:opacity-40" />
                   <div className="absolute inset-0 bg-red-600/5 mix-blend-overlay group-hover:opacity-10 transition-opacity" />
-                  
+
                   {/* Subtle Tech Accents */}
-                  <motion.div 
+                  <motion.div
                     animate={{ top: ["0%", "100%", "0%"] }}
                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     className="absolute left-0 right-0 h-px bg-red-600/20 z-20"
@@ -243,7 +243,7 @@ export default function ServiceDetailPage() {
                   </div>
 
                   {/* Clean Data Card */}
-                  <motion.div 
+                  <motion.div
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 1, duration: 1 }}
@@ -256,19 +256,19 @@ export default function ServiceDetailPage() {
                       <div className="text-[10px] font-black text-gray-900 uppercase tracking-widest leading-none">Standard <br /> Quality</div>
                     </div>
                     <div className="space-y-3">
-                       <div className="w-full h-1 bg-gray-100">
-                          <div className="w-[100%] h-full bg-red-600" />
-                       </div>
-                       <div className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">NY-A+ Certified</div>
+                      <div className="w-full h-1 bg-gray-100">
+                        <div className="w-[100%] h-full bg-red-600" />
+                      </div>
+                      <div className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">NY-A+ Certified</div>
                     </div>
                   </motion.div>
                 </div>
               </motion.div>
             </div>
           </div>
-          
+
           {/* Scroll Indicator (Refined - Light) */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 8, 0], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 3, repeat: Infinity }}
             className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 hidden lg:flex flex-col items-center gap-4"
@@ -379,14 +379,14 @@ export default function ServiceDetailPage() {
                     className="object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-[10s]"
                   />
                   <div className="absolute inset-0 bg-red-600/5 mix-blend-multiply" />
-                  
+
                   {/* Technical Scanning Line */}
-                  <motion.div 
+                  <motion.div
                     animate={{ top: ["0%", "100%", "0%"] }}
                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                     className="absolute left-0 right-0 h-[1px] bg-red-600/30 z-20"
                   />
-                  
+
                   <div className="absolute inset-0 blueprint-grid opacity-[0.05]" />
                 </div>
                 {/* Construction Seal */}
@@ -414,17 +414,25 @@ export default function ServiceDetailPage() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 md:gap-8">
                   {subCategory.benefits?.map((benefit, i) => (
-                    <div key={i} className="flex gap-4 md:gap-6 group p-4 md:p-6 hover:bg-gray-50 transition-all duration-500 border-l-2 border-transparent hover:border-red-600 bg-white sm:bg-transparent shadow-sm sm:shadow-none rounded-xl sm:rounded-none">
-                      <div className="w-12 h-12 md:w-14 md:h-14 rounded-none bg-red-50 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 transition-all duration-500">
-                        <IconComponent name={benefit.icon} className="w-5 h-5 md:w-6 md:h-6 text-red-600 group-hover:text-white" />
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="flex flex-col gap-4 p-6 md:p-8 bg-gray-50/50 border border-gray-100 hover:border-red-600/30 transition-all duration-500 group relative overflow-hidden"
+                    >
+                      <div className="absolute top-0 left-0 w-1 h-0 bg-red-600 group-hover:h-full transition-all duration-500" />
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white border border-gray-100 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 transition-all duration-500 shadow-sm group-hover:shadow-red-600/20">
+                        <IconComponent name={benefit.icon} className="w-6 h-6 md:w-8 md:h-8 text-red-600 group-hover:text-white transition-colors duration-500" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-1 md:mb-2 uppercase tracking-tight text-xs md:text-sm">{benefit.title}</h4>
-                        <p className="text-gray-500 text-[10px] md:text-xs leading-relaxed">{benefit.description}</p>
+                        <h4 className="font-bold text-gray-900 mb-2 uppercase tracking-tight text-sm md:text-lg">{benefit.title}</h4>
+                        <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-light">{benefit.description}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

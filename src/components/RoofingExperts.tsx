@@ -67,16 +67,18 @@ Counter.displayName = "Counter";
 const StatCard = memo(({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
     return (
         <motion.div
-            whileHover={{ y: -4 }}
+            whileHover={{ y: -8, scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative bg-white p-3 sm:p-4 md:p-5 rounded-xl border-l-4 border-red-600 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="relative bg-white p-6 xs:p-8 rounded-none border border-gray-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(220,38,38,0.1)] transition-all duration-500 group overflow-hidden"
         >
+            <div className="absolute top-0 left-0 w-1 h-0 bg-red-600 group-hover:h-full transition-all duration-500" />
             <div className="relative">
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+                <div className="text-[10px] font-black text-red-600 uppercase tracking-[0.2em] mb-3 opacity-60 group-hover:opacity-100 transition-opacity">Division Metric</div>
+                <span className="text-3xl xs:text-4xl md:text-5xl font-black text-gray-900 font-heading tracking-tighter leading-none">
                     <Counter value={value} suffix={suffix} />
                 </span>
             </div>
-            <p className="text-xs sm:text-sm font-semibold text-gray-600 mt-1 sm:mt-2 uppercase tracking-wide">
+            <p className="text-[10px] xs:text-xs font-bold text-gray-400 mt-3 uppercase tracking-[0.3em] group-hover:text-gray-900 transition-colors">
                 {label}
             </p>
         </motion.div>

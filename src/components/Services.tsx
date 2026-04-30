@@ -314,17 +314,38 @@ const Services = () => {
                 ))}
               </div>
 
-              <div className="grid grid-cols-2 xs:grid-cols-3 gap-6 xs:gap-4 pb-6 border-b border-gray-100">
-                {stats.map((stat: any) => (
-                  <div key={stat.label} className="text-left flex flex-col items-center xs:items-start">
-                    <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-10 border-t border-gray-100">
+                {stats.map((stat: any, i: number) => (
+                  <motion.div 
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 * i }}
+                    className="group bg-gray-50/50 hover:bg-white p-6 transition-all duration-500 border border-transparent hover:border-red-600/20 shadow-sm hover:shadow-xl relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-12 h-12 bg-red-600/5 rounded-bl-full group-hover:bg-red-600/10 transition-colors" />
+                    <div className="text-2xl md:text-4xl font-black text-gray-900 mb-2 font-heading tracking-tighter group-hover:text-red-600 transition-colors">
                       <Counter value={stat.value} suffix={stat.suffix} />
                     </div>
-                    <div className="text-[9px] xs:text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none text-center xs:text-left">
+                    <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">
                       {stat.label}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
+              </div>
+
+              {/* Text Side CTA Group to balance layout */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="group relative px-8 py-4 bg-red-600 text-white font-bold overflow-hidden transition-all duration-500 text-center uppercase tracking-widest text-[10px]">
+                  <div className="absolute inset-0 bg-gray-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Request Consultation <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                  </span>
+                </Link>
+                <Link href="/services" className="group px-8 py-4 bg-white border border-gray-200 text-gray-900 font-bold hover:border-red-600 hover:text-red-600 transition-all text-center uppercase tracking-widest text-[10px]">
+                  View All Services
+                </Link>
               </div>
             </motion.div>
           </div>

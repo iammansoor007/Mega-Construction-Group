@@ -8,7 +8,7 @@ interface MarqueeSectionProps {
 }
 
 const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
-  // Increased count for ultra-wide 4K/8K support
+  // Increased count for ultra-wide support
   const words = Array(20).fill(text);
 
   return (
@@ -18,48 +18,24 @@ const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
           initial={{ x: 0 }}
           animate={{ x: "-50%" }}
           transition={{
-            duration: 900, // Slower, more premium feel
+            duration: 150, // Slower, more premium feel
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex whitespace-nowrap gap-16 md:gap-32"
+          className="flex whitespace-nowrap gap-8 md:gap-16 items-center"
         >
-          {/* Loop Set 1 */}
           {words.map((word, i) => (
-            <div
-              key={`first-${i}`}
-              className="text-[10vw] md:text-[12vmax] font-black font-heading uppercase tracking-tighter leading-[0.8] transition-all duration-700 cursor-default opacity-20 hover:opacity-100"
-              style={{
-                WebkitTextStroke: "2px #dc2626",
-                color: "transparent",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#dc2626";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "transparent";
-              }}
-            >
-              {word}
-            </div>
-          ))}
-          {/* Loop Set 2 */}
-          {words.map((word, i) => (
-            <div
-              key={`second-${i}`}
-              className="text-[10vw] md:text-[12vmax] font-black font-heading uppercase tracking-tighter leading-[0.8] transition-all duration-700 cursor-default opacity-20 hover:opacity-100"
-              style={{
-                WebkitTextStroke: "2px #dc2626",
-                color: "transparent",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#dc2626";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "transparent";
-              }}
-            >
-              {word}
+            <div key={i} className="flex items-center gap-8 md:gap-16">
+              <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-black font-heading uppercase tracking-tighter transition-all duration-700
+                text-red-600 lg:text-transparent lg:[-webkit-text-stroke:1px_rgba(220,38,38,0.3)] lg:hover:text-red-600 lg:hover:[-webkit-text-stroke:1px_transparent]">
+                {word}
+              </h2>
+              {/* Technical Separator */}
+              <div className="flex items-center gap-4 opacity-20">
+                <div className="w-8 md:w-16 h-[1px] bg-red-600" />
+                <div className="w-2 h-2 border border-red-600 rotate-45" />
+                <div className="w-8 md:w-16 h-[1px] bg-red-600" />
+              </div>
             </div>
           ))}
         </motion.div>
