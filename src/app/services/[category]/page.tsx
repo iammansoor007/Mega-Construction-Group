@@ -111,7 +111,7 @@ export default function CategoryPage() {
                 >
                   {/* Full Bleed Image Background */}
                   <Image
-                    src={sub.image}
+                    src={sub.image || "/placeholder.svg"}
                     alt={sub.title}
                     fill
                     className="object-cover transition-transform duration-[3s] group-hover:scale-110"

@@ -55,7 +55,7 @@ export interface Service {
 }
 
 // Helper to get assets safely
-const getAsset = (id: string) => serviceAssets[id as keyof typeof serviceAssets] || { title: id, image: "" };
+const getAsset = (id: string) => serviceAssets[id as keyof typeof serviceAssets] || { title: id, image: "/placeholder.svg" };
 
 export const servicesData: Service[] = [
   {
@@ -91,7 +91,8 @@ export const servicesData: Service[] = [
           { question: "What's the cost difference between 3-tab and architectural shingles?", answer: "Architectural shingles cost 15-25% more but offer significantly better durability, wind resistance, and curb appeal with longer warranties." },
           { question: "Do you offer financing for roof replacement?", answer: "Yes, we offer flexible financing options with approved credit, making roof replacement affordable for every budget." },
           { question: "How do I know if my roof needs repair or full replacement?", answer: "If your roof has isolated leaks and is under 15 years old, repair may suffice. Widespread issues or roofs over 20 years typically need replacement." }
-        ]
+        ],
+        galleryImages: ["/assets/megashingleroof1.jfif", "/assets/megashingleroof2.jfif", "/assets/megashingleroof3.jfif"]
       },
       {
         id: "flat-roofing",
@@ -133,7 +134,8 @@ export const servicesData: Service[] = [
           { question: "What thickness of TPO membrane do you recommend?", answer: "We typically recommend 60-mil for residential and 80-mil for commercial applications requiring extra durability and puncture resistance." },
           { question: "Can TPO be installed over an existing roof?", answer: "Yes, in many cases TPO can be installed as a 'recover' system over existing single-ply membranes, saving demolition costs." },
           { question: "What is the lifespan of a professionally installed TPO roof?", answer: "With proper installation and maintenance, TPO roofs typically last 20-30 years in NYC's climate conditions." }
-        ]
+        ],
+        galleryImages: ["/assets/megatporoofing1.jfif", "/assets/megatporoofing2.jfif", "/assets/megatporoofing3.jfif"]
       },
       {
         id: "roof-leakage-repair",
@@ -218,6 +220,24 @@ export const servicesData: Service[] = [
           { question: "Can inspection identify hidden leaks before they show inside?", answer: "Yes, thermal imaging detects trapped moisture before it penetrates interior ceilings, allowing proactive repairs." },
           { question: "How much does a professional roof inspection cost?", answer: "Residential roof inspections start at $295, commercial inspections vary based on size, but typically range from $500-$2,500 for detailed thermal analysis." }
         ]
+      },
+      {
+        id: "roof-waterproofing",
+        ...getAsset("roof-waterproofing"),
+        description: "Industrial-grade roof waterproofing and protective coating systems.",
+        longDescription: "We provide comprehensive roof waterproofing solutions using advanced liquid membranes and sealants to create monolithic, seamless barriers. Our systems are engineered to prevent water infiltration in critical areas like flashings, penetrations, and joints, extending the life of your roof and preventing interior water damage.",
+        features: ["Liquid Membrane Technology", "Seamless Waterproofing", "Penetration Sealing", "UV-Resistant Coatings"],
+        stats: [{ label: "Leak Prevention", value: "100%" }, { label: "System Life", value: "15+ Years" }, { label: "Cure Time", value: "Rapid" }],
+        benefits: [
+          { title: "Seamless Protection", description: "Liquid-applied membranes conform to any geometry, eliminating weak points found in traditional seams.", icon: "Droplets" },
+          { title: "Insurance Documentation", description: "Certified inspection reports for storm damage claims and insurance requirements.", icon: "FileText" },
+          { title: "Enhanced Property Value", description: "Official roof health certification for real estate transactions and property valuations.", icon: "TrendingUp" }
+        ],
+        process: ["Surface Cleaning", "Flashing/Joint Prep", "Primer Application", "Membrane Coating", "Topcoat Protection", "Water Testing"],
+        faqs: [
+          { question: "How often should NYC buildings be waterproofed?", answer: "We recommend re-evaluation every 5-7 years, with maintenance of sealants and coatings as needed to prevent deep structural water entry." }
+        ],
+        galleryImages: ["/assets/megawaterproofing1.jfif"]
       }
     ]
   },
@@ -250,7 +270,8 @@ export const servicesData: Service[] = [
           { question: "Can individual bricks be replaced without damaging surrounding masonry?", answer: "Yes, skilled masons can carefully extract and replace individual bricks while preserving adjacent masonry perfectly intact." },
           { question: "How many bricks can typically be replaced at once?", answer: "We recommend replacing no more than 10-15% of bricks in a given area to maintain structural integrity during the repair process." },
           { question: "Is brick replacement covered by insurance?", answer: "Coverage depends on cause—storm damage may be covered, while general deterioration from age or neglect typically isn't. We provide documentation for claims." }
-        ]
+        ],
+        galleryImages: ["/assets/megabrickwork1.jfif", "/assets/megabrickwork2.jfif", "/assets/megabrickwork3.jfif"]
       },
       {
         id: "brick-grinding-pointing",
@@ -267,7 +288,8 @@ export const servicesData: Service[] = [
           { question: "How deep should mortar joints be ground for repointing?", answer: "Joints should be ground to at least 3/4 inch depth or until sound mortar is reached, whichever is greater, for proper adhesion." },
           { question: "Can repointing fix a bulging or leaning wall?", answer: "Repointing alone cannot fix structural movement issues. Bulging walls require additional structural reinforcement or rebuilding." },
           { question: "Do you use power tools for grinding near historic bricks?", answer: "We use variable-speed grinders with vacuum attachments and skilled operators to prevent damage to adjacent historic bricks." }
-        ]
+        ],
+        galleryImages: ["/assets/megagrounding1.jfif", "/assets/megagrounding2.jfif", "/assets/megagrounding3.jfif"]
       },
       {
         id: "parapet-wall",
@@ -279,12 +301,13 @@ export const servicesData: Service[] = [
         benefits: [{ title: "Roof Perimeter Security", description: "Ensuring your building's roof edge is structurally sound, properly drained, and fully weather-sealed.", icon: "Shield" }],
         process: ["Existing Demolition", "Masonry Wall Rebuilding", "Flashing Installation", "Coping Stone Placement", "Waterproof Seal"],
         faqs: [
-          { question: "Why do parapet walls leak at the roof line?", answer: "Parapet leaks are usually caused by cracked coping stones, failed step flashing, or deteriorated membrane terminations at the wall base." },
+          { question: "Why do parapet walls leak at the roof line?", answer: "Parapet leaks are usually caused by cracked coping stones, failed step flashing, or deteriorated membrane terminations at the roof base." },
           { question: "What are the signs of parapet wall failure?", answer: "Bulging or leaning walls, cracked coping stones, interior water stains near roof edges, and crumbling mortar at the base are warning signs." },
           { question: "How often should parapet walls be inspected?", answer: "We recommend parapet inspection during annual roof maintenance and as part of Local Law 11/FISP facade inspections." },
           { question: "What is the typical lifespan of a parapet wall?", answer: "With proper maintenance and timely repointing, parapet walls can last 50-100 years. Coping stones last 30-50 years depending on material." },
           { question: "Do I need a permit for parapet repair in NYC?", answer: "Yes, parapet repairs typically require DOB permits. We handle all permit applications and coordinate required inspections." }
-        ]
+        ],
+        galleryImages: ["/assets/megaparapetwall1.jfif", "/assets/megaparapetwall2.jfif", "/assets/megaparapetwall3.jfif", "/assets/megaparapetwall4.jfif"]
       },
       {
         id: "facade-restoration",
@@ -330,12 +353,14 @@ export const servicesData: Service[] = [
         benefits: [{ title: "Outdoor Living Enhancement", description: "Professional patio installation increases usable square footage and creates valuable outdoor entertainment space.", icon: "Sun" }],
         process: ["Site Grading", "Sub-base Preparation", "Stone/Paver Setting", "Joint Finishing & Sealing"],
         faqs: [
+          { question: "What is the best way to repair cracked stucco?", answer: "We remove loose material, apply a bonding agent, and use fiber-reinforced base coats before finishing with a custom color-matched texture." },
           { question: "What is the most durable patio material for NYC climate?", answer: "Natural bluestone is highly durable, freeze-thaw resistant, and the classic aesthetic choice for NYC properties." },
           { question: "Do patios need a concrete base?", answer: "Proper patios require compacted gravel and stone dust base—not concrete—which allows drainage and prevents frost heaving." },
           { question: "How long does patio installation take?", answer: "Typical residential patios take 3-7 days depending on size, access, and weather conditions for proper base compaction." },
           { question: "Can patios be installed on uneven ground?", answer: "Yes, we grade and level sites as needed, using retaining walls if necessary to terrace sloped properties." },
           { question: "How do you prevent weeds between patio stones?", answer: "We use polymeric sand that hardens to prevent weed growth while remaining flexible enough for freeze-thaw movement." }
-        ]
+        ],
+        galleryImages: ["/assets/megastuccorestoreation1.jfif", "/assets/megastuccorestoreation2.jfif", "/assets/megastuccorestoreation3.jfif", "/assets/megastuccorestoreation4.jfif"]
       },
       {
         id: "steps-repair-construction",
@@ -350,9 +375,9 @@ export const servicesData: Service[] = [
           { question: "Can you repair crumbling brownstone steps?", answer: "Yes, we specialize in authentic brownstone patching and reconstruction using period-appropriate materials." },
           { question: "What are NYC step code requirements?", answer: "Rise (height) must be 7-8 inches, run (depth) 11+ inches, and treads must have non-slip surfaces or safety nosings." },
           { question: "Do step repairs require permits in NYC?", answer: "Yes, most step repairs require DOB permits, especially structural work affecting entrance safety or public walkways." },
-          { question: "How long do masonry step repairs last?", answer: "Properly repaired steps with appropriate materials last 20-30 years with normal use and maintenance." },
           { question: "What's the best material for NYC steps?", answer: "Cast stone or pre-cast concrete offers durability and slip resistance. Bluestone treads are popular for historic brownstones." }
-        ]
+        ],
+        galleryImages: ["/assets/megastepsrepair1.jfif", "/assets/megastepsrepair2.jfif", "/assets/megastepsrepair3.jfif"]
       },
       {
         id: "window-caulking",
@@ -585,7 +610,8 @@ export const servicesData: Service[] = [
           { question: "What are signs of foundation failure?", answer: "Diagonal wall cracks, sticking windows/doors, uneven floors, water entry, and visible foundation wall bowing or displacement." },
           { question: "How much does foundation repair cost?", answer: "Minor crack repairs: $500-2,000. Major underpinning: $20,000-100,000+ depending on scope and accessibility." },
           { question: "Can you repair foundations without excavating both sides?", answer: "Yes, for minor repairs. Major foundation work typically requires exterior excavation for proper waterproofing and structural access." }
-        ]
+        ],
+        galleryImages: ["/assets/megaconcretework1.jfif", "/assets/megaconcretework2.jfif", "/assets/megaconcretewalkwayenterance1.jfif"]
       },
       {
         id: "backyard-concrete",
@@ -652,7 +678,8 @@ export const servicesData: Service[] = [
           { question: "What bathroom renovations offer best ROI?", answer: "Mid-range bathroom updates typically recoup 60-70% of costs. High-end luxury baths offer lower ROI but greater personal enjoyment." },
           { question: "Can you renovate a bathroom without moving walls?", answer: "Absolutely. We can completely transform finishes, fixtures, and layouts within existing footprints without structural changes or extra permits." },
           { question: "What's the best flooring for bathrooms?", answer: "Porcelain tile offers water resistance and durability. Heated floors provide luxury. Luxury vinyl offers budget-friendly waterproof options." }
-        ]
+        ],
+        galleryImages: ["/assets/megabathom1.jfif", "/assets/megabathroom2.jfif", "/assets/megabathroom3.jfif"]
       },
       {
         id: "basement-renovation",

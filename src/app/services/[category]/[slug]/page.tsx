@@ -195,7 +195,7 @@ export default function ServiceDetailPage() {
               className="lg:col-span-6 relative aspect-[4/3] xs:aspect-[16/9] lg:aspect-auto lg:h-[700px] overflow-hidden border-2 border-black group"
             >
               <Image
-                src={subCategory.image}
+                src={subCategory.image || "/placeholder.svg"}
                 alt={subCategory.title}
                 fill
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[10s]"
@@ -311,7 +311,7 @@ export default function ServiceDetailPage() {
               className="lg:col-span-8 relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden border-2 border-black group"
             >
               <Image
-                src={galleryImages[0] || subCategory.image}
+                src={galleryImages[0] || subCategory.image || "/placeholder.svg"}
                 alt="Main Project"
                 fill
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[10s] group-hover:scale-105"
@@ -333,7 +333,7 @@ export default function ServiceDetailPage() {
                   className="relative aspect-[4/3] sm:aspect-auto sm:h-full min-h-[200px] overflow-hidden border-2 border-black group"
                 >
                   <Image
-                    src={img}
+                    src={img || "/placeholder.svg"}
                     alt="Project Detail"
                     fill
                     className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
@@ -538,7 +538,7 @@ export default function ServiceDetailPage() {
               {recommendedServices.map((rec) => (
                 <Link href={`/services/${categoryId}/${rec.id}`} key={rec.id} className="group relative block overflow-hidden border-black border-b-2 sm:border-b-0 sm:border-r-2 last:border-b-0 last:border-r-0 transition-colors">
                   <div className="aspect-[3/4] relative">
-                    <Image src={rec.image} alt={rec.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                    <Image src={rec.image || "/placeholder.svg"} alt={rec.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 bg-white border-t-2 border-black group-hover:bg-black group-hover:text-white transition-all duration-500">
                       <div className="text-red-600 text-[9px] font-medium uppercase tracking-[0.2em] mb-3">View Service</div>

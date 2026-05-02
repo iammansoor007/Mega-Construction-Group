@@ -59,6 +59,10 @@ export const serviceAssets = {
     title: "Roof Inspection",
     image: "/assets/roofinspection.jpg"
   },
+  "roof-waterproofing": {
+    title: "Roof Waterproofing",
+    image: "/assets/waterproofingmega.jpg"
+  },
 
   // --- MASONRY SUBCATEGORIES ---
   "brick-replacement": {
