@@ -12,7 +12,7 @@ import {
   Activity, ShieldAlert, Phone,
   Hammer, Settings, Zap, Target,
   Crosshair, Layers, Box, Cpu, ArrowLeft,
-  Camera, Maximize2
+  Camera, Maximize2, Star
 } from "lucide-react";
 import * as Icons from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -47,6 +47,8 @@ const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string })
   return <span ref={ref}>{display}{suffix}</span>;
 });
 
+Counter.displayName = "Counter";
+
 // --- MAIN PAGE COMPONENT ---
 
 export default function ServiceDetailPage() {
@@ -55,10 +57,9 @@ export default function ServiceDetailPage() {
   const slug = params.slug as string;
 
   const service = servicesData.find((s) => s.id === categoryId);
-  const subCategory = service?.subcategories.find((sub) => sub.id === slug);
 
-  // Recommended Services
-  const recommendedServices = service?.subcategories.filter((sub) => sub.id !== slug).slice(0, 3);
+  // Use the enriched data helper if possible, or manual find
+  const subCategory = service?.subcategories.find((sub) => sub.id === slug);
 
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
@@ -75,58 +76,73 @@ export default function ServiceDetailPage() {
     );
   }
 
-  const IconComponent = ({ name, className }: { name: string, className?: string }) => {
-    const LucideIcon = (Icons as any)[name] || Icons.HelpCircle;
-    return <LucideIcon className={className} />;
+  // Enforce data-driven defaults if missing
+  const galleryImages = subCategory.galleryImages || [1, 2, 3].map(num => `/mega${slug.toLowerCase().replace(/[^a-z0-9]/g, '')}${num}.png`);
+  const portfolioAvatars = subCategory.portfolioAvatars || [
+    "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=100&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?q=60&w=100&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=60&w=100&auto=format&fit=crop"
+  ];
+  const heroHighlight = subCategory.heroHighlight || `Professional ${subCategory.title.toLowerCase()} solutions for New York's most demanding architectural projects.`;
+
+  const renderIcon = (iconName: string, className?: string) => {
+    const Icon = (Icons as any)[iconName] || Hammer;
+    return <Icon className={className} />;
   };
 
-  // Generate simple gallery image names
-  const galleryImages = [1, 2, 3].map(num => `/mega${slug.toLowerCase().replace(/[^a-z0-9]/g, '')}${num}.png`);
+  // Recommended Services
+  const recommendedServices = service.subcategories.filter((sub) => sub.id !== slug).slice(0, 3);
 
   return (
     <main className="min-h-screen bg-white selection:bg-red-600 selection:text-white font-body overflow-x-hidden relative">
       <Navbar />
 
       {/* ====================== */}
-      {/* 1. BREADCRUMB BANNER */}
+      {/* 1. BREADCRUMB BANNER (MATCHED TO CATEGORY PAGE) */}
       {/* ====================== */}
-      <section className="relative pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden bg-gray-900">
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900">
         <div className="absolute inset-0 z-0">
           <Image
             src={service.image}
             alt={service.title}
             fill
-            className="object-cover opacity-30 grayscale"
+            className="object-cover opacity-30 scale-105"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-gray-900 to-gray-900" />
         </div>
 
-        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-start"
+            className="flex flex-col items-center md:items-start text-center md:text-left"
           >
-            {/* Breadcrumb */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.4em] text-red-500 font-medium mb-6 sm:mb-8">
-              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+            {/* Breadcrumb Navigation */}
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-4 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.4em] text-white/40 font-bold mb-8">
+              <Link href="/services" className="hover:text-red-500 transition-colors">Services</Link>
               <ChevronRight className="w-2 h-2 sm:w-3 sm:h-3 opacity-30" />
-              <Link href={`/services/${categoryId}`} className="hover:text-white transition-colors whitespace-nowrap">{service.title}</Link>
+              <Link href={`/services/${categoryId}`} className="hover:text-red-500 transition-colors whitespace-nowrap">{service.title}</Link>
               <ChevronRight className="w-2 h-2 sm:w-3 sm:h-3 opacity-30" />
-              <span className="text-white/40 whitespace-nowrap">{subCategory.title}</span>
+              <span className="text-red-500 whitespace-nowrap">{subCategory.title}</span>
             </div>
 
-            {/* Title */}
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-8xl font-medium text-white mb-6 leading-tight sm:leading-none tracking-normal uppercase font-heading">
-              {service.title} <span className="text-red-600">Services</span>
+            <div className="inline-flex items-center gap-2 mb-4 md:mb-6">
+              <span className="w-6 md:w-8 h-px bg-red-500" />
+              <span className="text-red-500 uppercase tracking-widest text-[10px] md:text-xs font-bold">
+                {service.tag} Division
+              </span>
+              <span className="w-6 md:w-8 h-px bg-red-500 md:hidden" />
+            </div>
+
+            <h1 className="text-4xl xs:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.1] md:leading-tight">
+              {subCategory.title}
             </h1>
 
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className="w-8 sm:w-12 h-px bg-red-600" />
-              <p className="text-white/40 text-[9px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium">NYC Certified • Professional Results</p>
-            </div>
+            <p className="text-base md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto md:mx-0">
+              {heroHighlight}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -144,19 +160,27 @@ export default function ServiceDetailPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="lg:col-span-3 space-y-6 sm:space-y-8"
+              className="lg:col-span-3 space-y-8 sm:space-y-12 text-center md:text-left"
             >
-              <div className="text-[10px] sm:text-xs text-red-600 uppercase tracking-widest font-medium border-l-4 border-red-600 pl-4">
-                Service Overview
+              <div className="inline-block md:block">
+                <div className="text-[10px] sm:text-xs text-red-600 uppercase tracking-widest font-bold border-l-4 border-red-600 pl-4 text-left">
+                  Service Overview
+                </div>
               </div>
-              <p className="text-black text-base sm:text-lg md:text-xl leading-relaxed font-normal">
+              <p className="text-black text-lg xs:text-xl md:text-xl leading-relaxed font-normal">
                 {subCategory.longDescription}
               </p>
-              <div className="space-y-4 pt-6 sm:pt-8">
+
+              {/* IMPROVED STATS READABILITY */}
+              <div className="space-y-6 pt-4 sm:pt-8">
                 {subCategory.stats?.map((stat, i) => (
-                  <div key={i} className="flex items-center justify-between border-b border-black/10 pb-3 sm:pb-4 group">
-                    <span className="text-[9px] sm:text-[10px] text-black/40 uppercase tracking-widest font-medium group-hover:text-red-600 transition-colors">{stat.label}</span>
-                    <span className="text-lg sm:text-xl font-medium text-black uppercase tracking-tighter">{stat.value}</span>
+                  <div key={i} className="flex items-center justify-between border-b-2 border-black/5 pb-4 group">
+                    <span className="text-[11px] sm:text-xs text-black/60 uppercase tracking-[0.2em] font-bold group-hover:text-red-600 transition-colors">
+                      {stat.label}
+                    </span>
+                    <span className="text-xl sm:text-2xl font-bold text-black uppercase tracking-tighter">
+                      {stat.value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -168,7 +192,7 @@ export default function ServiceDetailPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 1 }}
-              className="lg:col-span-6 relative aspect-[16/9] lg:aspect-auto lg:h-[650px] overflow-hidden border-2 border-black group"
+              className="lg:col-span-6 relative aspect-[4/3] xs:aspect-[16/9] lg:aspect-auto lg:h-[700px] overflow-hidden border-2 border-black group"
             >
               <Image
                 src={subCategory.image}
@@ -177,45 +201,61 @@ export default function ServiceDetailPage() {
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[10s]"
               />
               <div className="absolute inset-0 bg-red-600/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-4 sm:inset-8 border border-white/20 pointer-events-none" />
+              <div className="absolute inset-0 border border-white/20 pointer-events-none" />
             </motion.div>
 
-            {/* Column 3: Actions & Meta (IMPROVED CTAS) */}
+            {/* Column 3: Actions & Meta */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.6 }}
-              className="lg:col-span-3 h-full flex flex-col justify-between"
+              className="lg:col-span-3 h-full flex flex-col justify-between space-y-12 lg:space-y-0"
             >
-              <div className="space-y-4">
-                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-black/30 font-medium mb-4 sm:mb-6">Immediate Response</div>
+              <div className="space-y-6 text-center md:text-left">
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-black/30 font-bold mb-4">Immediate Response</div>
 
-                <Link
-                  href="#contact"
-                  className="group relative flex items-center justify-between w-full p-6 sm:p-8 bg-black text-white overflow-hidden transition-all duration-500"
-                >
-                  <div className="absolute inset-0 bg-red-600 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
-                  <span className="relative z-10 text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] font-medium">Get Free Quote</span>
-                  <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
-                </Link>
+                <div className="flex flex-col gap-4">
+                  <Link
+                    href="#contact"
+                    className="group relative flex items-center justify-between w-full p-6 xs:p-8 bg-black text-white overflow-hidden transition-all duration-500"
+                  >
+                    <div className="absolute inset-0 bg-red-600 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+                    <span className="relative z-10 text-[10px] xs:text-[11px] uppercase tracking-[0.3em] font-bold">Get Free Quote</span>
+                    <ArrowRight className="relative z-10 w-4 h-4 xs:w-5 xs:h-5 group-hover:translate-x-2 transition-transform" />
+                  </Link>
 
-                <Link
-                  href="/contact"
-                  className="group flex items-center justify-between w-full p-6 sm:p-8 border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-500"
-                >
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] font-medium">Request Estimate</span>
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
-                </Link>
+                  <Link
+                    href="/contact"
+                    className="group flex items-center justify-between w-full p-6 xs:p-8 border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-500"
+                  >
+                    <span className="text-[10px] xs:text-[11px] uppercase tracking-[0.3em] font-bold">Request Estimate</span>
+                    <FileText className="w-4 h-4 xs:w-5 xs:h-5 group-hover:rotate-12 transition-transform" />
+                  </Link>
+                </div>
 
-                <div className="flex items-center gap-3 sm:gap-4 px-2 pt-4">
+                {/* RELOCATED BENEFITS */}
+                <div className="space-y-6 pt-8 pb-4 text-left">
+                  <div className="text-[10px] uppercase tracking-widest text-red-600 font-bold mb-2">Key Advantages</div>
+                  <div className="space-y-5">
+                    {subCategory.benefits?.slice(0, 3).map((benefit, i) => (
+                      <div key={i} className="flex items-start gap-4 group">
+                        <div className="p-2.5 bg-black text-white group-hover:bg-red-600 transition-colors mt-1 shrink-0">
+                          {renderIcon(benefit.icon, "w-4 h-4")}
+                        </div>
+                        <div className="space-y-1">
+                          <span className="text-xs xs:text-sm font-bold text-black uppercase tracking-tight">{benefit.title}</span>
+                          <p className="text-sm xs:text-sm text-black/80 leading-relaxed">{benefit.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col xs:flex-row items-center justify-center md:justify-start gap-4 px-2 pt-6">
                   <div className="flex -space-x-3">
-                    {[
-                      "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=100&auto=format&fit=crop",
-                      "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=60&w=100&auto=format&fit=crop",
-                      "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?q=60&w=100&auto=format&fit=crop"
-                    ].map((url, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-red-600 overflow-hidden relative z-[5] shadow-sm">
+                    {portfolioAvatars.map((url, i) => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-red-600 overflow-hidden relative z-[5] shadow-md">
                         <img
                           src={url}
                           alt="Project"
@@ -228,34 +268,13 @@ export default function ServiceDetailPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="text-[9px] uppercase tracking-widest text-black font-medium">
-                    <span className="text-red-600">150+</span> Projects
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-black font-bold">
+                    <span className="text-red-600 text-sm">150+</span> Successful Projects
                   </div>
                 </div>
               </div>
 
-              <div className="relative mt-12 p-6 sm:p-10 bg-white border-2 border-black overflow-hidden group">
-                <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-red-600 rotate-45 translate-x-6 sm:translate-x-8 -translate-y-6 sm:-translate-y-8" />
 
-                <div className="relative z-10 space-y-4 sm:space-y-6">
-                  <div className="flex items-center gap-3 sm:gap-4 text-red-600">
-                    <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10" />
-                    <div className="h-8 sm:h-10 w-px bg-black/10" />
-                    <div className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.3em] leading-tight font-medium">
-                      NYC Registered <br /> Contractor
-                    </div>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-medium leading-[0.9] uppercase tracking-tighter text-black">Verified <br /> Standards</h3>
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4, 5].map((s) => (
-                        <div key={s} className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-600" />
-                      ))}
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-widest font-medium">A+ Rating</span>
-                  </div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -292,7 +311,7 @@ export default function ServiceDetailPage() {
               className="lg:col-span-8 relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden border-2 border-black group"
             >
               <Image
-                src={galleryImages[0]}
+                src={galleryImages[0] || subCategory.image}
                 alt="Main Project"
                 fill
                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[10s] group-hover:scale-105"
@@ -303,7 +322,6 @@ export default function ServiceDetailPage() {
               </div>
             </motion.div>
 
-            {/* SIDE STACKED IMAGES */}
             <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 sm:gap-8">
               {galleryImages.slice(1, 3).map((img, i) => (
                 <motion.div
@@ -331,16 +349,14 @@ export default function ServiceDetailPage() {
         </div>
       </section>
 
-      {/* ====================== */}
       {/* HOW WE WORK (PHASES) */}
-      {/* ====================== */}
       {subCategory.process && (
         <section className="py-12 sm:py-24 lg:py-40 bg-white">
           <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-12 sm:mb-24 gap-8 sm:gap-12">
-              <div className="max-w-2xl text-left">
-                <span className="text-red-600 text-[10px] sm:text-xs uppercase tracking-[0.5em] sm:tracking-[1em] mb-4 sm:mb-6 block font-medium">Our Process</span>
-                <h2 className="text-4xl sm:text-5xl md:text-8xl font-medium text-black tracking-tighter uppercase font-heading leading-none">
+            <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between mb-12 sm:mb-24 gap-8 sm:gap-12 text-center lg:text-left">
+              <div className="max-w-2xl">
+                <span className="text-red-600 text-[10px] sm:text-xs uppercase tracking-[0.5em] sm:tracking-[1em] mb-4 sm:mb-6 block font-bold">Our Process</span>
+                <h2 className="text-4xl sm:text-5xl md:text-8xl font-bold text-black tracking-tighter uppercase font-heading leading-none">
                   How <span className="text-red-600">We Work</span>
                 </h2>
               </div>
@@ -374,9 +390,7 @@ export default function ServiceDetailPage() {
         </section>
       )}
 
-      {/* ====================== */}
       {/* WHY CHOOSE US */}
-      {/* ====================== */}
       <section className="py-12 sm:py-24 lg:py-40 bg-white">
         <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16 sm:mb-32 space-y-6 sm:space-y-8">
@@ -386,7 +400,7 @@ export default function ServiceDetailPage() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 text-center sm:text-left">
             {subCategory.benefits?.map((benefit, i) => (
               <motion.div
                 key={i}
@@ -394,14 +408,14 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 sm:p-12 border-l-4 border-black hover:border-red-600 transition-all duration-500 space-y-6 sm:space-y-8 group hover:bg-black/5"
+                className="p-8 sm:p-12 border-2 border-black/5 hover:border-red-600 transition-all duration-500 space-y-6 sm:space-y-8 group hover:bg-black/5"
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center text-black group-hover:text-red-600 group-hover:scale-110 transition-all">
-                  <IconComponent name={benefit.icon} className="w-8 h-8 sm:w-10 sm:h-10" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center text-black group-hover:text-red-600 group-hover:scale-110 transition-all mx-auto sm:mx-0">
+                  {renderIcon(benefit.icon, "w-8 h-8 sm:w-10 sm:h-10")}
                 </div>
                 <div className="space-y-3 sm:space-y-4">
-                  <h4 className="text-xl sm:text-2xl font-medium text-black uppercase tracking-tighter">{benefit.title}</h4>
-                  <p className="text-black/60 text-base sm:text-lg font-normal leading-relaxed">{benefit.description}</p>
+                  <h4 className="text-xl sm:text-2xl font-bold text-black uppercase tracking-tighter">{benefit.title}</h4>
+                  <p className="text-black/80 text-lg sm:text-xl font-normal leading-relaxed">{benefit.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -411,56 +425,97 @@ export default function ServiceDetailPage() {
 
       {/* FAQ SECTION */}
       {subCategory.faqs && (
-        <section className="py-12 sm:py-24 lg:py-40 bg-white">
+        <section className="py-24 sm:py-40 bg-white">
           <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-              <div className="lg:col-span-5 space-y-6 sm:space-y-8">
-                <span className="text-red-600 text-[10px] sm:text-xs uppercase tracking-[0.5em] sm:tracking-[1em] font-medium block">Questions?</span>
-                <h2 className="text-3xl sm:text-4xl md:text-7xl font-medium text-black tracking-tighter uppercase font-heading leading-tight">
-                  Common <br /><span className="text-red-600">Inquiries</span>
-                </h2>
-                <div className="pt-6 sm:pt-12">
-                  <div className="flex items-center gap-4 sm:gap-6 p-6 sm:p-10 border-2 border-black group hover:border-red-600 transition-colors">
-                    <Phone className="w-8 h-8 sm:w-10 sm:h-10 text-red-600 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <div className="text-black text-xs sm:text-sm font-medium uppercase tracking-widest">Call Our Office</div>
-                      <div className="text-black/40 text-[9px] sm:text-[10px] uppercase tracking-widest mt-1">Available Mon-Sat</div>
+            <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+
+              {/* Left Side: Context & Support Widget */}
+              <div className="lg:col-span-4 space-y-12 text-center lg:text-left">
+                <div className="space-y-6">
+                  <span className="text-red-600 text-[10px] sm:text-xs uppercase tracking-[0.8em] font-bold block">Information Support</span>
+                  <h2 className="text-4xl sm:text-7xl font-bold text-black tracking-tighter uppercase font-heading leading-tight">
+                    Critical <br /><span className="text-red-600">Inquiries</span>
+                  </h2>
+                  <p className="text-black/40 text-lg sm:text-xl font-normal leading-relaxed max-w-sm mx-auto lg:mx-0">
+                    Detailed answers to technical and procedural questions regarding our {subCategory.title.toLowerCase()} services.
+                  </p>
+                </div>
+
+                <div className="relative p-8 sm:p-10 border-2 border-black group overflow-hidden">
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-black flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="space-y-6 relative z-10">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      <span className="text-[10px] uppercase tracking-widest text-black font-medium">Support Available</span>
                     </div>
+                    <div className="space-y-1">
+                      <div className="text-[10px] uppercase tracking-widest text-black/40 font-medium">Project Hotline</div>
+                      <div className="text-2xl sm:text-3xl font-medium text-black tracking-tighter">CALL OFFICE</div>
+                    </div>
+                    <Link href="/contact" className="inline-flex items-center gap-4 text-[10px] uppercase tracking-widest text-red-600 font-medium hover:text-black transition-colors">
+                      [ CONTACT EXPERTS ] <ArrowRight className="w-3 h-3" />
+                    </Link>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-7 space-y-4">
-                {subCategory.faqs.map((faq, i) => (
-                  <div key={i} className="border-2 border-black hover:border-red-600 transition-all duration-300">
-                    <button
-                      onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                      className="w-full px-4 sm:px-8 py-6 sm:py-10 flex items-center justify-between text-left group"
+              {/* Right Side: Accordion Grid */}
+              <div className="lg:col-span-8">
+                <div className="space-y-6">
+                  {subCategory.faqs.map((faq, i) => (
+                    <div
+                      key={i}
+                      className={`group border-2 transition-all duration-500 ${activeFaq === i ? 'border-red-600 shadow-[20px_20px_0px_rgba(220,38,38,0.05)]' : 'border-black/10 hover:border-black'}`}
                     >
-                      <span className={`text-lg sm:text-xl md:text-2xl font-medium tracking-tight transition-colors ${activeFaq === i ? 'text-red-600' : 'text-black group-hover:text-red-600'} pr-4 uppercase`}>
-                        {faq.question}
-                      </span>
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center transition-all ${activeFaq === i ? 'bg-red-600 text-white' : 'bg-black text-white'}`}>
-                        <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
-                      </div>
-                    </button>
-                    <AnimatePresence>
-                      {activeFaq === i && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-4 sm:px-8 pb-8 sm:pb-12 text-black/60 text-base sm:text-lg lg:text-xl font-normal leading-relaxed pt-4 sm:pt-6 border-t border-black/10 mx-4 sm:mx-8">
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
+                      <button
+                        onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                        className="w-full px-6 sm:px-10 py-8 sm:py-12 flex items-center justify-between text-left relative overflow-hidden"
+                      >
+                        <div className="flex items-start gap-6 sm:gap-10 relative z-10">
+                          <span className={`text-xs font-medium uppercase tracking-widest mt-1 sm:mt-2 ${activeFaq === i ? 'text-red-600' : 'text-black/20 group-hover:text-black'}`}>
+                            Q.0{i + 1}
+                          </span>
+                          <span className={`text-xl sm:text-2xl md:text-3xl font-medium tracking-tight transition-colors ${activeFaq === i ? 'text-black' : 'text-black/60 group-hover:text-black'} uppercase pr-4`}>
+                            {faq.question}
+                          </span>
+                        </div>
+
+                        <div className={`w-8 h-8 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center transition-all duration-500 relative z-10 ${activeFaq === i ? 'bg-red-600 text-white rotate-180' : 'bg-black/5 text-black group-hover:bg-black group-hover:text-white'}`}>
+                          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
+
+                        <div className={`absolute inset-0 bg-red-600/5 transition-transform duration-700 ease-out ${activeFaq === i ? 'translate-x-0' : '-translate-x-full'}`} />
+                      </button>
+
+                      <AnimatePresence>
+                        {activeFaq === i && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: "circOut" }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-6 sm:px-10 pb-10 sm:pb-16 pt-0 ml-0 sm:ml-20 mr-6 sm:mr-12">
+                              <div className="h-px w-full bg-black/5 mb-8" />
+                              <p className="text-black/70 text-base sm:text-lg md:text-xl font-normal leading-relaxed">
+                                {faq.answer}
+                              </p>
+                              <div className="mt-8 flex items-center gap-4">
+                                <div className="w-8 h-1 bg-red-600" />
+                                <span className="text-[10px] uppercase tracking-widest font-medium text-black/30 whitespace-nowrap">Technical Clarification</span>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -470,11 +525,11 @@ export default function ServiceDetailPage() {
       {recommendedServices && recommendedServices.length > 0 && (
         <section className="py-12 sm:py-24 lg:py-40 bg-white">
           <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 sm:mb-24 gap-6 sm:gap-8">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium text-black tracking-tighter uppercase font-heading">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-12 sm:mb-24 gap-6 sm:gap-8 text-center sm:text-left">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-black tracking-tighter uppercase font-heading">
                 Related <span className="text-red-600">Services</span>
               </h2>
-              <Link href={`/services/${categoryId}`} className="group flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-red-600 hover:text-black transition-colors font-medium">
+              <Link href={`/services/${categoryId}`} className="group flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-red-600 hover:text-black transition-colors font-bold">
                 [ ALL SERVICES ] <ArrowRight className="w-4 h-4 group-hover:translate-x-3 transition-transform" />
               </Link>
             </div>

@@ -36,6 +36,9 @@ export interface SubCategory {
   process?: string[];
   faqs?: FAQ[];
   stats?: { label: string; value: string }[];
+  galleryImages?: string[];
+  portfolioAvatars?: string[];
+  heroHighlight?: string;
 }
 
 export interface Service {
@@ -951,5 +954,19 @@ export const servicesData: Service[] = [
 export const getServiceById = (id: string) => servicesData.find(s => s.id === id);
 export const getSubCategory = (serviceId: string, subId: string) => {
   const service = getServiceById(serviceId);
-  return service?.subcategories.find(sub => sub.id === subId);
+  const sub = service?.subcategories.find(sub => sub.id === subId);
+  
+  if (!sub) return null;
+
+  // AUTO-GENERATE DATA TO AVOID REPETITION IN UI OR DATA FILE
+  return {
+    ...sub,
+    galleryImages: sub.galleryImages || [1, 2, 3].map(num => `/mega${sub.id.toLowerCase().replace(/[^a-z0-9]/g, '')}${num}.png`),
+    portfolioAvatars: sub.portfolioAvatars || [
+      "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=100&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?q=60&w=100&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?q=60&w=100&auto=format&fit=crop"
+    ],
+    heroHighlight: sub.heroHighlight || `Professional ${sub.title.toLowerCase()} solutions for New York's most demanding architectural projects.`
+  };
 };
