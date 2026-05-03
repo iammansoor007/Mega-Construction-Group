@@ -33,7 +33,7 @@ export const serviceAssets = {
   // --- ROOFING SUBCATEGORIES ---
   "shingle-roofing": {
     title: "Shingle Roofing",
-    image: "/assets/shingleroofingmega.jpg"
+    image: "/assets/megashingleroof1.jfif"
   },
   "flat-roofing": {
     title: "Flat Roofing",
@@ -41,7 +41,7 @@ export const serviceAssets = {
   },
   "tpo-roofing": {
     title: "TPO Roofing",
-    image: "/assets/tporoofingmega.jpg"
+    image: "/assets/megatporoofing1.jfif"
   },
   "roof-leakage-repair": {
     title: "Roof Leakage Repair",
