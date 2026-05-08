@@ -92,7 +92,7 @@ export const servicesData: Service[] = [
           { question: "Do you offer financing for roof replacement?", answer: "Yes, we offer flexible financing options with approved credit, making roof replacement affordable for every budget." },
           { question: "How do I know if my roof needs repair or full replacement?", answer: "If your roof has isolated leaks and is under 15 years old, repair may suffice. Widespread issues or roofs over 20 years typically need replacement." }
         ],
-        galleryImages: ["/assets/megashingleroof1.jfif", "/assets/megashingleroof2.jfif", "/assets/megashingleroof3.jfif"]
+        galleryImages: ["/assets/megashingleroof1.jpg", "/assets/megashingleroof2.jpg", "/assets/megashingleroof3.jpg"]
       },
       {
         id: "flat-roofing",
@@ -135,7 +135,7 @@ export const servicesData: Service[] = [
           { question: "Can TPO be installed over an existing roof?", answer: "Yes, in many cases TPO can be installed as a 'recover' system over existing single-ply membranes, saving demolition costs." },
           { question: "What is the lifespan of a professionally installed TPO roof?", answer: "With proper installation and maintenance, TPO roofs typically last 20-30 years in NYC's climate conditions." }
         ],
-        galleryImages: ["/assets/megatporoofing1.jfif", "/assets/megatporoofing2.jfif", "/assets/megatporoofing3.jfif"]
+        galleryImages: ["/assets/megatporoofing1.jpg", "/assets/megatporoofing2.jpg", "/assets/megatporoofing3.jpg"]
       },
       {
         id: "roof-leakage-repair",
@@ -237,7 +237,7 @@ export const servicesData: Service[] = [
         faqs: [
           { question: "How often should NYC buildings be waterproofed?", answer: "We recommend re-evaluation every 5-7 years, with maintenance of sealants and coatings as needed to prevent deep structural water entry." }
         ],
-        galleryImages: ["/assets/megawaterproofing1.jfif"]
+        galleryImages: ["/assets/megawaterproofing1.jpg"]
       }
     ]
   },
@@ -271,7 +271,7 @@ export const servicesData: Service[] = [
           { question: "How many bricks can typically be replaced at once?", answer: "We recommend replacing no more than 10-15% of bricks in a given area to maintain structural integrity during the repair process." },
           { question: "Is brick replacement covered by insurance?", answer: "Coverage depends on cause—storm damage may be covered, while general deterioration from age or neglect typically isn't. We provide documentation for claims." }
         ],
-        galleryImages: ["/assets/megabrickwork1.jfif", "/assets/megabrickwork2.jfif", "/assets/megabrickwork3.jfif"]
+        galleryImages: ["/assets/megabrickwork1.jpg", "/assets/megabrickwork2.jpg", "/assets/megabrickwork3.jpg"]
       },
       {
         id: "brick-grinding-pointing",
@@ -289,7 +289,7 @@ export const servicesData: Service[] = [
           { question: "Can repointing fix a bulging or leaning wall?", answer: "Repointing alone cannot fix structural movement issues. Bulging walls require additional structural reinforcement or rebuilding." },
           { question: "Do you use power tools for grinding near historic bricks?", answer: "We use variable-speed grinders with vacuum attachments and skilled operators to prevent damage to adjacent historic bricks." }
         ],
-        galleryImages: ["/assets/megagrounding1.jfif", "/assets/megagrounding2.jfif", "/assets/megagrounding3.jfif"]
+        galleryImages: ["/assets/megagrounding1.jpg", "/assets/megagrounding2.jpg", "/assets/megagrounding3.jpg"]
       },
       {
         id: "parapet-wall",
@@ -307,7 +307,7 @@ export const servicesData: Service[] = [
           { question: "What is the typical lifespan of a parapet wall?", answer: "With proper maintenance and timely repointing, parapet walls can last 50-100 years. Coping stones last 30-50 years depending on material." },
           { question: "Do I need a permit for parapet repair in NYC?", answer: "Yes, parapet repairs typically require DOB permits. We handle all permit applications and coordinate required inspections." }
         ],
-        galleryImages: ["/assets/megaparapetwall1.jfif", "/assets/megaparapetwall2.jfif", "/assets/megaparapetwall3.jfif", "/assets/megaparapetwall4.jfif"]
+        galleryImages: ["/assets/megaparapetwall1.jpg", "/assets/megaparapetwall2.jpg", "/assets/megaparapetwall3.jpg", "/assets/megaparapetwall4.jpg"]
       },
       {
         id: "facade-restoration",
@@ -360,7 +360,7 @@ export const servicesData: Service[] = [
           { question: "Can patios be installed on uneven ground?", answer: "Yes, we grade and level sites as needed, using retaining walls if necessary to terrace sloped properties." },
           { question: "How do you prevent weeds between patio stones?", answer: "We use polymeric sand that hardens to prevent weed growth while remaining flexible enough for freeze-thaw movement." }
         ],
-        galleryImages: ["/assets/megastuccorestoreation1.jfif", "/assets/megastuccorestoreation2.jfif", "/assets/megastuccorestoreation3.jfif", "/assets/megastuccorestoreation4.jfif"]
+        galleryImages: ["/assets/megastuccorestoreation1.jpg", "/assets/megastuccorestoreation2.jpg", "/assets/megastuccorestoreation3.jpg", "/assets/megastuccorestoreation4.jpg"]
       },
       {
         id: "steps-repair-construction",
@@ -377,7 +377,7 @@ export const servicesData: Service[] = [
           { question: "Do step repairs require permits in NYC?", answer: "Yes, most step repairs require DOB permits, especially structural work affecting entrance safety or public walkways." },
           { question: "What's the best material for NYC steps?", answer: "Cast stone or pre-cast concrete offers durability and slip resistance. Bluestone treads are popular for historic brownstones." }
         ],
-        galleryImages: ["/assets/megastepsrepair1.jfif", "/assets/megastepsrepair2.jfif", "/assets/megastepsrepair3.jfif"]
+        galleryImages: ["/assets/megastepsrepair1.jpg", "/assets/megastepsrepair2.jpg", "/assets/megastepsrepair3.jpg"]
       },
       {
         id: "window-caulking",
@@ -611,7 +611,7 @@ export const servicesData: Service[] = [
           { question: "How much does foundation repair cost?", answer: "Minor crack repairs: $500-2,000. Major underpinning: $20,000-100,000+ depending on scope and accessibility." },
           { question: "Can you repair foundations without excavating both sides?", answer: "Yes, for minor repairs. Major foundation work typically requires exterior excavation for proper waterproofing and structural access." }
         ],
-        galleryImages: ["/assets/megaconcretework1.jfif", "/assets/megaconcretework2.jfif", "/assets/megaconcretewalkwayenterance1.jfif"]
+        galleryImages: ["/assets/megaconcretework1.jpg", "/assets/megaconcretework2.jpg", "/assets/megaconcretewalkwayenterance1.jpg"]
       },
       {
         id: "backyard-concrete",
@@ -679,7 +679,7 @@ export const servicesData: Service[] = [
           { question: "Can you renovate a bathroom without moving walls?", answer: "Absolutely. We can completely transform finishes, fixtures, and layouts within existing footprints without structural changes or extra permits." },
           { question: "What's the best flooring for bathrooms?", answer: "Porcelain tile offers water resistance and durability. Heated floors provide luxury. Luxury vinyl offers budget-friendly waterproof options." }
         ],
-        galleryImages: ["/assets/megabathom1.jfif", "/assets/megabathroom2.jfif", "/assets/megabathroom3.jfif"]
+        galleryImages: ["/assets/megabathom1.jpg", "/assets/megabathroom2.jpg", "/assets/megabathroom3.jpg"]
       },
       {
         id: "basement-renovation",

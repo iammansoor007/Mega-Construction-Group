@@ -33,7 +33,7 @@ export const serviceAssets = {
   // --- ROOFING SUBCATEGORIES ---
   "shingle-roofing": {
     title: "Shingle Roofing",
-    image: "/assets/megashingleroof1.jfif"
+    image: "/assets/shingleroofingmega.jpg"
   },
   "flat-roofing": {
     title: "Flat Roofing",
@@ -41,7 +41,7 @@ export const serviceAssets = {
   },
   "tpo-roofing": {
     title: "TPO Roofing",
-    image: "/assets/megatporoofing1.jfif"
+    image: "/assets/tporoofingmega.jpg"
   },
   "roof-leakage-repair": {
     title: "Roof Leakage Repair",
@@ -87,7 +87,7 @@ export const serviceAssets = {
   },
   "patios": {
     title: "Patios",
-    image: "/assets/patios.jfif"
+    image: "/assets/patios.jpg"
   },
   "steps-repair-construction": {
     title: "Steps Repair & Construction",
@@ -111,7 +111,7 @@ export const serviceAssets = {
   },
   "chimney-caps-rebuilds": {
     title: "Chimney Caps & Rebuilds",
-    image: "/assets/chimneymegareal.jfif"
+    image: "/assets/chimneymegareal.jpg"
   },
   "waterproofing": {
     title: "Waterproofing",
@@ -133,19 +133,19 @@ export const serviceAssets = {
   },
   "sidewalk-replacement": {
     title: "Sidewalk Replacement",
-    image: "/assets/sidewalkreplacementreal.jfif"
+    image: "/assets/sidewalkreplacementreal.jpg"
   },
   "sidewalk-violation-removal": {
     title: "Sidewalk Violation Removal",
-    image: "/assets/sidewalkviolationremoval.jfif"
+    image: "/assets/sidewalkviolationremoval.jpg"
   },
   "dot-violation-removal": {
     title: "DOT Violation Removal",
-    image: "/assets/dotviolationremoval.jfif"
+    image: "/assets/dotviolationremoval.jpg"
   },
   "dob-violation-removal": {
     title: "DOB Violation Removal",
-    image: "/assets/dobviolationremoval.jfif"
+    image: "/assets/dobviolationremoval.jpg"
   },
   "foundation-work": {
     title: "Foundation Work",
@@ -177,7 +177,7 @@ export const serviceAssets = {
   // --- STUCCO SUBCATEGORIES ---
   "eifs-systems": {
     title: "EIFS Systems",
-    image: "/assets/eifsstucco.jfif"
+    image: "/assets/eifsstucco.jpg"
   },
   "stucco-repair": {
     title: "Stucco Repair",
@@ -193,7 +193,7 @@ export const serviceAssets = {
   },
   "californian-stucco": {
     title: "Californian Stucco",
-    image: "/assets/californianstucco.jfif"
+    image: "/assets/californianstucco.jpg"
   },
 
   // --- CUSTOM HOME SUBCATEGORIES ---
@@ -203,7 +203,7 @@ export const serviceAssets = {
   },
   "luxury-finishes": {
     title: "Luxury Finishes",
-    image: "/assets/luxuryfinsh.jfif"
+    image: "/assets/luxuryfinsh.jpg"
   },
   "project-management": {
     title: "Project Management",
@@ -225,7 +225,7 @@ export const serviceAssets = {
   },
   "board-up-service": {
     title: "Board-Up Service",
-    image: "/assets/boardupservice.jfif"
+    image: "/assets/boardupservice.jpg"
   },
   "emergency-24-7": {
     title: "24/7 Emergency Services",
