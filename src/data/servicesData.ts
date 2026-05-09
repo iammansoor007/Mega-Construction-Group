@@ -92,7 +92,7 @@ export const servicesData: Service[] = [
           { question: "Do you offer financing for roof replacement?", answer: "Yes, we offer flexible financing options with approved credit, making roof replacement affordable for every budget." },
           { question: "How do I know if my roof needs repair or full replacement?", answer: "If your roof has isolated leaks and is under 15 years old, repair may suffice. Widespread issues or roofs over 20 years typically need replacement." }
         ],
-        galleryImages: ["/assets/megashingleroof1.jpg", "/assets/megashingleroof2.jpg", "/assets/megashingleroof3.jpg"]
+        galleryImages: ["/assets/megashinglemaincard.jpeg", "/assets/shingleroofingmega.jpg", "/assets/megashingleroof1.jpg"]
       },
       {
         id: "flat-roofing",
@@ -135,7 +135,7 @@ export const servicesData: Service[] = [
           { question: "Can TPO be installed over an existing roof?", answer: "Yes, in many cases TPO can be installed as a 'recover' system over existing single-ply membranes, saving demolition costs." },
           { question: "What is the lifespan of a professionally installed TPO roof?", answer: "With proper installation and maintenance, TPO roofs typically last 20-30 years in NYC's climate conditions." }
         ],
-        galleryImages: ["/assets/megatporoofing1.jpg", "/assets/megatporoofing2.jpg", "/assets/megatporoofing3.jpg"]
+        galleryImages: ["/assets/megatpomaincard.jpeg", "/assets/tporoofingmega.jpg", "/assets/megatporoofing1.jpg"]
       },
       {
         id: "roof-leakage-repair",
@@ -982,7 +982,7 @@ export const getServiceById = (id: string) => servicesData.find(s => s.id === id
 export const getSubCategory = (serviceId: string, subId: string) => {
   const service = getServiceById(serviceId);
   const sub = service?.subcategories.find(sub => sub.id === subId);
-  
+
   if (!sub) return null;
 
   // AUTO-GENERATE DATA TO AVOID REPETITION IN UI OR DATA FILE
