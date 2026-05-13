@@ -3,19 +3,19 @@
 export const serviceAssets = {
   "roofing-services": {
     title: "Roofing Commercial and Residential",
-    image: "/assets/rooffair.jpg"
+    image: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg"
   },
   "masonry-work": {
     title: "Masonry Work",
-    image: "/assets/brickworkrealmega.jpg"
+    image: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg"
   },
   "concrete-services": {
     title: "Concrete and Sidewalk Services",
-    image: "/assets/concretemega.jpg"
+    image: "/assets/updatedservicesassets/megaconcretesidewalk.jpeg"
   },
   "home-renovation": {
     title: "Home Renovation",
-    image: "/assets/custom-home.jpg"
+    image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
   },
   "stucco": {
     title: "Stucco Services",
@@ -23,7 +23,7 @@ export const serviceAssets = {
   },
   "custom-home-building": {
     title: "Custom Home Building",
-    image: "/assets/customhome.jpg"
+    image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
   },
   "emergency-service": {
     title: "Emergency Service",
@@ -33,15 +33,15 @@ export const serviceAssets = {
   // --- ROOFING SUBCATEGORIES ---
   "shingle-roofing": {
     title: "Shingle Roofing",
-    image: "/assets/megashinglemaincard.jpeg"
+    image: "/assets/updatedservicesassets/megashingleroofingreal1.jpeg"
   },
   "flat-roofing": {
     title: "Flat Roofing",
-    image: "/assets/flatroofingmega.jpg"
+    image: "/assets/updatedservicesassets/megaflatroofreal1.jpeg"
   },
   "tpo-roofing": {
     title: "TPO Roofing",
-    image: "/assets/megatpomaincard.jpeg"
+    image: "/assets/updatedservicesassets/megatporoofingreal1.jpeg"
   },
   "roof-leakage-repair": {
     title: "Roof Leakage Repair",
@@ -75,19 +75,19 @@ export const serviceAssets = {
   },
   "parapet-wall": {
     title: "Parapet Wall",
-    image: "/assets/parapetwallmega.webp"
+    image: "/assets/updatedservicesassets/megaparapetwallreal1.jpeg"
   },
   "facade-restoration": {
     title: "Facade Restoration",
-    image: "/assets/facaderestoreation.jpg"
+    image: "/assets/updatedservicesassets/megafacaderestoreation1.jpeg"
   },
   "retaining-walls": {
     title: "Retaining Walls",
-    image: "/assets/retaining-wall.jpg"
+    image: "/assets/updatedservicesassets/megaretainingwall1.jpeg"
   },
   "patios": {
     title: "Patios",
-    image: "/assets/patios.jpg"
+    image: "/assets/megapaversinstallation.jpg"
   },
   "steps-repair-construction": {
     title: "Steps Repair & Construction",
@@ -115,17 +115,17 @@ export const serviceAssets = {
   },
   "waterproofing": {
     title: "Waterproofing",
-    image: "/assets/waterproofingmega.jpg"
+    image: "/assets/megawaterproofing1.jpg"
   },
   "reconstruction-rebuilds": {
     title: "Reconstruction & Rebuilds",
-    image: "/assets/rebuildmega.jpg"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
 
   // --- CONCRETE SUBCATEGORIES ---
   "driveway-replacement": {
     "title": "Driveway Replacement",
-    "image": "/assets/drivewaymega.webp"
+    "image": "/assets/updatedservicesassets/megaconcretedriveway.jpeg"
   },
   "sidewalk-repair": {
     title: "Sidewalk Repair",
@@ -133,7 +133,7 @@ export const serviceAssets = {
   },
   "sidewalk-replacement": {
     title: "Sidewalk Replacement",
-    image: "/assets/sidewalkreplacementreal.jpg"
+    image: "/assets/updatedservicesassets/megasidewalkreal1.jpeg"
   },
   "sidewalk-violation-removal": {
     title: "Sidewalk Violation Removal",
@@ -141,11 +141,11 @@ export const serviceAssets = {
   },
   "dot-violation-removal": {
     title: "DOT Violation Removal",
-    image: "/assets/dotviolationremoval.jpg"
+    image: "/assets/updatedservicesassets/megaconcretereal2.jpeg"
   },
   "dob-violation-removal": {
     title: "DOB Violation Removal",
-    image: "/assets/dobviolationremoval.jpg"
+    image: "/assets/updatedservicesassets/megaconcretedriveway.jpeg"
   },
   "foundation-work": {
     title: "Foundation Work",
@@ -171,7 +171,7 @@ export const serviceAssets = {
   },
   "interior-remodeling": {
     title: "Interior Remodeling",
-    image: "/assets/interiorremodelingmega.webp"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
 
   // --- STUCCO SUBCATEGORIES ---
@@ -199,19 +199,19 @@ export const serviceAssets = {
   // --- CUSTOM HOME SUBCATEGORIES ---
   "design-build": {
     title: "Design-Build",
-    image: "/assets/megacustomhome.jpg"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
   "luxury-finishes": {
     title: "Luxury Finishes",
-    image: "/assets/luxuryfinsh.jpg"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
   "project-management": {
     title: "Project Management",
-    image: "/assets/projectmaangemnt.jpg"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
   "smart-homes": {
     title: "Smart Homes",
-    image: "/assets/smarthome.webp"
+    image: "/assets/updatedservicesassets/megafullhousereal (1).jpeg"
   },
 
   // --- EMERGENCY SUBCATEGORIES ---

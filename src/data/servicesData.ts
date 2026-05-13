@@ -64,7 +64,7 @@ export const servicesData: Service[] = [
     description: "Professional roofing contractor delivering industrial-grade solutions for NYC's toughest weather conditions and architectural challenges.",
     icon: "CloudRain",
     tag: "Roofing",
-    secondaryImage: "/assets/rooffair.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/updatedservicesassets/megashingleroofingsupereal4.jpeg",
     features: ["Shingle Roofing", "Flat Roofing", "TPO Roofing", "Leakage Repair", "Replacement", "Installation", "Inspection"],
     categoryBenefits: [
       { title: "20+ Years Experience", description: "Two decades of mastering NY's complex roofing requirements and building codes for absolute peace of mind.", icon: "Award" },
@@ -92,7 +92,12 @@ export const servicesData: Service[] = [
           { question: "Do you offer financing for roof replacement?", answer: "Yes, we offer flexible financing options with approved credit, making roof replacement affordable for every budget." },
           { question: "How do I know if my roof needs repair or full replacement?", answer: "If your roof has isolated leaks and is under 15 years old, repair may suffice. Widespread issues or roofs over 20 years typically need replacement." }
         ],
-        galleryImages: ["/assets/megashinglemaincard.jpeg", "/assets/shingleroofingmega.jpg", "/assets/megashingleroof1.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megashingleroofingreal1.jpeg",
+          "/assets/updatedservicesassets/megashingleroofingreal2.jpeg",
+          "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg",
+          "/assets/updatedservicesassets/megashingleroofingsupereal4.jpeg"
+        ]
       },
       {
         id: "flat-roofing",
@@ -113,6 +118,11 @@ export const servicesData: Service[] = [
           { question: "Can flat roofs be walked on for maintenance?", answer: "Yes, all our flat roofing systems are designed to withstand foot traffic for maintenance, though we recommend designated walkway pads for frequent access." },
           { question: "How often should flat roofs be inspected?", answer: "We recommend professional inspections twice annually (spring and fall) plus after any major storm event." },
           { question: "What causes flat roof ponding water and is it harmful?", answer: "Ponding water is caused by inadequate drainage or settling. It accelerates membrane deterioration and can lead to leaks, requiring prompt correction." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megaflatroofreal1.jpeg",
+          "/assets/updatedservicesassets/megaflatroofreal2.jpeg",
+          "/assets/updatedservicesassets/megaflatroofreal3.jpeg"
         ]
       },
       {
@@ -135,7 +145,10 @@ export const servicesData: Service[] = [
           { question: "Can TPO be installed over an existing roof?", answer: "Yes, in many cases TPO can be installed as a 'recover' system over existing single-ply membranes, saving demolition costs." },
           { question: "What is the lifespan of a professionally installed TPO roof?", answer: "With proper installation and maintenance, TPO roofs typically last 20-30 years in NYC's climate conditions." }
         ],
-        galleryImages: ["/assets/megatpomaincard.jpeg", "/assets/tporoofingmega.jpg", "/assets/megatporoofing1.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megatporoofingreal1.jpeg",
+          "/assets/updatedservicesassets/megatporoofingreal2.jpeg"
+        ]
       },
       {
         id: "roof-leakage-repair",
@@ -237,7 +250,7 @@ export const servicesData: Service[] = [
         faqs: [
           { question: "How often should NYC buildings be waterproofed?", answer: "We recommend re-evaluation every 5-7 years, with maintenance of sealants and coatings as needed to prevent deep structural water entry." }
         ],
-        galleryImages: ["/assets/megawaterproofing1.jpg"]
+        galleryImages: ["/assets/megawaterproofing1.jpg", "/assets/waterproofingmega.jpg"]
       }
     ]
   },
@@ -247,7 +260,7 @@ export const servicesData: Service[] = [
     description: "Expert masonry restoration and exterior repair services for NYC's iconic architectural structures.",
     icon: "Hammer",
     tag: "Structural",
-    secondaryImage: "/assets/brickworkrealmega.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/updatedservicesassets/megabrickwork (1).jpeg",
     features: ["Replacement", "Grinding & Pointing", "Window Caulking", "Lintel Replacement", "Parapet Walls", "Facade Restoration", "Retaining Walls", "Patios", "Steps Repair", "Fire Escape Painting", "Chimneys", "Waterproofing", "Rebuilds"],
     categoryBenefits: [
       { title: "Artisan Craftsmen", description: "Specialized masons trained in historic restoration techniques for landmark and brownstone properties.", icon: "Paintbrush" },
@@ -271,7 +284,12 @@ export const servicesData: Service[] = [
           { question: "How many bricks can typically be replaced at once?", answer: "We recommend replacing no more than 10-15% of bricks in a given area to maintain structural integrity during the repair process." },
           { question: "Is brick replacement covered by insurance?", answer: "Coverage depends on cause—storm damage may be covered, while general deterioration from age or neglect typically isn't. We provide documentation for claims." }
         ],
-        galleryImages: ["/assets/megabrickwork1.jpg", "/assets/megabrickwork2.jpg", "/assets/megabrickwork3.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megabrickwork (1).jpeg",
+          "/assets/updatedservicesassets/megabrickwork (2).jpeg",
+          "/assets/updatedservicesassets/megabrickwork (3).jpeg",
+          "/assets/updatedservicesassets/megabrickwork(4).jpeg"
+        ]
       },
       {
         id: "brick-grinding-pointing",
@@ -289,7 +307,9 @@ export const servicesData: Service[] = [
           { question: "Can repointing fix a bulging or leaning wall?", answer: "Repointing alone cannot fix structural movement issues. Bulging walls require additional structural reinforcement or rebuilding." },
           { question: "Do you use power tools for grinding near historic bricks?", answer: "We use variable-speed grinders with vacuum attachments and skilled operators to prevent damage to adjacent historic bricks." }
         ],
-        galleryImages: ["/assets/megagrounding1.jpg", "/assets/megagrounding2.jpg", "/assets/megagrounding3.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg"
+        ]
       },
       {
         id: "parapet-wall",
@@ -307,7 +327,14 @@ export const servicesData: Service[] = [
           { question: "What is the typical lifespan of a parapet wall?", answer: "With proper maintenance and timely repointing, parapet walls can last 50-100 years. Coping stones last 30-50 years depending on material." },
           { question: "Do I need a permit for parapet repair in NYC?", answer: "Yes, parapet repairs typically require DOB permits. We handle all permit applications and coordinate required inspections." }
         ],
-        galleryImages: ["/assets/megaparapetwall1.jpg", "/assets/megaparapetwall2.jpg", "/assets/megaparapetwall3.jpg", "/assets/megaparapetwall4.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megaparapetwallreal1.jpeg",
+          "/assets/updatedservicesassets/megaparapetwallreal2.jpeg",
+          "/assets/updatedservicesassets/megaparapetwallreal5.jpeg",
+          "/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM (2).jpeg",
+          "/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM (3).jpeg",
+          "/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.05 PM.jpeg"
+        ]
       },
       {
         id: "facade-restoration",
@@ -324,6 +351,13 @@ export const servicesData: Service[] = [
           { question: "How long does a full facade restoration take?", answer: "Depending on building size and damage extent, facade restoration typically takes 3-12 months with proper staging and safety provisions." },
           { question: "Can facade restoration be done while building is occupied?", answer: "Yes, we use scaffolding, sidewalk sheds, and protective netting to allow safe building operation during exterior restoration work." },
           { question: "How much does Local Law 11 compliance cost?", answer: "Costs vary widely based on building size and repair needs, from $10,000 for minor repairs to millions for complete facade restoration." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafacaderestoreation (1).jpeg",
+          "/assets/updatedservicesassets/megafacaderestoreation (2).jpeg",
+          "/assets/updatedservicesassets/megafacaderestoreation1.jpeg",
+          "/assets/updatedservicesassets/megafacaderestoreation2.jpeg",
+          "/assets/updatedservicesassets/megafacaderestoreation4.jpeg"
         ]
       },
       {
@@ -341,6 +375,12 @@ export const servicesData: Service[] = [
           { question: "What's the most durable material for retaining walls?", answer: "Poured reinforced concrete offers maximum structural strength, while natural stone provides aesthetic appeal with good durability." },
           { question: "How deep should retaining wall foundations be?", answer: "Footings should extend below frost line (typically 36-48 inches in NYC) and be as wide as wall height divided by 3." },
           { question: "Can existing failing retaining walls be repaired or must they be replaced?", answer: "Minor cracking and leaning can often be repaired, but severely compromised walls typically require complete replacement for safety." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megaretainingwall1.jpeg",
+          "/assets/updatedservicesassets/megaretainingwallreal2.jpeg",
+          "/assets/updatedservicesassets/megaretainingwall3.jpeg",
+          "/assets/updatedservicesassets/megaretainingwall4.jpeg"
         ]
       },
       {
@@ -458,7 +498,8 @@ export const servicesData: Service[] = [
           { question: "What's the difference between interior and exterior waterproofing?", answer: "Exterior waterproofing stops water before entry (ideal for new construction). Interior drainage manages water after entry (adds sump pump requirements)." },
           { question: "How do you know if your foundation needs waterproofing?", answer: "Signs include visible water entry, musty odors, efflorescence (white deposits), cracking floors/walls, or high humidity despite dehumidifiers." },
           { question: "Can waterproofing be done in winter?", answer: "Yes, though exterior excavation work is weather-dependent. Interior drainage systems can be installed year-round regardless of outside temperature." }
-        ]
+        ],
+        galleryImages: ["/assets/megawaterproofing1.jpg", "/assets/waterproofingmega.jpg"]
       },
       {
         id: "reconstruction-rebuilds",
@@ -475,6 +516,13 @@ export const servicesData: Service[] = [
           { question: "Can you match historic architectural details?", answer: "Yes, we specialize in historical replication including molded brick, terra cotta detailing, carved stone, and period cornices." },
           { question: "Is a building safe during masonry reconstruction?", answer: "Absolutely. We use engineered shoring, sidewalk sheds, and protective netting to ensure safety during complete rebuilds." },
           { question: "What causes sudden masonry collapse?", answer: "Common causes include water infiltration/freeze-thaw deterioration, foundation settlement, vehicle impact, or deferred maintenance over many decades." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       }
     ]
@@ -485,7 +533,7 @@ export const servicesData: Service[] = [
     description: "Industrial concrete solutions for NYC sidewalks, driveways, foundations, and parking areas.",
     icon: "Square",
     tag: "Concrete",
-    secondaryImage: "/assets/concretemega.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/updatedservicesassets/megaconcreteworkreal3.jpeg",
     features: ["Sidewalk Violation Removal", "DOT Violation", "DOB Violation", "Foundation Work", "Backyard Concrete", "Sidewalk Repair", "Sidewalk Replacement", "Driveway Replacement"],
     categoryBenefits: [
       { title: "DOT/DOB Regulatory Experts", description: "Mastery of NYC sidewalk codes, permit requirements, and expedited violation removal processes.", icon: "Scale" },
@@ -508,6 +556,12 @@ export const servicesData: Service[] = [
           { question: "How long do sidewalk repairs take to complete?", answer: "Individual flag repairs take 1-2 days including curing time. Multiple flags may require 3-5 days depending on scope." },
           { question: "Can you match existing sidewalk color and finish?", answer: "Yes, we custom-match concrete mix designs and brooming techniques to blend seamlessly with existing adjacent sidewalk sections." },
           { question: "Do I need a permit for sidewalk repair?", answer: "Yes, sidewalk repairs require DOT permits. We handle all permit applications and coordinate inspections for you." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megasidewalkreal1.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal2.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal3.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal4.jpeg"
         ]
       },
       {
@@ -525,6 +579,12 @@ export const servicesData: Service[] = [
           { question: "What is the standard sidewalk thickness requirement?", answer: "NYC DOT requires minimum 4 inches for pedestrian sidewalks, 6 inches for driveways or areas subject to vehicle loading." },
           { question: "Can I choose decorative finishes for my sidewalk?", answer: "Standard sidewalks require broom finish per DOT specs, but stamped or colored concrete may be allowed with special approval." },
           { question: "How much does full sidewalk replacement cost?", answer: "Costs typically range from $15-30 per square foot installed, including permits, excavation, materials, and finishing." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megasidewalkreal1.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal2.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal3.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal4.jpeg"
         ]
       },
       {
@@ -542,6 +602,11 @@ export const servicesData: Service[] = [
           { question: "Why do concrete driveways crack?", answer: "All concrete cracks—we install control joints to direct cracking to straight lines rather than random locations." },
           { question: "What is the best driveway thickness?", answer: "Standard residential: 4 inches. For heavy trucks: 6 inches with rebar reinforcement at 18-inch centers." },
           { question: "Can you pour concrete in cold weather?", answer: "Yes, we use heated concrete, insulated blankets, and accelerators for winter pours, though spring-fall offers optimal curing conditions." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megaconcretedriveway.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal2.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal3.jpeg"
         ]
       },
       {
@@ -559,6 +624,12 @@ export const servicesData: Service[] = [
           { question: "How much are DOT violation penalties?", answer: "Initial violations start around $200 with daily penalties accruing until resolution. City-performed repairs can cost thousands." },
           { question: "Can violations affect property sale or refinancing?", answer: "Yes, open violations and city liens must be resolved before title transfer or mortgage approval by most lenders." },
           { question: "Do you handle protest of unjust violations?", answer: "Yes, we can contest violations where conditions don't match citation or where city trees/utilities caused the damage." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megasidewalkreal1.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal2.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal3.jpeg",
+          "/assets/updatedservicesassets/megasidewalkreal4.jpeg"
         ]
       },
       {
@@ -576,6 +647,11 @@ export const servicesData: Service[] = [
           { question: "Can a sidewalk have multiple active violations?", answer: "Yes, each hazard or code violation generates separate citations, all requiring individual resolution before property status clears." },
           { question: "How do I know if I have a sidewalk violation?", answer: "Check NYC DOB's BIS (Building Information System) online, or we can perform a violation search for your property." },
           { question: "What constitutes a DOT trip hazard?", answer: "Vertical displacement over 1/2 inch, cracks creating unstable surfaces, spalled areas, or missing concrete chunks are all violations." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megaconcretedriveway.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal2.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal3.jpeg"
         ]
       },
       {
@@ -593,6 +669,11 @@ export const servicesData: Service[] = [
           { question: "How long does DOB violation removal take?", answer: "Simple violations: 2-4 weeks. Complex structural violations requiring permits: 3-6 months depending on scope." },
           { question: "What are common concrete-related DOB violations?", answer: "Unpermitted concrete work, foundation modifications without approval, improper sidewalk thickness, and structural safety issues." },
           { question: "Do I need an architect for DOB violation removal?", answer: "Structural violations typically require licensed professional sign-off. We coordinate with architects and expeditors as part of our service." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megaconcretedriveway.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal2.jpeg",
+          "/assets/updatedservicesassets/megaconcretereal3.jpeg"
         ]
       },
       {
@@ -611,7 +692,11 @@ export const servicesData: Service[] = [
           { question: "How much does foundation repair cost?", answer: "Minor crack repairs: $500-2,000. Major underpinning: $20,000-100,000+ depending on scope and accessibility." },
           { question: "Can you repair foundations without excavating both sides?", answer: "Yes, for minor repairs. Major foundation work typically requires exterior excavation for proper waterproofing and structural access." }
         ],
-        galleryImages: ["/assets/megaconcretework1.jpg", "/assets/megaconcretework2.jpg", "/assets/megaconcretewalkwayenterance1.jpg"]
+        galleryImages: [
+          "/assets/updatedservicesassets/megaconcreteworkreal3.jpeg",
+          "/assets/updatedservicesassets/megaconcretesidewalk.jpeg",
+          "/assets/updatedservicesassets/megaconcretesidewalk2.jpeg"
+        ]
       },
       {
         id: "backyard-concrete",
@@ -638,7 +723,7 @@ export const servicesData: Service[] = [
     description: "Complete interior home transformations from kitchens and bathrooms to full gut renovations.",
     icon: "Layout",
     tag: "Interior",
-    secondaryImage: "/assets/custom-home.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
     features: ["Kitchen Remodeling", "Bathroom Renovation", "Basement Finishing", "Complete Interior Remodeling"],
     categoryBenefits: [
       { title: "Turnkey Project Solutions", description: "From initial design concepts through final inspection, we handle every aspect of your renovation.", icon: "Key" },
@@ -713,6 +798,13 @@ export const servicesData: Service[] = [
           { question: "What is the cost of full gut renovation in NYC?", answer: "$150-300 per square foot for mid-range finishes. High-end luxury projects can exceed $400-600 per square foot." },
           { question: "Do you need to move out during gut renovation?", answer: "For full gut renovations involving kitchens and baths, temporary relocation is strongly recommended due to lack of essential services." },
           { question: "What's the difference between renovation and restoration?", answer: "Renovation updates to modern standards. Restoration returns property to original historic condition with period-appropriate materials and techniques." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       }
     ]
@@ -824,7 +916,7 @@ export const servicesData: Service[] = [
     description: "Bespoke luxury home construction from initial design through complete project management.",
     icon: "Home",
     tag: "Custom",
-    secondaryImage: "/assets/customhome.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
     features: ["Design-Build Services", "Luxury Finish Installation", "Full Project Management", "Smart Home Integration"],
     subcategories: [
       {
@@ -842,6 +934,13 @@ export const servicesData: Service[] = [
           { question: "Can we bring our own architect?", answer: "Yes, we collaborate with your architect on design-build or offer traditional plan-and-spec construction at your request." },
           { question: "How much does design-build cost per square foot?", answer: "Custom luxury homes typically range $400-800+ per square foot depending on finishes, site conditions, and architectural complexity." },
           { question: "How long does custom home construction take?", answer: "Design phase: 3-6 months. Permitting: 3-8 months. Construction: 12-24 months depending on size, complexity, and site conditions." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       },
       {
@@ -859,6 +958,13 @@ export const servicesData: Service[] = [
           { question: "How long do luxury finish installations take?", answer: "Millwork: 4-8 weeks. Stone: 2-4 weeks. Venetian plaster: 1-3 weeks depending on area and complexity of decorative elements." },
           { question: "Can you match existing architectural details?", answer: "Yes, we can replicate period moldings, carvings, and decorative elements by creating custom knives and templates for perfect matches." },
           { question: "What maintenance do luxury finishes require?", answer: "Natural stone needs periodic sealing, millwork occasional polishing or waxing, Venetian plaster none beyond normal cleaning." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       },
       {
@@ -876,6 +982,13 @@ export const servicesData: Service[] = [
           { question: "What happens if project falls behind schedule?", answer: "We identify causes, implement recovery plans, add resources if needed, and communicate impact and solutions within 48 hours." },
           { question: "How do you handle change orders?", answer: "All changes documented in writing with cost and time impacts before approval. We minimize changes through thorough pre-construction planning." },
           { question: "Do you manage permit expediting?", answer: "Yes, we handle all permit applications, DOB filings, inspections coordination, and certificate of occupancy finalization." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       },
       {
@@ -893,6 +1006,13 @@ export const servicesData: Service[] = [
           { question: "Can I add smart features to an existing home?", answer: "Yes, though pre-construction integration is cleaner and less expensive. Retrofits are possible with wireless systems in many cases." },
           { question: "How much does whole-home automation cost?", answer: "Basic systems: $10,000-25,000. Comprehensive luxury automation: $50,000-200,000+ depending on home size and feature scope." },
           { question: "Are smart homes more energy efficient?", answer: "Yes, intelligent climate and lighting control typically reduces energy consumption by 20-30% compared to conventional systems." }
+        ],
+        galleryImages: [
+          "/assets/updatedservicesassets/megafullhousereal (1).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (2).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal (3).jpeg",
+          "/assets/updatedservicesassets/megafullhousereal2.jpeg",
+          "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
         ]
       }
     ]
