@@ -815,7 +815,7 @@ export const servicesData: Service[] = [
     description: "Premium exterior stucco application and California-style finishes for residential and commercial buildings.",
     icon: "PaintBucket",
     tag: "Exterior",
-    secondaryImage: "/assets/general-contracting.jpg", // TEMP IMAGE - USER WILL REPLACE
+    secondaryImage: "/assets/megastuccorestoreation2.jpg",
     features: ["Professional Stucco Repair", "Traditional 3-Coat", "Custom Color Matching", "Californian Finish", "EIFS Systems Installation"],
     categoryBenefits: [
       { title: "High Insulation Value", description: "High R-value exterior insulation systems that significantly reduce energy costs.", icon: "Sun" },

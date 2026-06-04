@@ -1,109 +1,94 @@
-"use client";
+import { Metadata } from "next";
+import HomeClient from "./_components/HomeClient";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import LoadingScreen from "@/components/LoadingScreen";
-
-// Dynamic imports for bundle splitting
-const Services = dynamic(() => import("@/components/Services"), { ssr: true });
-const Portfolio = dynamic(() => import("@/components/Portfolio"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
-const QuickQuote = dynamic(() => import("@/components/QuickQuote"), { ssr: false });
-const LeadCapture = dynamic(() => import("@/components/LeadCapture"), { ssr: true });
-const Mission = dynamic(() => import("@/components/Mission"), { ssr: true });
-const TeamValues = dynamic(() => import("@/components/TeamValues"), { ssr: true });
-const QAForm = dynamic(() => import("@/components/QAForm"), { ssr: true });
-const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
-const AggressiveRoofingSection = dynamic(() => import("@/components/RoofingExperts"), { ssr: true });
-const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true });
+export const metadata: Metadata = {
+  title: "Mega Construction NYC | General Contractor & Construction Services in New York",
+  description: "Mega Construction NYC provides residential and commercial construction, remodeling, roofing, renovations, and general contracting services across New York City.",
+  keywords: [
+    "Mega Construction NYC",
+    "General Contractor New York",
+    "Construction Services NYC",
+    "Roofing Contractor Brooklyn",
+    "Commercial Remodeling Manhattan",
+    "Facade Restoration NYC",
+    "DOT Sidewalk Violation Removal"
+  ],
+  alternates: {
+    canonical: "https://megaconstructiongroup.com",
+  },
+  openGraph: {
+    title: "Mega Construction NYC | General Contractor & Construction Services in New York",
+    description: "Mega Construction NYC provides residential and commercial construction, remodeling, roofing, renovations, and general contracting services across New York City.",
+    url: "https://megaconstructiongroup.com",
+    siteName: "Mega Construction NYC",
+    images: [
+      {
+        url: "/assets/Mega-Contracting-Logo.png",
+        width: 800,
+        height: 600,
+        alt: "Mega Construction NYC Logo"
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mega Construction NYC | General Contractor & Construction Services in New York",
+    description: "Mega Construction NYC provides residential and commercial construction, remodeling, roofing, renovations, and general contracting services across New York City."
+  }
+};
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // EMERGENCY FAILSAFE: Force clear loading after 5 seconds
-    const failsafe = setTimeout(() => {
-      setLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(failsafe);
-  }, []);
+  const schemas = [
+    // 1. GeneralContractor / LocalBusiness Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "Mega Construction NYC",
+      "url": "https://megaconstructiongroup.com",
+      "telephone": "CALL OFFICE",
+      "image": "https://megaconstructiongroup.com/assets/Mega-Contracting-Logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "priceRange": "$$",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Manhattan" },
+        { "@type": "AdministrativeArea", "name": "Brooklyn" },
+        { "@type": "AdministrativeArea", "name": "Queens" },
+        { "@type": "AdministrativeArea", "name": "Bronx" },
+        { "@type": "AdministrativeArea", "name": "Staten Island" }
+      ]
+    },
+    // 2. WebSite Schema (Search Box Support)
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://megaconstructiongroup.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://megaconstructiongroup.com/services?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ];
 
   return (
-    <main className="relative overflow-x-hidden min-h-screen">
-      {/* ====================== */}
-      {/* SUBTLE BLUE GRID BACKGROUND */}
-      {/* ====================== */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #2563eb 1px, transparent 1px),
-              linear-gradient(to bottom, #2563eb 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
+    <>
+      {schemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
           }}
         />
-        <div
-          className="absolute inset-0 opacity-[0.01]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #3b82f6 1px, transparent 1px),
-              linear-gradient(to bottom, #3b82f6 1px, transparent 1px)
-            `,
-            backgroundSize: '120px 120px',
-            backgroundPosition: '30px 30px',
-          }}
-        />
-        <div className="absolute top-0 left-0 w-full h-[50vh] bg-gradient-to-b from-blue-50/10 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-full h-[50vh] bg-gradient-to-t from-blue-50/10 to-transparent pointer-events-none" />
-      </div>
-
-      <AnimatePresence>
-        {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
-      </AnimatePresence>
-
-      <motion.div 
-        className="relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: loading ? 0 : 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <Navbar />
-        <Hero />
-        
-          <section id="roofingexperts">
-            <AggressiveRoofingSection />
-          </section>
-          <section id="services">
-            <Services />
-          </section>
-          <TeamValues />
-          <section id="portfolio">
-            <Portfolio />
-          </section>
-          <Testimonials />
-          <section id="about">
-            <HowWeWork />
-          </section>
-
-          <section id="contact">
-            <QAForm />
-          </section>
-          <section id="faq">
-            <FAQ />
-          </section>
-          <Footer />
-
-        <QuickQuote />
-      </motion.div>
-    </main>
+      ))}
+      <HomeClient />
+    </>
   );
 }

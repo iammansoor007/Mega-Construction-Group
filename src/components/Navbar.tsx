@@ -107,12 +107,12 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [isHoveringMegaMenu, setIsHoveringMegaMenu] = useState(false);
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isHoveringMegaMenuRef = useRef(false);
 
   const { services, companyLinks, stats, cta } = completeData.navbar;
 
@@ -133,26 +133,26 @@ const Navbar = () => {
 
   const handleServicesMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
-      if (!isHoveringMegaMenu) {
+      if (!isHoveringMegaMenuRef.current) {
         setActiveMegaMenu(null);
       }
-    }, 100);
+    }, 80);
   };
 
   const handleMegaMenuMouseEnter = () => {
+    isHoveringMegaMenuRef.current = true;
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
-    setIsHoveringMegaMenu(true);
     setActiveMegaMenu("services");
   };
 
   const handleMegaMenuMouseLeave = () => {
-    setIsHoveringMegaMenu(false);
+    isHoveringMegaMenuRef.current = false;
     timeoutRef.current = setTimeout(() => {
       setActiveMegaMenu(null);
       setHoveredService(null);
-    }, 100);
+    }, 80);
   };
 
   const handleLinkClick = () => {
@@ -262,12 +262,12 @@ const Navbar = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   {/* Premium Hover Background */}
-                  <motion.div 
+                  <motion.div
                     className={`absolute inset-0 transition-opacity duration-500 -z-10 ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   />
-                  
+
                   {/* Glossy line accent */}
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
 
@@ -304,7 +304,7 @@ const Navbar = () => {
                           : "text-white/90 hover:text-white"
                           }`}
                       >
-                         <motion.div 
+                        <motion.div
                           className={`absolute inset-0 transition-opacity duration-300 -z-10 rounded-xl ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
                           initial={{ opacity: 0 }}
                           whileHover={{ opacity: 1 }}
@@ -350,7 +350,7 @@ const Navbar = () => {
 
                 {/* Animated Inner Shine Border */}
                 <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
-                
+
                 <span className="relative z-10 flex items-center justify-center space-x-2.5">
                   <Calendar className={`h-4 w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "" : "text-red-600"}`} />
                   <span className="leading-none">{cta.buttonText}</span>
@@ -399,10 +399,10 @@ const Navbar = () => {
         {activeMegaMenu === "services" && (
           <motion.div
             ref={megaMenuRef}
-            initial={{ opacity: 0, y: 12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.99 }}
-            transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
+            transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
             onMouseEnter={handleMegaMenuMouseEnter}
             onMouseLeave={handleMegaMenuMouseLeave}
             className="fixed inset-x-0 mx-auto top-[95px] w-[95vw] max-w-7xl bg-white/95 backdrop-blur-2xl rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.12)] border border-gray-100 p-12 hidden lg:block overflow-hidden"
@@ -413,9 +413,9 @@ const Navbar = () => {
               <div className="w-full lg:w-1/4 space-y-2">
                 <div className="mb-8">
                   <h2 className="text-[11px] font-black uppercase tracking-[0.4em] text-red-600 mb-2">Core Specialization</h2>
-                  <p className="text-2xl font-bold text-gray-900 leading-tight">Roofing & <br/>Masonry Masters</p>
+                  <p className="text-2xl font-bold text-gray-900 leading-tight">Roofing & <br />Masonry Masters</p>
                 </div>
-                
+
                 <div className="space-y-1">
                   {services.map((service) => (
                     <Link
@@ -423,12 +423,11 @@ const Navbar = () => {
                       href={`/services/${service.id}`}
                       onMouseEnter={() => setHoveredService(service.title)}
                       onClick={handleLinkClick}
-                      className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
-                        hoveredService === service.title ? "bg-gray-900 text-white shadow-xl" : "text-gray-600 hover:bg-gray-50"
-                      }`}
+                      className={`w-full flex items-center justify-between p-4 rounded-2xl transition-colors duration-150 ${hoveredService === service.title ? "bg-gray-900 text-white shadow-lg" : "text-gray-600 hover:bg-gray-50"
+                        }`}
                     >
                       <span className="font-bold text-sm tracking-wide">{service.title}</span>
-                      <ChevronDown className={`h-4 w-4 transition-transform ${hoveredService === service.title ? "-rotate-90" : "opacity-0"}`} />
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-150 ${hoveredService === service.title ? "-rotate-90" : "opacity-0"}`} />
                     </Link>
                   ))}
                 </div>
@@ -436,27 +435,27 @@ const Navbar = () => {
 
               {/* Right Side: Dynamic Content */}
               <div className="flex-1 min-h-[400px] border-l border-gray-100 pl-16">
-                <AnimatePresence mode="popLayout" initial={false}>
+                <AnimatePresence mode="wait" initial={false}>
                   {(() => {
                     const navbarService = services.find(s => s.title === (hoveredService || services[0].title));
                     if (!navbarService) return null;
-                    
+
                     const fullService = servicesData.find(s => s.id === navbarService.id);
                     if (!fullService) return null;
-                    
+
                     return (
                       <motion.div
                         key={fullService.id}
-                        initial={{ opacity: 0, filter: "blur(4px)" }}
-                        animate={{ opacity: 1, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, filter: "blur(4px)" }}
-                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        initial={{ opacity: 0, x: 8 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -4 }}
+                        transition={{ duration: 0.12, ease: "easeOut" }}
                         className="grid grid-cols-2 gap-x-12 gap-y-10"
                       >
                         {/* Detailed Sub-services Grid */}
                         <div className="col-span-1 space-y-8">
                           <div>
-                            <Link 
+                            <Link
                               href={`/services/${fullService.id}`}
                               onClick={handleLinkClick}
                               className="group/title inline-block"
@@ -486,7 +485,7 @@ const Navbar = () => {
                           </div>
                         </div>
 
-                        <Link 
+                        <Link
                           href={`/services/${fullService.id}`}
                           onClick={handleLinkClick}
                           className="col-span-1 self-start block group/img-link"
@@ -504,7 +503,7 @@ const Navbar = () => {
                                 {fullService.tag} Excellence
                               </div>
                               <h4 className="text-2xl font-bold leading-tight group-hover/img-link:text-red-400 transition-colors">
-                                Professional {fullService.title.split(' ')[0]} <br/>
+                                Professional {fullService.title.split(' ')[0]} <br />
                                 Solutions in NY
                               </h4>
                             </div>

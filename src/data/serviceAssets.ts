@@ -19,7 +19,7 @@ export const serviceAssets = {
   },
   "stucco": {
     title: "Stucco Services",
-    image: "/assets/general-contracting.jpg"
+    image: "/assets/megastuccorestoreation1.jpg"
   },
   "custom-home-building": {
     title: "Custom Home Building",
