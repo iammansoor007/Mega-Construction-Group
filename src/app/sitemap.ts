@@ -1,38 +1,67 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "@/data/servicesData";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://megaconstructiongroup.com";
+const BASE_URL = "https://www.megacontractingnyc.com";
 
-  // Base routes
-  const routes: MetadataRoute.Sitemap = [
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const now = new Date();
+
+  // ─── Static routes ────────────────────────────────────────────────────────────
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: new Date(),
+      url: BASE_URL,
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
     },
-  ];
-
-  // Dynamic service category routes
-  servicesData.forEach((service) => {
-    routes.push({
-      url: `${baseUrl}/services/${service.id}`,
-      lastModified: new Date(),
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/services`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+  ];
+
+  // ─── Dynamic service category & subcategory routes ────────────────────────────
+  const dynamicRoutes: MetadataRoute.Sitemap = [];
+
+  servicesData.forEach((service) => {
+    // Category page (e.g. /services/roofing-services)
+    dynamicRoutes.push({
+      url: `${BASE_URL}/services/${service.id}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
     });
 
-    // Dynamic service subcategory detail routes
+    // Subcategory / detail pages (e.g. /services/roofing-services/shingle-roofing)
     service.subcategories.forEach((sub) => {
-      routes.push({
-        url: `${baseUrl}/services/${service.id}/${sub.id}`,
-        lastModified: new Date(),
+      dynamicRoutes.push({
+        url: `${BASE_URL}/services/${service.id}/${sub.id}`,
+        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.7,
       });
     });
   });
 
-  return routes;
+  return [...staticRoutes, ...dynamicRoutes];
 }

@@ -83,6 +83,7 @@ export default function HomeClient() {
           <section id="services">
             <Services />
           </section>
+          
           <TeamValues />
           <section id="portfolio">
             <Portfolio />

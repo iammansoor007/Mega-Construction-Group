@@ -10,7 +10,15 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
 
-Sitemap: https://megaconstructiongroup.com/sitemap.xml
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Crawl-delay for general bots
+Crawl-delay: 10
+
+Sitemap: https://www.megacontractingnyc.com/sitemap.xml

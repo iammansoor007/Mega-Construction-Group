@@ -190,13 +190,13 @@
     }
   },
   "hero": {
-    "badge": "Family Owned Since 2005",
+    "badge": "NYC's #1 Licensed General Contractor Since 2005",
     "headlines": [
-      "We Specialize In",
-      "Roofing & Masonry",
-      "Restoration Works"
+      "NYC's Premier",
+      "General Contractor",
+      "& Construction Experts"
     ],
-    "description": "Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, our family-owned business brings integrity, expertise, and attention to detail to every project. We are also NYC code-compliant roofing and facade specialists, with proven expertise in Local Law 92, Local Law 94, and Local Law 11 compliance.",
+    "description": "Mega Contracting NY Group is NYC's most trusted licensed general contractor, serving all 5 boroughs since 2005. As a leading General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
     "buttons": [
       {
         "text": "Get Free Estimate",
@@ -319,10 +319,10 @@
         "tag": "Roofing",
         "image": "megaservice7",
         "features": [
+          "Flat Roofing NYC",
+          "Roof Leak Repair NYC",
           "Shingle Roofing",
-          "Flat Roofing",
           "TPO Roofing",
-          "Leakage Repair",
           "Roof Replacement",
           "Roof Installation",
           "Roof Inspection"
@@ -337,13 +337,12 @@
         "tag": "Structural",
         "image": "merabrickwork",
         "features": [
-          "Brick Pointing",
-          "Window Caulking",
-          "Lintel Replacement",
-          "Retaining Walls",
-          "Patios",
-          "Chimney Rebuilds",
-          "Fire Escape Painting"
+          "Facade Restoration NYC",
+          "Chimney Repair NYC",
+          "Fire Escape Painting NYC",
+          "Parapet Wall Repair NYC",
+          "Brick Pointing NYC",
+          "Waterproofing Contractor NYC"
         ]
       },
       {
@@ -355,12 +354,12 @@
         "tag": "Concrete",
         "image": "megaservice5",
         "features": [
-          "Sidewalk Violation Removal",
+          "Sidewalk Repair NYC",
+          "DOT Violation Removal NYC",
+          "DOB Violation Removal NYC",
+          "Foundation Repair NYC",
           "Sidewalk Installation",
-          "Foundations",
-          "Sidewalk Repair",
-          "Sidewalk Replacement",
-          "Driveway Replacement"
+          "Foundations"
         ]
       },
       {
@@ -375,7 +374,7 @@
           "Kitchen Renovation",
           "Bathroom Renovation",
           "Basement Renovation",
-          "Interior Remodeling"
+          "Building Safety Assessment NYC"
         ]
       },
       {
@@ -387,10 +386,10 @@
         "tag": "Exterior",
         "image": "megaservice1",
         "features": [
-          "Stucco Repair",
+          "Stucco Repair NYC",
+          "EIFS Contractor NYC",
           "Traditional Stucco",
-          "Color Matching",
-          "EIFS Systems"
+          "Color Matching"
         ]
       },
       {
@@ -757,6 +756,11 @@
         "id": "warranty",
         "label": "Warranty",
         "icon": "Shield"
+      },
+      {
+        "id": "nyc-services",
+        "label": "NYC Services",
+        "icon": "Building"
       }
     ],
     "items": [
@@ -926,7 +930,7 @@
           },
           {
             "label": "Contact",
-            "value": "+1 (917) 295-7776"
+            "value": "+1 (914) 804-3000"
           }
         ],
         "links": [
@@ -979,6 +983,118 @@
             "url": "/historic"
           }
         ]
+      },
+      {
+        "id": 11,
+        "category": "nyc-services",
+        "question": "Do you provide facade restoration in NYC?",
+        "answer": "Yes, facade restoration is one of our core specialties. We handle full exterior building restoration including brick repointing, parapet wall repair, coping replacement, waterproofing, and structural repairs for residential and commercial buildings across all NYC boroughs. As a licensed facade restoration contractor, we're fully compliant with NYC Local Law 11 (FISP) requirements.",
+        "metadata": [{"label": "Compliance", "value": "Local Law 11 / FISP"}, {"label": "Coverage", "value": "All 5 Boroughs"}],
+        "links": [{"label": "View Masonry Services", "url": "/services/masonry-work"}]
+      },
+      {
+        "id": 12,
+        "category": "nyc-services",
+        "question": "Can you fix a roof leak in NYC?",
+        "answer": "Absolutely. Roof leak repair is one of the most common services we provide in NYC. We identify and fix leaks in flat roofs, pitched roofs, around chimneys, skylights, gutters, and flashings. Our emergency roof leak repair team is available 24/7 for urgent situations. We work on all roof types including TPO, EPDM, modified bitumen, shingles, and built-up roofing.",
+        "metadata": [{"label": "Response", "value": "24/7 Emergency"}, {"label": "Roof Types", "value": "All Types"}],
+        "links": [{"label": "Roofing Services NYC", "url": "/services/roofing-services"}]
+      },
+      {
+        "id": 13,
+        "category": "nyc-services",
+        "question": "What is flat roofing and do you install it in NYC?",
+        "answer": "Flat roofing systems are standard for most commercial buildings and many residential properties in NYC. We install and repair all flat roofing systems including TPO (Thermoplastic Polyolefin), EPDM (rubber roofing), modified bitumen, and built-up roofing (BUR). Our flat roofing NYC services include installation, repair, restoration, and full replacement with manufacturer warranties.",
+        "metadata": [{"label": "Systems", "value": "TPO, EPDM, Mod-Bit, BUR"}, {"label": "Warranty", "value": "Up to 20 Years"}],
+        "links": [{"label": "Flat Roofing NYC", "url": "/services/roofing-services"}]
+      },
+      {
+        "id": 14,
+        "category": "nyc-services",
+        "question": "Do you handle chimney repair in NYC?",
+        "answer": "Yes, we provide comprehensive chimney repair services throughout NYC — including chimney repointing (tuckpointing), chimney cap replacement, crown repair, flashing replacement, waterproofing, liner installation, and full chimney rebuilding. Damaged chimneys are a common source of water infiltration and structural risk. We address all issues quickly and safely.",
+        "metadata": [{"label": "Services", "value": "Repair, Repoint & Rebuild"}, {"label": "Urgency", "value": "Same-Week Available"}],
+        "links": [{"label": "Masonry Services", "url": "/services/masonry-work"}]
+      },
+      {
+        "id": 15,
+        "category": "nyc-services",
+        "question": "What is fire escape painting and certification in NYC?",
+        "answer": "Fire escapes in NYC must be inspected, repaired, and painted regularly to comply with the NYC Administrative Code (§27-371). We provide full fire escape services including rust removal, structural repair, painting with rust-inhibiting primer and topcoat, and compliance documentation. Building owners face violations for deteriorated or unpainted fire escapes — we handle end-to-end compliance.",
+        "metadata": [{"label": "Compliance", "value": "NYC Admin Code §27-371"}, {"label": "Service", "value": "Repair, Paint & Certify"}],
+        "links": [{"label": "Contact for Fire Escape Service", "url": "/contact"}]
+      },
+      {
+        "id": 16,
+        "category": "nyc-services",
+        "question": "What is parapet wall repair and when is it needed?",
+        "answer": "A parapet wall is the low protective wall at the edge of a rooftop. In NYC, parapet walls are subject to Local Law 11 (FISP) inspection and must be maintained in safe condition. Signs you need parapet wall repair include crumbling mortar, cracked bricks, displaced coping stones, and water infiltration. We repair and restore parapet walls across all NYC boroughs.",
+        "metadata": [{"label": "Regulation", "value": "NYC Local Law 11 / FISP"}, {"label": "Inspection", "value": "Required Every 5 Years"}],
+        "links": [{"label": "Masonry & Parapet Repair", "url": "/services/masonry-work"}]
+      },
+      {
+        "id": 17,
+        "category": "nyc-services",
+        "question": "Do you do stucco repair in NYC?",
+        "answer": "Yes, we are a licensed stucco repair and installation contractor in NYC. We work with traditional Portland cement stucco, EIFS (Exterior Insulation and Finish System), and California-style stucco. Our stucco services include crack repair, patch work, full re-stucco, color matching, and waterproofing. We restore stucco on houses, commercial buildings, and historic properties across all five boroughs.",
+        "metadata": [{"label": "Types", "value": "Traditional, EIFS, California"}, {"label": "Service", "value": "Repair & Full Restoration"}],
+        "links": [{"label": "Stucco Services NYC", "url": "/services/stucco"}]
+      },
+      {
+        "id": 18,
+        "category": "nyc-services",
+        "question": "What is an EIFS contractor and do you provide EIFS in NYC?",
+        "answer": "EIFS (Exterior Insulation and Finish System) is a multi-layer exterior cladding system that provides insulation and a decorative finish. We are certified EIFS contractors in NYC, handling installation, repair, remediation, and replacement of EIFS systems for commercial and residential buildings. EIFS is popular for its energy efficiency and design flexibility.",
+        "metadata": [{"label": "Certification", "value": "Licensed EIFS Contractor"}, {"label": "Projects", "value": "Commercial & Residential"}],
+        "links": [{"label": "Stucco & EIFS Services", "url": "/services/stucco"}]
+      },
+      {
+        "id": 19,
+        "category": "nyc-services",
+        "question": "Can you handle DOB violation removal in NYC?",
+        "answer": "Yes, we specialize in full DOB (Department of Buildings) violation removal in NYC. This includes identifying the violation, performing all required repairs, filing necessary paperwork with the NYC DOB, and obtaining a Certificate of Correction. Common violations we resolve include facade defects (Local Law 11), roofing issues, structural deficiencies, and fire escape violations. We handle the entire process from start to close.",
+        "metadata": [{"label": "Agency", "value": "NYC Dept of Buildings"}, {"label": "Process", "value": "End-to-End Handling"}],
+        "links": [{"label": "Contact for DOB Violation Removal", "url": "/contact"}]
+      },
+      {
+        "id": 20,
+        "category": "nyc-services",
+        "question": "Do you remove DOT violations and repair sidewalks in NYC?",
+        "answer": "Yes, we specialize in DOT (Department of Transportation) violation removal and sidewalk repair in NYC. Under NYC Local Law 49, property owners are responsible for maintaining the sidewalk adjacent to their property. We perform concrete sidewalk repair and replacement, file all required permits, and obtain sign-off from the NYC DOT — handling the full violation removal process.",
+        "metadata": [{"label": "Jurisdiction", "value": "NYC DOT"}, {"label": "Law", "value": "NYC Local Law 49"}],
+        "links": [{"label": "Sidewalk & Concrete Services", "url": "/services/concrete-services"}]
+      },
+      {
+        "id": 21,
+        "category": "nyc-services",
+        "question": "What is a building safety assessment in NYC?",
+        "answer": "A building safety assessment is a comprehensive inspection of your building's exterior, structural components, roof, and critical systems to identify unsafe conditions, DOB violations, and maintenance priorities. Under NYC Local Law 11 (FISP), all buildings taller than 6 stories must undergo facade inspections every 5 years. We provide thorough safety assessments for residential and commercial properties citywide.",
+        "metadata": [{"label": "Regulation", "value": "NYC Local Law 11 / FISP"}, {"label": "Frequency", "value": "Every 5 Years (6+ Stories)"}],
+        "links": [{"label": "Request a Safety Assessment", "url": "/contact"}]
+      },
+      {
+        "id": 22,
+        "category": "nyc-services",
+        "question": "What is brick pointing and do you do it in NYC?",
+        "answer": "Brick pointing (also called tuckpointing or repointing) is the process of removing deteriorated mortar from joints between bricks and replacing it with fresh mortar. Over time, mortar erodes due to weather exposure, allowing water penetration and structural damage. We provide professional brick pointing services for brownstones, townhouses, commercial buildings, and high-rises throughout NYC.",
+        "metadata": [{"label": "Also Known As", "value": "Tuckpointing / Repointing"}, {"label": "Urgency", "value": "Prevents Water Intrusion"}],
+        "links": [{"label": "Brick Pointing NYC", "url": "/services/masonry-work"}]
+      },
+      {
+        "id": 23,
+        "category": "nyc-services",
+        "question": "Do you do foundation repair in NYC?",
+        "answer": "Yes, we handle foundation repair for residential and commercial buildings in NYC. Foundation issues are often caused by soil settlement, water infiltration, aging concrete, or nearby excavation. Our foundation repair services include crack sealing, waterproofing, underpinning, and structural reinforcement. Early foundation repair prevents far more costly structural damage — contact us for a free assessment.",
+        "metadata": [{"label": "Services", "value": "Sealing, Waterproofing, Underpinning"}, {"label": "Buildings", "value": "Residential & Commercial"}],
+        "links": [{"label": "Contact for Foundation Repair", "url": "/contact"}]
+      },
+      {
+        "id": 24,
+        "category": "nyc-services",
+        "question": "Are you a waterproofing contractor in NYC?",
+        "answer": "Yes, waterproofing is one of our most in-demand services in New York. We provide interior and exterior waterproofing for basements, foundations, rooftops, terraces, retaining walls, and building envelopes. Our solutions include crystalline waterproofing, elastomeric coatings, drainage systems, and full membrane applications. Proper waterproofing protects your property from water damage, mold, and structural deterioration.",
+        "metadata": [{"label": "Applications", "value": "Basement, Foundation, Roof, Facade"}, {"label": "Methods", "value": "Crystalline, Membrane, Drainage"}],
+        "links": [{"label": "Contact for Waterproofing", "url": "/contact"}]
       }
     ],
     "knowledgeCard": {
@@ -1181,7 +1297,7 @@
     "contact": {
       "title": "Contact Us",
       "email": "info@megacontractinggroup.com",
-      "phone": "+1 (917) 295-7776",
+      "phone": "+1 (914) 804-3000",
       "address": "3044 Radcliff Ave, Bronx, NY 10469",
       "emergency": "24/7 Emergency Service Available",
       "areas": "Manhattan â€¢ Brooklyn â€¢ Queens â€¢ Bronx â€¢ Staten Island â€¢ Long Island â€¢ Westchester & Surrounding NY Areas"

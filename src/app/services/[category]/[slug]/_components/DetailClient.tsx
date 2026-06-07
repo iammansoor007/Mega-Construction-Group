@@ -157,9 +157,10 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                   Service Overview
                 </div>
               </div>
-              <p className="text-black text-lg xs:text-xl md:text-xl leading-relaxed font-normal">
-                {subCategory.longDescription}
-              </p>
+              <p 
+                className="text-black text-lg xs:text-xl md:text-xl leading-relaxed font-normal"
+                dangerouslySetInnerHTML={{ __html: subCategory.longDescription }}
+              />
 
               {/* Local SEO geographical coverage text block */}
               <div className="p-6 bg-red-600/5 border-l-4 border-red-600 text-left">

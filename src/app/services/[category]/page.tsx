@@ -57,12 +57,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords,
     alternates: {
-      canonical: `https://megaconstructiongroup.com/services/${categoryId}`,
+      canonical: `https://www.megacontractingnyc.com/services/${categoryId}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://megaconstructiongroup.com/services/${categoryId}`,
+      url: `https://www.megacontractingnyc.com/services/${categoryId}`,
       siteName: "Mega Construction NYC",
       images: [
         {
@@ -77,6 +77,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
+      site: "@megacontractingny",
+      creator: "@megacontractingny",
       title,
       description,
       images: [service.image],
@@ -102,12 +104,15 @@ export default async function Page({ params }: Props) {
       "provider": {
         "@type": "GeneralContractor",
         "name": "Mega Construction NYC",
-        "image": "https://megaconstructiongroup.com/favicon.png",
-        "telephone": "CALL OFFICE",
+        "image": "https://www.megacontractingnyc.com/favicon.png",
+        "telephone": "+1 (914) 804-3000",
+        "email": "info@megacontractinggroup.com",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "New York",
+          "streetAddress": "3044 Radcliff Ave",
+          "addressLocality": "Bronx",
           "addressRegion": "NY",
+          "postalCode": "10469",
           "addressCountry": "US"
         },
         "priceRange": "$$"
@@ -129,19 +134,19 @@ export default async function Page({ params }: Props) {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://megaconstructiongroup.com"
+          "item": "https://www.megacontractingnyc.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Services",
-          "item": "https://megaconstructiongroup.com/services"
+          "item": "https://www.megacontractingnyc.com/services"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": service.title,
-          "item": `https://megaconstructiongroup.com/services/${categoryId}`
+          "item": `https://www.megacontractingnyc.com/services/${categoryId}`
         }
       ]
     }
