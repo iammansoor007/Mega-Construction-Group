@@ -259,17 +259,7 @@ export default function AboutPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     {/* Badge on image */}
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/95 backdrop-blur-sm shadow-lg">
-                        <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center">
-                          <Award className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] font-semibold uppercase tracking-wider text-red-600">BBB A+ Accredited</p>
-                          <p className="text-xs text-gray-600 font-medium">Family Owned Since 2005</p>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
 
                   {/* Floating owner card */}
@@ -347,7 +337,7 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <FadeIn className="lg:col-span-5 relative">
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-900/10 aspect-[4/5]">
-                  <Image src="/assets/megaprintedimage2.png" alt="Mega Construction - Building Excellence in New York City"
+                  <Image src="/assets/megaownerprinted.png" alt="Mega Construction - Building Excellence in New York City"
                     fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-semibold uppercase tracking-widest text-gray-700 shadow-sm">
