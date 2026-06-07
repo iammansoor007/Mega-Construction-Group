@@ -11,7 +11,6 @@ import LoadingScreen from "@/components/LoadingScreen";
 const Services = dynamic(() => import("@/components/Services"), { ssr: true });
 const Portfolio = dynamic(() => import("@/components/Portfolio"), { ssr: true });
 const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
-const QuickQuote = dynamic(() => import("@/components/QuickQuote"), { ssr: false });
 const Mission = dynamic(() => import("@/components/Mission"), { ssr: true });
 const TeamValues = dynamic(() => import("@/components/TeamValues"), { ssr: true });
 const QAForm = dynamic(() => import("@/components/QAForm"), { ssr: true });
@@ -26,10 +25,10 @@ export default function HomeClient() {
 
   useEffect(() => {
     setMounted(true);
-    // EMERGENCY FAILSAFE: Force clear loading after 5 seconds
+    // EMERGENCY FAILSAFE: Force clear loading after 2.5 seconds
     const failsafe = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2500);
 
     return () => clearTimeout(failsafe);
   }, []);
@@ -100,8 +99,6 @@ export default function HomeClient() {
             <FAQ />
           </section>
           <Footer />
-
-        <QuickQuote />
       </motion.div>
     </main>
   );

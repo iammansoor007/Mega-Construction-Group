@@ -58,7 +58,7 @@ ${formData.message}
 
         try {
             try {
-                const response = await fetch('https://formsubmit.co/ajax/ammansoor007@gmail.com', {
+                const response = await fetch('https://formsubmit.co/ajax/info@megacontractinggroup.com', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -84,13 +84,13 @@ ${formData.message}
                 console.log('FormSubmit failed, using mailto fallback');
             }
 
-            const mailtoLink = `mailto:ammansoor007@gmail.com?subject=🔴 Quick Quote - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+            const mailtoLink = `mailto:info@megacontractinggroup.com?subject=🔴 Quick Quote - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
             window.location.href = mailtoLink;
             showSuccess();
 
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Please email us directly at ammansoor007@gmail.com');
+            alert('Please email us directly at info@megacontractinggroup.com');
         } finally {
             setIsSubmitting(false);
         }

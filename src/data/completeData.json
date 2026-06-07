@@ -146,17 +146,17 @@
       },
       {
         "label": "About",
-        "href": "/#about",
+        "href": "/about",
         "icon": "Users"
       },
       {
         "label": "FAQ",
-        "href": "/#faq",
+        "href": "/faq",
         "icon": "MessageSquare"
       },
       {
         "label": "Contact",
-        "href": "/#contact",
+        "href": "/contact",
         "icon": "Phone"
       }
     ],
@@ -186,7 +186,7 @@
       "title": "Get Your Free Estimate",
       "description": "Detailed quote within 24 hours",
       "buttonText": "Get Quote",
-      "buttonLink": "#quote"
+      "buttonLink": "/contact"
     }
   },
   "hero": {
@@ -200,7 +200,7 @@
     "buttons": [
       {
         "text": "Get Free Estimate",
-        "href": "#contact",
+        "href": "/contact",
         "primary": true,
         "icon": "FiArrowRight"
       },
@@ -267,7 +267,7 @@
     "buttons": [
       {
         "text": "FREE CONSULTATION",
-        "href": "#contact",
+        "href": "/contact",
         "primary": true
       },
       {
@@ -428,7 +428,7 @@
       "title": "Ready to Start Your Project?",
       "description": "Mega Contracting NY Group provides free consultations and detailed estimates. Contact us to schedule your custom consultation today.",
       "buttonText": "Request Estimate",
-      "buttonLink": "#contact"
+      "buttonLink": "/contact"
     }
   },
   "leadership": {
@@ -439,12 +439,12 @@
     },
     "ceo": {
       "name": "Adil Shamis",
-      "title": "Owner • Mega Contracting NY Group",
+      "title": "Owner â€¢ Mega Contracting NY Group",
       "image": "ceo",
       "alt": "Adil Shamis - Owner, Mega Contracting NY Group",
       "badges": {
-        "top": "OWNER • MEGA CONTRACTING NY",
-        "bottom": "LICENSED • INSURED • BBB A+"
+        "top": "OWNER â€¢ MEGA CONTRACTING NY",
+        "bottom": "LICENSED â€¢ INSURED â€¢ BBB A+"
       },
       "quotes": [
         "Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity. As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability."
@@ -455,7 +455,7 @@
       ],
       "social": {
         "linkedin": "https://www.linkedin.com/company/mega-contracting-ny-group",
-        "email": "adil@megacontractingny.com"
+        "email": "info@megacontractinggroup.com"
       }
     }
   },
@@ -536,7 +536,7 @@
       "badge": "Client Testimonials",
       "headline": "Real Stories from New York Clients",
       "description": "Hear what our clients have to say about their experience with Mega Contracting NY Group",
-      "featured": "BBB A+ Rated • Family Owned Since 2005"
+      "featured": "BBB A+ Rated â€¢ Family Owned Since 2005"
     },
     "testimonials": [
       {
@@ -715,7 +715,7 @@
       "buttons": [
         {
           "text": "Get Free Quote",
-          "href": "#contact",
+          "href": "/contact",
           "primary": true
         },
         {
@@ -866,7 +866,7 @@
         "links": [
           {
             "label": "Request estimate",
-            "url": "/estimate"
+            "url": "/contact"
           }
         ]
       },
@@ -926,7 +926,7 @@
           },
           {
             "label": "Contact",
-            "value": "(914) 804-3000"
+            "value": "+1 (917) 295-7776"
           }
         ],
         "links": [
@@ -992,44 +992,44 @@
     "section": {
       "badge": "GET STARTED",
       "headline": "Request Your <span class=\"font-black  text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Estimate</span>",
-      "description": "Every project starts with a conversation. Share your vision — our team will respond within 24 hours."
+      "description": "Every project starts with a conversation. Share your vision â€” our team will respond within 24 hours."
     },
     "services": [
       {
         "id": 1,
         "title": "General Contracting",
         "desc": "New construction & project management",
-        "icon": "⌗"
+        "icon": "âŒ—"
       },
       {
         "id": 2,
         "title": "Kitchen & Bath Remodeling",
         "desc": "Custom renovations & modern updates",
-        "icon": "⎔"
+        "icon": "âŽ”"
       },
       {
         "id": 3,
         "title": "Home Renovation",
         "desc": "Additions, basements & whole-home",
-        "icon": "⌖"
+        "icon": "âŒ–"
       },
       {
         "id": 4,
         "title": "Commercial Construction",
         "desc": "Office, retail & build-outs",
-        "icon": "⌘"
+        "icon": "âŒ˜"
       },
       {
         "id": 5,
         "title": "Excavation & Concrete",
         "desc": "Site work & foundations",
-        "icon": "⚡"
+        "icon": "âš¡"
       },
       {
         "id": 6,
         "title": "Roofing Services",
         "desc": "Installation & repair",
-        "icon": "◈"
+        "icon": "â—ˆ"
       }
     ],
     "projectTypes": [
@@ -1076,7 +1076,7 @@
         "label": "Future (6+ months)"
       }
     ],
-    "email": "info@megacontractingny.com",
+    "email": "info@megacontractinggroup.com",
     "success": {
       "title": "Request Received",
       "message": "Your estimate request has been received by our team.",
@@ -1087,7 +1087,7 @@
   "footer": {
     "company": {
       "name": "Mega Contracting NY Group",
-      "tagline": "QUALITY • INTEGRITY • CRAFTSMANSHIP",
+      "tagline": "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
       "description": "Family-owned and operated since 2005, Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, we bring quality craftsmanship and integrity to every project."
     },
     "services": {
@@ -1095,52 +1095,52 @@
       "main": [
         {
           "label": "General Contracting",
-          "href": "/general-contracting",
+          "href": "/services/custom-home-building",
           "icon": "Building"
         },
         {
           "label": "Home Renovation",
-          "href": "/home-renovation",
+          "href": "/services/home-renovation",
           "icon": "Home"
         },
         {
           "label": "Kitchen Remodeling",
-          "href": "/kitchen-remodeling",
+          "href": "/services/home-renovation/kitchen-renovation",
           "icon": "Kitchen"
         },
         {
           "label": "Bathroom Remodeling",
-          "href": "/bathroom-remodeling",
+          "href": "/services/home-renovation/bathroom-renovation",
           "icon": "Bath"
         },
         {
           "label": "Commercial Construction",
-          "href": "/commercial",
+          "href": "/services/custom-home-building/project-management",
           "icon": "Commercial"
         },
         {
           "label": "Excavation & Site Work",
-          "href": "/excavation",
+          "href": "/services/concrete-services/foundation-work",
           "icon": "Truck"
         },
         {
           "label": "Concrete & Masonry",
-          "href": "/concrete",
+          "href": "/services/concrete-services",
           "icon": "Masonry"
         },
         {
           "label": "Roofing Services",
-          "href": "/roofing",
+          "href": "/services/roofing-services",
           "icon": "Roofing"
         },
         {
           "label": "Home Additions",
-          "href": "/additions",
+          "href": "/services/home-renovation/interior-remodeling",
           "icon": "Addition"
         },
         {
           "label": "Emergency Repairs",
-          "href": "/emergency",
+          "href": "/services/emergency-service",
           "icon": "Emergency"
         }
       ],
@@ -1149,42 +1149,42 @@
         "items": [
           {
             "label": "Manhattan",
-            "href": "/manhattan"
+            "href": "/contact"
           },
           {
             "label": "Brooklyn",
-            "href": "/brooklyn"
+            "href": "/contact"
           },
           {
             "label": "Queens",
-            "href": "/queens"
+            "href": "/contact"
           },
           {
             "label": "Bronx",
-            "href": "/bronx"
+            "href": "/contact"
           },
           {
             "label": "Staten Island",
-            "href": "/staten-island"
+            "href": "/contact"
           },
           {
             "label": "Long Island",
-            "href": "/long-island"
+            "href": "/contact"
           },
           {
             "label": "Westchester County",
-            "href": "/westchester"
+            "href": "/contact"
           }
         ]
       }
     },
     "contact": {
       "title": "Contact Us",
-      "email": "info@megacontractingny.com",
-      "phone": "(914) 804-3000",
+      "email": "info@megacontractinggroup.com",
+      "phone": "+1 (917) 295-7776",
       "address": "3044 Radcliff Ave, Bronx, NY 10469",
       "emergency": "24/7 Emergency Service Available",
-      "areas": "Manhattan • Brooklyn • Queens • Bronx • Staten Island • Long Island • Westchester & Surrounding NY Areas"
+      "areas": "Manhattan â€¢ Brooklyn â€¢ Queens â€¢ Bronx â€¢ Staten Island â€¢ Long Island â€¢ Westchester & Surrounding NY Areas"
     },
     "certifications": [
       {
@@ -1221,17 +1221,17 @@
     "quickLinks": [
       {
         "label": "Warranty",
-        "href": "/warranty",
+        "href": "/contact",
         "icon": "Warranty"
       },
       {
         "label": "Financing",
-        "href": "/financing",
+        "href": "/contact",
         "icon": "Financing"
       },
       {
         "label": "Insurance Claims",
-        "href": "/insurance",
+        "href": "/contact",
         "icon": "Warranty"
       }
     ],
@@ -1253,7 +1253,7 @@
       }
     ],
     "bottom": {
-      "copyright": "© 2026 Mega Contracting NY Group",
+      "copyright": "Â© 2026 Mega Contracting NY Group",
       "rights": "All rights reserved",
       "links": [
         {
@@ -1273,14 +1273,14 @@
           "href": "/sitemap"
         }
       ],
-      "tagline": "QUALITY • INTEGRITY • CRAFTSMANSHIP"
+      "tagline": "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP"
     },
     "marquee": {
       "texts": [
-        "QUALITY • INTEGRITY • CRAFTSMANSHIP",
+        "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
         "FAMILY OWNED SINCE 2005",
         "SERVING ALL OF NEW YORK",
-        "LICENSED • INSURED • BBB A+"
+        "LICENSED â€¢ INSURED â€¢ BBB A+"
       ]
     }
   }

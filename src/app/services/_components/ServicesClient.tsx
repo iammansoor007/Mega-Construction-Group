@@ -70,7 +70,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Dynamic Marquee */}
-      <MarqueeSection text="NYC Certified Contractor • Fully Licensed & Insured • Over 1,000 Projects Completed • 10-Year Workmanship Warranty •" />
+      <MarqueeSection text="NYC Certified Contractor â€¢ Fully Licensed & Insured â€¢ Over 1,000 Projects Completed â€¢ 10-Year Workmanship Warranty â€¢" />
 
       {/* Services Grid Section */}
       <section className="py-24 md:py-40 bg-white relative">
@@ -171,8 +171,8 @@ export default function ServicesClient() {
               title: "Need Custom Construction Solutions in NYC?",
               description: "Our certified engineers and project managers are ready to consult on your residential or commercial requirements. Schedule an onsite inspection today.",
               buttons: [
-                { text: "Request Free Estimate", href: "/#contact", primary: true },
-                { text: "Contact Office", href: "/#contact", primary: false }
+                { text: "Request Free Estimate", href: "/contact", primary: true },
+                { text: "Contact Office", href: "/contact", primary: false }
               ]
             }}
           />
@@ -183,3 +183,4 @@ export default function ServicesClient() {
     </main>
   );
 }
+

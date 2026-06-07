@@ -326,7 +326,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
                 className={`
@@ -518,7 +518,7 @@ const Navbar = () => {
 
             <div className="mt-12 pt-8 border-t border-gray-100 flex items-center justify-between">
               <p className="text-sm text-gray-500 font-medium">
-                Looking for something specific? <Link href="/#contact" className="text-red-600 font-bold hover:underline">Speak with an expert</Link>
+                Looking for something specific? <Link href="/contact" className="text-red-600 font-bold hover:underline">Speak with an expert</Link>
               </p>
               <Link
                 href={cta.buttonLink}

@@ -559,7 +559,7 @@ const GetQuote = () => {
       const mailtoLink = `mailto:${email}?subject=🔴 Mega Construction NY Group Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
 
       try {
-        const response = await fetch('https://formsubmit.co/ajax/ammansoor007@gmail.com', {
+        const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -923,6 +923,7 @@ const FAQ = () => {
 
   return (
     <section
+      id="faq"
       ref={sectionRef}
       className="relative bg-white py-20 md:py-24 lg:py-28 overflow-hidden"
     >

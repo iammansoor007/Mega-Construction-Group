@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { useState } from "react";
+import QuickQuote from "@/components/QuickQuote";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient({
@@ -25,6 +26,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             {children}
             <Toaster />
             <Sonner />
+            <QuickQuote />
           </TooltipProvider>
         </FormProvider>
       </MouseProvider>

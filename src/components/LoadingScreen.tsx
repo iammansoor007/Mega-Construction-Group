@@ -42,7 +42,7 @@ const RoofDraw = () => {
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 0.9, ease: EASE }}
+          transition={{ duration: 0.3, ease: EASE }}
         />
         {/* Base */}
         <motion.line
@@ -54,7 +54,7 @@ const RoofDraw = () => {
           strokeWidth="2.2"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
+          transition={{ duration: 0.2, delay: 0.1, ease: EASE }}
         />
       </svg>
     </motion.div>
@@ -96,7 +96,7 @@ const LogoText = () => {
 -----------------------------------*/
 const Ready = ({ onComplete }: { onComplete: () => void }) => {
   useEffect(() => {
-    const timer = setTimeout(() => onComplete(), 300);
+    const timer = setTimeout(() => onComplete(), 100);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
@@ -124,11 +124,11 @@ const PremiumLoader = ({ onComplete }: LoaderProps) => {
   const [phase, setPhase] = useState<1 | 2 | 3 | 4>(1);
 
   useEffect(() => {
-    // Fast, clean timing
-    const t1 = setTimeout(() => setPhase(2), 700);
-    const t2 = setTimeout(() => setPhase(3), 1500);
-    const t3 = setTimeout(() => setPhase(4), 2400);
-    const t4 = setTimeout(() => onComplete(), 2800);
+    // Super fast, clean timing
+    const t1 = setTimeout(() => setPhase(2), 150);
+    const t2 = setTimeout(() => setPhase(3), 500);
+    const t3 = setTimeout(() => setPhase(4), 900);
+    const t4 = setTimeout(() => onComplete(), 1000);
 
     return () => {
       clearTimeout(t1);

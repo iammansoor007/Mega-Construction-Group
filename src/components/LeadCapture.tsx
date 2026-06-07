@@ -300,7 +300,7 @@ const CTASection = () => {
                 <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg border border-blue-200/50">
                   <Icons.Sparkle />
                   <span className="text-xs font-medium tracking-wider text-blue-700">
-                    Mega Construction NY Group • 2005
+                    Mega Construction NY Group â€¢ 2005
                   </span>
                 </div>
 
@@ -354,7 +354,7 @@ const CTASection = () => {
                 </motion.a>
 
                 <motion.a
-                  href="/portfolio"
+                  href="/#portfolio"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="group relative w-full px-8 py-5 bg-white text-blue-800 text-xs font-bold tracking-[0.2em] uppercase rounded-none border-2 border-blue-200 hover:border-blue-400 transition-all duration-500 block text-center"
@@ -394,19 +394,19 @@ const CTASection = () => {
             {
               title: "Architectural Consultation",
               desc: "Deep immersion into your vision with our principal engineers",
-              icon: "⌗",
+              icon: "âŒ—",
               delay: 0.3
             },
             {
               title: "Digital Twin Engineering",
               desc: "Parametric modeling with sub-millimeter precision",
-              icon: "⎔",
+              icon: "âŽ”",
               delay: 0.35
             },
             {
               title: "Heritage Documentation",
               desc: "Legacy vault preservation for future generations",
-              icon: "∞",
+              icon: "âˆž",
               delay: 0.4
             }
           ].map((item, i) => (
@@ -424,7 +424,7 @@ const CTASection = () => {
                 <div className="mt-6">
                   <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-xs font-medium tracking-wider uppercase transition-colors group">
                     Learn more
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="group-hover:translate-x-1 transition-transform">â†’</span>
                   </a>
                 </div>
               </GlassCard>

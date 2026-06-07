@@ -214,7 +214,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
 
                 <div className="flex flex-col gap-4">
                   <Link
-                    href="#contact"
+                    href="/contact"
                     className="group relative flex items-center justify-between w-full p-6 xs:p-8 bg-black text-white overflow-hidden transition-all duration-500"
                   >
                     <div className="absolute inset-0 bg-red-600 translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
