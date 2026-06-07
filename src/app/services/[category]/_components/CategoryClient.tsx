@@ -31,7 +31,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
   return (
     <main ref={containerRef} className="min-h-screen bg-white selection:bg-red-600 selection:text-white font-body overflow-x-hidden relative">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900">
         <div className="absolute inset-0 z-0">
@@ -75,26 +75,26 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       {/* ====================== */}
       {/* SERVICE SPECIALIZATIONS */}
       {/* ====================== */}
-      <section className="py-24 md:py-40 bg-white relative">
+      <section className="py-6 lg:py-10 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8">
           <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
             <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-6 text-center md:text-left">
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-red-600 flex items-center justify-center text-white shadow-2xl shrink-0">
-                    <Activity className="w-6 h-6 md:w-8 md:h-8" />
-                </div>
-                <div>
-                    <span className="text-red-600 font-bold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] mb-1 md:mb-2 block">Technical Capabilities</span>
-                    <h2 className="text-3xl xs:text-4xl md:text-7xl font-bold text-gray-900 tracking-tighter font-heading leading-none">
-                        Our <span className="text-red-600">Matrix</span>
-                    </h2>
-                </div>
+              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-red-600 flex items-center justify-center text-white shadow-2xl shrink-0">
+                <Activity className="w-6 h-6 md:w-8 md:h-8" />
+              </div>
+              <div>
+                <span className="text-red-600 font-bold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] mb-1 md:mb-2 block">Technical Capabilities</span>
+                <h2 className="text-3xl xs:text-4xl md:text-7xl font-bold text-gray-900 tracking-tighter font-heading leading-none">
+                  Our <span className="text-red-600">Matrix</span>
+                </h2>
+              </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {service.subcategories.map((sub, index) => (
-              <Link 
-                key={sub.id} 
+              <Link
+                key={sub.id}
                 href={`/services/${categoryId}/${sub.id}`}
                 className="group block"
               >
@@ -112,10 +112,10 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
                     fill
                     className="object-cover transition-transform duration-[3s] group-hover:scale-110"
                   />
-                  
+
                   {/* Cinematic Deep Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
-                  
+
                   {/* Shine Shimmer Effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
                     <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.5s] ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]" />
@@ -128,11 +128,11 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
                         <span className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-red-500 mr-2 animate-pulse" />
                         Technical Excellence
                       </div>
-                      
+
                       <h3 className="text-2xl xs:text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4 leading-none tracking-tighter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] group-hover:text-red-400 transition-colors capitalize">
                         {sub.title}
                       </h3>
-                      
+
                       <p className="text-gray-200 text-xs md:text-base leading-relaxed line-clamp-2 max-w-md drop-shadow-md mb-6 md:mb-8">
                         {sub.description}
                       </p>
@@ -169,8 +169,8 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
               title: `Expert ${service.tag} Solutions Ready for Deployment`,
               description: `Our specialized teams are equipped to handle your most complex ${service.tag.toLowerCase()} requirements in NYC. Get an industrial-grade survey and estimate today.`,
               buttons: [
-                { text: "Request Free Quote", href: "#", primary: true },
-                { text: "Consult Division Leader", href: "#", primary: false }
+                { text: "Request Free Quote", href: "/contact", primary: true },
+                { text: "Call Us Now", href: "tel:+19148043000", primary: false }
               ]
             }}
           />

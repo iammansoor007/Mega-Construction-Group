@@ -422,9 +422,9 @@ const CTASection = () => {
                 <h4 className="text-lg font-medium text-slate-900 mb-3">{item.title}</h4>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
                 <div className="mt-6">
-                  <a href="#" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-xs font-medium tracking-wider uppercase transition-colors group">
+                  <a href="/services" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-xs font-medium tracking-wider uppercase transition-colors group">
                     Learn more
-                    <span className="group-hover:translate-x-1 transition-transform">â†’</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </a>
                 </div>
               </GlassCard>
