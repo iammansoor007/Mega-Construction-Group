@@ -5,6 +5,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SectionHeader from "@/components/SectionHeader";
 import completeData from "@/data/completeData.json";
 import {
   Search, ChevronDown, Phone, Mail, ArrowRight,
@@ -45,108 +46,124 @@ const categoryIcons: Record<string, any> = {
 };
 
 // ─── Accordion Item ───────────────────────────────────────────────────────────
-const AccordionItem = ({ item, index, isOpen, onToggle }: any) => (
-  <motion.div
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-30px" }}
-    transition={{ duration: 0.5, delay: index * 0.04 }}
-  >
-    <div
-      className={`relative rounded-2xl overflow-hidden transition-all duration-500 ${
-        isOpen
-          ? "bg-gradient-to-br from-white to-red-50/30 shadow-xl shadow-red-600/[0.07] ring-1 ring-red-600/10"
-          : "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-lg hover:bg-gradient-to-br hover:from-white hover:to-gray-50/50"
-      }`}
+const AccordionItem = ({ item, index, isOpen, onToggle }: any) => {
+  const [isHovered, setIsHovered] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.5, delay: index * 0.04 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group"
     >
-      {/* Active left accent bar */}
-      <div className={`absolute left-0 top-0 bottom-0 w-[3px] rounded-r-full transition-all duration-500 ${
-        isOpen
-          ? "bg-gradient-to-b from-red-600 via-red-500 to-red-400 opacity-100"
-          : "bg-red-600 opacity-0"
-      }`} />
-
-      <button
-        onClick={onToggle}
-        className="w-full text-left px-7 py-6 sm:px-8 sm:py-7 focus:outline-none group"
-        aria-expanded={isOpen}
+      <div
+        className={`relative rounded-2xl overflow-hidden border transition-all duration-300 ${
+          isOpen
+            ? "bg-white shadow-xl border-red-600/30 border-l-4"
+            : "bg-white shadow-sm hover:shadow-md border-gray-200"
+        }`}
       >
-        <div className="flex items-center justify-between gap-5">
-          <div className="flex items-center gap-4 min-w-0">
-            <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 text-[11px] font-bold tracking-wider transition-all duration-400 ${
+        <button
+          onClick={onToggle}
+          className="w-full text-left p-6 sm:p-8 focus:outline-none relative z-10"
+          aria-expanded={isOpen}
+        >
+          <div className="flex items-center justify-between gap-6">
+            <h3 className={`text-base md:text-lg lg:text-xl font-normal transition-all duration-500 text-left ${
               isOpen
-                ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-                : "bg-gray-100 text-gray-400 group-hover:bg-red-600/[0.06] group-hover:text-red-600"
-            }`}>
-              {String(index + 1).padStart(2, "0")}
-            </div>
-            <h3 className={`text-[15px] sm:text-base leading-snug transition-all duration-300 ${
-              isOpen
-                ? "font-semibold text-gray-900"
-                : "font-medium text-gray-700 group-hover:text-gray-900"
+                ? "text-red-600 font-bold"
+                : "text-gray-800 group-hover:text-red-600"
             }`}>
               {item.question}
             </h3>
-          </div>
-          <motion.div
-            animate={{ rotate: isOpen ? 180 : 0 }}
-            transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-400 ${
-              isOpen
-                ? "bg-red-600 text-white shadow-md shadow-red-600/20"
-                : "bg-gray-100/80 text-gray-400 group-hover:bg-red-50 group-hover:text-red-600"
-            }`}
-          >
-            <ChevronDown className="w-4 h-4" />
-          </motion.div>
-        </div>
-      </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="overflow-hidden"
-          >
-            <div className="px-7 sm:px-8 pb-7 sm:pb-8">
-              <div className="ml-[52px] p-5 rounded-xl bg-white/80 shadow-[inset_0_1px_3px_rgba(0,0,0,0.03)]">
-                <p className="text-gray-600 text-[14.5px] leading-[1.75] mb-4">
-                  {item.answer}
-                </p>
-
-                {item.metadata && (
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {item.metadata.map((meta: any, i: number) => (
-                      <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gray-50 text-xs">
-                        <span className="text-gray-400 font-medium">{meta.label}:</span>
-                        <span className="font-semibold text-gray-700">{meta.value}</span>
-                      </span>
-                    ))}
-                  </div>
-                )}
-
-                {item.links && (
-                  <div className="flex flex-wrap gap-3 pt-1">
-                    {item.links.map((link: any, i: number) => (
-                      <Link key={i} href={link.url}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-red-600/[0.06] text-xs font-semibold text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300 group/link">
-                        {link.label}
-                        <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+            <div className="relative flex-shrink-0">
+              <motion.div
+                animate={isOpen ? {
+                  rotate: 180,
+                  scale: 1.1,
+                  backgroundColor: '#dc2626',
+                  borderColor: '#dc2626',
+                } : {
+                  rotate: 0,
+                  scale: 1,
+                  backgroundColor: 'white',
+                  borderColor: isHovered ? '#dc2626' : '#e2e8f0',
+                }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="transition-transform duration-300"
+                >
+                  <path
+                    d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
+                    stroke={isOpen ? 'white' : isHovered ? '#dc2626' : '#94a3b8'}
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </motion.div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  </motion.div>
-);
+          </div>
+        </button>
+
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="overflow-hidden"
+            >
+              <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+                <div className="relative pl-6 border-l-2 border-red-600/20">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5 font-normal text-left">
+                    {item.answer}
+                  </p>
+
+                  {item.metadata && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+                      {item.metadata.map((meta: any, i: number) => (
+                        <div key={i} className="flex items-center gap-2 text-xs">
+                          <span className="w-1 h-1 bg-red-600 rounded-full" />
+                          <span className="text-gray-500 font-bold">{meta.label}:</span>
+                          <span className="font-bold text-gray-700">{meta.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {item.links && (
+                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-red-600/10">
+                      {item.links.map((link: any, i: number) => (
+                        <Link
+                          key={i}
+                          href={link.url}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors group/link"
+                        >
+                          <span>{link.label}</span>
+                          <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+  );
+};
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 export default function FAQPage() {
@@ -186,37 +203,39 @@ export default function FAQPage() {
       <main className="min-h-screen bg-white overflow-hidden select-none">
 
         {/* ── HERO ───────────────────────────────────────────────── */}
-        <section className="relative pt-32 pb-16 overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white to-red-50/20" />
-          <div className="absolute top-1/4 right-1/4 w-[500px] h-[400px] blur-[120px] opacity-[0.05] pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(195,5,5,0.8), transparent)" }} />
+        <section className="relative min-h-[50vh] flex items-center overflow-hidden pt-32 pb-20 blueprint-grid">
+          <div className="tech-scanner" />
+          <div className="absolute inset-0 bg-black/60 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                <div className="flex items-center justify-center gap-3 mb-5">
-                  <div className="w-8 h-[1.5px] bg-gradient-to-r from-red-600 to-red-400" />
-                  <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-red-600">Knowledge Base</span>
-                  <div className="w-8 h-[1.5px] bg-gradient-to-l from-red-600 to-red-400" />
-                </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center justify-center gap-2 mb-2"
+              >
+                <span className="w-8 h-px bg-red-500" />
+                <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-red-500">Knowledge Base</span>
+                <span className="w-8 h-px bg-red-500" />
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl tracking-tight text-gray-900 leading-[1.1] mb-5"
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="heading-lg text-white leading-none tracking-tight text-center"
               >
-                <span className="font-light">Frequently Asked</span><br />
-                <span className="font-semibold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Questions</span>
+                Frequently Asked<br />
+                <span className="text-red-500 font-bold">Questions</span>
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-gray-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-light mb-8"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-white/90 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-normal text-center"
               >
                 Expert answers to common questions about our construction, renovation, and contracting services across New York.
               </motion.p>
@@ -228,10 +247,10 @@ export default function FAQPage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="max-w-lg mx-auto"
               >
-                <div className={`relative flex items-center bg-white rounded-full transition-all duration-300 ${
+                <div className={`relative flex items-center bg-white rounded-none border transition-all duration-300 ${
                   searchFocused
-                    ? "shadow-lg shadow-red-600/[0.08] ring-2 ring-red-600/10"
-                    : "shadow-md hover:shadow-lg"
+                    ? "shadow-lg border-red-500"
+                    : "shadow-md hover:shadow-lg border-gray-200"
                 }`}>
                   <Search className="absolute left-4 w-4.5 h-4.5 text-gray-400" />
                   <input
@@ -241,7 +260,7 @@ export default function FAQPage() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onFocus={() => setSearchFocused(true)}
                     onBlur={() => setSearchFocused(false)}
-                    className="w-full pl-11 pr-4 py-3.5 bg-transparent rounded-full text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
+                    className="w-full pl-11 pr-4 py-3.5 bg-transparent rounded-none text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
                   />
                 </div>
               </motion.div>
@@ -250,9 +269,9 @@ export default function FAQPage() {
         </section>
 
         {/* ── QUICK INFO STRIP ───────────────────────────────────── */}
-        <section className="py-6 bg-gradient-to-r from-gray-50 via-white to-gray-50">
+        <section className="py-6 bg-gray-50 border-y border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {quickInfo.map((info, i) => {
                 const IconComp = info.icon;
                 const Wrapper = info.href ? "a" : "div";
@@ -264,14 +283,14 @@ export default function FAQPage() {
                   >
                     <Wrapper
                       {...(info.href ? { href: info.href } : {})}
-                      className="flex items-center gap-3 p-3.5 rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                      className="flex items-center gap-3 p-3.5 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-red-500/30 transition-all duration-300 cursor-pointer"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-red-600/[0.06] flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 bg-red-600/[0.06] flex items-center justify-center shrink-0">
                         <IconComp className="w-4 h-4 text-red-600" />
                       </div>
-                      <div className="min-w-0">
-                        <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{info.label}</p>
-                        <p className="text-xs font-semibold text-gray-800 truncate">{info.value}</p>
+                      <div className="min-w-0 text-left">
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{info.label}</p>
+                        <p className="text-xs font-bold text-gray-800 truncate">{info.value}</p>
                       </div>
                     </Wrapper>
                   </motion.div>
@@ -342,20 +361,15 @@ export default function FAQPage() {
         </section>
 
         {/* ── HELPFUL RESOURCES (SEO Section) ────────────────────── */}
-        <section className="py-20 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="Helpful Resources" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">Everything You Need </span>
-                <span className="font-semibold text-red-600">to Know</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto mt-3 font-light">
-                Explore our comprehensive guides and resources to help you make informed decisions about your construction project.
-              </p>
-            </FadeIn>
+            <SectionHeader
+              badge="Helpful Resources"
+              headline="Everything You Need <span class='text-red-600'>to Know</span>"
+              description="Explore our comprehensive guides and resources to help you make informed decisions about your construction project."
+            />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
                   icon: FileText,
@@ -405,15 +419,15 @@ export default function FAQPage() {
                   <FadeIn key={i} delay={i * 0.06}>
                     <motion.div
                       whileHover={{ y: -4 }}
-                      className="group p-6 rounded-2xl bg-white shadow-sm hover:shadow-lg transition-all duration-300"
+                      className="group p-6 rounded-2xl bg-white border border-gray-200 hover:border-red-500/50 hover:shadow-lg transition-all duration-300"
                     >
-                      <div className="w-11 h-11 rounded-xl mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
+                      <div className="w-11 h-11 rounded-none mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
                         <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{card.title}</h3>
-                      <p className="text-sm text-gray-500 font-light leading-relaxed mb-4">{card.desc}</p>
+                      <h3 className="text-[15px] font-bold text-gray-900 mb-2">{card.title}</h3>
+                      <p className="text-sm text-gray-500 font-normal leading-relaxed mb-4">{card.desc}</p>
                       <Link href={card.link}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 hover:text-red-700 group-hover:gap-2.5 transition-all duration-300">
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 group-hover:gap-2.5 transition-all duration-300">
                         {card.linkText} <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </motion.div>
@@ -425,17 +439,14 @@ export default function FAQPage() {
         </section>
 
         {/* ── TRUST INDICATORS (SEO Section) ──────────────────────── */}
-        <section className="py-20 bg-white">
+        <section className="py-16 md:py-24 bg-white border-t border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="Why Choose Mega Contracting" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">NYC's Most </span>
-                <span className="font-semibold text-red-600">Trusted Contractor</span>
-              </h2>
-            </FadeIn>
+            <SectionHeader
+              badge="Why Choose Mega Contracting"
+              headline="NYC's Most <span class='text-red-600'>Trusted Contractor</span>"
+            />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: Award, value: "20+", label: "Years Experience", sub: "Family-owned since 2005" },
                 { icon: Star, value: "BBB A+", label: "Accredited", sub: "Highest rating achievable" },
@@ -447,14 +458,14 @@ export default function FAQPage() {
                   <FadeIn key={i} delay={i * 0.08}>
                     <motion.div
                       whileHover={{ y: -3 }}
-                      className="group text-center p-6 rounded-2xl bg-gradient-to-br from-gray-50/80 to-white hover:shadow-md transition-all duration-300"
+                      className="group text-center p-6 rounded-2xl bg-white border border-gray-200 hover:border-red-500/50 hover:shadow-md transition-all duration-300"
                     >
-                      <div className="w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
+                      <div className="w-12 h-12 rounded-none mx-auto mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
                         <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors duration-300" />
                       </div>
-                      <div className="text-2xl font-semibold text-gray-900 mb-0.5">{item.value}</div>
-                      <div className="text-xs font-medium text-gray-700 mb-1">{item.label}</div>
-                      <div className="text-[10px] text-gray-400">{item.sub}</div>
+                      <div className="text-2xl font-bold text-gray-900 mb-0.5">{item.value}</div>
+                      <div className="text-xs font-bold text-gray-700 mb-1">{item.label}</div>
+                      <div className="text-[10px] text-gray-400 font-normal">{item.sub}</div>
                     </motion.div>
                   </FadeIn>
                 );
@@ -464,21 +475,16 @@ export default function FAQPage() {
         </section>
 
         {/* ── ALL SERVICES (SEO Section) ─────────────────────────── */}
-        <section className="py-24 bg-gradient-to-b from-gray-50/30 to-white">
+        <section className="py-16 md:py-24 bg-white border-t border-gray-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="Our Services" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">Expert Construction </span>
-                <span className="font-semibold text-red-600">Services</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto mt-3 font-light">
-                Comprehensive construction, renovation, and restoration services across the New York metro area.
-              </p>
-            </FadeIn>
+            <SectionHeader
+              badge="Our Services"
+              headline="Expert Construction <span class='text-red-600'>Services</span>"
+              description="Comprehensive construction, renovation, and restoration services across the New York metro area."
+            />
 
             {/* Top row: 3 featured cards */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
               {[
                 { icon: Home, name: "Roofing", desc: "Shingle, flat & TPO roofing — installation, repair & full replacement for residential and commercial properties.", href: "/services/roofing-services", image: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg" },
                 { icon: Building, name: "Masonry Work", desc: "Expert brick replacement, pointing, facade restoration, parapet walls, chimneys & waterproofing.", href: "/services/masonry-work", image: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg" },
@@ -490,22 +496,22 @@ export default function FAQPage() {
                     <Link href={svc.href}>
                       <motion.div
                         whileHover={{ y: -5 }}
-                        className="group relative rounded-2xl overflow-hidden h-[280px] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
+                        className="group relative rounded-2xl overflow-hidden h-[280px] cursor-pointer shadow-sm hover:shadow-xl border border-gray-200 transition-all duration-500"
                       >
                         {/* BG image */}
                         <div className="absolute inset-0">
-                          <img src={svc.image} alt={svc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 group-hover:from-black/85 transition-all duration-500" />
+                          <img src={svc.image} alt={svc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/95 transition-all duration-500" />
                         </div>
                         {/* Content */}
                         <div className="relative z-10 h-full flex flex-col justify-end p-6">
-                          <div className="w-10 h-10 rounded-xl mb-3 flex items-center justify-center bg-white/15 backdrop-blur-sm group-hover:bg-red-600 transition-all duration-400">
+                          <div className="w-10 h-10 rounded-none mb-3 flex items-center justify-center bg-white/15 backdrop-blur-sm group-hover:bg-red-600 transition-all duration-400">
                             <IconComp className="w-5 h-5 text-white" />
                           </div>
-                          <h3 className="text-lg font-semibold text-white mb-1.5">{svc.name}</h3>
-                          <p className="text-white/70 text-xs leading-relaxed line-clamp-2 font-light">{svc.desc}</p>
-                          <div className="flex items-center gap-1.5 mt-3 text-red-400 text-xs font-semibold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
-                            View Services <ArrowRight className="w-3 h-3" />
+                          <h3 className="text-lg font-bold text-white mb-1.5 text-left">{svc.name}</h3>
+                          <p className="text-white/70 text-xs leading-relaxed line-clamp-2 font-normal text-left">{svc.desc}</p>
+                          <div className="flex items-center gap-1.5 mt-3 text-red-400 text-xs font-bold opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400">
+                            View Services <ArrowRight className="w-3.5 h-3.5" />
                           </div>
                         </div>
                       </motion.div>
@@ -516,7 +522,7 @@ export default function FAQPage() {
             </div>
 
             {/* Bottom row: 4 compact cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: Sparkles, name: "Home Renovation", desc: "Kitchen, bathroom, basement & interior remodeling", href: "/services/home-renovation", image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg" },
                 { icon: MapPin, name: "Stucco Services", desc: "EIFS, traditional & Californian stucco application", href: "/services/stucco", image: "/assets/megastuccorestoreation1.jpg" },
@@ -529,18 +535,18 @@ export default function FAQPage() {
                     <Link href={svc.href}>
                       <motion.div
                         whileHover={{ y: -4 }}
-                        className="group relative rounded-2xl overflow-hidden h-[220px] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
+                        className="group relative rounded-2xl overflow-hidden h-[220px] cursor-pointer shadow-sm hover:shadow-xl border border-gray-200 transition-all duration-500"
                       >
                         <div className="absolute inset-0">
-                          <img src={svc.image} alt={svc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/5 group-hover:from-black/85 transition-all duration-500" />
+                          <img src={svc.image} alt={svc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 group-hover:from-black/95 transition-all duration-500" />
                         </div>
                         <div className="relative z-10 h-full flex flex-col justify-end p-5">
-                          <div className="w-9 h-9 rounded-lg mb-2.5 flex items-center justify-center bg-white/15 backdrop-blur-sm group-hover:bg-red-600 transition-all duration-400">
+                          <div className="w-9 h-9 rounded-none mb-2.5 flex items-center justify-center bg-white/15 backdrop-blur-sm group-hover:bg-red-600 transition-all duration-400">
                             <IconComp className="w-4 h-4 text-white" />
                           </div>
-                          <h3 className="text-sm font-semibold text-white mb-1">{svc.name}</h3>
-                          <p className="text-white/60 text-[11px] leading-relaxed font-light line-clamp-2">{svc.desc}</p>
+                          <h3 className="text-sm font-bold text-white mb-1 text-left">{svc.name}</h3>
+                          <p className="text-white/60 text-[11px] leading-relaxed font-normal line-clamp-2 text-left">{svc.desc}</p>
                         </div>
                       </motion.div>
                     </Link>
@@ -550,10 +556,10 @@ export default function FAQPage() {
             </div>
 
             <FadeIn delay={0.3} className="text-center mt-10">
-              <Link href="/services">
+              <Link href="/services" className="inline-block">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gray-900 text-white text-sm font-medium shadow-md hover:shadow-lg hover:bg-gray-800 transition-all duration-300 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-gray-900 text-white font-bold text-sm shadow-md hover:shadow-lg hover:bg-gray-800 transition-all duration-300 cursor-pointer rounded-none border border-gray-800"
                 >
                   View All Services <ArrowRight className="w-4 h-4" />
                 </motion.div>
@@ -563,10 +569,10 @@ export default function FAQPage() {
         </section>
 
         {/* ── CTA (Split Panel) ─────────────────────────────────── */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white border-t border-gray-200">
           <div className="max-w-6xl mx-auto px-4">
             <FadeIn>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10"
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl"
                 style={{ background: "linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)" }}>
                 {/* Glows */}
                 <div className="absolute top-0 right-0 w-[400px] h-[400px] blur-[140px] opacity-[0.07]"
@@ -578,34 +584,34 @@ export default function FAQPage() {
                   {/* Left - Contact Info */}
                   <div className="p-8 sm:p-12 lg:p-14 space-y-8">
                     <div>
-                      <p className="text-red-500 text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">Get In Touch</p>
-                      <h2 className="text-3xl sm:text-4xl text-white leading-tight mb-3">
-                        <span className="font-light">Still Have</span><br />
-                        <span className="font-semibold text-red-500">Questions?</span>
+                      <p className="text-red-500 text-[11px] font-bold tracking-[0.3em] uppercase mb-4">Get In Touch</p>
+                      <h2 className="text-3xl sm:text-4xl text-white leading-tight mb-3 font-bold text-left">
+                        Still Have<br />
+                        <span className="text-red-500">Questions?</span>
                       </h2>
-                      <p className="text-gray-400 text-[15px] leading-relaxed font-light">
+                      <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-normal text-left">
                         Our team is ready to help with your specific project needs. Get a free, no-obligation consultation.
                       </p>
                     </div>
 
                     {/* Contact cards */}
                     <div className="space-y-3">
-                      <a href="tel:+19148043000" className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group">
-                        <div className="w-11 h-11 rounded-xl bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                      <a href="tel:+19148043000" className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
+                        <div className="w-11 h-11 bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
                           <Phone className="w-5 h-5 text-red-500 group-hover:text-white transition-colors duration-300" />
                         </div>
-                        <div>
-                          <p className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Call Us Anytime</p>
-                          <p className="text-white font-semibold text-sm">+1 (914) 804-3000</p>
+                        <div className="text-left">
+                          <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Call Us Anytime</p>
+                          <p className="text-white font-bold text-sm">+1 (914) 804-3000</p>
                         </div>
                       </a>
-                      <a href="mailto:info@megacontractinggroup.com" className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group">
-                        <div className="w-11 h-11 rounded-xl bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                      <a href="mailto:info@megacontractinggroup.com" className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
+                        <div className="w-11 h-11 bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
                           <Mail className="w-5 h-5 text-red-500 group-hover:text-white transition-colors duration-300" />
                         </div>
-                        <div>
-                          <p className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">Email Us</p>
-                          <p className="text-white font-semibold text-sm">info@megacontractinggroup.com</p>
+                        <div className="text-left">
+                          <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Email Us</p>
+                          <p className="text-white font-bold text-sm">info@megacontractinggroup.com</p>
                         </div>
                       </a>
                     </div>
@@ -619,9 +625,9 @@ export default function FAQPage() {
                       ].map((badge, i) => {
                         const IconComp = badge.icon;
                         return (
-                          <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04]">
+                          <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] border border-white/5 rounded-none">
                             <IconComp className="w-3 h-3 text-red-500/60" />
-                            <span className="text-[10px] text-gray-500 font-medium">{badge.text}</span>
+                            <span className="text-[10px] text-gray-500 font-bold">{badge.text}</span>
                           </div>
                         );
                       })}
@@ -629,16 +635,16 @@ export default function FAQPage() {
                   </div>
 
                   {/* Right - CTA Action */}
-                  <div className="relative p-8 sm:p-12 lg:p-14 flex flex-col justify-center bg-gradient-to-br from-red-600 via-red-600 to-red-700">
+                  <div className="relative p-8 sm:p-12 lg:p-14 flex flex-col justify-center bg-gradient-to-br from-red-600 via-red-600 to-red-700 rounded-none">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-40 h-40 rounded-full blur-[80px] opacity-20 bg-white pointer-events-none" />
                     <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full blur-[60px] opacity-10 bg-red-900 pointer-events-none" />
 
                     <div className="relative z-10 space-y-7">
                       {/* Heading */}
-                      <div>
-                        <p className="text-red-200/60 text-[10px] font-semibold tracking-[0.3em] uppercase mb-3">Free Consultation</p>
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-white leading-tight">Get Your Project<br />Started Today</h3>
+                      <div className="text-left">
+                        <p className="text-red-200/60 text-[10px] font-bold tracking-[0.3em] uppercase mb-3">Free Consultation</p>
+                        <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">Get Your Project<br />Started Today</h3>
                       </div>
 
                       {/* Feature list */}
@@ -650,10 +656,10 @@ export default function FAQPage() {
                           "10-year workmanship warranty",
                         ].map((feat, i) => (
                           <div key={i} className="flex items-center gap-2.5">
-                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                            <div className="w-5 h-5 rounded-none bg-white/20 flex items-center justify-center shrink-0">
                               <CheckCircle2 className="w-3 h-3 text-white" />
                             </div>
-                            <span className="text-white/90 text-sm font-light">{feat}</span>
+                            <span className="text-white/90 text-sm font-normal text-left">{feat}</span>
                           </div>
                         ))}
                       </div>
@@ -664,7 +670,7 @@ export default function FAQPage() {
                           <motion.div
                             whileHover={{ scale: 1.03, y: -2 }}
                             whileTap={{ scale: 0.98 }}
-                            className="flex items-center justify-center gap-2.5 w-full px-6 py-4 rounded-xl bg-white text-red-600 font-semibold text-sm shadow-xl shadow-black/15 cursor-pointer hover:shadow-2xl transition-all duration-300"
+                            className="flex items-center justify-center gap-2.5 w-full px-8 py-4 rounded-none bg-white text-red-600 font-bold text-sm shadow-xl cursor-pointer hover:shadow-2xl transition-all duration-300"
                           >
                             Get Free Estimate <ArrowRight className="w-4 h-4" />
                           </motion.div>
@@ -672,14 +678,14 @@ export default function FAQPage() {
                         <a href="tel:+19148043000" className="block">
                           <motion.div
                             whileHover={{ scale: 1.02 }}
-                            className="flex items-center justify-center gap-2.5 w-full px-6 py-3.5 rounded-xl bg-white/10 text-white font-medium text-sm cursor-pointer hover:bg-white/15 transition-all duration-300 backdrop-blur-sm"
+                            className="flex items-center justify-center gap-2.5 w-full px-8 py-4 rounded-none bg-white/10 text-white font-bold text-sm cursor-pointer hover:bg-white/15 transition-all duration-300 border border-white/20"
                           >
                             <Phone className="w-4 h-4" /> Call +1 (914) 804-3000
                           </motion.div>
                         </a>
                       </div>
 
-                      <p className="text-red-200/40 text-[10px] font-medium text-center tracking-wide">Response guaranteed within 24 hours</p>
+                      <p className="text-red-200/40 text-[10px] font-bold text-center tracking-wide">Response guaranteed within 24 hours</p>
                     </div>
                   </div>
                 </div>

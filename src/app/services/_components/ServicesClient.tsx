@@ -4,7 +4,8 @@ import { servicesData } from "@/data/servicesData";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ChevronRight, Activity, Search } from "lucide-react";
+import * as Icons from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
@@ -12,57 +13,44 @@ import MarqueeSection from "@/components/MarqueeSection";
 import { useState } from "react";
 
 export default function ServicesClient() {
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredServices = servicesData.filter((service) =>
-    service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    service.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    service.subcategories.some((sub) => sub.title.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
 
   return (
     <main className="min-h-screen bg-white selection:bg-red-600 selection:text-white font-body overflow-x-hidden relative">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=80&w=1200&auto=format&fit=crop"
-            alt="Mega Construction NYC Services"
-            fill
-            className="object-cover opacity-20 scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-gray-900 to-gray-900" />
-        </div>
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden pt-32 pb-20 blueprint-grid">
+        <div className="tech-scanner" />
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0" />
 
-        <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center md:items-start text-center md:text-left"
+            className="flex flex-col items-center md:items-start text-center md:text-left space-y-6"
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-white/40 font-bold mb-8">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-[10px] uppercase tracking-[0.3em] text-white/50 font-bold">
               <Link href="/" className="hover:text-red-500 transition-colors">Home</Link>
-              <ChevronRight className="w-3 h-3 opacity-30" />
+              <ChevronRight className="w-3 h-3 opacity-40 text-white" />
               <span className="text-red-500">Services</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 mb-4 md:mb-6">
+            <div className="inline-flex items-center gap-2 mb-2">
               <span className="w-8 h-px bg-red-500" />
               <span className="text-red-500 uppercase tracking-widest text-xs font-bold">
-                Elite Trade Matrix
+                Our Service Divisions
               </span>
             </div>
 
-            <h1 className="text-4xl xs:text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] md:leading-tight">
+            <h1 className="heading-lg text-white leading-none tracking-tight">
               Our Construction <span className="text-red-500">Services</span>
             </h1>
 
-            <p className="text-base md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+            <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">
               Professional general contracting, certified roofing, masonry restoration, and luxury interior renovation across New York City.
             </p>
           </motion.div>
@@ -70,101 +58,98 @@ export default function ServicesClient() {
       </section>
 
       {/* Dynamic Marquee */}
-      <MarqueeSection text="NYC Certified Contractor â€¢ Fully Licensed & Insured â€¢ Over 1,000 Projects Completed â€¢ 10-Year Workmanship Warranty â€¢" />
+      <MarqueeSection text="NYC Certified Contractor • Fully Licensed & Insured • Over 1,000 Projects Completed • 10-Year Workmanship Warranty •" />
 
       {/* Services Grid Section */}
-      <section className="py-24 md:py-40 bg-white relative">
+      <section className="py-8 md:py-12 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8">
           
-          {/* Live Search Filter */}
-          <div className="mb-16 max-w-md mx-auto md:mx-0">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search services or trades..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-6 py-4 border-2 border-black text-black bg-white focus:outline-none focus:border-red-600 transition-colors font-medium rounded-none"
-              />
-            </div>
-            {searchQuery && (
-              <p className="text-xs text-gray-500 mt-2">
-                Showing {filteredServices.length} results matching "{searchQuery}"
-              </p>
-            )}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {filteredServices.map((service, index) => (
-              <Link 
-                key={service.id} 
-                href={`/services/${service.id}`}
-                className="group block"
-              >
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-700 group-hover:shadow-red-600/30 group-hover:scale-[1.01] border border-black/5"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {servicesData.map((service, index) => {
+              const ServiceIcon = (Icons as any)[service.icon] || Icons.Hammer;
+              return (
+                <Link 
+                  key={service.id} 
+                  href={`/services/${service.id}`}
+                  className="block h-full group/card"
                 >
-                  {/* Full Bleed Image */}
-                  <Image
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-[3s] group-hover:scale-110"
-                  />
-                  
-                  {/* Deep Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Inner shimmer */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
-                    <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.5s] ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="absolute inset-0 p-6 xs:p-8 md:p-12 flex flex-col justify-end">
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-red-600/30 backdrop-blur-md border border-red-500/40 text-white text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-4 shadow-xl">
-                        <span className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse" />
-                        {service.tag} Division
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -8, scale: 1.01 }}
+                    className="relative h-full bg-white rounded-3xl overflow-hidden border border-gray-200 group-hover/card:border-red-500/50 transition-all duration-500 shadow-lg group-hover/card:shadow-2xl flex flex-col smooth-gpu"
+                  >
+                    {/* Top Image Container */}
+                    <div className="relative h-60 overflow-hidden bg-gray-100">
+                      <Image
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover/card:scale-110"
+                        sizes="(max-w-768px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
+                      
+                      {/* Floating division tag */}
+                      <div className="absolute top-6 left-6 z-20">
+                        <div className="bg-black/40 backdrop-blur-xl px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/30 uppercase tracking-widest shadow-xl">
+                          {service.tag} Division
+                        </div>
                       </div>
-                      
-                      <h3 className="text-2xl xs:text-3xl md:text-5xl font-bold text-white mb-2 leading-none tracking-tighter group-hover:text-red-400 transition-colors">
-                        {service.title}
-                      </h3>
-                      
-                      <p className="text-gray-200 text-xs md:text-base leading-relaxed line-clamp-2 max-w-md mb-6">
-                        {service.description}
-                      </p>
 
-                      <div className="flex items-center justify-between pt-4 border-t border-white/10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-700 shadow-2xl">
-                            <ArrowRight className="w-5 h-5 text-white" />
-                          </div>
-                          <span className="text-[10px] md:text-[12px] font-bold text-white uppercase tracking-[0.3em]">
-                            View Division Specializations
-                          </span>
+                      {/* Icon */}
+                      <div className="absolute bottom-6 left-6 z-10">
+                        <div className="p-3 rounded-2xl bg-red-600 shadow-xl border border-red-500/20 group-hover/card:scale-110 transition-transform duration-500 flex items-center justify-center text-white">
+                          <ServiceIcon className="w-5 h-5 text-white" />
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Inner border */}
-                  <div className="absolute inset-0 rounded-[2.5rem] border border-white/5 group-hover:border-red-600/30 transition-colors duration-700 pointer-events-none" />
-                </motion.div>
-              </Link>
-            ))}
+                    {/* Card Body Content */}
+                    <div className="p-6 xs:p-8 flex-1 flex flex-col justify-between text-left">
+                      <div className="space-y-4">
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">
+                          {service.subcategories.length} Core Services
+                        </span>
+                        
+                        <h3 className="text-xl xs:text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors leading-tight">
+                          {service.title}
+                        </h3>
+                        
+                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                          {service.description}
+                        </p>
+
+                        {/* Features bullet list */}
+                        <div className="space-y-2.5 pt-2 flex-1">
+                          {service.features?.slice(0, 4).map((feature: string, i: number) => (
+                            <div key={i} className="flex items-center gap-3 text-xs text-gray-700">
+                              <div className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+                              <span className="font-medium">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between group/link">
+                        <span className="text-xs font-bold uppercase tracking-widest text-red-600 group-hover/card:tracking-[0.2em] transition-all duration-500">
+                          EXPLORE DIVISION
+                        </span>
+                        <ArrowRight className="w-5 h-5 text-red-600" />
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="pb-24 bg-white">
+      <section className="pb-8 md:pb-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <ServiceCTA
             cta={{

@@ -4,11 +4,12 @@ import { servicesData } from "@/data/servicesData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Activity } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronRight, Activity } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
+import SectionHeader from "@/components/SectionHeader";
 import { useRef } from "react";
 
 export default function CategoryClient({ categoryId }: { categoryId: string }) {
@@ -20,7 +21,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       <div className="min-h-screen flex items-center justify-center bg-white font-heading px-4">
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tighter uppercase italic">Division_Missing</h1>
-          <Link href="/" className="text-red-600 hover:underline flex items-center justify-center gap-2 font-bold uppercase tracking-widest text-[10px]">
+          <Link href="/" className="text-red-600 hover:underline flex items-center justify-center gap-2 font-bold uppercase tracking-widest text-[10px] rounded-none">
             <ArrowLeft className="w-4 h-4" /> Return to Command Center
           </Link>
         </div>
@@ -33,36 +34,39 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gray-900">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={service.image}
-            alt={service.title}
-            fill
-            className="object-cover opacity-30 scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-gray-900 to-gray-900" />
-        </div>
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden pt-32 pb-20 blueprint-grid">
+        <div className="tech-scanner" />
+        <div className="absolute inset-0 bg-black/60 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0" />
 
-        <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left mx-auto md:mx-0"
+            className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left space-y-6"
           >
-            <div className="inline-flex items-center gap-2 mb-4 md:mb-6">
-              <span className="w-6 md:w-8 h-px bg-red-500" />
-              <span className="text-red-500 uppercase tracking-widest text-[10px] md:text-xs font-bold">
-                {service.tag}
-              </span>
-              <span className="w-6 md:w-8 h-px bg-red-500 md:hidden" />
+            {/* Breadcrumb */}
+            <div className="flex items-center justify-center md:justify-start gap-2 text-[10px] uppercase tracking-[0.3em] text-white/50 font-bold">
+              <Link href="/" className="hover:text-red-500 transition-colors">Home</Link>
+              <ChevronRight className="w-3 h-3 opacity-40 text-white" />
+              <Link href="/services" className="hover:text-red-500 transition-colors">Services</Link>
+              <ChevronRight className="w-3 h-3 opacity-40 text-white" />
+              <span className="text-red-500">{service.tag}</span>
             </div>
-            <h1 className="text-4xl xs:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.1] md:leading-tight">
+
+            <div className="inline-flex items-center gap-2 mb-2">
+              <span className="w-8 h-px bg-red-500" />
+              <span className="text-red-500 uppercase tracking-widest text-xs font-bold">
+                {service.tag} Division
+              </span>
+            </div>
+
+            <h1 className="heading-lg text-white leading-none tracking-tight">
               {service.title}
             </h1>
-            <p className="text-base md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto md:mx-0">
+
+            <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">
               {service.description}
             </p>
           </motion.div>
@@ -70,88 +74,88 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       </section>
 
       {/* DYNAMIC MARQUEE */}
-      <MarqueeSection text={`Industrial Grade ${service.tag}`} />
+      <MarqueeSection text={`Industrial Grade ${service.tag} • NYC Certified Specialists •`} />
 
       {/* ====================== */}
       {/* SERVICE SPECIALIZATIONS */}
       {/* ====================== */}
-      <section className="py-6 lg:py-10 bg-white relative">
+      <section className="py-8 md:py-12 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8">
-          <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
-            <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-6 text-center md:text-left">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-red-600 flex items-center justify-center text-white shadow-2xl shrink-0">
-                <Activity className="w-6 h-6 md:w-8 md:h-8" />
-              </div>
-              <div>
-                <span className="text-red-600 font-bold text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] mb-1 md:mb-2 block">Technical Capabilities</span>
-                <h2 className="text-3xl xs:text-4xl md:text-7xl font-bold text-gray-900 tracking-tighter font-heading leading-none">
-                  Our <span className="text-red-600">Matrix</span>
-                </h2>
-              </div>
-            </div>
-          </div>
+          <SectionHeader
+            badge="Technical Capabilities"
+            headline="Our <span class='text-red-600'>Specializations</span>"
+            description={`Explore our target divisions and expertise under the ${service.title} capabilities.`}
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {service.subcategories.map((sub, index) => (
               <Link
                 key={sub.id}
                 href={`/services/${categoryId}/${sub.id}`}
-                className="group block"
+                className="block h-full group/card"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all duration-700 group-hover:shadow-red-600/30 group-hover:scale-[1.01] border border-white/10"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.01 }}
+                  className="relative h-full bg-white rounded-3xl overflow-hidden border border-gray-200 group-hover/card:border-red-500/50 transition-all duration-500 shadow-lg group-hover/card:shadow-2xl flex flex-col smooth-gpu"
                 >
-                  {/* Full Bleed Image Background */}
-                  <Image
-                    src={sub.image || "/placeholder.svg"}
-                    alt={sub.title}
-                    fill
-                    className="object-cover transition-transform duration-[3s] group-hover:scale-110"
-                  />
-
-                  {/* Cinematic Deep Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/100 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Shine Shimmer Effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
-                    <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1.5s] ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]" />
-                  </div>
-
-                  {/* Content Matrix */}
-                  <div className="absolute inset-0 p-6 xs:p-8 md:p-12 flex flex-col justify-end">
-                    <div className="relative z-10">
-                      <div className="inline-flex items-center px-3 md:px-4 py-1 md:py-1.5 rounded-full bg-red-600/30 backdrop-blur-md border border-red-500/40 text-white text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] mb-4 md:mb-6 shadow-xl">
-                        <span className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-red-500 mr-2 animate-pulse" />
-                        Technical Excellence
-                      </div>
-
-                      <h3 className="text-2xl xs:text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4 leading-none tracking-tighter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] group-hover:text-red-400 transition-colors capitalize">
-                        {sub.title}
-                      </h3>
-
-                      <p className="text-gray-200 text-xs md:text-base leading-relaxed line-clamp-2 max-w-md drop-shadow-md mb-6 md:mb-8">
-                        {sub.description}
-                      </p>
-
-                      <div className="flex items-center justify-between pt-4 md:pt-6 border-t border-white/10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                        <div className="flex items-center gap-3 md:gap-4">
-                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-700 shadow-2xl">
-                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                          </div>
-                          <span className="text-[10px] md:text-[12px] font-bold text-white uppercase tracking-[0.2em] md:tracking-[0.3em]">
-                            Explore Service
-                          </span>
-                        </div>
+                  {/* Top Image Container */}
+                  <div className="relative h-60 overflow-hidden bg-gray-100">
+                    <Image
+                      src={sub.image || "/placeholder.svg"}
+                      alt={sub.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover/card:scale-110"
+                      sizes="(max-w-768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
+                    
+                    {/* Floating tag badge */}
+                    <div className="absolute top-6 left-6 z-20">
+                      <div className="bg-black/40 backdrop-blur-xl px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/30 uppercase tracking-widest shadow-xl">
+                        Specialization
                       </div>
                     </div>
                   </div>
 
-                  {/* Inner Glow Border */}
-                  <div className="absolute inset-0 rounded-[2.5rem] border border-white/5 group-hover:border-red-600/30 transition-colors duration-700 pointer-events-none" />
+                  {/* Card Body Content */}
+                  <div className="p-6 xs:p-8 flex-1 flex flex-col justify-between text-left">
+                    <div className="space-y-4">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">
+                        NYC Certified
+                      </span>
+                      
+                      <h3 className="text-xl xs:text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors leading-tight">
+                        {sub.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                        {sub.description}
+                      </p>
+
+                      {/* Benefits bullet list */}
+                      {sub.benefits && (
+                        <div className="space-y-2.5 pt-2 flex-1">
+                          {sub.benefits.slice(0, 3).map((benefit: any, i: number) => (
+                            <div key={i} className="flex items-center gap-3 text-xs text-gray-700">
+                              <div className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+                              <span className="font-medium">{benefit.title}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between group/link">
+                      <span className="text-xs font-bold uppercase tracking-widest text-red-600 group-hover/card:tracking-[0.2em] transition-all duration-500">
+                        EXPLORE SPECIALIZATION
+                      </span>
+                      <ArrowRight className="w-5 h-5 text-red-600" />
+                    </div>
+                  </div>
                 </motion.div>
               </Link>
             ))}
@@ -162,7 +166,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       {/* ====================== */}
       {/* CINEMATIC CTA SECTION */}
       {/* ====================== */}
-      <section className="pb-24 md:pb-40 bg-white">
+      <section className="pb-8 md:pb-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <ServiceCTA
             cta={{

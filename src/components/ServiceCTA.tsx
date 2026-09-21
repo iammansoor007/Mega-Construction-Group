@@ -43,7 +43,7 @@ const TrustBadge = memo(({ label, color }: TrustBadgeProps) => {
     };
 
     return (
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-none bg-white/5 backdrop-blur-sm border border-white/10">
             <div className={`w-1.5 h-1.5 ${colorClasses[color]} rounded-full animate-pulse`} />
             <span className="text-xs text-white/70 whitespace-nowrap">{label}</span>
         </div>
@@ -87,7 +87,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
     return (
         <div className="relative mt-16 md:mt-24 lg:mt-32">
             {/* CTA Container */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-none overflow-hidden shadow-2xl border border-red-500/20">
                 {/* Cinematic Gradient Background */}
                 <div
                     className="absolute inset-0"
@@ -117,7 +117,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                                 transition={{ duration: 0.6 }}
                                 className="inline-block mb-6"
                             >
-                                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-none text-white backdrop-blur-sm">
                                     READY TO BUILD
                                 </span>
                             </motion.div>
@@ -156,7 +156,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.98 }}
                                         className={`
-                                            px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-lg
+                                            px-8 py-3.5 rounded-none font-bold transition-all duration-300 shadow-lg
                                             flex items-center gap-2 text-sm uppercase tracking-widest
                                             ${button.primary
                                                 ? 'bg-white text-red-600 hover:bg-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.3)]'
@@ -204,7 +204,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                             transition={{ duration: 0.6 }}
                             className="inline-block mb-4"
                         >
-                            <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
+                            <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-none text-white/90 backdrop-blur-sm">
                                 MEGA CONTRACTING
                             </span>
                         </motion.div>
@@ -243,7 +243,7 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.98 }}
                                     className={`
-                                        px-6 py-3 rounded-full font-bold transition-all duration-300 shadow-lg
+                                        px-6 py-3 rounded-none font-bold transition-all duration-300 shadow-lg
                                         flex items-center justify-center gap-2 text-xs uppercase tracking-widest
                                         ${button.primary
                                             ? 'bg-white text-red-600 hover:bg-gray-100'

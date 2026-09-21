@@ -20,17 +20,11 @@ const AggressiveRoofingSection = dynamic(() => import("@/components/RoofingExper
 const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true });
 
 export default function HomeClient() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // EMERGENCY FAILSAFE: Force clear loading after 2.5 seconds
-    const failsafe = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(failsafe);
   }, []);
 
   return (

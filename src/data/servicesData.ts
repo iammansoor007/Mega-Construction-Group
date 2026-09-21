@@ -33,7 +33,7 @@ export interface SubCategory {
   features: string[];
   image: string;
   benefits?: Benefit[];
-  process?: string[];
+  process?: { title: string; description: string }[];
   faqs?: FAQ[];
   stats?: { label: string; value: string }[];
   galleryImages?: string[];
@@ -84,7 +84,32 @@ export const servicesData: Service[] = [
           { title: "Enhanced Ventilation Systems", description: "Optimized airflow to extend the life of your roof by preventing heat and moisture buildup.", icon: "Wind" },
           { title: "GAF Master Elite Certification", description: "Installed by factory-trained professionals using premium materials with full manufacturer warranty.", icon: "Award" }
         ],
-        process: ["Initial Consultation & Estimate", "Complete Tear-off & Deck Inspection", "Deck Preparation & Repair", "Underlayment Installation", "Shingle Fastening", "Final Sealing & Cleanup"],
+        process: [
+        {
+          title: "Initial Consultation & Estimate",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Complete Tear-off & Deck Inspection",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Deck Preparation & Repair",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Underlayment Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Shingle Fastening",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Final Sealing & Cleanup",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "How long does a shingle roof last in NYC?", answer: "A properly installed architectural shingle roof lasts 25-30 years on average, with premium options reaching 50 years with proper maintenance." },
           { question: "Can shingle roofs withstand NYC's high winds?", answer: "Yes, our architectural shingles are rated for winds up to 130 MPH, well above NYC's typical storm conditions." },
@@ -111,7 +136,32 @@ export const servicesData: Service[] = [
           { title: "Zero Leakage Guarantee", description: "Heat-welded seams create a monolithic surface stronger than the membrane material itself.", icon: "Shield" },
           { title: "Lightweight Structural Design", description: "Minimal load impact perfect for older NYC buildings with structural limitations.", icon: "Scale" }
         ],
-        process: ["Roof Surface Cleaning & Prep", "Insulation Board Installation", "Membrane Layout & Cutting", "Heat Welding Seams", "Perimeter Flashing", "Final Quality Testing"],
+        process: [
+        {
+          title: "Roof Surface Cleaning & Prep",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Insulation Board Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Membrane Layout & Cutting",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Heat Welding Seams",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Perimeter Flashing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Final Quality Testing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "What's the best flat roofing material for NYC buildings?", answer: "TPO is currently the industry leader for energy efficiency, durability, and cost-effectiveness in NYC's climate." },
           { question: "How long does flat roof installation take?", answer: "A typical flat roof installation takes 3-7 days depending on the size and complexity of your building's roof." },
@@ -137,7 +187,32 @@ export const servicesData: Service[] = [
           { title: "Chemical Resistance", description: "Highly resistant to grease, chemicals, animal fats, and industrial pollutants common in NYC environments.", icon: "FlaskConical" },
           { title: "Eco-Friendly & Sustainable", description: "100% recyclable material with zero VOC emissions, contributing to LEED certification points.", icon: "Leaf" }
         ],
-        process: ["Old Roof Removal", "Substrate Preparation", "Insulation Attachment", "TPO Sheet Layout", "Robot Heat Welding", "Perimeter & Penetration Detailing"],
+        process: [
+        {
+          title: "Old Roof Removal",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Substrate Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Insulation Attachment",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "TPO Sheet Layout",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Robot Heat Welding",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Perimeter & Penetration Detailing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "How are TPO seams joined and how strong are they?", answer: "We use robotic hot-air welders to fuse TPO sheets together, creating seams that are stronger than the membrane itself." },
           { question: "Is TPO roofing better than EPDM for NYC?", answer: "TPO offers superior heat reflection and chemical resistance, while EPDM performs better in extreme cold. TPO is generally preferred for commercial NYC buildings." },
@@ -162,7 +237,32 @@ export const servicesData: Service[] = [
           { title: "Emergency Protection Services", description: "Immediate tarping and temporary repairs to stop active water entry during storms.", icon: "ShieldAlert" },
           { title: "Root Cause Resolution", description: "We identify and eliminate the underlying source of leaks, not just apply surface patches.", icon: "CheckCircle" }
         ],
-        process: ["Emergency Mitigation", "FLIR Thermal Scanning", "Defect Location Isolation", "Failed Component Repair", "Water Testing Verification", "Final Documentation"],
+        process: [
+        {
+          title: "Emergency Mitigation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "FLIR Thermal Scanning",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Defect Location Isolation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Failed Component Repair",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Water Testing Verification",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Final Documentation",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Do you use thermal imaging for leak detection?", answer: "Yes, we use professional FLIR thermal cameras to 'see' moisture hidden inside ceilings, walls, and roofing layers without damage." },
           { question: "How quickly can you respond to an emergency roof leak?", answer: "Our emergency response team can be on-site within 24 hours, often same-day for urgent situations." },
@@ -183,7 +283,32 @@ export const servicesData: Service[] = [
           { title: "Full Manufacturer Warranty", description: "Benefit from comprehensive material coverage with 20-50 year warranty protection.", icon: "CheckCircle" },
           { title: "Current Code Compliance", description: "Upgrading your roof to meet modern NYC energy codes and safety standards.", icon: "Scale" }
         ],
-        process: ["Initial Structural Assessment", "Full Material Tear-off", "Sheathing & Deck Repair", "Ice & Water Shield Application", "New System Installation", "Ventilation Tuning & Cleanup"],
+        process: [
+        {
+          title: "Initial Structural Assessment",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Full Material Tear-off",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Sheathing & Deck Repair",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Ice & Water Shield Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "New System Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Ventilation Tuning & Cleanup",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "When is full roof replacement necessary versus repair?", answer: "If your roof is over 20-25 years old, has widespread leaking in multiple areas, or shows significant structural deterioration, replacement is recommended." },
           { question: "Does roof replacement require NYC permits?", answer: "Yes, full roof replacement requires DOB permits. We handle all permit applications, filings, and inspections for you." },
@@ -204,7 +329,32 @@ export const servicesData: Service[] = [
           { title: "Complete System Synergy", description: "All roofing components installed together for maximum efficiency and performance.", icon: "Zap" },
           { title: "Long-term Security Value", description: "Built from day one with industrial-grade standards and full warranty protection.", icon: "Lock" }
         ],
-        process: ["Blueprint & Spec Review", "Structural Deck Preparation", "Underlayment System Installation", "Primary Roofing Layer", "Detail & Penetration Sealing", "Final Performance Testing"],
+        process: [
+        {
+          title: "Blueprint & Spec Review",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Structural Deck Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Underlayment System Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Primary Roofing Layer",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Detail & Penetration Sealing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Final Performance Testing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Do you work directly with architects on new builds?", answer: "Yes, we frequently collaborate with architectural and design teams to ensure all technical roofing specifications are perfectly met." },
           { question: "What's the lead time for new construction roofing?", answer: "We typically need 2-4 weeks lead time for material ordering and crew scheduling, depending on project size and complexity." },
@@ -225,7 +375,32 @@ export const servicesData: Service[] = [
           { title: "Insurance Documentation", description: "Certified inspection reports for storm damage claims and insurance requirements.", icon: "FileText" },
           { title: "Enhanced Property Value", description: "Official roof health certification for real estate transactions and property valuations.", icon: "TrendingUp" }
         ],
-        process: ["Exterior Roof Survey", "Thermal Moisture Analysis", "Internal Attic Inspection", "Defect Mapping & Photos", "Comprehensive Report Generation", "Final Client Briefing"],
+        process: [
+        {
+          title: "Exterior Roof Survey",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Thermal Moisture Analysis",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Internal Attic Inspection",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Defect Mapping & Photos",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Comprehensive Report Generation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final Client Briefing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "How often should commercial roofs be professionally inspected?", answer: "We recommend professional inspections at least annually, plus after any major NYC storm event or extreme weather." },
           { question: "What is included in a professional roof inspection?", answer: "Thermal moisture scan, physical inspection of membranes/flashing/flat areas, structural assessment, and detailed photographic documentation." },
@@ -246,7 +421,32 @@ export const servicesData: Service[] = [
           { title: "Insurance Documentation", description: "Certified inspection reports for storm damage claims and insurance requirements.", icon: "FileText" },
           { title: "Enhanced Property Value", description: "Official roof health certification for real estate transactions and property valuations.", icon: "TrendingUp" }
         ],
-        process: ["Surface Cleaning", "Flashing/Joint Prep", "Primer Application", "Membrane Coating", "Topcoat Protection", "Water Testing"],
+        process: [
+        {
+          title: "Surface Cleaning",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Flashing/Joint Prep",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Primer Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Membrane Coating",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Topcoat Protection",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Water Testing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "How often should NYC buildings be waterproofed?", answer: "We recommend re-evaluation every 5-7 years, with maintenance of sealants and coatings as needed to prevent deep structural water entry." }
         ],
@@ -276,7 +476,24 @@ export const servicesData: Service[] = [
         features: ["Individual Brick Replacement", "Structural Load Restoration", "Texture & Color Matching", "Water Infiltration Prevention"],
         stats: [{ label: "Visual Match Rate", value: "99%" }, { label: "Weather Protection", value: "100%" }, { label: "Structural Audit", value: "Included" }],
         benefits: [{ title: "Water Protection System", description: "Replacing spalled bricks seals moisture entry points that cause interior damage and structural deterioration.", icon: "Droplets" }],
-        process: ["Damaged Brick Extraction", "Cavity Preparation & Cleaning", "New Brick Installation", "Mortar Sealing & Finishing"],
+        process: [
+        {
+          title: "Damaged Brick Extraction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Cavity Preparation & Cleaning",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "New Brick Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Mortar Sealing & Finishing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "Will new bricks match my historic building's existing bricks?", answer: "We source reclaimed vintage bricks and use custom-pigmented mortar to achieve an invisible match with your existing masonry." },
           { question: "What causes bricks to crumble (spalling)?", answer: "Spalling is caused by water absorption and freeze-thaw cycles, where trapped water freezes, expands, and fractures the brick's surface." },
@@ -299,7 +516,24 @@ export const servicesData: Service[] = [
         features: ["Deep Joint Grinding", "Custom Mortar Formulation", "Weather-Resistant Sealing", "Structural Reinforcement"],
         stats: [{ label: "Joint Depth", value: "3/4 Inch Minimum" }, { label: "Repair Longevity", value: "25+ Years" }, { label: "Compression Strength", value: "Restored" }],
         benefits: [{ title: "Structural Reinforcement", description: "Professional re-pointing restores the load-bearing capacity of masonry joints, preventing wall failure and collapse.", icon: "Lock" }],
-        process: ["Joint Grinding", "Debris Removal & Cleaning", "Custom Mortar Application", "Joint Finishing & Cleanup"],
+        process: [
+        {
+          title: "Joint Grinding",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Debris Removal & Cleaning",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Custom Mortar Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Joint Finishing & Cleanup",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "How long does professional pointing last in NYC climate?", answer: "High-quality pointing performed by experienced masons lasts 25-50 years in New York's freeze-thaw climate conditions." },
           { question: "What's the difference between grinding and chiseling joints?", answer: "Grinding provides cleaner, more uniform joint depth and doesn't damage brick edges like chiseling can. It's our preferred method for quality results." },
@@ -319,7 +553,28 @@ export const servicesData: Service[] = [
         features: ["Coping Stone Installation", "Structural Wall Rebuilding", "Complete Waterproofing", "Drainage Correction"],
         stats: [{ label: "Safety Compliance", value: "Code A+" }, { label: "Structural Stability", value: "Industrial Grade" }, { label: "Water Testing", value: "Included" }],
         benefits: [{ title: "Roof Perimeter Security", description: "Ensuring your building's roof edge is structurally sound, properly drained, and fully weather-sealed.", icon: "Shield" }],
-        process: ["Existing Demolition", "Masonry Wall Rebuilding", "Flashing Installation", "Coping Stone Placement", "Waterproof Seal"],
+        process: [
+        {
+          title: "Existing Demolition",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Masonry Wall Rebuilding",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Flashing Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Coping Stone Placement",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Waterproof Seal",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Why do parapet walls leak at the roof line?", answer: "Parapet leaks are usually caused by cracked coping stones, failed step flashing, or deteriorated membrane terminations at the roof base." },
           { question: "What are the signs of parapet wall failure?", answer: "Bulging or leaning walls, cracked coping stones, interior water stains near roof edges, and crumbling mortar at the base are warning signs." },
@@ -344,7 +599,28 @@ export const servicesData: Service[] = [
         features: ["Local Law 11/FISP Compliance", "Stone Carving & Repair", "Steam & Chemical Cleaning", "Full Safety Documentation"],
         stats: [{ label: "Law 11/FISP Status", value: "Fully Compliant" }, { label: "Restoration Longevity", value: "Extensive" }, { label: "DOB Filing", value: "Handled" }],
         benefits: [{ title: "Regulatory Compliance Experts", description: "Specialized navigation of NYC DOB facade regulations and Landmarks Preservation Commission requirements.", icon: "ClipboardCheck" }],
-        process: ["Full Facade Inspection", "Surface Cleaning", "Masonry Repairs", "Stone Carving Details", "Final Sealing & Protection"],
+        process: [
+        {
+          title: "Full Facade Inspection",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Surface Cleaning",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Masonry Repairs",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Stone Carving Details",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final Sealing & Protection",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "What is Local Law 11 and does my building need compliance?", answer: "Local Law 11 (FISP) is an NYC regulation requiring professional facade inspections every 5 years for buildings over 6 stories tall." },
           { question: "What happens if my building fails Local Law 11 inspection?", answer: "You receive a violation requiring repairs within a specified timeframe. Emergency repairs may be mandated immediately for unsafe conditions." },
@@ -368,7 +644,24 @@ export const servicesData: Service[] = [
         features: ["Soil Retention Engineering", "Integrated Drainage Systems", "Structural Masonry", "Erosion Prevention"],
         stats: [{ label: "Compressive Strength", value: "4000+ PSI" }, { label: "Structural Durability", value: "Lifetime" }, { label: "Drainage Design", value: "Engineered" }],
         benefits: [{ title: "Erosion Control Protection", description: "Professionally engineered walls prevent soil shifting that causes foundation pressure, cracking, and structural failure.", icon: "Activity" }],
-        process: ["Site Excavation", "Foundation Footing Pour", "Wall Construction", "Backfill & Drainage Installation"],
+        process: [
+        {
+          title: "Site Excavation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Foundation Footing Pour",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Wall Construction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Backfill & Drainage Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        }
+      ],
         faqs: [
           { question: "Do retaining walls require drainage systems?", answer: "Yes, professional retaining walls absolutely require drainage systems including weep holes and gravel backfill to prevent hydrostatic pressure buildup." },
           { question: "How high can a retaining wall be without engineering?", answer: "In NYC, retaining walls over 4 feet tall require engineered design and DOB permits regardless of construction method." },
@@ -391,7 +684,24 @@ export const servicesData: Service[] = [
         features: ["Premium Bluestone", "Paver Systems", "Custom Layout Design", "Professional Drainage"],
         stats: [{ label: "Property Value ROI", value: "High" }, { label: "Design Options", value: "Bespoke" }, { label: "Durability", value: "Lifetime" }],
         benefits: [{ title: "Outdoor Living Enhancement", description: "Professional patio installation increases usable square footage and creates valuable outdoor entertainment space.", icon: "Sun" }],
-        process: ["Site Grading", "Sub-base Preparation", "Stone/Paver Setting", "Joint Finishing & Sealing"],
+        process: [
+        {
+          title: "Site Grading",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Sub-base Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Stone/Paver Setting",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Joint Finishing & Sealing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "What is the best way to repair cracked stucco?", answer: "We remove loose material, apply a bonding agent, and use fiber-reinforced base coats before finishing with a custom color-matched texture." },
           { question: "What is the most durable patio material for NYC climate?", answer: "Natural bluestone is highly durable, freeze-thaw resistant, and the classic aesthetic choice for NYC properties." },
@@ -410,7 +720,28 @@ export const servicesData: Service[] = [
         features: ["Stoop Restoration", "Safety Tread Installation", "Structural Masonry", "Code Compliance"],
         stats: [{ label: "Safety Rating", value: "100%" }, { label: "Finish Quality", value: "Artisan" }, { label: "Permit Handling", value: "Included" }],
         benefits: [{ title: "Curb Appeal Maximization", description: "The front stoop creates crucial first impressions and represents the face of NYC brownstone properties.", icon: "Star" }],
-        process: ["Structural Assessment", "Formwork Construction", "Masonry Installation", "Finish Layer", "Safety Coating"],
+        process: [
+        {
+          title: "Structural Assessment",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Formwork Construction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Masonry Installation",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Finish Layer",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Safety Coating",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Can you repair crumbling brownstone steps?", answer: "Yes, we specialize in authentic brownstone patching and reconstruction using period-appropriate materials." },
           { question: "What are NYC step code requirements?", answer: "Rise (height) must be 7-8 inches, run (depth) 11+ inches, and treads must have non-slip surfaces or safety nosings." },
@@ -427,7 +758,28 @@ export const servicesData: Service[] = [
         features: ["High-Grade Silicone Sealants", "Old Caulk Removal", "Structural Expansion Joints", "Watertight Guarantee"],
         stats: [{ label: "Seal Life", value: "10-15 Years" }, { label: "Energy Savings", value: "15%" }, { label: "Water Protection", value: "100%" }],
         benefits: [{ title: "Energy Loss Prevention", description: "Stopping drafts and air leaks around window perimeters reduces heating and cooling costs significantly.", icon: "Thermometer" }],
-        process: ["Surface Cleaning", "Old Sealant Removal", "Backer Rod Installation", "Sealant Application", "Tooling & Finishing"],
+        process: [
+        {
+          title: "Surface Cleaning",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Old Sealant Removal",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Backer Rod Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Sealant Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Tooling & Finishing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "How often should window caulking be replaced?", answer: "Standard caulking lasts 5-10 years. We recommend inspection every 3 years to ensure seals remain flexible and watertight." },
           { question: "Do you remove the old caulk before applying new?", answer: "Yes, we always perform full removal of old, failed sealant to ensure proper adhesion and a long-lasting weather seal." },
@@ -442,7 +794,28 @@ export const servicesData: Service[] = [
         features: ["Structural Shoring", "Galvanized Steel Lintels", "Precision Flashing Installation", "Code-Compliant Support"],
         stats: [{ label: "Structural Rating", value: "Heavy Duty" }, { label: "Corrosion Resistance", value: "High" }, { label: "Permit Requirement", value: "DOB" }],
         benefits: [{ title: "Collapse Prevention", description: "Replacing rusted lintels stops 'rust jacking' that fractures bricks and leads to dangerous structural failure.", icon: "ShieldAlert" }],
-        process: ["Structural Shoring", "Masonry Removal", "New Lintel Installation", "Flashing & Weeps", "Brick Restoration"],
+        process: [
+        {
+          title: "Structural Shoring",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Masonry Removal",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "New Lintel Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Flashing & Weeps",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Brick Restoration",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "What is a lintel and why does it fail?", answer: "A lintel is the steel beam supporting masonry above a window or door. It fails when water causes rust, making the steel expand and 'jack' the bricks above it." },
           { question: "How do I know if my lintels need replacement?", answer: "Look for cracks in the bricks above window corners, or visible rust and flaking metal on the underside of the beam." },
@@ -457,7 +830,24 @@ export const servicesData: Service[] = [
         features: ["Anchor Point Repair", "Safety Compliance Inspections", "FDNY Coordination", "Structural Reinforcement"],
         stats: [{ label: "Life Safety", value: "Certified" }, { label: "Fire Code Compliance", value: "NYC/FDNY" }, { label: "Anchor Testing", value: "Performed" }],
         benefits: [{ title: "Emergency Life Safety", description: "Ensuring emergency exit points remain structurally secure and accessible for building occupants.", icon: "ShieldAlert" }],
-        process: ["Safety Inspection", "Anchor Stabilization", "Masonry Patching", "Final Load Testing"],
+        process: [
+        {
+          title: "Safety Inspection",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Anchor Stabilization",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Masonry Patching",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Final Load Testing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Does masonry condition affect fire escape safety?", answer: "Yes, loose crumbling masonry around fire escape anchors is a serious FDNY violation and safety hazard." },
           { question: "How often do fire escapes need inspection in NYC?", answer: "FDNY requires fire escape inspections every 5 years, with immediate repairs required for any safety violations found." },
@@ -474,7 +864,28 @@ export const servicesData: Service[] = [
         features: ["Stainless Steel Caps", "Masonry Rebuilding", "Flue Repair & Lining", "Freeze-Thaw Protection"],
         stats: [{ label: "Draft Efficiency", value: "Optimized" }, { label: "Fire Safety Rating", value: "A+" }, { label: "Waterproofing", value: "Complete" }],
         benefits: [{ title: "Fire Prevention Protection", description: "Eliminating cracks and debris that cause chimney fires and carbon monoxide infiltration into living spaces.", icon: "Flame" }],
-        process: ["Full Chimney Inspection", "Stack Rebuilding", "Lining Condition Check", "Cap Installation", "Sealing"],
+        process: [
+        {
+          title: "Full Chimney Inspection",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Stack Rebuilding",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Lining Condition Check",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Cap Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Sealing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "Why are NYC chimneys deteriorating so quickly?", answer: "NYC's repeated freeze-thaw cycles cause water to freeze inside masonry pores, expanding and cracking the structure." },
           { question: "What is the purpose of a chimney cap?", answer: "Caps prevent water entry, keep out animals and debris, stop downdrafts, and prevent sparks from escaping—essential fire protection." },
@@ -491,7 +902,28 @@ export const servicesData: Service[] = [
         features: ["French Drain Systems", "Liquid Membrane Application", "Exterior Excavation", "Complete Sump Pump Installation"],
         stats: [{ label: "Water Protection", value: "100%" }, { label: "Dryness Guarantee", value: "Written" }, { label: "System Longevity", value: "20-30 Years" }],
         benefits: [{ title: "Mold Prevention Health", description: "Stopping water before it creates hazardous mold conditions and health problems for building occupants.", icon: "CloudRain" }],
-        process: ["Site Excavation", "Membrane Application", "Drainage Installation", "Backfill", "Interior Finishing"],
+        process: [
+        {
+          title: "Site Excavation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Membrane Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Drainage Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Backfill",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Interior Finishing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "How long does professional foundation waterproofing last?", answer: "Our professional waterproofing systems typically provide 20-30 years of reliable protection with proper maintenance." },
           { question: "Does basement waterproofing increase home value?", answer: "Yes, dry usable basement space can increase property value by 10-15% and dramatically expands usable square footage." },
@@ -509,7 +941,24 @@ export const servicesData: Service[] = [
         features: ["Complete Structural Rebuild", "Full Code Compliance", "Historical Architectural Accuracy", "Engineered Solutions"],
         stats: [{ label: "Structural Strength", value: "Industrial" }, { label: "Code Compliance", value: "100%" }, { label: "Engineering Oversight", value: "Included" }],
         benefits: [{ title: "Complete Structural Renewal", description: "Restoring the core load-bearing stability of your building with modern engineering and materials.", icon: "HardHat" }],
-        process: ["Emergency Stabilization", "Controlled Demolition", "Architectural Rebuilding", "Period Finishing Details"],
+        process: [
+        {
+          title: "Emergency Stabilization",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Controlled Demolition",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Architectural Rebuilding",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Period Finishing Details",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Do masonry rebuilds require NYC DOB permits?", answer: "Yes, all major structural masonry rebuilds require approved DOB permits, which we handle completely for you." },
           { question: "How long does a complete masonry rebuild take?", answer: "Timelines vary from 2-3 weeks for small sections to 6-12 months for full facade replacement with scaffolding setup." },
@@ -549,7 +998,24 @@ export const servicesData: Service[] = [
         features: ["Sectional Flag Replacement", "Tree Root Management", "ADA Code Compliance", "Trip Hazard Elimination"],
         stats: [{ label: "Safety Improvement", value: "Restored" }, { label: "NYC Code Status", value: "Compliant" }, { label: "Project Timeline", value: "Minimized" }],
         benefits: [{ title: "Trip Hazard Removal", description: "Immediate elimination of dangerous walking surface defects, instantly making your property safer for pedestrians.", icon: "Shield" }],
-        process: ["Damaged Flag Removal", "Sub-base Leveling", "Sectional Concrete Pour", "Professional Broom Finish"],
+        process: [
+        {
+          title: "Damaged Flag Removal",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Sub-base Leveling",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Sectional Concrete Pour",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Professional Broom Finish",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Do you repair sidewalk damage caused by city trees?", answer: "Yes, we coordinate root pruning with NYC Parks Department guidelines while repairing elevation damage and trip hazards." },
           { question: "How much does sidewalk repair cost per square foot?", answer: "Typically $10-20 per square foot for patch repairs, $15-25 for full flag replacement depending on location and access." },
@@ -572,7 +1038,24 @@ export const servicesData: Service[] = [
         features: ["Full Property Demo", "NYC DOT Standards", "Professional Hand Finishing", "Permit Filing Included"],
         stats: [{ label: "Concrete Thickness", value: "4 Inches Minimum" }, { label: "Standard Compliance", value: "NYC DOT" }, { label: "Permit Handling", value: "Full Service" }],
         benefits: [{ title: "Long-term Property Value", description: "Fresh, professionally finished sidewalks that will provide decades of maintenance-free service and curb appeal.", icon: "TrendingUp" }],
-        process: ["Complete Excavation", "DOT Inspection Prep", "Continuous Concrete Pour", "Precision Pitching & Finishing"],
+        process: [
+        {
+          title: "Complete Excavation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "DOT Inspection Prep",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Continuous Concrete Pour",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Precision Pitching & Finishing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Does sidewalk replacement require city permits?", answer: "Yes, all sidewalk replacement requires NYC DOT permits which we file and manage completely for you." },
           { question: "How long does full sidewalk replacement take?", answer: "Typical residential property (50-100 feet) takes 3-5 days including excavation, forming, pouring, and curing time." },
@@ -595,7 +1078,24 @@ export const servicesData: Service[] = [
         features: ["Rebar Reinforcement", "Professional Broom Finish", "Expansion Joint Installation", "High-PSI Mix Design"],
         stats: [{ label: "Compressive Strength", value: "4500+ PSI" }, { label: "Cure Protection", value: "7 Days" }, { label: "Reinforcement", value: "Rebar Grid" }],
         benefits: [{ title: "Heavy Vehicle Support", description: "Reinforced concrete engineered to prevent cracking and settling under garbage trucks and delivery vehicles.", icon: "Truck" }],
-        process: ["Sub-base Compaction", "Rebar Grid Installation", "Precision Concrete Pour", "Joint Cutting & Curing"],
+        process: [
+        {
+          title: "Sub-base Compaction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Rebar Grid Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Precision Concrete Pour",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Joint Cutting & Curing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "Can a residential driveway handle heavy truck traffic?", answer: "Yes, our reinforced 4500+ PSI concrete mix is specifically engineered for heavy vehicle loads and daily truck traffic." },
           { question: "How long does new concrete driveway need to cure?", answer: "Light foot traffic: 24-48 hours. Vehicle traffic: Minimum 7 days, with full strength reached at 28 days." },
@@ -617,7 +1117,24 @@ export const servicesData: Service[] = [
         features: ["DOT Expediting Service", "Code-compliant Repairs", "City Lien Removal", "Full Documentation"],
         stats: [{ label: "Sign-off Guarantee", value: "100%" }, { label: "Accruing Fines", value: "Stopped" }, { label: "Processing Time", value: "Expedited" }],
         benefits: [{ title: "Title Clearance Protection", description: "Removing city-imposed liens that prevent property sales, refinancing, or ownership transfer.", icon: "FileCheck" }],
-        process: ["Violation Review & Plan", "DOT Permit Filing", "Certified Repair Work", "Final Inspection Sign-off"],
+        process: [
+        {
+          title: "Violation Review & Plan",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "DOT Permit Filing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Certified Repair Work",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        },
+        {
+          title: "Final Inspection Sign-off",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "How quickly can DOT sidewalk violations be cleared?", answer: "Emergency repairs can be done in 1-2 days, with city processing and sign-off typically taking 4-8 weeks." },
           { question: "What happens if I ignore a sidewalk violation?", answer: "The city will perform repairs at your expense (often 2-3x market rates), place a lien on your property, and add daily fines." },
@@ -640,7 +1157,24 @@ export const servicesData: Service[] = [
         features: ["Trip Hazard Correction", "Proper Pitch Restoration", "DOT Expedited Filing", "Penalty Avoidance"],
         stats: [{ label: "Repair Accuracy", value: "100%" }, { label: "DOT Compliance", value: "Guaranteed" }, { label: "Fine Accumulation", value: "Stopped" }],
         benefits: [{ title: "Financial Penalty Avoidance", description: "Stop the city from performing their own expensive repair work and billing you at inflated municipal rates.", icon: "Gavel" }],
-        process: ["DOT Record Search", "On-site Correction", "Affidavit Filing", "City Verification Dismissal"],
+        process: [
+        {
+          title: "DOT Record Search",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "On-site Correction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Affidavit Filing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "City Verification Dismissal",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "What is an Expedited DOT Dismissal?", answer: "A process where we certify repair completion directly to DOT officials, expediting the dismissal of your violation within 2-3 weeks." },
           { question: "What's the difference between DOT and DOB violations?", answer: "DOT handles sidewalk and public way violations; DOB handles structural, building code, and construction-related violations." },
@@ -662,7 +1196,24 @@ export const servicesData: Service[] = [
         features: ["DOB Expediting Service", "Permit Recovery Process", "As-Built Documentation", "Structural Engineering"],
         stats: [{ label: "Violation Status", value: "Cleared" }, { label: "Legal Compliance", value: "Handled" }, { label: "DOB Filing", value: "Complete" }],
         benefits: [{ title: "Safe Property Certification", description: "Ensuring your building meets all DOB safety codes, protecting occupants and avoiding legal liability.", icon: "ShieldCheck" }],
-        process: ["Violation Analysis", "Architectural Filing", "Corrective Work", "Final DOB Sign-off & Dismissal"],
+        process: [
+        {
+          title: "Violation Analysis",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Architectural Filing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Corrective Work",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final DOB Sign-off & Dismissal",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Can DOB violations affect mortgage approval?", answer: "Yes, lenders almost always require clear DOB records and violation dismissal before approving property loans or refinancing." },
           { question: "What's the difference between ECB and DOB violations?", answer: "ECB handles administrative hearings and fines for violations; DOB issues the original citations and requires corrective work sign-off." },
@@ -684,7 +1235,24 @@ export const servicesData: Service[] = [
         features: ["Building Underpinning", "Poured Concrete Foundations", "Integrated Waterproofing", "Structural Engineering"],
         stats: [{ label: "Concrete Strength", value: "4000+ PSI" }, { label: "Structural Grade", value: "Industrial" }, { label: "Waterproofing", value: "Integrated" }],
         benefits: [{ title: "Core Building Stability", description: "The most critical structural element of any building, professionally engineered to support your entire structure.", icon: "Building2" }],
-        process: ["Site Excavation", "Formwork Shuttering", "Rebar Reinforcement Grid", "Continuous Concrete Pour"],
+        process: [
+        {
+          title: "Site Excavation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Formwork Shuttering",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Rebar Reinforcement Grid",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Continuous Concrete Pour",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Does your company do foundation underpinning?", answer: "Yes, we safely deepen or reinforce existing foundations for basement height increases and structural stabilization." },
           { question: "How deep should foundation footings be in NYC?", answer: "Minimum 36-48 inches below grade to reach below frost line, deeper for larger buildings based on engineering calculations." },
@@ -706,7 +1274,24 @@ export const servicesData: Service[] = [
         features: ["Patio Slab Installation", "Integrated Drainage Systems", "Professional Broom Finish", "Stamped Pattern Options"],
         stats: [{ label: "Property Value ROI", value: "Significant" }, { label: "Water Pitch", value: "Optimized" }, { label: "Finish Options", value: "Multiple" }],
         benefits: [{ title: "Low Maintenance Outdoor Living", description: "Durable, clean, easy-maintenance surfaces that expand usable living space and increase property enjoyment.", icon: "RefreshCw" }],
-        process: ["Site Leveling", "Sub-base Preparation", "Reinforcement Installation", "Final Concrete Pour & Finish"],
+        process: [
+        {
+          title: "Site Leveling",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Sub-base Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Reinforcement Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Final Concrete Pour & Finish",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Will my backyard concrete patio drain properly?", answer: "Yes, every concrete project includes a professionally calculated pitch that directs water away from your building." },
           { question: "Can concrete be stamped to look like stone or brick?", answer: "Yes, stamped concrete offers the look of natural stone, brick, or slate at a fraction of the material and installation cost." },
@@ -739,7 +1324,28 @@ export const servicesData: Service[] = [
         features: ["Custom Cabinet Design", "Natural Stone Counters", "Modern Plumbing Fixtures", "Under Cabinet Lighting"],
         stats: [{ label: "Property Value ROI", value: "+25%" }, { label: "Design Quality", value: "Bespoke" }, { label: "Project Timeline", value: "6-10 Weeks" }],
         benefits: [{ title: "Maximum Return on Investment", description: "Professional kitchen renovations offer the highest property value return of any home improvement project.", icon: "DollarSign" }],
-        process: ["Design Consultation", "Complete Demolition", "Rough-in Work", "Cabinet Installation", "Final Finishing Details"],
+        process: [
+        {
+          title: "Design Consultation",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Complete Demolition",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Rough-in Work",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Cabinet Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Final Finishing Details",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "How long does a complete kitchen renovation typically take?", answer: "A full kitchen renovation with custom cabinetry and new appliances typically takes 6-10 weeks from demo to completion." },
           { question: "Do I need permits for kitchen renovation in NYC?", answer: "Yes, plumbing, electrical, and structural changes require DOB permits. Cosmetic updates (cabinets, counters, appliances) typically don't." },
@@ -756,7 +1362,28 @@ export const servicesData: Service[] = [
         features: ["Spa Shower Systems", "Full Waterproofing", "Artisan Tile Work", "Heated Floor Options"],
         stats: [{ label: "Spa Quality Grade", value: "Platinum" }, { label: "Tile Precision", value: "Professional" }, { label: "Waterproofing", value: "Schluter Certified" }],
         benefits: [{ title: "Complete Water Protection", description: "Schluter-certified waterproofing systems that guarantee no moisture penetration behind walls or into subfloors.", icon: "Droplets" }],
-        process: ["Area Protection", "Complete Demolition", "Schluter Waterproofing", "Tile Installation", "Fixture Installation"],
+        process: [
+        {
+          title: "Area Protection",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Complete Demolition",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Schluter Waterproofing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Tile Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Fixture Installation",
+          description: "Repairing underlying structural layers to establish a perfectly sound foundation."
+        }
+      ],
         faqs: [
           { question: "Do your bathroom renovations include Schluter waterproofing systems?", answer: "Yes, we are certified Schluter installers, providing industry-leading waterproofing with full warranty coverage." },
           { question: "How long does bathroom renovation take in NYC?", answer: "Standard bathroom: 3-5 weeks. Master bath with luxury features: 5-8 weeks depending on custom elements and complexity." },
@@ -774,7 +1401,28 @@ export const servicesData: Service[] = [
         features: ["Egress Window Installation", "Full Waterproofing Systems", "Recessed LED Lighting", "Moisture Control Guarantee"],
         stats: [{ label: "Usable Space Increase", value: "Maximized" }, { label: "Dryness Guarantee", value: "100%" }, { label: "Compliance", value: "Egress Certified" }],
         benefits: [{ title: "Dramatic Square Footage Increase", description: "Effectively doubling your home's usable living space while significantly increasing property value.", icon: "Layout" }],
-        process: ["Waterproofing Installation", "Wall Framing", "Electrical Rough-in", "Insulation Application", "Flooring & Finishing"],
+        process: [
+        {
+          title: "Waterproofing Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Wall Framing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Electrical Rough-in",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Insulation Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Flooring & Finishing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "How do you stop basement water infiltration permanently?", answer: "We install comprehensive interior drainage systems with sump pumps that capture and redirect groundwater before it enters your space." },
           { question: "What is required for legal basement bedroom in NYC?", answer: "Egress window meeting size requirements, ceiling height minimums, proper ventilation, and separate means of egress from upper floors." },
@@ -791,7 +1439,28 @@ export const servicesData: Service[] = [
         features: ["Structural Wall Removal", "Professional Finish Carpentry", "Venetian Plastering", "Full Gut Capability"],
         stats: [{ label: "Finish Quality", value: "Elite" }, { label: "Carpentry Detail", value: "Artisan" }, { label: "Project Scale", value: "Full Home" }],
         benefits: [{ title: "Completely Custom Living", description: "A home environment tailored exactly to your lifestyle, workflow, and aesthetic preferences.", icon: "Sparkles" }],
-        process: ["Comprehensive Planning", "Full Demolition", "Framing & Structure", "Plaster/Drywall Installation", "Flooring & Trim Details"],
+        process: [
+        {
+          title: "Comprehensive Planning",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Full Demolition",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Framing & Structure",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Plaster/Drywall Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Flooring & Trim Details",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Does your company handle NYC co-op board approval requirements?", answer: "Yes, we have extensive experience with co-op and condo board requirements, insurance certificates, and alteration agreements." },
           { question: "How long does a full apartment gut renovation take?", answer: "One-bedroom: 2-3 months. 2-3 bedroom: 3-5 months. Full townhouse: 6-12 months depending on scope and complexity." },
@@ -831,7 +1500,32 @@ export const servicesData: Service[] = [
         features: ["Fine Crack Injection", "Exact Color Matching", "Substrate Repair", "Weather Seal Application"],
         stats: [{ label: "Color Match Accuracy", value: "Exact" }, { label: "Water Seal Rating", value: "100%" }, { label: "Repair Longevity", value: "Decades" }],
         benefits: [{ title: "Water Infiltration Prevention", description: "Stopping water intrusion that causes hidden structural rot, mold growth, and interior damage behind stucco.", icon: "ShieldAlert" }],
-        process: ["Defect Removal", "Lath Condition Check", "Base/Mesh Application", "Color-matched Patch", "Texture Blend", "Protective Seal"],
+        process: [
+        {
+          title: "Defect Removal",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Lath Condition Check",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Base/Mesh Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Color-matched Patch",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Texture Blend",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Protective Seal",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Can you color-match aged, faded stucco exactly?", answer: "Yes, we digitally analyze existing color and custom-mix pigments to match even weathered, UV-faded finishes precisely." },
           { question: "How do I know if stucco needs repair?", answer: "Signs include hairline cracks, bulging areas, hollow sounds when tapped, efflorescence (white stains), or visible water staining." },
@@ -848,7 +1542,28 @@ export const servicesData: Service[] = [
         features: ["Professional 3-Coat System", "Class A Fire Resistant", "Impact Resistant", "50+ Year Longevity"],
         stats: [{ label: "Surface Hardness", value: "Industrial" }, { label: "System Longevity", value: "50+ Years" }, { label: "Fire Rating", value: "Class A" }],
         benefits: [{ title: "Maximum Fire Safety", description: "Traditional Portland cement stucco is completely non-combustible, providing superior fire protection for your building.", icon: "ShieldCheck" }],
-        process: ["Wire Lath Installation", "Scratch Coat Application", "Brown Coat Application", "Curing Period", "Finish Coat Texturing"],
+        process: [
+        {
+          title: "Wire Lath Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Scratch Coat Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Brown Coat Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Curing Period",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Finish Coat Texturing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Is traditional stucco or EIFS better for my building?", answer: "Traditional stucco offers superior hardness and impact resistance; EIFS offers better insulation value. Choose based on your priorities." },
           { question: "How thick is traditional 3-coat stucco?", answer: "Traditional 3-coat system is approximately 7/8 inch total thickness (scratch: 3/8\", brown: 3/8\", finish: 1/8\")." },
@@ -865,7 +1580,28 @@ export const servicesData: Service[] = [
         features: ["Digital Spectrophotometer Analysis", "UV-Stable Pigment Formulation", "Weathered Finish Matching", "Seamless Blend Guarantee"],
         stats: [{ label: "Color Accuracy", value: "99%" }, { label: "Repair Seamlessness", value: "Invisible" }, { label: "UV Stability", value: "Premium" }],
         benefits: [{ title: "Truly Invisible Repairs", description: "Maintaining your property's uniform aesthetic without visible patches or mismatched sections.", icon: "Eye" }],
-        process: ["Digital Color Sampling", "Pigment Formulation", "Test Swatch Application", "Drying Verification", "Final Approval & Application"],
+        process: [
+        {
+          title: "Digital Color Sampling",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Pigment Formulation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Test Swatch Application",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Drying Verification",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final Approval & Application",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Will custom-matched colors fade differently than original stucco?", answer: "We use premium UV-stable pigments identical to those used in original stucco manufacturing for consistent aging and fading patterns." },
           { question: "Can you match stucco texture as well as color?", answer: "Yes, we replicate textures using specialized techniques including spray, dash, swirl, or hand-troweled finishes to match existing patterns." },
@@ -882,7 +1618,32 @@ export const servicesData: Service[] = [
         features: ["Heavy Hand Texture", "Artisan Application Only", "Dramatic Shadow Lines", "Traditional Base Materials"],
         stats: [{ label: "Texture Quality", value: "Hand-Crafted" }, { label: "Aesthetic Grade", value: "Premium" }, { label: "Application Method", value: "Artisan Only" }],
         benefits: [{ title: "Dynamic Architectural Depth", description: "A layered, dimensional look that reacts beautifully with changing natural light throughout the day.", icon: "Sparkles" }],
-        process: ["Surface Preparation", "Scratch Coat", "Brown Coat", "Heavy Texture Layer Application", "Proper Curing", "Protective Sealer"],
+        process: [
+        {
+          title: "Surface Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Scratch Coat",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Brown Coat",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Heavy Texture Layer Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Proper Curing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Protective Sealer",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "What exactly is the California stucco finish?", answer: "A heavy, rustic hand-troweled texture that creates deep shadow lines and Mediterranean character, popular for luxury homes." },
           { question: "How much more does California finish cost?", answer: "California finish typically costs 25-40% more than traditional smooth finish due to specialized artisan labor and application time." },
@@ -899,7 +1660,28 @@ export const servicesData: Service[] = [
         features: ["Energy Efficiency Optimization", "Crack-Resistant Technology", "Design Flexibility", "Continuous Insulation"],
         stats: [{ label: "Energy Savings", value: "30%" }, { label: "System Longevity", value: "30+ Years" }, { label: "Color Options", value: "Unlimited" }],
         benefits: [{ title: "Thermal Bridge Elimination", description: "Continuous exterior insulation completely prevents heat loss through wall framing, dramatically reducing energy costs.", icon: "Thermometer" }],
-        process: ["Substrate Preparation", "Insulation Board Installation", "Base Coat Application", "Reinforcing Mesh", "Finish Coat Texturing"],
+        process: [
+        {
+          title: "Substrate Preparation",
+          description: "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+        },
+        {
+          title: "Insulation Board Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Base Coat Application",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Reinforcing Mesh",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Finish Coat Texturing",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Are EIFS stucco systems truly waterproof?", answer: "Yes, with properly installed drainage planes and termination details, EIFS provides excellent water resistance and moisture management." },
           { question: "How does EIFS compare to traditional stucco cost?", answer: "EIFS typically costs 15-25% more than traditional stucco but offers superior insulation and energy savings that offset initial investment." },
@@ -927,7 +1709,32 @@ export const servicesData: Service[] = [
         features: ["Full Architectural Services", "Streamlined Workflow", "Single Point Accountability", "Cost Control Systems"],
         stats: [{ label: "Time Savings", value: "30%" }, { label: "Budget Adherence", value: "95%+" }, { label: "Change Orders", value: "Reduced" }],
         benefits: [{ title: "Complete Budget Control", description: "Design developed alongside real-time cost estimation, eliminating surprises and value engineering crises.", icon: "DollarSign" }],
-        process: ["Feasibility Study", "Site Analysis", "Design Development", "Permitting", "Construction", "Final Handover"],
+        process: [
+        {
+          title: "Feasibility Study",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Site Analysis",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Design Development",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Permitting",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Construction",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final Handover",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "What's the advantage of design-build vs. traditional construction?", answer: "Single contract equals single accountability. Design-build eliminates finger-pointing between architect and contractor, typically saving 20-30% of project time." },
           { question: "Do you have in-house architects?", answer: "Yes, our integrated team includes licensed architects, engineers, and construction managers working collaboratively from day one." },
@@ -951,7 +1758,28 @@ export const servicesData: Service[] = [
         features: ["Custom Architectural Millwork", "Exotic Natural Stones", "Venetian Plastering", "Hand-Applied Specialty Finishes"],
         stats: [{ label: "Workmanship Quality", value: "Museum Grade" }, { label: "Material Sourcing", value: "Global" }, { label: "Installation Method", value: "Artisan Only" }],
         benefits: [{ title: "Heirloom Artisan Craftsmanship", description: "Finishes installed by the world's most skilled craftsmen, creating irreplaceable architectural character.", icon: "Award" }],
-        process: ["Material Selection", "Shop Drawings", "Mockup Creation", "Precision Installation", "Final Polishing & Sealing"],
+        process: [
+        {
+          title: "Material Selection",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Shop Drawings",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Mockup Creation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Precision Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Final Polishing & Sealing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        }
+      ],
         faqs: [
           { question: "Does your firm source materials internationally?", answer: "Yes, we source Italian marble, French limestone, exotic African hardwoods, and other global materials for discerning clients." },
           { question: "What is Venetian plastering?", answer: "A high-end wall finish using burnished lime plaster creating polished marble-like depth with subtle color variations impossible to achieve with paint." },
@@ -975,7 +1803,32 @@ export const servicesData: Service[] = [
         features: ["Timeline Management Systems", "Quality Control Protocols", "Subcontractor Coordination", "Real-Time Budget Tracking"],
         stats: [{ label: "Schedule Efficiency", value: "+40%" }, { label: "Budget Adherence", value: "95%+" }, { label: "Quality Standard", value: "Verified" }],
         benefits: [{ title: "Stress-Free Construction Experience", description: "We handle all complexity, vendor coordination, and problem-solving so you can focus on your life.", icon: "ShieldCheck" }],
-        process: ["Master Scheduling", "Vendor Selection Management", "On-site Supervision", "Progress Reporting", "Quality Verification", "Final Walkthrough"],
+        process: [
+        {
+          title: "Master Scheduling",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Vendor Selection Management",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "On-site Supervision",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Progress Reporting",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Quality Verification",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Final Walkthrough",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        }
+      ],
         faqs: [
           { question: "Will your project managers handle all subcontractors?", answer: "Yes, we manage every trade on site from demolition to final finishes, coordinating all scheduling, quality control, and payments." },
           { question: "How often will I receive project updates?", answer: "Weekly written reports, bi-weekly on-site meetings, plus immediate notifications for any significant issues, delays, or changes." },
@@ -999,7 +1852,28 @@ export const servicesData: Service[] = [
         features: ["Full Home Automation", "Integrated Security Systems", "Climate Control Zones", "Architectural Lighting Design"],
         stats: [{ label: "Energy Efficiency", value: "+30%" }, { label: "Technology Level", value: "Future-Proof" }, { label: "System Integration", value: "Seamless" }],
         benefits: [{ title: "Intelligent Modern Living", description: "A home that anticipates and responds to your needs, managing energy, comfort, and security automatically.", icon: "Cpu" }],
-        process: ["System Design & Engineering", "Pre-construction Rough-in", "Device Installation", "Software Configuration", "User Training & Handover"],
+        process: [
+        {
+          title: "System Design & Engineering",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        },
+        {
+          title: "Pre-construction Rough-in",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Device Installation",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Software Configuration",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "User Training & Handover",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Can I control my entire home from my smartphone?", answer: "Yes, our systems are fully integrated with iOS and Android apps for complete remote control of all home functions from anywhere." },
           { question: "Will smart home technology become obsolete quickly?", answer: "We use open protocols and separate control systems from user interfaces, allowing component upgrades without rewiring the entire home." },
@@ -1034,7 +1908,32 @@ export const servicesData: Service[] = [
         features: ["Immediate Team Dispatch", "Safety Priority Response", "24/7 Call Center", "Fully Equipped Emergency Trucks"],
         stats: [{ label: "Average Response", value: "60 Minutes" }, { label: "Coverage", value: "24/7/365" }, { label: "Equipment Status", value: "Ready" }],
         benefits: [{ title: "Instant Emergency Stabilization", description: "Professional shoring, bracing, and tarping to prevent collapse and further damage immediately upon arrival.", icon: "Anchor" }],
-        process: ["Emergency Call Received", "Team Mobilization", "Site Arrival", "Hazard Mitigation", "Full Stabilization", "Damage Documentation"],
+        process: [
+        {
+          title: "Emergency Call Received",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Team Mobilization",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Site Arrival",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Hazard Mitigation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Full Stabilization",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Damage Documentation",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "How fast can you arrive for an emergency?", answer: "Our emergency teams typically arrive within 60-90 minutes for NYC locations, faster for critical structural collapse risks." },
           { question: "Do you charge extra for emergency calls?", answer: "Emergency response includes premium dispatch fees plus time and materials. We provide estimates before any non-stabilization work begins." },
@@ -1051,7 +1950,32 @@ export const servicesData: Service[] = [
         features: ["Structural Load Evaluation", "Damage Assessment", "Occupancy Determination", "Professional Insurance-Ready Reporting"],
         stats: [{ label: "Assessment Accuracy", value: "100%" }, { label: "Response Time", value: "Within Hours" }, { label: "Documentation", value: "Insurance-Ready" }],
         benefits: [{ title: "Complete Peace of Mind", description: "Knowing exactly where your property stands regarding safety, required repairs, and future risks.", icon: "ShieldCheck" }],
-        process: ["Visual Structural Check", "Equipment Testing", "Risk Analysis", "Occupancy Determination", "Detailed Report with Photos", "Recommendations"],
+        process: [
+        {
+          title: "Visual Structural Check",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Equipment Testing",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Risk Analysis",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Occupancy Determination",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Detailed Report with Photos",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Recommendations",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "How quickly can your team perform an emergency safety assessment?", answer: "Our emergency assessment teams can be on-site and evaluating your building within 60 minutes of your initial call." },
           { question: "Is your safety assessment accepted by insurance companies?", answer: "Yes, we provide professional, detailed reports with photos that insurance adjusters accept for claim documentation." },
@@ -1068,7 +1992,32 @@ export const servicesData: Service[] = [
         features: ["Emergency Boarding", "Roof Tarping Systems", "Complete Weather Sealing", "Theft Prevention Security"],
         stats: [{ label: "Response Speed", value: "Immediate" }, { label: "Security Rating", value: "High" }, { label: "Weather Protection", value: "Complete" }],
         benefits: [{ title: "Theft Prevention Protection", description: "Securing your property, assets, and contents immediately after damage prevents secondary theft and vandalism losses.", icon: "Lock" }],
-        process: ["Opening Measurement", "Custom Plywood Cutting", "Mechanical Fastening", "Complete Weather Sealing", "Final Security Check", "Documentation Photos"],
+        process: [
+        {
+          title: "Opening Measurement",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Custom Plywood Cutting",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Mechanical Fastening",
+          description: "Expert application of certified premium materials using industry-leading tools and methods."
+        },
+        {
+          title: "Complete Weather Sealing",
+          description: "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+        },
+        {
+          title: "Final Security Check",
+          description: "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+        },
+        {
+          title: "Documentation Photos",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        }
+      ],
         faqs: [
           { question: "Is board-up service permanent?", answer: "No, board-up provides secure, weatherproof temporary protection until permanent window, door, or roof repairs can be scheduled." },
           { question: "How long does board-up last?", answer: "Professional board-up remains weatherproof for 30-90 days, allowing time for insurance approval and permanent repair scheduling." },
@@ -1085,7 +2034,28 @@ export const servicesData: Service[] = [
         features: ["24/7 Call Availability", "Elite Technician Access", "Fully Stocked Response Trucks", "Weekend & Holiday Service"],
         stats: [{ label: "Year-Round Availability", value: "365 Days" }, { label: "Max Response Time", value: "2 Hours" }, { label: "Service Area", value: "All NYC Boroughs" }],
         benefits: [{ title: "Always-On Emergency Partnership", description: "A construction partner that never sleeps and stands ready to protect your property whenever disaster strikes.", icon: "Clock" }],
-        process: ["Emergency Intake & Triage", "Expert Technician Dispatch", "On-site Arrival & Assessment", "Immediate Stabilization", "Follow-up Plan & Scheduling"],
+        process: [
+        {
+          title: "Emergency Intake & Triage",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Expert Technician Dispatch",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "On-site Arrival & Assessment",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Immediate Stabilization",
+          description: "Professional implementation by our certified crews matching NYC structural codes."
+        },
+        {
+          title: "Follow-up Plan & Scheduling",
+          description: "Detailed planning, site surveying, and budget estimation to align project requirements."
+        }
+      ],
         faqs: [
           { question: "Does your emergency team work on major holidays?", answer: "Yes, our emergency response units are fully staffed and operational 24 hours a day, 365 days a year including all holidays." },
           { question: "What's your service area?", answer: "All five NYC boroughs: Manhattan, Brooklyn, Queens, Bronx, Staten Island plus Westchester, Long Island, and Northern NJ." },

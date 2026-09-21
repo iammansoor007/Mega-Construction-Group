@@ -24,7 +24,7 @@ export const SectionHeader = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.65, ease: [0.215, 0.61, 0.355, 1] }}
-      className={`mb-12 md:mb-16 ${center ? "text-center" : ""} ${className}`}
+      className={`mb-6 md:mb-8 ${center ? "text-center" : ""} ${className}`}
     >
       {badge && (
         <div className={`inline-flex items-center gap-2 mb-4 ${center ? "justify-center" : ""}`}>

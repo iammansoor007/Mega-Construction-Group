@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SectionHeader from "@/components/SectionHeader";
 import {
   Award, Shield, Clock, CheckCircle2, Users,
   Star, Phone, Mail, MapPin, ArrowRight, ArrowUpRight,
@@ -153,42 +154,41 @@ export default function AboutPage() {
       <main ref={containerRef} className="min-h-screen bg-white overflow-hidden select-none">
 
         {/* ── HERO ───────────────────────────────────────────────── */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-28 pb-16">
-          {/* Subtle gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-white to-red-50/30" />
-          <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] blur-[120px] opacity-[0.06] pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(195,5,5,0.8) 0%, transparent 70%)" }} />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[300px] blur-[100px] opacity-[0.04] pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(59,130,246,0.5) 0%, transparent 70%)" }} />
+        <section className="relative min-h-[60vh] flex items-center overflow-hidden pt-32 pb-20 blueprint-grid">
+          <div className="tech-scanner" />
+          <div className="absolute inset-0 bg-black/60 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
               {/* Left Text */}
-              <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
+              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
+                  className="flex items-center justify-center lg:justify-start gap-2 mb-2"
                 >
-                  <SectionLabel text="Established 2005 • NYC Contractor" />
+                  <span className="w-8 h-px bg-red-500" />
+                  <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-red-500">Established 2005 • NYC Contractor</span>
                 </motion.div>
 
                 <motion.h1
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.1 }}
-                  className="text-4xl sm:text-5xl lg:text-6xl tracking-tight text-gray-900 leading-[1.1]"
+                  className="heading-lg text-white leading-none tracking-tight text-center lg:text-left"
                 >
-                  <span className="font-light">Shaping New York's</span><br />
-                  <span className="font-semibold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">Structural Legacy</span>
+                  Shaping New York's<br />
+                  <span className="text-red-500 font-bold">Structural Legacy</span>
                 </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-gray-500 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light"
+                  className="text-white/90 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal"
                 >
                   Mega Contracting NY Group delivers state-of-the-art engineering, structural restoration, and general contracting across all 5 boroughs with unmatched craftsmanship and transparent integrity.
                 </motion.p>
@@ -205,8 +205,8 @@ export default function AboutPage() {
                     { icon: Star, text: "BBB A+ Rated" },
                     { icon: ClipboardCheck, text: "10-Year Warranty" },
                   ].map((pill, i) => (
-                    <div key={i} className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-gray-50 text-[11px] font-medium text-gray-600 hover:bg-red-50 hover:text-red-700 transition-all duration-300">
-                      <pill.icon className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                    <div key={i} className="flex items-center gap-2 px-3.5 py-2 bg-white/10 backdrop-blur-sm border border-white/10 text-[11px] font-bold text-white hover:bg-red-600 hover:text-white transition-all duration-300">
+                      <pill.icon className="w-3.5 h-3.5 text-red-500 shrink-0" />
                       {pill.text}
                     </div>
                   ))}
@@ -219,20 +219,20 @@ export default function AboutPage() {
                   transition={{ delay: 0.4 }}
                   className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
                 >
-                  <Link href="/contact">
+                  <Link href="/contact" className="w-full sm:w-auto">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-red-600 to-red-700 text-white font-medium text-sm rounded-full shadow-lg shadow-red-600/20 hover:shadow-xl hover:shadow-red-600/30 transition-all duration-300 cursor-pointer"
+                      className="flex items-center justify-center gap-2.5 px-8 py-4 bg-primary text-white font-bold text-lg rounded-none shadow-xl hover:shadow-2xl hover:bg-primary/90 transition-all duration-300 cursor-pointer"
                     >
-                      Get Free Estimate <ArrowRight className="w-4 h-4" />
+                      Get Free Estimate <ArrowRight className="w-5 h-5" />
                     </motion.div>
                   </Link>
-                  <Link href="/services">
+                  <Link href="/services" className="w-full sm:w-auto">
                     <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-2.5 px-7 py-3.5 bg-white text-gray-700 font-medium text-sm rounded-full shadow-sm hover:shadow-md hover:text-red-600 transition-all duration-300 cursor-pointer"
+                      className="flex items-center justify-center gap-2.5 px-8 py-4 bg-white/10 border border-white/30 text-white font-bold text-lg rounded-none hover:bg-white/20 transition-all duration-300 cursor-pointer"
                     >
                       Our Services
                     </motion.div>
@@ -249,17 +249,15 @@ export default function AboutPage() {
               >
                 <div className="relative">
                   {/* Main image */}
-                  <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-900/10">
+                  <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden shadow-2xl border-2 border-white/20">
                     <Image
                       src="/assets/megaabout.png"
                       alt="Mega Construction - Premier NYC Contractor Since 2005"
                       fill
-                      className="object-cover"
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    {/* Badge on image */}
-
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                   </div>
 
                   {/* Floating owner card */}
@@ -267,24 +265,20 @@ export default function AboutPage() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    className="absolute -bottom-6 -left-6 w-[55%] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/15 hidden sm:block"
+                    className="absolute -bottom-6 -left-6 w-[55%] aspect-[3/4] rounded-none overflow-hidden shadow-2xl border-2 border-white/20 hidden sm:block"
                   >
                     <Image
                       src="/assets/megaownerprinted.png"
                       alt="Adil Shamis - Founder of Mega Contracting NY Group"
                       fill
-                      className="object-cover"
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <p className="text-[9px] font-semibold uppercase tracking-widest text-red-400">Founder & Owner</p>
-                      <p className="text-sm font-semibold">Adil Shamis</p>
+                      <p className="text-[9px] font-bold uppercase tracking-widest text-red-500">Founder & Owner</p>
+                      <p className="text-sm font-bold">Adil Shamis</p>
                     </div>
                   </motion.div>
-
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-red-600/5 blur-sm" />
-                  <div className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full bg-blue-600/3 blur-md" />
                 </div>
               </motion.div>
             </div>
@@ -295,34 +289,31 @@ export default function AboutPage() {
         <Marquee />
 
         {/* ── STATS ──────────────────────────────────────────────── */}
-        <section className="py-20 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="By the Numbers" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">20 Years of </span>
-                <span className="font-semibold text-red-600">Proven Results</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto mt-3 font-light">Numbers that reflect our commitment to New York families and businesses.</p>
-            </FadeIn>
+            <SectionHeader
+              badge="By the Numbers"
+              headline="20 Years of <span class='text-red-600'>Proven Results</span>"
+              description="Numbers that reflect our commitment to New York families and businesses."
+            />
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {stats.map((s, i) => {
                 const IconComp = s.icon;
                 return (
                   <FadeIn key={i} delay={i * 0.1}>
                     <motion.div
                       whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                      className="group relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 lg:p-8 text-center hover:shadow-lg transition-all duration-300"
+                      className="group relative bg-white border border-gray-250 rounded-2xl p-6 lg:p-8 text-center hover:shadow-lg hover:border-red-500/40 transition-all duration-300"
                     >
-                      <div className="w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600/10 transition-colors duration-300">
-                        <IconComp className="w-5 h-5 text-red-600" />
+                      <div className="w-12 h-12 rounded-none mx-auto mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
+                        <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" />
                       </div>
-                      <div className="text-3xl lg:text-4xl font-semibold text-gray-900 mb-1 tracking-tight">
+                      <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1 tracking-tight">
                         <Counter to={s.value} suffix={s.suffix} />
                       </div>
-                      <div className="text-xs font-medium text-gray-500 tracking-wide uppercase">{s.label}</div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[2px] rounded-full bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
+                      <div className="text-xs font-bold text-gray-400 tracking-wider uppercase">{s.label}</div>
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
                     </motion.div>
                   </FadeIn>
                 );
@@ -336,61 +327,61 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <FadeIn className="lg:col-span-5 relative">
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-gray-900/10 aspect-[4/5]">
+                <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-xl aspect-[4/5]">
                   <Image src="/assets/megaownerprinted.png" alt="Mega Construction - Building Excellence in New York City"
                     fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                  <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[10px] font-semibold uppercase tracking-widest text-gray-700 shadow-sm">
+                  <div className="absolute top-5 left-5 px-3 py-1.5 bg-white border border-gray-250 text-[10px] font-bold uppercase tracking-widest text-gray-700 shadow-sm">
                     EST. 2005
                   </div>
-                  <div className="absolute bottom-5 right-5 px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-700">BBB A+ Accredited</span>
+                  <div className="absolute bottom-5 right-5 px-4 py-2 bg-white border border-gray-250 shadow-sm">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">BBB A+ Accredited</span>
                   </div>
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.15} className="lg:col-span-7 space-y-6">
-                <SectionLabel text="Our Leadership" />
-                <h2 className="text-3xl sm:text-4xl text-gray-900 leading-tight tracking-tight">
-                  <span className="font-light">Meet the Founder</span><br />
-                  <span className="font-semibold text-red-600">Adil Shamis</span>
-                </h2>
-                <p className="text-xs tracking-wider text-gray-400 uppercase font-medium">General Contractor • Founder & Owner</p>
+                <SectionHeader
+                  badge="Our Leadership"
+                  headline="Meet the Founder: <span class='text-red-600'>Adil Shamis</span>"
+                  description="General Contractor • Founder & Owner"
+                  center={false}
+                />
 
                 <blockquote className="relative pl-5">
-                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-red-600 via-red-400 to-transparent rounded-full" />
-                  <p className="text-gray-600 text-lg leading-relaxed italic font-light">
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-red-600 rounded-none" />
+                  <p className="text-gray-600 text-lg leading-relaxed italic font-normal">
                     &ldquo;Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity.&rdquo;
                   </p>
                 </blockquote>
 
-                <div className="space-y-3 text-gray-500 text-[15px] leading-relaxed font-light">
+                <div className="space-y-4 text-gray-500 text-sm sm:text-base leading-relaxed font-normal">
                   <p>As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability that has made Mega Contracting the go-to contractor for homeowners and property managers alike.</p>
                   <p>With over two decades of experience in general contracting, renovation, and commercial construction, his hands-on approach ensures every project meets the highest standards of quality and craftsmanship.</p>
                   <p>Under Adil's leadership, Mega Contracting NY Group has expanded its capabilities to provide comprehensive specialty services across Greater New York. We are the premier choice for <strong>facade restoration nyc</strong>, <strong>flat roofing nyc</strong>, and emergency <strong>roof leak repair nyc</strong>. Homeowners and property managers trust our expert teams for complex <strong>parapet wall repair nyc</strong>, structural <strong>chimney repair nyc</strong>, <strong>brick pointing nyc</strong>, and certified <strong>fire escape painting nyc</strong> to keep buildings safe and code-compliant.</p>
                   <p>As an established <strong>eifs contractor nyc</strong> and <strong>waterproofing contractor nyc</strong>, we resolve water intrusion and cladding issues on properties of any scale. We also provide professional <strong>stucco repair nyc</strong>, concrete <strong>sidewalk repair nyc</strong>, and structural <strong>foundation repair nyc</strong>. If your building has pending violations, our team performs detailed <strong>building safety assessment nyc</strong> inspections, handling both <strong>dob violation removal nyc</strong> and <strong>dot violation removal nyc</strong> from start to finish.</p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 pt-4">
+                <div className="grid grid-cols-3 gap-3 pt-2">
                   {[
                     { val: "2005", label: "Founded" },
                     { val: "NYC", label: "Headquartered" },
                     { val: "5 Boros", label: "Coverage" },
                   ].map((s, i) => (
-                    <div key={i} className="text-center p-3.5 rounded-xl bg-gray-50/80">
-                      <div className="text-lg font-semibold text-red-600">{s.val}</div>
-                      <div className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{s.label}</div>
+                    <div key={i} className="text-center p-3 border border-gray-150 bg-gray-50/50">
+                      <div className="text-lg font-bold text-red-600">{s.val}</div>
+                      <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{s.label}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-3 pt-3">
+                <div className="flex items-center gap-3 pt-2">
                   <a href="mailto:info@megacontractinggroup.com"
-                    className="flex items-center gap-2 px-5 py-3 rounded-full text-xs uppercase tracking-widest font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 shadow-md shadow-red-600/20 hover:shadow-lg hover:shadow-red-600/30 transition-all duration-300 hover:scale-[1.02]">
+                    className="flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-bold text-xs uppercase tracking-wider rounded-none shadow-md hover:bg-primary/95 transition-all duration-300">
                     <Mail className="w-4 h-4" /> Get in Touch
                   </a>
                   <a href="tel:+19148043000"
-                    className="flex items-center gap-2 px-5 py-3 rounded-full text-xs uppercase tracking-widest font-semibold text-red-600 bg-red-50 hover:bg-red-100 transition-all duration-300">
+                    className="flex items-center justify-center gap-2 px-6 py-3.5 bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-wider rounded-none hover:bg-gray-200 transition-all duration-300">
                     <Phone className="w-4 h-4" /> Call Us
                   </a>
                 </div>
@@ -400,34 +391,29 @@ export default function AboutPage() {
         </section>
 
         {/* ── CORE VALUES ────────────────────────────────────────── */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-16">
-              <SectionLabel text="Core Values" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 mb-4 tracking-tight">
-                <span className="font-light">What We </span>
-                <span className="font-semibold text-red-600">Stand For</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto font-light">
-                Our principles guide every decision, every project, and every relationship we build.
-              </p>
-            </FadeIn>
+            <SectionHeader
+              badge="Core Values"
+              headline="What We <span class='text-red-600'>Stand For</span>"
+              description="Our principles guide every decision, every project, and every relationship we build."
+            />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((v, i) => {
                 const IconComp = v.icon;
                 return (
                   <FadeIn key={i} delay={i * 0.06}>
                     <motion.div
                       whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                      className="group relative bg-gradient-to-br from-gray-50/80 to-white rounded-2xl p-7 hover:shadow-lg transition-all duration-400 overflow-hidden"
+                      className="group relative bg-white border border-gray-200 rounded-2xl p-7 hover:shadow-lg hover:border-red-500/40 transition-all duration-300 overflow-hidden"
                     >
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-red-600 to-red-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                      <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 bg-red-600/[0.06] group-hover:bg-red-600/10 transition-colors duration-300">
-                        <IconComp className="w-5 h-5 text-red-600" />
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                      <div className="w-11 h-11 rounded-none flex items-center justify-center mb-5 bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
+                        <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" />
                       </div>
-                      <h3 className="text-[15px] font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">{v.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed font-light">{v.desc}</p>
+                      <h3 className="text-[15px] font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">{v.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed font-normal">{v.desc}</p>
                     </motion.div>
                   </FadeIn>
                 );
@@ -440,7 +426,7 @@ export default function AboutPage() {
         <section className="py-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <FadeIn>
-              <div className="rounded-3xl overflow-hidden relative shadow-2xl shadow-gray-900/10"
+              <div className="rounded-2xl overflow-hidden relative border border-white/5 shadow-2xl"
                 style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 50%, #111 100%)" }}>
                 {/* Subtle glow */}
                 <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full blur-[100px] opacity-[0.08]"
@@ -450,12 +436,12 @@ export default function AboutPage() {
 
                 <div className="relative p-8 sm:p-12 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10">
                   <div className="text-center lg:text-left space-y-4 max-w-2xl">
-                    <p className="text-red-500 text-[11px] font-semibold tracking-[0.3em] uppercase">Our Mission</p>
-                    <h3 className="text-3xl sm:text-4xl text-white leading-tight">
-                      <span className="font-light">To Revolutionize</span><br />
-                      <span className="font-semibold text-red-500">New York Construction</span>
+                    <p className="text-red-500 text-[11px] font-bold tracking-[0.3em] uppercase">Our Mission</p>
+                    <h3 className="text-3xl sm:text-4xl text-white leading-tight font-bold">
+                      To Revolutionize<br />
+                      <span className="text-red-500">New York Construction</span>
                     </h3>
-                    <p className="text-gray-400 text-[15px] leading-relaxed font-light">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed font-normal">
                       We put people first — restoring trust through transparent pricing, exceptional craftsmanship, and an unwavering commitment to doing what's right, every single time.
                     </p>
                   </div>
@@ -465,9 +451,9 @@ export default function AboutPage() {
                       { v: "0%", l: "Hidden Fees" },
                       { v: "∞", l: "Commitment" },
                     ].map((s, i) => (
-                      <div key={i} className="text-center px-4 py-5 rounded-2xl bg-white/[0.04]">
-                        <div className="text-2xl sm:text-3xl font-semibold text-white mb-1">{s.v}</div>
-                        <div className="text-gray-500 text-[10px] uppercase tracking-wider font-medium">{s.l}</div>
+                      <div key={i} className="text-center px-4 py-5 border border-white/10 bg-white/[0.04]">
+                        <div className="text-2xl sm:text-3xl font-bold text-white mb-1">{s.v}</div>
+                        <div className="text-gray-500 text-[10px] uppercase tracking-wider font-bold">{s.l}</div>
                       </div>
                     ))}
                   </div>
@@ -478,16 +464,13 @@ export default function AboutPage() {
         </section>
 
         {/* ── HOW WE WORK (Process) ──────────────────────────────── */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-16">
-              <SectionLabel text="Our Process" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">How We </span>
-                <span className="font-semibold text-red-600">Work</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto mt-3 font-light">From initial consultation to final walkthrough — a seamless, transparent process.</p>
-            </FadeIn>
+            <SectionHeader
+              badge="Our Process"
+              headline="How We <span class='text-red-600'>Work</span>"
+              description="From initial consultation to final walkthrough — a seamless, transparent process."
+            />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {processSteps.map((step, i) => {
@@ -496,15 +479,15 @@ export default function AboutPage() {
                   <FadeIn key={i} delay={i * 0.1}>
                     <motion.div
                       whileHover={{ y: -4 }}
-                      className="group relative text-center p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-gray-50/80 to-white hover:shadow-lg transition-all duration-300"
+                      className="group relative text-center p-6 lg:p-8 border border-gray-250 rounded-2xl bg-white hover:shadow-lg hover:border-red-500/40 transition-all duration-300"
                     >
                       {/* Step number */}
-                      <div className="text-[11px] font-semibold text-red-600 tracking-[0.3em] mb-4">{step.num}</div>
-                      <div className="w-14 h-14 rounded-2xl mx-auto mb-5 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-400">
+                      <div className="text-[11px] font-bold text-red-600 tracking-[0.3em] mb-4">{step.num}</div>
+                      <div className="w-14 h-14 rounded-none mx-auto mb-5 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-400">
                         <IconComp className="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-400" />
                       </div>
-                      <h3 className="text-[15px] font-semibold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed font-light">{step.desc}</p>
+                      <h3 className="text-[15px] font-bold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed font-normal">{step.desc}</p>
 
                       {/* Connector line (except last) */}
                       {i < 3 && (
@@ -519,18 +502,16 @@ export default function AboutPage() {
         </section>
 
         {/* ── WHY CHOOSE US ──────────────────────────────────────── */}
-        <section className="py-24 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <FadeIn>
-                <SectionLabel text="Why Choose Us" />
-                <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight mb-6">
-                  <span className="font-light">New York's Most </span>
-                  <span className="font-semibold text-red-600">Trusted Contractor</span>
-                </h2>
-                <p className="text-gray-500 text-[15px] leading-relaxed font-light mb-8">
-                  When you choose Mega Contracting NY Group, you're choosing over two decades of proven expertise, transparent pricing, and a team that treats your property like their own. Here's what sets us apart:
-                </p>
+                <SectionHeader
+                  badge="Why Choose Us"
+                  headline="New York's Most <span class='text-red-600'>Trusted Contractor</span>"
+                  description="When you choose Mega Contracting NY Group, you're choosing over two decades of proven expertise, transparent pricing, and a team that treats your property like their own. Here's what sets us apart:"
+                  center={false}
+                />
 
                 <div className="space-y-4">
                   {[
@@ -548,12 +529,12 @@ export default function AboutPage() {
                       transition={{ delay: i * 0.08, duration: 0.5 }}
                       className="flex items-start gap-3.5 group"
                     >
-                      <div className="w-6 h-6 rounded-full bg-red-600/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-red-600 transition-colors duration-300">
+                      <div className="w-6 h-6 rounded-none bg-red-600/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-red-600 transition-colors duration-300">
                         <CheckCircle2 className="w-3.5 h-3.5 text-red-600 group-hover:text-white transition-colors duration-300" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-0.5">{item.title}</h4>
-                        <p className="text-sm text-gray-500 font-light leading-relaxed">{item.desc}</p>
+                        <h4 className="text-sm font-bold text-gray-900 mb-0.5">{item.title}</h4>
+                        <p className="text-sm text-gray-500 font-normal leading-relaxed">{item.desc}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -569,13 +550,13 @@ export default function AboutPage() {
                         <motion.div
                           key={i}
                           whileHover={{ y: -3, scale: 1.02 }}
-                          className="group p-5 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                          className="group p-5 rounded-2xl bg-white border border-gray-200 hover:border-red-500/40 hover:shadow-md transition-all duration-300"
                         >
-                          <div className="w-10 h-10 rounded-xl mb-3 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
-                            <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors duration-300" />
+                          <div className="w-10 h-10 rounded-none mb-3 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
+                            <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" />
                           </div>
-                          <h4 className="text-sm font-semibold text-gray-900 mb-1">{svc.name}</h4>
-                          <p className="text-xs text-gray-400 font-light leading-relaxed">{svc.desc}</p>
+                          <h4 className="text-sm font-bold text-gray-900 mb-1">{svc.name}</h4>
+                          <p className="text-xs text-gray-400 font-normal leading-relaxed">{svc.desc}</p>
                         </motion.div>
                       );
                     })}
@@ -587,18 +568,13 @@ export default function AboutPage() {
         </section>
 
         {/* ── CERTIFICATIONS ─────────────────────────────────────── */}
-        <section className="py-20 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="Credentials & Certifications" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">Licensed, Certified </span>
-                <span className="font-semibold text-red-600">& Trusted</span>
-              </h2>
-              <p className="text-gray-500 text-base max-w-2xl mx-auto mt-3 font-light">
-                Every certification we hold represents our commitment to industry excellence and your peace of mind.
-              </p>
-            </FadeIn>
+            <SectionHeader
+              badge="Credentials & Certifications"
+              headline="Licensed, Certified <span class='text-red-600'>& Trusted</span>"
+              description="Every certification we hold represents our commitment to industry excellence and your peace of mind."
+            />
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {certs.map((c, i) => {
@@ -607,12 +583,12 @@ export default function AboutPage() {
                   <FadeIn key={i} delay={i * 0.06}>
                     <motion.div
                       whileHover={{ y: -4, scale: 1.02 }}
-                      className={`group relative text-center p-5 rounded-2xl bg-gradient-to-br ${c.color} hover:shadow-lg transition-all duration-300 cursor-default`}
+                      className={`group relative text-center p-5 border border-gray-200 rounded-2xl bg-gradient-to-br ${c.color} hover:shadow-md hover:border-red-500/30 transition-all duration-300 cursor-default`}
                     >
-                      <div className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center bg-white shadow-sm group-hover:shadow-md transition-all duration-300">
+                      <div className="w-12 h-12 rounded-none mx-auto mb-3 flex items-center justify-center bg-white border border-gray-150 shadow-sm group-hover:shadow-md transition-all duration-300">
                         <IconComp className="w-5 h-5 text-red-600" />
                       </div>
-                      <p className="text-xs font-semibold text-gray-800 leading-tight">{c.cert}</p>
+                      <p className="text-xs font-bold text-gray-800 leading-tight">{c.cert}</p>
                     </motion.div>
                   </FadeIn>
                 );
@@ -622,18 +598,16 @@ export default function AboutPage() {
         </section>
 
         {/* ── SERVICE AREAS ──────────────────────────────────────── */}
-        <section className="py-24 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <FadeIn>
-                <SectionLabel text="Service Areas" />
-                <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight mb-4">
-                  <span className="font-light">Proudly Serving </span>
-                  <span className="font-semibold text-red-600">Greater New York</span>
-                </h2>
-                <p className="text-gray-500 text-[15px] leading-relaxed font-light mb-8">
-                  From the heart of Manhattan to the neighborhoods of all five boroughs and beyond, Mega Contracting NY Group delivers expert construction services wherever you need us.
-                </p>
+                <SectionHeader
+                  badge="Service Areas"
+                  headline="Proudly Serving <span class='text-red-600'>Greater New York</span>"
+                  description="From the heart of Manhattan to the neighborhoods of all five boroughs and beyond, Mega Contracting NY Group delivers expert construction services wherever you need us."
+                  center={false}
+                />
 
                 <div className="flex flex-wrap gap-2.5">
                   {serviceAreas.map((area, i) => (
@@ -644,32 +618,32 @@ export default function AboutPage() {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.05 }}
                       whileHover={{ scale: 1.05 }}
-                      className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white shadow-sm hover:shadow-md hover:bg-red-50 transition-all duration-300 cursor-default"
+                      className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 shadow-sm hover:shadow-md hover:bg-red-50 hover:border-red-500/50 transition-all duration-300 cursor-default"
                     >
                       <MapPin className="w-3.5 h-3.5 text-red-600" />
-                      <span className="text-sm font-medium text-gray-700">{area}</span>
+                      <span className="text-sm font-bold text-gray-700">{area}</span>
                     </motion.div>
                   ))}
                 </div>
               </FadeIn>
 
               <FadeIn delay={0.2}>
-                <div className="relative rounded-[2rem] overflow-hidden shadow-xl shadow-gray-900/5 aspect-[4/3]">
+                <div className="relative border border-gray-200 rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                   <Image
                     src="/assets/megaabout.png"
                     alt="Mega Construction serves all five boroughs of New York City and surrounding areas"
                     fill
-                    className="object-cover"
+                    className="object-cover grayscale"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center">
+                      <div className="w-10 h-10 bg-red-600 flex items-center justify-center shadow-lg">
                         <MapPin className="w-5 h-5 text-white" />
                       </div>
-                      <div className="text-white">
-                        <p className="text-sm font-semibold">All 5 Boroughs + Surrounding Areas</p>
-                        <p className="text-xs text-white/70">Manhattan • Brooklyn • Queens • Bronx • Staten Island</p>
+                      <div className="text-white text-left">
+                        <p className="text-sm font-bold">All 5 Boroughs + Surrounding Areas</p>
+                        <p className="text-xs text-white/80">Manhattan • Brooklyn • Queens • Bronx • Staten Island</p>
                       </div>
                     </div>
                   </div>
@@ -680,15 +654,12 @@ export default function AboutPage() {
         </section>
 
         {/* ── TESTIMONIALS ───────────────────────────────────────── */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FadeIn className="text-center mb-14">
-              <SectionLabel text="Client Testimonials" />
-              <h2 className="text-3xl sm:text-4xl text-gray-900 tracking-tight">
-                <span className="font-light">What Our Clients </span>
-                <span className="font-semibold text-red-600">Say</span>
-              </h2>
-            </FadeIn>
+            <SectionHeader
+              badge="Client Testimonials"
+              headline="What Our Clients <span class='text-red-600'>Say</span>"
+            />
 
             <div className="grid md:grid-cols-3 gap-6">
               {[
@@ -714,7 +685,7 @@ export default function AboutPage() {
                 <FadeIn key={i} delay={i * 0.1}>
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="group relative p-7 rounded-2xl bg-gradient-to-br from-gray-50/80 to-white hover:shadow-lg transition-all duration-300"
+                    className="group relative p-7 border border-gray-250 rounded-2xl bg-white hover:shadow-lg hover:border-red-500/40 transition-all duration-300"
                   >
                     <div className="flex items-center gap-0.5 mb-4">
                       {[...Array(t.rating)].map((_, j) => (
@@ -722,13 +693,13 @@ export default function AboutPage() {
                       ))}
                     </div>
                     <Quote className="w-8 h-8 text-red-600/10 mb-3" />
-                    <p className="text-gray-600 text-sm leading-relaxed font-light mb-6">{t.quote}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed font-normal mb-6">{t.quote}</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-red-600/10 flex items-center justify-center">
-                        <span className="text-sm font-semibold text-red-600">{t.name[0]}</span>
+                      <div className="w-10 h-10 bg-red-600/[0.06] border border-red-500/10 flex items-center justify-center">
+                        <span className="text-sm font-bold text-red-600">{t.name[0]}</span>
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-gray-900">{t.name}</p>
+                      <div className="text-left">
+                        <p className="text-sm font-bold text-gray-900">{t.name}</p>
                         <p className="text-xs text-gray-400">{t.location}</p>
                       </div>
                     </div>
@@ -740,35 +711,35 @@ export default function AboutPage() {
         </section>
 
         {/* ── CTA ────────────────────────────────────────────────── */}
-        <section className="py-24 bg-gradient-to-b from-gray-50/50 to-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-5xl mx-auto px-4">
             <FadeIn>
-              <div className="relative rounded-3xl p-10 sm:p-14 overflow-hidden shadow-2xl shadow-gray-900/10 text-center"
+              <div className="relative p-10 sm:p-14 rounded-2xl overflow-hidden border border-white/5 shadow-2xl text-center"
                 style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 50%, #111 100%)" }}>
                 {/* Glows */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] blur-[120px] opacity-[0.08]"
                   style={{ background: "radial-gradient(circle, #C30505, transparent)" }} />
 
-                <p className="text-red-500 text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">Start Your Project</p>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-6 leading-tight">
-                  <span className="font-light">Ready to Build</span><br />
-                  <span className="font-semibold text-red-500">Something Great?</span>
+                <p className="text-red-500 text-[11px] font-bold tracking-[0.3em] uppercase mb-4">Start Your Project</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl text-white mb-6 leading-tight font-bold">
+                  Ready to Build<br />
+                  <span className="text-red-500">Something Great?</span>
                 </h2>
-                <p className="text-gray-400 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                <p className="text-gray-400 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed font-normal">
                   Get your free, no-obligation estimate today. Our team will visit your property, discuss your vision, and deliver a detailed quote within 24 hours.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link href="/contact">
+                  <Link href="/contact" className="w-full sm:w-auto">
                     <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm text-white shadow-lg cursor-pointer"
+                      className="flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-sm text-white shadow-lg cursor-pointer rounded-none"
                       style={{ background: "linear-gradient(135deg, #C30505, #A00404)", boxShadow: "0 8px 24px rgba(195,5,5,0.3)" }}>
                       Get Free Estimate <ArrowRight className="w-4 h-4" />
                     </motion.div>
                   </Link>
-                  <a href="tel:+19148043000">
+                  <a href="tel:+19148043000" className="w-full sm:w-auto">
                     <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}
-                      className="flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-sm text-red-400 bg-white/[0.05] hover:bg-white/10 transition-colors cursor-pointer">
+                      className="flex items-center justify-center gap-2.5 px-8 py-4 font-bold text-sm text-red-400 bg-white/[0.05] hover:bg-white/10 transition-colors cursor-pointer rounded-none border border-white/20">
                       <Phone className="w-4 h-4" /> +1 (914) 804-3000
                     </motion.div>
                   </a>
