@@ -217,7 +217,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                   alt={subCategory.title}
                   fill
                   priority
-3                  className="object-cover transition-transform duration-[5s] group-hover:scale-105"
+                  className="object-cover transition-transform duration-[5s] group-hover:scale-105"
                 />
               </div>
             </motion.div>
