@@ -17,6 +17,7 @@ import {
   Shield,
   Star,
   Zap,
+  ExternalLink,
 } from "lucide-react";
 
 // ─── Floating particles (light) ───────────────────────────────────────────────
@@ -377,11 +378,11 @@ ${formData.message}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight tracking-tight uppercase font-heading"
             >
-              Let's Build{" "}
+              Get Your Free{" "}
               <span className="text-red-600" style={{ textShadow: "0 0 40px rgba(195,5,5,0.15)" }}>
-                Together
+                Construction Estimate in NYC Today
               </span>
             </motion.h1>
 
@@ -671,6 +672,47 @@ ${formData.message}
                     </div>
                   ))}
                 </motion.div>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Google Maps Embed (Exact PDF Requirement) ── */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-xl bg-white">
+              <div className="p-6 sm:p-8 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-red-600 block mb-1">
+                    Headquarters &amp; Dispatch Facility
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">
+                    3044 Radcliff Ave, Bronx, NY 10469
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                    Serving all 5 NYC boroughs 24/7 • Licensed NYC General Contractor #NYC-2005-8942
+                  </p>
+                </div>
+                <a
+                  href="https://maps.google.com/?q=3044+Radcliff+Ave,+Bronx,+NY+10469"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shrink-0 shadow-md"
+                >
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+              <div className="relative w-full h-[360px] sm:h-[450px]">
+                <iframe
+                  title="Mega Contracting NY Group Bronx Headquarters"
+                  src="https://maps.google.com/maps?q=3044+Radcliff+Ave,+Bronx,+NY+10469&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                />
               </div>
             </div>
           </div>

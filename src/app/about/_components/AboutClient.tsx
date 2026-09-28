@@ -180,8 +180,8 @@ export default function AboutPage() {
                   transition={{ duration: 0.7, delay: 0.1 }}
                   className="heading-lg text-white leading-none tracking-tight text-center lg:text-left"
                 >
-                  Shaping New York's<br />
-                  <span className="text-red-500 font-bold">Structural Legacy</span>
+                  About Our Licensed<br />
+                  <span className="text-red-500 font-bold">Construction Company in NYC</span>
                 </motion.h1>
 
                 <motion.p

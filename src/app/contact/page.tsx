@@ -2,31 +2,29 @@ import { Metadata } from "next";
 import ContactClient from "./_components/ContactClient";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Mega Construction NYC",
+  title: {
+    absolute: "Free Estimate | Contact Our Contractor — Bronx NYC 24/7",
+  },
   description:
-    "Get in touch with Mega Contracting NY Group. Request a free estimate, ask a question, or call us directly. Serving all NYC boroughs — fast response guaranteed.",
+    "Get a free construction estimate in NYC. Call anytime — 24/7. Serving all 5 boroughs. Licensed & insured.",
   keywords: [
+    "free estimate contractor nyc",
+    "Get Your Free Construction Estimate in NYC Today",
+    "Free Estimate NYC Contractor",
+    "Mega Contracting NY Group",
+    "Licensed Contractor Bronx NY",
+    "Roofing Estimate New York",
+    "Construction Quote NYC",
+    "Call NYC Contractor",
     "Facade Restoration NYC",
     "Roof Leak Repair NYC",
     "Flat Roofing NYC",
     "Chimney Repair NYC",
-    "Fire Escape Painting NYC",
-    "Parapet Wall Repair NYC",
-    "Stucco Repair NYC",
-    "EIFS Contractor NYC",
     "DOB Violation Removal NYC",
     "DOT Violation Removal NYC",
     "Sidewalk Repair NYC",
-    "Building Safety Assessment NYC",
     "Brick Pointing NYC",
-    "Foundation Repair NYC",
     "Waterproofing Contractor NYC",
-    "Contact Mega Construction NYC",
-    "Free Estimate NYC Contractor",
-    "Roofing Estimate New York",
-    "Construction Quote NYC",
-    "Call NYC Contractor",
-    "Mega Contracting Contact",
   ],
   alternates: {
     canonical: "https://www.megacontractingnyc.com/contact",

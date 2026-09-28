@@ -225,10 +225,10 @@ export default function FAQPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="heading-lg text-white leading-none tracking-tight text-center"
+                className="heading-lg text-white leading-none tracking-tight text-center uppercase font-heading"
               >
-                Frequently Asked<br />
-                <span className="text-red-500 font-bold">Questions</span>
+                NYC Construction FAQ —<br />
+                <span className="text-red-500 font-bold">Your Questions Answered</span>
               </motion.h1>
 
               <motion.p

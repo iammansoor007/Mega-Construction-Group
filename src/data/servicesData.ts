@@ -2075,10 +2075,15 @@ export const getSubCategory = (serviceId: string, subId: string) => {
 
   if (!sub) return null;
 
-  // AUTO-GENERATE DATA TO AVOID REPETITION IN UI OR DATA FILE
+  const fallbackImages = [
+    sub.image,
+    service?.secondaryImage || service?.image || "/assets/megaroofingreal.jpeg",
+    service?.image || "/assets/portfolio-1.jpg"
+  ].filter(Boolean) as string[];
+
   return {
     ...sub,
-    galleryImages: sub.galleryImages || [1, 2, 3].map(num => `/mega${sub.id.toLowerCase().replace(/[^a-z0-9]/g, '')}${num}.png`),
+    galleryImages: (sub.galleryImages && sub.galleryImages.length > 0) ? sub.galleryImages : fallbackImages,
     portfolioAvatars: sub.portfolioAvatars || [
       "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=100&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?q=60&w=100&auto=format&fit=crop",

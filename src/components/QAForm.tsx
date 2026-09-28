@@ -661,7 +661,8 @@ const GetQuote = () => {
         <div className="absolute top-20 right-0 w-2/5 h-3/5">
           <Image
             src={Images.Form}
-            alt=""
+            alt="Mega Contracting NY Group Decorative Background Pattern"
+            sizes="40vw"
             className="w-full h-full object-cover opacity-[0.03]"
             fill
           />
@@ -672,7 +673,8 @@ const GetQuote = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2">
           <Image
             src={Images.Abstract}
-            alt=""
+            alt="Mega Contracting NY Group Abstract Construction Texture"
+            sizes="33vw"
             className="w-full h-full object-cover opacity-[0.03]"
             fill
           />

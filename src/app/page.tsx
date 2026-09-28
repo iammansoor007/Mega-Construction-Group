@@ -23,13 +23,15 @@ const HOT_KEYWORDS = [
 ];
 
 export const metadata: Metadata = {
-  title: "General Contractor NYC | Mega Contracting NY Group",
+  title: "General Contractor NYC | Licensed Construction Company",
   description:
-    "Mega Contracting NY Group — NYC's #1 licensed general contractor. Specializing in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, DOB/DOT violation removal, sidewalk repair, waterproofing & more across all 5 boroughs. Free estimates.",
+    "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
   keywords: [
+    "general contractor nyc",
     "General Contractor NYC",
+    "Licensed Construction Company",
     "General Contractor New York",
-    "Mega Construction NYC",
+    "Mega Contracting NY Group",
     "Construction Services NYC",
     "Roofing Contractor Brooklyn",
     "Commercial Remodeling Manhattan",
@@ -47,17 +49,17 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   openGraph: {
-    title: "General Contractor NYC | Mega Contracting NY Group",
+    title: "General Contractor NYC | Licensed Construction Company",
     description:
-      "NYC's #1 licensed general contractor. Facade restoration, roof repair, brick pointing, DOB/DOT violation removal, waterproofing & more. Free estimates. All 5 boroughs.",
+      "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
     url: BASE_URL,
-    siteName: "Mega Construction NYC",
+    siteName: "Mega Contracting NY Group",
     images: [
       {
         url: `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
         width: 1200,
         height: 630,
-        alt: "Mega Construction NYC - General Contractor New York",
+        alt: "Mega Contracting NY Group - General Contractor NYC",
       },
     ],
     locale: "en_US",
@@ -67,9 +69,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@megacontractingny",
     creator: "@megacontractingny",
-    title: "General Contractor NYC | Mega Contracting NY Group",
+    title: "General Contractor NYC | Licensed Construction Company",
     description:
-      "NYC's #1 licensed general contractor. Facade restoration, roof repair, brick pointing, DOB/DOT violation removal, waterproofing & more. Free estimates.",
+      "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
     images: [`${BASE_URL}/assets/Mega-Contracting-Logo.png`],
   },
 };

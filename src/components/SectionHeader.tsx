@@ -1,3 +1,5 @@
+"use client";
+
 // Shared SectionHeader component — used across all sections for uniform styling
 import { motion } from "framer-motion";
 

@@ -67,8 +67,17 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
     );
   }
 
-  // Enforce data-driven defaults if missing
-  const galleryImages = subCategory.galleryImages || [1, 2, 3].map(num => `/mega${slug.toLowerCase().replace(/[^a-z0-9]/g, '')}${num}.png`);
+  // Enforce data-driven defaults if missing with real existing assets
+  const fallbackGallery = [
+    subCategory.image,
+    service.secondaryImage || service.image || "/assets/megaroofingreal.jpeg",
+    service.image || "/assets/portfolio-1.jpg"
+  ].filter(Boolean) as string[];
+
+  const galleryImages = (subCategory.galleryImages && subCategory.galleryImages.length > 0)
+    ? subCategory.galleryImages
+    : fallbackGallery;
+
   const portfolioAvatars = subCategory.portfolioAvatars || [
     "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=100&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?q=60&w=100&auto=format&fit=crop",
@@ -93,9 +102,10 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
         <div className="absolute inset-0 select-none grayscale opacity-40 z-0">
           <Image
             src={subCategory.image || "/placeholder.svg"}
-            alt="Hero Background"
+            alt={`${subCategory.title} - Mega Contracting NY Group`}
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -214,8 +224,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               <div className="relative w-full h-full min-h-[320px] lg:min-h-full overflow-hidden rounded-[24px] md:rounded-[32px] shadow-2xl border border-gray-100 group">
                 <Image
                   src={subCategory.image || "/placeholder.svg"}
-                  alt={subCategory.title}
+                  alt={`${subCategory.title} NYC Expert Craftsmanship`}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
                   className="object-cover transition-transform duration-[5s] group-hover:scale-105"
                 />
@@ -249,8 +260,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             >
               <Image
                 src={galleryImages[0] || subCategory.image || "/placeholder.svg"}
-                alt="Main Project"
+                alt={`${subCategory.title} Primary NYC Project Reference`}
                 fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover transition-transform duration-[10s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-red-600/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -271,8 +283,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                 >
                   <Image
                     src={img || "/placeholder.svg"}
-                    alt="Project Detail"
+                    alt={`${subCategory.title} Project Detail View ${i + 1}`}
                     fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -501,7 +514,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-12 gap-6 text-center sm:text-left">
               <SectionHeader
                 badge="Related Services"
-                headline="Explore <span class='text-red-600'>More Services</span>"
+                headline="<span class='text-gray-950'>Explore </span><span class='text-red-600'>Related Services</span>"
+                center={false}
+                className="mb-0 text-left"
               />
               <Link href={`/services/${categoryId}`} className="inline-flex items-center gap-2 text-xs text-red-600 hover:text-red-700 transition-colors font-bold uppercase tracking-widest">
                 <span>All Services</span> <ArrowRight className="w-4 h-4" />
@@ -518,8 +533,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                   <div className="aspect-[16/10] relative overflow-hidden">
                     <Image
                       src={rec.image || "/placeholder.svg"}
-                      alt={rec.title}
+                      alt={`${rec.title} NYC - Mega Contracting NY Group`}
                       fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -527,7 +543,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                     <div className="text-red-600 text-[9px] font-bold uppercase tracking-[0.2em]">
                       View Specialization
                     </div>
-                    <h3 className="text-base md:text-lg font-bold uppercase tracking-tight text-black transition-colors group-hover:text-red-600 leading-tight">
+                    <h3 className="text-base md:text-lg font-bold uppercase tracking-tight text-gray-950 transition-colors group-hover:text-red-600 leading-tight">
                       {rec.title}
                     </h3>
                   </div>
@@ -547,7 +563,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               description: `Our team is ready to help you with your next ${subCategory.title.toLowerCase()} project in New York.`,
               buttons: [
                 { text: "Get Free Quote", href: "/contact", primary: true },
-                { text: "Contact Us", href: "/contact", primary: false }
+                { text: "Call (914) 804-3000", href: "tel:+19148043000", primary: false }
               ]
             }}
           />

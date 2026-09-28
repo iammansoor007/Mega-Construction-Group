@@ -2,10 +2,16 @@ import { Metadata } from "next";
 import AboutClient from "./_components/AboutClient";
 
 export const metadata: Metadata = {
-  title: "About Us | Mega Construction NYC",
+  title: {
+    absolute: "About Our Licensed Construction Company | Bronx NY",
+  },
   description:
-    "Learn about Mega Contracting NY Group — family-owned since 2005, NYC licensed general contractor with 20+ years of experience in roofing, masonry, concrete, and renovation across all five boroughs.",
+    "Licensed & insured construction company serving the Bronx, Brooklyn, Queens, Manhattan & Staten Island. Family-owned. All services. Free estimates.",
   keywords: [
+    "licensed contractor bronx ny",
+    "About Our Licensed Construction Company in NYC",
+    "Licensed Contractor Bronx NY",
+    "Mega Contracting NY Group",
     "Facade Restoration NYC",
     "Roof Leak Repair NYC",
     "Flat Roofing NYC",
@@ -13,21 +19,14 @@ export const metadata: Metadata = {
     "Fire Escape Painting NYC",
     "Parapet Wall Repair NYC",
     "Stucco Repair NYC",
-    "EIFS Contractor NYC",
     "DOB Violation Removal NYC",
     "DOT Violation Removal NYC",
     "Sidewalk Repair NYC",
-    "Building Safety Assessment NYC",
     "Brick Pointing NYC",
     "Foundation Repair NYC",
     "Waterproofing Contractor NYC",
-    "About Mega Construction NYC",
-    "NYC Licensed General Contractor",
     "Family Owned Construction Company New York",
-    "Adil Shamis Contractor",
-    "BBB A+ Contractor NYC",
-    "Roofing Contractor NYC",
-    "Construction Company New York Since 2005",
+    "NYC Licensed General Contractor",
   ],
   alternates: {
     canonical: "https://www.megacontractingnyc.com/about",

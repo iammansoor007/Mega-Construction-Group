@@ -224,7 +224,7 @@ const Navbar = () => {
         {scrolled && (
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         )}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex items-center justify-between">
             <motion.div
               className="flex logooo items-center space-x-3 group relative text-stable"
@@ -678,7 +678,7 @@ const Navbar = () => {
           <Image
             key={`preload-${s.id}`}
             src={getServiceImage(s.id)}
-            alt=""
+            alt={`Mega Contracting NY Group - ${s.title}`}
             width={10}
             height={10}
             loading="eager"

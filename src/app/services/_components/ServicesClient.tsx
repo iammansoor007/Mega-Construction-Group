@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
+import { bronxSeoPages } from "@/data/bronxSeoPages";
 import { useState } from "react";
 
 export default function ServicesClient() {
@@ -47,7 +48,7 @@ export default function ServicesClient() {
             </div>
 
             <h1 className="heading-lg text-white leading-none tracking-tight">
-              Our Construction <span className="text-red-500">Services</span>
+              Construction Services in the Bronx NY — <span className="text-red-500">All Services</span>
             </h1>
 
             <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">
@@ -144,6 +145,157 @@ export default function ServicesClient() {
                 </Link>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPLETE BRONX & NYC SERVICE DIRECTORY (ALL 45+ SERVICES) ─────── */}
+      <section className="py-16 md:py-24 bg-gray-50 border-t border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-red-600 block mb-2">
+              Complete NYC &amp; Bronx Master Directory
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-gray-950 font-heading">
+              All 45+ Specialized <span className="text-red-600">Contracting Services</span>
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 mt-3 leading-relaxed">
+              Explore our full directory of certified commercial and residential services across the Bronx, Brooklyn, Queens, Manhattan, and Staten Island. Every project is executed by licensed crews under full NYC DOB compliance.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {[
+              {
+                title: "Roofing Division & Emergency Leak Repairs",
+                hubSlug: "/roofing",
+                slugs: [
+                  "roof-replacement-bronx-ny",
+                  "roof-installation-bronx",
+                  "roof-inspection-bronx",
+                  "shingle-roofing-bronx",
+                  "flat-roof-contractor-bronx",
+                  "flat-roofing-nyc",
+                  "roof-leak-repair-nyc",
+                  "chimney-repair-bronx"
+                ]
+              },
+              {
+                title: "Masonry, Facade & Local Law 11 Restoration",
+                hubSlug: "/masonry",
+                slugs: [
+                  "brick-pointing-bronx",
+                  "brick-repair-bronx",
+                  "facade-restoration-nyc",
+                  "lintel-repair-bronx",
+                  "parapet-repair-bronx",
+                  "local-law-11-brooklyn",
+                  "stoop-repair-brooklyn",
+                  "stucco-repair-brooklyn",
+                  "stucco-contractor-brooklyn",
+                  "stucco-restoration-brooklyn",
+                  "eifs-contractor-brooklyn",
+                  "smooth-stucco-brooklyn",
+                  "fire-escape-painting-nyc"
+                ]
+              },
+              {
+                title: "Renovation, Remodeling & Emergency Damage Restoration",
+                hubSlug: "/renovation",
+                slugs: [
+                  "kitchen-renovation-bronx",
+                  "bathroom-renovation-bronx",
+                  "basement-renovation-bronx",
+                  "interior-remodeling-bronx",
+                  "luxury-renovation-brooklyn",
+                  "commercial-renovation-bronx",
+                  "emergency-building-repair-bronx",
+                  "emergency-contractor-bronx",
+                  "emergency-board-up-bronx",
+                  "construction-company-bronx",
+                  "general-contractor-bronx"
+                ]
+              },
+              {
+                title: "Concrete, Sidewalks, Driveways & Hardscaping",
+                hubSlug: "/concrete-services",
+                slugs: [
+                  "outdoor-concrete-bronx",
+                  "sidewalk-repair-bronx",
+                  "sidewalk-replacement-bronx",
+                  "driveway-bronx",
+                  "patio-contractor-bronx",
+                  "retaining-wall-bronx"
+                ]
+              },
+              {
+                title: "Waterproofing, Foundation & Sealing Solutions",
+                hubSlug: "/waterproofing",
+                slugs: [
+                  "waterproofing-bronx",
+                  "window-caulking-bronx",
+                  "foundation-repair-brooklyn"
+                ]
+              },
+              {
+                title: "NYC DOB & DOT Violation Removal & Specialty",
+                hubSlug: "/violations",
+                slugs: [
+                  "dot-violation-removal-nyc",
+                  "sidewalk-violation-bronx",
+                  "dob-violation-brooklyn",
+                  "smart-home-brooklyn"
+                ]
+              }
+            ].map((group, gIdx) => (
+              <div key={gIdx} className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm text-left">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-gray-100 gap-2">
+                  <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-gray-900 font-heading">
+                    {group.title}
+                  </h3>
+                  <Link
+                    href={group.hubSlug}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-red-600 hover:text-red-700 transition-colors"
+                  >
+                    <span>View Hub</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {group.slugs.map((slug) => {
+                    const page = bronxSeoPages[slug];
+                    if (!page) return null;
+                    return (
+                      <Link
+                        key={slug}
+                        href={`/${slug}`}
+                        className="p-4 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-red-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-red-600">
+                              {page.keyword}
+                            </span>
+                            <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-red-600 transition-colors" />
+                          </div>
+                          <h4 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-1 mb-1">
+                            {page.h1}
+                          </h4>
+                          <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">
+                            {page.metaDesc}
+                          </p>
+                        </div>
+                        <div className="pt-3 mt-3 border-t border-gray-200/50 flex items-center justify-between text-[11px] font-bold text-gray-400 group-hover:text-red-600 uppercase tracking-wider">
+                          <span>Read Full Details</span>
+                          <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

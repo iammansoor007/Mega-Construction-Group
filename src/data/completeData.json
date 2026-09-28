@@ -185,16 +185,28 @@
     "cta": {
       "title": "Get Your Free Estimate",
       "description": "Detailed quote within 24 hours",
-      "buttonText": "Get Quote",
-      "buttonLink": "/contact"
+      "buttonText": "Get Free Estimate",
+      "buttonLink": "/contact",
+      "buttons": [
+        {
+          "text": "Get Free Estimate",
+          "href": "/contact",
+          "primary": true
+        },
+        {
+          "text": "Call (914) 804-3000",
+          "href": "tel:+19148043000",
+          "primary": false
+        }
+      ]
     }
   },
   "hero": {
     "badge": "NYC's #1 Licensed General Contractor Since 2005",
     "headlines": [
-      "NYC's Premier",
-      "General Contractor",
-      "& Construction Experts"
+      "NYC General Contractor",
+      "Trusted Construction Company",
+      "Serving All 5 Boroughs"
     ],
     "description": "Mega Contracting NY Group is NYC's most trusted licensed general contractor, serving all 5 boroughs since 2005. As a leading General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
     "buttons": [
