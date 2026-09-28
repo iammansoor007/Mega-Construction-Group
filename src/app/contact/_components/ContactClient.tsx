@@ -692,7 +692,7 @@ ${formData.message}
                   </p>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=3044+Radcliff+Ave,+Bronx,+NY+10469"
+                  href="https://share.google/cQGmz8WB5ogZiDLnE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-full text-xs font-bold uppercase tracking-wider transition-colors shrink-0 shadow-md"

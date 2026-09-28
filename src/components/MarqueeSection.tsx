@@ -26,9 +26,9 @@ const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
         >
           {words.map((word, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-8">
-              <h2 className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-white hover:text-black transition-colors duration-300">
+              <span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-white hover:text-black transition-colors duration-300">
                 {word}
-              </h2>
+              </span>
               {/* Technical Separator */}
               <div className="flex items-center gap-2 opacity-50 text-white">
                 <span>•</span>

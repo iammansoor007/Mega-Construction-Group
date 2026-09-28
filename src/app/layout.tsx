@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../index.css";
 import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
+import { localBusinessSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.megacontractingnyc.com"),
@@ -62,6 +63,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className="font-sans bg-white antialiased">
         <Providers>
           <ScrollToTop />

@@ -12,7 +12,7 @@ import { FiBriefcase } from "react-icons/fi";
 
 const Counter = memo(({ value, suffix = "", duration = 1.8 }: { value: number; suffix?: string; duration?: number }) => {
     const ref = useRef(null);
-    const [display, setDisplay] = useState(0);
+    const [display, setDisplay] = useState(value);
     const inView = useInView(ref, { once: true, margin: "-50px" });
     const shouldReduceMotion = useReducedMotion();
     const hasAnimatedRef = useRef(false);
@@ -27,12 +27,13 @@ const Counter = memo(({ value, suffix = "", duration = 1.8 }: { value: number; s
             return;
         }
 
-        let startTime;
+        let startTime: number | undefined;
         const startValue = 0;
         const endValue = value;
         const durationMs = duration * 1000;
+        setDisplay(0);
 
-        const animate = (timestamp) => {
+        const animate = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
             const progress = Math.min((timestamp - startTime) / durationMs, 1);
             const eased = 1 - Math.pow(1 - progress, 4);

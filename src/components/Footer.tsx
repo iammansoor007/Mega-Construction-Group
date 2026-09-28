@@ -237,12 +237,17 @@ const Footer = () => {
                 </div>
                 <span className="text-sm font-bold">{contact.email}</span>
               </a>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-white/5 flex items-center justify-center">
+              <a
+                href="https://share.google/cQGmz8WB5ogZiDLnE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
                   <Icons.Location />
                 </div>
-                <span className="text-xs text-gray-400 font-medium leading-relaxed">{contact.address}</span>
-              </div>
+                <span className="text-xs text-gray-400 group-hover:text-white font-medium leading-relaxed transition-colors">{contact.address}</span>
+              </a>
             </div>
           </div>
 

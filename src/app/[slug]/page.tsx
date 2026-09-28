@@ -89,8 +89,47 @@ export default async function BronxSeoPage({ params }: Props) {
 
   const BASE_URL = "https://www.megacontractingnyc.com";
 
-  // Schema definitions: LocalBusiness, Breadcrumbs, FAQPage
+  // Schema definitions: Service, LocalBusiness, Breadcrumbs, FAQPage
   const schemas: any[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": page.h1,
+      "serviceType": page.keyword,
+      "description": page.metaDesc,
+      "url": `${BASE_URL}/${page.slug}`,
+      "image": `${BASE_URL}${page.image}`,
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Mega Contracting NY Group",
+        "url": BASE_URL,
+        "telephone": "+19148043000",
+        "email": "info@megacontractinggroup.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3044 Radcliff Ave",
+          "addressLocality": "Bronx",
+          "addressRegion": "NY",
+          "postalCode": "10469",
+          "addressCountry": "US",
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.8731,
+          "longitude": -73.8644,
+        },
+        "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
+        "areaServed": ["Bronx", "Brooklyn", "Queens", "Manhattan", "Staten Island"],
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Bronx" },
+        { "@type": "AdministrativeArea", "name": "Brooklyn" },
+        { "@type": "AdministrativeArea", "name": "Manhattan" },
+        { "@type": "AdministrativeArea", "name": "Queens" },
+        { "@type": "AdministrativeArea", "name": "Staten Island" },
+      ],
+    },
     {
       "@context": "https://schema.org",
       "@type": ["GeneralContractor", "LocalBusiness"],
@@ -101,6 +140,7 @@ export default async function BronxSeoPage({ params }: Props) {
       "telephone": "+19148043000",
       "email": "info@megacontractinggroup.com",
       "priceRange": "$$",
+      "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3044 Radcliff Ave",
@@ -182,7 +222,7 @@ export default async function BronxSeoPage({ params }: Props) {
           <div className="absolute inset-0 select-none grayscale opacity-35 z-0">
             <Image
               src={page.image}
-              alt={`${page.h1} - Mega Contracting NY Group`}
+              alt={`${page.keyword} service in New York by Mega Contracting NY Group`}
               fill
               priority
               sizes="100vw"

@@ -25,7 +25,7 @@ import { useInView } from "framer-motion";
 // --- REUSABLE COUNTER ---
 const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string }) => {
   const ref = useRef(null);
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {

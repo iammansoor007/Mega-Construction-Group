@@ -49,15 +49,18 @@ gsap.registerPlugin(ScrollTrigger);
 // Optimized Counter with reduced re-renders
 const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string }) => {
   const ref = useRef(null);
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
   const inView = useInView(ref, { once: true, margin: "-50px" });
   const animRef = useRef<number>();
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || hasAnimatedRef.current) return;
+    hasAnimatedRef.current = true;
 
     let startTime: number;
     const duration = 1500; // Reduced duration for faster counting
+    setDisplay(0);
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;

@@ -107,7 +107,7 @@ const GlassCard = ({ children, className = "" }) => {
 // ======================
 const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
   const ref = useRef(null);
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(parseInt(value) || 0);
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {

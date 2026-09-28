@@ -110,7 +110,7 @@ export default function Home() {
         "latitude": "40.8731",
         "longitude": "-73.8644",
       },
-      "hasMap": "https://maps.google.com/?q=3044+Radcliff+Ave+Bronx+NY+10469",
+      "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",

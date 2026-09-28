@@ -21,7 +21,7 @@ import {
 
 // ─── Animated Counter ─────────────────────────────────────────────────────────
 const Counter = ({ to, suffix = "", duration = 2000 }: { to: number; suffix?: string; duration?: number }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(to);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-30px" });
 

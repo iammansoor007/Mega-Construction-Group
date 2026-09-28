@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -45,123 +45,87 @@ const categoryIcons: Record<string, any> = {
   Home, Tools: Wrench, Shield, Building, Storm: Zap
 };
 
-// ─── Accordion Item ───────────────────────────────────────────────────────────
+// ─── Accordion Item (Semantic & Crawlable for Google Rich Results) ─────────────
 const AccordionItem = ({ item, index, isOpen, onToggle }: any) => {
-  const [isHovered, setIsHovered] = useState(false);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.5, delay: index * 0.04 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="group"
+    <details
+      open={isOpen}
+      className={`group relative rounded-2xl overflow-hidden border transition-all duration-300 ${
+        isOpen
+          ? "bg-white shadow-xl border-red-600/30 border-l-4"
+          : "bg-white shadow-sm hover:shadow-md border-gray-200"
+      }`}
     >
-      <div
-        className={`relative rounded-2xl overflow-hidden border transition-all duration-300 ${
-          isOpen
-            ? "bg-white shadow-xl border-red-600/30 border-l-4"
-            : "bg-white shadow-sm hover:shadow-md border-gray-200"
-        }`}
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          onToggle();
+        }}
+        className="w-full text-left p-6 sm:p-8 cursor-pointer list-none select-none relative z-10 flex items-center justify-between gap-6 focus:outline-none"
       >
-        <button
-          onClick={onToggle}
-          className="w-full text-left p-6 sm:p-8 focus:outline-none relative z-10"
-          aria-expanded={isOpen}
+        <h3
+          className={`text-base md:text-lg lg:text-xl transition-all duration-300 text-left ${
+            isOpen ? "text-red-600 font-bold" : "text-gray-800 group-hover:text-red-600 font-semibold"
+          }`}
         >
-          <div className="flex items-center justify-between gap-6">
-            <h3 className={`text-base md:text-lg lg:text-xl font-normal transition-all duration-500 text-left ${
+          {item.question}
+        </h3>
+
+        <div className="relative flex-shrink-0">
+          <div
+            className={`w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
               isOpen
-                ? "text-red-600 font-bold"
-                : "text-gray-800 group-hover:text-red-600"
-            }`}>
-              {item.question}
-            </h3>
-
-            <div className="relative flex-shrink-0">
-              <motion.div
-                animate={isOpen ? {
-                  rotate: 180,
-                  scale: 1.1,
-                  backgroundColor: '#dc2626',
-                  borderColor: '#dc2626',
-                } : {
-                  rotate: 0,
-                  scale: 1,
-                  backgroundColor: 'white',
-                  borderColor: isHovered ? '#dc2626' : '#e2e8f0',
-                }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-500"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="transition-transform duration-300"
-                >
-                  <path
-                    d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
-                    stroke={isOpen ? 'white' : isHovered ? '#dc2626' : '#94a3b8'}
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </motion.div>
-            </div>
+                ? "bg-red-600 border-red-600 text-white rotate-180"
+                : "bg-white border-gray-200 text-gray-400 group-hover:border-red-600 group-hover:text-red-600"
+            }`}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="transition-transform duration-300">
+              <path
+                d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
           </div>
-        </button>
+        </div>
+      </summary>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="overflow-hidden"
-            >
-              <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                <div className="relative pl-6 border-l-2 border-red-600/20">
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5 font-normal text-left">
-                    {item.answer}
-                  </p>
+      <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+        <div className="relative pl-6 border-l-2 border-red-600/20">
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5 font-normal text-left">
+            {item.answer}
+          </p>
 
-                  {item.metadata && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
-                      {item.metadata.map((meta: any, i: number) => (
-                        <div key={i} className="flex items-center gap-2 text-xs">
-                          <span className="w-1 h-1 bg-red-600 rounded-full" />
-                          <span className="text-gray-500 font-bold">{meta.label}:</span>
-                          <span className="font-bold text-gray-700">{meta.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {item.links && (
-                    <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-red-600/10">
-                      {item.links.map((link: any, i: number) => (
-                        <Link
-                          key={i}
-                          href={link.url}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors group/link"
-                        >
-                          <span>{link.label}</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+          {item.metadata && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+              {item.metadata.map((meta: any, i: number) => (
+                <div key={i} className="flex items-center gap-2 text-xs">
+                  <span className="w-1 h-1 bg-red-600 rounded-full" />
+                  <span className="text-gray-500 font-bold">{meta.label}:</span>
+                  <span className="font-bold text-gray-700">{meta.value}</span>
                 </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           )}
-        </AnimatePresence>
+
+          {item.links && (
+            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-red-600/10">
+              {item.links.map((link: any, i: number) => (
+                <Link
+                  key={i}
+                  href={link.url}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 hover:text-red-700 transition-colors group/link"
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-    </motion.div>
+    </details>
   );
 };
 
