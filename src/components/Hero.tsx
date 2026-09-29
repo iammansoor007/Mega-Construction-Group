@@ -4,7 +4,7 @@ import { motion, useTransform, useMotionValue } from "framer-motion";
 import { useRef, memo, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import heroBg from '../assets/hero1.jpg';
+import heroBg from '../assets/newherobg.png';
 import { FiArrowRight, FiChevronDown, FiStar, FiThumbsUp } from "react-icons/fi";
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
 import completeData from "@/data/completeData.json";

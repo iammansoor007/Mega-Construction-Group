@@ -479,7 +479,7 @@ ${formData.message}
                 {[
                   { icon: <Clock className="w-4 h-4" />, title: "Fast Response", desc: "Reply within 4–8 hours, guaranteed" },
                   { icon: <Star className="w-4 h-4" />, title: "Free Detailed Quote", desc: "Itemized estimate with no hidden fees" },
-                  { icon: <Shield className="w-4 h-4" />, title: "Fully Licensed", desc: "NYC-2005-8942 · BBB A+ Rated" },
+                  { icon: <Shield className="w-4 h-4" />, title: "Fully Licensed", desc: "NYC-2005-8942 · $5M Insured" },
                   { icon: <CheckCircle2 className="w-4 h-4" />, title: "1,000+ Projects Done", desc: "Family-owned since 2005, 98% satisfaction" },
                 ].map((item, i) => (
                   <motion.div

@@ -2,12 +2,19 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
   "name": "Mega Contracting NY Group",
+  "legalName": "Mega Contracting NY Group Inc.",
   "url": "https://www.megacontractingnyc.com",
   "logo": "https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png",
   "telephone": "+19148043000",
   "email": "info@megacontractinggroup.com",
   "foundingDate": "2005",
-  "description": "Licensed general contractor serving all 5 boroughs of NYC since 2005",
+  "founder": {
+    "@type": "Person",
+    "name": "Adil Shamis",
+    "jobTitle": "Managing Principal & Founder"
+  },
+  "license": "NYC Department of Buildings #NYC-2005-8942",
+  "description": "Licensed general contractor serving all 5 boroughs of NYC. Rooted in trades craftsmanship since 2005, incorporated as Mega Contracting NY Group Inc.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "3044 Radcliff Ave",

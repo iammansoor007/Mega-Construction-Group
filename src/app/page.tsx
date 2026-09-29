@@ -185,8 +185,7 @@ export default function Home() {
         "jobTitle": "Founder & General Contractor",
         "worksFor": { "@type": "Organization", "name": "Mega Contracting NY Group" },
       },
-      "foundingDate": "2005",
-      "award": "BBB A+ Accredited Business",
+      "legalName": "Mega Contracting NY Group Inc.",
       "license": "NYC License #NYC-2005-8942",
       "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 20, "maxValue": 100 },
     },
@@ -196,7 +195,7 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "url": BASE_URL,
-      "name": "Mega Construction NYC",
+      "name": "Mega Contracting NY Group",
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${BASE_URL}/services?q={search_term_string}`,

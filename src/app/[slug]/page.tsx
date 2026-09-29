@@ -283,7 +283,7 @@ export default async function BronxSeoPage({ params }: Props) {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Award className="w-4 h-4 text-red-400" />
-                  <span>BBB A+ Accredited</span>
+                  <span>OSHA-30 Certified</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4 text-blue-400" />
