@@ -345,7 +345,7 @@ export default function FAQPage() {
                 {
                   icon: Shield,
                   title: "Licensing & Insurance",
-                  desc: "We are fully licensed (NYC-2005-8942), insured, and BBB A+ accredited. Your project is protected from start to finish.",
+                  desc: "We are fully licensed (NYC-2005-8942), insured ($5M comprehensive coverage), and OSHA-30 certified. Your project is protected from start to finish.",
                   link: "/about",
                   linkText: "View Credentials",
                 },
@@ -412,8 +412,8 @@ export default function FAQPage() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Award, value: "20+", label: "Years Experience", sub: "Family-owned since 2005" },
-                { icon: Star, value: "BBB A+", label: "Accredited", sub: "Highest rating achievable" },
+                { icon: Award, value: "20+", label: "Years Experience", sub: "Craftsmanship since 2005" },
+                { icon: ShieldCheck, value: "$5M", label: "Insured & Bonded", sub: "Comprehensive coverage" },
                 { icon: CheckCircle2, value: "1,000+", label: "Projects Done", sub: "Across all 5 boroughs" },
                 { icon: ShieldCheck, value: "10 Year", label: "Warranty", sub: "On all workmanship" },
               ].map((item, i) => {
@@ -584,7 +584,7 @@ export default function FAQPage() {
                     <div className="flex flex-wrap gap-2">
                       {[
                         { icon: Shield, text: "Licensed & Insured" },
-                        { icon: Star, text: "BBB A+ Rated" },
+                        { icon: ShieldCheck, text: "OSHA-30 Certified" },
                         { icon: Clock, text: "24/7 Available" },
                       ].map((badge, i) => {
                         const IconComp = badge.icon;

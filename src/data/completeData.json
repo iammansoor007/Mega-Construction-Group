@@ -455,7 +455,7 @@
       "alt": "Adil Shamis - Owner, Mega Contracting NY Group",
       "badges": {
         "top": "OWNER â€¢ MEGA CONTRACTING NY",
-        "bottom": "LICENSED â€¢ INSURED â€¢ BBB A+"
+        "bottom": "LICENSED â€¢ INSURED â€¢ OSHA-30"
       },
       "quotes": [
         "Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity. As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability."
@@ -547,7 +547,7 @@
       "badge": "Client Testimonials",
       "headline": "Real Stories from New York Clients",
       "description": "Hear what our clients have to say about their experience with Mega Contracting NY Group",
-      "featured": "BBB A+ Rated â€¢ Family Owned Since 2005"
+      "featured": "Licensed & Insured â€¢ Family Owned Since 2005"
     },
     "testimonials": [
       {
@@ -721,7 +721,7 @@
       "trustBadges": [
         "Licensed",
         "Insured",
-        "BBB A+"
+        "OSHA-30 Certified"
       ],
       "buttons": [
         {
@@ -1316,8 +1316,8 @@
     },
     "certifications": [
       {
-        "cert": "BBB",
-        "number": "A+ Rating",
+        "cert": "Insurance",
+        "number": "$5M Coverage",
         "icon": "Warranty"
       },
       {
@@ -1408,7 +1408,7 @@
         "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
         "FAMILY OWNED SINCE 2005",
         "SERVING ALL OF NEW YORK",
-        "LICENSED â€¢ INSURED â€¢ BBB A+"
+        "LICENSED â€¢ INSURED â€¢ OSHA-30"
       ]
     }
   }

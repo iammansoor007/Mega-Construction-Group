@@ -69,7 +69,7 @@ const SectionLabel = ({ text }: { text: string }) => (
 const Marquee = () => {
   const items = [
     { text: "Licensed & Insured", icon: Shield },
-    { text: "BBB A+ Accredited", icon: Star },
+    { text: "OSHA-30 Certified", icon: ShieldCheck },
     { text: "NYC Licensed Contractor", icon: Award },
     { text: "20+ Years Experience", icon: Clock },
     { text: "1,000+ Projects Completed", icon: CheckCircle2 },
@@ -107,7 +107,7 @@ export default function AboutPage() {
     { icon: Gem, title: "Quality Craftsmanship", desc: "We treat every project like it's our own home — meticulous attention to detail, always." },
     { icon: Zap, title: "Fast & Reliable", desc: "On-time, on-budget delivery with rapid emergency response. We never miss a deadline." },
     { icon: Heart, title: "Family Values", desc: "Family-owned since 2005. We bring care, trust, and personal accountability to every job." },
-    { icon: BadgeCheck, title: "Fully Licensed", desc: "NYC licensed contractor #NYC-2005-8942. Fully insured with BBB A+ rating." },
+    { icon: BadgeCheck, title: "Fully Licensed", desc: "NYC licensed general contractor #NYC-2005-8942. Fully insured with $5M comprehensive coverage." },
     { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors for 20+ years." },
   ];
 
@@ -119,7 +119,7 @@ export default function AboutPage() {
   ];
 
   const certs = [
-    { cert: "BBB A+ Accredited", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
+    { cert: "OSHA-30 Certified Crews", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
     { cert: "NY Licensed #NYC-2005-8942", icon: Shield, color: "from-blue-500/10 to-blue-600/5" },
     { cert: "OSHA Certified", icon: BadgeCheck, color: "from-green-500/10 to-green-600/5" },
     { cert: "Fully Insured", icon: ShieldCheck, color: "from-purple-500/10 to-purple-600/5" },
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 >
                   {[
                     { icon: ShieldCheck, text: "NYC Licensed" },
-                    { icon: Star, text: "BBB A+ Rated" },
+                    { icon: ShieldCheck, text: "$5M Insured & Bonded" },
                     { icon: ClipboardCheck, text: "10-Year Warranty" },
                   ].map((pill, i) => (
                     <div key={i} className="flex items-center gap-2 px-3.5 py-2 bg-white/10 backdrop-blur-sm border border-white/10 text-[11px] font-bold text-white hover:bg-red-600 hover:text-white transition-all duration-300">
@@ -335,7 +335,7 @@ export default function AboutPage() {
                     EST. 2005
                   </div>
                   <div className="absolute bottom-5 right-5 px-4 py-2 bg-white border border-gray-250 shadow-sm">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">BBB A+ Accredited</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">OSHA-30 Certified</span>
                   </div>
                 </div>
               </FadeIn>
@@ -351,13 +351,13 @@ export default function AboutPage() {
                 <blockquote className="relative pl-5">
                   <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-red-600 rounded-none" />
                   <p className="text-gray-600 text-lg leading-relaxed italic font-normal">
-                    &ldquo;Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity.&rdquo;
+                    &ldquo;Founded on over two decades of dedicated New York City construction trades craftsmanship beginning in 2005, formally incorporated as Mega Contracting NY Group Inc. in August 2023 with corporate headquarters at 3044 Radcliff Ave, Bronx NY.&rdquo;
                   </p>
                 </blockquote>
 
                 <div className="space-y-4 text-gray-500 text-sm sm:text-base leading-relaxed font-normal">
-                  <p>As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability that has made Mega Contracting the go-to contractor for homeowners and property managers alike.</p>
-                  <p>With over two decades of experience in general contracting, renovation, and commercial construction, his hands-on approach ensures every project meets the highest standards of quality and craftsmanship.</p>
+                  <p>Adil Shamis established our exterior construction and masonry trades craftsmanship in New York City in 2005. To support expanding commercial and municipal operations across the five boroughs, the business was formally incorporated as Mega Contracting NY Group Inc. in New York on August 6, 2023 under founder Adil Shamis, maintaining continuous craftsman leadership and general contractor licensure #NYC-2005-8942 with corporate headquarters at 3044 Radcliff Ave, Bronx, NY 10469.</p>
+                  <p>With over two decades of hands-on experience in general contracting, exterior envelope restoration, and commercial construction, Adil personally oversees project scopes to ensure every building meets rigorous NYC Department of Buildings (DOB) and Department of Transportation (DOT) engineering standards.</p>
                   <p>Under Adil's leadership, Mega Contracting NY Group has expanded its capabilities to provide comprehensive specialty services across Greater New York. We are the premier choice for <strong>facade restoration nyc</strong>, <strong>flat roofing nyc</strong>, and emergency <strong>roof leak repair nyc</strong>. Homeowners and property managers trust our expert teams for complex <strong>parapet wall repair nyc</strong>, structural <strong>chimney repair nyc</strong>, <strong>brick pointing nyc</strong>, and certified <strong>fire escape painting nyc</strong> to keep buildings safe and code-compliant.</p>
                   <p>As an established <strong>eifs contractor nyc</strong> and <strong>waterproofing contractor nyc</strong>, we resolve water intrusion and cladding issues on properties of any scale. We also provide professional <strong>stucco repair nyc</strong>, concrete <strong>sidewalk repair nyc</strong>, and structural <strong>foundation repair nyc</strong>. If your building has pending violations, our team performs detailed <strong>building safety assessment nyc</strong> inspections, handling both <strong>dob violation removal nyc</strong> and <strong>dot violation removal nyc</strong> from start to finish.</p>
                 </div>

@@ -76,7 +76,6 @@ export const projectsData: Record<string, CaseStudyData> = {
 
   "brooklyn-commercial-build-out": {
     slug: "brooklyn-commercial-build-out",
-    boroughName: "Brooklyn",
     borough: "Brooklyn",
     title: "Brooklyn Commercial Facade Restoration & Tuckpointing",
     location: "Williamsburg, Brooklyn NY",
