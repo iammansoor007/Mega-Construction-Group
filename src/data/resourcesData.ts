@@ -55,7 +55,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Explore Facade Restoration Services",
-      href: "/facade-restoration-nyc"
+      href: "/services/masonry-work/facade-restoration"
     },
     faqs: [
       {
@@ -99,7 +99,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "DOB Violation Removal Services",
-      href: "/services/dob-violation-removal"
+      href: "/services/concrete-services/dob-violation-removal"
     },
     faqs: [
       {
@@ -140,7 +140,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "DOT Sidewalk Violation Removal Services",
-      href: "/dot-violation-removal-nyc"
+      href: "/services/concrete-services/dot-violation-removal"
     },
     faqs: [
       {
@@ -181,7 +181,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Roof Replacement Services Bronx & NYC",
-      href: "/roof-replacement-bronx-ny"
+      href: "/services/roofing-services/roof-replacement"
     },
     faqs: [
       {
@@ -221,7 +221,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Flat Roofing NYC Services",
-      href: "/flat-roofing-nyc"
+      href: "/services/roofing-services/flat-roofing"
     },
     faqs: [
       {
@@ -260,7 +260,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Roof Leak Repair NYC Services",
-      href: "/roof-leak-repair-nyc"
+      href: "/services/roofing-services/roof-leakage-repair"
     },
     faqs: [
       {
@@ -300,7 +300,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Brick Pointing Bronx Services",
-      href: "/brick-pointing-bronx"
+      href: "/services/masonry-work/brick-grinding-pointing"
     },
     faqs: [
       {
@@ -340,7 +340,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Parapet Wall Repair Services",
-      href: "/services/masonry/parapet-wall-repair"
+      href: "/services/masonry-work/parapet-wall"
     },
     faqs: [
       {
@@ -379,7 +379,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Facade Restoration NYC Services",
-      href: "/facade-restoration-nyc"
+      href: "/services/masonry-work/facade-restoration"
     },
     faqs: [
       {
@@ -419,7 +419,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Kitchen Renovation Bronx & NYC Services",
-      href: "/kitchen-renovation-bronx"
+      href: "/services/home-renovation/kitchen-renovation"
     },
     faqs: [
       {
@@ -459,7 +459,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Bathroom Renovation Bronx & NYC",
-      href: "/bathroom-renovation-bronx"
+      href: "/services/home-renovation/bathroom-renovation"
     },
     faqs: [
       {
@@ -498,7 +498,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
     ],
     relatedService: {
       title: "Foundation Repair Services",
-      href: "/foundation-repair-brooklyn"
+      href: "/services/concrete-services/foundation-work"
     },
     faqs: [
       {

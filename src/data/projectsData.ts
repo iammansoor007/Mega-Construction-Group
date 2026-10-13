@@ -66,10 +66,10 @@ export const projectsData: Record<string, CaseStudyData> = {
     challenges: "Executing a complete roof tear-off and heavy masonry reconstruction on a fully occupied 6-story apartment building during mid-autumn wind conditions without disrupting tenants or blocking sidewalk pedestrian flow.",
     result: "100% moisture elimination with zero post-construction leaks through multiple winter freeze cycles. Energy bills reduced by 18% via solar-reflective white TPO, backed by our 10-year written workmanship warranty.",
     servicesUsed: [
-      { title: "Flat Roofing NYC", href: "/flat-roofing-nyc" },
-      { title: "Parapet Wall Repair", href: "/services/masonry/parapet-wall-repair" },
-      { title: "Roof Replacement Bronx", href: "/roof-replacement-bronx-ny" },
-      { title: "DOB Violation Removal", href: "/services/dob-violation-removal" }
+      { title: "Flat Roofing NYC", href: "/services/roofing-services/flat-roofing" },
+      { title: "Parapet Wall Repair", href: "/services/masonry-work/parapet-wall" },
+      { title: "Roof Replacement Bronx", href: "/services/roofing-services/roof-replacement" },
+      { title: "DOB Violation Removal", href: "/services/concrete-services/dob-violation-removal" }
     ],
     image: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg"
   },
@@ -118,9 +118,9 @@ export const projectsData: Record<string, CaseStudyData> = {
     challenges: "Managing dust suppression, pedestrian safety, and active ground-floor retail operations along a busy commercial corridor while strictly adhering to municipal environmental noise ordinances.",
     result: "Structural stability restored, violation notices formally dismissed with the Department of Buildings, and complete exterior aesthetic renewal matching the historic neighborhood character.",
     servicesUsed: [
-      { title: "Facade Restoration NYC", href: "/facade-restoration-nyc" },
-      { title: "Brick Pointing Bronx & Brooklyn", href: "/brick-pointing-bronx" },
-      { title: "DOT Sidewalk Violation Removal", href: "/dot-violation-removal-nyc" }
+      { title: "Facade Restoration NYC", href: "/services/masonry-work/facade-restoration" },
+      { title: "Brick Pointing Bronx & Brooklyn", href: "/services/masonry-work/brick-grinding-pointing" },
+      { title: "DOT Sidewalk Violation Removal", href: "/services/concrete-services/dot-violation-removal" }
     ],
     image: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg"
   },
@@ -171,9 +171,9 @@ export const projectsData: Record<string, CaseStudyData> = {
     challenges: "Strict Co-op board operating restrictions including rigid 9:00 AM – 4:30 PM working windows, elevator reservation limitations, and stringent building acoustic transmission thresholds.",
     result: "Project delivered on schedule within 14 weeks with zero noise violations, full building sign-off, and exceptional luxury appraisal appreciation.",
     servicesUsed: [
-      { title: "Home Renovation NYC", href: "/renovation" },
-      { title: "Kitchen Renovation", href: "/kitchen-renovation-bronx" },
-      { title: "Bathroom Renovation", href: "/bathroom-renovation-bronx" }
+      { title: "Home Renovation NYC", href: "/services/home-renovation" },
+      { title: "Kitchen Renovation", href: "/services/home-renovation/kitchen-renovation" },
+      { title: "Bathroom Renovation", href: "/services/home-renovation/bathroom-renovation" }
     ],
     image: "/assets/commercialmega.jpg"
   },
@@ -218,9 +218,9 @@ export const projectsData: Record<string, CaseStudyData> = {
     challenges: "Seamlessly blending new natural fieldstone masonry and rooflines with the original 1930s estate architecture while managing active surface runoff on a downward-sloping grade.",
     result: "Flawless architectural transition between old and new structures, superior storm resistance, and an entertainer's outdoor stone living suite backed by comprehensive warranties.",
     servicesUsed: [
-      { title: "Roofing Contractor Services", href: "/roofing" },
-      { title: "Masonry & Stone Construction", href: "/masonry" },
-      { title: "Patio & Concrete Services", href: "/patio-contractor-bronx" }
+      { title: "Roofing Contractor Services", href: "/services/roofing-services" },
+      { title: "Masonry & Stone Construction", href: "/services/masonry-work" },
+      { title: "Patio & Concrete Services", href: "/services/masonry-work/patios" }
     ],
     image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
   },
@@ -265,8 +265,8 @@ export const projectsData: Record<string, CaseStudyData> = {
     challenges: "Safely hoisting and securing a 450-pound steel beam within finished interior living spaces without causing ceiling sheetrock cracking or exterior structural shifting.",
     result: "A stunning, light-filled culinary center with 60% increased countertop workspace, optimal entertaining flow, and fully permitted structural sign-off.",
     servicesUsed: [
-      { title: "Kitchen Renovation Bronx & Queens", href: "/kitchen-renovation-bronx" },
-      { title: "Complete Home Renovation", href: "/renovation" }
+      { title: "Kitchen Renovation Bronx & Queens", href: "/services/home-renovation/kitchen-renovation" },
+      { title: "Complete Home Renovation", href: "/services/home-renovation" }
     ],
     image: "/assets/megafullhouserenovation.jpg"
   }

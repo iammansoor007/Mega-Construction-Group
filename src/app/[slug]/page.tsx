@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -8,6 +8,7 @@ import SectionHeader from "@/components/SectionHeader";
 import MarqueeSection from "@/components/MarqueeSection";
 import ServiceCTA from "@/components/ServiceCTA";
 import { bronxSeoPages } from "@/data/bronxSeoPages";
+import { bronxSlugRedirectMap } from "@/lib/servicesResolver";
 import {
   ShieldCheck, CheckCircle2, Phone, ArrowRight,
   ChevronRight, Award, Clock, Star, MapPin, Hammer
@@ -25,6 +26,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const targetUrl = bronxSlugRedirectMap[slug];
   const page = bronxSeoPages[slug];
 
   if (!page) {
@@ -50,12 +52,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "DOB Compliant Contractor NYC",
     ],
     alternates: {
-      canonical: `${BASE_URL}/${page.slug}`,
+      canonical: targetUrl ? `${BASE_URL}${targetUrl}` : `${BASE_URL}/${page.slug}`,
     },
     openGraph: {
       title: page.seoTitle,
       description: page.metaDesc,
-      url: `${BASE_URL}/${page.slug}`,
+      url: targetUrl ? `${BASE_URL}${targetUrl}` : `${BASE_URL}/${page.slug}`,
       siteName: "Mega Contracting NY Group",
       images: [
         {
@@ -81,6 +83,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BronxSeoPage({ params }: Props) {
   const { slug } = await params;
+  const targetUrl = bronxSlugRedirectMap[slug];
+  if (targetUrl) {
+    permanentRedirect(targetUrl);
+  }
+
   const page = bronxSeoPages[slug];
 
   if (!page) {

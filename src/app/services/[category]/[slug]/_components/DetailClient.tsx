@@ -1,6 +1,7 @@
 "use client";
 
 import { servicesData } from "@/data/servicesData";
+import { resolveCategory, resolveSubcategory, findSubcategoryAnywhere } from "@/lib/servicesResolver";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,8 +51,17 @@ const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string })
 Counter.displayName = "Counter";
 
 export default function DetailClient({ categoryId, slug }: { categoryId: string; slug: string }) {
-  const service = servicesData.find((s) => s.id === categoryId);
-  const subCategory = service?.subcategories.find((sub) => sub.id === slug);
+  let service = resolveCategory(categoryId);
+  let subCategory = service ? resolveSubcategory(service, slug) : undefined;
+
+  if (!service || !subCategory) {
+    const fallback = findSubcategoryAnywhere(slug);
+    if (fallback) {
+      service = fallback.service;
+      subCategory = fallback.subCategory;
+    }
+  }
+
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   if (!service || !subCategory) {

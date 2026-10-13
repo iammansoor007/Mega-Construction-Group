@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
 import { servicesData } from "@/data/servicesData";
-import { bronxSeoPages } from "@/data/bronxSeoPages";
 
 const BASE_URL = "https://www.megacontractingnyc.com";
 
@@ -65,14 +64,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // ─── Master List SEO Pages (from PDF) ───────────────────────────────────────
-  const masterSeoRoutes: MetadataRoute.Sitemap = Object.keys(bronxSeoPages).map((slug) => ({
-    url: `${BASE_URL}/${slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.9,
-  }));
-
   // ─── Dynamic service category & subcategory routes ────────────────────────────
   const dynamicRoutes: MetadataRoute.Sitemap = [];
 
@@ -91,10 +82,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${BASE_URL}/services/${service.id}/${sub.id}`,
         lastModified: now,
         changeFrequency: "monthly",
-        priority: 0.7,
+        priority: 0.8,
       });
     });
   });
 
-  return [...staticRoutes, ...masterSeoRoutes, ...dynamicRoutes];
+  return [...staticRoutes, ...dynamicRoutes];
 }

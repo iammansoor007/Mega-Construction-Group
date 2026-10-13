@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { servicesData } from "@/data/servicesData";
+import { resolveCategory, resolveSubcategory } from "@/lib/servicesResolver";
 import DetailClient from "./_components/DetailClient";
 
 type Props = {
@@ -9,20 +9,18 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const { category, slug } = resolvedParams;
-  const service = servicesData.find((s) => s.id === category);
-  const subCategory = service?.subcategories.find((sub) => sub.id === slug);
+  const service = resolveCategory(category);
+  const subCategory = service ? resolveSubcategory(service, slug) : undefined;
 
   if (!service || !subCategory) {
     return {
-      title: "Service Details | Mega Construction NYC",
+      title: "Service Details | Mega Contracting NY Group",
     };
   }
 
-  // Beast Mode Custom Titles targeting exact user search structures
-  const title = `${subCategory.title} Services in NYC | Mega Construction NYC`;
-  const description = `Looking for ${subCategory.title.toLowerCase()} in NYC? Mega Construction NYC offers professional, licensed, and guaranteed ${subCategory.title.toLowerCase()} for residential and commercial buildings across all NYC boroughs.`;
+  const title = `${subCategory.title} Services in NYC | Mega Contracting NY Group`;
+  const description = `Looking for ${subCategory.title.toLowerCase()} in NYC? Mega Contracting NY Group Inc. offers professional, licensed, and guaranteed ${subCategory.title.toLowerCase()} for residential and commercial buildings across all NYC boroughs.`;
 
-  // Specific high density local keywords optimized for NYC borough and category searches
   const keywords = [
     `${subCategory.title} NYC`,
     `${subCategory.title} Brooklyn`,
@@ -32,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     `${subCategory.title} Staten Island`,
     `best ${subCategory.title.toLowerCase()} contractor`,
     `how to repair ${subCategory.title.toLowerCase()}`,
-    "Mega Construction NYC",
+    "Mega Contracting NY Group",
     "NYC construction experts",
     "DOB code compliant contractor",
     "licensed construction company NYC"
@@ -49,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: `https://www.megacontractingnyc.com/services/${category}/${slug}`,
-      siteName: "Mega Construction NYC",
+      siteName: "Mega Contracting NY Group",
       images: [
         {
           url: subCategory.image || service.image,
@@ -75,16 +73,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const resolvedParams = await params;
   const { category, slug } = resolvedParams;
-  const service = servicesData.find((s) => s.id === category);
-  const subCategory = service?.subcategories.find((sub) => sub.id === slug);
+  const service = resolveCategory(category);
+  const subCategory = service ? resolveSubcategory(service, slug) : undefined;
 
   if (!service || !subCategory) {
     return <DetailClient categoryId={category} slug={slug} />;
   }
 
-  // Schema definitions: Service details, FAQ Page markup, and Breadcrumbs
   const schemas: any[] = [
-    // 1. Service Schema
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -92,7 +88,8 @@ export default async function Page({ params }: Props) {
       "description": subCategory.description,
       "provider": {
         "@type": "GeneralContractor",
-        "name": "Mega Construction NYC",
+        "name": "Mega Contracting NY Group",
+        "legalName": "Mega Contracting NY Group Inc.",
         "image": "https://www.megacontractingnyc.com/favicon.png",
         "telephone": "+1 (914) 804-3000",
         "email": "info@megacontractinggroup.com",
@@ -113,7 +110,6 @@ export default async function Page({ params }: Props) {
         { "@type": "AdministrativeArea", "name": "Staten Island" }
       ]
     },
-    // 2. BreadcrumbList Schema
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",

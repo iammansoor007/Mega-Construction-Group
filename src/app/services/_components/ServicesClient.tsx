@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
 import { bronxSeoPages } from "@/data/bronxSeoPages";
+import { bronxSlugRedirectMap } from "@/lib/servicesResolver";
 import { useState } from "react";
 
 export default function ServicesClient() {
@@ -254,7 +255,7 @@ export default function ServicesClient() {
                     {group.title}
                   </h3>
                   <Link
-                    href={group.hubSlug}
+                    href={bronxSlugRedirectMap[group.hubSlug.replace(/^\//, "")] || group.hubSlug}
                     className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-red-600 hover:text-red-700 transition-colors"
                   >
                     <span>View Hub</span>
@@ -266,10 +267,11 @@ export default function ServicesClient() {
                   {group.slugs.map((slug) => {
                     const page = bronxSeoPages[slug];
                     if (!page) return null;
+                    const canonicalUrl = bronxSlugRedirectMap[slug] || `/${slug}`;
                     return (
                       <Link
                         key={slug}
-                        href={`/${slug}`}
+                        href={canonicalUrl}
                         className="p-4 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-red-500/40 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
                       >
                         <div>

@@ -52,17 +52,17 @@ export default function SitemapPage() {
   ];
 
   const highPrioritySeoPages = [
-    { name: "Chimney Repair Bronx NY", href: "/chimney-repair-bronx" },
-    { name: "Stucco Repair Brooklyn NY", href: "/stucco-repair-brooklyn" },
-    { name: "Smart Home & Home Automation Brooklyn", href: "/smart-home-brooklyn" },
-    { name: "Facade Restoration NYC", href: "/facade-restoration-nyc" },
-    { name: "DOT Sidewalk Violation Removal NYC", href: "/dot-violation-removal-nyc" },
-    { name: "Fire Escape Painting NYC", href: "/fire-escape-painting-nyc" },
-    { name: "Emergency Roof Leak Repair NYC", href: "/roof-leak-repair-nyc" },
-    { name: "Foundation Repair Brooklyn NY", href: "/foundation-repair-brooklyn" },
-    { name: "Flat Roofing NYC", href: "/flat-roofing-nyc" },
-    { name: "Bathroom Renovation Bronx NY", href: "/bathroom-renovation-bronx" },
-    { name: "Concrete Contractor Bronx NY", href: "/outdoor-concrete-bronx" },
+    { name: "Chimney Repair Bronx NY", href: "/services/masonry-work/chimney-caps-rebuilds" },
+    { name: "Stucco Repair Brooklyn NY", href: "/services/stucco/stucco-repair" },
+    { name: "Smart Home & Home Automation Brooklyn", href: "/services/custom-home-building/smart-homes" },
+    { name: "Facade Restoration NYC", href: "/services/masonry-work/facade-restoration" },
+    { name: "DOT Sidewalk Violation Removal NYC", href: "/services/concrete-services/dot-violation-removal" },
+    { name: "Fire Escape Painting NYC", href: "/services/masonry-work/fire-escape-painting" },
+    { name: "Emergency Roof Leak Repair NYC", href: "/services/roofing-services/roof-leakage-repair" },
+    { name: "Foundation Repair Brooklyn NY", href: "/services/concrete-services/foundation-work" },
+    { name: "Flat Roofing NYC", href: "/services/roofing-services/flat-roofing" },
+    { name: "Bathroom Renovation Bronx NY", href: "/services/home-renovation/bathroom-renovation" },
+    { name: "Concrete Contractor Bronx NY", href: "/services/concrete-services/backyard-concrete" },
   ];
 
   return (
