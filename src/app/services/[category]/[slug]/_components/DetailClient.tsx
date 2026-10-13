@@ -311,20 +311,21 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
 
       {/* HOW WE WORK (PHASES) */}
       {subCategory.process && (
-        <section className="py-4 md:py-6 bg-white border-t border-gray-100">
+        <section className="py-8 md:py-12 bg-white border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
-              badge="Our Process"
+              badge="Our Proven Process"
               headline="How <span class='text-red-600'>We Work</span>"
-              description="Our step-by-step approach ensures your project is completed with absolute precision."
+              description="Our disciplined 6-stage engineering and construction methodology guarantees flawless execution, strict DOB code adherence, and turnkey delivery."
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {subCategory.process.map((step, i) => {
                 const title = typeof step === "string" ? step : step.title;
                 const description = typeof step === "string"
-                  ? "Our experienced crews handle every phase with meticulous quality control."
+                  ? "Our experienced crews handle every phase with meticulous quality control and rigorous compliance."
                   : step.description;
+                const stepNum = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
 
                 return (
                   <motion.div
@@ -332,26 +333,28 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="p-6 md:p-8 border border-gray-200 hover:border-red-500/35 hover:shadow-lg bg-white hover:bg-red-50/10 group transition-all duration-300 relative overflow-hidden rounded-2xl flex flex-col justify-between min-h-[220px] text-left"
+                    transition={{ delay: i * 0.08 }}
+                    className="p-6 md:p-8 border border-gray-200 hover:border-red-500/40 hover:shadow-xl bg-white hover:bg-gradient-to-br hover:from-white hover:to-red-50/20 group transition-all duration-300 relative overflow-hidden rounded-2xl flex flex-col justify-between min-h-[220px] text-left"
                   >
                     <div className="relative z-10 space-y-4">
                       <div className="flex items-center justify-between">
-                        <span className="text-red-600 text-[9px] sm:text-xs font-bold uppercase tracking-widest">Step 0{i + 1}</span>
-                        <span className="text-3xl font-black text-black/5 absolute -top-2 -right-2 transition-all select-none">
-                          0{i + 1}
+                        <span className="text-red-600 text-xs font-bold uppercase tracking-widest bg-red-50 px-2.5 py-1 rounded-full border border-red-100">
+                          Step {stepNum}
+                        </span>
+                        <span className="text-4xl font-black text-gray-100 group-hover:text-red-100 transition-colors select-none">
+                          {stepNum}
                         </span>
                       </div>
                       <div className="space-y-2">
-                        <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-tight">
+                        <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-gray-900 leading-snug group-hover:text-red-600 transition-colors">
                           {title}
                         </h3>
-                        <p className="text-xs text-gray-600 leading-relaxed font-normal">
+                        <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
                           {description}
                         </p>
                       </div>
                     </div>
-                    <div className="w-8 h-[2px] bg-red-600 group-hover:w-full transition-all duration-500 mt-4" />
+                    <div className="w-10 h-[3px] bg-red-600 rounded-full group-hover:w-full transition-all duration-500 mt-6" />
                   </motion.div>
                 );
               })}
@@ -360,31 +363,38 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
         </section>
       )}
       {/* WHY CHOOSE US */}
-      <section className="py-4 md:py-6 bg-white">
+      <section className="py-8 md:py-12 bg-gray-50/50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge="Why Choose Us"
+            badge="Client Confidence"
             headline="Why Clients <span class='text-red-600'>Trust Us</span>"
-            description="Our structural integrity, licensing, and experience set us apart."
+            description="Licensed integrity, safety mastery, and two decades of NYC commercial and residential construction excellence."
           />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {subCategory.benefits?.map((benefit, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 border border-gray-200 hover:border-red-500/50 hover:shadow-md hover:bg-gray-50 transition-all duration-300 space-y-6 group rounded-2xl"
+                transition={{ delay: i * 0.08 }}
+                className="p-8 border border-gray-200 hover:border-red-500/40 hover:shadow-xl bg-white hover:bg-gradient-to-br hover:from-white hover:to-red-50/20 transition-all duration-300 space-y-5 group rounded-2xl flex flex-col justify-between text-left"
               >
-                <div className="w-12 h-12 flex items-center justify-center text-red-650 bg-red-600/[0.06] group-hover:scale-110 transition-all mx-auto sm:mx-0">
-                  {renderIcon(benefit.icon, "w-6 h-6 text-red-600")}
+                <div className="space-y-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-red-600 bg-red-50 border border-red-100 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                    {renderIcon(benefit.icon, "w-6 h-6 transition-colors")}
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className="text-base sm:text-lg font-bold text-gray-900 uppercase tracking-tight group-hover:text-red-600 transition-colors">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-normal">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-2 text-center sm:text-left">
-                  <h4 className="text-lg font-bold text-gray-900 uppercase tracking-tight">{benefit.title}</h4>
-                  <p className="text-black text-sm leading-relaxed font-normal">{benefit.description}</p>
-                </div>
+                <div className="w-8 h-[2px] bg-red-600/30 group-hover:w-16 group-hover:bg-red-600 transition-all duration-300" />
               </motion.div>
             ))}
           </div>
@@ -393,123 +403,146 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
 
       {/* FAQ SECTION */}
       {subCategory.faqs && (
-        <section className="py-4 md:py-6 bg-gray-50 border-t border-gray-100">
+        <section className="py-12 md:py-16 bg-white border-t border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-12 gap-12">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-              {/* Left Side */}
-              <div className="lg:col-span-4 space-y-8 text-center lg:text-left">
-                <div className="space-y-4">
-                  <span className="text-red-600 text-[10px] uppercase tracking-[0.25em] font-bold block">Information Support</span>
-                  <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
-                    Critical <br /><span className="text-red-600">Inquiries</span>
+              {/* Left Side: STICKY on Desktop */}
+              <div className="lg:col-span-4 lg:sticky lg:top-28 self-start space-y-6 text-left">
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100/70 border border-red-200 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                    <span className="text-red-700 text-xs uppercase tracking-wider font-bold">
+                      NYC Technical & Code FAQ
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                    Frequently Asked <br />
+                    <span className="text-red-600">Questions</span>
                   </h2>
-                  <p className="text-black text-sm sm:text-base font-normal leading-relaxed max-w-sm mx-auto lg:mx-0">
-                    Detailed answers to technical and procedural questions regarding our {subCategory.title.toLowerCase()} services.
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    Verified answers addressing NYC DOB codes, permits, timelines, materials, and engineering methods for {subCategory.title.toLowerCase()}.
                   </p>
+                  <div className="inline-flex items-center gap-2 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-lg">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                    <span>10 Verified Technical Q&amp;As</span>
+                  </div>
                 </div>
 
-                <div className="relative p-8 border border-gray-250 bg-white group overflow-hidden rounded-2xl text-left">
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-gray-900 flex items-center justify-center">
-                    <Phone className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
-                  </div>
-                  <div className="space-y-5 relative z-10">
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                      <span className="text-[10px] uppercase tracking-widest text-gray-600 font-bold">Support Available</span>
+                {/* Direct Consultation / Hotline Card */}
+                <div className="relative p-6 sm:p-7 border border-gray-200 bg-gray-50/70 shadow-sm hover:shadow-md transition-shadow rounded-2xl text-left overflow-hidden">
+                  <div className="space-y-4 relative z-10">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                        <span className="text-[11px] uppercase tracking-wider text-green-700 font-bold">
+                          Direct Dispatch Line
+                        </span>
+                      </div>
+                      <Phone className="w-4 h-4 text-red-600" />
                     </div>
-                    <div className="space-y-1">
-                      <div className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Project Hotline</div>
-                      <div className="text-xl font-bold text-black tracking-tighter">+1 (914) 804-3000</div>
+
+                    <div>
+                      <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold">Have a project question?</div>
+                      <a
+                        href="tel:+19148043000"
+                        className="text-xl sm:text-2xl font-black text-gray-900 hover:text-red-600 transition-colors tracking-tight block mt-1"
+                      >
+                        +1 (914) 804-3000
+                      </a>
+                      <p className="text-xs text-gray-500 mt-1">Available 24/7 across all 5 NYC boroughs</p>
                     </div>
-                    <Link href="/contact" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-red-600 font-bold hover:text-red-700 transition-colors">
-                      <span>Contact Experts</span> <ArrowRight className="w-3.5 h-3.5" />
+
+                    <Link
+                      href="/contact"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs uppercase tracking-wider font-bold transition-all shadow-md hover:shadow-red-600/30"
+                    >
+                      <span>Request Free On-Site Quote</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side: Accordion */}
-              <div className="lg:col-span-8">
-                <div className="space-y-4">
-                  {subCategory.faqs.map((faq, i) => (
+              {/* Right Side: Scrollable Accordion (All 10 Questions) */}
+              <div className="lg:col-span-8 space-y-3.5">
+                {subCategory.faqs.map((faq, i) => {
+                  const qNum = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
+                  const isOpen = activeFaq === i;
+
+                  return (
                     <div
                       key={i}
-                      className={`relative rounded-none overflow-hidden border transition-all duration-300 ${activeFaq === i
-                        ? "bg-white shadow-lg border-red-600/30 border-l-4"
-                        : "bg-white shadow-sm hover:shadow-md border-gray-200"
-                        }`}
+                      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                        isOpen
+                          ? "bg-white border-red-500 shadow-md ring-1 ring-red-500/20"
+                          : "bg-white border-gray-200 hover:border-gray-300 shadow-sm"
+                      }`}
                     >
                       <button
-                        onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                        className="w-full text-left p-6 sm:p-8 focus:outline-none relative z-10"
-                        aria-expanded={activeFaq === i}
+                        onClick={() => setActiveFaq(isOpen ? null : i)}
+                        className="w-full text-left p-5 sm:p-6 focus:outline-none flex items-start sm:items-center justify-between gap-4 cursor-pointer"
+                        aria-expanded={isOpen}
                       >
-                        <div className="flex items-center justify-between gap-6">
-                          <h3 className={`text-base md:text-lg lg:text-xl font-normal transition-all duration-500 text-left ${activeFaq === i
-                            ? "text-red-600 font-bold"
-                            : "text-gray-800 group-hover:text-red-600"
-                            }`}>
+                        <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-1">
+                          <span
+                            className={`flex-shrink-0 text-xs font-mono font-bold px-2 py-1 rounded-md border transition-colors ${
+                              isOpen
+                                ? "bg-red-600 text-white border-red-600"
+                                : "bg-gray-100 text-gray-600 border-gray-200"
+                            }`}
+                          >
+                            Q{qNum}
+                          </span>
+                          <h3
+                            className={`text-sm sm:text-base md:text-lg font-bold leading-snug transition-colors text-left ${
+                              isOpen ? "text-red-600" : "text-gray-900 hover:text-red-600"
+                            }`}
+                          >
                             {faq.question}
                           </h3>
+                        </div>
 
-                          <div className="relative flex-shrink-0">
-                            <motion.div
-                              animate={activeFaq === i ? {
-                                rotate: 180,
-                                scale: 1.1,
-                                backgroundColor: '#dc2626',
-                                borderColor: '#dc2626',
-                              } : {
-                                rotate: 0,
-                                scale: 1,
-                                backgroundColor: 'white',
-                                borderColor: '#e2e8f0',
-                              }}
-                              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                              className="w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500"
-                            >
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                className="transition-transform duration-300"
-                              >
-                                <path
-                                  d={activeFaq === i ? "M5 12h14" : "M12 5v14M5 12h14"}
-                                  stroke={activeFaq === i ? 'white' : '#94a3b8'}
-                                  strokeWidth="1.8"
-                                  strokeLinecap="round"
-                                />
-                              </svg>
-                            </motion.div>
+                        <div className="flex-shrink-0 ml-2">
+                          <div
+                            className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                              isOpen
+                                ? "bg-red-600 border-red-600 text-white rotate-180"
+                                : "bg-gray-50 border-gray-200 text-gray-500 hover:border-red-400 hover:text-red-600"
+                            }`}
+                          >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                              <path
+                                d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
+                                stroke="currentColor"
+                                strokeWidth="2.2"
+                                strokeLinecap="round"
+                              />
+                            </svg>
                           </div>
                         </div>
                       </button>
 
                       <AnimatePresence initial={false}>
-                        {activeFaq === i && (
+                        {isOpen && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                             className="overflow-hidden"
                           >
-                            <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                              <div className="relative pl-6 border-l-2 border-red-600/20">
-                                <p className="text-gray-600 text-sm md:text-base leading-relaxed font-normal text-left">
-                                  {faq.answer}
-                                </p>
+                            <div className="px-5 sm:px-6 pb-6 pt-1">
+                              <div className="pl-4 sm:pl-5 border-l-2 border-red-600 text-gray-700 text-sm sm:text-base leading-relaxed bg-red-50/20 py-2.5 pr-3 rounded-r-lg">
+                                {faq.answer}
                               </div>
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
 
             </div>

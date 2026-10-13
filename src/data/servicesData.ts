@@ -13,6 +13,7 @@ import {
 
 // Import the simple asset mapping
 import { serviceAssets } from "./serviceAssets";
+import { enrichServicesData } from "./servicesEnricher";
 
 export interface Benefit {
   title: string;
@@ -57,7 +58,7 @@ export interface Service {
 // Helper to get assets safely
 const getAsset = (id: string) => serviceAssets[id as keyof typeof serviceAssets] || { title: id, image: "/placeholder.svg" };
 
-export const servicesData: Service[] = [
+const baseServicesData: Service[] = [
   {
     id: "roofing-services",
     ...getAsset("roofing-services"),
@@ -2067,6 +2068,8 @@ export const servicesData: Service[] = [
     ]
   }
 ];
+
+export const servicesData: Service[] = enrichServicesData(baseServicesData);
 
 export const getServiceById = (id: string) => servicesData.find(s => s.id === id);
 export const getSubCategory = (serviceId: string, subId: string) => {
