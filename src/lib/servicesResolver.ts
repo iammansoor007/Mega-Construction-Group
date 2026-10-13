@@ -21,7 +21,7 @@ export const categoryAliases: Record<string, string> = {
 export const subcategoryAliases: Record<string, string> = {
   "roof-repair": "roof-leakage-repair",
   "roof-leak-repair": "roof-leakage-repair",
-  "roof-waterproofing": "flat-roofing",
+  "roof-waterproofing": "roof-waterproofing",
   "roof-leakage-repair": "roof-leakage-repair",
   "flat-roofing": "flat-roofing",
   "tpo-roofing": "tpo-roofing",
