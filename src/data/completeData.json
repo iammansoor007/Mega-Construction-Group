@@ -150,6 +150,16 @@
         "icon": "Users"
       },
       {
+        "label": "Projects",
+        "href": "/projects",
+        "icon": "Briefcase"
+      },
+      {
+        "label": "Technical Guides",
+        "href": "/blog",
+        "icon": "ClipboardCheck"
+      },
+      {
         "label": "FAQ",
         "href": "/faq",
         "icon": "MessageSquare"
@@ -1384,6 +1394,14 @@
       "copyright": "Â© 2026 Mega Contracting NY Group",
       "rights": "All rights reserved",
       "links": [
+        {
+          "label": "Projects",
+          "href": "/projects"
+        },
+        {
+          "label": "Technical Guides",
+          "href": "/blog"
+        },
         {
           "label": "Privacy",
           "href": "/privacy"

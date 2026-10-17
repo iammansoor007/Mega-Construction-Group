@@ -3,7 +3,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { servicesData } from "@/data/servicesData";
-import { ChevronRight, ArrowRight, ExternalLink } from "lucide-react";
+import { projectsData } from "@/data/projectsData";
+import { locationsData } from "@/data/locationsData";
+import { blogsData } from "@/data/blogsData";
+import { ChevronRight, ArrowRight, ExternalLink, MapPin, FolderOpen, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: {
@@ -39,10 +42,17 @@ export default function SitemapPage() {
       ]
     }
   };
+  const projects = Object.values(projectsData);
+  const boroughs = Object.values(locationsData);
+  const blogs = Object.values(blogsData);
+
   const mainPages = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "All Services", href: "/services" },
+    { name: "Projects & Case Studies", href: "/projects" },
+    { name: "Technical Blog & Guides", href: "/blog" },
+    { name: "Service Locations", href: "/locations" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact & Free Quote", href: "/contact" },
     { name: "Licenses & Certifications", href: "/licenses" },
@@ -127,6 +137,75 @@ export default function SitemapPage() {
                 >
                   <span>{page.name}</span>
                   <ChevronRight className="w-4 h-4 opacity-50" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Locations / Borough Hubs */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
+            <h2 className="text-2xl font-bold uppercase tracking-tight font-heading text-gray-950 mb-2 flex items-center gap-2">
+              <span className="w-3 h-3 bg-red-600 rounded-full" /> NYC Borough Service Hubs
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">Licensed general contracting across all 5 NYC boroughs — click any hub for local services, neighborhoods, and case studies.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {boroughs.map((b, i) => (
+                <Link
+                  key={i}
+                  href={`/locations/${b.slug}`}
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100 text-sm font-semibold text-gray-800 group"
+                >
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-red-500 group-hover:text-red-600" />
+                    {b.boroughName}
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-50" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Projects / Case Studies */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
+            <h2 className="text-2xl font-bold uppercase tracking-tight font-heading text-gray-950 mb-2 flex items-center gap-2">
+              <span className="w-3 h-3 bg-red-600 rounded-full" /> Documented Project Case Studies
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">Real verified projects with materials used, scopes of work, and NYC DOB sign-off documentation.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {projects.map((p, i) => (
+                <Link
+                  key={i}
+                  href={`/projects/${p.slug}`}
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100 text-sm font-semibold text-gray-800 group"
+                >
+                  <span className="flex items-center gap-2">
+                    <FolderOpen className="w-4 h-4 text-red-500 group-hover:text-red-600 shrink-0" />
+                    <span className="line-clamp-1">{p.title}</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-50 shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Technical Guides & Engineering Blog */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 border border-gray-200 shadow-sm">
+            <h2 className="text-2xl font-bold uppercase tracking-tight font-heading text-gray-950 mb-2 flex items-center gap-2">
+              <span className="w-3 h-3 bg-red-600 rounded-full" /> NYC Building Code &amp; Technical Guides
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">In-depth technical guides covering Department of Buildings (DOB) compliance, Local Law 97, and commercial waterproofing methods.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {blogs.map((b, i) => (
+                <Link
+                  key={i}
+                  href={`/blog/${b.slug}`}
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-gray-50 hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100 text-sm font-semibold text-gray-800 group"
+                >
+                  <span className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-red-500 group-hover:text-red-600 shrink-0" />
+                    <span className="line-clamp-1">{b.title}</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-50 shrink-0" />
                 </Link>
               ))}
             </div>
