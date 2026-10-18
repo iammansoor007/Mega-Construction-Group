@@ -210,109 +210,101 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled
-          ? "bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] border-b border-white/20 py-4"
-          : "py-3"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled
+          ? "bg-black/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border-b border-white/10 py-3"
+          : "bg-gradient-to-b from-black/80 via-black/30 to-transparent py-4"
           }`}
-        style={scrolled ? { background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 100%)' } : {}}
       >
         {/* Glass shimmer line at top */}
         {scrolled && (
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
         )}
         {/* Red accent glow line at bottom on scroll */}
         {scrolled && (
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         )}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between gap-2 lg:gap-4">
             <motion.div
-              className="flex logooo items-center space-x-3 group relative text-stable"
+              className="flex logooo items-center group relative text-stable flex-shrink-0"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Link href="/" className="flex items-center space-x-3" onClick={handleLinkClick}>
+              <Link href="/" className="flex items-center" onClick={handleLinkClick}>
                 {/* Logo Glow Effect */}
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="h-12 w-28 xs:h-16 xs:w-32 sm:h-20 sm:w-48 rounded-2xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
+                <div className="h-10 w-24 xs:h-12 xs:w-28 sm:h-14 sm:w-36 lg:h-16 lg:w-44 rounded-xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
                   <Image
                     src={logo}
                     alt="Mega Construction NY Group Logo"
-                    className="companylogo h-full w-full object-contain p-0.5 xs:p-1 drop-shadow-2xl smooth-gpu"
+                    className="companylogo h-full w-full object-contain p-0.5 drop-shadow-2xl smooth-gpu"
                     priority
-                    width={192}
-                    height={80}
+                    width={180}
+                    height={64}
                   />
                 </div>
               </Link>
             </motion.div>
 
-            <div className="hidden lg:flex items-center space-x-2">
-              <div className="relative">
+            <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1 flex-shrink min-w-0">
+              <div className="relative flex-shrink-0">
                 <motion.button
                   ref={servicesButtonRef}
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
-                  className={`flex items-center space-x-2 px-6 py-3 font-bold rounded-none relative group transition-all duration-500 overflow-hidden ${scrolled
-                    ? "text-gray-900 hover:text-red-600"
-                    : "text-white"
-                    }`}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center space-x-1.5 px-2.5 xl:px-3.5 py-2 font-bold rounded-lg relative group transition-all duration-300 overflow-hidden text-white/90 hover:text-white whitespace-nowrap"
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.97 }}
                 >
                   {/* Premium Hover Background */}
                   <motion.div
-                    className={`absolute inset-0 transition-opacity duration-500 -z-10 ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
+                    className="absolute inset-0 transition-opacity duration-300 -z-10 bg-white/10 rounded-lg"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   />
 
                   {/* Glossy line accent */}
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
 
-                  <span className="flex items-center space-x-2 relative z-10 text-[13px] uppercase tracking-[0.15em]">
-                    <Wrench className="h-3.5 w-3.5 transition-transform duration-500 group-hover:rotate-12" />
+                  <span className="flex items-center space-x-1.5 relative z-10 text-[11px] xl:text-[13px] uppercase tracking-wider xl:tracking-[0.12em] whitespace-nowrap">
+                    <Wrench className="h-3.5 w-3.5 text-red-500 transition-transform duration-300 group-hover:rotate-12 flex-shrink-0" />
                     <span>Services</span>
                   </span>
                   <motion.span
                     animate={{ rotate: activeMegaMenu === "services" ? 180 : 0 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    className="flex-shrink-0"
                   >
-                    <ChevronDown className="h-3.5 w-3.5 ml-1 opacity-60 group-hover:opacity-100 transition-colors" />
+                    <ChevronDown className="h-3 w-3 ml-0.5 opacity-70 group-hover:opacity-100 transition-colors" />
                   </motion.span>
                 </motion.button>
               </div>
 
-              <div className="flex items-center space-x-1 ml-2">
+              <div className="flex items-center space-x-0.5 xl:space-x-1 flex-shrink">
                 {companyLinks.slice(1).map((link) => {
-                  const LinkIcon =
-                    iconMap[link.icon as keyof typeof iconMap] || iconMap.Home;
                   return (
                     <motion.div
                       key={link.label}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center"
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.97 }}
+                      className="flex items-center flex-shrink-0"
                     >
                       <Link
                         href={link.href}
                         onClick={handleLinkClick}
                         onMouseEnter={() => setActiveMegaMenu(null)}
-                        className={`flex items-center space-x-2 px-5 py-3 font-bold rounded-none relative group transition-all duration-300 ${scrolled
-                          ? "text-gray-900 hover:text-red-600"
-                          : "text-white/90 hover:text-white"
-                          }`}
+                        className="flex items-center px-2 xl:px-3 py-2 font-bold rounded-lg relative group transition-all duration-300 text-white/85 hover:text-white whitespace-nowrap"
                       >
                         <motion.div
-                          className={`absolute inset-0 transition-opacity duration-300 -z-10 rounded-xl ${scrolled ? 'bg-red-50' : 'bg-white/10'}`}
+                          className="absolute inset-0 transition-opacity duration-300 -z-10 rounded-lg bg-white/10"
                           initial={{ opacity: 0 }}
                           whileHover={{ opacity: 1 }}
                         />
-                        <span className="relative z-10 flex items-center space-x-2 text-[13px] uppercase tracking-[0.15em]">
-                          <LinkIcon />
+                        <span className="relative z-10 flex items-center space-x-1.5 text-[11px] xl:text-[13px] uppercase tracking-wider xl:tracking-[0.12em] whitespace-nowrap">
                           <span>{link.label}</span>
                         </span>
+                        <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
                       </Link>
                     </motion.div>
                   );
@@ -321,39 +313,24 @@ const Navbar = () => {
             </div>
 
             <motion.div
-              className="hidden lg:flex items-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="hidden lg:flex items-center flex-shrink-0"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Link
                 href="/contact"
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
-                className={`
-                  group relative px-9 py-4 rounded-none font-bold text-[12px] uppercase tracking-[0.2em]
-                  transition-all duration-500 ease-out overflow-hidden
-                  ${scrolled
-                    ? "bg-gradient-to-r from-red-600 to-red-800 text-white shadow-[0_15px_30px_-5px_rgba(220,38,38,0.4)]"
-                    : "bg-white text-red-600 shadow-2xl"
-                  }
-                `}
+                className="group relative px-4 xl:px-6 py-2.5 xl:py-3 rounded-xl font-bold text-[11px] xl:text-xs uppercase tracking-wider xl:tracking-[0.15em] transition-all duration-300 ease-out overflow-hidden bg-gradient-to-r from-red-600 via-red-600 to-red-700 text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/50 hover:from-red-500 hover:to-red-600 border border-red-500/40 whitespace-nowrap flex-shrink-0"
               >
                 {/* Shine Animation Effect */}
-                <span className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)]">
-                  <span className="relative h-full w-8 bg-white/20 blur-xl animate-shine-slow" />
+                <span className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)] pointer-events-none">
+                  <span className="relative h-full w-8 bg-white/25 blur-sm animate-shine-slow" />
                 </span>
 
-                {/* Internal Glow for Non-Scrolled */}
-                {!scrolled && (
-                  <div className="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition-colors duration-500" />
-                )}
-
-                {/* Animated Inner Shine Border */}
-                <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
-
-                <span className="relative z-10 flex items-center justify-center space-x-2.5">
-                  <Calendar className={`h-4 w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "" : "text-red-600"}`} />
-                  <span className="leading-none">{cta.buttonText}</span>
+                <span className="relative z-10 flex items-center justify-center space-x-2">
+                  <Calendar className="h-3.5 w-3.5 text-white flex-shrink-0 transition-transform duration-300 group-hover:scale-110" />
+                  <span className="leading-none whitespace-nowrap">{cta.buttonText}</span>
                 </span>
               </Link>
             </motion.div>
@@ -361,10 +338,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-4 lg:hidden">
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`p-2 xs:p-2.5 rounded-xl transition-all duration-300 border ${scrolled
-                  ? "bg-white/20 backdrop-blur-md border-white/30 hover:bg-white/30"
-                  : "bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20"
-                  }`}
+                className="p-2 xs:p-2.5 rounded-xl transition-all duration-300 border bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-white"
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}
               >
@@ -376,7 +350,7 @@ const Navbar = () => {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: 90, opacity: 0 }}
                     >
-                      <X className={`h-6 w-6 ${scrolled ? "text-gray-900" : "text-white"}`} />
+                      <X className="h-6 w-6 text-white" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -385,7 +359,7 @@ const Navbar = () => {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: -90, opacity: 0 }}
                     >
-                      <Menu className={`h-6 w-6 ${scrolled ? "text-gray-900" : "text-white"}`} />
+                      <Menu className="h-6 w-6 text-white" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -628,12 +602,11 @@ const Navbar = () => {
                             iconMap[link.icon as keyof typeof iconMap] ||
                             iconMap.Home;
                           return (
-                            <motion.a
+                            <Link
                               key={link.label}
                               href={link.href}
                               onClick={() => setIsMenuOpen(false)}
-                              className="flex items-center space-x-3 p-3 rounded-none hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
-                              whileTap={{ scale: 0.98 }}
+                              className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 active:scale-[0.98]"
                             >
                               <div className="text-gray-700">
                                 <LinkIcon />
@@ -641,7 +614,7 @@ const Navbar = () => {
                               <span className="font-semibold text-gray-900 text-base">
                                 {link.label}
                               </span>
-                            </motion.a>
+                            </Link>
                           );
                         })}
                       </div>
