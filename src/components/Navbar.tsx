@@ -223,8 +223,8 @@ const Navbar = () => {
         {scrolled && (
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
         )}
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center justify-between gap-2 lg:gap-4">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between gap-3 lg:gap-5">
             <motion.div
               className="flex logooo items-center group relative text-stable flex-shrink-0"
               whileHover={{ scale: 1.02 }}
@@ -234,7 +234,7 @@ const Navbar = () => {
                 {/* Logo Glow Effect */}
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                <div className="h-10 w-24 xs:h-12 xs:w-28 sm:h-14 sm:w-36 lg:h-16 lg:w-44 rounded-xl flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
+                <div className="h-10 w-24 xs:h-12 xs:w-28 sm:h-13 sm:w-32 lg:h-13 lg:w-36 xl:h-16 xl:w-44 rounded-none flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
                   <Image
                     src={logo}
                     alt="Mega Construction NY Group Logo"
@@ -253,7 +253,7 @@ const Navbar = () => {
                   ref={servicesButtonRef}
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
-                  className="flex items-center space-x-1.5 px-3 xl:px-4 py-2.5 font-bold rounded-none relative group transition-all duration-300 overflow-hidden text-white/90 hover:text-white whitespace-nowrap"
+                  className="flex items-center space-x-1.5 px-2.5 xl:px-4 py-2 xl:py-2.5 font-bold rounded-none relative group transition-all duration-300 overflow-hidden text-white/90 hover:text-white whitespace-nowrap"
                   whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -268,7 +268,7 @@ const Navbar = () => {
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-red-600 rounded-none scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
 
                   <span className="flex items-center space-x-1.5 relative z-10 text-[11px] xl:text-[12.5px] uppercase tracking-wider xl:tracking-[0.14em] whitespace-nowrap">
-                    <Wrench className="h-3.5 w-3.5 text-red-500 transition-transform duration-300 group-hover:rotate-12 flex-shrink-0" />
+                    <Wrench className="hidden xl:inline-block h-3.5 w-3.5 text-red-500 transition-transform duration-300 group-hover:rotate-12 flex-shrink-0" />
                     <span>Services</span>
                   </span>
                   <motion.span
@@ -296,7 +296,7 @@ const Navbar = () => {
                         href={link.href}
                         onClick={handleLinkClick}
                         onMouseEnter={() => setActiveMegaMenu(null)}
-                        className="flex items-center px-2.5 xl:px-3.5 py-2.5 font-bold rounded-none relative group transition-all duration-300 text-white/85 hover:text-white whitespace-nowrap"
+                        className="flex items-center px-2 xl:px-3.5 py-2 xl:py-2.5 font-bold rounded-none relative group transition-all duration-300 text-white/85 hover:text-white whitespace-nowrap"
                       >
                         <motion.div
                           className="absolute inset-0 transition-opacity duration-300 -z-10 rounded-none bg-white/10"
@@ -304,7 +304,9 @@ const Navbar = () => {
                           whileHover={{ opacity: 1 }}
                         />
                         <span className="relative z-10 flex items-center space-x-1.5 text-[11px] xl:text-[12.5px] uppercase tracking-wider xl:tracking-[0.14em] whitespace-nowrap">
-                          <LinkIcon />
+                          <span className="hidden xl:inline-flex shrink-0">
+                            <LinkIcon />
+                          </span>
                           <span>{link.label}</span>
                         </span>
                         <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-red-600 rounded-none scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
@@ -325,7 +327,7 @@ const Navbar = () => {
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
                 className={`
-                  group relative px-5 xl:px-7 py-3 rounded-none font-bold text-[11px] xl:text-[12px] uppercase tracking-[0.18em]
+                  group relative px-4 xl:px-6 py-2.5 xl:py-3 rounded-none font-bold text-[11px] xl:text-[12px] uppercase tracking-wider xl:tracking-[0.16em]
                   transition-all duration-500 ease-out overflow-hidden whitespace-nowrap flex-shrink-0
                   ${scrolled
                     ? "bg-gradient-to-r from-red-600 to-red-800 text-white shadow-[0_15px_30px_-5px_rgba(220,38,38,0.4)]"
@@ -347,7 +349,7 @@ const Navbar = () => {
                 <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
 
                 <span className="relative z-10 flex items-center justify-center space-x-2">
-                  <Calendar className={`h-4 w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "text-white" : "text-red-600"}`} />
+                  <Calendar className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "text-white" : "text-red-600"}`} />
                   <span className="leading-none whitespace-nowrap">{cta.buttonText}</span>
                 </span>
               </Link>
