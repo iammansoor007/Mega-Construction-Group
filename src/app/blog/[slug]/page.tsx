@@ -64,6 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: "en_US",
       type: "article",
       publishedTime: post.publishDate,
+      modifiedTime: post.editDate || post.publishDate,
       authors: [post.author.name],
     },
     twitter: {
@@ -89,42 +90,55 @@ export default async function BlogPostPage({ params }: Props) {
     ? post.featuredImage
     : `${BASE_URL}${post.featuredImage}`;
 
-  // Multi-schema: BlogPosting, BreadcrumbList, FAQPage
+  // Multi-schema: TechArticle / BlogPosting, BreadcrumbList, FAQPage
   const schemas: any[] = [
     {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": ["TechArticle", "BlogPosting"],
       headline: post.title,
+      alternativeHeadline: post.seoTitle,
       description: post.metaDescription,
       image: fullImageUrl,
       datePublished: post.publishDate,
-      dateModified: post.publishDate,
+      dateModified: post.editDate || post.publishDate,
+      inLanguage: "en-US",
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": canonicalUrl,
       },
       author: {
-        "@type": "Organization",
+        "@type": "Person",
         name: post.author.name,
-        url: BASE_URL,
+        jobTitle: post.author.role,
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "license",
+          name: post.author.license,
+        },
+        url: `${BASE_URL}/about`,
       },
       publisher: {
         "@type": "Organization",
         name: "Mega Contracting NY Group Inc.",
+        url: BASE_URL,
         logo: {
           "@type": "ImageObject",
           url: `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
         },
       },
       keywords: [post.primaryKeyword, ...post.supportingKeywords].join(", "),
+      about: [
+        { "@type": "Thing", name: post.primaryKeyword },
+        ...post.supportingKeywords.map((kw) => ({ "@type": "Thing", name: kw })),
+      ],
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL },
-        { "@type": "ListItem", "position": 2, "name": "Technical Guides", "item": `${BASE_URL}/blog` },
-        { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl },
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+        { "@type": "ListItem", position: 2, name: "Technical Guides", item: `${BASE_URL}/blog` },
+        { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
       ],
     },
     {

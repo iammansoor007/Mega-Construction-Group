@@ -261,40 +261,54 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                   </span>
                 </div>
                 <ul className="space-y-3 text-xs sm:text-sm text-white/80">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-white">DOB Work Permit:</strong>{" "}
-                      Mandatory if replacing &gt;50% of the roof surface or
-                      stripping down to structural concrete or wood deck.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-white">
-                        Local Law 97 &amp; Energy Code:
-                      </strong>{" "}
-                      Full tear-offs must integrate minimum R-30 continuous
-                      polyiso insulation to reduce carbon penalties.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-white">Recommended Membrane:</strong>{" "}
-                      60-mil hot-air welded TPO delivers highest puncture
-                      resistance, Cool Roof credits, and 25–30 year lifespans.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>
-                      <strong className="text-white">Parapet Integration:</strong>{" "}
-                      Over 80% of building leaks stem from mortar joints and coping
-                      stone ties; comprehensive restoration is essential.
-                    </span>
-                  </li>
+                  {post.keyTakeaways && post.keyTakeaways.length > 0 ? (
+                    post.keyTakeaways.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>
+                          <strong className="text-white">{item.label}:</strong>{" "}
+                          {item.text}
+                        </span>
+                      </li>
+                    ))
+                  ) : (
+                    <>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>
+                          <strong className="text-white">DOB Work Permit:</strong>{" "}
+                          Mandatory if replacing &gt;50% of the roof surface or
+                          stripping down to structural concrete or wood deck.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>
+                          <strong className="text-white">
+                            Local Law 97 &amp; Energy Code:
+                          </strong>{" "}
+                          Full tear-offs must integrate minimum R-30 continuous
+                          polyiso insulation to reduce carbon penalties.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>
+                          <strong className="text-white">Recommended Membrane:</strong>{" "}
+                          60-mil hot-air welded TPO delivers highest puncture
+                          resistance, Cool Roof credits, and 25–30 year lifespans.
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>
+                          <strong className="text-white">Parapet Integration:</strong>{" "}
+                          Over 80% of building leaks stem from mortar joints and coping
+                          stone ties; comprehensive restoration is essential.
+                        </span>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
 
@@ -318,10 +332,9 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                     {sec.paragraphs.map((p, idx) => (
                       <p
                         key={idx}
-                        className="text-sm sm:text-base text-white/75 leading-relaxed sm:leading-loose font-normal"
-                      >
-                        {p}
-                      </p>
+                        className="text-sm sm:text-base text-white/75 leading-relaxed sm:leading-loose font-normal [&_a]:text-red-400 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-red-300 transition-colors"
+                        dangerouslySetInnerHTML={{ __html: p }}
+                      />
                     ))}
                   </div>
 
@@ -557,7 +570,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </nav>
               </div>
 
-              {/* 2. Key Outcomes & Compliance Widget (User Requested Outcome) */}
+              {/* 2. Key Outcomes & Compliance Widget (Dynamic per Post) */}
               <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#181818] to-[#121212] border border-white/10 shadow-xl">
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
                   <h3 className="text-xs uppercase font-mono tracking-widest text-emerald-400 font-bold flex items-center gap-2">
@@ -570,45 +583,59 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </div>
 
                 <div className="space-y-3 text-xs text-white/75">
-                  <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white">DOB Permit Threshold</p>
-                      <p className="text-[11px] text-white/60">
-                        Required if &gt;50% roof replaced or deck exposed.
-                      </p>
-                    </div>
-                  </div>
+                  {post.keyOutcomes && post.keyOutcomes.length > 0 ? (
+                    post.keyOutcomes.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">{item.title}</p>
+                          <p className="text-[11px] text-white/60">{item.description}</p>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">DOB Permit Threshold</p>
+                          <p className="text-[11px] text-white/60">
+                            Required if &gt;50% roof replaced or deck exposed.
+                          </p>
+                        </div>
+                      </div>
 
-                  <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white">Local Law 97 Mandate</p>
-                      <p className="text-[11px] text-white/60">
-                        R-30 continuous polyiso insulation compliance.
-                      </p>
-                    </div>
-                  </div>
+                      <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">Local Law 97 Mandate</p>
+                          <p className="text-[11px] text-white/60">
+                            R-30 continuous polyiso insulation compliance.
+                          </p>
+                        </div>
+                      </div>
 
-                  <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white">TPO Membrane Lifespan</p>
-                      <p className="text-[11px] text-white/60">
-                        25–30 year durability with Cool Roof rating.
-                      </p>
-                    </div>
-                  </div>
+                      <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">TPO Membrane Lifespan</p>
+                          <p className="text-[11px] text-white/60">
+                            25–30 year durability with Cool Roof rating.
+                          </p>
+                        </div>
+                      </div>
 
-                  <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-bold text-white">Parapet Tie-in</p>
-                      <p className="text-[11px] text-white/60">
-                        Coping stones &amp; counterflashing sealed against wind.
-                      </p>
-                    </div>
-                  </div>
+                      <div className="flex items-start gap-2.5 p-2 rounded-lg bg-white/[0.03]">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-bold text-white">Parapet Tie-in</p>
+                          <p className="text-[11px] text-white/60">
+                            Coping stones &amp; counterflashing sealed against wind.
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -619,16 +646,15 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                   <span className="text-[10px] uppercase font-mono tracking-widest text-red-400 font-bold">
-                    24/7 Field Engineering
+                    {post.ctaBox?.badge || "24/7 Field Engineering"}
                   </span>
                 </div>
 
                 <h3 className="text-lg font-bold text-white mb-2 font-heading leading-tight">
-                  Need an On-Site Roof Inspection?
+                  {post.ctaBox?.title || "Need an On-Site Roof Inspection?"}
                 </h3>
                 <p className="text-xs text-white/65 leading-relaxed mb-5">
-                  Our licensed estimators perform thermal moisture scans, structural
-                  deck evaluations, and itemized DOB proposals.
+                  {post.ctaBox?.description || "Our licensed estimators perform thermal moisture scans, structural deck evaluations, and itemized DOB proposals."}
                 </p>
 
                 <div className="space-y-3">
@@ -640,10 +666,10 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                     <span>Call (914) 804-3000</span>
                   </a>
                   <Link
-                    href="/contact"
+                    href={post.ctaBox?.buttonHref || "/contact"}
                     className="w-full py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/10 transition-colors inline-flex items-center justify-center gap-2"
                   >
-                    <span>Request Free Estimate</span>
+                    <span>{post.ctaBox?.buttonText || "Request Free Estimate"}</span>
                     <ArrowRight className="w-4 h-4 text-red-400" />
                   </Link>
                 </div>
