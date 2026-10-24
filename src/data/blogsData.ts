@@ -71,7 +71,48 @@ export interface BlogPost {
   };
 }
 
+import { localLaw11Post } from "./blogs/localLaw11";
+import { buildingViolationsPost } from "./blogs/buildingViolations";
+import { generalContractorBronxPost } from "./blogs/generalContractorBronx";
+import { sidewalkRepairBronxPost } from "./blogs/sidewalkRepairBronx";
+import { bathroomRenovationBronxPost } from "./blogs/bathroomRenovationBronx";
+import { waterDamageBronxPost } from "./blogs/waterDamageBronx";
+import { facadeRestorationNycPost } from "./blogs/facadeRestorationNyc";
+import { foundationRepairNycPost } from "./blogs/foundationRepairNyc";
+import { brickPointingCostNycPost } from "./blogs/brickPointingCostNyc";
+import { kitchenRenovationBronxPost } from "./blogs/kitchenRenovationBronx";
+import { roofReplacementBronxPost } from "./blogs/roofReplacementBronx";
+import { flatRoofRepairNycPost } from "./blogs/flatRoofRepairNyc";
+import { concreteContractorBronxPost } from "./blogs/concreteContractorBronx";
+import { parapetWallRepairNycPost } from "./blogs/parapetWallRepairNyc";
+import { commercialRoofingNycPost } from "./blogs/commercialRoofingNyc";
+import { commercialMultifamilyRenovationPost } from "./blogs/commercialMultifamilyRenovation";
+import { renovationPermitsNycPost } from "./blogs/renovationPermitsNyc";
+import { basementRenovationNycPost } from "./blogs/basementRenovationNyc";
+import { caulkingContractorsNycPost } from "./blogs/caulkingContractorsNyc";
+import { fireEscapePaintingNycPost } from "./blogs/fireEscapePaintingNyc";
+
 export const blogsData: Record<string, BlogPost> = {
+  [roofReplacementBronxPost.slug]: roofReplacementBronxPost,
+  [flatRoofRepairNycPost.slug]: flatRoofRepairNycPost,
+  [concreteContractorBronxPost.slug]: concreteContractorBronxPost,
+  [parapetWallRepairNycPost.slug]: parapetWallRepairNycPost,
+  [commercialRoofingNycPost.slug]: commercialRoofingNycPost,
+  [commercialMultifamilyRenovationPost.slug]: commercialMultifamilyRenovationPost,
+  [renovationPermitsNycPost.slug]: renovationPermitsNycPost,
+  [basementRenovationNycPost.slug]: basementRenovationNycPost,
+  [caulkingContractorsNycPost.slug]: caulkingContractorsNycPost,
+  [fireEscapePaintingNycPost.slug]: fireEscapePaintingNycPost,
+  [localLaw11Post.slug]: localLaw11Post,
+  [buildingViolationsPost.slug]: buildingViolationsPost,
+  [generalContractorBronxPost.slug]: generalContractorBronxPost,
+  [sidewalkRepairBronxPost.slug]: sidewalkRepairBronxPost,
+  [bathroomRenovationBronxPost.slug]: bathroomRenovationBronxPost,
+  [waterDamageBronxPost.slug]: waterDamageBronxPost,
+  [facadeRestorationNycPost.slug]: facadeRestorationNycPost,
+  [foundationRepairNycPost.slug]: foundationRepairNycPost,
+  [brickPointingCostNycPost.slug]: brickPointingCostNycPost,
+  [kitchenRenovationBronxPost.slug]: kitchenRenovationBronxPost,
   "nyc-home-renovation-contractor-guide": {
     slug: "nyc-home-renovation-contractor-guide",
     title: "NYC Home Renovation Contractor Guide: Permits, Structural Work, and How to Choose the Best General Contractor",
