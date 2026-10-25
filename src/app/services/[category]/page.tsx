@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { servicesData } from "@/data/servicesData";
+import { getServiceCategorySeo } from "@/data/servicesSeoData";
 import CategoryClient from "./_components/CategoryClient";
 
 type Props = {
@@ -10,66 +11,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const categoryId = resolvedParams.category;
   const service = servicesData.find((s) => s.id === categoryId);
+  const seo = getServiceCategorySeo(categoryId);
 
   if (!service) {
     return {
-      title: "Service Division | Mega Construction NYC",
+      title: { absolute: "Service Division | Mega Contracting NY Group" },
     };
   }
 
-  // Beast Mode Local SEO Keywords (High-Density & High-Intent)
   const keywords = [
+    seo.primaryKeyword,
     `${service.title} NYC`,
     `best ${service.title.toLowerCase()} contractor new york`,
     `licensed ${service.title.toLowerCase()} services`,
-    "Mega Construction NYC",
+    "Mega Contracting NY Group",
     "NYC general contractor",
     "exterior building restoration NYC",
   ];
 
-  if (categoryId === "roofing-services") {
-    keywords.push(
-      "roof replacement NYC", "flat roof repair New York", "shingle roofing contractor Brooklyn",
-      "TPO roofing NYC", "commercial roofing Queens", "emergency roof repair Bronx", "certified roofer Staten Island"
-    );
-  } else if (categoryId === "masonry-work") {
-    keywords.push(
-      "brick pointing NYC", "parapet wall repair Brooklyn", "historic brownstone restoration",
-      "window caulking New York", "tuckpointing NYC", "structural masonry restoration", "lintel replacement NYC"
-    );
-  } else if (categoryId === "concrete-services") {
-    keywords.push(
-      "sidewalk repair NYC", "concrete driveway installation", "DOT violation removal",
-      "paver patio builder Brooklyn", "concrete contractor Queens", "sidewalk replacement NYC", "concrete foundations Bronx"
-    );
-  } else if (categoryId === "stucco") {
-    keywords.push(
-      "stucco repair NYC", "california stucco finish", "EIFS systems installation",
-      "exterior stucco contractor Brooklyn", "stucco remediation Queens", "color-matched stucco repair NYC"
-    );
-  }
-
-  const title = `${service.title} Contractor NYC | Mega Construction NYC`;
-  const description = `${service.description} Rely on Mega Construction NYC for certified, premium ${service.tag.toLowerCase()} engineering and restoration in NYC. Get a free estimate today!`;
-
   return {
-    title,
-    description,
+    title: {
+      absolute: seo.seoTitle,
+    },
+    description: seo.metaDescription,
     keywords,
     alternates: {
       canonical: `https://www.megacontractingnyc.com/services/${categoryId}`,
     },
     openGraph: {
-      title,
-      description,
+      title: seo.seoTitle,
+      description: seo.metaDescription,
       url: `https://www.megacontractingnyc.com/services/${categoryId}`,
-      siteName: "Mega Construction NYC",
+      siteName: "Mega Contracting NY Group",
       images: [
         {
-          url: service.image,
+          url: service.image || "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg",
           width: 1200,
           height: 630,
-          alt: `${service.title} NYC - Mega Construction NYC`,
+          alt: `${seo.h1} - Mega Contracting NY Group`,
         },
       ],
       locale: "en_US",
@@ -79,9 +58,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       site: "@megacontractingny",
       creator: "@megacontractingny",
-      title,
-      description,
-      images: [service.image],
+      title: seo.seoTitle,
+      description: seo.metaDescription,
+      images: [service.image || "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg"],
     },
   };
 }
@@ -90,6 +69,7 @@ export default async function Page({ params }: Props) {
   const resolvedParams = await params;
   const categoryId = resolvedParams.category;
   const service = servicesData.find((s) => s.id === categoryId);
+  const seo = getServiceCategorySeo(categoryId);
 
   if (!service) return <CategoryClient categoryId={categoryId} />;
 
@@ -99,11 +79,11 @@ export default async function Page({ params }: Props) {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": `${service.title} Contractor NYC`,
-      "description": service.description,
+      "name": seo.h1,
+      "description": seo.metaDescription,
       "provider": {
         "@type": "GeneralContractor",
-        "name": "Mega Construction NYC",
+        "name": "Mega Contracting NY Group",
         "image": "https://www.megacontractingnyc.com/favicon.png",
         "telephone": "+1 (914) 804-3000",
         "email": "info@megacontractinggroup.com",
@@ -145,7 +125,7 @@ export default async function Page({ params }: Props) {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": service.title,
+          "name": seo.h1,
           "item": `https://www.megacontractingnyc.com/services/${categoryId}`
         }
       ]

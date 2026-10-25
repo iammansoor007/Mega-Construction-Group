@@ -7,7 +7,7 @@ import { localBusinessSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.megacontractingnyc.com"),
   title: {
-    default: "General Contractor NYC | Mega Contracting NY Group",
+    default: "General Contractor NYC | Licensed Construction Company",
     template: "%s | Mega Contracting NY Group",
   },
   description: "Mega Contracting NY Group is NYC's #1 licensed general contractor. Roofing, facade restoration, brick pointing, DOB/DOT violation removal, sidewalk repair, waterproofing & more across all 5 boroughs. Free estimates.",
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     "Brick Pointing NYC",
     "Foundation Repair NYC",
     "Waterproofing Contractor NYC",
-    "Mega Construction NYC",
+    "Mega Contracting NY Group",
     "Construction Services NYC",
     "Roofing Contractor Brooklyn",
     "Commercial Remodeling Manhattan",
     "DOT Sidewalk Violation Removal",
   ],
   openGraph: {
-    siteName: "Mega Construction NYC",
+    siteName: "Mega Contracting NY Group",
     locale: "en_US",
     type: "website",
   },

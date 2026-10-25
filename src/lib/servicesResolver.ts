@@ -83,58 +83,60 @@ export const bronxSlugRedirectMap: Record<string, string> = {
   // Roofing
   "roof-replacement-bronx-ny": "/services/roofing-services/roof-replacement",
   "roof-installation-bronx": "/services/roofing-services/roof-installation",
-  "roof-inspection-bronx": "/services/roofing-services/roof-inspection",
-  "shingle-roofing-bronx": "/services/roofing-services/shingle-roofing",
-  "flat-roof-contractor-bronx": "/services/roofing-services/flat-roofing",
-  "flat-roofing-nyc": "/services/roofing-services/flat-roofing",
   "roof-leak-repair-nyc": "/services/roofing-services/roof-leakage-repair",
+  "roof-inspection-bronx": "/services/roofing-services/roof-inspection",
+  "flat-roofing-nyc": "/services/roofing-services/flat-roofing",
+  "shingle-roofing-bronx": "/services/roofing-services/shingle-roofing",
+  "flat-roof-contractor-bronx": "/services/roofing-services/tpo-roofing",
   "chimney-repair-bronx": "/services/masonry-work/chimney-caps-rebuilds",
 
   // Masonry & Facade
   "brick-pointing-bronx": "/services/masonry-work/brick-grinding-pointing",
-  "brick-repair-bronx": "/services/masonry-work/brick-replacement",
   "facade-restoration-nyc": "/services/masonry-work/facade-restoration",
   "lintel-repair-bronx": "/services/masonry-work/lintel-replacement",
   "parapet-repair-bronx": "/services/masonry-work/parapet-wall",
-  "local-law-11-brooklyn": "/services/masonry-work/facade-restoration",
+  "brick-repair-bronx": "/services/masonry-work/brick-replacement",
+  "retaining-wall-bronx": "/services/masonry-work/retaining-walls",
+  "patio-contractor-bronx": "/services/masonry-work/patios",
   "stoop-repair-brooklyn": "/services/masonry-work/steps-repair-construction",
-  "stucco-repair-brooklyn": "/services/stucco/stucco-repair",
-  "stucco-contractor-brooklyn": "/services/stucco/traditional-stucco",
-  "stucco-restoration-brooklyn": "/services/stucco/stucco-repair",
-  "eifs-contractor-brooklyn": "/services/stucco/eifs-systems",
-  "smooth-stucco-brooklyn": "/services/stucco/californian-stucco",
+  "window-caulking-bronx": "/services/masonry-work/window-caulking",
   "fire-escape-painting-nyc": "/services/masonry-work/fire-escape-painting",
+  "waterproofing-bronx": "/services/masonry-work/waterproofing",
+  "commercial-renovation-bronx": "/services/masonry-work/reconstruction-rebuilds",
 
-  // Renovation & Emergency
+  // Concrete & Hardscaping
+  "sidewalk-repair-bronx": "/services/concrete-services/sidewalk-repair",
+  "sidewalk-replacement-bronx": "/services/concrete-services/sidewalk-replacement",
+  "sidewalk-violation-bronx": "/services/concrete-services/sidewalk-violation-removal",
+  "dot-violation-removal-nyc": "/services/concrete-services/dot-violation-removal",
+  "dob-violation-brooklyn": "/services/concrete-services/dob-violation-removal",
+  "foundation-repair-brooklyn": "/services/concrete-services/foundation-work",
+  "driveway-bronx": "/services/concrete-services/driveway-replacement",
+  "outdoor-concrete-bronx": "/services/concrete-services/backyard-concrete",
+
+  // Renovation
   "kitchen-renovation-bronx": "/services/home-renovation/kitchen-renovation",
   "bathroom-renovation-bronx": "/services/home-renovation/bathroom-renovation",
   "basement-renovation-bronx": "/services/home-renovation/basement-renovation",
   "interior-remodeling-bronx": "/services/home-renovation/interior-remodeling",
+
+  // Stucco
+  "stucco-repair-brooklyn": "/services/stucco/stucco-repair",
+  "stucco-contractor-brooklyn": "/services/stucco/traditional-stucco",
+  "stucco-restoration-brooklyn": "/services/stucco/color-matching",
+  "eifs-contractor-brooklyn": "/services/stucco/eifs-systems",
+  "smooth-stucco-brooklyn": "/services/stucco/californian-stucco",
+
+  // Custom Home Building
+  "general-contractor-bronx": "/services/custom-home-building/design-build",
   "luxury-renovation-brooklyn": "/services/custom-home-building/luxury-finishes",
-  "commercial-renovation-bronx": "/services/home-renovation/interior-remodeling",
-  "emergency-building-repair-bronx": "/services/emergency-service/emergency-24-7",
-  "emergency-contractor-bronx": "/services/emergency-service/rapid-deployment",
+  "construction-company-bronx": "/services/custom-home-building/project-management",
+  "smart-home-brooklyn": "/services/custom-home-building/smart-homes",
+
+  // Emergency
+  "emergency-building-repair-bronx": "/services/emergency-service/rapid-deployment",
+  "emergency-contractor-bronx": "/services/emergency-service/emergency-24-7",
   "emergency-board-up-bronx": "/services/emergency-service/board-up-service",
-  "construction-company-bronx": "/services/custom-home-building/design-build",
-  "general-contractor-bronx": "/services/custom-home-building/project-management",
-
-  // Concrete & Hardscaping
-  "outdoor-concrete-bronx": "/services/concrete-services/backyard-concrete",
-  "sidewalk-repair-bronx": "/services/concrete-services/sidewalk-repair",
-  "sidewalk-replacement-bronx": "/services/concrete-services/sidewalk-replacement",
-  "driveway-bronx": "/services/concrete-services/driveway-replacement",
-  "patio-contractor-bronx": "/services/masonry-work/patios",
-  "retaining-wall-bronx": "/services/masonry-work/retaining-walls",
-
-  // Waterproofing & Foundation
-  "waterproofing-bronx": "/services/masonry-work/waterproofing",
-  "window-caulking-bronx": "/services/masonry-work/window-caulking",
-  "foundation-repair-brooklyn": "/services/concrete-services/foundation-work",
-
-  // Violations & Specialty
-  "dot-violation-removal-nyc": "/services/concrete-services/dot-violation-removal",
-  "sidewalk-violation-bronx": "/services/concrete-services/sidewalk-violation-removal",
-  "dob-violation-brooklyn": "/services/concrete-services/dob-violation-removal",
-  "smart-home-brooklyn": "/services/custom-home-building/smart-homes"
+  "local-law-11-brooklyn": "/services/emergency-service/safety-assessment",
 };
 

@@ -32,25 +32,25 @@ export default function NotFound() {
               {
                 title: "Roofing Division",
                 desc: "Flat roofing, leak repair, shingles & commercial TPO.",
-                href: "/roofing",
+                href: "/services/roofing-services",
                 icon: Home,
               },
               {
                 title: "Masonry Division",
                 desc: "Brick pointing, facade restoration, parapets & chimneys.",
-                href: "/masonry",
+                href: "/services/masonry-work",
                 icon: Building,
               },
               {
                 title: "Renovation Services",
                 desc: "Complete interior, kitchen, bathroom & basement remodeling.",
-                href: "/renovation",
+                href: "/services/home-renovation",
                 icon: HardHat,
               },
               {
                 title: "Concrete & Sidewalks",
                 desc: "DOT violation removal, sidewalk replacement & foundations.",
-                href: "/concrete-services",
+                href: "/services/concrete-services",
                 icon: Wrench,
               },
               {

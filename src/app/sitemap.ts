@@ -1,57 +1,45 @@
 import { MetadataRoute } from "next";
-import { servicesData } from "@/data/servicesData";
-import { projectsData } from "@/data/projectsData";
-import { locationsData } from "@/data/locationsData";
+import { servicesSeoMap } from "@/data/servicesSeoData";
 import { blogsData } from "@/data/blogsData";
 
 const BASE_URL = "https://www.megacontractingnyc.com";
 
+/**
+ * Clean canonical sitemap generator matching Section D of the Indexing Fix Plan:
+ * - Lists ONLY homepage, /about, /services, /contact, /faq, /blog, /projects,
+ *   all 52 canonical /services/... pages, and all published blog posts.
+ * - Excludes all 51 redirected keyword slugs, /sitemap, /privacy, /terms.
+ * - Omits fake build-time lastModified stamps (real dates used only for blog posts).
+ * - Excludes changefreq and priority (ignored by Google).
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-
-  // Static routes
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: BASE_URL, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE_URL}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
-    { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE_URL}/licenses`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
-    { url: `${BASE_URL}/sitemap`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    // Projects & Case Studies
-    { url: `${BASE_URL}/projects`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    // Locations index
-    { url: `${BASE_URL}/locations`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    // Blog & Technical Guides
-    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
+  // Static utility pages (no build timestamp)
+  const corePages: MetadataRoute.Sitemap = [
+    { url: BASE_URL },
+    { url: `${BASE_URL}/about` },
+    { url: `${BASE_URL}/services` },
+    { url: `${BASE_URL}/contact` },
+    { url: `${BASE_URL}/faq` },
+    { url: `${BASE_URL}/blog` },
+    { url: `${BASE_URL}/projects` },
   ];
 
-  const dynamicRoutes: MetadataRoute.Sitemap = [];
+  // All 52 canonical /services/... pages from Section C (7 hubs + 45 subcategory services)
+  const servicePages: MetadataRoute.Sitemap = Object.keys(servicesSeoMap).map((path) => ({
+    url: `${BASE_URL}${path}`,
+  }));
 
-  // Service categories + subcategories
-  servicesData.forEach((service) => {
-    dynamicRoutes.push({ url: `${BASE_URL}/services/${service.id}`, lastModified: now, changeFrequency: "monthly", priority: 0.85 });
-    service.subcategories.forEach((sub) => {
-      dynamicRoutes.push({ url: `${BASE_URL}/services/${service.id}/${sub.id}`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
-    });
+  // All published blog posts with real publication / update dates
+  const blogPages: MetadataRoute.Sitemap = Object.values(blogsData).map((post) => {
+    const entry: MetadataRoute.Sitemap[number] = {
+      url: `${BASE_URL}/blog/${post.slug}`,
+    };
+    const dateStr = post.editDate || post.publishDate;
+    if (dateStr) {
+      entry.lastModified = new Date(dateStr);
+    }
+    return entry;
   });
 
-  // Individual project / case study pages
-  Object.keys(projectsData).forEach((slug) => {
-    dynamicRoutes.push({ url: `${BASE_URL}/projects/${slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
-  });
-
-  // Individual location / borough pages
-  Object.keys(locationsData).forEach((borough) => {
-    dynamicRoutes.push({ url: `${BASE_URL}/locations/${borough}`, lastModified: now, changeFrequency: "monthly", priority: 0.82 });
-  });
-
-  // Blog & Technical guides pages
-  Object.keys(blogsData).forEach((slug) => {
-    dynamicRoutes.push({ url: `${BASE_URL}/blog/${slug}`, lastModified: now, changeFrequency: "monthly", priority: 0.8 });
-  });
-
-  return [...staticRoutes, ...dynamicRoutes];
+  return [...corePages, ...servicePages, ...blogPages];
 }

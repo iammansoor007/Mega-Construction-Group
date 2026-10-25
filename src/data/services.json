@@ -3147,60 +3147,60 @@
         ],
         "benefits": [
           {
-            "title": "Heavy Vehicle Support",
-            "description": "Reinforced concrete engineered to prevent cracking and settling under garbage trucks and delivery vehicles.",
+            "title": "Heavy Vehicle Load Support",
+            "description": "Reinforced concrete engineered to prevent cracking and settling under SUVs, delivery vans, and heavy vehicles.",
             "icon": "Truck"
           },
           {
-            "title": "Licensed DOT Sidewalk Contractor",
-            "description": "Full authorization and active bond filings with the NYC Department of Transportation for street opening permits.",
-            "icon": "Truck"
+            "title": "NYC DOT Curb Cut & Apron Filings",
+            "description": "Authorized permit filing with the NYC Department of Transportation for street opening, drop curbs, and driveway aprons.",
+            "icon": "FileText"
           },
           {
-            "title": "4,000 PSI Air-Entrained NYSDOT Mix",
-            "description": "Industrial-strength concrete formulated with 6% air-entrainment specifically engineered for NYC freeze-thaw cycles.",
+            "title": "4,500 PSI High-Strength Concrete Mix",
+            "description": "Industrial-grade air-entrained concrete designed specifically to resist winter de-icing salts and motor oil staining.",
             "icon": "Square"
           },
           {
-            "title": "Guaranteed Violation Dismissals",
-            "description": "We guarantee physical sign-off and Certificate of Correction dismissal for all NYC DOT & DOB violations.",
-            "icon": "CheckCircle"
+            "title": "Precision Runoff Pitch & Drainage",
+            "description": "Laser-calibrated grades direct stormwater into street gutters or trench drains, preventing water ponding in garages.",
+            "icon": "Droplets"
           },
           {
-            "title": "ADA Compliant Grading & Detectable Warnings",
-            "description": "Exact pitch standards, drop curbs, and truncated dome tactile tiles meeting municipal accessibility codes.",
-            "icon": "CheckCircle"
+            "title": "Heavy-Duty Tied Steel Rebar Grid",
+            "description": "Grade-60 rebar mats suspended on dobies provide maximum tensile reinforcement against heavy axle loads.",
+            "icon": "ShieldCheck"
           },
           {
-            "title": "Fast-Track 24-Hour Turnarounds",
-            "description": "Quick-setting high-early strength formulas minimize pedestrian disruptions and driveway downtime.",
+            "title": "Fast-Track Turnaround & Curing Management",
+            "description": "High-early strength mix design allows pedestrian access within 24 hours and full vehicular parking within 7 days.",
             "icon": "Clock"
           }
         ],
         "process": [
           {
-            "title": "Sub-base Compaction",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "Old Driveway Saw-Cutting & Demolition",
+            "description": "Saw-cutting boundaries cleanly, breaking out failed asphalt or cracked slabs, and carting away heavy debris."
           },
           {
-            "title": "Rebar Grid Installation",
-            "description": "Expert application of certified premium materials using industry-leading tools and methods."
+            "title": "Sub-Base Grading & Vibratory Compaction",
+            "description": "Excavating unsuitable soils and mechanically compacting 6 inches of dense crushed quarry stone aggregate."
           },
           {
-            "title": "Precision Concrete Pour",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "Steel Formwork & Curb Transition Setup",
+            "description": "Setting rigid side forms and profiling the sidewalk curb cut apron to meet municipal slope guidelines."
           },
           {
-            "title": "Joint Cutting & Curing",
-            "description": "Detailing all perimeters, joints, and flashing for 100% water tightness and code compliance."
+            "title": "Tied Rebar Reinforcement Placement",
+            "description": "Laying a heavy #4 steel rebar grid on chairs at 12-inch centers for structural load distribution."
           },
           {
-            "title": "4,000 PSI Air-Entrained Monolithic Pour",
-            "description": "Pouring certified 4,000 PSI NYSDOT mix concrete with 6% air entrainment designed to resist harsh winter de-icing salts."
+            "title": "Monolithic 4,500 PSI Concrete Placement",
+            "description": "Pouring a minimum 6-inch monolithic slab with internal mechanical vibration to eliminate voids."
           },
           {
-            "title": "Non-Slip Broom Finish & DOT Violation Dismissal",
-            "description": "Applying hand-tooled control joints, non-slip textured broom finish, and submitting completion photos for official violation sign-off."
+            "title": "Traction Broom Finish & Control Joints",
+            "description": "Tooling deep crack-control joints, applying an all-weather non-slip broom texture, and applying curing sealant."
           }
         ],
         "faqs": [
@@ -3676,60 +3676,60 @@
         ],
         "benefits": [
           {
-            "title": "Core Building Stability",
-            "description": "The most critical structural element of any building, professionally engineered to support your entire structure.",
+            "title": "Structural Foundation Stabilization",
+            "description": "Underpinning, crack injection, and structural piering engineered to restore full building load integrity.",
             "icon": "Building2"
           },
           {
-            "title": "Licensed DOT Sidewalk Contractor",
-            "description": "Full authorization and active bond filings with the NYC Department of Transportation for street opening permits.",
-            "icon": "Truck"
+            "title": "High-Pressure Epoxy & Polyurethane Injections",
+            "description": "Deep-penetration chemical grouts that structurally weld fractured concrete foundation walls and permanently halt hydrostatic water seepage.",
+            "icon": "ShieldCheck"
           },
           {
-            "title": "4,000 PSI Air-Entrained NYSDOT Mix",
-            "description": "Industrial-strength concrete formulated with 6% air-entrainment specifically engineered for NYC freeze-thaw cycles.",
+            "title": "NYC DOB Permitting & Engineering Oversight",
+            "description": "Managing all structural alteration filings, engineer-of-record blueprints, and Special Inspection Agency sign-offs.",
+            "icon": "FileText"
+          },
+          {
+            "title": "Exterior Bituminous Membrane Waterproofing",
+            "description": "Excavation, rubberized elastomeric barrier application, and heavy-duty dimple drainage board installations.",
+            "icon": "Droplets"
+          },
+          {
+            "title": "Hydrostatic Relief & French Drain Systems",
+            "description": "Below-slab perimeter perforated piping and heavy-duty commercial sump pump assemblies with battery backup.",
+            "icon": "Layers"
+          },
+          {
+            "title": "High-Strength 5,000 PSI Reinforced Concrete",
+            "description": "Heavy-duty concrete mix with structural rebar cages engineered for subterranean loads and freeze-thaw stability.",
             "icon": "Square"
-          },
-          {
-            "title": "Guaranteed Violation Dismissals",
-            "description": "We guarantee physical sign-off and Certificate of Correction dismissal for all NYC DOT & DOB violations.",
-            "icon": "CheckCircle"
-          },
-          {
-            "title": "ADA Compliant Grading & Detectable Warnings",
-            "description": "Exact pitch standards, drop curbs, and truncated dome tactile tiles meeting municipal accessibility codes.",
-            "icon": "CheckCircle"
-          },
-          {
-            "title": "Fast-Track 24-Hour Turnarounds",
-            "description": "Quick-setting high-early strength formulas minimize pedestrian disruptions and driveway downtime.",
-            "icon": "Clock"
           }
         ],
         "process": [
           {
-            "title": "Site Excavation",
-            "description": "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+            "title": "Structural Inspection & Settlement Survey",
+            "description": "Laser-measuring foundation settlement, shear cracking, and wall deflection to evaluate structural integrity."
           },
           {
-            "title": "Formwork Shuttering",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "DOB Permitting & Temporary Shoring",
+            "description": "Acquiring DOB permits and deploying certified steel shoring columns to safely support structural building loads."
           },
           {
-            "title": "Rebar Reinforcement Grid",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "Sectional Underpinning Pit Excavation",
+            "description": "Excavating staggered 3-to-4 foot pits beneath existing footings in strict adherence to safe engineering sequences."
           },
           {
-            "title": "Continuous Concrete Pour",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "Steel Rebar Cage & Formwork Placement",
+            "description": "Assembling engineered grade-60 steel rebar cages and setting robust containment forms within each pit."
           },
           {
-            "title": "4,000 PSI Air-Entrained Monolithic Pour",
-            "description": "Pouring certified 4,000 PSI NYSDOT mix concrete with 6% air entrainment designed to resist harsh winter de-icing salts."
+            "title": "High-Strength 5,000 PSI Concrete Placement",
+            "description": "Pouring high-compressive structural concrete and precision-ramming non-shrink grout into the footing interface."
           },
           {
-            "title": "Non-Slip Broom Finish & DOT Violation Dismissal",
-            "description": "Applying hand-tooled control joints, non-slip textured broom finish, and submitting completion photos for official violation sign-off."
+            "title": "Exterior Waterproofing & Gravel Backfill",
+            "description": "Applying elastomeric waterproofing membranes, protection boards, and backfilling with clean crushed stone for drainage."
           }
         ],
         "faqs": [
@@ -3813,97 +3813,97 @@
             "icon": "RefreshCw"
           },
           {
-            "title": "Licensed DOT Sidewalk Contractor",
-            "description": "Full authorization and active bond filings with the NYC Department of Transportation for street opening permits.",
-            "icon": "Truck"
+            "title": "Precision Pitch & Drainage Control",
+            "description": "Engineered pitch directs storm runoff safely away from your home's foundation walls and basement entries.",
+            "icon": "Droplets"
           },
           {
-            "title": "4,000 PSI Air-Entrained NYSDOT Mix",
-            "description": "Industrial-strength concrete formulated with 6% air-entrainment specifically engineered for NYC freeze-thaw cycles.",
+            "title": "4,000 PSI High-Durability Mix",
+            "description": "Reinforced concrete mix engineered to withstand NYC freeze-thaw cycles without surface scaling or pitting.",
             "icon": "Square"
           },
           {
-            "title": "Guaranteed Violation Dismissals",
-            "description": "We guarantee physical sign-off and Certificate of Correction dismissal for all NYC DOT & DOB violations.",
-            "icon": "CheckCircle"
+            "title": "Custom Decorative & Stamped Finishes",
+            "description": "Choice of exposed aggregate, slate-texture stamping, decorative saw cuts, and broom-finished textures.",
+            "icon": "Layers"
           },
           {
-            "title": "ADA Compliant Grading & Detectable Warnings",
-            "description": "Exact pitch standards, drop curbs, and truncated dome tactile tiles meeting municipal accessibility codes.",
-            "icon": "CheckCircle"
+            "title": "Heavy-Duty Rebar Reinforcement",
+            "description": "Steel rebar grid and fiber additives prevent settlement cracking and support outdoor kitchens, pergolas, and heavy patio furniture.",
+            "icon": "ShieldCheck"
           },
           {
-            "title": "Fast-Track 24-Hour Turnarounds",
-            "description": "Quick-setting high-early strength formulas minimize pedestrian disruptions and driveway downtime.",
+            "title": "Turnkey Site Prep & Excavation",
+            "description": "Complete ground clearing, laser grading, crushed stone base compaction, and debris hauling included.",
             "icon": "Clock"
           }
         ],
         "process": [
           {
-            "title": "Site Leveling",
-            "description": "Professional implementation by our certified crews matching NYC structural codes."
+            "title": "Site Survey, Grading & Pitch Calculation",
+            "description": "Laser-leveling the backyard area to determine optimal water runoff pitch away from building foundations."
           },
           {
-            "title": "Sub-base Preparation",
-            "description": "Site safety setup, removal of old substrates, and thorough preparation of the work area."
+            "title": "Excavation & Sub-Base Compaction",
+            "description": "Excavating 6 to 8 inches of organic soil and mechanically compacting a 4-inch crushed quarry stone gravel base."
           },
           {
-            "title": "Reinforcement Installation",
-            "description": "Expert application of certified premium materials using industry-leading tools and methods."
+            "title": "Custom Formwork & Perimeter Expansion Joints",
+            "description": "Erecting precision wood or steel forms and placing isolation joints along adjoining foundation walls and fences."
           },
           {
-            "title": "Final Concrete Pour & Finish",
-            "description": "Comprehensive quality assurance review, post-work inspection, and complete site cleanup."
+            "title": "Steel Rebar Grid & Mesh Placement",
+            "description": "Laying #4 steel rebar on chairs or welded wire reinforcement to give the concrete slab high tensile strength."
           },
           {
-            "title": "4,000 PSI Air-Entrained Monolithic Pour",
-            "description": "Pouring certified 4,000 PSI NYSDOT mix concrete with 6% air entrainment designed to resist harsh winter de-icing salts."
+            "title": "4,000 PSI Monolithic Slab Pour & Leveling",
+            "description": "Pouring commercial-grade 4,000 PSI air-entrained concrete, screeding to uniform thickness, and bull-floating."
           },
           {
-            "title": "Non-Slip Broom Finish & DOT Violation Dismissal",
-            "description": "Applying hand-tooled control joints, non-slip textured broom finish, and submitting completion photos for official violation sign-off."
+            "title": "Texture Detailing, Control Joints & Curing Sealant",
+            "description": "Tooling contraction joints every 8-10 feet, applying non-slip broom or stamped finish, and spraying protective curing compound."
           }
         ],
         "faqs": [
           {
             "question": "Will my backyard concrete patio drain properly?",
-            "answer": "Yes, every concrete project includes a professionally calculated pitch that directs water away from your building."
+            "answer": "Yes. Every patio slab we install is laser-graded with a minimum 1/8-inch per foot slope away from your foundation to prevent standing puddles or basement seepage."
           },
           {
             "question": "Can concrete be stamped to look like stone or brick?",
-            "answer": "Yes, stamped concrete offers the look of natural stone, brick, or slate at a fraction of the material and installation cost."
+            "answer": "Yes. Stamped concrete replicates the luxurious look of bluestone, flagstone, slate, or cobblestone at a significantly lower cost than individual natural pavers."
           },
           {
             "question": "How do you prevent concrete from cracking in backyards?",
-            "answer": "We use control joints every 8-10 feet, fiber-reinforced mix, proper sub-base compaction, and curing compounds to minimize cracking."
+            "answer": "We prevent cracking by compacting a heavy crushed stone gravel base, embedding steel rebar or wire mesh reinforcement, and tooling expansion control joints every 8 to 10 feet."
           },
           {
             "question": "What's the difference between broom finish and smooth finish?",
-            "answer": "Broom finish provides slip resistance ideal for wet areas. Smooth finish offers easier cleaning but less traction when wet."
+            "answer": "A textured broom finish provides crucial non-slip traction around pools, outdoor kitchens, and rain-exposed areas. A smooth trowel finish is easier to sweep but can be slick when wet."
           },
           {
             "question": "How soon can we use our new concrete patio?",
-            "answer": "Light foot traffic after 48 hours, furniture placement after 7 days, and heavy use after full 28-day curing period for maximum strength."
+            "answer": "Light foot traffic is safe after 48 hours. Patio furniture, grills, and pets can be introduced after 7 days, and full 28-day curing achieves maximum compressive strength."
           },
           {
-            "question": "What is a NYC DOT Sidewalk Violation and how do I clear it?",
-            "answer": "A DOT violation is issued under NYC Administrative Code §19-152 for trip hazards, cracked flags, or improper slope. To clear it, a licensed contractor must pull street opening permits, replace defective concrete, and submit a formal dismissal request."
+            "question": "Do I need a permit for a backyard concrete patio in NYC?",
+            "answer": "Most on-grade residential backyard concrete slabs under 30 inches above surrounding grade do not require complex DOB building permits unless altering zoning lot coverage or stormwater drywells."
           },
           {
-            "question": "How much time do property owners have to repair a DOT sidewalk citation?",
-            "answer": "Property owners have 75 days from the notice date to complete repairs. If ignored, the City may dispatch its own contractor to perform the work at premium municipal rates and place a tax lien on the property."
+            "question": "How thick should a residential backyard concrete slab be?",
+            "answer": "Standard pedestrian patios and dining areas are poured 4 inches thick. If you plan to install heavy outdoor brick ovens, hot tubs, or pergolas, we pour 6 inches with heavy rebar."
           },
           {
-            "question": "What concrete strength is required by NYC Department of Transportation?",
-            "answer": "NYC DOT specifications mandate a minimum compressive strength of 4,000 PSI with 6% air entrainment, poured 4 inches thick for pedestrian walkways and 7 inches thick across active driveways."
+            "question": "How does concrete compare to pavers in terms of maintenance?",
+            "answer": "Concrete slabs eliminate the endless weeding, ant hills, and sunken shifting blocks common with pavers. A simple wash and periodic protective sealer keeps concrete pristine."
           },
           {
-            "question": "Who is responsible for sidewalk damage caused by City street tree roots?",
-            "answer": "While adjacent property owners must maintain safe sidewalks, repairs involving City street trees require coordination with the NYC Department of Parks & Recreation for root pruning permits. We handle all agency coordination."
+            "question": "Can you install an outdoor kitchen or fire pit base on the slab?",
+            "answer": "Yes. We can incorporate reinforced concrete pads with utility conduits for gas, electric, and plumbing rough-ins during the initial formwork and pour."
           },
           {
-            "question": "Do you handle DOB violations for illegal basement entries or foundation defects?",
-            "answer": "Yes, our foundation team pulls DOB permits, executes code-compliant structural remediation, secures Special Inspection Agency sign-offs, and files AEU-2 Certificates of Correction."
+            "question": "What does a backyard concrete patio cost in the Bronx and NYC?",
+            "answer": "Typical residential backyard concrete patios range from $12 to $25 per square foot depending on site access, demolition of old pavers, stamped decorative finishes, and drainage requirements."
           }
         ]
       }

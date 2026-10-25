@@ -56,11 +56,11 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Roofing Contractor Bronx", description: "Flat roofs, leak repairs, GAF shingles & commercial TPO installations.", href: "/roofing" },
-      { title: "Masonry & Brick Pointing", description: "Historic facade restoration, brick repointing, and parapet wall rebuilding.", href: "/masonry" },
-      { title: "Chimney Repair Bronx", description: "Complete chimney rebuilds, crown pouring, and leakproof flashing replacement.", href: "/chimney-repair-bronx" },
-      { title: "DOT Sidewalk Violation Removal", description: "Expedited violation removal, permit filing, and certified concrete pouring.", href: "/dot-violation-removal-nyc" },
-      { title: "Complete Home Renovation", description: "Turn-key kitchens, luxury bathrooms, basement waterproofing & egress.", href: "/renovation" }
+      { title: "Roofing Contractor Bronx", description: "Flat roofs, leak repairs, GAF shingles & commercial TPO installations.", href: "/services/roofing-services" },
+      { title: "Masonry & Brick Pointing", description: "Historic facade restoration, brick repointing, and parapet wall rebuilding.", href: "/services/masonry-work" },
+      { title: "Chimney Repair Bronx", description: "Complete chimney rebuilds, crown pouring, and leakproof flashing replacement.", href: "/services/masonry-work/chimney-caps-rebuilds" },
+      { title: "DOT Sidewalk Violation Removal", description: "Expedited violation removal, permit filing, and certified concrete pouring.", href: "/services/concrete-services/dot-violation-removal" },
+      { title: "Complete Home Renovation", description: "Turn-key kitchens, luxury bathrooms, basement waterproofing & egress.", href: "/services/home-renovation" }
     ],
     recentProjects: [
       {
@@ -120,11 +120,11 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Brownstone Facade Restoration", description: "Historic sandstone patching, helical pinning, and LPC-compliant stone tooling.", href: "/facade-restoration-nyc" },
-      { title: "Stoop & Entry Stair Repair", description: "Structural concrete reinforcement, brownstone resurfacing, and iron railing restoration.", href: "/stoop-repair-brooklyn" },
-      { title: "Brooklyn Flat Roofing", description: "EPDM rubber, TPO membranes, and skylight replacement for multi-family townhomes.", href: "/flat-roofing-nyc" },
-      { title: "Local Law 11 (FISP) Compliance", description: "Facade inspections, safety netting, structural repointing, and DOB compliance filing.", href: "/local-law-11-brooklyn" },
-      { title: "Luxury Interior Remodeling", description: "Custom kitchen expansions, open-concept conversions, and spa-grade bathrooms.", href: "/renovation" }
+      { title: "Brownstone Facade Restoration", description: "Historic sandstone patching, helical pinning, and LPC-compliant stone tooling.", href: "/services/masonry-work/facade-restoration" },
+      { title: "Stoop & Entry Stair Repair", description: "Structural concrete reinforcement, brownstone resurfacing, and iron railing restoration.", href: "/services/masonry-work/steps-repair-construction" },
+      { title: "Brooklyn Flat Roofing", description: "EPDM rubber, TPO membranes, and skylight replacement for multi-family townhomes.", href: "/services/roofing-services/flat-roofing" },
+      { title: "Local Law 11 (FISP) Compliance", description: "Facade inspections, safety netting, structural repointing, and DOB compliance filing.", href: "/services/emergency-service/safety-assessment" },
+      { title: "Luxury Interior Remodeling", description: "Custom kitchen expansions, open-concept conversions, and spa-grade bathrooms.", href: "/services/home-renovation" }
     ],
     recentProjects: [
       {
@@ -174,10 +174,10 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Facade Restoration Manhattan", description: "High-rise exterior repair, terra cotta pinning, brick repointing & FISP compliance.", href: "/facade-restoration-nyc" },
-      { title: "Local Law 11 (FISP) Repairs", description: "Parapet rebuilds, lintel replacements, coping stones & DOB Certificate of Correction.", href: "/local-law-11-brooklyn" },
-      { title: "Commercial Flat Roofing", description: "High-performance TPO, cold-applied liquids, and rooftop amenity terraces.", href: "/flat-roofing-nyc" },
-      { title: "Luxury Co-op & Condo Remodeling", description: "Architectural interiors, custom cabinetry, structural wall alterations, and acoustic dampening.", href: "/renovation" }
+      { title: "Facade Restoration Manhattan", description: "High-rise exterior repair, terra cotta pinning, brick repointing & FISP compliance.", href: "/services/masonry-work/facade-restoration" },
+      { title: "Local Law 11 (FISP) Repairs", description: "Parapet rebuilds, lintel replacements, coping stones & DOB Certificate of Correction.", href: "/services/emergency-service/safety-assessment" },
+      { title: "Commercial Flat Roofing", description: "High-performance TPO, cold-applied liquids, and rooftop amenity terraces.", href: "/services/roofing-services/flat-roofing" },
+      { title: "Luxury Co-op & Condo Remodeling", description: "Architectural interiors, custom cabinetry, structural wall alterations, and acoustic dampening.", href: "/services/home-renovation" }
     ],
     recentProjects: [
       {
@@ -227,10 +227,10 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Stucco Repair & EIFS Installation", description: "Color-matched crack repair, synthetic stucco, and full exterior insulation cladding.", href: "/stucco-repair-brooklyn" },
-      { title: "Roof Replacement Queens", description: "GAF architectural shingles, flat TPO roofing, and seamless aluminum gutters.", href: "/roofing" },
-      { title: "Concrete Driveways & Sidewalks", description: "DOT violation clearance, curb cuts, rebar reinforcement, and broom finish concrete.", href: "/concrete-services" },
-      { title: "Basement Waterproofing", description: "French drains, sump pump installations, and hydrostatic crack sealing.", href: "/waterproofing" }
+      { title: "Stucco Repair & EIFS Installation", description: "Color-matched crack repair, synthetic stucco, and full exterior insulation cladding.", href: "/services/stucco/stucco-repair" },
+      { title: "Roof Replacement Queens", description: "GAF architectural shingles, flat TPO roofing, and seamless aluminum gutters.", href: "/services/roofing-services" },
+      { title: "Concrete Driveways & Sidewalks", description: "DOT violation clearance, curb cuts, rebar reinforcement, and broom finish concrete.", href: "/services/concrete-services" },
+      { title: "Basement Waterproofing", description: "French drains, sump pump installations, and hydrostatic crack sealing.", href: "/services/masonry-work/waterproofing" }
     ],
     recentProjects: [
       {
@@ -280,10 +280,10 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Architectural Shingle Roofing", description: "GAF Master Elite certified installation, Class 4 impact resistance, and 50-year warranty.", href: "/roofing" },
-      { title: "Retaining Wall Construction", description: "Poured concrete, segmental block, and reinforced stone retaining walls.", href: "/retaining-wall-bronx" },
-      { title: "Foundation Repair & Waterproofing", description: "Helical underpinning, foundation crack injection, and French drain systems.", href: "/waterproofing" },
-      { title: "Complete Interior Remodeling", description: "Custom home additions, modern kitchen transformations, and finished basements.", href: "/renovation" }
+      { title: "Architectural Shingle Roofing", description: "GAF Master Elite certified installation, Class 4 impact resistance, and 50-year warranty.", href: "/services/roofing-services" },
+      { title: "Retaining Wall Construction", description: "Poured concrete, segmental block, and reinforced stone retaining walls.", href: "/services/masonry-work/retaining-walls" },
+      { title: "Foundation Repair & Waterproofing", description: "Helical underpinning, foundation crack injection, and French drain systems.", href: "/services/masonry-work/waterproofing" },
+      { title: "Complete Interior Remodeling", description: "Custom home additions, modern kitchen transformations, and finished basements.", href: "/services/home-renovation" }
     ],
     recentProjects: [
       {

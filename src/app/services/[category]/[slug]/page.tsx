@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { resolveCategory, resolveSubcategory } from "@/lib/servicesResolver";
+import { getServiceDetailSeo } from "@/data/servicesSeoData";
 import DetailClient from "./_components/DetailClient";
 
 type Props = {
@@ -11,49 +12,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug } = resolvedParams;
   const service = resolveCategory(category);
   const subCategory = service ? resolveSubcategory(service, slug) : undefined;
+  const seo = getServiceDetailSeo(category, slug);
 
   if (!service || !subCategory) {
     return {
-      title: "Service Details | Mega Contracting NY Group",
+      title: { absolute: "Service Details | Mega Contracting NY Group" },
     };
   }
 
-  const title = `${subCategory.title} Services in NYC | Mega Contracting NY Group`;
-  const description = `Looking for ${subCategory.title.toLowerCase()} in NYC? Mega Contracting NY Group Inc. offers professional, licensed, and guaranteed ${subCategory.title.toLowerCase()} for residential and commercial buildings across all NYC boroughs.`;
-
   const keywords = [
+    seo.primaryKeyword,
+    subCategory.title,
     `${subCategory.title} NYC`,
+    `${subCategory.title} Bronx`,
     `${subCategory.title} Brooklyn`,
     `${subCategory.title} Queens`,
-    `${subCategory.title} Manhattan`,
-    `${subCategory.title} Bronx`,
-    `${subCategory.title} Staten Island`,
-    `best ${subCategory.title.toLowerCase()} contractor`,
-    `how to repair ${subCategory.title.toLowerCase()}`,
     "Mega Contracting NY Group",
-    "NYC construction experts",
-    "DOB code compliant contractor",
-    "licensed construction company NYC"
+    "NYC General Contractor",
+    "Licensed Construction Contractor NYC",
   ];
 
   return {
-    title,
-    description,
+    title: {
+      absolute: seo.seoTitle,
+    },
+    description: seo.metaDescription,
     keywords,
     alternates: {
       canonical: `https://www.megacontractingnyc.com/services/${category}/${slug}`,
     },
     openGraph: {
-      title,
-      description,
+      title: seo.seoTitle,
+      description: seo.metaDescription,
       url: `https://www.megacontractingnyc.com/services/${category}/${slug}`,
       siteName: "Mega Contracting NY Group",
       images: [
         {
-          url: subCategory.image || service.image,
+          url: subCategory.image || service.image || "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg",
           width: 1200,
           height: 630,
-          alt: `${subCategory.title} NYC`,
+          alt: `${seo.h1} - Mega Contracting NY Group`,
         },
       ],
       locale: "en_US",
@@ -63,9 +61,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       site: "@megacontractingny",
       creator: "@megacontractingny",
-      title,
-      description,
-      images: [subCategory.image || service.image],
+      title: seo.seoTitle,
+      description: seo.metaDescription,
+      images: [subCategory.image || service.image || "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg"],
     },
   };
 }
@@ -75,6 +73,7 @@ export default async function Page({ params }: Props) {
   const { category, slug } = resolvedParams;
   const service = resolveCategory(category);
   const subCategory = service ? resolveSubcategory(service, slug) : undefined;
+  const seo = getServiceDetailSeo(category, slug);
 
   if (!service || !subCategory) {
     return <DetailClient categoryId={category} slug={slug} />;
@@ -84,8 +83,8 @@ export default async function Page({ params }: Props) {
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": subCategory.title,
-      "description": subCategory.description,
+      "name": seo.h1,
+      "description": seo.metaDescription,
       "provider": {
         "@type": "GeneralContractor",
         "name": "Mega Contracting NY Group",
@@ -135,7 +134,7 @@ export default async function Page({ params }: Props) {
         {
           "@type": "ListItem",
           "position": 4,
-          "name": subCategory.title,
+          "name": seo.h1,
           "item": `https://www.megacontractingnyc.com/services/${category}/${slug}`
         }
       ]

@@ -2,6 +2,7 @@
 
 import { servicesData } from "@/data/servicesData";
 import { resolveCategory, resolveSubcategory, findSubcategoryAnywhere } from "@/lib/servicesResolver";
+import { getServiceDetailSeo } from "@/data/servicesSeoData";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,7 +63,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
     }
   }
 
-  const [activeFaq, setActiveFaq] = useState<number | null>(0);
+  const seo = getServiceDetailSeo(categoryId, slug);
 
   if (!service || !subCategory) {
     return (
@@ -112,7 +113,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
         <div className="absolute inset-0 select-none grayscale opacity-40 z-0">
           <Image
             src={subCategory.image || "/placeholder.svg"}
-            alt={`${subCategory.title} - Mega Contracting NY Group`}
+            alt={`${seo.h1} - Mega Contracting NY Group`}
             fill
             priority
             sizes="100vw"
@@ -145,7 +146,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase leading-none font-heading">
-              {subCategory.title}
+              {seo.h1}
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed font-normal max-w-2xl">
@@ -464,83 +465,40 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                 </div>
               </div>
 
-              {/* Right Side: Scrollable Accordion (All 10 Questions) */}
+              {/* Right Side: Accordion with ALL Answers in HTML at Page Load using <details> */}
               <div className="lg:col-span-8 space-y-3.5">
                 {subCategory.faqs.map((faq, i) => {
                   const qNum = i + 1 < 10 ? `0${i + 1}` : `${i + 1}`;
-                  const isOpen = activeFaq === i;
 
                   return (
-                    <div
+                    <details
                       key={i}
-                      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                        isOpen
-                          ? "bg-white border-red-500 shadow-md ring-1 ring-red-500/20"
-                          : "bg-white border-gray-200 hover:border-gray-300 shadow-sm"
-                      }`}
+                      open={i === 0}
+                      className="group rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 open:border-red-500 open:shadow-md open:ring-1 open:ring-red-500/20 overflow-hidden"
                     >
-                      <button
-                        onClick={() => setActiveFaq(isOpen ? null : i)}
-                        className="w-full text-left p-5 sm:p-6 focus:outline-none flex items-start sm:items-center justify-between gap-4 cursor-pointer"
-                        aria-expanded={isOpen}
-                      >
+                      <summary className="w-full text-left p-5 sm:p-6 focus:outline-none flex items-start sm:items-center justify-between gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-start sm:items-center gap-3 sm:gap-4 flex-1">
-                          <span
-                            className={`flex-shrink-0 text-xs font-mono font-bold px-2 py-1 rounded-md border transition-colors ${
-                              isOpen
-                                ? "bg-red-600 text-white border-red-600"
-                                : "bg-gray-100 text-gray-600 border-gray-200"
-                            }`}
-                          >
+                          <span className="flex-shrink-0 text-xs font-mono font-bold px-2 py-1 rounded-md border border-gray-200 bg-gray-100 text-gray-600 transition-colors group-open:bg-red-600 group-open:text-white group-open:border-red-600">
                             Q{qNum}
                           </span>
-                          <h3
-                            className={`text-sm sm:text-base md:text-lg font-bold leading-snug transition-colors text-left ${
-                              isOpen ? "text-red-600" : "text-gray-900 hover:text-red-600"
-                            }`}
-                          >
+                          <h3 className="text-sm sm:text-base md:text-lg font-bold leading-snug transition-colors text-gray-900 group-open:text-red-600 text-left">
                             {faq.question}
                           </h3>
                         </div>
 
                         <div className="flex-shrink-0 ml-2">
-                          <div
-                            className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                              isOpen
-                                ? "bg-red-600 border-red-600 text-white rotate-180"
-                                : "bg-gray-50 border-gray-200 text-gray-500 hover:border-red-400 hover:text-red-600"
-                            }`}
-                          >
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                              <path
-                                d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
-                                stroke="currentColor"
-                                strokeWidth="2.2"
-                                strokeLinecap="round"
-                              />
-                            </svg>
+                          <div className="w-8 h-8 rounded-full border border-gray-200 bg-gray-50 text-gray-500 flex items-center justify-center transition-all duration-300 group-hover:border-red-400 group-hover:text-red-600 group-open:bg-red-600 group-open:border-red-600 group-open:text-white group-open:rotate-180">
+                            <ChevronDown className="w-4 h-4" />
                           </div>
                         </div>
-                      </button>
+                      </summary>
 
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                            className="overflow-hidden"
-                          >
-                            <div className="px-5 sm:px-6 pb-6 pt-1">
-                              <div className="pl-4 sm:pl-5 border-l-2 border-red-600 text-gray-700 text-sm sm:text-base leading-relaxed bg-red-50/20 py-2.5 pr-3 rounded-r-lg">
-                                {faq.answer}
-                              </div>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                      <div className="px-5 sm:px-6 pb-6 pt-1">
+                        <div className="pl-4 sm:pl-5 border-l-2 border-red-600 text-gray-700 text-sm sm:text-base leading-relaxed bg-red-50/20 py-2.5 pr-3 rounded-r-lg">
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </details>
                   );
                 })}
               </div>

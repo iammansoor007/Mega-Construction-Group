@@ -169,7 +169,7 @@ export default function ServicesClient() {
             {[
               {
                 title: "Roofing Division & Emergency Leak Repairs",
-                hubSlug: "/roofing",
+                hubSlug: "/services/roofing-services",
                 slugs: [
                   "roof-replacement-bronx-ny",
                   "roof-installation-bronx",
@@ -183,7 +183,7 @@ export default function ServicesClient() {
               },
               {
                 title: "Masonry, Facade & Local Law 11 Restoration",
-                hubSlug: "/masonry",
+                hubSlug: "/services/masonry-work",
                 slugs: [
                   "brick-pointing-bronx",
                   "brick-repair-bronx",
@@ -202,7 +202,7 @@ export default function ServicesClient() {
               },
               {
                 title: "Renovation, Remodeling & Emergency Damage Restoration",
-                hubSlug: "/renovation",
+                hubSlug: "/services/home-renovation",
                 slugs: [
                   "kitchen-renovation-bronx",
                   "bathroom-renovation-bronx",
@@ -219,7 +219,7 @@ export default function ServicesClient() {
               },
               {
                 title: "Concrete, Sidewalks, Driveways & Hardscaping",
-                hubSlug: "/concrete-services",
+                hubSlug: "/services/concrete-services",
                 slugs: [
                   "outdoor-concrete-bronx",
                   "sidewalk-repair-bronx",
@@ -231,7 +231,7 @@ export default function ServicesClient() {
               },
               {
                 title: "Waterproofing, Foundation & Sealing Solutions",
-                hubSlug: "/waterproofing",
+                hubSlug: "/services/masonry-work/waterproofing",
                 slugs: [
                   "waterproofing-bronx",
                   "window-caulking-bronx",
@@ -240,7 +240,7 @@ export default function ServicesClient() {
               },
               {
                 title: "NYC DOB & DOT Violation Removal & Specialty",
-                hubSlug: "/violations",
+                hubSlug: "/services/concrete-services",
                 slugs: [
                   "dot-violation-removal-nyc",
                   "sidewalk-violation-bronx",

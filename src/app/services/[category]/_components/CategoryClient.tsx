@@ -1,6 +1,7 @@
 "use client";
 
 import { servicesData } from "@/data/servicesData";
+import { getServiceCategorySeo } from "@/data/servicesSeoData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +15,7 @@ import { useRef } from "react";
 
 export default function CategoryClient({ categoryId }: { categoryId: string }) {
   const service = servicesData.find((s) => s.id === categoryId);
+  const seo = getServiceCategorySeo(categoryId);
   const containerRef = useRef(null);
 
   if (!service) {
@@ -63,7 +65,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
             </div>
 
             <h1 className="heading-lg text-white leading-none tracking-tight">
-              {service.title}
+              {seo.h1}
             </h1>
 
             <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">

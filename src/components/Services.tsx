@@ -430,6 +430,62 @@ const Services = () => {
           </div>
         </div>
 
+        {/* Popular Services Quick-Links Section (Direct Internal Links for High Crawl Authority) */}
+        <div className="mt-16 pt-12 border-t border-gray-100">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-px bg-red-600" />
+                <span className="text-xs font-bold uppercase tracking-widest text-red-600">NYC High-Demand Specialties</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 font-heading uppercase tracking-tight">
+                Popular <span className="text-red-600">Services in NYC</span>
+              </h3>
+            </div>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-xs font-bold text-red-600 hover:text-red-700 uppercase tracking-widest"
+            >
+              <span>Explore All 52 Divisions</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            {[
+              { label: "Sidewalk Repair Bronx", href: "/services/concrete-services/sidewalk-repair", tag: "DOT Licensed" },
+              { label: "Chimney Repair Bronx", href: "/services/masonry-work/chimney-caps-rebuilds", tag: "Masonry" },
+              { label: "Roof Replacement Bronx", href: "/services/roofing-services/roof-replacement", tag: "GAF Master" },
+              { label: "Facade Restoration NYC", href: "/services/masonry-work/facade-restoration", tag: "Brownstone" },
+              { label: "DOT Violation Removal", href: "/services/concrete-services/dot-violation-removal", tag: "Expedited" },
+              { label: "Emergency Roof Leak Repair", href: "/services/roofing-services/roof-leakage-repair", tag: "24/7 Response" },
+              { label: "Commercial Flat Roofing", href: "/services/roofing-services/flat-roofing", tag: "TPO Systems" },
+              { label: "Stucco Repair Brooklyn", href: "/services/stucco/stucco-repair", tag: "EIFS Finishes" },
+              { label: "Kitchen Renovation Bronx", href: "/services/home-renovation/kitchen-renovation", tag: "Full Remodel" },
+              { label: "Backyard Concrete Slabs", href: "/services/concrete-services/backyard-concrete", tag: "Patios" },
+            ].map((item, idx) => (
+              <Link
+                key={idx}
+                href={item.href}
+                className="group p-4 bg-gray-50 hover:bg-white rounded-2xl border border-gray-200/70 hover:border-red-500/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-[9px] font-bold text-red-600 uppercase tracking-wider block mb-1">
+                    {item.tag}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors line-clamp-2">
+                    {item.label}
+                  </span>
+                </div>
+                <div className="mt-3 pt-2 border-t border-gray-200/40 flex items-center justify-between text-[10px] font-bold text-gray-400 group-hover:text-red-600">
+                  <span>View Details</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="mt-20">
           <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl overflow-hidden group">
