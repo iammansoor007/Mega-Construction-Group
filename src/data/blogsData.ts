@@ -234,7 +234,7 @@ export const blogsData: Record<string, BlogPost> = {
           "Foundation crack repair in NYC ranges from epoxy or polyurethane crack injection for non-structural hairline fractures, through carbon fiber strap reinforcement for bowing basement walls, to full underpinning for buildings experiencing significant differential settlement. Any underpinning or footing extension work in New York City requires a PE-stamped underpinning plan submitted to the DOB before excavation, and the work must be performed by a qualified deep foundation contractor in new york with demonstrable experience in urban adjacent-structure excavation.",
           "NYC's dense urban environment creates additional complexity that does not exist in suburban construction. Underpinning adjacent to a party wall shared with a neighboring building triggers a mandatory Structural Monitoring Program (SMP) under DOB Technical Policy and Procedure Notice (TPPN) #10/88. This requires pre-construction surveys of adjoining structures, vibration monitoring during excavation, and post-construction settlement documentation — adding 4–8 weeks to project timelines and requiring coordination between multiple engineering firms.",
           "In pre-war NYC construction, nearly every interior wall in a brownstone or multi-family building has the potential to be load-bearing. A skilled masonry contractor new york or structural engineer must evaluate each wall before any opening is cut. The consequences of removing an unreinforced masonry bearing wall without proper temporary shoring and permanent steel lintel installation include progressive floor collapse — a risk no renovation budget can absorb.",
-          "When our engineering team performs pre-renovation structural assessments across Bronx and Brooklyn properties, we consistently find that 60–70% of homeowners requesting open-concept floor plan renovations have misidentified which walls are structural. Brick bearing walls in pre-war construction run perpendicular to floor joists and are identifiable by their thickness (typically 8–12 inches versus 3.5 inches for non-bearing partitions), but visual inspection alone is insufficient — wall probes and, when necessary, ground-penetrating radar are required to confirm structural status. For exterior envelope issues, addressing deteriorated <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet wall repair</a> prevents roof moisture from migrating into load-bearing masonry below."
+          "When our team coordinates pre-renovation structural assessments across Bronx and Brooklyn properties, we consistently find that 60–70% of homeowners requesting open-concept floor plan renovations have misidentified which walls are structural. Brick bearing walls in pre-war construction run perpendicular to floor joists and are identifiable by their thickness (typically 8–12 inches versus 3.5 inches for non-bearing partitions), but visual inspection alone is insufficient — wall probes and, when necessary, ground-penetrating radar are required to confirm structural status. For exterior envelope issues, addressing deteriorated <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet wall repair</a> prevents roof moisture from migrating into load-bearing masonry below."
         ],
         image: {
           src: "/assets/foundationwork.jpg",
@@ -519,8 +519,8 @@ export const blogsData: Record<string, BlogPost> = {
     imageAlt: "Commercial flat roof replacement and TPO membrane installation in New York City by Mega Contracting NY Group",
     excerpt: "Replacing a roof in New York City is unlike roofing anywhere else. From navigating NYC Department of Buildings (DOB) work permits to complying with Local Law 97 continuous insulation mandates, here is what property owners and managers need to know before executing a complete roof replacement.",
     author: {
-      name: "Mega Contracting Engineering Team",
-      role: "Lead Structural & Roofing Specialists",
+      name: "Mega Contracting Team",
+      role: "Licensed General Contractor Team",
       license: "NYC General Contractor #NYC-2005-8942",
       avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
     },
@@ -578,7 +578,7 @@ export const blogsData: Record<string, BlogPost> = {
         paragraphs: [
           "New York City's Local Law 97 sets stringent carbon emission caps for buildings over 25,000 square feet, penalizing non-compliant properties with severe financial assessments starting in 2024 and escalating through 2030.",
           "Your building envelope is the primary line of thermal defense. Under the current NYC Energy Conservation Code (NYCECC), any full roof replacement must include continuous insulation upgrade to at least R-30 (typically requiring approximately 5 to 5.2 inches of polyisocyanurate rigid insulation board). Combined with high-grade <a href=\"/services/roofing-services/roof-waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">roof waterproofing systems</a>, your thermal barrier prevents heat loss and stops water infiltration permanently.",
-          "At Mega Contracting NY Group, our engineering team integrates tapered polyiso insulation systems. This simultaneously satisfies the R-30 thermal envelope standard and engineers a minimum 1/4-inch per foot drainage slope toward interior drains and scuppers, permanently eliminating dangerous ponding water across Bronx and Queens commercial properties."
+          "At Mega Contracting NY Group, our team integrates tapered polyiso insulation systems. This simultaneously satisfies the R-30 thermal envelope standard and engineers a minimum 1/4-inch per foot drainage slope toward interior drains and scuppers, permanently eliminating dangerous ponding water across Bronx and Queens commercial properties."
         ],
         callout: {
           type: "tip",
@@ -633,7 +633,7 @@ export const blogsData: Record<string, BlogPost> = {
         title: "7. How to Verify a Licensed NYC Roofing Contractor",
         paragraphs: [
           "Before awarding a roofing contract in the five boroughs, verify that your contractor satisfies every mandatory legal and technical prerequisite:",
-          "Always verify: 1) Active NYC DOB General Contractor Registration (#NYC-2005-8942 or equivalent); 2) Minimum $5,000,000 Commercial General Liability Insurance with comprehensive Action Over / Labor Law coverage; 3) Active Workers' Compensation coverage; 4) OSHA-30 supervisory certification for on-site crew leaders; and 5) Manufacturer Master Commercial Applicator certification (Carlisle, GAF, Firestone) to deliver genuine 20-30 year non-prorated system warranties. Need a site evaluation? <a href=\"/contact\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Schedule a free roof inspection and estimate</a> with our senior engineering team."
+          "Always verify: 1) Active NYC DOB General Contractor Registration (#NYC-2005-8942 or equivalent); 2) Minimum $5,000,000 Commercial General Liability Insurance with comprehensive Action Over / Labor Law coverage; 3) Active Workers' Compensation coverage; 4) OSHA-30 supervisory certification for on-site crew leaders; and 5) Manufacturer Master Commercial Applicator certification (Carlisle, GAF, Firestone) to deliver genuine 20-30 year non-prorated system warranties. Need a site evaluation? <a href=\"/contact\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Schedule a free roof inspection and estimate</a> with our project team."
         ],
         callout: {
           type: "warning",
@@ -694,10 +694,31 @@ export const blogsData: Record<string, BlogPost> = {
   }
 };
 
+export const TODAY = "2026-10-26";
+
+export function isFutureDate(dateStr?: string): boolean {
+  if (!dateStr) return false;
+  const postDateStr = dateStr.slice(0, 10);
+  return postDateStr > TODAY;
+}
+
+export function clampDate(dateStr?: string): string {
+  if (!dateStr) return TODAY;
+  const postDateStr = dateStr.slice(0, 10);
+  if (postDateStr > TODAY) {
+    return TODAY;
+  }
+  return postDateStr;
+}
+
 export const getAllBlogPosts = (): BlogPost[] => {
-  return Object.values(blogsData);
+  return Object.values(blogsData).filter((post) => !isFutureDate(post.publishDate));
 };
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
-  return blogsData[slug];
+  const post = blogsData[slug];
+  if (!post || isFutureDate(post.publishDate)) {
+    return undefined;
+  }
+  return post;
 };

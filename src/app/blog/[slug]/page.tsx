@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getBlogPostBySlug, getAllBlogPosts } from "@/data/blogsData";
+import { getBlogPostBySlug, getAllBlogPosts, clampDate } from "@/data/blogsData";
 import BlogDetailClient from "./_components/BlogDetailClient";
 
 interface Props {
@@ -37,14 +37,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: `${post.seoTitle} | Mega Contracting NY Group`,
     },
     description: post.metaDescription,
-    keywords: [
-      post.primaryKeyword,
-      ...post.supportingKeywords,
-      "Mega Contracting NY Group",
-      "Licensed General Contractor NYC",
-      "DOB Work Permit NYC",
-      "NYC Roofing Code",
-    ],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -63,8 +55,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
       locale: "en_US",
       type: "article",
-      publishedTime: post.publishDate,
-      modifiedTime: post.editDate || post.publishDate,
+      publishedTime: clampDate(post.publishDate),
+      modifiedTime: clampDate(post.editDate || post.publishDate),
       authors: [post.author.name],
     },
     twitter: {
@@ -99,8 +91,8 @@ export default async function BlogPostPage({ params }: Props) {
       alternativeHeadline: post.seoTitle,
       description: post.metaDescription,
       image: fullImageUrl,
-      datePublished: post.publishDate,
-      dateModified: post.editDate || post.publishDate,
+      datePublished: clampDate(post.publishDate),
+      dateModified: clampDate(post.editDate || post.publishDate),
       inLanguage: "en-US",
       mainEntityOfPage: {
         "@type": "WebPage",

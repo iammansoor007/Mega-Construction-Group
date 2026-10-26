@@ -192,13 +192,13 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "Licensed NYC General Contractor", description: "Directly licensed (#NYC-2005-8942) with the NYC Department of Buildings since 2005.", icon: "ShieldCheck" },
     { title: "Master Elite Certified Installers", description: "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.", icon: "Award" },
     { title: "130 MPH High-Wind Rating", description: "All roofing assemblies are engineered and fastened to exceed NYC coastal storm wind uplift requirements.", icon: "Wind" },
-    { title: "Zero-Ponding Drainage Warranty", description: "Precision slope-to-drain insulation tapered layouts guarantee zero stagnant water on flat roofs.", icon: "Droplets" },
+    { title: "Slope-to-Drain Insulation", description: "Tapered insulation layouts prevent stagnant ponding water on flat roofs.", icon: "Droplets" },
     { title: "$5,000,000 Insurance Coverage", description: "Multi-million commercial general liability and workers' compensation coverage protecting property owners.", icon: "Shield" },
     { title: "24/7 Emergency Storm Dispatch", description: "Dedicated rapid mobilization units deployed around the clock across all 5 boroughs during weather emergencies.", icon: "Clock" }
   ],
   "masonry-work": [
-    { title: "FISP & Local Law 11 Specialists", description: "Two decades of experience successfully dismissing unsafe facade condition filings with the NYC DOB.", icon: "Building2" },
-    { title: "Historic LPC Preservation Standards", description: "Expertise in Landmark Preservation Commission color matching, sandstone dressing, and historic lime mortars.", icon: "Landmark" },
+    { title: "FISP & Facade Inspection Compliance", description: "Extensive experience addressing facade condition filings with the NYC DOB.", icon: "Building2" },
+    { title: "Historic Masonry Preservation", description: "Careful masonry color matching, sandstone dressing, and historic lime mortars.", icon: "Landmark" },
     { title: "316 Stainless Steel Reinforcement", description: "We use non-corrosive marine-grade stainless steel tieback anchors to permanently eliminate future wall bowing.", icon: "Gem" },
     { title: "OSHA-30 Certified Rigging & Crews", description: "Full safety protocol compliance with suspended scaffolding, boom lifts, and sidewalk shed protections.", icon: "HardHat" },
     { title: "Dustless HEPA Grinding Technology", description: "OSHA Table-1 compliant shrouded vacuum grinding systems protecting tenant health and building interiors.", icon: "ShieldAlert" },
@@ -207,17 +207,17 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
   "concrete-services": [
     { title: "Licensed DOT Sidewalk Contractor", description: "Full authorization and active bond filings with the NYC Department of Transportation for street opening permits.", icon: "Truck" },
     { title: "4,000 PSI Air-Entrained NYSDOT Mix", description: "Industrial-strength concrete formulated with 6% air-entrainment specifically engineered for NYC freeze-thaw cycles.", icon: "Square" },
-    { title: "Guaranteed Violation Dismissals", description: "We guarantee physical sign-off and Certificate of Correction dismissal for all NYC DOT & DOB violations.", icon: "CheckCircle" },
+    { title: "Violation Dismissal Services", description: "We assist with corrective work, inspection sign-off, and Certificate of Correction filings for NYC DOT & DOB violations.", icon: "CheckCircle" },
     { title: "ADA Compliant Grading & Detectable Warnings", description: "Exact pitch standards, drop curbs, and truncated dome tactile tiles meeting municipal accessibility codes.", icon: "CheckCircle" },
     { title: "Fast-Track 24-Hour Turnarounds", description: "Quick-setting high-early strength formulas minimize pedestrian disruptions and driveway downtime.", icon: "Clock" },
     { title: "Comprehensive Property Protection", description: "Full sidewalk bridge and barricade setup to safeguard pedestrians and prevent city fines.", icon: "ShieldCheck" }
   ],
   "home-renovation": [
     { title: "NYC Co-op & Condo Alteration Masters", description: "Expert navigation of strict Co-op board alteration agreements, architect approvals, and building rules.", icon: "Building" },
-    { title: "Schluter Certified Waterproofing", description: "Certified continuous waterproofing membrane installations guaranteeing zero moisture leaks into downstairs apartments.", icon: "Droplets" },
+    { title: "Continuous Waterproofing Systems", description: "Multi-layer waterproofing membrane installations protecting against moisture leaks into downstairs areas.", icon: "Droplets" },
     { title: "Licensed Master Electrician & Plumber Trades", description: "All MEP infrastructure executed exclusively by licensed NYC master trade professionals under valid filings.", icon: "Zap" },
     { title: "Dust-Free Negative Air Containment", description: "Hospital-grade HEPA air filtration and floor-to-ceiling zip barriers to protect your living areas.", icon: "Shield" },
-    { title: "Guaranteed Milestone Completion Dates", description: "Rigid project management with binding contractual timelines and daily photographic progress logs.", icon: "Calendar" },
+    { title: "Milestone Project Tracking", description: "Structured project management with defined milestone schedules and photographic progress logs.", icon: "Calendar" },
     { title: "Transparent Fixed-Cost Pricing", description: "Detailed line-item proposals with 100% upfront pricing clarity and zero unexpected change orders.", icon: "DollarSign" }
   ],
   "stucco": [
@@ -237,7 +237,7 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "10-Year Major Structural Warranty", description: "Comprehensive structural warranty covering foundations, load-bearing frames, and building envelopes.", icon: "ShieldCheck" }
   ],
   "emergency-service": [
-    { title: "Guaranteed 120-Minute NYC Arrival", description: "Immediate dispatch from localized staging centers across the Bronx, Brooklyn, Queens, and Manhattan.", icon: "FastForward" },
+    { title: "Rapid NYC Arrival", description: "Prompt dispatch from localized staging points across the Bronx, Brooklyn, Queens, and Manhattan.", icon: "FastForward" },
     { title: "Direct Insurance Claim Coordination", description: "We provide comprehensive forensic photo documentation, thermal moisture logs, and insurance billing support.", icon: "FileCheck" },
     { title: "Emergency Work (EWOP) Filing Support", description: "Direct communication with the NYC DOB emergency response unit to stabilize open hazardous violations.", icon: "Gavel" },
     { title: "Structural Make-Safe Certification", description: "Engineered temporary shoring and stabilization for compromised walls, roofs, and storefronts.", icon: "Construction" },
@@ -314,9 +314,9 @@ const categoryFaqsMap: Record<string, FAQ[]> = {
     { question: "How do you maximize Floor Area Ratio (FAR) and zoning allowances?", answer: "Our zoning specialists analyze NYC Zoning Resolutions, maximum allowable building heights, sky exposure planes, and yard setbacks to optimize every square foot of legally buildable residential space." },
     { question: "What is required to secure a final Certificate of Occupancy (C of O) in NYC?", answer: "Securing a C of O requires passing final inspections from the DOB, FDNY, Department of Environmental Protection (sewer/water), and submitting Special Inspection reports. We handle all agency sign-offs directly." },
     { question: "Can you build high-performance Passive House or Net-Zero homes in NYC?", answer: "Yes. We build high-performance envelopes utilizing continuous exterior thermal breaks, airtight vapor-variable membranes, balanced ERV/HRV mechanical ventilation, and triple-pane architectural glazing." },
-    { question: "How do you navigate foundation challenges such as high water tables or bedrock?", answer: "NYC geology ranges from shallow Manhattan schist to high water tables in coastal Queens. We deploy specialized helical steel piles, reinforced grade beams, and bentonite waterproofing systems to guarantee foundation stability." },
+    { question: "How do you navigate foundation challenges such as high water tables or bedrock?", answer: "NYC geology ranges from shallow Manhattan schist to high water tables in coastal Queens. We deploy specialized helical steel piles, reinforced grade beams, and bentonite waterproofing systems to ensure foundation stability." },
     { question: "Can smart home automation systems be integrated into the build?", answer: "Yes. We design and install centralized structured wiring, Lutron automated lighting and shading, multi-zone climate control, and enterprise-grade security and access control." },
-    { question: "How are construction costs estimated and managed throughout the project?", answer: "We provide comprehensive cost estimates categorized by master construction divisions, coupled with open-book milestone tracking and guaranteed maximum price (GMP) contract structures." },
+    { question: "How are construction costs estimated and managed throughout the project?", answer: "We provide comprehensive cost estimates categorized by master construction divisions, coupled with open-book milestone tracking and maximum price (GMP) contract structures." },
     { question: "What structural warranties accompany a new custom home build?", answer: "Every ground-up residence is accompanied by our comprehensive 10-year major structural warranty covering foundations and load-bearing framing, alongside 2-year mechanical and 1-year finish warranties." },
     { question: "How do I arrange a preliminary consultation for a new custom home project?", answer: "Contact our executive development team at +1 (914) 804-3000 to discuss your property location, architectural vision, and project timeline." }
   ],

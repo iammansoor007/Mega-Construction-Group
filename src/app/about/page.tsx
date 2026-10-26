@@ -7,27 +7,7 @@ export const metadata: Metadata = {
   },
   description:
     "Licensed & insured construction company serving the Bronx, Brooklyn, Queens, Manhattan & Staten Island. Family-owned. All services. Free estimates.",
-  keywords: [
-    "licensed contractor bronx ny",
-    "About Our Licensed Construction Company in NYC",
-    "Licensed Contractor Bronx NY",
-    "Mega Contracting NY Group",
-    "Facade Restoration NYC",
-    "Roof Leak Repair NYC",
-    "Flat Roofing NYC",
-    "Chimney Repair NYC",
-    "Fire Escape Painting NYC",
-    "Parapet Wall Repair NYC",
-    "Stucco Repair NYC",
-    "DOB Violation Removal NYC",
-    "DOT Violation Removal NYC",
-    "Sidewalk Repair NYC",
-    "Brick Pointing NYC",
-    "Foundation Repair NYC",
-    "Waterproofing Contractor NYC",
-    "Family Owned Construction Company New York",
-    "NYC Licensed General Contractor",
-  ],
+
   alternates: {
     canonical: "https://www.megacontractingnyc.com/about",
   },

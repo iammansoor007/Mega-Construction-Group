@@ -95,11 +95,11 @@ export default function BlogIndexPage() {
               <div className="flex flex-wrap items-center gap-4 text-xs font-mono uppercase tracking-wider text-white/50">
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <ShieldCheck className="w-4 h-4 text-red-500" />
-                  DOB Code Verified
+                  NYC Building Codes
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <Award className="w-4 h-4 text-red-500" />
-                  Written by Licensed Engineers
+                  Technical Guides from Mega Contracting
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <HardHat className="w-4 h-4 text-red-500" />
@@ -128,7 +128,8 @@ export default function BlogIndexPage() {
                   <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] overflow-hidden bg-black">
                     <Image
                       src={featuredPost.featuredImage}
-                      alt={featuredPost.imageAlt}
+                      alt={featuredPost.imageAlt || `${featuredPost.title} - NYC Construction Guide`}
+                      title={`${featuredPost.title} - ${featuredPost.primaryKeyword}`}
                       fill
                       priority
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -241,7 +242,8 @@ export default function BlogIndexPage() {
                     <div className="relative h-52 w-full overflow-hidden bg-black">
                       <Image
                         src={post.featuredImage}
-                        alt={post.imageAlt}
+                        alt={post.imageAlt || `${post.title} - NYC Construction Guide`}
+                        title={`${post.title} - ${post.primaryKeyword}`}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, 33vw"

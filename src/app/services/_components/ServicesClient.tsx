@@ -60,7 +60,7 @@ export default function ServicesClient() {
       </section>
 
       {/* Dynamic Marquee */}
-      <MarqueeSection text="NYC Certified Contractor • Fully Licensed & Insured • Over 1,000 Projects Completed • 10-Year Workmanship Warranty •" />
+      <MarqueeSection text="NYC Licensed Contractor • Fully Licensed & Insured • Professional Workmanship • Dedicated Service •" />
 
       {/* Services Grid Section */}
       <section className="py-8 md:py-12 bg-white relative">
@@ -87,7 +87,8 @@ export default function ServicesClient() {
                     <div className="relative h-60 overflow-hidden bg-gray-100">
                       <Image
                         src={service.image || "/placeholder.svg"}
-                        alt={service.title}
+                        alt={`${service.title} Services NYC - Mega Contracting NY Group`}
+                        title={`${service.title} NYC - Professional General Contractors`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover/card:scale-110"
                         sizes="(max-w-768px) 100vw, 33vw"

@@ -6,10 +6,10 @@ export const caulkingContractorsNycPost: BlogPost = {
   seoTitle: "Caulking Contractors NYC: Window & Facade Sealing Guide",
   metaDescription:
     "Caulking contractors in NYC: when to recaulk windows and facades, sealant types, lifespan, costs and how to hire.",
-  publishDate: "2026-11-25",
-  editDate: "2026-11-25",
-  formattedDate: "November 25, 2026",
-  formattedEditDate: "November 25, 2026",
+  publishDate: "2026-10-25",
+  editDate: "2026-10-25",
+  formattedDate: "October 25, 2026",
+  formattedEditDate: "October 25, 2026",
   readTime: "11 min read",
   category: "Facade Weatherproofing & Caulking",
   categorySlug: "facade-restoration",
@@ -203,7 +203,7 @@ export const caulkingContractorsNycPost: BlogPost = {
     {
       question: "Do I need to remove old caulk first?",
       answer:
-        "Yes, absolutely. New caulk will not bond properly to old, dirty, or oxidized sealant. Applying new caulk over old caulk is a guaranteed shortcut that fails within months. The old sealant must be mechanically cut out and the joint thoroughly cleaned."
+        "Yes, absolutely. New caulk will not bond properly to old, dirty, or oxidized sealant. Applying new caulk over old caulk is an unreliable shortcut that fails within months. The old sealant must be mechanically cut out and the joint thoroughly cleaned."
     },
     {
       question: "What is the difference between silicone and polyurethane sealant?",

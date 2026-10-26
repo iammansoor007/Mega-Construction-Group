@@ -5,7 +5,7 @@ import Link from "next/link";
 import { servicesData } from "@/data/servicesData";
 import { projectsData } from "@/data/projectsData";
 import { locationsData } from "@/data/locationsData";
-import { blogsData } from "@/data/blogsData";
+import { getAllBlogPosts } from "@/data/blogsData";
 import { ChevronRight, ArrowRight, ExternalLink, MapPin, FolderOpen, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function SitemapPage() {
   };
   const projects = Object.values(projectsData);
   const boroughs = Object.values(locationsData);
-  const blogs = Object.values(blogsData);
+  const blogs = getAllBlogPosts();
 
   const mainPages = [
     { name: "Home", href: "/" },

@@ -205,7 +205,7 @@ const SuccessModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                 transition={{ delay: 0.45 }}
                 className="text-gray-500 text-sm leading-relaxed mb-2"
               >
-                Thank you for reaching out to Mega Construction NY Group.
+                Thank you for reaching out to Mega Contracting NY Group.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
@@ -301,7 +301,7 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     const emailBody = `
-🏗️ MEGA CONSTRUCTION NY GROUP — CONTACT FORM
+🏗️ MEGA CONTRACTING NY GROUP — CONTACT FORM
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 👤 Name:    ${formData.name}
 📧 Email:   ${formData.email}
@@ -319,7 +319,7 @@ ${formData.message}
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `🏗️ New Contact: ${formData.subject} — Mega Construction NY`,
+          _subject: `🏗️ New Contact: ${formData.subject} — Mega Contracting NY Group`,
           name: formData.name, email: formData.email, phone: formData.phone,
           subject: formData.subject, message: formData.message,
           _template: "table", _captcha: "false",
@@ -477,10 +477,10 @@ ${formData.message}
               {/* Feature list */}
               <div className="space-y-3">
                 {[
-                  { icon: <Clock className="w-4 h-4" />, title: "Fast Response", desc: "Reply within 4–8 hours, guaranteed" },
+                  { icon: <Clock className="w-4 h-4" />, title: "Fast Response", desc: "Reply within 4–8 hours" },
                   { icon: <Star className="w-4 h-4" />, title: "Free Detailed Quote", desc: "Itemized estimate with no hidden fees" },
                   { icon: <Shield className="w-4 h-4" />, title: "Fully Licensed", desc: "NYC-2005-8942 · $5M Insured" },
-                  { icon: <CheckCircle2 className="w-4 h-4" />, title: "1,000+ Projects Done", desc: "Family-owned since 2005, 98% satisfaction" },
+                  { icon: <CheckCircle2 className="w-4 h-4" />, title: "Experienced Team", desc: "Family-owned since 2005" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}

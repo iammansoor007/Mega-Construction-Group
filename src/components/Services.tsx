@@ -176,7 +176,8 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
           <div className="relative h-60 overflow-hidden bg-gray-100">
             <Image
               src={getServiceImage(service.id)}
-              alt={service.title}
+              alt={`${service.title} - NYC Construction Services by Mega Contracting NY Group`}
+              title={`${service.title} NYC - Mega Contracting NY Group`}
               fill
               className="object-cover transition-transform duration-700 group-hover/card:scale-110"
               sizes="(max-w-768px) 100vw, 33vw"
@@ -362,7 +363,8 @@ const Services = () => {
                   >
                     <Image
                       src={serviceDetail}
-                      alt="Mega Contracting NY Group"
+                      alt="Mega Contracting NY Group - NYC General Construction & Exterior Restoration"
+                      title="Mega Contracting NY Group - Full-Service NYC Contractor"
                       fill
                       className="object-cover"
                       style={{ scale: imageScale as any }}
@@ -403,7 +405,8 @@ const Services = () => {
                 >
                   <img
                     src={vectoroverlay.src}
-                    alt="Vector Overlay"
+                    alt="Mega Contracting NY Group Certified Construction Seal"
+                    title="Certified NYC Construction Craftsmen"
                     className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
                     style={{ filter: "drop-shadow(0 15px 20px rgba(0,0,0,0.2))" }}
                     loading="eager"

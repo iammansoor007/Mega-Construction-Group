@@ -235,14 +235,15 @@ const Navbar = () => {
                 <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="h-10 w-24 xs:h-12 xs:w-28 sm:h-13 sm:w-32 lg:h-13 lg:w-36 xl:h-16 xl:w-44 rounded-none flex items-center justify-center overflow-hidden relative z-10 transition-all duration-300">
-                  <Image
-                    src={logo}
-                    alt="Mega Construction NY Group Logo"
-                    className="companylogo h-full w-full object-contain p-0.5 drop-shadow-2xl smooth-gpu"
-                    priority
-                    width={180}
-                    height={64}
-                  />
+                    <Image
+                      src={logo}
+                      alt="Mega Contracting NY Group - NYC General Contractor & Roofing Logo"
+                      title="Mega Contracting NY Group - Official NYC Contractor Logo"
+                      className="companylogo h-full w-full object-contain p-0.5 drop-shadow-2xl smooth-gpu"
+                      priority
+                      width={180}
+                      height={64}
+                    />
                 </div>
               </Link>
             </motion.div>
@@ -487,7 +488,8 @@ const Navbar = () => {
                           <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group/img shadow-2xl transition-all duration-500 group-hover/img-link:shadow-red-500/20 group-hover/img-link:scale-[1.01]">
                             <Image
                               src={getServiceImage(fullService.id)}
-                              alt={fullService.title}
+                              alt={`${fullService.title} NYC - Mega Contracting NY Group`}
+                              title={`${fullService.title} NYC - Professional Services`}
                               fill
                               className="object-cover transition-transform duration-700 group-hover/img:scale-110"
                             />
@@ -556,7 +558,8 @@ const Navbar = () => {
                       <div className="h-12 w-24 xs:h-16 xs:w-26 rounded-none flex items-center justify-center overflow-hidden">
                         <Image
                           src={logo2nd}
-                          alt="Company Logo"
+                          alt="Mega Contracting NY Group - Licensed NYC Contractor Logo"
+                          title="Mega Contracting NY Group Logo"
                           className="h-full w-full object-contain"
                           width={104}
                           height={64}
@@ -655,7 +658,7 @@ const Navbar = () => {
                     </motion.a>
                     <div className="flex items-center justify-center space-x-2 text-gray-600 text-sm">
                       <Star className="h-3 w-3 text-primary" />
-                      <span>Premium Service Guaranteed</span>
+                      <span>Premium Construction Service</span>
                     </div>
                   </div>
                 </div>
@@ -671,7 +674,8 @@ const Navbar = () => {
           <Image
             key={`preload-${s.id}`}
             src={getServiceImage(s.id)}
-            alt={`Mega Contracting NY Group - ${s.title}`}
+            alt={`Mega Contracting NY Group - ${s.title} NYC`}
+            title={`Mega Contracting NY Group - ${s.title}`}
             width={10}
             height={10}
             loading="eager"

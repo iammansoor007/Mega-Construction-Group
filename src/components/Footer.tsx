@@ -278,14 +278,18 @@ const Footer = () => {
             animate={{ x: [0, -1000] }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           >
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="flex items-center gap-12 mx-12">
+            {[...Array(isClient ? 12 : 1)].map((_, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-12 mx-12"
+                aria-hidden={i > 0 ? "true" : undefined}
+              >
                 <span className="text-[14px] font-bold uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
-                  Structural Performance Certified
+                  Licensed General Contractor
                 </span>
                 <div className="w-3 h-3 bg-primary rotate-45" />
                 <span className="text-[14px] font-bold uppercase tracking-[0.6em] text-white/10 italic transition-colors duration-500 group-hover/marquee:text-white">
-                  Mega Construction NY Group
+                  Mega Contracting NY Group
                 </span>
                 <div className="w-3 h-3 bg-primary rotate-45" />
               </div>

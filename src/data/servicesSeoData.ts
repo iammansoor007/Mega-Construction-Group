@@ -141,9 +141,9 @@ export const servicesSeoMap: Record<string, ServiceSeoEntry> = {
     category: "roofing-services",
     subCategorySlug: "roof-waterproofing",
     primaryKeyword: "roof waterproofing nyc",
-    seoTitle: "Roof Waterproofing NYC | Commercial & Residential Specialists",
-    metaDescription: "Professional roof waterproofing services in NYC. Flat roofs, parapets, coatings and membrane waterproofing systems. Licensed. Free estimate!",
-    h1: "Professional Roof Waterproofing Services in NYC",
+    seoTitle: "Roof Waterproofing NYC | Membranes and Coatings",
+    metaDescription: "Roof waterproofing in NYC. Membranes, coatings, flashing and drainage details to stop leaks. Licensed. Free estimate!",
+    h1: "Roof Waterproofing Services in NYC",
   },
 
   // ─── MASONRY SERVICES (12 pages) ───────────────────────────────────────────

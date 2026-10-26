@@ -42,15 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       absolute: page.seoTitle,
     },
     description: page.metaDesc,
-    keywords: [
-      page.keyword,
-      page.h1,
-      "Mega Contracting NY Group",
-      "Licensed Contractor NYC",
-      "Bronx General Contractor",
-      "Brooklyn Contractor",
-      "DOB Compliant Contractor NYC",
-    ],
     alternates: {
       canonical: targetUrl ? `${BASE_URL}${targetUrl}` : `${BASE_URL}/${page.slug}`,
     },
@@ -230,6 +221,7 @@ export default async function BronxSeoPage({ params }: Props) {
             <Image
               src={page.image}
               alt={`${page.keyword} service in New York by Mega Contracting NY Group`}
+              title={`${page.keyword} NYC - Professional General Contracting`}
               fill
               priority
               sizes="100vw"
@@ -302,7 +294,7 @@ export default async function BronxSeoPage({ params }: Props) {
         </section>
 
         {/* Dynamic Marquee */}
-        <MarqueeSection text={`${page.keyword.toUpperCase()} • LICENSED NYC GENERAL CONTRACTOR • FREE ESTIMATES • FULL CODE COMPLIANCE • GUARANTEED WORKMANSHIP •`} />
+        <MarqueeSection text={`${page.keyword.toUpperCase()} • LICENSED NYC GENERAL CONTRACTOR • FREE ESTIMATES • FULL CODE COMPLIANCE • PROFESSIONAL WORKMANSHIP •`} />
 
         {/* ── CORE FEATURES GRID ─────────────────────────────────────────── */}
         <section className="py-16 md:py-20 bg-gray-50 border-b border-gray-200">
@@ -370,7 +362,8 @@ export default async function BronxSeoPage({ params }: Props) {
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
                   <Image
                     src={page.image}
-                    alt={`${page.h1} Project Photo`}
+                    alt={`${page.h1} Project Photo - Mega Contracting NY Group NYC`}
+                    title={`${page.keyword} NYC Project Showcase`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover"

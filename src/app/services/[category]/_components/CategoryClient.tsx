@@ -76,7 +76,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
       </section>
 
       {/* DYNAMIC MARQUEE */}
-      <MarqueeSection text={`Industrial Grade ${service.tag} • NYC Certified Specialists •`} />
+      <MarqueeSection text={`Industrial Grade ${service.tag} • Licensed NYC Contractors •`} />
 
       {/* ====================== */}
       {/* SERVICE SPECIALIZATIONS */}
@@ -108,7 +108,8 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
                   <div className="relative h-60 overflow-hidden bg-gray-100">
                     <Image
                       src={sub.image || "/placeholder.svg"}
-                      alt={sub.title}
+                      alt={`${sub.title} NYC - Professional ${service.title} by Mega Contracting NY Group`}
+                      title={`${sub.title} NYC - Professional ${service.title} Services`}
                       fill
                       className="object-cover transition-transform duration-700 group-hover/card:scale-110"
                       sizes="(max-w-768px) 100vw, 33vw"
@@ -127,7 +128,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
                   <div className="p-6 xs:p-8 flex-1 flex flex-col justify-between text-left">
                     <div className="space-y-4">
                       <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">
-                        NYC Certified
+                        Licensed Contractor
                       </span>
                       
                       <h3 className="text-xl xs:text-2xl font-bold text-gray-900 group-hover/card:text-red-600 transition-colors leading-tight">

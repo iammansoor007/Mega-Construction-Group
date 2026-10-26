@@ -35,7 +35,7 @@ const QuickQuote = () => {
         setIsSubmitting(true);
 
         const emailContent = `
-🔴 NEW QUICK QUOTE REQUEST - MEGA CONSTRUCTION NY GROUP
+🔴 NEW QUICK QUOTE REQUEST - MEGA CONTRACTING NY GROUP
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

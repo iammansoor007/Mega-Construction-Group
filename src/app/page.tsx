@@ -26,20 +26,7 @@ export const metadata: Metadata = {
   title: "General Contractor NYC | Licensed Construction Company",
   description:
     "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
-  keywords: [
-    "general contractor nyc",
-    "General Contractor NYC",
-    "Licensed Construction Company",
-    "General Contractor New York",
-    "Mega Contracting NY Group",
-    "Construction Services NYC",
-    "Roofing Contractor Brooklyn",
-    "Commercial Remodeling Manhattan",
-    ...HOT_KEYWORDS,
-    "Licensed Contractor Bronx",
-    "NYC Building Contractor",
-    "Masonry Contractor NYC",
-  ],
+
   alternates: {
     canonical: BASE_URL,
   },
@@ -84,7 +71,7 @@ export default function Home() {
       "@type": ["GeneralContractor", "LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": `${BASE_URL}/#business`,
       "name": "Mega Contracting NY Group",
-      "alternateName": ["General Contractor NYC", "Mega Construction NYC", "Mega Contracting Group"],
+      "alternateName": ["General Contractor NYC", "Mega Contracting NY", "Mega Contracting Group"],
       "description":
         "Mega Contracting NY Group is NYC's #1 licensed general contractor specializing in facade restoration, roof leak repair, flat roofing, chimney repair, fire escape painting, parapet wall repair, stucco repair, EIFS, DOB violation removal, DOT violation removal, sidewalk repair, building safety assessments, brick pointing, foundation repair, and waterproofing across all 5 boroughs.",
       "url": BASE_URL,

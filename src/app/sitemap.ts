@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { servicesSeoMap } from "@/data/servicesSeoData";
-import { blogsData } from "@/data/blogsData";
+import { getAllBlogPosts, clampDate } from "@/data/blogsData";
 import { projectsData } from "@/data/projectsData";
 import { locationsData } from "@/data/locationsData";
 
@@ -34,13 +34,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // All published blog posts with real publication / update dates
-  const blogPages: MetadataRoute.Sitemap = Object.values(blogsData).map((post) => {
+  const blogPages: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => {
     const entry: MetadataRoute.Sitemap[number] = {
       url: `${BASE_URL}/blog/${post.slug}`,
     };
     const dateStr = post.editDate || post.publishDate;
     if (dateStr) {
-      entry.lastModified = new Date(dateStr);
+      entry.lastModified = new Date(clampDate(dateStr));
     }
     return entry;
   });

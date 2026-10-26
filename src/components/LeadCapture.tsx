@@ -224,7 +224,8 @@ const CTASection = () => {
         <div className="absolute top-0 right-0 w-2/5 h-full">
           <Image
             src={Images.Hero}
-            alt="Modern architecture"
+            alt="Modern Architecture Construction in NYC - Mega Contracting NY Group"
+            title="NYC Commercial & Residential Construction Architecture"
             className="w-full h-full object-cover opacity-5"
             fill
           />
@@ -236,7 +237,8 @@ const CTASection = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2">
           <Image
             src={Images.Detail}
-            alt="Architectural detail"
+            alt="Architectural Construction Detail NYC - Mega Contracting NY Group"
+            title="NYC Architectural & Structural Contracting Details"
             className="w-full h-full object-cover opacity-5"
             fill
           />
@@ -300,7 +302,7 @@ const CTASection = () => {
                 <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg border border-blue-200/50">
                   <Icons.Sparkle />
                   <span className="text-xs font-medium tracking-wider text-blue-700">
-                    Mega Construction NY Group â€¢ 2005
+                    Mega Contracting NY Group • 2005
                   </span>
                 </div>
 

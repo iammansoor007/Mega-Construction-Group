@@ -114,6 +114,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
           <Image
             src={subCategory.image || "/placeholder.svg"}
             alt={`${seo.h1} - Mega Contracting NY Group`}
+            title={`${seo.primaryKeyword} - ${seo.h1}`}
             fill
             priority
             sizes="100vw"
@@ -178,7 +179,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               {/* Badge */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-600 text-[10px] font-semibold uppercase tracking-wider self-start">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Crystal Clear Compliance</span>
+                <span>Clear Project Scope</span>
               </div>
 
               {/* Headline */}
@@ -235,7 +236,8 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               <div className="relative w-full h-full min-h-[320px] lg:min-h-full overflow-hidden rounded-[24px] md:rounded-[32px] shadow-2xl border border-gray-100 group">
                 <Image
                   src={subCategory.image || "/placeholder.svg"}
-                  alt={`${subCategory.title} NYC Expert Craftsmanship`}
+                  alt={`${subCategory.title} NYC - Expert Craftsmanship by Mega Contracting NY Group`}
+                  title={`${subCategory.title} NYC - ${seo.primaryKeyword}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   priority
@@ -248,7 +250,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
       </section>
 
       {/* MARQUEE */}
-      <MarqueeSection text={`${subCategory.title} • Free Estimates • NYC Certified • Quality Guaranteed • Professional Construction •`} />
+      <MarqueeSection text={`${subCategory.title} • Free Estimates • NYC Licensed • Quality Workmanship • Professional Construction •`} />
 
       {/* ====================== */}
       {/* 3. BENTO PROJECT GALLERY */}
@@ -271,7 +273,8 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             >
               <Image
                 src={galleryImages[0] || subCategory.image || "/placeholder.svg"}
-                alt={`${subCategory.title} Primary NYC Project Reference`}
+                alt={`${subCategory.title} NYC Project Reference - Mega Contracting NY Group`}
+                title={`${subCategory.title} - ${seo.primaryKeyword} in NYC`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover transition-transform duration-[10s] group-hover:scale-105"
@@ -294,7 +297,8 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                 >
                   <Image
                     src={img || "/placeholder.svg"}
-                    alt={`${subCategory.title} Project Detail View ${i + 1}`}
+                    alt={`${subCategory.title} NYC Project Detail View ${i + 1} - Mega Contracting NY Group`}
+                    title={`${subCategory.title} Detail ${i + 1} - ${seo.primaryKeyword}`}
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -317,7 +321,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             <SectionHeader
               badge="Our Proven Process"
               headline="How <span class='text-red-600'>We Work</span>"
-              description="Our disciplined 6-stage engineering and construction methodology guarantees flawless execution, strict DOB code adherence, and turnkey delivery."
+              description="Our structured 6-stage construction process ensures careful coordination, code compliance, and reliable delivery."
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -422,11 +426,11 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                     <span className="text-red-600">Questions</span>
                   </h2>
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Verified answers addressing NYC DOB codes, permits, timelines, materials, and engineering methods for {subCategory.title.toLowerCase()}.
+                    Direct answers addressing building permits, timelines, materials, and construction practices for {subCategory.title.toLowerCase()}.
                   </p>
                   <div className="inline-flex items-center gap-2 text-xs font-semibold text-gray-700 bg-gray-50 border border-gray-200 px-3 py-1.5 rounded-lg">
                     <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>10 Verified Technical Q&amp;As</span>
+                    <span>{subCategory.faqs?.length || 6} Technical Q&amp;As</span>
                   </div>
                 </div>
 
@@ -535,6 +539,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                     <Image
                       src={rec.image || "/placeholder.svg"}
                       alt={`${rec.title} NYC - Mega Contracting NY Group`}
+                      title={`${rec.title} NYC - Professional General Contracting`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

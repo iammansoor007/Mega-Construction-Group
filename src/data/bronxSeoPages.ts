@@ -195,7 +195,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     faqs: [
       {
         question: "Why do I need a licensed contractor for sidewalk repair in the Bronx?",
-        answer: "NYC DOT regulations require a licensed contractor to pull street opening permits and guarantee that sidewalk work meets strict grade, slope, and expansion joint specifications. Unpermitted work risks heavy municipal fines."
+        answer: "NYC DOT regulations require a licensed contractor to pull street opening permits and ensure that sidewalk work meets strict grade, slope, and expansion joint specifications. Unpermitted work risks heavy municipal fines."
       }
     ],
     contentSections: [
@@ -1496,7 +1496,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     categoryHubTitle: "Commercial Contracting",
     heroHighlight: "Turnkey commercial renovation and build-outs in the Bronx NY. Retail spaces, medical offices, multi-family common areas, and structural rehabilitation.",
     image: "/assets/commercial-construction.jpg",
-    features: ["Retail & Office Tenant Fit-Outs", "ADA Compliant Entrances & Restrooms", "Commercial MEP Systems Coordination", "Structural Steel Framing & Mezzanines", "Strict Timeline Guarantee to Minimize Downtime"],
+    features: ["Retail & Office Tenant Fit-Outs", "ADA Compliant Entrances & Restrooms", "Commercial MEP Systems Coordination", "Structural Steel Framing & Mezzanines", "Careful Project Scheduling to Minimize Downtime"],
     faqs: [{ question: "Can commercial renovations be completed off-hours?", answer: "Yes, we coordinate night and weekend work schedules to ensure your retail store or medical office avoids operational interruptions." }],
     contentSections: [{ heading: "Commercial Contracting & Tenant Improvements", paragraphs: ["Mega Contracting NY Group manages commercial renovation projects from architectural review to final Certificate of Occupancy across the Bronx."] }],
     relatedPages: [{ title: "Construction Company Bronx", slug: "construction-company-bronx" }, { title: "General Contractor Bronx", slug: "general-contractor-bronx" }]

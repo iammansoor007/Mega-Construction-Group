@@ -6,10 +6,10 @@ export const renovationPermitsNycPost: BlogPost = {
   seoTitle: "Renovation Permits NYC: When You Need a DOB Permit",
   metaDescription:
     "Which NYC renovations need a DOB permit? Learn who can file, typical timelines and the risks of unpermitted work.",
-  publishDate: "2026-11-19",
-  editDate: "2026-11-19",
-  formattedDate: "November 19, 2026",
-  formattedEditDate: "November 19, 2026",
+  publishDate: "2026-10-25",
+  editDate: "2026-10-25",
+  formattedDate: "October 25, 2026",
+  formattedEditDate: "October 25, 2026",
   readTime: "11 min read",
   category: "Permits & Building Codes",
   categorySlug: "violation-removal",
@@ -61,11 +61,11 @@ export const renovationPermitsNycPost: BlogPost = {
     },
     {
       title: "Unblocked Real Estate Closings",
-      description: "Secure approved Letters of Completion that guarantee clear title for future sales and refinancing."
+      description: "Secure approved Letters of Completion that provide clear documentation for future sales and refinancing."
     },
     {
       title: "Verified Life-Safety Standards",
-      description: "Guarantee that structural walls, electrical wiring, and plumbing assemblies satisfy municipal safety standards."
+      description: "Ensure that structural walls, electrical wiring, and plumbing assemblies satisfy municipal safety standards."
     }
   ],
   ctaBox: {

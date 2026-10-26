@@ -155,7 +155,8 @@ const VideoThumbnailCard = ({ video, onClick }) => {
       <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 shadow-md border-2 border-gray-200 group-hover:border-red-600 transition-colors">
         <img
           src={imageError ? 'https://via.placeholder.com/320x180?text=Mega+Contracting' : `https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
-          alt={video.name}
+          alt={`${video.name} - Client Testimonial for Mega Contracting NY Group`}
+          title={`${video.name} - NYC Construction Video Review`}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={() => setImageError(true)}
         />

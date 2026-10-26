@@ -20,24 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const keywords = [
-    seo.primaryKeyword,
-    subCategory.title,
-    `${subCategory.title} NYC`,
-    `${subCategory.title} Bronx`,
-    `${subCategory.title} Brooklyn`,
-    `${subCategory.title} Queens`,
-    "Mega Contracting NY Group",
-    "NYC General Contractor",
-    "Licensed Construction Contractor NYC",
-  ];
-
   return {
     title: {
       absolute: seo.seoTitle,
     },
     description: seo.metaDescription,
-    keywords,
     alternates: {
       canonical: `https://www.megacontractingnyc.com/services/${category}/${slug}`,
     },

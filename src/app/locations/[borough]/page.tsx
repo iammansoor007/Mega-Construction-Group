@@ -34,15 +34,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: data.title },
     description: data.metaDesc,
-    keywords: [
-      `general contractor ${data.boroughName.toLowerCase()}`,
-      `roofing contractor ${data.boroughName.toLowerCase()}`,
-      `masonry contractor ${data.boroughName.toLowerCase()}`,
-      `brick pointing ${data.boroughName.toLowerCase()}`,
-      `facade restoration ${data.boroughName.toLowerCase()}`,
-      "Mega Contracting NY Group Inc.",
-      "Licensed NYC Contractor",
-    ],
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: data.title,
@@ -147,7 +138,8 @@ export default async function BoroughLocationPage({ params }: Props) {
           <div className="absolute inset-0 select-none grayscale opacity-25 z-0">
             <Image
               src={data.image}
-              alt={`${data.boroughName} Construction Services`}
+              alt={`${data.boroughName} Construction & General Contracting Services - Mega Contracting NY Group`}
+              title={`${data.boroughName} NYC Construction, Roofing & Masonry Services`}
               fill
               priority
               sizes="100vw"

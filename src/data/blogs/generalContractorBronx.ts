@@ -57,7 +57,7 @@ export const generalContractorBronxPost: BlogPost = {
   keyOutcomes: [
     {
       title: "Legally Protected Projects",
-      description: "Ensure enforceable contracts, statutory lien waivers, and guaranteed building code compliance."
+      description: "Ensure enforceable contracts, statutory lien waivers, and verified building code compliance."
     },
     {
       title: "Streamlined Permitting",
@@ -91,7 +91,7 @@ export const generalContractorBronxPost: BlogPost = {
       title: "What a General Contractor Does vs a Subcontractor",
       paragraphs: [
         "When undertaking major construction, property owners must understand the operational difference between hiring a single trade mechanic and retaining a professional <a href=\"/services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">general contractor in Bronx NY</a>.",
-        "A subcontractor specializes exclusively in one trade—such as framing, plumbing, electrical wiring, or masonry. In contrast, a general contractor assumes total operational and legal accountability for the entire build. The GC coordinates trade schedules, manages DOB architectural filings, procures building materials, maintains jobsite safety standards, and guarantees that the project passes municipal inspections.",
+        "A subcontractor specializes exclusively in one trade—such as framing, plumbing, electrical wiring, or masonry. In contrast, a general contractor assumes total operational and legal accountability for the entire build. The GC coordinates trade schedules, manages DOB architectural filings, procures building materials, maintains jobsite safety standards, and ensures that the project passes municipal inspections.",
         "Attempting to manage multiple individual subcontractors without an experienced <a href=\"/about\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">construction company in Bronx NY</a> routinely results in trade sequencing conflicts, scheduling delays, and expensive code violations."
       ]
     },

@@ -7,19 +7,6 @@ export const metadata: Metadata = {
   },
   description:
     "Get answers to your NYC construction questions — costs, permits, timelines & violations. Free consultation available.",
-  keywords: [
-    "nyc contractor faq",
-    "NYC Construction FAQ — Your Questions Answered",
-    "NYC Contractor Questions",
-    "Construction Questions Answered",
-    "How Much Does Roofing Cost NYC",
-    "Do I need a permit for renovation NYC",
-    "How to remove DOB violation NYC",
-    "How to remove DOT sidewalk violation NYC",
-    "Mega Contracting NY Group",
-    "General Contractor NYC",
-    "Licensed Contractor Bronx NY",
-  ],
   alternates: {
     canonical: "https://www.megacontractingnyc.com/faq",
   },
@@ -32,17 +19,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Frequently Asked Questions | Mega Construction NYC",
+    title: "Frequently Asked Questions | Mega Contracting NY Group",
     description:
       "Get answers to common questions about our NYC construction services — roofing, masonry, concrete, renovation, pricing, timelines, and more.",
     url: "https://www.megacontractingnyc.com/faq",
-    siteName: "Mega Construction NYC",
+    siteName: "Mega Contracting NY Group",
     images: [
       {
         url: "https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png",
         width: 1200,
         height: 630,
-        alt: "Mega Construction NYC FAQ",
+        alt: "Mega Contracting NY Group FAQ",
       },
     ],
     locale: "en_US",
@@ -52,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@megacontractingny",
     creator: "@megacontractingny",
-    title: "Frequently Asked Questions | Mega Construction NYC",
+    title: "Frequently Asked Questions | Mega Contracting NY Group",
     description:
       "Answers to common questions about NYC construction services — roofing, masonry, concrete, renovation, pricing, and more.",
     images: ["https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png"],

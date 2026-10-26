@@ -252,7 +252,8 @@ export default function AboutPage() {
                   <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden shadow-2xl border-2 border-white/20">
                     <Image
                       src="/assets/megaabout.png"
-                      alt="Mega Construction - Premier NYC Contractor Since 2005"
+                      alt="Mega Contracting NY Group - Premier NYC General Contractor Headquarters"
+                      title="Mega Contracting NY Group NYC Construction Headquarters"
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       priority
@@ -269,7 +270,8 @@ export default function AboutPage() {
                   >
                     <Image
                       src="/assets/megaownerprinted.png"
-                      alt="Adil Shamis - Founder of Mega Contracting NY Group"
+                      alt="Adil Shamis - Founder and Principal of Mega Contracting NY Group"
+                      title="Adil Shamis - Mega Contracting NY Group NYC Contractor"
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
@@ -328,8 +330,14 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-12 gap-16 items-center">
               <FadeIn className="lg:col-span-5 relative">
                 <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-xl aspect-[4/5]">
-                  <Image src="/assets/megaownerprinted.png" alt="Mega Construction - Building Excellence in New York City"
-                    fill className="object-cover" priority />
+                  <Image
+                    src="/assets/megaownerprinted.png"
+                    alt="Mega Contracting NY Group Leadership - NYC General Contracting Team"
+                    title="Mega Contracting NY Group Leadership - NYC Construction"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   <div className="absolute top-5 left-5 px-3 py-1.5 bg-white border border-gray-250 text-[10px] font-bold uppercase tracking-widest text-gray-700 shadow-sm">
                     EST. 2005
@@ -631,7 +639,8 @@ export default function AboutPage() {
                 <div className="relative border border-gray-200 rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                   <Image
                     src="/assets/megaabout.png"
-                    alt="Mega Construction serves all five boroughs of New York City and surrounding areas"
+                    alt="Mega Contracting NY Group serves all five boroughs of New York City and surrounding areas"
+                    title="Five Boroughs NYC Construction Service Coverage - Mega Contracting NY Group"
                     fill
                     className="object-cover grayscale"
                   />

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogPost } from "@/data/blogsData";
+import { BlogPost, isFutureDate, getBlogPostBySlug } from "@/data/blogsData";
 import {
   Calendar,
   Clock,
@@ -226,7 +226,8 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           <div className="relative h-[280px] sm:h-[420px] md:h-[500px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)] bg-black">
             <Image
               src={post.featuredImage}
-              alt={post.imageAlt}
+              alt={post.imageAlt || `${post.title} - NYC Technical Guide`}
+              title={`${post.title} - ${post.primaryKeyword}`}
               fill
               priority
               className="object-cover"
@@ -371,7 +372,8 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                       <div className="relative h-64 sm:h-80 md:h-96 w-full">
                         <Image
                           src={sec.image.src}
-                          alt={sec.image.alt}
+                          alt={sec.image.alt || `${post.title} - ${sec.title}`}
+                          title={`${sec.title} - ${post.primaryKeyword}`}
                           fill
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 800px"
@@ -515,7 +517,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                     {post.author.name}
                   </h3>
                   <p className="text-xs text-white/60 leading-relaxed mb-3">
-                    Licensed NYC General Contractor (#NYC-2005-8942) specializing in
+                    Licensed NYC General Contractor (#NYC-2005-8942) providing
                     commercial flat roofing, parapet wall rebuilding, facade
                     restoration, and DOB compliance across Manhattan, Brooklyn,
                     Queens, the Bronx, and Staten Island since 2005.
@@ -682,7 +684,18 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                   Related Construction Services
                 </h3>
                 <div className="space-y-2">
-                  {post.relatedServices.map((rel, i) => (
+                  {post.relatedServices
+                    .filter((rel) => {
+                      if (rel.href.startsWith("/blog/")) {
+                        const targetSlug = rel.href.replace("/blog/", "");
+                        const targetPost = getBlogPostBySlug(targetSlug);
+                        if (!targetPost || isFutureDate(targetPost.publishDate)) {
+                          return false;
+                        }
+                      }
+                      return true;
+                    })
+                    .map((rel, i) => (
                     <Link
                       key={i}
                       href={rel.href}

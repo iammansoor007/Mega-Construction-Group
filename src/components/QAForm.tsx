@@ -556,7 +556,7 @@ const GetQuote = () => {
     `;
 
     try {
-      const mailtoLink = `mailto:${email}?subject=🔴 Mega Construction NY Group Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+      const mailtoLink = `mailto:${email}?subject=🔴 Mega Contracting NY Group Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
 
       try {
         const response = await fetch(`https://formsubmit.co/ajax/${email}`, {
@@ -566,7 +566,7 @@ const GetQuote = () => {
             'Accept': 'application/json'
           },
           body: JSON.stringify({
-            _subject: `🔴 Mega Construction NY Group Quote Request - ${formData.name}`,
+            _subject: `🔴 Mega Contracting NY Group Quote Request - ${formData.name}`,
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -661,7 +661,8 @@ const GetQuote = () => {
         <div className="absolute top-20 right-0 w-2/5 h-3/5">
           <Image
             src={Images.Form}
-            alt="Mega Contracting NY Group Decorative Background Pattern"
+            alt="Mega Contracting NY Group Decorative Background Pattern - NYC General Contracting"
+            title="Mega Contracting NY Group NYC Consultation Form Pattern"
             sizes="40vw"
             className="w-full h-full object-cover opacity-[0.03]"
             fill
@@ -673,7 +674,8 @@ const GetQuote = () => {
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2">
           <Image
             src={Images.Abstract}
-            alt="Mega Contracting NY Group Abstract Construction Texture"
+            alt="Mega Contracting NY Group Abstract Construction Texture - Architectural Background"
+            title="NYC Construction Texture - Mega Contracting NY Group"
             sizes="33vw"
             className="w-full h-full object-cover opacity-[0.03]"
             fill

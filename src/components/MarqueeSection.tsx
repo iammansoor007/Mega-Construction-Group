@@ -1,15 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { memo } from "react";
+import { memo, useState, useEffect } from "react";
 
 interface MarqueeSectionProps {
   text: string;
 }
 
 const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
-  // Increased count for ultra-wide support
-  const words = Array(20).fill(text);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const repeatCount = mounted ? 20 : 1;
+  const items = Array.from({ length: repeatCount });
 
   return (
     <section className="py-2.5 bg-red-600 overflow-hidden border-none select-none">
@@ -24,10 +30,14 @@ const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
           }}
           className="flex whitespace-nowrap gap-4 md:gap-8 items-center"
         >
-          {words.map((word, i) => (
-            <div key={i} className="flex items-center gap-4 md:gap-8">
+          {items.map((_, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-4 md:gap-8"
+              aria-hidden={i > 0 ? "true" : undefined}
+            >
               <span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-white hover:text-black transition-colors duration-300">
-                {word}
+                {text}
               </span>
               {/* Technical Separator */}
               <div className="flex items-center gap-2 opacity-50 text-white">

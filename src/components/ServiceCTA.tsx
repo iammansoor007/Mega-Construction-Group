@@ -187,7 +187,8 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                             >
                                 <Image
                                     src={vectoroverlay}
-                                    alt="Mega Contracting Professional"
+                                    alt="Mega Contracting NY Group Professional Construction Services NYC"
+                                    title="NYC General Contractor Service Consultation - Mega Contracting NY Group"
                                     className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
                                     priority
                                 />

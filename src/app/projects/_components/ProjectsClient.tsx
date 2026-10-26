@@ -133,7 +133,8 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                 <div className="relative h-56 w-full overflow-hidden bg-black/80">
                   <Image
                     src={p.image}
-                    alt={p.title}
+                    alt={`${p.title} - ${p.projectType} in ${p.location} by Mega Contracting NY Group`}
+                    title={`${p.title} - ${p.projectType} NYC Project`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
