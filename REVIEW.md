@@ -279,3 +279,35 @@ All FAQ accordions site-wide now render both questions AND answers directly in t
 
 ### FAQ Data Completeness Audit
 - Automated scan of `completeData.json`, `services.json`, `locationsData.ts`, `blogsData.ts`, and all 20 individual blog files confirmed that **zero FAQ answers are missing or empty** across the entire site. No placeholder answers required generation.
+
+
+## Task 5: Elimination of Duplicate HTML & Marquee SSR Deduplication
+
+All duplicate HTML elements, duplicate mobile/desktop headings, and repetitive SSR server-rendered marquee nodes were consolidated:
+
+### 1. Marquees and Tickers
+- **About Page Marquee (`src/app/about/_components/AboutClient.tsx`)**:
+  - Updated `Marquee` to render items once during server-side rendering (SSR).
+  - Additional looping duplicates are generated client-side only upon component mount (`mounted ? [...items, ...items, ...items] : items`), with all clone items flagged with `aria-hidden="true"`.
+  - Marquee items use `<span>` tags, never heading tags (`<h1>`-`<h6>`).
+- **Footer Marquee (`src/components/Footer.tsx`)**:
+  - Outputs text once during SSR (`isClient ? 12 : 1`) with clones flagged `aria-hidden="true"`, using `<span>` typography.
+- **Section Marquees (`src/components/MarqueeSection.tsx`)**:
+  - Confirmed `mounted ? 20 : 1` with `aria-hidden="true"` on all client-side duplicates and `<span>` tags.
+
+### 2. Portfolio Carousel
+- **Portfolio Marquee (`src/components/Portfolio.tsx`)**:
+  - Previously quadrupled projects during SSR in `useMemo`.
+  - Refactored `InfiniteMarquee` to render each project exactly once during SSR (`mounted ? [...projects, ...projects, ...projects, ...projects] : projects`).
+  - Added `aria-hidden="true"` to all client clones (`index >= projects.length`).
+  - Replaced `<h3 className="...">` in `MarqueeItem` with `<p className="... font-heading">` to prevent duplicate heading nodes across carousel clones.
+
+### 3. Homepage CTA and Knowledge Card Deduplication
+- **"Ready to Transform Your Space?" (`src/components/HowWeWork.tsx`)**:
+  - Previously contained two separate DOM trees (desktop `hidden md:grid` and mobile `md:hidden`), duplicating the `<h2>` heading and CTA text in the HTML.
+  - Consolidated into a single responsive container with responsive styling (`text-center md:text-left`, desktop-only image positioning).
+  - Exactly one `<h2>Ready to Transform Your Space?</h2>` is now output in the HTML document.
+- **"Still have questions?" (`src/components/FAQ.tsx`)**:
+  - Previously contained two separate DOM trees (desktop `hidden md:grid` and mobile `md:hidden`), rendering the `<h2>` heading and knowledge card twice.
+  - Unified into a single responsive container. The mobile vector banner displays above on mobile (`md:hidden`) and the desktop vector displays beside on desktop (`hidden md:block`), while sharing a single text content column with exactly one `<h2>Still have questions?</h2>`.
+- Visual layout and responsiveness remain identical.

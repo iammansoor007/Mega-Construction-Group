@@ -107,7 +107,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
 
   return (
     <>
-      {/* ── TOP READING PROGRESS BAR ────────────────────────────────────── */}
+      {/* -- TOP READING PROGRESS BAR -------------------------------------- */}
       <div className="fixed top-0 left-0 w-full h-[3px] bg-white/5 z-50 pointer-events-none">
         <div
           className="h-full bg-gradient-to-r from-red-600 via-red-500 to-amber-500 transition-[width] duration-150 ease-out shadow-[0_0_12px_rgba(239,68,68,0.8)]"
@@ -116,7 +116,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
       </div>
 
       <article className="pt-28 sm:pt-32 pb-24 bg-[#0a0a0a] text-white selection:bg-red-600 selection:text-white font-sans antialiased">
-        {/* ── BREADCRUMB & HEADER HERO ─────────────────────────────────── */}
+        {/* -- BREADCRUMB & HEADER HERO ----------------------------------- */}
         <header className="border-b border-white/10 pb-12 sm:pb-16 bg-gradient-to-b from-black via-[#0d0d0d] to-[#0a0a0a]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb Navigation */}
@@ -221,7 +221,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           </div>
         </header>
 
-        {/* ── FEATURED HERO IMAGE ──────────────────────────────────────── */}
+        {/* -- FEATURED HERO IMAGE ---------------------------------------- */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 mb-12 sm:mb-16 relative z-10">
           <div className="relative h-[280px] sm:h-[420px] md:h-[500px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)] bg-black">
             <Image
@@ -245,10 +245,10 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           </div>
         </div>
 
-        {/* ── TWO-COLUMN ARTICLE LAYOUT (LEFT CONTENT, RIGHT STICKY) ───── */}
+        {/* -- TWO-COLUMN ARTICLE LAYOUT (LEFT CONTENT, RIGHT STICKY) ----- */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* ── LEFT COLUMN: SCROLLING ARTICLE CONTENT (8 COLS) ───────── */}
+            {/* -- LEFT COLUMN: SCROLLING ARTICLE CONTENT (8 COLS) --------- */}
             <div className="lg:col-span-8 space-y-12 min-w-0">
               {/* Executive Summary Box */}
               <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-[#161616] to-[#0f0f0f] border border-red-500/30 shadow-xl">
@@ -447,7 +447,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </section>
               ))}
 
-              {/* ── TECHNICAL FAQS ACCORDION ────────────────────────────── */}
+              {/* -- TECHNICAL FAQS ACCORDION ------------------------------ */}
               <section
                 id="faqs"
                 className="scroll-mt-28 pt-8 border-t border-white/10 space-y-6"
@@ -482,11 +482,11 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                         <p>{faq.answer}</p>
                       </div>
                     </details>
-                  ))
+                  ))}
                 </div>
               </section>
 
-              {/* ── AUTHOR & ENGINEERING TEAM VERIFICATION CARD ───────── */}
+              {/* -- AUTHOR & ENGINEERING TEAM VERIFICATION CARD --------- */}
               <div className="p-6 sm:p-8 rounded-3xl bg-[#141414] border border-white/10 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-red-600 to-black border border-red-600/30 flex items-center justify-center text-white font-black text-xl shrink-0 shadow-xl">
                   MEGA
@@ -522,7 +522,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
               </div>
             </div>
 
-            {/* ── RIGHT COLUMN: STICKY OUTLINE, OUTCOMES & CTA (4 COLS) ─ */}
+            {/* -- RIGHT COLUMN: STICKY OUTLINE, OUTCOMES & CTA (4 COLS) - */}
             <aside className="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
               {/* 1. Interactive Table of Contents / Outline */}
               <div className="p-5 sm:p-6 rounded-2xl bg-[#141414] border border-white/10 shadow-xl">

@@ -475,18 +475,18 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                 {/* Main Content */}
                 <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
 
-                    {/* Desktop Layout - Two columns with floating image */}
-                    <div className="hidden md:grid md:grid-cols-2 gap-8 items-center">
-                        {/* Left Column - Text Content */}
-                        <div className="max-w-xl">
+                    {/* Unified Responsive Layout (Desktop & Mobile) */}
+                    <div className="grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
+                        {/* Text Content Column */}
+                        <div className="max-w-xl mx-auto md:mx-0">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6 }}
-                                className="inline-block mb-6"
+                                className="inline-block mb-4 md:mb-6"
                             >
-                                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                                <span className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold bg-white/10 border border-white/20 rounded-full md:rounded-lg text-white backdrop-blur-sm">
                                     READY TO BUILD
                                 </span>
                             </motion.div>
@@ -496,7 +496,7 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.2] tracking-tight text-white"
+                                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.2] tracking-tight text-white"
                             >
                                 {cleanTitle}
                             </motion.h2>
@@ -506,7 +506,7 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="mt-4 text-white/80 text-lg max-w-lg"
+                                className="mt-3 md:mt-4 text-white/80 text-base md:text-lg max-w-md md:max-w-lg mx-auto md:mx-0"
                             >
                                 {cta.description}
                             </motion.p>
@@ -516,7 +516,7 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
-                                className="mt-8 flex flex-wrap gap-4"
+                                className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center md:justify-start"
                             >
                                 {cta.buttons.map((button, idx) => (
                                     <motion.a
@@ -525,8 +525,8 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.98 }}
                                         className={`
-                                            px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-lg
-                                            flex items-center gap-2
+                                            px-6 md:px-8 py-3 md:py-3.5 rounded-full font-bold transition-all duration-300 shadow-lg
+                                            flex items-center justify-center gap-2
                                             ${button.primary
                                                 ? 'bg-white text-red-600 hover:bg-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.3)]'
                                                 : 'bg-transparent text-white border-2 border-white/30 hover:bg-white/10 backdrop-blur-sm'
@@ -540,15 +540,15 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                             </motion.div>
 
                             {/* Trust Badges */}
-                            <div className="mt-8 flex gap-4">
+                            <div className="mt-6 md:mt-8 flex flex-wrap justify-center md:justify-start gap-2 md:gap-4">
                                 <TrustBadge label="Licensed & Insured" color="green" />
                                 <TrustBadge label="Free Estimate" color="blue" />
                                 <TrustBadge label="24/7 Support" color="red" />
                             </div>
                         </div>
 
-                        {/* Right Column - Floating Image */}
-                        <div className="relative">
+                        {/* Floating Image Column - Desktop only */}
+                        <div className="hidden md:block relative">
                             <motion.div
                                 {...floatAnimation}
                                 className="absolute right-0 bottom-[-47rem] w-[115%] lg:w-[125%]"
@@ -561,76 +561,6 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                     className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
                                 />
                             </motion.div>
-                        </div>
-                    </div>
-
-                    {/* Mobile Layout - Centered text, no image */}
-                    <div className="md:hidden text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="inline-block mb-4"
-                        >
-                            <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
-                                MEGA CONTRACTING
-                            </span>
-                        </motion.div>
-
-                        <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-3xl sm:text-4xl font-bold leading-[1.2] text-white"
-                        >
-                            {cleanTitle}
-                        </motion.h2>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="mt-3 text-white/80 text-base max-w-md mx-auto"
-                        >
-                            {cta.description}
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
-                        >
-                            {cta.buttons.map((button, idx) => (
-                                <motion.a
-                                    key={idx}
-                                    href={button.href}
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className={`
-                                        px-6 py-3 rounded-full font-bold transition-all duration-300 shadow-lg
-                                        flex items-center justify-center gap-2
-                                        ${button.primary
-                                            ? 'bg-white text-red-600 hover:bg-gray-100'
-                                            : 'bg-transparent text-white border-2 border-white/30 hover:bg-white/10'
-                                        }
-                                    `}
-                                >
-                                    {button.text}
-                                    <Icons.ArrowRight />
-                                </motion.a>
-                            ))}
-                        </motion.div>
-
-                        {/* Trust Badges - Mobile */}
-                        <div className="mt-6 flex flex-wrap justify-center gap-2">
-                            <TrustBadge label="Licensed & Insured" color="green" />
-                            <TrustBadge label="Free Estimate" color="blue" />
-                            <TrustBadge label="24/7 Support" color="red" />
                         </div>
                     </div>
                 </div>

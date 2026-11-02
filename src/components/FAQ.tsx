@@ -526,18 +526,48 @@ const KnowledgeCard = () => {
         {/* Main Content */}
         <div className="relative z-10 px-6 sm:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
 
-          {/* Desktop Layout - Two columns with floating image */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8 items-center">
-            {/* Left Column - Text Content */}
-            <div className="max-w-xl">
+          {/* Mobile Vector Image - Top (Mobile only) */}
+          <div className="md:hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative mb-8"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -8, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-full max-w-[280px] sm:max-w-[350px] mx-auto"
+              >
+                <Image
+                  src={faqvector}
+                  alt="Mega Contracting NY Group Construction & FAQ Support NYC"
+                  title="Mega Contracting NY Group Support - NYC Construction Services"
+                  className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Unified Layout (Desktop & Mobile) */}
+          <div className="grid md:grid-cols-2 gap-8 items-center text-center md:text-left">
+            {/* Left Column - Text Content (Single instance in HTML) */}
+            <div className="max-w-xl mx-auto md:mx-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="inline-block mb-6"
+                className="inline-block mb-4 md:mb-6"
               >
-                <span className="px-4 py-2 text-sm font-bold bg-white/10 border border-white/20 rounded-lg text-white backdrop-blur-sm">
+                <span className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold bg-white/10 border border-white/20 rounded-full md:rounded-lg text-white backdrop-blur-sm">
                   STILL HAVE QUESTIONS?
                 </span>
               </motion.div>
@@ -547,7 +577,7 @@ const KnowledgeCard = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-white"
+                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.2] tracking-tight text-white"
               >
                 {knowledgeCard.title}
               </motion.h2>
@@ -557,7 +587,7 @@ const KnowledgeCard = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-4 text-white/80 text-base lg:text-lg max-w-lg"
+                className="mt-3 md:mt-4 text-white/80 text-sm sm:text-base lg:text-lg max-w-md md:max-w-lg mx-auto md:mx-0"
               >
                 {knowledgeCard.description}
               </motion.p>
@@ -566,8 +596,8 @@ const KnowledgeCard = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8"
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="mt-6 md:mt-8 flex justify-center md:justify-start"
               >
                 <motion.a
                   href={knowledgeCard.buttonLink}
@@ -575,7 +605,7 @@ const KnowledgeCard = () => {
                   whileTap={{ scale: 0.98 }}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
-                  className="relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-primary font-bold shadow-2xl overflow-hidden group/btn"
+                  className="relative inline-flex items-center gap-3 px-7 md:px-8 py-3.5 md:py-4 rounded-full bg-white text-primary font-bold shadow-2xl overflow-hidden group/btn"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {knowledgeCard.buttonText}
@@ -607,7 +637,7 @@ const KnowledgeCard = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8 flex gap-4"
+                className="mt-6 md:mt-8 flex flex-wrap justify-center md:justify-start gap-2 md:gap-4"
               >
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
@@ -624,10 +654,10 @@ const KnowledgeCard = () => {
               </motion.div>
             </div>
 
-            {/* Right Column - Floating FAQ Vector (Oversized, extending outside) */}
-            <div className="relative">
+            {/* Right Column - Floating FAQ Vector (Desktop only) */}
+            <div className="hidden md:block relative">
               <div
-                className="absolute   bottom-[-30vh] right-0 w-[60%] lg:w-[70%] xl:w-[85%]"
+                className="absolute bottom-[-30vh] right-0 w-[60%] lg:w-[70%] xl:w-[85%]"
                 style={{ right: '12%' }}
               >
                 <Image
@@ -640,101 +670,6 @@ const KnowledgeCard = () => {
                 {/* Glow behind the vector */}
                 <div className="absolute inset-0 bg-gradient-to-l from-primary/20 to-transparent rounded-full blur-3xl -z-10" />
               </div>
-            </div>
-          </div>
-
-          {/* Mobile Layout - Centered text with vector above */}
-          <div className="md:hidden">
-            {/* Mobile Vector Image - Top */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative mb-8"
-            >
-              <motion.div
-                animate={{
-                  y: [0, -8, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="w-full max-w-[280px] sm:max-w-[350px] mx-auto"
-              >
-                <Image
-                  src={faqvector}
-                  alt="Mega Contracting NY Group Construction & FAQ Support NYC"
-                  title="Mega Contracting NY Group Support - NYC Construction Services"
-                  className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Mobile Text Content */}
-            <div className="text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="inline-block mb-4"
-              >
-                <span className="px-3 py-1.5 text-xs font-semibold bg-white/20 border border-white/30 rounded-full text-white/90 backdrop-blur-sm">
-                  STILL HAVE QUESTIONS?
-                </span>
-              </motion.div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="text-2xl sm:text-3xl font-bold leading-[1.2] text-white"
-              >
-                {knowledgeCard.title}
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-3 text-white/80 text-sm sm:text-base max-w-md mx-auto"
-              >
-                {knowledgeCard.description}
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-6"
-              >
-                <motion.a
-                  href={knowledgeCard.buttonLink}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white text-primary font-bold shadow-xl"
-                >
-                  {knowledgeCard.buttonText}
-                  <motion.svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
-                  </motion.svg>
-                </motion.a>
-              </motion.div>
-
-
             </div>
           </div>
         </div>

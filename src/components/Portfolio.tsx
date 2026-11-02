@@ -135,9 +135,9 @@ const MarqueeItem = ({ project }) => {
             </span>
           </span>
 
-          <h3 className="text-base sm:text-lg font-bold text-white mb-1 leading-tight">
+          <p className="text-base sm:text-lg font-bold text-white mb-1 leading-tight font-heading">
             {project.title}
-          </h3>
+          </p>
 
           <div className="flex items-center gap-2 text-white/80 text-[10px] sm:text-xs mb-1">
             <span className="flex items-center gap-1">
@@ -193,19 +193,27 @@ const MarqueeItem = ({ project }) => {
 };
 
 const InfiniteMarquee = ({ projects, direction = "left" }: { projects: any[]; direction?: "left" | "right" }) => {
-  // Quadruple the items — animation moves -50% (2 sets), always wider than the viewport
-  const quadrupled = useMemo(() => [
-    ...projects, ...projects, ...projects, ...projects
-  ], [projects]);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const displayProjects = useMemo(() => {
+    return mounted ? [...projects, ...projects, ...projects, ...projects] : projects;
+  }, [projects, mounted]);
 
   return (
     <div className="marquee-wrapper py-3 sm:py-4 md:py-6">
       <div className={`marquee-track gap-3 md:gap-4 ${direction === "left" ? "marquee-track--left" : "marquee-track--right"}`}>
-        {quadrupled.map((project, index) => (
-          <MarqueeItem
+        {displayProjects.map((project, index) => (
+          <div
             key={`${project.number}-${index}`}
-            project={project}
-          />
+            aria-hidden={index >= projects.length ? "true" : undefined}
+          >
+            <MarqueeItem
+              project={project}
+            />
+          </div>
         ))}
       </div>
     </div>

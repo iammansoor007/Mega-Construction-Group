@@ -67,6 +67,11 @@ const SectionLabel = ({ text }: { text: string }) => (
 
 // ─── Marquee ──────────────────────────────────────────────────────────────────
 const Marquee = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const items = [
     { text: "Licensed & Insured", icon: Shield },
     { text: "NYC DOB #NYC-2005-8942", icon: ShieldCheck },
@@ -77,15 +82,22 @@ const Marquee = () => {
     { text: "Free Detailed Estimates", icon: ClipboardCheck },
     { text: "24/7 Emergency Service", icon: Phone },
   ];
+
+  const displayItems = mounted ? [...items, ...items, ...items] : items;
+
   return (
     <div className="relative overflow-hidden py-5 bg-gradient-to-r from-gray-50 via-white to-gray-50">
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10" />
       <div className="marquee-track marquee-track--left">
-        {[...items, ...items, ...items].map((item, i) => {
+        {displayItems.map((item, i) => {
           const IconComp = item.icon;
           return (
-            <div key={i} className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(195,5,5,0.08)] transition-all duration-300 cursor-default mx-2">
+            <div
+              key={i}
+              aria-hidden={i >= items.length ? "true" : undefined}
+              className="flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(195,5,5,0.08)] transition-all duration-300 cursor-default mx-2"
+            >
               <IconComp className="w-3.5 h-3.5 text-red-600 shrink-0" />
               <span className="text-[11px] font-medium tracking-wide text-gray-600 whitespace-nowrap">{item.text}</span>
             </div>
@@ -111,20 +123,13 @@ export default function AboutPage() {
     { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors since 2005." },
   ];
 
-  const stats = [
-    { value: 1000, suffix: "+", label: "Projects Completed", icon: Building },
-    { value: 20, suffix: "+", label: "Years Experience", icon: Award },
-    { value: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
-    { value: 10, suffix: "YR", label: "Warranty", icon: Shield },
-  ];
-
   const certs = [
     { cert: "Licensed & Insured", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
     { cert: "NY Licensed #NYC-2005-8942", icon: Shield, color: "from-blue-500/10 to-blue-600/5" },
     { cert: "Family-Owned", icon: BadgeCheck, color: "from-green-500/10 to-green-600/5" },
     { cert: "Fully Insured", icon: ShieldCheck, color: "from-purple-500/10 to-purple-600/5" },
-    { cert: "EPA Lead-Safe", icon: CheckCircle2, color: "from-teal-500/10 to-teal-600/5" },
-    { cert: "NAHB Member", icon: Building, color: "from-indigo-500/10 to-indigo-600/5" },
+    { cert: "Five Boroughs", icon: CheckCircle2, color: "from-teal-500/10 to-teal-600/5" },
+    { cert: "Since 2005", icon: Building, color: "from-indigo-500/10 to-indigo-600/5" },
   ];
 
   const processSteps = [
@@ -290,17 +295,22 @@ export default function AboutPage() {
         {/* ── MARQUEE ────────────────────────────────────────────── */}
         <Marquee />
 
-        {/* ── STATS ──────────────────────────────────────────────── */}
+        {/* ── COMPANY HIGHLIGHTS ──────────────────────────────────── */}
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
-              badge="By the Numbers"
-              headline="20 Years of <span class='text-red-600'>Proven Results</span>"
-              description="Numbers that reflect our commitment to New York families and businesses."
+              badge="Established 2005"
+              headline="Family-Owned <span class='text-red-600'>General Contracting</span>"
+              description="Dedicated general contracting and exterior restoration across all five NYC boroughs."
             />
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {stats.map((s, i) => {
+              {[
+                { title: "Since 2005", label: "Family-Owned Business", icon: Clock },
+                { title: "5 Boroughs", label: "Full NYC Service Area", icon: Building },
+                { title: "#NYC-2005-8942", label: "NYC DOB General Contractor", icon: Shield },
+                { title: "Licensed & Insured", label: "Comprehensive NYC Coverage", icon: BadgeCheck },
+              ].map((s, i) => {
                 const IconComp = s.icon;
                 return (
                   <FadeIn key={i} delay={i * 0.1}>
@@ -311,8 +321,8 @@ export default function AboutPage() {
                       <div className="w-12 h-12 rounded-none mx-auto mb-4 flex items-center justify-center bg-red-600/[0.06] group-hover:bg-red-600 transition-colors duration-300">
                         <IconComp className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" />
                       </div>
-                      <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-1 tracking-tight">
-                        <Counter to={s.value} suffix={s.suffix} />
+                      <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-1 tracking-tight">
+                        {s.title}
                       </div>
                       <div className="text-xs font-bold text-gray-400 tracking-wider uppercase">{s.label}</div>
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
