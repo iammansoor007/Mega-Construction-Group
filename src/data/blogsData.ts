@@ -190,7 +190,7 @@ export const blogsData: Record<string, BlogPost> = {
     ctaBox: {
       badge: "NYC Licensed General Contractor",
       title: "Planning a NYC Home Renovation?",
-      description: "Consult with Mega Contracting NYC Group Inc. to review your architectural plans, DOB permit sequence, and receive an itemized proposal.",
+      description: "Consult with Mega Contracting NY Group to review your architectural plans, DOB permit sequence, and receive an itemized proposal.",
       buttonText: "Schedule Renovation Consultation",
       buttonHref: "/contact"
     },
@@ -421,7 +421,7 @@ export const blogsData: Record<string, BlogPost> = {
         callout: {
           type: "tip",
           title: "Plan the Renovation Before You Start Demolition",
-          text: "A successful NYC renovation starts with a clear scope, realistic budget, licensed contractor, and approval plan that matches the property and the work. Structural conditions, building rules, long-lead materials, and trade coordination can have as much influence on the outcome as the finish selections. Planning a renovation in Manhattan, Brooklyn, Queens, the Bronx, or Staten Island? <a href=\"/contact\" class=\"font-bold underline\">Contact Mega Contracting NYC Group Inc.</a> to discuss your scope, timeline, and next steps."
+          text: "A successful NYC renovation starts with a clear scope, realistic budget, licensed contractor, and approval plan that matches the property and the work. Structural conditions, building rules, long-lead materials, and trade coordination can have as much influence on the outcome as the finish selections. Planning a renovation in Manhattan, Brooklyn, Queens, the Bronx, or Staten Island? <a href=\"/contact\" class=\"font-bold underline\">Contact Mega Contracting NY Group</a> to discuss your scope, timeline, and next steps."
         }
       }
     ],

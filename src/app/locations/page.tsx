@@ -41,7 +41,7 @@ export default function LocationsIndexPage() {
               NYC Construction Service Areas &amp; Borough Hubs
             </h1>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-              Mega Contracting NY Group Inc. is an active NYC corporation headquartered at 3044 Radcliff Ave, Bronx NY. We provide licensed, insured, DOB-compliant exterior and interior construction services across every community in New York City.
+              Mega Contracting NY Group is an active NYC corporation headquartered at 3044 Radcliff Ave, Bronx NY. We provide licensed, insured, DOB-compliant exterior and interior construction services across every community in New York City.
             </p>
           </div>
 

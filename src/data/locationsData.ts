@@ -35,7 +35,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor The Bronx NY | Mega Contracting NY Group",
     metaDesc: "Licensed general contractor headquartered at 3044 Radcliff Ave in the Bronx. Roofing, brick pointing, facade restoration & sidewalk repair across all Bronx neighborhoods.",
     h1: "Licensed NYC General Contractor Serving The Bronx",
-    intro: "Headquartered at 3044 Radcliff Ave, Mega Contracting NY Group Inc. is proud to be a hometown general contractor for the Bronx. From historic pre-war multi-family properties along the Grand Concourse to single-family residential homes in Riverdale, Pelham Bay, Throggs Neck, and Morris Park, we provide fully licensed, code-compliant exterior restoration, roofing, masonry, and interior renovation services.",
+    intro: "Headquartered at 3044 Radcliff Ave, Mega Contracting NY Group is proud to be a hometown general contractor for the Bronx. From historic pre-war multi-family properties along the Grand Concourse to single-family residential homes in Riverdale, Pelham Bay, Throggs Neck, and Morris Park, we provide fully licensed, code-compliant exterior restoration, roofing, masonry, and interior renovation services.",
     neighborhoods: [
       "Riverdale", "Pelham Bay", "Throggs Neck", "Morris Park",
       "City Island", "Country Club", "Woodlawn", "Grand Concourse",
@@ -83,7 +83,7 @@ export const locationsData: Record<string, BoroughData> = {
       },
       {
         question: "Do you handle NYC Department of Buildings (DOB) permits in the Bronx?",
-        answer: "Yes. Mega Contracting NY Group Inc. holds NYC General Contractor License #NYC-2005-8942. We prepare all architectural filings, pull necessary DOB work permits, coordinate on-site inspections, and obtain Letters of Completion."
+        answer: "Yes. Mega Contracting NY Group holds NYC General Contractor License #NYC-2005-8942. We prepare all architectural filings, pull necessary DOB work permits, coordinate on-site inspections, and obtain Letters of Completion."
       },
       {
         question: "How quickly can you clear a DOT sidewalk violation in the Bronx?",
@@ -99,7 +99,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor Brooklyn NY | Mega Contracting NY Group",
     metaDesc: "Expert Brooklyn general contractor specializing in brownstone facade restoration, stoop repair, flat roofing, and landmark district masonry. Free estimates.",
     h1: "Licensed Brooklyn General Contractor & Brownstone Restoration",
-    intro: "Brooklyn's architectural heritage requires specialized construction craftsmanship. Mega Contracting NY Group Inc. delivers museum-grade brownstone restoration, historic stoop repair, rubber flat roofing, and comprehensive interior remodeling across Brooklyn's landmark and modern residential neighborhoods.",
+    intro: "Brooklyn's architectural heritage requires specialized construction craftsmanship. Mega Contracting NY Group delivers museum-grade brownstone restoration, historic stoop repair, rubber flat roofing, and comprehensive interior remodeling across Brooklyn's landmark and modern residential neighborhoods.",
     neighborhoods: [
       "Park Slope", "Brooklyn Heights", "Williamsburg", "DUMBO",
       "Bay Ridge", "Carroll Gardens", "Cobble Hill", "Bushwick",
@@ -153,7 +153,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor Manhattan NY | Mega Contracting NY Group",
     metaDesc: "High-end Manhattan general contractor. Facade restoration, Local Law 11 FISP compliance, commercial roofing & luxury interior renovation. Fully insured.",
     h1: "Licensed Manhattan General Contractor & Commercial Construction",
-    intro: "Operating in Manhattan demands high-density urban logistics, rigorous building department compliance, and strict building board protocols. Mega Contracting NY Group Inc. provides facade restoration, FISP Local Law 11 repairs, commercial flat roofing, and luxury interior renovations throughout Manhattan.",
+    intro: "Operating in Manhattan demands high-density urban logistics, rigorous building department compliance, and strict building board protocols. Mega Contracting NY Group provides facade restoration, FISP Local Law 11 repairs, commercial flat roofing, and luxury interior renovations throughout Manhattan.",
     neighborhoods: [
       "Upper East Side", "Upper West Side", "Midtown Manhattan", "Tribeca",
       "SoHo", "Chelsea", "Greenwich Village", "Financial District",
@@ -190,7 +190,7 @@ export const locationsData: Record<string, BoroughData> = {
     faqs: [
       {
         question: "Can you meet strict Manhattan Co-op insurance requirements?",
-        answer: "Yes. Mega Contracting NY Group Inc. maintains comprehensive $5,000,000 commercial liability coverage and naming capabilities for building owners and managing agents."
+        answer: "Yes. Mega Contracting NY Group maintains comprehensive $5,000,000 commercial liability coverage and naming capabilities for building owners and managing agents."
       },
       {
         question: "Do you handle sidewalk shed permits in Manhattan?",
@@ -206,7 +206,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor Queens NY | Mega Contracting NY Group",
     metaDesc: "Licensed general contractor serving Queens NY. Roof replacement, stucco & EIFS claddings, concrete driveways, sidewalk violation removals, and renovations.",
     h1: "Licensed Queens General Contractor & Exterior Specialist",
-    intro: "Queens features a wide variety of residential homes, multi-family garden complexes, and busy commercial strips. Mega Contracting NY Group Inc. delivers durable exterior contracting, pitched and flat roof replacements, traditional stucco and EIFS insulated finishes, and DOT concrete repairs across all Queens communities.",
+    intro: "Queens features a wide variety of residential homes, multi-family garden complexes, and busy commercial strips. Mega Contracting NY Group delivers durable exterior contracting, pitched and flat roof replacements, traditional stucco and EIFS insulated finishes, and DOT concrete repairs across all Queens communities.",
     neighborhoods: [
       "Astoria", "Long Island City", "Forest Hills", "Flushing",
       "Bayside", "Whitestone", "Sunnyside", "Woodside",
@@ -259,7 +259,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor Staten Island NY | Mega Contracting NY Group",
     metaDesc: "Reliable Staten Island general contractor. Architectural shingle roofing, commercial flat roofs, structural foundations, and masonry retaining walls.",
     h1: "Licensed Staten Island General Contractor & Roofing Specialists",
-    intro: "Staten Island's suburban topography and maritime coastal climate present distinct construction challenges, from high wind loads along the South Shore to foundation drainage on sloping terrain. Mega Contracting NY Group Inc. delivers rugged, hurricane-rated roofing, concrete foundations, retaining walls, and custom residential renovations.",
+    intro: "Staten Island's suburban topography and maritime coastal climate present distinct construction challenges, from high wind loads along the South Shore to foundation drainage on sloping terrain. Mega Contracting NY Group delivers rugged, hurricane-rated roofing, concrete foundations, retaining walls, and custom residential renovations.",
     neighborhoods: [
       "St. George", "Tottenville", "Great Kills", "New Dorp",
       "Annadale", "Eltingville", "Castleton Corners", "Todt Hill",

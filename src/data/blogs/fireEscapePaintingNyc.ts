@@ -72,7 +72,7 @@ export const fireEscapePaintingNycPost: BlogPost = {
     badge: "NYC Licensed Fire Escape Contractor",
     title: "Need Fire Escape Painting or Structural Repairs?",
     description:
-      "Mega Contracting NY Group Inc. provides scraping, chemical rust conversion, step reinforcement, drop ladder repairs, and paint restoration across NYC.",
+      "Mega Contracting NY Group provides scraping, chemical rust conversion, step reinforcement, drop ladder repairs, and paint restoration across NYC.",
     buttonText: "Request Free Fire Escape Audit",
     buttonHref: "/contact"
   },
@@ -172,7 +172,7 @@ export const fireEscapePaintingNycPost: BlogPost = {
       title: "Hiring a Fire Escape Contractor in NYC",
       paragraphs: [
         "Restoring high-elevation steel fire escapes requires an experienced, fully insured general contractor. Because mechanics work suspended above public walkways, the contractor must carry active NYC DOB licensing, statutory workers' compensation, and dedicated commercial liability insurance with full 'Action Over' scaffolding coverage.",
-        "Avoid unlicensed handymen who lack safety harnesses or drop safety netting. At Mega Contracting NY Group Inc., our certified mechanics specialize in comprehensive fire escape restoration, resolving open DOB and HPD violations and restoring life-safety emergency egress to pristine municipal condition."
+        "Avoid unlicensed handymen who lack safety harnesses or drop safety netting. At Mega Contracting NY Group, our certified mechanics specialize in comprehensive fire escape restoration, resolving open DOB and HPD violations and restoring life-safety emergency egress to pristine municipal condition."
       ]
     }
   ],

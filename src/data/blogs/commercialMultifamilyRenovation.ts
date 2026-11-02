@@ -74,7 +74,7 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
     badge: "NYC Commercial & Multifamily GC",
     title: "Planning a Commercial or Multifamily Build-Out in NYC?",
     description:
-      "Mega Contracting NY Group Inc. delivers turn-key tenant improvements, office build-outs, lobby modernizations, and multi-unit apartment turnovers across all five boroughs.",
+      "Mega Contracting NY Group delivers turn-key tenant improvements, office build-outs, lobby modernizations, and multi-unit apartment turnovers across all five boroughs.",
     buttonText: "Request Commercial Consultation",
     buttonHref: "/contact"
   },
@@ -156,7 +156,7 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
       title: "Trade and MEP Subcontractor Coordination",
       paragraphs: [
         "Commercial renovations require seamless coordination among Mechanical, Electrical, and Plumbing (MEP) trades. A general contractor must manage licensed master plumbers, licensed master electricians, fire sprinkler fitters, HVAC sheet metal installers, and low-voltage structured cabling technicians.",
-        "Mega Contracting NY Group Inc. develops 3D composite coordination drawings before wall framing begins. This eliminates overhead field collisions between fire sprinkler pipes, commercial HVAC ductwork, and electrical conduit, keeping projects on schedule."
+        "Mega Contracting NY Group develops 3D composite coordination drawings before wall framing begins. This eliminates overhead field collisions between fire sprinkler pipes, commercial HVAC ductwork, and electrical conduit, keeping projects on schedule."
       ]
     },
     {

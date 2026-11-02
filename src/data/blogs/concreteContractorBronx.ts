@@ -73,7 +73,7 @@ export const concreteContractorBronxPost: BlogPost = {
     badge: "Bronx Licensed Concrete Contractor",
     title: "Planning a Concrete Project in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. pours high-strength driveways, patios, commercial slabs, steps, and retaining walls across NYC.",
+      "Mega Contracting NY Group pours high-strength driveways, patios, commercial slabs, steps, and retaining walls across NYC.",
     buttonText: "Request Free Concrete Estimate",
     buttonHref: "/contact"
   },

@@ -72,7 +72,7 @@ export const generalContractorBronxPost: BlogPost = {
     badge: "Bronx Licensed General Contractor",
     title: "Planning a Residential or Commercial Renovation in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. is a licensed NYC General Contractor (#NYC-2005-8942) delivering high-end craftsmanship, clear contracts, and full DOB permit management.",
+      "Mega Contracting NY Group is a licensed NYC General Contractor (#NYC-2005-8942) delivering high-end craftsmanship, clear contracts, and full DOB permit management.",
     buttonText: "Request Itemized Estimate",
     buttonHref: "/contact"
   },

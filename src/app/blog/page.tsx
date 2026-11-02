@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     absolute: "NYC Construction & Roofing Blog | Technical Guides & DOB Codes | Mega Contracting NY Group",
   },
   description:
-    "Technical construction insights, NYC DOB code updates, Local Law 97 energy compliance guides, and commercial roofing best practices from Mega Contracting NY Group Inc.",
+    "Technical construction insights, NYC DOB code updates, Local Law 97 energy compliance guides, and commercial roofing best practices from Mega Contracting NY Group",
   alternates: {
     canonical: "https://www.megacontractingnyc.com/blog",
   },

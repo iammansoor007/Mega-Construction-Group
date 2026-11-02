@@ -73,7 +73,7 @@ export const sidewalkRepairBronxPost: BlogPost = {
     badge: "Licensed NYC DOT Sidewalk Contractor",
     title: "Received an NYC DOT Sidewalk Violation in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. provides 4000 PSI concrete sidewalk repair, DOT permit pulling, Parks Department coordination, and violation dismissals.",
+      "Mega Contracting NY Group provides 4000 PSI concrete sidewalk repair, DOT permit pulling, Parks Department coordination, and violation dismissals.",
     buttonText: "Get Free Sidewalk Estimate",
     buttonHref: "/contact"
   },

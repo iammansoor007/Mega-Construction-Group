@@ -23,7 +23,7 @@ export default function NotFound() {
           </h1>
 
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            The page you requested may have moved or been updated. Mega Contracting NY Group Inc. provides licensed roofing, masonry, concrete, and renovation services across all 5 boroughs.
+            The page you requested may have moved or been updated. Mega Contracting NY Group provides licensed roofing, masonry, concrete, and renovation services across all 5 boroughs.
           </p>
 
           {/* Quick Hub Navigation Cards */}

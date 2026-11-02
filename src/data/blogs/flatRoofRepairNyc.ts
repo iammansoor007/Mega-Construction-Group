@@ -75,7 +75,7 @@ export const flatRoofRepairNycPost: BlogPost = {
     badge: "NYC Flat Roof Specialists",
     title: "Dealing with a Flat Roof Leak in NYC?",
     description:
-      "Mega Contracting NY Group Inc. provides infrared moisture scans, seam welding, elastomeric silicone coatings, and full TPO/EPDM replacements across all boroughs.",
+      "Mega Contracting NY Group provides infrared moisture scans, seam welding, elastomeric silicone coatings, and full TPO/EPDM replacements across all boroughs.",
     buttonText: "Schedule Flat Roof Inspection",
     buttonHref: "/contact"
   },

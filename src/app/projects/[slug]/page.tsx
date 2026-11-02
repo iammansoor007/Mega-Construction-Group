@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: { absolute: `${project.title} | Case Study | Mega Contracting NY Group` },
-    description: `Case study: ${project.title} in ${project.location}. Diagnostic problem, materials used, NYC DOB code compliance, and final result by Mega Contracting NY Group Inc.`,
+    description: `Case study: ${project.title} in ${project.location}. Diagnostic problem, materials used, NYC DOB code compliance, and final result by Mega Contracting NY Group`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: `${project.title} | Case Study`,
@@ -73,7 +73,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
       "name": project.title,
       "author": {
         "@type": "GeneralContractor",
-        "name": "Mega Contracting NY Group Inc."
+        "name": "Mega Contracting NY Group"
       }
     }
   ];
@@ -288,7 +288,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                     Schedule an On-Site Diagnostic Inspection
                   </h3>
                   <p className="text-xs text-gray-400 leading-relaxed font-normal">
-                    Mega Contracting NY Group Inc. provides transparent itemized estimates with full DOB permit coordination across all 5 boroughs.
+                    Mega Contracting NY Group provides transparent itemized estimates with full DOB permit coordination across all 5 boroughs.
                   </p>
                   <div className="space-y-2 pt-2">
                     <Link

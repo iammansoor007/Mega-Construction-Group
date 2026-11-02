@@ -75,7 +75,7 @@ export const roofReplacementBronxPost: BlogPost = {
     badge: "Bronx Residential Roofing Contractor",
     title: "Need a Roof Replacement in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. provides full tear-offs, architectural shingle installations, plywood redecking, and comprehensive warranty coverage across NYC.",
+      "Mega Contracting NY Group provides full tear-offs, architectural shingle installations, plywood redecking, and comprehensive warranty coverage across NYC.",
     buttonText: "Request Free Roof Estimate",
     buttonHref: "/contact"
   },
@@ -184,7 +184,7 @@ export const roofReplacementBronxPost: BlogPost = {
       title: "Warranties and Insurance Claims",
       paragraphs: [
         "Roofing warranties consist of two distinct parts: the manufacturer’s material warranty (typically 25 to 50 years covering product defects) and the contractor’s workmanship warranty (typically 5 to 10 years covering installation errors).",
-        "If your roof suffered sudden wind damage or puncture from a fallen tree branch during a severe nor'easter storm, your homeowner's insurance policy may cover the replacement. Partnering with a licensed general contractor like Mega Contracting NY Group Inc. ensures you receive detailed photographic documentation and storm-damage reports for your insurance adjuster."
+        "If your roof suffered sudden wind damage or puncture from a fallen tree branch during a severe nor'easter storm, your homeowner's insurance policy may cover the replacement. Partnering with a licensed general contractor like Mega Contracting NY Group ensures you receive detailed photographic documentation and storm-damage reports for your insurance adjuster."
       ]
     }
   ],

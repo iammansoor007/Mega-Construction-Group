@@ -73,7 +73,7 @@ export const brickPointingCostNycPost: BlogPost = {
     badge: "NYC Historic Masonry Specialists",
     title: "Need Brick Pointing or Chimney Repair in NYC?",
     description:
-      "Mega Contracting NY Group Inc. provides expert historic mortar matching, dustless joint raking, brownstone repointing, and comprehensive facade restoration.",
+      "Mega Contracting NY Group provides expert historic mortar matching, dustless joint raking, brownstone repointing, and comprehensive facade restoration.",
     buttonText: "Request Itemized Masonry Quote",
     buttonHref: "/contact"
   },

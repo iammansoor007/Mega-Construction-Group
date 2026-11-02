@@ -247,3 +247,14 @@ Retained in `src/data/completeData.json` (contact.areas), `src/app/contact/_comp
 - "From Manhattan skyscrapers to Long Island homes — our licensed crews cover the entire New York metro area"
 - Projects in Scarsdale (Westchester) and Manhasset (Long Island)
    *Action required:* Owner Adil Shamis to confirm home improvement contractor licensing (e.g., Westchester County DCA, Nassau/Suffolk County licenses) for projects outside the five NYC boroughs.
+
+## Task 3: Single Company Name Standardization ("Mega Contracting NY Group")
+
+Standardized the company name to strictly **"Mega Contracting NY Group"** across all logo alt texts, footer tickers, page metadata, OpenGraph site names (`og:site_name`), JSON-LD schemas, and data files.
+
+### 1. Summary of Brand Standardization
+- Completely eliminated any lingering instances of "Mega Construction", "Mega Contracting NY Group Inc.", "Mega Contracting NYC Group Inc.", and "Mega Contracting NYC Group" from visible text and metadata.
+- Total files updated for single company name consistency: 33 files across `src/app`, `src/data`, `src/components`, and `src/lib`.
+- All OpenGraph metadata (`siteName`) across all 17 page routes explicitly use `"Mega Contracting NY Group"`.
+- All JSON-LD structured data schemas (LocalBusiness, WebSite, Article, Service, Organization) use `"name": "Mega Contracting NY Group"` and `"legalName": "Mega Contracting NY Group"`.
+- Logo alt texts in `src/components/Navbar.tsx` and footer tickers in `src/components/Footer.tsx` strictly feature "Mega Contracting NY Group".

@@ -74,7 +74,7 @@ export const caulkingContractorsNycPost: BlogPost = {
     badge: "NYC Commercial Caulking Specialists",
     title: "Experiencing Window Drafts or Facade Water Leaks?",
     description:
-      "Mega Contracting NY Group Inc. provides turn-key exterior window caulking, masonry expansion joint restoration, and swing-stage rigging across NYC.",
+      "Mega Contracting NY Group provides turn-key exterior window caulking, masonry expansion joint restoration, and swing-stage rigging across NYC.",
     buttonText: "Request Caulking Estimate",
     buttonHref: "/contact"
   },

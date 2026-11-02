@@ -75,7 +75,7 @@ export default async function Page({ params }: Props) {
       "provider": {
         "@type": "GeneralContractor",
         "name": "Mega Contracting NY Group",
-        "legalName": "Mega Contracting NY Group Inc.",
+        "legalName": "Mega Contracting NY Group",
         "image": "https://www.megacontractingnyc.com/favicon.png",
         "telephone": "+1 (914) 804-3000",
         "email": "info@megacontractinggroup.com",

@@ -73,7 +73,7 @@ export const waterDamageBronxPost: BlogPost = {
     badge: "24/7 Bronx Emergency Response",
     title: "Dealing with Sudden Water Damage in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. provides immediate emergency water extraction, structural drying, mold remediation, and complete general contracting reconstruction.",
+      "Mega Contracting NY Group provides immediate emergency water extraction, structural drying, mold remediation, and complete general contracting reconstruction.",
     buttonText: "Request Emergency Dispatch",
     buttonHref: "/contact"
   },
@@ -162,7 +162,7 @@ export const waterDamageBronxPost: BlogPost = {
       title: "Emergency Contractor vs Full Restoration General Contractor",
       paragraphs: [
         "Property owners often make the mistake of assuming a water mitigation extraction company can rebuild their home. Water mitigation franchises specialize in water extraction, setting fans, and tearing out drywall—they generally lack the licensing, architectural relationships, and trades to execute permanent structural rebuilds.",
-        "Partnering with a licensed general contractor like Mega Contracting NY Group Inc. ensures seamless project delivery: our teams handle both the immediate flood damage repair bronx mitigation and the subsequent high-end carpentry, plumbing, electrical, and finish restoration under a single accountable contract."
+        "Partnering with a licensed general contractor like Mega Contracting NY Group ensures seamless project delivery: our teams handle both the immediate flood damage repair bronx mitigation and the subsequent high-end carpentry, plumbing, electrical, and finish restoration under a single accountable contract."
       ],
       image: {
         src: "/assets/waterproofingmega.jpg",

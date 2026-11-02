@@ -66,7 +66,7 @@ export default async function BoroughLocationPage({ params }: Props) {
       "@context": "https://schema.org",
       "@type": "GeneralContractor",
       "name": `Mega Contracting NY Group - ${data.boroughName} Division`,
-      "legalName": "Mega Contracting NY Group Inc.",
+      "legalName": "Mega Contracting NY Group",
       "url": `${BASE_URL}/locations/${data.slug}`,
       "telephone": "+19148043000",
       "email": "info@megacontractinggroup.com",
@@ -353,7 +353,7 @@ export default async function BoroughLocationPage({ params }: Props) {
                 Dependable Construction Contracting in {data.boroughName}
               </h2>
               <p className="text-sm text-gray-400 leading-relaxed font-normal">
-                Mega Contracting NY Group Inc. is an active New York corporation headquartered at 3044 Radcliff Ave, Bronx, NY 10469, operating under NYC General Contractor License #NYC-2005-8942. We serve all residential, commercial, and multi-family property owners throughout {data.boroughName} with $5,000,000 liability insurance and 24/7 emergency dispatch.
+                Mega Contracting NY Group is an active New York corporation headquartered at 3044 Radcliff Ave, Bronx, NY 10469, operating under NYC General Contractor License #NYC-2005-8942. We serve all residential, commercial, and multi-family property owners throughout {data.boroughName} with $5,000,000 liability insurance and 24/7 emergency dispatch.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">

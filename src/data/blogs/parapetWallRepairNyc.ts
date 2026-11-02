@@ -73,7 +73,7 @@ export const parapetWallRepairNycPost: BlogPost = {
     badge: "NYC Licensed Parapet Specialists",
     title: "Is Your Parapet Wall Leaning, Cracking, or Leaking?",
     description:
-      "Mega Contracting NY Group Inc. provides turn-key parapet rebuilds, terra cotta coping replacement, structural steel bracing, and flashing across NYC.",
+      "Mega Contracting NY Group provides turn-key parapet rebuilds, terra cotta coping replacement, structural steel bracing, and flashing across NYC.",
     buttonText: "Schedule Parapet Inspection",
     buttonHref: "/contact"
   },
@@ -182,7 +182,7 @@ export const parapetWallRepairNycPost: BlogPost = {
       title: "Choosing a Qualified Parapet Contractor in NYC",
       paragraphs: [
         "Parapet restoration requires a licensed general contractor with dedicated high-elevation rigging experience and comprehensive insurance. Standard handymen cannot legally rig pipe scaffolding or pull DOB commercial masonry permits.",
-        "When selecting a contractor, verify active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding liability insurance, and proven experience coordinating sidewalk sheds and LPC landmark approvals. At Mega Contracting NY Group Inc., our master masons specialize in comprehensive parapet rebuilding, ensuring total compliance with NYC building codes."
+        "When selecting a contractor, verify active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding liability insurance, and proven experience coordinating sidewalk sheds and LPC landmark approvals. At Mega Contracting NY Group, our master masons specialize in comprehensive parapet rebuilding, ensuring total compliance with NYC building codes."
       ]
     }
   ],

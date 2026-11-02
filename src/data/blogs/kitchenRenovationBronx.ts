@@ -72,7 +72,7 @@ export const kitchenRenovationBronxPost: BlogPost = {
     badge: "Bronx Premier Kitchen Contractor",
     title: "Planning a Custom Kitchen Renovation in the Bronx?",
     description:
-      "Mega Contracting NY Group Inc. manages architectural plans, DOB filings, co-op packages, custom millwork, and full mechanical coordination.",
+      "Mega Contracting NY Group manages architectural plans, DOB filings, co-op packages, custom millwork, and full mechanical coordination.",
     buttonText: "Schedule Kitchen Consultation",
     buttonHref: "/contact"
   },

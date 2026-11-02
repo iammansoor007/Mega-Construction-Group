@@ -165,7 +165,7 @@ export default function Home() {
         "jobTitle": "Founder & General Contractor",
         "worksFor": { "@type": "Organization", "name": "Mega Contracting NY Group" },
       },
-      "legalName": "Mega Contracting NY Group Inc.",
+      "legalName": "Mega Contracting NY Group",
       "license": "NYC License #NYC-2005-8942",
       "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 20, "maxValue": 100 },
     },

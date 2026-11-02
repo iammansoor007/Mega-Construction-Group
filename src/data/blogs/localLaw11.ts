@@ -75,7 +75,7 @@ export const localLaw11Post: BlogPost = {
     badge: "FISP Masonry & Rigging Specialist",
     title: "Need Local Law 11 Repairs or Sidewalk Shed Protection?",
     description:
-      "Mega Contracting NY Group Inc. coordinates scaffold permits, pedestrian sidewalk sheds, parapet rebuilds, and masonry repointing across all NYC boroughs.",
+      "Mega Contracting NY Group coordinates scaffold permits, pedestrian sidewalk sheds, parapet rebuilds, and masonry repointing across all NYC boroughs.",
     buttonText: "Schedule Free FISP Consultation",
     buttonHref: "/contact"
   },
@@ -244,7 +244,7 @@ export const localLaw11Post: BlogPost = {
     {
       question: "Can the inspector and the repair contractor be the same company?",
       answer:
-        "To prevent conflicts of interest and ensure objective reporting, the Qualified Exterior Wall Inspector (QEWI) must remain independent from the general contractor performing physical repairs. The inspector serves as an independent technical evaluator for the DOB. Building owners should hire an engineering firm for inspection and filing, and retain a licensed exterior contractor like Mega Contracting NY Group Inc. for physical repairs."
+        "To prevent conflicts of interest and ensure objective reporting, the Qualified Exterior Wall Inspector (QEWI) must remain independent from the general contractor performing physical repairs. The inspector serves as an independent technical evaluator for the DOB. Building owners should hire an engineering firm for inspection and filing, and retain a licensed exterior contractor like Mega Contracting NY Group for physical repairs."
     },
     {
       question: "How long does a facade inspection take?",

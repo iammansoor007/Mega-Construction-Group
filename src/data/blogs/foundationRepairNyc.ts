@@ -73,7 +73,7 @@ export const foundationRepairNycPost: BlogPost = {
     badge: "NYC Licensed Foundation Specialist",
     title: "Concerned About Foundation Cracks or Settlement in NYC?",
     description:
-      "Mega Contracting NY Group Inc. performs structural crack injections, carbon fiber wall reinforcement, underpinning, and comprehensive basement waterproofing.",
+      "Mega Contracting NY Group performs structural crack injections, carbon fiber wall reinforcement, underpinning, and comprehensive basement waterproofing.",
     buttonText: "Schedule Structural Evaluation",
     buttonHref: "/contact"
   },

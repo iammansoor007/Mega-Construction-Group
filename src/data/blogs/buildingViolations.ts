@@ -74,7 +74,7 @@ export const buildingViolationsPost: BlogPost = {
     badge: "DOB Violation Removal Experts",
     title: "Need to Clear Open DOB or ECB Violations?",
     description:
-      "Mega Contracting NY Group Inc. conducts property audits, performs physical remediation, pulls legalization permits, and files Certificates of Correction across NYC.",
+      "Mega Contracting NY Group conducts property audits, performs physical remediation, pulls legalization permits, and files Certificates of Correction across NYC.",
     buttonText: "Request Violation Audit",
     buttonHref: "/contact"
   },
@@ -170,7 +170,7 @@ export const buildingViolationsPost: BlogPost = {
       paragraphs: [
         "While minor administrative signage violations can be resolved by property managers, physical infractions require an experienced general contractor. Hiring a licensed NYC general contractor ensures that corrective construction satisfies DOB standards and passes municipal audits.",
         "An experienced contractor coordinates the entire remediation lifecycle: hiring expeditors and structural engineers, securing DOB permits, executing structural repairs, coordinating plumbing sign-offs with licensed master plumbers, and assembling the photographic evidence required for Certificate of Correction approval.",
-        "At Mega Contracting NY Group Inc., our team has cleared hundreds of municipal citations across the Bronx, Brooklyn, Queens, and Manhattan, transforming complex building violations into clean dismissal certificates."
+        "At Mega Contracting NY Group, our team has cleared hundreds of municipal citations across the Bronx, Brooklyn, Queens, and Manhattan, transforming complex building violations into clean dismissal certificates."
       ],
       image: {
         src: "/assets/megaviolationremoved.jpg",

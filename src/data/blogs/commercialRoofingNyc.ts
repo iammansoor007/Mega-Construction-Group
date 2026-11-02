@@ -73,7 +73,7 @@ export const commercialRoofingNycPost: BlogPost = {
     badge: "Certified NYC Commercial Roofer",
     title: "Need a Commercial Roof Replacement or Bid in NYC?",
     description:
-      "Mega Contracting NY Group Inc. installs TPO, EPDM, and liquid-applied commercial systems with 20-year manufacturer NDL warranties across all five boroughs.",
+      "Mega Contracting NY Group installs TPO, EPDM, and liquid-applied commercial systems with 20-year manufacturer NDL warranties across all five boroughs.",
     buttonText: "Request Commercial Roof Proposal",
     buttonHref: "/contact"
   },

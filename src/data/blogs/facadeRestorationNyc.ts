@@ -74,7 +74,7 @@ export const facadeRestorationNycPost: BlogPost = {
     badge: "NYC Licensed Facade & Masonry GC",
     title: "Does Your Building Facade Need Repair or Historic Restoration?",
     description:
-      "Mega Contracting NY Group Inc. provides turn-key brownstone restoration, brick repointing, parapet rebuilding, and Local Law 11 repairs across all five boroughs.",
+      "Mega Contracting NY Group provides turn-key brownstone restoration, brick repointing, parapet rebuilding, and Local Law 11 repairs across all five boroughs.",
     buttonText: "Schedule Facade Assessment",
     buttonHref: "/contact"
   },
@@ -178,7 +178,7 @@ export const facadeRestorationNycPost: BlogPost = {
       title: "Choosing a Masonry Contractor in NYC",
       paragraphs: [
         "Restoring historic masonry is an art form backed by structural engineering. Engaging an unqualified contractor risks irreversible damage to irreplaceable brick and stone.",
-        "When vetting an exterior contractor, confirm active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding insurance, and demonstrable experience in <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Local Law 11 compliance in Brooklyn</a> and the Bronx. At Mega Contracting NY Group Inc., our master masons have restored dozens of pre-war facades, combining historic preservation standards with modern weatherproofing technology."
+        "When vetting an exterior contractor, confirm active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding insurance, and demonstrable experience in <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Local Law 11 compliance in Brooklyn</a> and the Bronx. At Mega Contracting NY Group, our master masons have restored dozens of pre-war facades, combining historic preservation standards with modern weatherproofing technology."
       ]
     }
   ],

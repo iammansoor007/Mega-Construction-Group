@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     absolute: "Documented Construction Projects & Case Studies NYC | Mega Contracting NY Group",
   },
   description:
-    "Explore real, documented construction case studies across NYC. Roofing tear-offs, facade restorations, brownstone repointing, and luxury renovations by Mega Contracting NY Group Inc.",
+    "Explore real, documented construction case studies across NYC. Roofing tear-offs, facade restorations, brownstone repointing, and luxury renovations by Mega Contracting NY Group",
   alternates: {
     canonical: "https://www.megacontractingnyc.com/projects",
   },

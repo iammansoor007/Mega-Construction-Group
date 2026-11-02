@@ -72,7 +72,7 @@ export const bathroomRenovationBronxPost: BlogPost = {
     badge: "Bronx Bathroom Remodeling Experts",
     title: "Ready to Transform Your Bronx Bathroom?",
     description:
-      "Mega Contracting NY Group Inc. provides complete turn-key bathroom renovations, master plumbing coordination, waterproof shower systems, and custom tiling.",
+      "Mega Contracting NY Group provides complete turn-key bathroom renovations, master plumbing coordination, waterproof shower systems, and custom tiling.",
     buttonText: "Schedule Free Estimate",
     buttonHref: "/contact"
   },

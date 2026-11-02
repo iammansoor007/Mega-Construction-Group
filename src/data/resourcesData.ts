@@ -49,7 +49,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
         heading: "Required Repair Protocols & DOB Filing",
         paragraphs: [
           "Executing repairs on a FISP-classified building requires a licensed general contractor pulling DOB structural alteration permits. Typical repairs include 100% parapet wall repointing, stainless steel tie-back anchor installations, lintel replacement, and structural coping stone resetting.",
-          "Mega Contracting NY Group Inc. coordinates directly with building engineers and the NYC DOB to perform authorized repairs, request re-inspections, and file Amended Reports to transition properties from Unsafe to Safe."
+          "Mega Contracting NY Group coordinates directly with building engineers and the NYC DOB to perform authorized repairs, request re-inspections, and file Amended Reports to transition properties from Unsafe to Safe."
         ]
       }
     ],

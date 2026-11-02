@@ -73,7 +73,7 @@ export const basementRenovationNycPost: BlogPost = {
     badge: "NYC Basement Finishing GC",
     title: "Looking to Finish or Waterproof Your NYC Basement?",
     description:
-      "Mega Contracting NY Group Inc. provides turn-key basement conversions, structural dig-outs, French drain waterproofing, and DOB permit filings across all boroughs.",
+      "Mega Contracting NY Group provides turn-key basement conversions, structural dig-outs, French drain waterproofing, and DOB permit filings across all boroughs.",
     buttonText: "Schedule Free Basement Assessment",
     buttonHref: "/contact"
   },
@@ -179,7 +179,7 @@ export const basementRenovationNycPost: BlogPost = {
       title: "Hiring: One General Contractor vs Separate Trades",
       paragraphs: [
         "Attempting to self-manage individual masons, plumbers, electricians, and drywallers for a basement conversion routinely leads to finger-pointing when leaks occur behind walls.",
-        "Hiring a single licensed general contractor like Mega Contracting NY Group Inc. ensures complete end-to-end accountability. Our team manages foundation waterproofing, plumbing ejector systems, electrical permits, and high-end finish carpentry under a single unified warranty."
+        "Hiring a single licensed general contractor like Mega Contracting NY Group ensures complete end-to-end accountability. Our team manages foundation waterproofing, plumbing ejector systems, electrical permits, and high-end finish carpentry under a single unified warranty."
       ],
       image: {
         src: "/assets/waterproofingmega.jpg",
