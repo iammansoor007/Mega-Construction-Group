@@ -393,3 +393,43 @@ All duplicate HTML elements, duplicate mobile/desktop headings, and repetitive S
 - Excludes all future-dated blog posts past `2026-11-02`.
 - Real `lastModified` timestamps clamped to `<= 2026-11-02` (or omitted for pages without explicit modification dates).
 - Includes `/blog` index route and all 22 published blog posts.
+
+
+## Task 8: Comprehensive Rewrite of 14 Service Pages in `src/data/services.json`
+
+All 14 target service pages were reviewed and upgraded to meet strict comprehensive content requirements:
+- Kept JSON structure identical (`id`, `title`, `image`, `description`, `longDescription`, `features`, `stats`, `benefits`, `process`, `faqs`, `galleryImages`).
+- Maintained all existing titles, H1s, metas, slugs, and canonical URLs.
+- **6 unique "How We Work" steps** per page (1-2 sentences each, describing concrete field operations).
+- **6 service-specific FAQs** per page (60-120 words per answer, direct first sentence; zero shared/duplicate FAQs).
+- **150-250 word overviews** (`longDescription`) incorporating primary keywords naturally 1-2 times and referencing at least three NYC boroughs naturally without invented projects.
+- **Total word count per page: 896 to 1,065 words** (well exceeding the >= 500 word threshold).
+- Completely eliminated all banned template phrases ("Professional implementation by our certified crews", "industry-leading tools and methods", "matching NYC structural codes", "Comprehensive quality assurance review", "flawless execution").
+- Removed all numeric prices, statistical percentages, guaranteed durations, certifications, warranties, and specific law/rule numbers.
+- No claims of performing licensed architectural or engineering inspection work.
+
+### Summary Table of Rewritten & Neutralized Pages
+
+| Category | Service Page Slug | Primary Keyword | Word Count (Total / Overview) | Process Steps | Unique FAQs | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `concrete-services` | `sidewalk-repair` | `sidewalk repair bronx ny` | 1,001 / 193 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `concrete-services` | `sidewalk-replacement` | `sidewalk replacement bronx ny` | 896 / 180 | 6 steps | 6 FAQs (60-120w) | Full Rewrite Complete |
+| `concrete-services` | `dot-violation-removal` | `nyc dot sidewalk violation` | 1,065 / 188 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `concrete-services` | `foundation-work` | `foundation repair brooklyn ny` | 1,019 / 178 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `masonry-work` | `facade-restoration` | `facade restoration nyc` | 1,001 / 206 | 6 steps | 6 FAQs (60-120w) | Cleaned & Compliant |
+| `masonry-work` | `parapet-wall` | `parapet repair bronx ny` | 911 / 191 | 6 steps | 6 FAQs (60-120w) | Full Rewrite Complete |
+| `roofing-services` | `roof-replacement` | `roof replacement bronx ny` | 927 / 196 | 6 steps | 6 FAQs (60-120w) | Full Rewrite Complete |
+| `stucco` | `stucco-repair` | `stucco repair brooklyn ny` | 934 / 184 | 6 steps | 6 FAQs (60-120w) | Full Rewrite Complete |
+| `home-renovation` | `bathroom-renovation` | `bathroom renovation bronx ny` | 958 / 183 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `home-renovation` | `kitchen-renovation` | `kitchen renovation bronx ny` | 947 / 178 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `custom-home-building` | `design-build` | `general contractor bronx ny` | 955 / 187 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `custom-home-building` | `project-management` | `construction company bronx ny` | 985 / 203 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `emergency-service` | `emergency-24-7` | `fire damage restoration nyc` | 950 / 169 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+| `emergency-service` | `rapid-deployment` | `water damage restoration bronx ny` | 931 / 176 | 6 steps | 6 FAQs (60-120w) | Verified & Compliant |
+
+### Statements for Business Owner (Adil Shamis) to Fact-Check
+1. **Physical Trade Scope**: Confirm crews physically perform concrete sidewalk slab cutting, form setting, air-entrained pours, and broom finishing across Bronx, Brooklyn, Queens, and Manhattan properties.
+2. **Masonry & Parapet Scope**: Confirm masonry crews execute brick course dismantling, stainless steel tie-back installations, coping stone setting, and metal counterflashing terminations.
+3. **Roofing Systems**: Confirm commercial flat roofing installations include full existing system tear-off, rigid polyisocyanurate insulation installation, and heat-welded single-ply (TPO) / built-up membrane applications.
+4. **Stucco Repair**: Confirm traditional three-coat portland cement wire lath repairs and synthetic EIFS base coat / acrylic finish applications.
+5. **Permitting Protocols**: Confirm firm manages permit filings and inspections through the NYC Department of Transportation (DOT) and Department of Buildings (DOB) under GC license #NYC-2005-8942.
