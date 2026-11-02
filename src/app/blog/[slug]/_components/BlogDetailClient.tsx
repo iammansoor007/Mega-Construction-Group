@@ -464,43 +464,25 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  {post.faqs.map((faq, i) => {
-                    const isOpen = activeFaq === i;
-                    return (
-                      <div
-                        key={i}
-                        className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                          isOpen
-                            ? "bg-[#161616] border-red-600/50 shadow-lg shadow-red-950/20"
-                            : "bg-[#121212] border-white/10 hover:border-white/20"
-                        }`}
-                      >
-                        <button
-                          onClick={() => setActiveFaq(isOpen ? null : i)}
-                          className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
-                          aria-expanded={isOpen}
-                        >
-                          <span className="font-bold text-sm sm:text-base text-white hover:text-red-400 transition-colors">
-                            {faq.question}
-                          </span>
-                          <span
-                            className={`w-7 h-7 rounded-full flex items-center justify-center border text-xs shrink-0 transition-transform ${
-                              isOpen
-                                ? "rotate-180 bg-red-600 border-red-600 text-white"
-                                : "border-white/20 text-white/50"
-                            }`}
-                          >
-                            ↓
-                          </span>
-                        </button>
-                        {isOpen && (
-                          <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/5">
-                            <p>{faq.answer}</p>
-                          </div>
-                        )}
+                  {post.faqs.map((faq, i) => (
+                    <details
+                      key={i}
+                      open={i === 0}
+                      className="group rounded-2xl border border-white/10 hover:border-white/20 bg-[#121212] open:bg-[#161616] open:border-red-600/50 open:shadow-lg open:shadow-red-950/20 transition-all duration-200 overflow-hidden"
+                    >
+                      <summary className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer list-none select-none focus:outline-none [&::-webkit-details-marker]:hidden">
+                        <span className="font-bold text-sm sm:text-base text-white group-hover:text-red-400 group-open:text-red-400 transition-colors">
+                          {faq.question}
+                        </span>
+                        <span className="w-7 h-7 rounded-full flex items-center justify-center border border-white/20 text-white/50 text-xs shrink-0 transition-transform group-open:rotate-180 group-open:bg-red-600 group-open:border-red-600 group-open:text-white">
+                          ↓
+                        </span>
+                      </summary>
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-white/70 leading-relaxed border-t border-white/5">
+                        <p>{faq.answer}</p>
                       </div>
-                    );
-                  })}
+                    </details>
+                  ))
                 </div>
               </section>
 

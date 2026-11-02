@@ -250,84 +250,27 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
         </span>
       </motion.div>
 
-      <div
+      <details
         ref={buttonRef}
+        open={isOpen}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={handleMouseLeave}
         className={`
           relative bg-white/90 backdrop-blur-sm rounded-2xl
-          border transition-all duration-500
+          border transition-all duration-500 overflow-hidden
           ${isOpen
             ? 'border-primary/30 shadow-2xl shadow-primary/15'
             : 'border-primary/10 hover:border-primary/20 shadow-lg shadow-primary/5'
           }
         `}
       >
-        <svg className="absolute inset-0 w-full h-full pointer-events-none">
-          <motion.rect
-            x="2"
-            y="2"
-            width="calc(100% - 4px)"
-            height="calc(100% - 4px)"
-            fill="none"
-            stroke="url(#borderGradient)"
-            strokeWidth="1.2"
-            strokeDasharray="6 6"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={isHovered ? {
-              pathLength: 1,
-              opacity: 0.6
-            } : {
-              pathLength: 0,
-              opacity: 0
-            }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          />
-          <defs>
-            <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#C30505" />
-              <stop offset="100%" stopColor="#8B0000" />
-            </linearGradient>
-          </defs>
-        </svg>
-
-        {isHovered && (
-          <>
-            {[...Array(4)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 rounded-full z-20"
-                style={{
-                  background: i % 2 === 0 ? '#C30505' : '#8B0000',
-                  boxShadow: `0 0 8px ${i % 2 === 0 ? '#C30505' : '#8B0000'}`,
-                }}
-                initial={{
-                  x: '50%',
-                  y: '50%',
-                  scale: 0,
-                  opacity: 0.6
-                }}
-                animate={{
-                  x: [`50%`, `${20 + (i * 10)}%`],
-                  y: [`50%`, `${15 + (i * 12)}%`],
-                  scale: [0, 2, 0],
-                  opacity: [0, 0.4, 0]
-                }}
-                transition={{
-                  duration: 2,
-                  delay: i * 0.12,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-          </>
-        )}
-
-        <button
-          onClick={() => onToggle(index)}
-          className="w-full text-left p-7 md:p-9 focus:outline-none relative z-10"
+        <summary
+          onClick={(e) => {
+            e.preventDefault();
+            onToggle(index);
+          }}
+          className="w-full text-left p-7 md:p-9 focus:outline-none relative z-10 cursor-pointer list-none select-none [&::-webkit-details-marker]:hidden"
           aria-expanded={isOpen}
         >
           <div className="flex items-center justify-between gap-6">
@@ -400,107 +343,47 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
               )}
             </div>
           </div>
-        </button>
+        </summary>
 
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{
-                duration: 0.5,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-              className="overflow-hidden"
-            >
-              <div className="px-7 md:px-9 pb-7 md:pb-9">
-                <div className="relative pl-6 border-l-2 border-primary/20">
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">
-                    {item.answer}
-                  </p>
+        <div className="px-7 md:px-9 pb-7 md:pb-9">
+          <div className="relative pl-6 border-l-2 border-primary/20">
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-5 font-normal">
+              {item.answer}
+            </p>
 
-                  {item.metadata && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
-                      {item.metadata.map((meta, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.2 + i * 0.1 }}
-                          className="flex items-center gap-2 text-xs"
-                        >
-                          <span className="w-1 h-1 bg-primary rounded-full" />
-                          <span className="text-gray-500">{meta.label}:</span>
-                          <span className="font-medium text-gray-700">{meta.value}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  )}
-
-                  {item.links && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 }}
-                      className="flex flex-wrap items-center gap-4 pt-4 border-t border-primary/10"
-                    >
-                      {item.links.map((link, i) => (
-                        <motion.a
-                          key={i}
-                          href={link.url}
-                          whileHover={{ x: 5 }}
-                          className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
-                        >
-                          <span>{link.label}</span>
-                          <motion.svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            className="group-hover:translate-x-1 transition-transform"
-                          >
-                            <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" />
-                          </motion.svg>
-                        </motion.a>
-                      ))}
-                    </motion.div>
-                  )}
-                </div>
+            {item.metadata && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+                {item.metadata.map((meta, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-xs"
+                  >
+                    <span className="w-1 h-1 bg-primary rounded-full" />
+                    <span className="text-gray-500">{meta.label}:</span>
+                    <span className="font-medium text-gray-700">{meta.value}</span>
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            )}
 
-        <motion.div
-          className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2"
-          animate={isHovered ? {
-            width: 14,
-            height: 14,
-            borderColor: 'rgba(195,5,5,0.5)'
-          } : {
-            width: 24,
-            height: 24,
-            borderColor: 'rgba(195,5,5,0.2)'
-          }}
-          transition={{ duration: 0.4 }}
-        />
-        <motion.div
-          className="absolute bottom-5 right-5 w-6 h-6 border-b-2 border-r-2"
-          animate={isHovered ? {
-            width: 14,
-            height: 14,
-            borderColor: 'rgba(195,5,5,0.5)'
-          } : {
-            width: 24,
-            height: 24,
-            borderColor: 'rgba(195,5,5,0.2)'
-          }}
-          transition={{ duration: 0.4 }}
-        />
-      </div>
+            {item.links && (
+              <div
+                className="flex flex-wrap items-center gap-4 pt-4 border-t border-primary/10"
+              >
+                {item.links.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.href}
+                    className="text-xs text-primary hover:underline font-medium"
+                  >
+                    {link.text} →
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </details>
     </motion.div>
   );
 };
