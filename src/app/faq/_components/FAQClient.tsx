@@ -345,14 +345,14 @@ export default function FAQPage() {
                 {
                   icon: Shield,
                   title: "Licensing & Insurance",
-                  desc: "We are fully licensed (NYC-2005-8942), insured ($5M comprehensive coverage), and OSHA-30 certified. Your project is protected from start to finish.",
+                  desc: "We are fully licensed (NYC-2005-8942) and insured ($5M comprehensive coverage). Your project is protected from start to finish.",
                   link: "/about",
                   linkText: "View Credentials",
                 },
                 {
                   icon: ClipboardCheck,
                   title: "10-Year Warranty",
-                  desc: "Every project comes with our industry-leading 10-year workmanship warranty, plus full manufacturer warranties on all materials.",
+                  desc: "Every project comes with quality workmanship assurance, plus full manufacturer warranties on all materials.",
                   link: "/contact",
                   linkText: "Learn More",
                 },
@@ -373,7 +373,7 @@ export default function FAQPage() {
                 {
                   icon: Users,
                   title: "Our Team & Story",
-                  desc: "Family-owned since 2005, learn how Mega Contracting has become one of NYC's most trusted construction companies.",
+                  desc: "Family-owned since 2005, learn how Mega Contracting NY Group has become an established NYC general contractor.",
                   link: "/about",
                   linkText: "About Us",
                 },
@@ -407,15 +407,15 @@ export default function FAQPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
               badge="Why Choose Mega Contracting"
-              headline="NYC's Most <span class='text-red-600'>Trusted Contractor</span>"
+              headline="NYC's <span class='text-red-600'>Licensed Contractor</span>"
             />
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Award, value: "20+", label: "Years Experience", sub: "Craftsmanship since 2005" },
+                { icon: Award, value: "Since", label: "2005", sub: "Family-owned & operated" },
                 { icon: ShieldCheck, value: "$5M", label: "Insured & Bonded", sub: "Comprehensive coverage" },
-                { icon: CheckCircle2, value: "1,000+", label: "Projects Done", sub: "Across all 5 boroughs" },
-                { icon: ShieldCheck, value: "10 Year", label: "Warranty", sub: "On all workmanship" },
+                { icon: CheckCircle2, value: "5", label: "NYC Boroughs", sub: "All boroughs served" },
+                { icon: ShieldCheck, value: "Licensed", label: "NYC DOB", sub: "GC #NYC-2005-8942" },
               ].map((item, i) => {
                 const IconComp = item.icon;
                 return (
@@ -584,7 +584,7 @@ export default function FAQPage() {
                     <div className="flex flex-wrap gap-2">
                       {[
                         { icon: Shield, text: "Licensed & Insured" },
-                        { icon: ShieldCheck, text: "OSHA-30 Certified" },
+                        { icon: ShieldCheck, text: "Licensed & Insured" },
                         { icon: Clock, text: "24/7 Available" },
                       ].map((badge, i) => {
                         const IconComp = badge.icon;
@@ -617,7 +617,7 @@ export default function FAQPage() {
                           "Free on-site property assessment",
                           "Detailed estimate within 24 hours",
                           "No obligation, no hidden fees",
-                          "10-year workmanship warranty",
+                          "workmanship warranty",
                         ].map((feat, i) => (
                           <div key={i} className="flex items-center gap-2.5">
                             <div className="w-5 h-5 rounded-none bg-white/20 flex items-center justify-center shrink-0">

@@ -121,7 +121,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold uppercase tracking-wider">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Verified Case Study</span>
+                  <span>Documented Case Study</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-medium">
                   <MapPin className="w-3.5 h-3.5 text-red-500" />
@@ -221,7 +221,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                   </div>
                   <div className="p-6 rounded-2xl border border-green-200 bg-green-50/30 space-y-2">
                     <h3 className="text-base font-bold uppercase font-heading text-green-900">
-                      Final Verified Result
+                      Final Completed Result
                     </h3>
                     <p className="text-xs sm:text-sm text-green-800 leading-relaxed font-normal">
                       {project.result}

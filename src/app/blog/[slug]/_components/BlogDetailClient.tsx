@@ -239,7 +239,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 {post.imageAlt}
               </p>
               <span className="shrink-0 bg-black/75 px-3 py-1.5 rounded-lg backdrop-blur-md text-[10px] sm:text-xs uppercase font-mono font-bold text-red-400 border border-red-500/30">
-                Verified NYC Field Project
+                NYC Field Project
               </span>
             </div>
           </div>

@@ -73,7 +73,7 @@ export default function Home() {
       "name": "Mega Contracting NY Group",
       "alternateName": ["General Contractor NYC", "Mega Contracting NY", "Mega Contracting Group"],
       "description":
-        "Mega Contracting NY Group is NYC's #1 licensed general contractor specializing in facade restoration, roof leak repair, flat roofing, chimney repair, fire escape painting, parapet wall repair, stucco repair, EIFS, DOB violation removal, DOT violation removal, sidewalk repair, building safety assessments, brick pointing, foundation repair, and waterproofing across all 5 boroughs.",
+        "Mega Contracting NY Group is NYC's licensed general contractor specializing in facade restoration, roof leak repair, flat roofing, chimney repair, fire escape painting, parapet wall repair, stucco repair, EIFS, DOB violation removal, DOT violation removal, sidewalk repair, building safety assessments, brick pointing, foundation repair, and waterproofing across all 5 boroughs.",
       "url": BASE_URL,
       "logo": {
         "@type": "ImageObject",
@@ -106,13 +106,6 @@ export default function Home() {
           "closes": "19:00",
         },
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "200",
-        "bestRating": "5",
-        "worstRating": "1",
-      },
       "priceRange": "$$",
       "paymentAccepted": "Cash, Credit Card, Check",
       "currenciesAccepted": "USD",

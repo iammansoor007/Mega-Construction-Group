@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Documented Projects & Case Studies | Mega Contracting NY Group",
-    description: "Verified project evidence, materials used, and NYC DOB code compliance sign-offs.",
+    description: "Documented project evidence, materials used, and NYC DOB code compliance sign-offs.",
     url: "https://www.megacontractingnyc.com/projects",
   },
 };
@@ -74,7 +74,7 @@ export default function ProjectsIndexPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl font-normal mb-10">
-                Every project is real. Real diagnostic findings, real materials, real DOB sign-offs. Browse verified case studies from roofing tear-offs and facade restorations to luxury interior transformations across all five NYC boroughs.
+                Every project is real. Real diagnostic findings, real materials, real DOB sign-offs. Browse documented case studies from roofing tear-offs and facade restorations to luxury interior transformations across all five NYC boroughs.
               </p>
 
               {/* Stats strip */}
@@ -106,7 +106,7 @@ export default function ProjectsIndexPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: <Award className="w-6 h-6" />, title: "Fully Documented Projects", desc: "Every case study includes verified scopes, materials used, and final NYC DOB sign-off documentation." },
+                { icon: <Award className="w-6 h-6" />, title: "Fully Documented Projects", desc: "Every case study includes documented scopes, materials used, and final NYC DOB sign-off documentation." },
                 { icon: <TrendingUp className="w-6 h-6" />, title: "Proven Structural Outcomes", desc: "Zero post-construction moisture failures. Our thermal-welded systems last decades beyond code minimums." },
                 { icon: <Building2 className="w-6 h-6" />, title: "All Property Classes", desc: "From pre-war residential co-ops to active commercial facades — we've engineered solutions for every building type." },
               ].map((item, i) => (

@@ -155,7 +155,7 @@ export const basementRenovationNycPost: BlogPost = {
       title: "Selecting Moisture-Tolerant Finishes",
       paragraphs: [
         "Traditional organic building materials—such as standard paper-faced drywall, solid hardwood flooring, and fiberglass batt insulation—should never be used below grade. If moisture levels rise, these materials absorb water and cultivate mold.",
-        "Leading <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">basement finishing contractors</a> specify inorganic materials: closed-cell extruded polystyrene (XPS) rigid foam insulation against concrete walls, mold-resistant purple/green drywall, and Luxury Vinyl Plank (LVP) or porcelain tile flooring laid over a dimpled moisture subfloor underlayment."
+        "Experienced <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">basement finishing contractors</a> specify inorganic materials: closed-cell extruded polystyrene (XPS) rigid foam insulation against concrete walls, mold-resistant purple/green drywall, and Luxury Vinyl Plank (LVP) or porcelain tile flooring laid over a dimpled moisture subfloor underlayment."
       ]
     },
     {

@@ -90,12 +90,7 @@ export default async function BoroughLocationPage({ params }: Props) {
         "@type": "AdministrativeArea",
         "name": data.boroughName
       },
-      "priceRange": "$$",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "100"
-      }
+      "priceRange": "$$"
     },
     {
       "@context": "https://schema.org",
@@ -283,7 +278,7 @@ export default async function BoroughLocationPage({ params }: Props) {
               <SectionHeader
                 badge="Documented Evidence"
                 headline={`Recent Work Completed in <span class='text-red-600'>${data.boroughName}</span>`}
-                description="Real local case studies with verified scopes of work and engineering sign-offs."
+                description="Real local case studies with documented scopes of work and DOB sign-offs."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

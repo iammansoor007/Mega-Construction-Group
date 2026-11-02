@@ -136,7 +136,7 @@ export const flatRoofRepairNycPost: BlogPost = {
         "Use the following checklist to evaluate your building’s roof condition:"
       ],
       listItems: [
-        "Age of the Roof: If the flat roof is under 12 years old and leaks are isolated, repair is cost-effective. If the membrane is 20+ years old and brittle, replacement is necessary.",
+        "Age of the Roof: If the flat roof is under 12 years old and leaks are isolated, repair is cost-effective. If the membrane is over two decades old and brittle, replacement is necessary.",
         "Insulation Saturation: If infrared moisture scans show that less than 15% of the polyiso insulation is wet, localized repairs suffice. If more than 25% is saturated, the entire roof must be torn off.",
         "Existing Layers: If your building already has two layers of roofing, NYC building code prohibits a third layer—a complete tear-off is legally mandated [VERIFY].",
         "Frequency of Repairs: If you have called a roofer more than three times in the past 12 months for different leak locations, the membrane has reached systemic failure."
@@ -184,7 +184,7 @@ export const flatRoofRepairNycPost: BlogPost = {
       id: "hiring-flat-roofer",
       title: "How to Hire a Flat Roofer in NYC",
       paragraphs: [
-        "When vetting flat roofing contractors, verify that the company holds manufacturer certifications (e.g., GAF Master Commercial, Carlisle SynTec, or Firestone Building Products). Manufacturer certification allows the roofer to issue 20- to 30-year non-prorated No Dollar Limit (NDL) warranties that cover both materials and labor.",
+        "When vetting flat roofing contractors, verify that the company holds manufacturer certifications (e.g., Carlisle SynTec, GAF Commercial, or Firestone Building Products). Manufacturer certification allows the roofer to issue 20- to 30-year non-prorated No Dollar Limit (NDL) warranties that cover both materials and labor.",
         "Always demand proof of active NYC DOB General Contractor registration, dedicated roofing liability insurance with an 'Action Over' endorsement, and specific experience in commercial <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in NYC</a>."
       ]
     }

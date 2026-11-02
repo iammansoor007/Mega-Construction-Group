@@ -456,11 +456,11 @@ const Services = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {[
-              { label: "Sidewalk Repair Bronx", href: "/services/concrete-services/sidewalk-repair", tag: "DOT Licensed" },
+              { label: "Sidewalk Repair Bronx", href: "/services/concrete-services/sidewalk-repair", tag: "Concrete Repair" },
               { label: "Chimney Repair Bronx", href: "/services/masonry-work/chimney-caps-rebuilds", tag: "Masonry" },
-              { label: "Roof Replacement Bronx", href: "/services/roofing-services/roof-replacement", tag: "GAF Master" },
+              { label: "Roof Replacement Bronx", href: "/services/roofing-services/roof-replacement", tag: "Roofing System" },
               { label: "Facade Restoration NYC", href: "/services/masonry-work/facade-restoration", tag: "Brownstone" },
-              { label: "DOT Violation Removal", href: "/services/concrete-services/dot-violation-removal", tag: "Expedited" },
+              { label: "DOT Violation Removal", href: "/services/concrete-services/dot-violation-removal", tag: "Violation Removal" },
               { label: "Emergency Roof Leak Repair", href: "/services/roofing-services/roof-leakage-repair", tag: "24/7 Response" },
               { label: "Commercial Flat Roofing", href: "/services/roofing-services/flat-roofing", tag: "TPO Systems" },
               { label: "Stucco Repair Brooklyn", href: "/services/stucco/stucco-repair", tag: "EIFS Finishes" },

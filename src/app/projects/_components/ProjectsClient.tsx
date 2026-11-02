@@ -148,7 +148,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                       {p.borough}
                     </span>
                     <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-600/90 backdrop-blur-md text-[10px] font-extrabold uppercase tracking-wider text-white">
-                      DOB Verified
+                      DOB Compliant
                     </span>
                   </div>
 

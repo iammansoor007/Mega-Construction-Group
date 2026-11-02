@@ -260,7 +260,7 @@ const Footer = () => {
               {certifications.slice(0, 4).map((cert, i) => (
                 <div key={i} className="p-1.5 xs:p-2 sm:p-3 bg-white/5 border border-white/10 text-center">
                   <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.cert}</span>
-                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-0.5 xs:mt-1 block">Verified</span>
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-0.5 xs:mt-1 block">Official</span>
                 </div>
               ))}
             </div>

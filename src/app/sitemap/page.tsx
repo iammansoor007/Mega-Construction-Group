@@ -170,7 +170,7 @@ export default function SitemapPage() {
             <h2 className="text-2xl font-bold uppercase tracking-tight font-heading text-gray-950 mb-2 flex items-center gap-2">
               <span className="w-3 h-3 bg-red-600 rounded-full" /> Documented Project Case Studies
             </h2>
-            <p className="text-sm text-gray-500 mb-6">Real verified projects with materials used, scopes of work, and NYC DOB sign-off documentation.</p>
+            <p className="text-sm text-gray-500 mb-6">Real documented projects with materials used, scopes of work, and NYC DOB sign-off documentation.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {projects.map((p, i) => (
                 <Link

@@ -178,3 +178,72 @@ All 22 modified posts are listed below for owner confirmation:
   - `author`: `Organization` (`Mega Contracting NY Group`, logo URL, and company URL)
   - `publisher`: `Organization` (`Mega Contracting NY Group`, logo URL, and company URL)
   - `mainEntityOfPage`: `WebPage` (`canonicalUrl`)
+
+## Task 2: Neutralization of Unverified Credibility Claims & Schema Cleanup
+
+All unverified claims, star ratings, guarantees, awards, statistical exaggerations, and accreditation claims were removed or neutralized with factual wording across all components, pages, JSON, and data files.
+
+### 1. Audited & Removed Claims Summary
+
+| Category / Claim | Files Modified | Action Taken & Replacement Text |
+| :--- | :--- | :--- |
+| **"#1"** | `src/app/layout.tsx:13`, `src/app/page.tsx:76`, `src/data/completeData.json:210` | Replaced "NYC's #1 licensed general contractor" with "NYC's licensed general contractor". |
+| **"most trusted"** | `src/app/about/page.tsx:25, 45`, `src/app/faq/_components/FAQClient.tsx:376, 410`, `src/data/completeData.json:216` | Replaced with "licensed general contractor" / "established NYC general contractor". |
+| **"leading" (credibility claim)** | `src/app/about/_components/AboutClient.tsx:528`, `src/app/faq/_components/FAQClient.tsx:355`, `src/data/bronxSeoPages.ts:56, 162, 760, 1181, 1197`, `src/data/services.json` (17 occurrences), `src/data/blogs/basementRenovationNyc.ts:158`, `src/data/completeData.json:216` | Neutralized to "proven tools and methods", "experienced", "established", or removed promotional adjective. (Note: standard directional/grammatical verbs like "leading directly to a yard" or "leading to foreclosure" were inspected and preserved where purely linguistic). |
+| **"elite" / "Master Elite" / "masters of"** | `src/data/services.json:27, 75, 85, 218, 350, 481, 608, 735, 862, 989, 4249, 5949`, `src/data/servicesEnricher.ts:193`, `src/data/locationsData.ts:156, 283`, `src/data/bronxSeoPages.ts:842`, `src/data/completeData.json:257, 304, 697` | Replaced with "Quality Roof Installation", "Commercial Roofing Systems", "Craftsmen of", "Premium", or "Established". |
+| **"award winning"** | `src/components/QuickQuote.tsx:132, 283`, `src/data/completeData.json:302` | Removed or replaced with "Premium" / "Quality Service". |
+| **"1,000+" / "1000+" / "thousands of projects"** | `src/app/about/_components/AboutClient.tsx:75, 115`, `src/app/contact/_components/ContactClient.tsx:666`, `src/app/faq/_components/FAQClient.tsx:417`, `src/components/TeamValues.tsx:298`, `src/data/completeData.json:170, 233` | Replaced with factual items ("Five Borough Service", "Since 2005", "5 NYC Boroughs") or removed stat counter. |
+| **"20+ years" / "20+ Years Experience"** | `src/app/about/_components/AboutClient.tsx:74, 111, 116`, `src/app/contact/_components/ContactClient.tsx:410, 667`, `src/app/faq/_components/FAQClient.tsx:415`, `src/components/TeamValues.tsx:296`, `src/data/services.json:21`, `src/data/completeData.json:265, 676, 862` | Replaced with "Since 2005" or "serving our neighbors since 2005" per hard rule. |
+| **"98%" / "100% client satisfaction"** | `src/app/about/_components/AboutClient.tsx:117`, `src/data/services.json:452`, `src/data/completeData.json:175, 243` | Removed from stats counters; replaced in data with neutral values. |
+| **Star ratings ("4.9", "4.9★ RATING")** | `src/components/RoofingExperts.tsx:301`, `src/data/completeData.json:324`, `src/lib/schema.ts:48`, `src/app/page.tsx:111`, `src/app/locations/[borough]/page.tsx:96` | Removed star rating and replaced badge with "FAMILY-OWNED". |
+| **"$30M+"** | `src/components/TeamValues.tsx:297` | Replaced stat card with "Licensing: Licensed & Insured". |
+| **"10-Year Workmanship Warranty"** | `src/app/about/_components/AboutClient.tsx:118, 528`, `src/app/faq/_components/FAQClient.tsx:355, 620`, `src/data/blogsData.ts:656`, `src/data/completeData.json:696, 898` | Neutralized to "Quality Workmanship", "workmanship warranty", or removed 10-year claim. |
+| **"GAF Master" / "DOT Licensed"** | `src/components/Services.tsx:459, 461`, `src/data/services.json:75`, `src/data/locationsData.ts:283`, `src/data/blogs/flatRoofRepairNyc.ts:187` | Replaced tags with "Concrete Repair", "Roofing System", and neutralized manufacturer claims. |
+| **"OSHA certified" / "OSHA-30"** | `src/app/about/_components/AboutClient.tsx:72, 122, 124, 346`, `src/app/faq/_components/FAQClient.tsx:348, 587`, `src/app/[slug]/page.tsx:285`, `src/components/RoofingExperts.tsx:295`, `src/data/services.json` (12 occurrences), `src/data/servicesEnricher.ts:203`, `src/data/blogsData.ts:292, 455, 636`, `src/data/projectsData.ts:31`, `src/data/completeData.json:463, 729, 1334, 1424` | Neutralized to "Licensed & Insured", "Safety Rigging & Scaffolding", "supervisory safety credentials", or "NYC DOB #NYC-2005-8942". |
+| **"NYC Certified"** | `src/app/services` components & `services.json` | Neutralized to "NYC Licensed" or "Licensed NYC General Contractor". |
+| **"Verified" accreditation badges** | `src/app/blog/[slug]/_components/BlogDetailClient.tsx:181, 242`, `src/app/licenses/page.tsx:48`, `src/app/projects/page.tsx:25, 77, 109`, `src/app/projects/[slug]/page.tsx:124, 224`, `src/app/projects/_components/ProjectsClient.tsx:151`, `src/app/sitemap/page.tsx:173`, `src/components/Footer.tsx:263`, `src/components/Testimonials.tsx:25, 277`, `src/data/blogs/generalContractorBronx.ts:60, 135, 145`, `src/data/blogs/kitchenRenovationBronx.ts:154`, `src/data/blogs/renovationPermitsNyc.ts:67`, `src/data/blogsData.ts:424, 648` | Neutralized to "Official", "Active License", "Documented", "DOB Compliant", or removed badge. |
+| **"Expedited"** | `src/components/Services.tsx:463`, `src/data/bronxSeoPages.ts:1275`, `src/data/locationsData.ts:62`, `src/data/services.json:2825, 3245, 3364`, `src/data/servicesEnricher.ts:331`, `src/data/completeData.json:62, 692`, `src/data/blogs/bathroomRenovationBronx.ts:64`, `src/data/blogs/commercialMultifamilyRenovation.ts:61`, `src/data/blogs/localLaw11.ts:212`, `src/data/blogs/renovationPermitsNyc.ts:203`, `src/data/blogsData.ts:451` | Replaced with "Violation Removal", "DOT Street Permits", "Standard", "Timely", or "prompt". |
+
+### 2. Stat Blocks Removed Cleanly
+1. `src/app/about/_components/AboutClient.tsx`: Removed the entire "By the Numbers / 20 Years of Proven Results" stat counter section cleanly. Surrounding layout transitions smoothly between values and founder story with no blank gaps.
+2. `src/app/contact/_components/ContactClient.tsx`: Replaced unverified stat numbers ("9+ Areas Covered", "1,000+ Projects Done", "20+ Years Serving NY") with verified facts: "5 NYC Boroughs", "Since 2005 Family-Owned", "Licensed & Insured".
+3. `src/app/faq/_components/FAQClient.tsx`: Replaced stat cards ("20+ Years", "1,000+ Projects", "10 Year Warranty") with verified badges: "Since 2005", "$5M Insured & Bonded", "5 NYC Boroughs", "Licensed NYC DOB #NYC-2005-8942".
+4. `src/components/TeamValues.tsx`: Replaced "20+ Years / $30M+ / 1000+" achievement cards with "Established: Since 2005", "Licensing: Licensed & Insured", "Ownership: Family-Owned".
+5. `src/components/RoofingExperts.tsx`: Replaced "OSHA CERTIFIED" and "4.9★ RATING" badges with "SINCE 2005" and "FAMILY-OWNED" alongside "LICENSED & INSURED".
+
+### 3. AggregateRating and Review Schema Removal
+All instances of `AggregateRating` and `Review` schemas were completely removed from the site:
+- `src/lib/schema.ts`: Removed `aggregateRating` object (ratingValue 4.9, reviewCount 100).
+- `src/app/page.tsx`: Removed `aggregateRating` object from LocalBusiness JSON-LD (ratingValue 4.9, reviewCount 200).
+- `src/app/locations/[borough]/page.tsx`: Removed `aggregateRating` object from LocalBusiness JSON-LD (ratingValue 4.9, reviewCount 100).
+- Zero `@type: "Review"` or `@type: "AggregateRating"` schema remains anywhere on the site.
+
+---
+
+## Items Retained for Owner Confirmation (Task 2)
+
+As instructed by the prompt, the following items were **not removed**, but are cataloged here for the business owner to confirm:
+
+### A. Testimonials (Owner must confirm these are real client quotes, with permission)
+1. **Michael Rosenberg** (Homeowner, Manhattan Residence) - Penthouse terrace waterproofing and parapet restoration.
+2. **Sarah Chen** (Property Owner, Brooklyn Brownstone) - Historic brownstone facade restoration and brick pointing.
+3. **David Goldstein** (Business Owner, Commercial Property) - Commercial flat roofing and TPO replacement.
+4. **Jennifer Walsh** (Homeowner, Scarsdale Residence) - Full kitchen and interior renovation.
+5. **Video Reviews**: Video testimonials featuring clients in `src/components/Testimonials.tsx` and `src/data/completeData.json`.
+   *Action required:* Owner Adil Shamis to confirm written permissions and real customer identities for all 5 testimonial entries.
+
+### B. Portfolio Projects and Photos (Owner must confirm real projects, with photo rights)
+Located in `src/data/projectsData.ts` and `src/data/completeData.json`:
+1. **Bronx Multi-Family Renovation** (`bronx-multi-family-renovation`): Grand Concourse, Bronx NY — Parapet rebuild and flat roof replacement. Photos: `/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM.jpeg`.
+2. **Brooklyn Commercial Build-Out** (`brooklyn-commercial-build-out`): DUMBO, Brooklyn NY — Commercial space build-out and structural steel framing. Photos: `/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.05 PM.jpeg`.
+3. **Park Avenue Residence** (`park-avenue-residence`): Upper East Side, Manhattan NY — Historic pre-war apartment gut renovation. Photos: `/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM (3).jpeg`.
+4. **Westchester Estate Addition** (`westchester-estate-addition`): Scarsdale, NY — Foundation work and custom addition. Photos: `/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM (2).jpeg`.
+5. **Long Island Kitchen Remodel** (`long-island-kitchen-remodel`): Manhasset, Long Island NY — Modern kitchen remodel. Photos: `/assets/updatedservicesassets/WhatsApp Image 2026-05-10 at 5.29.04 PM (1).jpeg`.
+   *Action required:* Owner Adil Shamis to confirm work was performed by the firm and that photo reproduction rights are held.
+
+### C. Long Island and Westchester Service Area Claims (Owner must confirm licensing / dispatch)
+Retained in `src/data/completeData.json` (contact.areas), `src/app/contact/_components/ContactClient.tsx`, and projects 4 & 5:
+- "Long Island • Westchester & Surrounding NY Areas"
+- "From Manhattan skyscrapers to Long Island homes — our licensed crews cover the entire New York metro area"
+- Projects in Scarsdale (Westchester) and Manhasset (Long Island)
+   *Action required:* Owner Adil Shamis to confirm home improvement contractor licensing (e.g., Westchester County DCA, Nassau/Suffolk County licenses) for projects outside the five NYC boroughs.

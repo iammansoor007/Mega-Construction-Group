@@ -69,10 +69,10 @@ const SectionLabel = ({ text }: { text: string }) => (
 const Marquee = () => {
   const items = [
     { text: "Licensed & Insured", icon: Shield },
-    { text: "OSHA-30 Certified", icon: ShieldCheck },
+    { text: "NYC DOB #NYC-2005-8942", icon: ShieldCheck },
     { text: "NYC Licensed Contractor", icon: Award },
-    { text: "20+ Years Experience", icon: Clock },
-    { text: "1,000+ Projects Completed", icon: CheckCircle2 },
+    { text: "Since 2005", icon: Clock },
+    { text: "Five Borough Service", icon: CheckCircle2 },
     { text: "Family Owned Since 2005", icon: Users },
     { text: "Free Detailed Estimates", icon: ClipboardCheck },
     { text: "24/7 Emergency Service", icon: Phone },
@@ -108,7 +108,7 @@ export default function AboutPage() {
     { icon: Zap, title: "Fast & Reliable", desc: "On-time, on-budget delivery with rapid emergency response. We never miss a deadline." },
     { icon: Heart, title: "Family Values", desc: "Family-owned since 2005. We bring care, trust, and personal accountability to every job." },
     { icon: BadgeCheck, title: "Fully Licensed", desc: "NYC licensed general contractor #NYC-2005-8942. Fully insured with $5M comprehensive coverage." },
-    { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors for 20+ years." },
+    { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors since 2005." },
   ];
 
   const stats = [
@@ -119,9 +119,9 @@ export default function AboutPage() {
   ];
 
   const certs = [
-    { cert: "OSHA-30 Certified Crews", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
+    { cert: "Licensed & Insured", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
     { cert: "NY Licensed #NYC-2005-8942", icon: Shield, color: "from-blue-500/10 to-blue-600/5" },
-    { cert: "OSHA Certified", icon: BadgeCheck, color: "from-green-500/10 to-green-600/5" },
+    { cert: "Family-Owned", icon: BadgeCheck, color: "from-green-500/10 to-green-600/5" },
     { cert: "Fully Insured", icon: ShieldCheck, color: "from-purple-500/10 to-purple-600/5" },
     { cert: "EPA Lead-Safe", icon: CheckCircle2, color: "from-teal-500/10 to-teal-600/5" },
     { cert: "NAHB Member", icon: Building, color: "from-indigo-500/10 to-indigo-600/5" },
@@ -343,7 +343,7 @@ export default function AboutPage() {
                     EST. 2005
                   </div>
                   <div className="absolute bottom-5 right-5 px-4 py-2 bg-white border border-gray-250 shadow-sm">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">OSHA-30 Certified</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">Licensed & Insured</span>
                   </div>
                 </div>
               </FadeIn>
@@ -525,7 +525,7 @@ export default function AboutPage() {
                   {[
                     { title: "Transparent Pricing", desc: "Detailed, itemized estimates with zero hidden fees or surprise charges." },
                     { title: "Licensed & Fully Insured", desc: "NYC Licensed contractor #NYC-2005-8942 with comprehensive insurance coverage." },
-                    { title: "10-Year Workmanship Warranty", desc: "Industry-leading warranty on all labor — we stand behind our work." },
+                    { title: "Quality Workmanship", desc: "Dedicated warranty on labor — we stand behind our work." },
                     { title: "24/7 Emergency Response", desc: "Storm damage or urgent repairs? Our emergency team is always on call." },
                     { title: "Local, Family-Owned", desc: "Not a franchise — a real family business invested in our community since 2005." },
                   ].map((item, i) => (

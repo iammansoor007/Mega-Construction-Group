@@ -111,7 +111,7 @@ export const fireEscapePaintingNycPost: BlogPost = {
       image: {
         src: "/assets/fireexitmega.jpg",
         alt: "Multi-story exterior steel fire escape staircase on brick facade in NYC",
-        caption: "Drop ladders, platform brackets, and wall anchors must be structurally verified prior to repainting."
+        caption: "Drop ladders, platform brackets, and wall anchors must be structurally inspected prior to repainting."
       }
     },
     {

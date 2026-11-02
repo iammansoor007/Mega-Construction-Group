@@ -209,7 +209,7 @@ export const localLaw11Post: BlogPost = {
     {
       question: "What is the difference between Safe, SWARMP and Unsafe?",
       answer:
-        "The three FISP classifications define the structural condition of a building's exterior envelope. A 'Safe' rating denotes an envelope free of hazardous conditions. A 'SWARMP' (Safe With a Repair and Maintenance Program) rating highlights defects that are stable now but will deteriorate into safety hazards before the next cycle if neglected. An 'Unsafe' rating indicates an active hazard—such as loose brick or fractured lintels—requiring immediate sidewalk sheds and expedited repairs."
+        "The three FISP classifications define the structural condition of a building's exterior envelope. A 'Safe' rating denotes an envelope free of hazardous conditions. A 'SWARMP' (Safe With a Repair and Maintenance Program) rating highlights defects that are stable now but will deteriorate into safety hazards before the next cycle if neglected. An 'Unsafe' rating indicates an active hazard—such as loose brick or fractured lintels—requiring immediate sidewalk sheds and prompt repairs."
     },
     {
       question: "What happens if my building fails a Local Law 11 inspection?",

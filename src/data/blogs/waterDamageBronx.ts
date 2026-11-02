@@ -220,7 +220,7 @@ export const waterDamageBronxPost: BlogPost = {
     {
       question: "Can water damage cause structural problems?",
       answer:
-        "Yes. Prolonged water saturation softens wooden floor joists, rots subfloors, rusts steel beams, and causes masonry mortar joints to dissolve. Over time, unaddressed foundation seepage destabilizes soil footings, leading to differential foundation settlement and exterior wall cracking."
+        "Yes. Prolonged water saturation softens wooden floor joists, rots subfloors, rusts steel beams, and causes masonry mortar joints to dissolve. Over time, unaddressed foundation seepage destabilizes soil footings, causing differential foundation settlement and exterior wall cracking."
     },
     {
       question: "Who should I call first: plumber, restoration company or insurer?",

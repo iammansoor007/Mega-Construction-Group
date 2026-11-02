@@ -190,7 +190,7 @@ const categoryProcessMap: Record<string, { title: string; description: string }[
 const categoryBenefitsMap: Record<string, Benefit[]> = {
   "roofing-services": [
     { title: "Licensed NYC General Contractor", description: "Directly licensed (#NYC-2005-8942) with the NYC Department of Buildings since 2005.", icon: "ShieldCheck" },
-    { title: "Master Elite Certified Installers", description: "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.", icon: "Award" },
+    { title: "Commercial Roofing Systems", description: "Installed to manufacturer specifications for flat roofs and commercial buildings.", icon: "Award" },
     { title: "130 MPH High-Wind Rating", description: "All roofing assemblies are engineered and fastened to exceed NYC coastal storm wind uplift requirements.", icon: "Wind" },
     { title: "Slope-to-Drain Insulation", description: "Tapered insulation layouts prevent stagnant ponding water on flat roofs.", icon: "Droplets" },
     { title: "$5,000,000 Insurance Coverage", description: "Multi-million commercial general liability and workers' compensation coverage protecting property owners.", icon: "Shield" },
@@ -200,7 +200,7 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "FISP & Facade Inspection Compliance", description: "Extensive experience addressing facade condition filings with the NYC DOB.", icon: "Building2" },
     { title: "Historic Masonry Preservation", description: "Careful masonry color matching, sandstone dressing, and historic lime mortars.", icon: "Landmark" },
     { title: "316 Stainless Steel Reinforcement", description: "We use non-corrosive marine-grade stainless steel tieback anchors to permanently eliminate future wall bowing.", icon: "Gem" },
-    { title: "OSHA-30 Certified Rigging & Crews", description: "Full safety protocol compliance with suspended scaffolding, boom lifts, and sidewalk shed protections.", icon: "HardHat" },
+    { title: "Safety Rigging & Scaffolding", description: "Full safety protocol compliance with suspended scaffolding, boom lifts, and sidewalk shed protections.", icon: "HardHat" },
     { title: "Dustless HEPA Grinding Technology", description: "OSHA Table-1 compliant shrouded vacuum grinding systems protecting tenant health and building interiors.", icon: "ShieldAlert" },
     { title: "Written 10-Year Water Resistance Warranty", description: "Complete exterior masonry restorations are backed by an ironclad multi-year written warranty.", icon: "Award" }
   ],
@@ -328,7 +328,7 @@ const categoryFaqsMap: Record<string, FAQ[]> = {
     { question: "Can you stop severe active roof leaks during a major rainstorm?", answer: "Yes. Our storm crews deploy temporary weighted ballast tarps, cold-applied emergency elastomeric mastic, and commercial diverter catch basins to arrest interior flooding immediately." },
     { question: "What should property owners do immediately when structural cracking or wall bowing is detected?", answer: "Evacuate the immediate hazard area, shut off gas and water mains if pipes are strained, call 911 if collapse is imminent, and call our emergency line at +1 (914) 804-3000 for emergency engineering shoring." },
     { question: "Do you handle industrial water extraction and flood cleanup?", answer: "Yes. We deploy high-capacity submersible extraction pumps, industrial air movers, and Low Grain Refrigerant (LGR) dehumidifiers to prevent structural mold growth and subfloor rot." },
-    { question: "Can you assist with resolving immediate NYC DOB Stop Work Orders (SWO)?", answer: "Yes. We meet DOB inspectors on-site, review the hazardous conditions cited on the summons, execute immediate stabilization, and file expedited rescission requests with the borough commissioner." },
+    { question: "Can you assist with resolving immediate NYC DOB Stop Work Orders (SWO)?", answer: "Yes. We meet DOB inspectors on-site, review the hazardous conditions cited on the summons, execute immediate stabilization, and file rescission requests with the borough commissioner." },
     { question: "What happens after the emergency situation is stabilized?", answer: "Once the building is safe and secure, we transition seamlessly into permanent architectural repair: pulling permanent DOB permits, executing repairs, and clearing all municipal violations." },
     { question: "What is your 24/7 emergency dispatch phone number?", answer: "Our emergency dispatch center operates around the clock at +1 (914) 804-3000. Operators dispatch the closest mobile crew immediately upon receiving your call." }
   ]

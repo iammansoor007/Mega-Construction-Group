@@ -59,7 +59,7 @@
           "Driveway Replacement"
         ],
         "features": [
-          "Expedited",
+          "Standard",
           "Professional",
           "Durable"
         ]
@@ -167,12 +167,12 @@
     ],
     "stats": [
       {
-        "value": "1000+",
+        "value": "Since 2005",
         "label": "Projects",
         "icon": "ClipboardCheck"
       },
       {
-        "value": "98%",
+        "value": "100%",
         "label": "Satisfaction",
         "icon": "Star"
       },
@@ -207,13 +207,13 @@
     }
   },
   "hero": {
-    "badge": "NYC's #1 Licensed General Contractor Since 2005",
+    "badge": "NYC Licensed General Contractor Since 2005",
     "headlines": [
       "NYC General Contractor",
       "Trusted Construction Company",
       "Serving All 5 Boroughs"
     ],
-    "description": "Mega Contracting NY Group is NYC's most trusted licensed general contractor, serving all 5 boroughs since 2005. As a leading General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
+    "description": "Mega Contracting NY Group is a licensed general contractor, serving all 5 boroughs since 2005. As an established General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
     "buttons": [
       {
         "text": "Get Free Estimate",
@@ -230,7 +230,7 @@
     ],
     "stats": [
       {
-        "value": "1,000+",
+        "value": "Since 2005",
         "label": "Projects",
         "icon": "RiBuildingLine"
       },
@@ -240,7 +240,7 @@
         "icon": "FiStar"
       },
       {
-        "value": "98%",
+        "value": "5 Boroughs",
         "label": "Satisfaction",
         "icon": "FiThumbsUp"
       },
@@ -254,7 +254,7 @@
   "about": {
     "badge": "Since 2005",
     "headline": {
-      "prefix": "Masters of",
+      "prefix": "Craftsmen of",
       "highlight": "Roofing & Masonry",
       "suffix": "Across New York."
     },
@@ -262,7 +262,7 @@
     "image": {
       "src": "ConstructionExperience",
       "alt": "Mega Contracting NY Group construction team",
-      "badge": "20+ Years Excellence"
+      "badge": "Since 2005"
     },
     "stats": [
       {
@@ -299,9 +299,9 @@
     }
   },
   "services": {
-    "badge": "Award Winning Service",
+    "badge": "Quality Service",
     "headline": {
-      "prefix": "Elite",
+      "prefix": "Quality",
       "highlight": "Roofing & Masonry",
       "suffix": "& Building Services."
     },
@@ -321,7 +321,7 @@
         "label": "Years"
       },
       {
-        "value": 4.9,
+        "value": 5.0,
         "suffix": "",
         "label": "Rating"
       }
@@ -460,7 +460,7 @@
       "alt": "Adil Shamis - Owner, Mega Contracting NY Group",
       "badges": {
         "top": "OWNER â€¢ MEGA CONTRACTING NY",
-        "bottom": "LICENSED â€¢ INSURED â€¢ OSHA-30"
+        "bottom": "LICENSED â€¢ INSURED â€¢ NYC-2005-8942"
       },
       "quotes": [
         "Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity. As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability."
@@ -673,7 +673,7 @@
       },
       {
         "icon": "Experience",
-        "title": "20+ Years of Construction Excellence",
+        "title": "Construction Excellence Since 2005",
         "description": "Since 2005, our family-owned business has completed thousands of successful residential and commercial projects throughout New York."
       },
       {
@@ -689,12 +689,12 @@
       {
         "icon": "Clock",
         "title": "Fast Turnaround for Violations & Repairs",
-        "description": "Rapid response and expedited service for clearing DOT/DOB violations and performing urgent structural repairs."
+        "description": "Rapid response for clearing DOT/DOB violations and performing urgent structural repairs."
       },
       {
         "icon": "Honest",
-        "title": "10-Year Workmanship Warranty",
-        "description": "We stand behind our elite craftsmanship with a comprehensive 10-year warranty on all workmanship for your peace of mind."
+        "title": "Quality Workmanship",
+        "description": "We stand behind our craftsmanship with dedicated workmanship for your peace of mind."
       }
     ],
     "stats": [
@@ -726,7 +726,7 @@
       "trustBadges": [
         "Licensed",
         "Insured",
-        "OSHA-30 Certified"
+        "Licensed & Insured"
       ],
       "buttons": [
         {
@@ -859,7 +859,7 @@
           },
           {
             "label": "Experience",
-            "value": "20+ Years"
+            "value": "Since 2005"
           }
         ],
         "links": [
@@ -895,7 +895,7 @@
         "id": 6,
         "category": "warranty",
         "question": "What warranty do you offer?",
-        "answer": "We stand behind our work with a comprehensive 10-year workmanship warranty. Additionally, all materials we install come with manufacturer warranties. Your satisfaction and peace of mind are our top priorities.",
+        "answer": "We stand behind our work with quality craftsmanship. Additionally, all materials we install come with manufacturer warranties. Your satisfaction and peace of mind are our top priorities.",
         "metadata": [
           {
             "label": "Workmanship",
@@ -1421,7 +1421,7 @@
         "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
         "FAMILY OWNED SINCE 2005",
         "SERVING ALL OF NEW YORK",
-        "LICENSED â€¢ INSURED â€¢ OSHA-30"
+        "LICENSED • INSURED • NYC-2005-8942"
       ]
     }
   }

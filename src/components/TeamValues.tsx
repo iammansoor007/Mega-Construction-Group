@@ -293,9 +293,9 @@ const Leadership = () => {
 
             {/* Key Achievements */}
             <div className="grid grid-cols-3 gap-3 pt-4">
-              <AchievementCard label="Experience" value="20+ Years" />
-              <AchievementCard label="Projects" value="$30M+" />
-              <AchievementCard label="Clients" value="1000+" />
+              <AchievementCard label="Established" value="Since 2005" />
+              <AchievementCard label="Licensing" value="Licensed & Insured" />
+              <AchievementCard label="Ownership" value="Family-Owned" />
             </div>
           </div>
         </div>

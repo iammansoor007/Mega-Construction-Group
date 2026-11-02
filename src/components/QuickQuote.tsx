@@ -129,7 +129,7 @@ ${formData.message}
     return (
         <>
             {/* ====================== */}
-            {/* EYE-CATCHING FLOATING BUTTON - AWARD WINNING */}
+            {/* EYE-CATCHING FLOATING BUTTON - PREMIUM */}
             {/* ====================== */}
             <motion.button
                 onClick={() => setIsOpen(true)}
@@ -280,7 +280,7 @@ ${formData.message}
             </motion.button>
 
             {/* ====================== */}
-            {/* PREMIUM MODAL - AWARD WINNING ANIMATION */}
+            {/* PREMIUM MODAL - PREMIUM ANIMATION */}
             {/* ====================== */}
             <AnimatePresence>
                 {isOpen && (

@@ -64,7 +64,7 @@ export const renovationPermitsNycPost: BlogPost = {
       description: "Secure approved Letters of Completion that provide clear documentation for future sales and refinancing."
     },
     {
-      title: "Verified Life-Safety Standards",
+      title: "Standard Life-Safety Protocols",
       description: "Ensure that structural walls, electrical wiring, and plumbing assemblies satisfy municipal safety standards."
     }
   ],
@@ -200,7 +200,7 @@ export const renovationPermitsNycPost: BlogPost = {
     {
       question: "How long does a DOB permit take?",
       answer:
-        "Standard plan examination through DOB NOW typically takes 3 to 8 weeks for initial review. Expedited filings under Professional Certification (Pro-Cert) can be approved in a few days, though they remain subject to post-approval municipal audits [VERIFY]."
+        "Standard plan examination through DOB NOW typically takes 3 to 8 weeks for initial review. Filings under Professional Certification (Pro-Cert) can be approved in a few days, though they remain subject to post-approval municipal audits [VERIFY]."
     },
     {
       question: "How much do renovation permits cost?",

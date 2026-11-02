@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Our Licensed Construction Company | Bronx NY",
     description:
-      "Family-owned since 2005. Mega Contracting NY Group is NYC's most trusted licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
+      "Family-owned since 2005. Mega Contracting NY Group is NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
     url: "https://www.megacontractingnyc.com/about",
     siteName: "Mega Contracting NY Group",
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     creator: "@megacontractingny",
     title: "About Our Licensed Construction Company | Bronx NY",
     description:
-      "Family-owned since 2005. NYC's most trusted licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
+      "Family-owned since 2005. NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
     images: ["https://www.megacontractingnyc.com/assets/megaabout.png"],
   },
 };

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "General Contractor NYC | Licensed Construction Company",
     template: "%s | Mega Contracting NY Group",
   },
-  description: "Mega Contracting NY Group is NYC's #1 licensed general contractor. Roofing, facade restoration, brick pointing, DOB/DOT violation removal, sidewalk repair, waterproofing & more across all 5 boroughs. Free estimates.",
+  description: "Mega Contracting NY Group is NYC's licensed general contractor. Roofing, facade restoration, brick pointing, DOB/DOT violation removal, sidewalk repair, waterproofing & more across all 5 boroughs. Free estimates.",
 
   openGraph: {
     siteName: "Mega Contracting NY Group",

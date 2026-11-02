@@ -61,7 +61,7 @@ export const bathroomRenovationBronxPost: BlogPost = {
     },
     {
       title: "Co-op Board Compliance",
-      description: "Full compliance with building alteration agreements and expedited board architectural approvals."
+      description: "Full compliance with building alteration agreements and prompt board architectural approvals."
     },
     {
       title: "Maximized Spatial Efficiency",

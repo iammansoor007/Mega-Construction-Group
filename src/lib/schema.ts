@@ -43,11 +43,6 @@ export const localBusinessSchema = {
     "closes": "23:59"
   },
   "priceRange": "$$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "100"
-  },
   "sameAs": [
     "https://www.instagram.com/megacontractingny",
     "https://www.linkedin.com/company/mega-contracting-ny-group",

@@ -407,7 +407,7 @@ ${formData.message}
                 { icon: <Shield className="w-3.5 h-3.5" />, text: "Licensed & Insured" },
                 { icon: <Star className="w-3.5 h-3.5" />, text: "Free Estimates" },
                 { icon: <Zap className="w-3.5 h-3.5" />, text: "24/7 Emergency" },
-                { icon: <CheckCircle2 className="w-3.5 h-3.5" />, text: "20+ Years Experience" },
+                { icon: <CheckCircle2 className="w-3.5 h-3.5" />, text: "Since 2005" },
               ].map((badge, i) => (
                 <div key={i}
                   className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:border-red-200 hover:shadow-md transition-all duration-300"
@@ -662,9 +662,9 @@ ${formData.message}
                   className="grid grid-cols-3 gap-4 lg:gap-6"
                 >
                   {[
-                    { value: "9+", label: "Areas Covered" },
-                    { value: "1,000+", label: "Projects Done" },
-                    { value: "20+", label: "Years Serving NY" },
+                    { value: "5", label: "NYC Boroughs" },
+                    { value: "Since 2005", label: "Family-Owned" },
+                    { value: "Licensed", label: "& Insured" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center px-4 py-5 rounded-2xl" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}>
                       <div className="text-2xl sm:text-3xl font-bold text-white leading-none mb-1">{stat.value}</div>

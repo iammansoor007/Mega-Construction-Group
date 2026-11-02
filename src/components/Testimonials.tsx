@@ -22,7 +22,7 @@ const Icons = {
       <path d="M18 11H14V7H18V11Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
-  Verified: () => (
+  Checkmark: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-red-600">
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
       <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -273,9 +273,7 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
                 <h4 className="font-bold text-gray-900 text-sm md:text-base lg:text-lg truncate">
                   {testimonial.name}
                 </h4>
-                <span className="text-red-600 flex-shrink-0">
-                  <Icons.Verified />
-                </span>
+                
               </div>
               <p className="text-xs md:text-sm text-gray-500 truncate">
                 {testimonial.position}, {testimonial.company}

@@ -45,7 +45,7 @@ export default function LicensesPage() {
       number: "GC License #NYC-2005-8942",
       issuer: "NYC Department of Buildings",
       desc: "Authorized to pull general contracting, structural masonry, roofing, facade restoration, and scaffolding permits throughout NYC.",
-      badge: "Verified Active",
+      badge: "Active License",
     },
     {
       title: "NYC Department of Transportation (DOT) Permitting",

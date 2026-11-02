@@ -28,7 +28,7 @@ export const projectsData: Record<string, CaseStudyData> = {
     completionDate: "October 2024",
     problem: "Severe water intrusion along the top-floor residential units caused by deteriorated parapet mortar joints, fractured coping stones, and a 20-year-old built-up roof that had blistered and delaminated.",
     scope: [
-      "Erected OSHA-compliant safety perimeter and suspended debris netting along building perimeter",
+      "Erected dedicated safety perimeter and suspended debris netting along building perimeter",
       "Demolished 180 linear feet of crumbling brick parapet down to structurally sound masonry substrate",
       "Rebuilt parapet wall using 4-inch solid concrete face brick with Type S high-bond mortar",
       "Installed new precast concrete coping stones anchored with stainless steel dowels and elastomeric sealant",

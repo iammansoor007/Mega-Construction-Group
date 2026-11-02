@@ -57,7 +57,7 @@ export const generalContractorBronxPost: BlogPost = {
   keyOutcomes: [
     {
       title: "Legally Protected Projects",
-      description: "Ensure enforceable contracts, statutory lien waivers, and verified building code compliance."
+      description: "Ensure enforceable contracts, statutory lien waivers, and building code compliance."
     },
     {
       title: "Streamlined Permitting",
@@ -132,7 +132,7 @@ export const generalContractorBronxPost: BlogPost = {
           ["Insurance Coverage", "Minimal or missing Action Over clause", "$2M–$5M General Liability + Workers' Comp"],
           ["Contract Detail", "Vague lump-sum figure without allowances", "Fully itemized scope, specs, and materials"],
           ["Permit Handling", "Asks owner to pull permits or skips them", "Full management of DOB plan filing & sign-offs"],
-          ["Payment Terms", "Large upfront cash deposit (30%–50%)", "Milestone-based draws tied to verified progress"]
+          ["Payment Terms", "Large upfront cash deposit (30%–50%)", "Milestone-based draws tied to documented progress"]
         ]
       }
     },
@@ -142,7 +142,7 @@ export const generalContractorBronxPost: BlogPost = {
       paragraphs: [
         "Under New York State General Business Law § 771, home improvement contracts exceeding $500 must be in writing and signed by both parties. A legally sound contract must incorporate the following core components:",
         "1. Complete Scope of Work: Detailed architectural specifications, material brand names, finishes, and specific plumbing/electrical fixture schedules.",
-        "2. Milestone Payment Schedule: Payments must be tied to verified completion milestones (e.g., 10% deposit, 25% upon rough framing and rough plumbing inspection, 25% upon drywall completion, 25% upon tile and cabinet install, and 15% final retainage upon DOB sign-off).",
+        "2. Milestone Payment Schedule: Payments must be tied to documented completion milestones (e.g., 10% deposit, 25% upon rough framing and rough plumbing inspection, 25% upon drywall completion, 25% upon tile and cabinet install, and 15% final retainage upon DOB sign-off).",
         "3. Formal Change Order Clause: Mandating that any alteration in scope or cost must be documented in writing and signed by both parties before the additional work begins.",
         "4. Lien Waivers: Requiring the general contractor to supply signed Partial Lien Waivers from all subcontractors and suppliers with each progressive payment draw."
       ]

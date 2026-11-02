@@ -59,7 +59,7 @@ export const locationsData: Record<string, BoroughData> = {
       { title: "Roofing Contractor Bronx", description: "Flat roofs, leak repairs, GAF shingles & commercial TPO installations.", href: "/services/roofing-services" },
       { title: "Masonry & Brick Pointing", description: "Historic facade restoration, brick repointing, and parapet wall rebuilding.", href: "/services/masonry-work" },
       { title: "Chimney Repair Bronx", description: "Complete chimney rebuilds, crown pouring, and leakproof flashing replacement.", href: "/services/masonry-work/chimney-caps-rebuilds" },
-      { title: "DOT Sidewalk Violation Removal", description: "Expedited violation removal, permit filing, and certified concrete pouring.", href: "/services/concrete-services/dot-violation-removal" },
+      { title: "DOT Sidewalk Violation Removal", description: "Violation removal, permit filing, and concrete pouring.", href: "/services/concrete-services/dot-violation-removal" },
       { title: "Complete Home Renovation", description: "Turn-key kitchens, luxury bathrooms, basement waterproofing & egress.", href: "/services/home-renovation" }
     ],
     recentProjects: [
@@ -153,7 +153,7 @@ export const locationsData: Record<string, BoroughData> = {
     title: "Licensed General Contractor Manhattan NY | Mega Contracting NY Group",
     metaDesc: "High-end Manhattan general contractor. Facade restoration, Local Law 11 FISP compliance, commercial roofing & luxury interior renovation. Fully insured.",
     h1: "Licensed Manhattan General Contractor & Commercial Construction",
-    intro: "Operating in Manhattan demands high-density urban logistics, rigorous building department compliance, and strict building board protocols. Mega Contracting NY Group Inc. provides elite facade restoration, FISP Local Law 11 repairs, commercial flat roofing, and luxury interior renovations throughout Manhattan.",
+    intro: "Operating in Manhattan demands high-density urban logistics, rigorous building department compliance, and strict building board protocols. Mega Contracting NY Group Inc. provides facade restoration, FISP Local Law 11 repairs, commercial flat roofing, and luxury interior renovations throughout Manhattan.",
     neighborhoods: [
       "Upper East Side", "Upper West Side", "Midtown Manhattan", "Tribeca",
       "SoHo", "Chelsea", "Greenwich Village", "Financial District",
@@ -280,7 +280,7 @@ export const locationsData: Record<string, BoroughData> = {
       }
     ],
     primaryServices: [
-      { title: "Architectural Shingle Roofing", description: "GAF Master Elite certified installation, Class 4 impact resistance, and 50-year warranty.", href: "/services/roofing-services" },
+      { title: "Architectural Shingle Roofing", description: "Architectural shingle installation, Class 4 impact resistance, and manufacturer warranty.", href: "/services/roofing-services" },
       { title: "Retaining Wall Construction", description: "Poured concrete, segmental block, and reinforced stone retaining walls.", href: "/services/masonry-work/retaining-walls" },
       { title: "Foundation Repair & Waterproofing", description: "Helical underpinning, foundation crack injection, and French drain systems.", href: "/services/masonry-work/waterproofing" },
       { title: "Complete Interior Remodeling", description: "Custom home additions, modern kitchen transformations, and finished basements.", href: "/services/home-renovation" }

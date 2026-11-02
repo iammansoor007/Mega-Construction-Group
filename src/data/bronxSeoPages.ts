@@ -53,7 +53,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     ],
     contentSections: [
       {
-        heading: "Leading Roofing Contractor Services in the Bronx NY",
+        heading: "Roofing Contractor Services in the Bronx NY",
         paragraphs: [
           "When property owners need an experienced roofing contractor in the Bronx NY, Mega Contracting NY Group delivers industrial-grade craftsmanship designed for the harsh northeastern climate. Our certified roofing teams handle residential single-family homes, multi-family brownstones, and large commercial facilities across Riverdale, Pelham Bay, Throggs Neck, Morris Park, and Grand Concourse.",
           "Our full-service roofing division specializes in comprehensive roof replacement, targeted roof leak detection, commercial flat roofing, TPO single-ply membranes, traditional asphalt shingles, and chimney flashing rebuilds. With more than two decades of proven service in New York City, our work satisfies every NYC Department of Buildings code requirement."
@@ -159,7 +159,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
       {
         heading: "Trusted Renovation Contractor Services in the Bronx NY",
         paragraphs: [
-          "Transform your living space with the leading renovation contractor in the Bronx NY. Mega Contracting NY Group handles every aspect of interior remodeling from initial concept drawings and board approvals to custom tile setting, premium millwork, and fixture installations.",
+          "Transform your living space with Mega Contracting NY Group, general contractor in the Bronx NY. Mega Contracting NY Group handles every aspect of interior remodeling from initial concept drawings and board approvals to custom tile setting, premium millwork, and fixture installations.",
           "Whether you are modernizing a pre-war co-op kitchen, building a luxury primary bath suite, or finishing an underutilized basement with legal egress, our licensed in-house craftsmen deliver turnkey results with zero subcontracting delays."
         ]
       }
@@ -301,7 +301,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     ]
   },
 
-  // ─── TIER 1 KEYWORD PAGES (#1–11) ──────────────────────────────────────────
+  // ─── TIER 1 KEYWORD PAGES (Pages 1–11) ──────────────────────────────────────────
   "chimney-repair-bronx": {
     slug: "chimney-repair-bronx",
     keyword: "chimney repair bronx ny",
@@ -757,7 +757,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
       {
         heading: "Premier Concrete Contractor Services in the Bronx NY",
         paragraphs: [
-          "Enhance your outdoor living area with the leading concrete contractor in the Bronx NY. Mega Contracting NY Group constructs beautiful, durable backyard slabs, concrete patios, walkways, and driveways across the borough.",
+          "Enhance your outdoor living area with concrete services in the Bronx NY from Mega Contracting NY Group. Mega Contracting NY Group constructs beautiful, durable backyard slabs, concrete patios, walkways, and driveways across the borough.",
           "Our concrete formulations are engineered to resist New York freeze-thaw cycles and deicing chemicals, giving you an outdoor space that retains its beauty for decades."
         ]
       }
@@ -839,7 +839,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
       {
         heading: "Expert Stucco Contracting Throughout Brooklyn NY",
         paragraphs: [
-          "For authentic traditional stucco application that stands up to New York's coastal weather, choose Mega Contracting NY Group. As an elite stucco contractor in Brooklyn NY, we specialize in high-end exterior finishes for brownstones, residential homes, and commercial buildings.",
+          "For authentic traditional stucco application that stands up to New York's coastal weather, choose Mega Contracting NY Group. As an established stucco contractor in Brooklyn NY, we specialize in exterior finishes for brownstones, residential homes, and commercial buildings.",
           "Our skilled plasterers hand-trowel scratch, brown, and finish coats with millimeter precision, ensuring crack resistance and exceptional weatherproofing."
         ]
       }
@@ -1178,7 +1178,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     image: "/assets/shingleroofingmega.jpg",
     features: ["Class 4 Impact Resistant Shingles", "Algae-Resistant Copper Granules", "Ice & Water Shield Underlayment", "Ridge Vent Attic Ventilation", "50-Year Limited Warranties"],
     faqs: [{ question: "What is the lifespan of architectural shingles in the Bronx?", answer: "Modern architectural shingles typically last 30 to 50 years when installed with proper ridge ventilation and ice-and-water barriers." }],
-    contentSections: [{ heading: "Premium Shingle Roofing Across the Bronx", paragraphs: ["Protect your residential home with high-performance shingle roofing in the Bronx NY. Mega Contracting NY Group installs industry-leading roofing systems that enhance curb appeal."] }],
+    contentSections: [{ heading: "Premium Shingle Roofing Across the Bronx", paragraphs: ["Protect your residential home with high-performance shingle roofing in the Bronx NY. Mega Contracting NY Group installs high-quality roofing systems that enhance curb appeal."] }],
     relatedPages: [{ title: "Roofing Contractor Bronx", slug: "roofing" }, { title: "Roof Replacement Bronx", slug: "roof-replacement-bronx-ny" }]
   },
 
@@ -1194,7 +1194,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     image: "/assets/tporoofingmega.jpg",
     features: ["Energy Star TPO Membranes", "EPDM Rubber Roofing Systems", "Torch-Down SBS Bitumen", "Tapered Insulation Systems", "Zero-Ponding Slope Corrections"],
     faqs: [{ question: "Why is TPO ideal for Bronx flat roofs?", answer: "TPO features hot-air welded seams that form a continuous monolithic membrane impervious to standing water." }],
-    contentSections: [{ heading: "Leading Flat Roof Contractor in the Bronx NY", paragraphs: ["Mega Contracting NY Group delivers commercial flat roofing systems designed to withstand heavy thermal cycling, standing water, and urban foot traffic."] }],
+    contentSections: [{ heading: "Flat Roof Contractor in the Bronx NY", paragraphs: ["Mega Contracting NY Group delivers commercial flat roofing systems designed to withstand heavy thermal cycling, standing water, and urban foot traffic."] }],
     relatedPages: [{ title: "Flat Roofing NYC", slug: "flat-roofing-nyc" }, { title: "Roofing Contractor Bronx", slug: "roofing" }]
   },
 
@@ -1272,7 +1272,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     categoryHubTitle: "Concrete Division",
     heroHighlight: "Rapid NYC DOT sidewalk violation dismissal in the Bronx. We replace cracked concrete flags, pull street opening permits, and file for violation removal.",
     image: "/assets/sidewalkviolationremoval.jpg",
-    features: ["Official Violation Code Remediation", "NYC DOT Expedited Street Permits", "Tree Root Bridging Solutions", "4,000 PSI DOT Approved Concrete Mix", "Final Dismissal Certificate Delivery"],
+    features: ["Official Violation Code Remediation", "NYC DOT Street Permits", "Tree Root Bridging Solutions", "4,000 PSI DOT Approved Concrete Mix", "Final Dismissal Certificate Delivery"],
     faqs: [{ question: "How does Mega Contracting NY Group remove a DOT violation?", answer: "We review the DOT notice, pull the required permits, pour code-compliant concrete, request a final inspection, and ensure the violation is removed from the city database." }],
     contentSections: [{ heading: "Clear Your Bronx Sidewalk Violation Rapidly", paragraphs: ["Do not let the city place a lien on your property. Mega Contracting NY Group removes Bronx sidewalk violations quickly and affordably."] }],
     relatedPages: [{ title: "DOT Violation Removal", slug: "dot-violation-removal-nyc" }, { title: "Sidewalk Repair Bronx", slug: "sidewalk-repair-bronx" }]

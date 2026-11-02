@@ -151,7 +151,7 @@ export const kitchenRenovationBronxPost: BlogPost = {
       title: "Realistic Construction Timelines and Material Lead Times",
       paragraphs: [
         "The most critical scheduling rule in kitchen remodeling is managing material lead times. While active demolition and construction take 4 to 8 weeks, material procurement takes significantly longer.",
-        "Semi-custom cabinetry requires 6 to 10 weeks; custom millwork spans 12 to 16 weeks; and specialty luxury appliances often face 8 to 20-week backorders. A reputable <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">kitchen contractor in the Bronx</a> will never demolish your existing kitchen until all cabinets, fixtures, and appliances are verified in local warehouse storage."
+        "Semi-custom cabinetry requires 6 to 10 weeks; custom millwork spans 12 to 16 weeks; and specialty luxury appliances often face 8 to 20-week backorders. A reputable <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">kitchen contractor in the Bronx</a> will never demolish your existing kitchen until all cabinets, fixtures, and appliances are confirmed in local warehouse storage."
       ]
     },
     {

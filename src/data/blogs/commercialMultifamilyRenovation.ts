@@ -58,7 +58,7 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
   ],
   keyOutcomes: [
     {
-      title: "Expedited Tenant Occupancy",
+      title: "Timely Tenant Occupancy",
       description: "Fast-track unit turnovers to minimize vacancy loss and meet lease commencement deadlines."
     },
     {
