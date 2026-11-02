@@ -250,24 +250,29 @@ export const commercialRoofingNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Commercial Flat Roofing NYC",
+      title: "Commercial Flat Roofing",
       href: "/services/roofing-services/flat-roofing",
-      badge: "TPO & EPDM"
+      badge: "Flat Roofing"
     },
     {
-      title: "Emergency Roof Leak Repair",
-      href: "/services/roofing-services/roof-leakage-repair",
-      badge: "24/7 Response"
+      title: "TPO Energy-Efficient Roofing",
+      href: "/services/roofing-services/tpo-roofing",
+      badge: "TPO Roofing"
     },
     {
-      title: "Commercial Renovation Bronx",
-      href: "/services/commercial-renovation",
-      badge: "Full Turnkey"
-    },
-    {
-      title: "Roof Inspection Services Bronx",
+      title: "Commercial Roof Inspection & Maintenance",
       href: "/services/roofing-services/roof-inspection",
-      badge: "Infrared Audits"
+      badge: "Roof Inspection"
+    },
+    {
+      title: "Emergency Roof Leakage Repair",
+      href: "/services/roofing-services/roof-leakage-repair",
+      badge: "Roof Leakage Repair"
+    },
+    {
+      title: "Commercial Reconstruction & Rebuilds",
+      href: "/services/masonry-work/reconstruction-rebuilds",
+      badge: "Reconstruction Rebuilds"
     }
   ]
 };

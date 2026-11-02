@@ -246,24 +246,29 @@ export const sidewalkRepairBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Sidewalk Repair in the Bronx",
+      title: "Concrete Sidewalk Repair",
       href: "/services/concrete-services/sidewalk-repair",
-      badge: "DOT Certified"
+      badge: "Sidewalk Repair"
     },
     {
-      title: "Sidewalk Violation Removal Bronx",
-      href: "/services/violation-removal",
-      badge: "Quick Dismissal"
-    },
-    {
-      title: "DOT Violation Removal in NYC",
-      href: "/services/violation-removal",
-      badge: "Permit Filing"
-    },
-    {
-      title: "Concrete Sidewalk Replacement Bronx",
+      title: "Full Sidewalk Replacement",
       href: "/services/concrete-services/sidewalk-replacement",
-      badge: "4000 PSI Concrete"
+      badge: "Sidewalk Replacement"
+    },
+    {
+      title: "Sidewalk Violation Dismissal",
+      href: "/services/concrete-services/sidewalk-violation-removal",
+      badge: "Sidewalk Violation Removal"
+    },
+    {
+      title: "DOT Violation Removal Services",
+      href: "/services/concrete-services/dot-violation-removal",
+      badge: "DOT Violation Removal"
+    },
+    {
+      title: "Concrete Driveway Replacement",
+      href: "/services/concrete-services/driveway-replacement",
+      badge: "Driveway Replacement"
     }
   ]
 };

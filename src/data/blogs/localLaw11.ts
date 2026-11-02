@@ -254,24 +254,29 @@ export const localLaw11Post: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Local Law 11 Compliance in Brooklyn",
-      href: "/services/facade-restoration",
-      badge: "FISP Certified"
+      title: "Emergency Structural Safety Assessment",
+      href: "/services/emergency-service/safety-assessment",
+      badge: "Safety Assessment"
     },
     {
-      title: "NYC Facade Restoration Services",
-      href: "/services/facade-restoration",
-      badge: "Envelope Safety"
+      title: "Facade Restoration & Envelope Repair",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "Parapet Wall Repair in the Bronx",
+      title: "Parapet Wall Rebuilding & Inspection",
       href: "/services/masonry-work/parapet-wall",
-      badge: "DOB Parapet Code"
+      badge: "Parapet Wall"
     },
     {
-      title: "Brick Pointing & Masonry Repair Bronx",
-      href: "/services/masonry-work/brick-pointing",
-      badge: "Exterior Masonry"
+      title: "Brick Grinding & Pointing Services",
+      href: "/services/masonry-work/brick-grinding-pointing",
+      badge: "Brick Grinding & Pointing"
+    },
+    {
+      title: "Steel Lintel Replacement & Restoration",
+      href: "/services/masonry-work/lintel-replacement",
+      badge: "Lintel Replacement"
     }
   ]
 };

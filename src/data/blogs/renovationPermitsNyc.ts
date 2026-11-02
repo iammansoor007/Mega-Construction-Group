@@ -245,24 +245,29 @@ export const renovationPermitsNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Interior Home Remodeling NYC",
-      href: "/services/home-renovation",
-      badge: "DOB Permitted"
+      title: "Permitted Interior Remodeling",
+      href: "/services/home-renovation/interior-remodeling",
+      badge: "Interior Remodeling"
     },
     {
-      title: "Kitchen Renovation in the Bronx",
+      title: "Kitchen Renovation Permitting",
       href: "/services/home-renovation/kitchen-renovation",
-      badge: "Turn-Key Kitchens"
+      badge: "Kitchen Renovation"
     },
     {
-      title: "Bathroom Renovation Bronx",
+      title: "Bathroom Renovation & Plumbing",
       href: "/services/home-renovation/bathroom-renovation",
-      badge: "Master Plumbing"
+      badge: "Bathroom Renovation"
     },
     {
-      title: "DOB Violation Removal Services",
-      href: "/services/violation-removal",
-      badge: "Code Clearance"
+      title: "DOB Violation Removal & Sign-Offs",
+      href: "/services/concrete-services/dob-violation-removal",
+      badge: "DOB Violation Removal"
+    },
+    {
+      title: "Design-Build Architectural Permitting",
+      href: "/services/custom-home-building/design-build",
+      badge: "Design-Build"
     }
   ]
 };

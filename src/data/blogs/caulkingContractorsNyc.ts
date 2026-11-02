@@ -248,24 +248,29 @@ export const caulkingContractorsNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Commercial Facade Restoration",
-      href: "/services/facade-restoration",
-      badge: "Envelope Safety"
+      title: "Commercial Window Caulking & Sealing",
+      href: "/services/masonry-work/window-caulking",
+      badge: "Window Caulking"
     },
     {
-      title: "Building Waterproofing Services",
-      href: "/services/waterproofing",
-      badge: "Moisture Defense"
+      title: "Exterior Masonry Waterproofing",
+      href: "/services/masonry-work/waterproofing",
+      badge: "Waterproofing"
     },
     {
-      title: "Brick Pointing & Masonry Repair",
-      href: "/services/masonry-work/brick-pointing",
-      badge: "Historic Masonry"
+      title: "Facade Joint Restoration",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "Local Law 11 Compliance NYC",
-      href: "/blog/local-law-11-nyc-fisp-guide",
-      badge: "FISP Certified"
+      title: "Stucco Repair & Sealant Application",
+      href: "/services/stucco/stucco-repair",
+      badge: "Stucco Repair"
+    },
+    {
+      title: "Parapet Coping Joint Caulking",
+      href: "/services/masonry-work/parapet-wall",
+      badge: "Parapet Wall"
     }
   ]
 };

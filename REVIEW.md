@@ -311,3 +311,42 @@ All duplicate HTML elements, duplicate mobile/desktop headings, and repetitive S
   - Previously contained two separate DOM trees (desktop `hidden md:grid` and mobile `md:hidden`), rendering the `<h2>` heading and knowledge card twice.
   - Unified into a single responsive container. The mobile vector banner displays above on mobile (`md:hidden`) and the desktop vector displays beside on desktop (`hidden md:block`), while sharing a single text content column with exactly one `<h2>Still have questions?</h2>`.
 - Visual layout and responsiveness remain identical.
+
+
+## Task 6: Links and Labels Standardization
+
+### 1. Footer Relabeling
+- **`src/data/completeData.json`**:
+  - Relabeled `"Excavation & Site Work"` to `"Foundation Work"` (maintaining link to `/services/concrete-services/foundation-work`).
+  - Relabeled `"Home Additions"` to `"Interior Remodeling"` (maintaining link to `/services/home-renovation/interior-remodeling`).
+
+### 2. "Related Services" Block in All 22 Blog Posts
+- Added a dedicated, server-rendered "Related Services" block at the end of each blog article before the Author / CTA block in `src/app/blog/[slug]/_components/BlogDetailClient.tsx`.
+- Updated all 22 blog post data files (20 files under `src/data/blogs/` and 2 entries in `src/data/blogsData.ts`) to link to their exact 5 mapped service pages with descriptive anchor text:
+  1. `local-law-11-nyc-fisp-guide` -> `emergency-service/safety-assessment`, `masonry-work/facade-restoration`, `masonry-work/parapet-wall`, `masonry-work/brick-grinding-pointing`, `masonry-work/lintel-replacement`
+  2. `nyc-building-violations-dob-removal` -> `concrete-services/dob-violation-removal`, `concrete-services/dot-violation-removal`, `concrete-services/sidewalk-violation-removal`, `masonry-work/facade-restoration`, `emergency-service/safety-assessment`
+  3. `hire-general-contractor-bronx` -> `custom-home-building/design-build`, `custom-home-building/project-management`, `home-renovation`, `masonry-work/reconstruction-rebuilds`, `/services`
+  4. `sidewalk-repair-bronx-who-pays` -> `concrete-services/sidewalk-repair`, `concrete-services/sidewalk-replacement`, `concrete-services/sidewalk-violation-removal`, `concrete-services/dot-violation-removal`, `concrete-services/driveway-replacement`
+  5. `bathroom-renovation-bronx-guide` -> `home-renovation/bathroom-renovation`, `home-renovation/kitchen-renovation`, `home-renovation/basement-renovation`, `home-renovation/interior-remodeling`, `masonry-work/waterproofing`
+  6. `water-damage-restoration-bronx` -> `emergency-service/rapid-deployment`, `emergency-service/emergency-24-7`, `roofing-services/roof-leakage-repair`, `masonry-work/waterproofing`, `concrete-services/foundation-work`
+  7. `facade-restoration-nyc-guide` -> `masonry-work/facade-restoration`, `masonry-work/brick-grinding-pointing`, `masonry-work/parapet-wall`, `masonry-work/lintel-replacement`, `emergency-service/safety-assessment`
+  8. `structural-foundation-repair-new-york` -> `concrete-services/foundation-work`, `masonry-work/waterproofing`, `home-renovation/basement-renovation`, `masonry-work/retaining-walls`, `concrete-services`
+  9. `brick-pointing-cost-nyc` -> `masonry-work/brick-grinding-pointing`, `masonry-work/chimney-caps-rebuilds`, `masonry-work/facade-restoration`, `masonry-work/brick-replacement`, `masonry-work/parapet-wall`
+  10. `kitchen-renovation-bronx-guide` -> `home-renovation/kitchen-renovation`, `home-renovation/bathroom-renovation`, `home-renovation/interior-remodeling`, `home-renovation/basement-renovation`, `custom-home-building/smart-homes`
+  11. `nyc-home-renovation-contractor-guide` -> `home-renovation`, `home-renovation/kitchen-renovation`, `home-renovation/bathroom-renovation`, `custom-home-building/luxury-finishes`, `custom-home-building/smart-homes`
+  12. `nyc-roof-replacement-dob-code-local-law-97-guide` -> `roofing-services/roof-replacement`, `roofing-services/flat-roofing`, `roofing-services/tpo-roofing`, `masonry-work/parapet-wall`, `roofing-services/roof-leakage-repair`
+  13. `roof-replacement-bronx-cost-guide` -> `roofing-services/roof-replacement`, `roofing-services/shingle-roofing`, `roofing-services/roof-installation`, `roofing-services/roof-inspection`, `roofing-services/roof-leakage-repair`
+  14. `flat-roof-repair-nyc-guide` -> `roofing-services/flat-roofing`, `roofing-services/roof-leakage-repair`, `roofing-services/tpo-roofing`, `roofing-services/roof-waterproofing`, `masonry-work/parapet-wall`
+  15. `concrete-contractor-bronx-guide` -> `concrete-services/backyard-concrete`, `concrete-services/driveway-replacement`, `masonry-work/patios`, `masonry-work/retaining-walls`, `concrete-services/sidewalk-replacement`
+  16. `parapet-wall-repair-nyc-guide` -> `masonry-work/parapet-wall`, `masonry-work/facade-restoration`, `masonry-work/brick-grinding-pointing`, `roofing-services/roof-leakage-repair`, `emergency-service/safety-assessment`
+  17. `commercial-roofing-nyc-guide` -> `roofing-services/flat-roofing`, `roofing-services/tpo-roofing`, `roofing-services/roof-inspection`, `roofing-services/roof-leakage-repair`, `masonry-work/reconstruction-rebuilds`
+  18. `commercial-multifamily-renovation-nyc` -> `masonry-work/reconstruction-rebuilds`, `custom-home-building/project-management`, `custom-home-building/design-build`, `home-renovation/interior-remodeling`, `home-renovation`
+  19. `renovation-permits-nyc-dob` -> `home-renovation/interior-remodeling`, `home-renovation/kitchen-renovation`, `home-renovation/bathroom-renovation`, `concrete-services/dob-violation-removal`, `custom-home-building/design-build`
+  20. `basement-renovation-nyc-guide` -> `home-renovation/basement-renovation`, `masonry-work/waterproofing`, `concrete-services/foundation-work`, `home-renovation/bathroom-renovation`, `home-renovation/kitchen-renovation`
+  21. `caulking-contractors-nyc-guide` -> `masonry-work/window-caulking`, `masonry-work/waterproofing`, `masonry-work/facade-restoration`, `stucco/stucco-repair`, `masonry-work/parapet-wall`
+  22. `fire-escape-painting-nyc-guide` -> `masonry-work/fire-escape-painting`, `masonry-work/facade-restoration`, `emergency-service/safety-assessment`, `concrete-services/dob-violation-removal`, `masonry-work/brick-grinding-pointing`
+
+### 3. Old Keyword-Slug Redirect Cleanup
+- Audited all files across `src/` for any links pointing to the 51 legacy redirect sources.
+- Replaced 51 redirect references in `src/data/bronxSeoPages.ts` with direct links to their `/services/...` destinations (`/services/roofing-services`, `/services/masonry-work`, `/services/home-renovation`, `/services/concrete-services`, `/services/masonry-work/waterproofing`).
+- Automated re-scan verified **0 references** to any of the 51 old redirect sources remain in the codebase.

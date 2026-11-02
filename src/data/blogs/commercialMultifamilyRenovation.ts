@@ -250,24 +250,29 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Commercial Renovation Bronx",
-      href: "/services/commercial-renovation",
-      badge: "Full Turnkey GC"
+      title: "Multi-Family Structural Rebuilds",
+      href: "/services/masonry-work/reconstruction-rebuilds",
+      badge: "Reconstruction Rebuilds"
     },
     {
-      title: "General Contractor in the Bronx",
-      href: "/services",
-      badge: "Licensed #NYC-2005-8942"
+      title: "Construction Project Management",
+      href: "/services/custom-home-building/project-management",
+      badge: "Project Management"
     },
     {
-      title: "About Mega Contracting NY Group",
-      href: "/about",
-      badge: "Established 2005"
+      title: "Design-Build Commercial Renovation",
+      href: "/services/custom-home-building/design-build",
+      badge: "Design-Build"
     },
     {
-      title: "Interior Home & Apartment Remodeling",
+      title: "Multi-Unit Interior Remodeling",
+      href: "/services/home-renovation/interior-remodeling",
+      badge: "Interior Remodeling"
+    },
+    {
+      title: "Complete Home & Building Renovation",
       href: "/services/home-renovation",
-      badge: "Multifamily Fit-Outs"
+      badge: "Home Renovation"
     }
   ]
 };

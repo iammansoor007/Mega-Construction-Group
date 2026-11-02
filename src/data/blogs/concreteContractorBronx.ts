@@ -247,24 +247,29 @@ export const concreteContractorBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Driveway Repair & Pouring Bronx",
-      href: "/services/concrete-services/driveway-repair",
-      badge: "4000 PSI Mix"
+      title: "Backyard Concrete Installation",
+      href: "/services/concrete-services/backyard-concrete",
+      badge: "Backyard Concrete"
     },
     {
-      title: "Patio Installation Services",
-      href: "/services/concrete-services/patios-installation",
-      badge: "Stamped & Broom"
+      title: "Driveway Replacement & Paving",
+      href: "/services/concrete-services/driveway-replacement",
+      badge: "Driveway Replacement"
     },
     {
-      title: "Concrete Sidewalk Replacement",
+      title: "Masonry Patios & Pavers",
+      href: "/services/masonry-work/patios",
+      badge: "Patios"
+    },
+    {
+      title: "Reinforced Retaining Walls",
+      href: "/services/masonry-work/retaining-walls",
+      badge: "Retaining Walls"
+    },
+    {
+      title: "Commercial Sidewalk Replacement",
       href: "/services/concrete-services/sidewalk-replacement",
-      badge: "DOT Approved"
-    },
-    {
-      title: "Masonry Retaining Walls Bronx",
-      href: "/services/masonry-work/retaining-wall",
-      badge: "Structural Masonry"
+      badge: "Sidewalk Replacement"
     }
   ]
 };

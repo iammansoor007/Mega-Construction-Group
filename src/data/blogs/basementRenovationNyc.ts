@@ -257,24 +257,29 @@ export const basementRenovationNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Basement Renovation Bronx",
+      title: "Finished Basement Renovation",
       href: "/services/home-renovation/basement-renovation",
-      badge: "Turn-Key Rec Rooms"
+      badge: "Basement Renovation"
     },
     {
-      title: "Basement Waterproofing Bronx",
-      href: "/services/waterproofing",
-      badge: "French Drain Systems"
+      title: "Basement Waterproofing & Sealants",
+      href: "/services/masonry-work/waterproofing",
+      badge: "Waterproofing"
     },
     {
-      title: "Foundation Repair Brooklyn & Bronx",
+      title: "Foundation Repair & Slab Pouring",
       href: "/services/concrete-services/foundation-work",
-      badge: "Structural Underpinning"
+      badge: "Foundation Work"
     },
     {
-      title: "Kitchen Renovation in the Bronx",
+      title: "Basement Bathroom Addition",
+      href: "/services/home-renovation/bathroom-renovation",
+      badge: "Bathroom Renovation"
+    },
+    {
+      title: "Basement Kitchenette Renovation",
       href: "/services/home-renovation/kitchen-renovation",
-      badge: "Custom Cabinetry"
+      badge: "Kitchen Renovation"
     }
   ]
 };

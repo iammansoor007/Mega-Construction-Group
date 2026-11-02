@@ -245,24 +245,29 @@ export const fireEscapePaintingNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Exterior Facade Restoration NYC",
-      href: "/services/facade-restoration",
-      badge: "Envelope Safety"
+      title: "Fire Escape Scraping & Painting",
+      href: "/services/masonry-work/fire-escape-painting",
+      badge: "Fire Escape Painting"
     },
     {
-      title: "Local Law 11 Compliance Brooklyn",
-      href: "/blog/local-law-11-nyc-fisp-guide",
-      badge: "FISP Registered"
+      title: "Exterior Facade Restoration",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "DOB Violation Removal Services",
-      href: "/services/violation-removal",
-      badge: "Violation Dismissal"
+      title: "Emergency Structural Safety Assessment",
+      href: "/services/emergency-service/safety-assessment",
+      badge: "Safety Assessment"
     },
     {
-      title: "General Contracting Services NYC",
-      href: "/services",
-      badge: "Licensed GC"
+      title: "Fire Escape DOB Violation Removal",
+      href: "/services/concrete-services/dob-violation-removal",
+      badge: "DOB Violation Removal"
+    },
+    {
+      title: "Structural Anchor Brick Pointing",
+      href: "/services/masonry-work/brick-grinding-pointing",
+      badge: "Brick Grinding & Pointing"
     }
   ]
 };

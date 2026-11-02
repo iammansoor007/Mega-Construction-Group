@@ -1252,7 +1252,7 @@
           "icon": "Commercial"
         },
         {
-          "label": "Excavation & Site Work",
+          "label": "Foundation Work",
           "href": "/services/concrete-services/foundation-work",
           "icon": "Truck"
         },
@@ -1267,7 +1267,7 @@
           "icon": "Roofing"
         },
         {
-          "label": "Home Additions",
+          "label": "Interior Remodeling",
           "href": "/services/home-renovation/interior-remodeling",
           "icon": "Addition"
         },

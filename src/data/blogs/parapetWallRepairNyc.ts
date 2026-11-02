@@ -255,24 +255,29 @@ export const parapetWallRepairNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Parapet Wall Repair in the Bronx",
+      title: "Parapet Wall Repair & Rebuilding",
       href: "/services/masonry-work/parapet-wall",
-      badge: "DOB Parapet Code"
+      badge: "Parapet Wall"
     },
     {
-      title: "NYC Facade Restoration Services",
-      href: "/services/facade-restoration",
-      badge: "Envelope Safety"
+      title: "Masonry Facade Restoration",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "Brick Pointing & Masonry Repair",
-      href: "/services/masonry-work/brick-pointing",
-      badge: "Historic Lime Mortar"
+      title: "Tuckpointing & Brick Grinding",
+      href: "/services/masonry-work/brick-grinding-pointing",
+      badge: "Brick Grinding & Pointing"
     },
     {
-      title: "Local Law 11 Compliance Brooklyn",
-      href: "/blog/local-law-11-nyc-fisp-guide",
-      badge: "FISP Certified"
+      title: "Flashing & Roof Leak Repair",
+      href: "/services/roofing-services/roof-leakage-repair",
+      badge: "Roof Leakage Repair"
+    },
+    {
+      title: "Emergency Parapet Safety Assessment",
+      href: "/services/emergency-service/safety-assessment",
+      badge: "Safety Assessment"
     }
   ]
 };

@@ -240,24 +240,29 @@ export const waterDamageBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Emergency Building Repair Bronx",
-      href: "/services/emergency-services",
-      badge: "24/7 Response"
+      title: "Rapid Emergency Deployment",
+      href: "/services/emergency-service/rapid-deployment",
+      badge: "Rapid Deployment"
     },
     {
-      title: "Roof Leak Repair NYC",
+      title: "24/7 Emergency Response Services",
+      href: "/services/emergency-service/emergency-24-7",
+      badge: "Emergency 24/7"
+    },
+    {
+      title: "Emergency Roof Leakage Repair",
       href: "/services/roofing-services/roof-leakage-repair",
-      badge: "Waterproof Seal"
+      badge: "Roof Leakage Repair"
     },
     {
-      title: "Foundation Repair Brooklyn & Bronx",
+      title: "Foundation & Masonry Waterproofing",
+      href: "/services/masonry-work/waterproofing",
+      badge: "Waterproofing"
+    },
+    {
+      title: "Structural Foundation Work",
       href: "/services/concrete-services/foundation-work",
-      badge: "Structural Concrete"
-    },
-    {
-      title: "Basement Waterproofing Bronx",
-      href: "/services/waterproofing",
-      badge: "Moisture Defense"
+      badge: "Foundation Work"
     }
   ]
 };

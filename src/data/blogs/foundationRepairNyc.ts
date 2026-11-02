@@ -244,24 +244,29 @@ export const foundationRepairNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Foundation Repair Brooklyn & Bronx",
+      title: "Concrete Foundation Repair & Underpinning",
       href: "/services/concrete-services/foundation-work",
-      badge: "Structural Underpinning"
+      badge: "Foundation Work"
     },
     {
-      title: "Basement Waterproofing Bronx",
-      href: "/services/waterproofing",
-      badge: "Sump & French Drain"
+      title: "Basement & Foundation Waterproofing",
+      href: "/services/masonry-work/waterproofing",
+      badge: "Waterproofing"
     },
     {
-      title: "Basement Renovation Bronx",
+      title: "Full Basement Renovation",
       href: "/services/home-renovation/basement-renovation",
-      badge: "Dig-Out Specialists"
+      badge: "Basement Renovation"
     },
     {
-      title: "Home Renovation Contractor NYC",
-      href: "/blog/nyc-home-renovation-contractor-guide",
-      badge: "Structural GC"
+      title: "Concrete & Masonry Retaining Walls",
+      href: "/services/masonry-work/retaining-walls",
+      badge: "Retaining Walls"
+    },
+    {
+      title: "Complete Concrete Contracting Services",
+      href: "/services/concrete-services",
+      badge: "Concrete Services"
     }
   ]
 };

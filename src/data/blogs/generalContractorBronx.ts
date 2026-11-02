@@ -230,24 +230,29 @@ export const generalContractorBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "General Contractor in the Bronx",
-      href: "/services",
-      badge: "Licensed GC"
+      title: "Design-Build General Contracting",
+      href: "/services/custom-home-building/design-build",
+      badge: "Design-Build"
     },
     {
-      title: "Construction Company in Bronx NY",
-      href: "/about",
-      badge: "Established 2005"
+      title: "Construction Project Management",
+      href: "/services/custom-home-building/project-management",
+      badge: "Project Management"
     },
     {
-      title: "Commercial Renovation Bronx",
-      href: "/services/commercial-renovation",
-      badge: "Commercial Specialists"
-    },
-    {
-      title: "Home Renovation Services NYC",
+      title: "Full Home Renovation Services",
       href: "/services/home-renovation",
-      badge: "Full Turnkey"
+      badge: "Home Renovation"
+    },
+    {
+      title: "Structural Reconstruction & Rebuilds",
+      href: "/services/masonry-work/reconstruction-rebuilds",
+      badge: "Reconstruction Rebuilds"
+    },
+    {
+      title: "All NYC General Contracting Services",
+      href: "/services",
+      badge: "All Services"
     }
   ]
 };

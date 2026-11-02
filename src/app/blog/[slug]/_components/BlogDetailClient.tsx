@@ -486,6 +486,38 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </div>
               </section>
 
+              {/* -- RELATED SERVICES BLOCK (BEFORE CTA) ------------------ */}
+              <section className="pt-8 border-t border-white/10 space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-red-600 rounded-full" />
+                  <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white font-heading">
+                    Related Services
+                  </h2>
+                </div>
+                <p className="text-xs sm:text-sm text-white/60">
+                  Specialized NYC general contracting, masonry restoration, and exterior engineering services related to this guide:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  {post.relatedServices.map((rel, idx) => (
+                    <Link
+                      key={idx}
+                      href={rel.href}
+                      className="p-4 rounded-2xl bg-[#141414] hover:bg-[#1a1a1a] border border-white/10 hover:border-red-600/40 transition-all flex items-center justify-between group"
+                    >
+                      <div>
+                        <span className="text-xs sm:text-sm font-bold text-white group-hover:text-red-400 transition-colors block mb-1">
+                          {rel.title}
+                        </span>
+                        <span className="text-[10px] text-white/40 font-mono uppercase tracking-wider">
+                          {rel.badge}
+                        </span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-red-400 group-hover:translate-x-1 transition-all shrink-0 ml-3" />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
               {/* -- AUTHOR & ENGINEERING TEAM VERIFICATION CARD --------- */}
               <div className="p-6 sm:p-8 rounded-3xl bg-[#141414] border border-white/10 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-red-600 to-black border border-red-600/30 flex items-center justify-center text-white font-black text-xl shrink-0 shadow-xl">

@@ -237,24 +237,29 @@ export const kitchenRenovationBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Kitchen Renovation in the Bronx",
+      title: "Complete Kitchen Renovation",
       href: "/services/home-renovation/kitchen-renovation",
-      badge: "Turn-Key Kitchens"
+      badge: "Kitchen Renovation"
     },
     {
-      title: "Bathroom Renovation Bronx",
+      title: "Bathroom Renovation & Remodeling",
       href: "/services/home-renovation/bathroom-renovation",
-      badge: "Full Gut Remodel"
+      badge: "Bathroom Renovation"
     },
     {
-      title: "Interior Home Remodeling Bronx",
-      href: "/services/home-renovation",
-      badge: "Licensed GC"
+      title: "Comprehensive Interior Remodeling",
+      href: "/services/home-renovation/interior-remodeling",
+      badge: "Interior Remodeling"
     },
     {
-      title: "Waterproofing Services Bronx",
-      href: "/services/waterproofing",
-      badge: "Moisture Defense"
+      title: "Finished Basement Renovation",
+      href: "/services/home-renovation/basement-renovation",
+      badge: "Basement Renovation"
+    },
+    {
+      title: "Smart Home Automation & Electrical",
+      href: "/services/custom-home-building/smart-homes",
+      badge: "Smart Homes"
     }
   ]
 };

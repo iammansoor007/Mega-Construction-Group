@@ -240,24 +240,29 @@ export const bathroomRenovationBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Bathroom Renovation Bronx",
+      title: "NYC Bathroom Renovation",
       href: "/services/home-renovation/bathroom-renovation",
-      badge: "Turn-Key Baths"
+      badge: "Bathroom Renovation"
     },
     {
-      title: "Kitchen Renovation Bronx",
+      title: "Custom Kitchen Renovation",
       href: "/services/home-renovation/kitchen-renovation",
-      badge: "Custom Cabinetry"
+      badge: "Kitchen Renovation"
     },
     {
-      title: "Waterproofing Services Bronx",
-      href: "/services/waterproofing",
-      badge: "Flood Tested"
+      title: "Full Basement Renovation",
+      href: "/services/home-renovation/basement-renovation",
+      badge: "Basement Renovation"
     },
     {
-      title: "Interior Home Remodeling NYC",
-      href: "/services/home-renovation",
-      badge: "Licensed GC"
+      title: "Interior Remodeling Services",
+      href: "/services/home-renovation/interior-remodeling",
+      badge: "Interior Remodeling"
+    },
+    {
+      title: "Masonry & Sub-level Waterproofing",
+      href: "/services/masonry-work/waterproofing",
+      badge: "Waterproofing"
     }
   ]
 };

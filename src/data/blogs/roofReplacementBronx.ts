@@ -257,24 +257,29 @@ export const roofReplacementBronxPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Residential Roof Installation Bronx",
-      href: "/services/roofing-services/roof-installation",
-      badge: "Architectural Shingles"
+      title: "Full Roof Replacement Services",
+      href: "/services/roofing-services/roof-replacement",
+      badge: "Roof Replacement"
     },
     {
-      title: "Shingle Roofing Services Bronx",
+      title: "Residential Shingle Roofing",
       href: "/services/roofing-services/shingle-roofing",
-      badge: "GAF / CertainTeed"
+      badge: "Shingle Roofing"
     },
     {
-      title: "Roof Leak Repair NYC",
-      href: "/services/roofing-services/roof-leakage-repair",
-      badge: "Emergency Dispatch"
+      title: "New Roof Installation",
+      href: "/services/roofing-services/roof-installation",
+      badge: "Roof Installation"
     },
     {
-      title: "Roof Inspection Services Bronx",
+      title: "Professional Roof Inspection",
       href: "/services/roofing-services/roof-inspection",
-      badge: "Comprehensive Audit"
+      badge: "Roof Inspection"
+    },
+    {
+      title: "Roof Leak Detection & Repair",
+      href: "/services/roofing-services/roof-leakage-repair",
+      badge: "Roof Leakage Repair"
     }
   ]
 };

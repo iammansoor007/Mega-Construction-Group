@@ -243,24 +243,29 @@ export const buildingViolationsPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "DOB Violation Removal in Brooklyn",
-      href: "/services/violation-removal",
-      badge: "DOB Certified"
+      title: "DOB Violation Removal & Resolution",
+      href: "/services/concrete-services/dob-violation-removal",
+      badge: "DOB Violation Removal"
     },
     {
-      title: "DOT Violation Removal in NYC",
-      href: "/services/violation-removal",
-      badge: "DOT Approved"
+      title: "DOT Sidewalk Violation Removal",
+      href: "/services/concrete-services/dot-violation-removal",
+      badge: "DOT Violation Removal"
     },
     {
-      title: "Sidewalk Violation Repair Bronx",
-      href: "/services/concrete-services/sidewalk-repair",
-      badge: "Trip Hazard Removal"
+      title: "Sidewalk Violation Dismissal & Repair",
+      href: "/services/concrete-services/sidewalk-violation-removal",
+      badge: "Sidewalk Violation Removal"
     },
     {
-      title: "Exterior Facade Restoration NYC",
-      href: "/services/facade-restoration",
-      badge: "Safety Compliance"
+      title: "Facade Restoration & Safety Compliance",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
+    },
+    {
+      title: "Emergency Structural Safety Assessment",
+      href: "/services/emergency-service/safety-assessment",
+      badge: "Safety Assessment"
     }
   ]
 };

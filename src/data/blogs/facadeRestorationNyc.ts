@@ -251,24 +251,29 @@ export const facadeRestorationNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Facade Restoration NYC",
-      href: "/services/facade-restoration",
-      badge: "Envelope Master"
+      title: "Exterior Facade Restoration",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "Brick Pointing in the Bronx",
-      href: "/services/masonry-work/brick-pointing",
-      badge: "Historic Masonry"
+      title: "Brick Grinding & Repointing",
+      href: "/services/masonry-work/brick-grinding-pointing",
+      badge: "Brick Grinding & Pointing"
     },
     {
-      title: "Parapet Wall Repair Bronx",
+      title: "Parapet Wall Repair & Rebuilding",
       href: "/services/masonry-work/parapet-wall",
-      badge: "DOB Parapet Code"
+      badge: "Parapet Wall"
     },
     {
-      title: "Local Law 11 Compliance Brooklyn",
-      href: "/services/facade-restoration",
-      badge: "FISP Registered"
+      title: "Window Lintel Replacement",
+      href: "/services/masonry-work/lintel-replacement",
+      badge: "Lintel Replacement"
+    },
+    {
+      title: "Emergency Facade Safety Assessment",
+      href: "/services/emergency-service/safety-assessment",
+      badge: "Safety Assessment"
     }
   ]
 };

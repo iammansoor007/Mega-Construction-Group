@@ -242,24 +242,29 @@ export const brickPointingCostNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Brick Pointing in the Bronx",
-      href: "/services/masonry-work/brick-pointing",
-      badge: "Historic Lime Mortar"
+      title: "Brick Grinding & Pointing",
+      href: "/services/masonry-work/brick-grinding-pointing",
+      badge: "Brick Grinding & Pointing"
     },
     {
-      title: "Chimney Repair in the Bronx",
-      href: "/services/masonry-work/chimney-repair",
-      badge: "Crown & Flue Repair"
+      title: "Chimney Caps & Rebuilds",
+      href: "/services/masonry-work/chimney-caps-rebuilds",
+      badge: "Chimney Caps & Rebuilds"
     },
     {
-      title: "Facade Restoration NYC",
-      href: "/services/facade-restoration",
-      badge: "Envelope Safety"
+      title: "Comprehensive Facade Restoration",
+      href: "/services/masonry-work/facade-restoration",
+      badge: "Facade Restoration"
     },
     {
-      title: "Brick Repair in the Bronx",
-      href: "/services/masonry-work/brick-repair",
-      badge: "Structural Masonry"
+      title: "Damaged Brick Replacement",
+      href: "/services/masonry-work/brick-replacement",
+      badge: "Brick Replacement"
+    },
+    {
+      title: "Parapet Wall Rebuilding",
+      href: "/services/masonry-work/parapet-wall",
+      badge: "Parapet Wall"
     }
   ]
 };

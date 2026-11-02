@@ -460,37 +460,32 @@ export const blogsData: Record<string, BlogPost> = {
       }
     ],
     relatedServices: [
-      {
-        title: "Home Renovation Division",
-        href: "/services/home-renovation",
-        badge: "Core Division"
-      },
-      {
-        title: "Kitchen Renovation NYC",
-        href: "/services/home-renovation/kitchen-renovation",
-        badge: "Specialization"
-      },
-      {
-        title: "Bathroom Renovation NYC",
-        href: "/services/home-renovation/bathroom-renovation",
-        badge: "Specialization"
-      },
-      {
-        title: "Foundation Work & Underpinning",
-        href: "/services/concrete-services/foundation-work",
-        badge: "Structural"
-      },
-      {
-        title: "Masonry Work & Bearing Walls",
-        href: "/services/masonry-work",
-        badge: "Exterior & Envelope"
-      },
-      {
-        title: "Basement Renovation",
-        href: "/services/home-renovation/basement-renovation",
-        badge: "Waterproofed"
-      }
-    ]
+        {
+          title: "NYC Home Renovation Services",
+          href: "/services/home-renovation",
+          badge: "Home Renovation"
+        },
+        {
+          title: "Custom Kitchen Remodeling",
+          href: "/services/home-renovation/kitchen-renovation",
+          badge: "Kitchen Renovation"
+        },
+        {
+          title: "Full Bathroom Renovation",
+          href: "/services/home-renovation/bathroom-renovation",
+          badge: "Bathroom Renovation"
+        },
+        {
+          title: "Custom Luxury Finishes",
+          href: "/services/custom-home-building/luxury-finishes",
+          badge: "Luxury Finishes"
+        },
+        {
+          title: "Smart Home Technology Integration",
+          href: "/services/custom-home-building/smart-homes",
+          badge: "Smart Homes"
+        }
+      ]
   },
   "nyc-roof-replacement-dob-code-local-law-97-guide": {
     slug: "nyc-roof-replacement-dob-code-local-law-97-guide",
@@ -665,32 +660,32 @@ export const blogsData: Record<string, BlogPost> = {
       }
     ],
     relatedServices: [
-      {
-        title: "Roofing Services Division",
-        href: "/services/roofing-services",
-        badge: "Core Division"
-      },
-      {
-        title: "Commercial Flat Roofing",
-        href: "/services/roofing-services/flat-roofing",
-        badge: "Specialization"
-      },
-      {
-        title: "TPO Single-Ply Roofing",
-        href: "/services/roofing-services/tpo-roofing",
-        badge: "Energy Efficient"
-      },
-      {
-        title: "Parapet Wall Repair & Rebuild",
-        href: "/services/masonry-work/parapet-wall",
-        badge: "DOB Parapet Code"
-      },
-      {
-        title: "Emergency Roof Leak Repair",
-        href: "/services/roofing-services/roof-leakage-repair",
-        badge: "24/7 Dispatch"
-      }
-    ]
+        {
+          title: "Commercial Roof Replacement",
+          href: "/services/roofing-services/roof-replacement",
+          badge: "Roof Replacement"
+        },
+        {
+          title: "Flat Roofing Systems",
+          href: "/services/roofing-services/flat-roofing",
+          badge: "Flat Roofing"
+        },
+        {
+          title: "TPO Single-Ply Membrane Roofing",
+          href: "/services/roofing-services/tpo-roofing",
+          badge: "TPO Roofing"
+        },
+        {
+          title: "Parapet Wall Reconstruction",
+          href: "/services/masonry-work/parapet-wall",
+          badge: "Parapet Wall"
+        },
+        {
+          title: "Emergency Roof Leakage Repair",
+          href: "/services/roofing-services/roof-leakage-repair",
+          badge: "Roof Leakage Repair"
+        }
+      ]
   }
 };
 

@@ -258,24 +258,29 @@ export const flatRoofRepairNycPost: BlogPost = {
   ],
   relatedServices: [
     {
-      title: "Commercial Flat Roofing NYC",
+      title: "Commercial Flat Roofing Repair",
       href: "/services/roofing-services/flat-roofing",
-      badge: "TPO & EPDM"
+      badge: "Flat Roofing"
     },
     {
-      title: "Emergency Roof Leak Repair",
+      title: "Flat Roof Leakage Repair",
       href: "/services/roofing-services/roof-leakage-repair",
-      badge: "24/7 Dispatch"
+      badge: "Roof Leakage Repair"
     },
     {
-      title: "Roof Inspection Services Bronx",
-      href: "/services/roofing-services/roof-inspection",
-      badge: "Infrared Scans"
+      title: "TPO Membrane Systems",
+      href: "/services/roofing-services/tpo-roofing",
+      badge: "TPO Roofing"
     },
     {
-      title: "Basement & Roof Waterproofing",
-      href: "/services/waterproofing",
-      badge: "Complete Envelope"
+      title: "Roof Waterproofing & Coatings",
+      href: "/services/roofing-services/roof-waterproofing",
+      badge: "Roof Waterproofing"
+    },
+    {
+      title: "Parapet Wall Repair & Waterproofing",
+      href: "/services/masonry-work/parapet-wall",
+      badge: "Parapet Wall"
     }
   ]
 };
