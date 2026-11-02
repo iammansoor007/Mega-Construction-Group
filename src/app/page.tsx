@@ -110,14 +110,11 @@ export default function Home() {
       "paymentAccepted": "Cash, Credit Card, Check",
       "currenciesAccepted": "USD",
       "areaServed": [
-        { "@type": "City", "name": "New York City", "sameAs": "https://www.wikidata.org/wiki/Q60" },
         { "@type": "AdministrativeArea", "name": "Manhattan" },
         { "@type": "AdministrativeArea", "name": "Brooklyn" },
         { "@type": "AdministrativeArea", "name": "Queens" },
         { "@type": "AdministrativeArea", "name": "Bronx" },
         { "@type": "AdministrativeArea", "name": "Staten Island" },
-        { "@type": "AdministrativeArea", "name": "Long Island" },
-        { "@type": "AdministrativeArea", "name": "Westchester" },
       ],
       "sameAs": [
         "https://www.instagram.com/megacontractingny",

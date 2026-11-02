@@ -350,3 +350,46 @@ All duplicate HTML elements, duplicate mobile/desktop headings, and repetitive S
 - Audited all files across `src/` for any links pointing to the 51 legacy redirect sources.
 - Replaced 51 redirect references in `src/data/bronxSeoPages.ts` with direct links to their `/services/...` destinations (`/services/roofing-services`, `/services/masonry-work`, `/services/home-renovation`, `/services/concrete-services`, `/services/masonry-work/waterproofing`).
 - Automated re-scan verified **0 references** to any of the 51 old redirect sources remain in the codebase.
+
+
+## Task 7: SEO Files and Schema Verification
+
+### 1. Roofing Waterproofing SEO Entry (`src/data/servicesSeoData.ts`)
+- Verified `/services/roofing-services/roof-waterproofing` configuration:
+  - `seoTitle`: `"Roof Waterproofing NYC | Membranes and Coatings"` (rendered as absolute title in metadata)
+  - `metaDescription`: `"Roof waterproofing in NYC. Membranes, coatings, flashing and drainage details to stop leaks. Licensed. Free estimate!"`
+  - `h1`: `"Roof Waterproofing Services in NYC"`
+  - Canonical: Self canonical (`https://www.megacontractingnyc.com/services/roofing-services/roof-waterproofing`)
+  - Integrated into dynamic routing in `src/app/services/[category]/[slug]/page.tsx`.
+
+### 2. Meta Keywords Removal Site-Wide
+- Stripped all `keywords` properties and metadata from the project (including Article schema in `src/app/blog/[slug]/page.tsx`). No meta `keywords` tags exist in head or metadata.
+
+### 3. Robots.txt and Non-WWW to WWW Redirection
+- **`public/robots.txt`**:
+  - Allows all standard search crawlers (`User-agent: *`, `Allow: /`).
+  - Excludes internal API/Next routes (`Disallow: /api/`, `Disallow: /_next/`).
+  - Contains no Disallow rules for `/services` or `/blog`.
+  - References `Sitemap: https://www.megacontractingnyc.com/sitemap.xml`.
+- **`next.config.js`**:
+  - Added permanent 301 host redirect from `megacontractingnyc.com` to `https://www.megacontractingnyc.com/:path*` for all incoming host traffic without `www`.
+
+### 4. Structured Data (JSON-LD) Verification
+- **Homepage GeneralContractor (`src/app/page.tsx` & `src/lib/schema.ts`)**:
+  - `@type`: `GeneralContractor`
+  - `name`: `"Mega Contracting NY Group"`
+  - `url`: `"https://www.megacontractingnyc.com"`
+  - `telephone`: `"+19148043000"`
+  - `email`: `"info@megacontractinggroup.com"`
+  - `address`: `3044 Radcliff Ave, Bronx, NY 10469`
+  - `areaServed`: Strictly five boroughs (Manhattan, Brooklyn, Queens, Bronx, Staten Island)
+  - `logo`: `"https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png"`
+  - `sameAs`: Footer social media URLs (Instagram, LinkedIn, Facebook)
+  - **Zero** `aggregateRating`, `reviews`, or `openingHours` in the schema.
+- **Service Detail BreadcrumbList (`src/app/services/[category]/[slug]/page.tsx`)**:
+  - Rendered on every `/services/...` subcategory page: Home (1) > Services (2) > Category (3) > Page (4).
+
+### 5. XML Sitemap (`src/app/sitemap.ts`)
+- Excludes all future-dated blog posts past `2026-11-02`.
+- Real `lastModified` timestamps clamped to `<= 2026-11-02` (or omitted for pages without explicit modification dates).
+- Includes `/blog` index route and all 22 published blog posts.

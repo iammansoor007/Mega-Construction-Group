@@ -36,12 +36,6 @@ export const localBusinessSchema = {
     { "@type": "Borough", "name": "Manhattan" },
     { "@type": "Borough", "name": "Staten Island" }
   ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "opens": "00:00",
-    "closes": "23:59"
-  },
   "priceRange": "$$",
   "sameAs": [
     "https://www.instagram.com/megacontractingny",

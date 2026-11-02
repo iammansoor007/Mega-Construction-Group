@@ -18,6 +18,18 @@ const nextConfig = {
   transpilePackages: ['gsap'],
   async redirects() {
     return [
+      // Redirect non-www to www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'megacontractingnyc.com',
+          },
+        ],
+        destination: 'https://www.megacontractingnyc.com/:path*',
+        permanent: true,
+      },
       // 51 Section B 301 Permanent Redirects (Keyword-Slug Pages -> Canonical /services/... URLs)
       { source: '/roofing', destination: '/services/roofing-services', permanent: true },
       { source: '/masonry', destination: '/services/masonry-work', permanent: true },

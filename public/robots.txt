@@ -1,24 +1,6 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /_next/
-
-# Crawl-delay for general bots
-Crawl-delay: 10
 
 Sitemap: https://www.megacontractingnyc.com/sitemap.xml

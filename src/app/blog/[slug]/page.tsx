@@ -116,7 +116,6 @@ export default async function BlogPostPage({ params }: Props) {
           url: `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
         },
       },
-      keywords: [post.primaryKeyword, ...post.supportingKeywords].join(", "),
       about: [
         { "@type": "Thing", name: post.primaryKeyword },
         ...post.supportingKeywords.map((kw) => ({ "@type": "Thing", name: kw })),
