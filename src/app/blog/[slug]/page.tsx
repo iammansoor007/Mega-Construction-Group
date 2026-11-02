@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: clampDate(post.publishDate),
       modifiedTime: clampDate(post.editDate || post.publishDate),
-      authors: [post.author.name],
+      authors: ["Mega Contracting NY Group"],
     },
     twitter: {
       card: "summary_large_image",
@@ -82,11 +82,11 @@ export default async function BlogPostPage({ params }: Props) {
     ? post.featuredImage
     : `${BASE_URL}${post.featuredImage}`;
 
-  // Multi-schema: TechArticle / BlogPosting, BreadcrumbList, FAQPage
+  // Multi-schema: Article, BreadcrumbList, FAQPage
   const schemas: any[] = [
     {
       "@context": "https://schema.org",
-      "@type": ["TechArticle", "BlogPosting"],
+      "@type": "Article",
       headline: post.title,
       alternativeHeadline: post.seoTitle,
       description: post.metaDescription,
@@ -99,19 +99,17 @@ export default async function BlogPostPage({ params }: Props) {
         "@id": canonicalUrl,
       },
       author: {
-        "@type": "Person",
-        name: post.author.name,
-        jobTitle: post.author.role,
-        hasCredential: {
-          "@type": "EducationalOccupationalCredential",
-          credentialCategory: "license",
-          name: post.author.license,
+        "@type": "Organization",
+        name: "Mega Contracting NY Group",
+        url: BASE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
         },
-        url: `${BASE_URL}/about`,
       },
       publisher: {
         "@type": "Organization",
-        name: "Mega Contracting NY Group Inc.",
+        name: "Mega Contracting NY Group",
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",

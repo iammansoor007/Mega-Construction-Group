@@ -30,8 +30,8 @@ export const roofReplacementBronxPost: BlogPost = {
   excerpt:
     "Planning a roof replacement bronx project requires understanding when shingles have reached the end of their lifespan, navigating NYC building code two-layer limits, selecting wind-resistant architectural shingles, and securing competitive contractor estimates.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

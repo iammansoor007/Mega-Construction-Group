@@ -126,3 +126,55 @@ As instructed, the footer trust badges and licensing numbers were **not touched 
 - **Task 1 (Blog Dates & Guards):** All 10 future-dated blog posts updated to their first git commit date (`2026-10-25`). Central guard `TODAY = "2026-10-26"` added in `src/data/blogsData.ts`. `getAllBlogPosts()` and `getBlogPostBySlug()` filter out any post with a future date, hiding them from `/blog`, the sitemap, and related post carousels. Dates output in JSON-LD and sitemap `lastmod` are clamped to today.
 - **Task 5 (Missing SEO Entry):** Added `/services/roofing-services/roof-waterproofing` to `src/data/servicesSeoData.ts` with specified Title, Description, and H1.
 - **Task 6 (Meta Keywords Tag):** Removed `keywords` metadata site-wide from Next.js metadata configurations.
+
+---
+
+# November 2, 2026 SEO & Technical Audit Review (Branch: seo-fix-nov)
+
+## Task 1: Blog Dates, Bylines, Guards & Article JSON-LD
+
+### 1. Date Guard & Clamping
+- Verified TODAY is set to `2026-11-02`.
+- All 22 published blog posts were published between 2026-10-12 and 2026-10-25; no post has a date in the future or after 2026-11-02.
+- Future guard verified in `src/data/blogsData.ts` via `isFutureDate()` and `clampDate()`: any post with a future date is excluded from `/blog`, `getAllBlogPosts()`, related posts/services in `BlogDetailClient.tsx`, and the sitemap (`src/app/sitemap.ts` and `src/app/sitemap/page.tsx`).
+- Article JSON-LD `datePublished` and `dateModified` use `clampDate()`.
+
+### 2. Bylines Replaced on AI-Drafted Technical Posts
+Per Task 1 instructions, all personal bylines ("Adil Shamis", "Mansoor") and organizational/team variations ("Mega Contracting Team", "Mega Contracting Engineering Team", "Written by Licensed Engineers", "DOB Code Verified") were replaced with **"Mega Contracting NY Group"**, with role "Licensed NYC General Contractor" and license "NYC DOB GC #NYC-2005-8942".
+
+All 22 modified posts are listed below for owner confirmation:
+
+| # | Slug | Previous Byline / Author | Replacement Byline | File Location |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | `basement-renovation-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/basementRenovationNyc.ts:21` |
+| 2 | `bathroom-renovation-bronx-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/bathroomRenovationBronx.ts:21` |
+| 3 | `brick-pointing-cost-nyc` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/brickPointingCostNyc.ts:21` |
+| 4 | `nyc-building-violations-dob-removal` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/buildingViolations.ts:21` |
+| 5 | `caulking-contractors-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/caulkingContractorsNyc.ts:21` |
+| 6 | `commercial-multifamily-renovation-nyc` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/commercialMultifamilyRenovation.ts:21` |
+| 7 | `commercial-roofing-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/commercialRoofingNyc.ts:21` |
+| 8 | `concrete-contractor-bronx-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/concreteContractorBronx.ts:21` |
+| 9 | `facade-restoration-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/facadeRestorationNyc.ts:21` |
+| 10 | `fire-escape-painting-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/fireEscapePaintingNyc.ts:21` |
+| 11 | `flat-roof-repair-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/flatRoofRepairNyc.ts:21` |
+| 12 | `structural-foundation-repair-new-york` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/foundationRepairNyc.ts:21` |
+| 13 | `hire-general-contractor-bronx` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/generalContractorBronx.ts:21` |
+| 14 | `kitchen-renovation-bronx-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/kitchenRenovationBronx.ts:21` |
+| 15 | `local-law-11-nyc-fisp-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/localLaw11.ts:21` |
+| 16 | `parapet-wall-repair-nyc-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/parapetWallRepairNyc.ts:21` |
+| 17 | `renovation-permits-nyc-dob` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/renovationPermitsNyc.ts:21` |
+| 18 | `roof-replacement-bronx-cost-guide` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/roofReplacementBronx.ts:21` |
+| 19 | `sidewalk-repair-bronx-who-pays` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/sidewalkRepairBronx.ts:21` |
+| 20 | `water-damage-restoration-bronx` | Adil Shamis | Mega Contracting NY Group | `src/data/blogs/waterDamageBronx.ts:21` |
+| 21 | `nyc-home-renovation-contractor-guide` | Mansoor | Mega Contracting NY Group | `src/data/blogsData.ts:145` |
+| 22 | `nyc-roof-replacement-dob-code-local-law-97-guide` | Mega Contracting Team | Mega Contracting NY Group | `src/data/blogsData.ts:508` |
+
+### 3. Article JSON-LD Standardization
+- Updated `src/app/blog/[slug]/page.tsx` to ensure all posts render schema `@type: "Article"` with:
+  - `headline`: `post.title`
+  - `description`: `post.metaDescription`
+  - `datePublished`: `clampDate(post.publishDate)`
+  - `dateModified`: `clampDate(post.editDate || post.publishDate)`
+  - `author`: `Organization` (`Mega Contracting NY Group`, logo URL, and company URL)
+  - `publisher`: `Organization` (`Mega Contracting NY Group`, logo URL, and company URL)
+  - `mainEntityOfPage`: `WebPage` (`canonicalUrl`)

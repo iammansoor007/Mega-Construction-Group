@@ -27,8 +27,8 @@ export const generalContractorBronxPost: BlogPost = {
   excerpt:
     "To hire a licensed general contractor bronx ny, property owners must verify active Department of Buildings GC registration and DCA home improvement licensing, demand comprehensive general liability and workers' compensation coverage, secure detailed written contracts with milestones, and avoid unlicensed operators.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

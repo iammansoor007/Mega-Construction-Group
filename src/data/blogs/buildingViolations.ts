@@ -29,8 +29,8 @@ export const buildingViolationsPost: BlogPost = {
   excerpt:
     "Resolving nyc building violations requires property owners to understand whether they face a DOB administrative notice, an ECB summons, or a DOT sidewalk order, perform physical corrective work through licensed contractors, and file a formal Certificate of Correction with the NYC Department of Buildings.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

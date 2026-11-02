@@ -27,8 +27,8 @@ export const bathroomRenovationBronxPost: BlogPost = {
   excerpt:
     "Planning a bathroom renovation bronx ny requires navigating DOB plumbing permits, co-op alteration agreements, old pre-war cast iron pipe replacements, and multi-layer waterproof membrane installations. Explore costs, timelines, and expert remodeling tips.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

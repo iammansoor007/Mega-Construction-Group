@@ -29,8 +29,8 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
   excerpt:
     "Executing a commercial renovation nyc project requires commercial property owners, asset managers, and co-op boards to navigate DOB Alteration filings, manage tenant occupied logistics, coordinate complex MEP trade sequencing, and ensure rigid project closeouts.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

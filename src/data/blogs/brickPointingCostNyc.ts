@@ -28,8 +28,8 @@ export const brickPointingCostNycPost: BlogPost = {
   excerpt:
     "Understanding brick pointing cost nyc requires comparing true repointing versus cosmetic tuckpointing, analyzing scaffolding and access expenses, and selecting vapor-permeable lime mortars tailored to historic New York brownstone and pre-war brick facades.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

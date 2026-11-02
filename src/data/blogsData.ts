@@ -142,8 +142,8 @@ export const blogsData: Record<string, BlogPost> = {
     imageAlt: "NYC home renovation contractor executing full brownstone structural remodel and luxury renovation",
     excerpt: "Hiring a home renovation contractor in NYC is not the same as hiring a handyman. From mandatory DOB Alteration permits and structural foundation underpinning to smart home MEP integration and luxury co-op board vetting, here is the complete 2026 guide to renovating in New York City.",
     author: {
-      name: "Mansoor",
-      role: "Lead Renovation Director & Field Specialist",
+      name: "Mega Contracting NY Group",
+      role: "Licensed NYC General Contractor",
       license: "NYC DOB GC #NYC-2005-8942",
       avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
     },
@@ -519,7 +519,7 @@ export const blogsData: Record<string, BlogPost> = {
     imageAlt: "Commercial flat roof replacement and TPO membrane installation in New York City by Mega Contracting NY Group",
     excerpt: "Replacing a roof in New York City is unlike roofing anywhere else. From navigating NYC Department of Buildings (DOB) work permits to complying with Local Law 97 continuous insulation mandates, here is what property owners and managers need to know before executing a complete roof replacement.",
     author: {
-      name: "Mega Contracting Team",
+      name: "Mega Contracting NY Group",
       role: "Licensed General Contractor Team",
       license: "NYC General Contractor #NYC-2005-8942",
       avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
@@ -694,7 +694,7 @@ export const blogsData: Record<string, BlogPost> = {
   }
 };
 
-export const TODAY = "2026-10-26";
+export const TODAY = "2026-11-02";
 
 export function isFutureDate(dateStr?: string): boolean {
   if (!dateStr) return false;

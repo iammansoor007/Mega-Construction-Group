@@ -28,8 +28,8 @@ export const sidewalkRepairBronxPost: BlogPost = {
   excerpt:
     "Under NYC Administrative Code § 7-210, property owners are legally liable for maintaining adjacent sidewalks. Learn who pays for sidewalk repair bronx ny, how DOT violation orders function, and how to clear municipal flags with licensed concrete replacement.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

@@ -52,7 +52,7 @@ export default function BlogIndexPage() {
     url: "https://www.megacontractingnyc.com/blog",
     publisher: {
       "@type": "Organization",
-      name: "Mega Contracting NY Group Inc.",
+      name: "Mega Contracting NY Group",
       logo: {
         "@type": "ImageObject",
         url: "https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png",
@@ -99,7 +99,7 @@ export default function BlogIndexPage() {
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <Award className="w-4 h-4 text-red-500" />
-                  Technical Guides from Mega Contracting
+                  Technical Guides from Mega Contracting NY Group
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <HardHat className="w-4 h-4 text-red-500" />

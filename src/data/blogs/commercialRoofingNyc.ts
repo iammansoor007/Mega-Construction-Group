@@ -28,8 +28,8 @@ export const commercialRoofingNycPost: BlogPost = {
   excerpt:
     "Navigating commercial roofing nyc requires commercial property managers and co-op boards to evaluate single-ply TPO versus EPDM membranes, comply with NYC Energy Conservation Code R-30 insulation mandates, define precise bidding scopes, and secure 20-year No Dollar Limit (NDL) warranties.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

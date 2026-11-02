@@ -178,7 +178,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                     </p>
                     <span className="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     <span className="hidden sm:inline-block text-[11px] text-emerald-400 font-mono">
-                      Verified Author
+                      NYC General Contractor
                     </span>
                   </div>
                   <p className="text-xs text-white/50">
@@ -511,7 +511,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase font-mono font-bold tracking-widest text-red-500 block mb-1">
-                    Technical Content Verified By
+                    Published By
                   </span>
                   <h3 className="text-lg font-bold text-white mb-1.5 font-heading">
                     {post.author.name}
@@ -524,13 +524,16 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center sm:justify-start text-[11px] font-mono text-white/50">
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
-                      OSHA-30 Certified
+                      Licensed & Insured
                     </span>
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
-                      $5M Liability Coverage
+                      GC #NYC-2005-8942
                     </span>
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
-                      EPA Lead-Safe Certified
+                      Since 2005
+                    </span>
+                    <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
+                      Family-Owned
                     </span>
                   </div>
                 </div>

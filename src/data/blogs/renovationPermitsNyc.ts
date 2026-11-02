@@ -27,8 +27,8 @@ export const renovationPermitsNycPost: BlogPost = {
   excerpt:
     "Navigating renovation permits nyc requires property owners to understand which construction scopes mandate Department of Buildings approval, distinguish minor cosmetic repairs from structural alterations, and partner with licensed, DOB-compliant contractors to avoid Stop Work Orders.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },

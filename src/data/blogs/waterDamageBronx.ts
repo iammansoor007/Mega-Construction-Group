@@ -28,8 +28,8 @@ export const waterDamageBronxPost: BlogPost = {
   excerpt:
     "Experiencing water damage in a Bronx building requires rapid containment within the first 48 hours to prevent toxic mold growth, secure structural timber, and accurately document losses for insurance claims. Discover safety protocols and restoration steps.",
   author: {
-    name: "Adil Shamis",
-    role: "Lead Project Estimator & NYC Construction Specialist",
+    name: "Mega Contracting NY Group",
+    role: "Licensed NYC General Contractor",
     license: "NYC DOB GC #NYC-2005-8942",
     avatar: "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=60&w=150&auto=format&fit=crop"
   },
