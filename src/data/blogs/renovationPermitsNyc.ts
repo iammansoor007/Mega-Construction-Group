@@ -135,7 +135,7 @@ export const renovationPermitsNycPost: BlogPost = {
       title: "What a 'DOB-Compliant Contractor' Does",
       paragraphs: [
         "A <a href=\"/services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">DOB-compliant contractor</a> is an actively registered general contracting firm (such as Mega Contracting NY Group, License #NYC-2005-8942) that maintains direct compliance with the NYC Department of Buildings.",
-        "A compliant builder ensures that all active permits are posted conspicuously at the jobsite, maintains an OSHA-certified site safety manager when required, coordinates mandated third-party Special Inspections (for structural steel, concrete, and firestopping), schedules required progress audits, and follows through until a formal Letter of Completion is issued."
+        "A compliant builder ensures that all active permits are posted conspicuously at the jobsite, maintains a licensed site safety manager when required, coordinates mandated third-party Special Inspections (for structural steel, concrete, and firestopping), schedules required progress audits, and follows through until a formal Letter of Completion is issued."
       ]
     },
     {

@@ -433,3 +433,24 @@ All 14 target service pages were reviewed and upgraded to meet strict comprehens
 3. **Roofing Systems**: Confirm commercial flat roofing installations include full existing system tear-off, rigid polyisocyanurate insulation installation, and heat-welded single-ply (TPO) / built-up membrane applications.
 4. **Stucco Repair**: Confirm traditional three-coat portland cement wire lath repairs and synthetic EIFS base coat / acrylic finish applications.
 5. **Permitting Protocols**: Confirm firm manages permit filings and inspections through the NYC Department of Transportation (DOT) and Department of Buildings (DOB) under GC license #NYC-2005-8942.
+
+
+## Task 9: Automated Crawl, Assertion Verification & Final Build
+
+An automated assertion script was executed against the built production site (`.next/server/app/**/*.html`) and all source files (`src/**/*.{ts,tsx,json}`), verifying all 7 validation criteria:
+
+### Verification Results Table
+
+| Check # | Assertion Test | Result | Details |
+| :---: | :--- | :---: | :--- |
+| **(1)** | Zero links to 51 old keyword-slug redirect URLs anywhere in codebase or built HTML | **PASS** | 0 violations found. All internal links point directly to canonical `/services/...` targets. |
+| **(2)** | Zero dates after simulated today (`2026-11-02`) anywhere | **PASS** | 0 violations found. Clamped all dates across sitemap, Article JSON-LD, metadata, and blog index. |
+| **(3)** | Exactly one `<h1>` per content page in built HTML | **PASS** | 0 violations found. All 44 static/SSG content pages contain exactly one `<h1>`. (Redirect shells omitted). |
+| **(4)** | Zero "Mega Construction" text anywhere | **PASS** | 0 violations found. Brand unified strictly to "Mega Contracting NY Group". |
+| **(5)** | Zero unverified claim strings from Task 2 anywhere | **PASS** | 0 violations found across all 141 source files and all built HTML documents. |
+| **(6)** | Every FAQ `<details>` element has a non-empty answer | **PASS** | 0 violations found. All server-rendered `<details>` blocks contain non-empty answers. |
+| **(7)** | No title tag contains brand twice | **PASS** | 0 violations found. All titles feature clean, single-brand formatting. |
+
+### Tooling & Build Optimization
+- **Linting Script (`package.json`)**: Configured `"lint": "eslint ."` and updated `eslint.config.js` to ignore build output (`.next`, `dist`), enabling clean and successful execution of `npm run lint`.
+- **Production Build (`npm run build`)**: Fully compiled and generated all 99 routes with zero TypeScript or build errors in Turbopack.

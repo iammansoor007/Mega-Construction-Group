@@ -469,8 +469,7 @@ ${formData.message}
                   <span className="text-red-600">Free Estimate</span>
                 </h2>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  No obligation. No pressure. Just honest answers and professional guidance from New York's most
-                  trusted construction and roofing team since 2005.
+                  No obligation. No pressure. Just honest answers and professional guidance from New York's dedicated construction and roofing team since 2005.
                 </p>
               </div>
 
