@@ -43,11 +43,14 @@ const SectionLabel = ({ text }: { text: string }) => (
 
 // ─── Category icon map ────────────────────────────────────────────────────────
 const categoryIcons: Record<string, any> = {
-  Home, Tools: Wrench, Shield, Building, Storm: Zap
+  Home, Roof: Home, Tools: Wrench, Shield, Building, Storm: Zap
 };
 
 // ─── Accordion Item (Semantic & Crawlable for Google Rich Results) ─────────────
 const AccordionItem = ({ item, index, isOpen, onToggle }: any) => {
+  const isWarranty = item.question?.toLowerCase().includes("warranty") || item.category === "warranty";
+  const displayAnswer = (isWarranty && business.warrantyStatement) ? business.warrantyStatement : item.answer;
+
   return (
     <details
       open={isOpen}
@@ -95,7 +98,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }: any) => {
       <div className="px-6 sm:px-8 pb-6 sm:pb-8">
         <div className="relative pl-6 border-l-2 border-red-600/20">
           <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5 font-normal text-left">
-            {item.answer}
+            {displayAnswer}
           </p>
 
           {item.metadata && (
@@ -139,14 +142,20 @@ export default function FAQPage() {
 
   const { categories, items, knowledgeCard } = completeData.faq;
 
-  const filteredItems = items.filter((item) => {
-    const matchesCategory = activeCategory === "all" || item.category === activeCategory;
-    const matchesSearch =
-      searchQuery === "" ||
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredItems = items
+    .filter((item) => {
+      const isWarranty = item.question?.toLowerCase().includes("warranty") || item.category === "warranty";
+      if (isWarranty && !business.warrantyStatement) return false;
+      return true;
+    })
+    .filter((item) => {
+      const matchesCategory = activeCategory === "all" || item.category === activeCategory;
+      const matchesSearch =
+        searchQuery === "" ||
+        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
 
   const handleToggle = (index: number) => {
     setOpenItems((prev) =>

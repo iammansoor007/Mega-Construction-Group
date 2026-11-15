@@ -514,3 +514,22 @@ The following hardcoded phrases were removed or neutralized site-wide, rendering
 - Hardcoded founder bio narratives (`"Adil Shamis founded Mega Contracting NY Group in 2005..."`).
 - Retained clean `"Family-owned"` and `"Licensed & Insured"` wording with license `#NYC-2005-8942`.
 
+---
+
+## Task 6: Categorized FAQ Accordions (<details><summary>) & Service Page Links
+
+All questions and answers are rendered directly in the server-rendered HTML using semantic `<details><summary>` blocks with the first item open.
+The `/faq` page is grouped by the 6 specified categories: **General**, **Roofing**, **Masonry**, **Renovation**, **Emergency**, and **Insurance and estimates**.
+
+### Service Page Mappings in FAQ Answers:
+- **General**: Mapped to `/contact` (consultations & estimates), `/licenses` (NY licensing credentials), and `/about`.
+- **Roofing**: Mapped to `/services/roofing-services/roof-leakage-repair` (emergency leak diagnostic), `/services/roofing-services/flat-roofing` (commercial systems), and `/services/roofing-services` (general roofing).
+- **Masonry**: Mapped to `/services/masonry-work/brick-grinding-pointing` (tuckpointing), `/services/masonry-work/facade-restoration` (FISP & Local Law 11 masonry repairs), and `/services/concrete-services` (foundation repair).
+- **Renovation**: Mapped to `/services/home-renovation/kitchen-renovation`, `/services/home-renovation/bathroom-renovation`, and `/services/home-renovation`.
+- **Emergency**: Mapped to `/services/emergency-service/emergency-24-7` (24/7 emergency dispatch) and `/services/emergency-service/rapid-deployment`.
+- **Insurance and estimates**: Mapped to `/licenses` (insurance limit verification) and `/contact` (free estimate request).
+
+### Warranty Question Handling
+- Configured to display `businessConfig.warrantyStatement` if non-null. Because `warrantyStatement` defaults to `null` until confirmed by owner, the warranty question is filtered out from public rendering to prevent unverified warranty claims.
+
+

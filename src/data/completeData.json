@@ -189,7 +189,7 @@
     ],
     "cta": {
       "title": "Get Your Free Estimate",
-      "description": "Detailed quote provided promptly",
+      "description": "Detailed quote within 24 hours",
       "buttonText": "Get Free Estimate",
       "buttonLink": "/contact",
       "buttons": [
@@ -321,7 +321,7 @@
         "label": "Years"
       },
       {
-        "value": 5.0,
+        "value": 5,
         "suffix": "",
         "label": "Rating"
       }
@@ -688,8 +688,8 @@
       },
       {
         "icon": "Clock",
-        "title": "Clear Path for Violations & Repairs",
-        "description": "Experienced coordination for clearing DOT/DOB violations and performing structural repairs."
+        "title": "Fast Turnaround for Violations & Repairs",
+        "description": "Rapid response for clearing DOT/DOB violations and performing urgent structural repairs."
       },
       {
         "icon": "Honest",
@@ -760,24 +760,29 @@
         "icon": "Home"
       },
       {
+        "id": "roofing",
+        "label": "Roofing",
+        "icon": "Roof"
+      },
+      {
+        "id": "masonry",
+        "label": "Masonry",
+        "icon": "Tools"
+      },
+      {
         "id": "renovation",
         "label": "Renovation",
         "icon": "Tools"
       },
       {
-        "id": "commercial",
-        "label": "Commercial",
-        "icon": "Building"
+        "id": "emergency",
+        "label": "Emergency",
+        "icon": "Storm"
       },
       {
-        "id": "warranty",
-        "label": "Warranty",
+        "id": "insurance-estimates",
+        "label": "Insurance and estimates",
         "icon": "Shield"
-      },
-      {
-        "id": "nyc-services",
-        "label": "NYC Services",
-        "icon": "Building"
       }
     ],
     "items": [
@@ -799,7 +804,9 @@
         "links": [
           {
             "label": "Contact us for your area",
-            "url": "/contact"
+            "text": "Contact us for your area",
+            "url": "/contact",
+            "href": "/contact"
           }
         ]
       },
@@ -807,99 +814,107 @@
         "id": 2,
         "category": "renovation",
         "question": "How long does a kitchen renovation take?",
-        "answer": "A typical kitchen renovation takes 4-8 weeks depending on the scope of work, materials selected, and any structural changes required. We provide a detailed timeline during your consultation and keep you informed throughout the process.",
+        "answer": "A kitchen renovation typically takes several weeks depending on the scope of work, materials selected, and required municipal approvals. We provide a tailored schedule during your initial consultation and maintain clear communication through each project milestone.",
         "metadata": [
           {
-            "label": "Typical Timeline",
-            "value": "4-8 weeks"
+            "label": "Timeline",
+            "value": "Project-Specific"
           },
           {
             "label": "Factors",
-            "value": "Scope, materials"
+            "value": "Scope, Materials, Approvals"
           }
         ],
         "links": [
           {
-            "label": "Schedule consultation",
-            "url": "/consultation"
+            "label": "Explore Home Renovation Services",
+            "text": "Explore Home Renovation Services",
+            "url": "/services/home-renovation",
+            "href": "/services/home-renovation"
           }
         ]
       },
       {
         "id": 3,
-        "category": "general",
+        "category": "insurance-estimates",
         "question": "Are you licensed and insured?",
-        "answer": "Yes, Mega Contracting NY Group is fully licensed and insured in the state of New York. We carry comprehensive liability insurance and workers' compensation coverage for your protection and peace of mind.",
+        "answer": "Yes, Mega Contracting NY Group is fully licensed and insured in the state of New York. We carry comprehensive commercial general liability insurance and NY State statutory workers' compensation coverage for your protection on every job site.",
         "metadata": [
           {
             "label": "License",
-            "value": "NYC-2005-8942"
+            "value": "NYC DOB #NYC-2005-8942"
           },
           {
             "label": "Insurance",
-            "value": "Full Coverage"
+            "value": "Commercial Liability & Workers' Comp"
           }
         ],
         "links": [
           {
-            "label": "Verify credentials",
-            "url": "/credentials"
+            "label": "Verify NYC Licensure & Insurance",
+            "text": "Verify NYC Licensure & Insurance",
+            "url": "/licenses",
+            "href": "/licenses"
           }
         ]
       },
       {
         "id": 4,
-        "category": "commercial",
+        "category": "general",
         "question": "Do you handle commercial construction projects?",
-        "answer": "Absolutely. We have extensive experience with commercial construction including office build-outs, retail spaces, restaurants, and multi-family buildings. Our team understands commercial codes, timelines, and the importance of minimizing business disruption.",
+        "answer": "Yes. We handle commercial construction including retail spaces, commercial build-outs, and multi-family residential properties across New York City. Our experienced project managers ensure strict compliance with NYC Building Codes.",
         "metadata": [
           {
             "label": "Commercial Types",
             "value": "Office, Retail, Multi-Family"
           },
           {
-            "label": "Experience",
-            "value": "Licensed & Insured"
+            "label": "Compliance",
+            "value": "NYC Building Code"
           }
         ],
         "links": [
           {
-            "label": "View commercial projects",
-            "url": "/commercial"
+            "label": "Concrete & Commercial Services",
+            "text": "Concrete & Commercial Services",
+            "url": "/services/concrete-services",
+            "href": "/services/concrete-services"
           }
         ]
       },
       {
         "id": 5,
-        "category": "general",
+        "category": "insurance-estimates",
         "question": "Do you provide free estimates?",
-        "answer": "Yes, we provide free, no-obligation estimates for all projects. We'll visit your property, discuss your vision, take measurements, and provide a detailed written estimate within 24-48 hours.",
+        "answer": "Yes, we provide free, no-obligation consultations and estimates for all prospective projects. Our estimators visit your property, evaluate requirements, take on-site measurements, and deliver a detailed written scope of work.",
         "metadata": [
           {
             "label": "Cost",
-            "value": "Free"
+            "value": "Free Consultation"
           },
           {
-            "label": "Turnaround",
-            "value": "24-48 hours"
+            "label": "Scope",
+            "value": "Itemized Written Estimate"
           }
         ],
         "links": [
           {
-            "label": "Request estimate",
-            "url": "/contact"
+            "label": "Request a Free Estimate",
+            "text": "Request a Free Estimate",
+            "url": "/contact",
+            "href": "/contact"
           }
         ]
       },
       {
         "id": 6,
-        "category": "warranty",
+        "category": "insurance-estimates",
         "question": "What warranty do you offer?",
-        "answer": "We stand behind our work with quality craftsmanship. Additionally, all materials we install come with manufacturer warranties. Your satisfaction and peace of mind are our top priorities.",
+        "answer": "Written warranty terms and coverage are provided with each formal project proposal in accordance with specific material manufacturer guidelines and project scope.",
         "metadata": [
           {
-            "label": "Workmanship",
-            "value": "10 Years"
+            "label": "Coverage",
+            "value": "Project-Specific Terms"
           },
           {
             "label": "Materials",
@@ -908,8 +923,10 @@
         ],
         "links": [
           {
-            "label": "Warranty details",
-            "url": "/warranty"
+            "label": "Contact Us for Warranty Details",
+            "text": "Contact Us for Warranty Details",
+            "url": "/contact",
+            "href": "/contact"
           }
         ]
       },
@@ -917,21 +934,23 @@
         "id": 7,
         "category": "renovation",
         "question": "Can you help with design and permits?",
-        "answer": "Yes, we offer comprehensive design-build services. Our team can assist with design concepts, material selection, and handle all necessary permits and approvals required for your project in New York.",
+        "answer": "Yes, we offer comprehensive design-build and project management services. Our team assists with architectural planning, material selection, and coordinates all necessary NYC Department of Buildings (DOB) and Landmarks Preservation Commission (LPC) permit filings.",
         "metadata": [
           {
             "label": "Services",
             "value": "Design & Permitting"
           },
           {
-            "label": "Permits",
-            "value": "Full Service"
+            "label": "Filings",
+            "value": "NYC DOB & LPC Coordination"
           }
         ],
         "links": [
           {
-            "label": "Design services",
-            "url": "/design"
+            "label": "Design-Build & Project Management",
+            "text": "Design-Build & Project Management",
+            "url": "/services/custom-home-building/design-build",
+            "href": "/services/custom-home-building/design-build"
           }
         ]
       },
@@ -939,179 +958,409 @@
         "id": 8,
         "category": "general",
         "question": "How do I get started with my project?",
-        "answer": "Simply contact us to schedule a free consultation. We'll meet at your property to discuss your vision, budget, and timeline. From there, we'll provide a detailed proposal and guide you through every step of the process.",
+        "answer": "Simply contact our office to schedule an initial consultation. We will discuss your vision, review site conditions, assess project scope, and provide a clear written estimate tailored to your requirements.",
         "metadata": [
           {
             "label": "First Step",
-            "value": "Free Consultation"
+            "value": "Initial Consultation"
           },
           {
             "label": "Contact",
-            "value": "+1 (914) 804-3000"
+            "value": "(914) 804-3000"
           }
         ],
         "links": [
           {
-            "label": "Contact us now",
-            "url": "/contact"
+            "label": "Get Started with Mega Contracting",
+            "text": "Get Started with Mega Contracting",
+            "url": "/contact",
+            "href": "/contact"
           }
         ]
       },
       {
         "id": 9,
-        "category": "commercial",
+        "category": "general",
         "question": "What types of commercial projects do you specialize in?",
-        "answer": "We specialize in office build-outs, retail construction, restaurant renovations, medical facilities, and multi-family residential buildings. Each project receives personalized attention regardless of size or complexity.",
+        "answer": "We undertake commercial exterior and interior projects, including multi-family building renovations, retail build-outs, structural concrete, facade maintenance, and flat commercial roofing systems throughout the five boroughs.",
         "metadata": [
           {
             "label": "Specialties",
-            "value": "Office, Retail, Medical"
+            "value": "Multi-Family, Retail, Masonry, Roofing"
           },
           {
-            "label": "Project Size",
-            "value": "All Sizes"
+            "label": "Coverage",
+            "value": "NYC Five Boroughs"
           }
         ],
         "links": [
           {
-            "label": "Commercial portfolio",
-            "url": "/portfolio"
+            "label": "View Recent Construction Projects",
+            "text": "View Recent Construction Projects",
+            "url": "/projects",
+            "href": "/projects"
           }
         ]
       },
       {
         "id": 10,
-        "category": "renovation",
+        "category": "masonry",
         "question": "Do you work with historic properties?",
-        "answer": "Yes, we have extensive experience with historic renovations and restorations in New York. We understand landmark requirements and work carefully to preserve architectural character while updating systems and functionality.",
+        "answer": "Yes, we have extensive experience with historic renovations and restorations across NYC. We respect historical architectural details while complying with NYC Landmarks Preservation Commission (LPC) guidelines and contemporary structural standards.",
         "metadata": [
           {
             "label": "Experience",
             "value": "Historic Properties"
           },
           {
-            "label": "Specialty",
-            "value": "Preservation"
+            "label": "Compliance",
+            "value": "NYC Landmarks Preservation Commission"
           }
         ],
         "links": [
           {
-            "label": "Historic projects",
-            "url": "/historic"
+            "label": "NYC Historic Restoration Services",
+            "text": "NYC Historic Restoration Services",
+            "url": "/services/masonry-work/historic-restoration",
+            "href": "/services/masonry-work/historic-restoration"
           }
         ]
       },
       {
         "id": 11,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "Do you provide facade restoration in NYC?",
-        "answer": "Yes, facade restoration is one of our core specialties. We handle full exterior building restoration including brick repointing, parapet wall repair, coping replacement, waterproofing, and structural repairs for residential and commercial buildings across all NYC boroughs. As a licensed facade restoration contractor, we're fully compliant with NYC Local Law 11 (FISP) requirements.",
-        "metadata": [{"label": "Compliance", "value": "Local Law 11 / FISP"}, {"label": "Coverage", "value": "All 5 Boroughs"}],
-        "links": [{"label": "View Masonry Services", "url": "/services/masonry-work"}]
+        "answer": "Yes, facade restoration is one of our primary masonry services. We perform comprehensive exterior restoration including brick repointing, parapet wall repair, stone restoration, lintel replacement, and exterior waterproofing for residential, multi-family, and commercial properties.",
+        "metadata": [
+          {
+            "label": "Services",
+            "value": "Repointing, Parapets, Coping, Lintel"
+          },
+          {
+            "label": "Buildings",
+            "value": "Residential & Commercial"
+          }
+        ],
+        "links": [
+          {
+            "label": "Facade Restoration NYC",
+            "text": "Facade Restoration NYC",
+            "url": "/services/masonry-work/facade-restoration",
+            "href": "/services/masonry-work/facade-restoration"
+          }
+        ]
       },
       {
         "id": 12,
-        "category": "nyc-services",
+        "category": "roofing",
         "question": "Can you fix a roof leak in NYC?",
-        "answer": "Absolutely. Roof leak repair is one of the most common services we provide in NYC. We identify and fix leaks in flat roofs, pitched roofs, around chimneys, skylights, gutters, and flashings. Our emergency roof leak repair team is available 24/7 for urgent situations. We work on all roof types including TPO, EPDM, modified bitumen, shingles, and built-up roofing.",
-        "metadata": [{"label": "Response", "value": "24/7 Emergency"}, {"label": "Roof Types", "value": "All Types"}],
-        "links": [{"label": "Roofing Services NYC", "url": "/services/roofing-services"}]
+        "answer": "Yes, we provide prompt roof leak detection and repair services across all five boroughs. Our roofing specialists locate moisture entry points, inspect flashing and membrane seams, and perform durable structural repairs to protect your property from interior water damage.",
+        "metadata": [
+          {
+            "label": "Availability",
+            "value": "Prompt Dispatch"
+          },
+          {
+            "label": "Scope",
+            "value": "Leak Detection & Membrane Repair"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Roof Leak Repair",
+            "text": "NYC Roof Leak Repair",
+            "url": "/services/roofing-services/roof-leak-repair",
+            "href": "/services/roofing-services/roof-leak-repair"
+          }
+        ]
       },
       {
         "id": 13,
-        "category": "nyc-services",
+        "category": "roofing",
         "question": "What is flat roofing and do you install it in NYC?",
-        "answer": "Flat roofing systems are standard for most commercial buildings and many residential properties in NYC. We install and repair all flat roofing systems including TPO (Thermoplastic Polyolefin), EPDM (rubber roofing), modified bitumen, and built-up roofing (BUR). Our flat roofing NYC services include installation, repair, restoration, and full replacement with manufacturer warranties.",
-        "metadata": [{"label": "Systems", "value": "TPO, EPDM, Mod-Bit, BUR"}, {"label": "Warranty", "value": "Up to 20 Years"}],
-        "links": [{"label": "Flat Roofing NYC", "url": "/services/roofing-services"}]
+        "answer": "Flat roofing systems—including modified bitumen, EPDM rubber, and multi-ply built-up roofs—are standard for NYC residential brownstones and commercial structures. We install, repair, and maintain code-compliant flat roofing systems engineered for urban weather conditions.",
+        "metadata": [
+          {
+            "label": "Systems",
+            "value": "Modified Bitumen, EPDM, Built-Up"
+          },
+          {
+            "label": "Applications",
+            "value": "Brownstones, Commercial, Residential"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Flat Roofing Systems",
+            "text": "NYC Flat Roofing Systems",
+            "url": "/services/roofing-services/flat-roofing",
+            "href": "/services/roofing-services/flat-roofing"
+          }
+        ]
       },
       {
         "id": 14,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "Do you handle chimney repair in NYC?",
-        "answer": "Yes, we provide comprehensive chimney repair services throughout NYC — including chimney repointing (tuckpointing), chimney cap replacement, crown repair, flashing replacement, waterproofing, liner installation, and full chimney rebuilding. Damaged chimneys are a common source of water infiltration and structural risk. We address all issues quickly and safely.",
-        "metadata": [{"label": "Services", "value": "Repair, Repoint & Rebuild"}, {"label": "Urgency", "value": "Same-Week Available"}],
-        "links": [{"label": "Masonry Services", "url": "/services/masonry-work"}]
+        "answer": "Yes, we provide full chimney masonry services in NYC, including brick repointing, chimney rebuilding, flue relining, coping stone installation, and custom flashing repair to eliminate downdrafts and prevent water infiltration.",
+        "metadata": [
+          {
+            "label": "Services",
+            "value": "Rebuilding, Repointing, Flashing"
+          },
+          {
+            "label": "Compliance",
+            "value": "NYC Fire & Building Codes"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Chimney Repair Services",
+            "text": "NYC Chimney Repair Services",
+            "url": "/services/masonry-work/chimney-repair",
+            "href": "/services/masonry-work/chimney-repair"
+          }
+        ]
       },
       {
         "id": 15,
-        "category": "nyc-services",
+        "category": "emergency",
         "question": "What is fire escape painting and certification in NYC?",
-        "answer": "Fire escapes in NYC must be inspected, repaired, and painted regularly to comply with the NYC Administrative Code (§27-371). We provide full fire escape services including rust removal, structural repair, painting with rust-inhibiting primer and topcoat, and compliance documentation. Building owners face violations for deteriorated or unpainted fire escapes — we handle end-to-end compliance.",
-        "metadata": [{"label": "Compliance", "value": "NYC Admin Code §27-371"}, {"label": "Service", "value": "Repair, Paint & Certify"}],
-        "links": [{"label": "Contact for Fire Escape Service", "url": "/contact"}]
+        "answer": "In NYC, property owners must maintain fire escapes in safe, code-compliant condition under local housing codes. We perform scraping, rust-inhibitive priming, high-grade painting, structural iron repairs, and prepare compliance documentation for property owners.",
+        "metadata": [
+          {
+            "label": "Process",
+            "value": "Scraping, Priming, Structural Iron Repair"
+          },
+          {
+            "label": "Compliance",
+            "value": "NYC Housing & Building Code"
+          }
+        ],
+        "links": [
+          {
+            "label": "Building Safety & Fire Escape Assessment",
+            "text": "Building Safety & Fire Escape Assessment",
+            "url": "/services/emergency-service/safety-assessment",
+            "href": "/services/emergency-service/safety-assessment"
+          }
+        ]
       },
       {
         "id": 16,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "What is parapet wall repair and when is it needed?",
-        "answer": "A parapet wall is the low protective wall at the edge of a rooftop. In NYC, parapet walls are subject to Local Law 11 (FISP) inspection and must be maintained in safe condition. Signs you need parapet wall repair include crumbling mortar, cracked bricks, displaced coping stones, and water infiltration. We repair and restore parapet walls across all NYC boroughs.",
-        "metadata": [{"label": "Regulation", "value": "NYC Local Law 11 / FISP"}, {"label": "Inspection", "value": "Required Every 5 Years"}],
-        "links": [{"label": "Masonry & Parapet Repair", "url": "/services/masonry-work"}]
+        "answer": "Parapet walls are perimeter walls extending above the roofline that endure heavy exposure to wind, rain, and freeze-thaw cycles. Repair is needed when you observe loose brickwork, crumbling mortar, outward leaning, or water intrusion along the roof perimeter.",
+        "metadata": [
+          {
+            "label": "Warning Signs",
+            "value": "Cracks, Leaning, Mortar Loss"
+          },
+          {
+            "label": "Services",
+            "value": "Rebuilding, Pointing, Coping Stones"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Parapet Wall Repair",
+            "text": "NYC Parapet Wall Repair",
+            "url": "/services/masonry-work/parapet-wall",
+            "href": "/services/masonry-work/parapet-wall"
+          }
+        ]
       },
       {
         "id": 17,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "Do you do stucco repair in NYC?",
-        "answer": "Yes, we are a licensed stucco repair and installation contractor in NYC. We work with traditional Portland cement stucco, EIFS (Exterior Insulation and Finish System), and California-style stucco. Our stucco services include crack repair, patch work, full re-stucco, color matching, and waterproofing. We restore stucco on houses, commercial buildings, and historic properties across all five boroughs.",
-        "metadata": [{"label": "Types", "value": "Traditional, EIFS, California"}, {"label": "Service", "value": "Repair & Full Restoration"}],
-        "links": [{"label": "Stucco Services NYC", "url": "/services/stucco"}]
+        "answer": "Yes, we provide exterior stucco repair, re-coating, and complete restoration for residential and commercial facades. We fix hairline cracks, delamination, water staining, and structural damage using weather-resistant stucco systems.",
+        "metadata": [
+          {
+            "label": "Types",
+            "value": "Traditional, EIFS, Acrylic"
+          },
+          {
+            "label": "Service",
+            "value": "Patching, Re-coating & Full Restoration"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Exterior Stucco Repair",
+            "text": "NYC Exterior Stucco Repair",
+            "url": "/services/masonry-work/stucco-repair",
+            "href": "/services/masonry-work/stucco-repair"
+          }
+        ]
       },
       {
         "id": 18,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "What is an EIFS contractor and do you provide EIFS in NYC?",
-        "answer": "EIFS (Exterior Insulation and Finish System) is a multi-layer exterior cladding system that provides insulation and a decorative finish. We are certified EIFS contractors in NYC, handling installation, repair, remediation, and replacement of EIFS systems for commercial and residential buildings. EIFS is popular for its energy efficiency and design flexibility.",
-        "metadata": [{"label": "Certification", "value": "Licensed EIFS Contractor"}, {"label": "Projects", "value": "Commercial & Residential"}],
-        "links": [{"label": "Stucco & EIFS Services", "url": "/services/stucco"}]
+        "answer": "EIFS (Exterior Insulation and Finish System) is an exterior wall system providing integrated insulation and decorative cladding. We provide professional installation, moisture inspection, and remediation for EIFS systems across NYC.",
+        "metadata": [
+          {
+            "label": "Cladding",
+            "value": "Synthetic Stucco / EIFS"
+          },
+          {
+            "label": "Applications",
+            "value": "Commercial & Residential"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC EIFS Cladding Solutions",
+            "text": "NYC EIFS Cladding Solutions",
+            "url": "/services/masonry-work/stucco-repair",
+            "href": "/services/masonry-work/stucco-repair"
+          }
+        ]
       },
       {
         "id": 19,
-        "category": "nyc-services",
+        "category": "emergency",
         "question": "Can you handle DOB violation removal in NYC?",
-        "answer": "Yes, we specialize in full DOB (Department of Buildings) violation removal in NYC. This includes identifying the violation, performing all required repairs, filing necessary paperwork with the NYC DOB, and obtaining a Certificate of Correction. Common violations we resolve include facade defects (Local Law 11), roofing issues, structural deficiencies, and fire escape violations. We handle the entire process from start to close.",
-        "metadata": [{"label": "Agency", "value": "NYC Dept of Buildings"}, {"label": "Process", "value": "End-to-End Handling"}],
-        "links": [{"label": "Contact for DOB Violation Removal", "url": "/contact"}]
+        "answer": "Yes, we assist NYC property owners with Department of Buildings (DOB) violations. We inspect the cited condition, perform required code-compliant repairs, pull necessary permits, and assemble documentation required for Certificate of Correction filings.",
+        "metadata": [
+          {
+            "label": "Agency",
+            "value": "NYC Dept of Buildings"
+          },
+          {
+            "label": "Process",
+            "value": "Permits, Code Repairs & Documentation"
+          }
+        ],
+        "links": [
+          {
+            "label": "DOB Violation Repair & Removal",
+            "text": "DOB Violation Repair & Removal",
+            "url": "/services/concrete-services/dob-violation-removal",
+            "href": "/services/concrete-services/dob-violation-removal"
+          }
+        ]
       },
       {
         "id": 20,
-        "category": "nyc-services",
+        "category": "emergency",
         "question": "Do you remove DOT violations and repair sidewalks in NYC?",
-        "answer": "Yes, we specialize in DOT (Department of Transportation) violation removal and sidewalk repair in NYC. Under NYC Local Law 49, property owners are responsible for maintaining the sidewalk adjacent to their property. We perform concrete sidewalk repair and replacement, file all required permits, and obtain sign-off from the NYC DOT — handling the full violation removal process.",
-        "metadata": [{"label": "Jurisdiction", "value": "NYC DOT"}, {"label": "Law", "value": "NYC Local Law 49"}],
-        "links": [{"label": "Sidewalk & Concrete Services", "url": "/services/concrete-services"}]
+        "answer": "Yes, under NYC administrative code, property owners must maintain sidewalks adjacent to their properties. We handle DOT sidewalk violation repairs, concrete replacement, required permits, and inspection sign-off documentation.",
+        "metadata": [
+          {
+            "label": "Jurisdiction",
+            "value": "NYC DOT"
+          },
+          {
+            "label": "Scope",
+            "value": "Sidewalk Concrete & Violation Clearing"
+          }
+        ],
+        "links": [
+          {
+            "label": "DOT Sidewalk Violation Removal",
+            "text": "DOT Sidewalk Violation Removal",
+            "url": "/services/concrete-services/dot-violation-removal",
+            "href": "/services/concrete-services/dot-violation-removal"
+          }
+        ]
       },
       {
         "id": 21,
-        "category": "nyc-services",
+        "category": "emergency",
         "question": "What is a building safety assessment in NYC?",
-        "answer": "A building safety assessment is a comprehensive inspection of your building's exterior, structural components, roof, and critical systems to identify unsafe conditions, DOB violations, and maintenance priorities. Under NYC Local Law 11 (FISP), all buildings taller than 6 stories must undergo facade inspections every 5 years. We provide thorough safety assessments for residential and commercial properties citywide.",
-        "metadata": [{"label": "Regulation", "value": "NYC Local Law 11 / FISP"}, {"label": "Frequency", "value": "Every 5 Years (6+ Stories)"}],
-        "links": [{"label": "Request a Safety Assessment", "url": "/contact"}]
+        "answer": "A building safety assessment evaluates exterior facades, parapets, roof membranes, and structural components to identify potential safety hazards, deterioration, and code compliance issues across NYC residential and commercial properties.",
+        "metadata": [
+          {
+            "label": "Scope",
+            "value": "Facade, Parapet, Roof & Envelope"
+          },
+          {
+            "label": "Properties",
+            "value": "Residential & Commercial"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Building Safety Assessments",
+            "text": "NYC Building Safety Assessments",
+            "url": "/services/emergency-service/safety-assessment",
+            "href": "/services/emergency-service/safety-assessment"
+          }
+        ]
       },
       {
         "id": 22,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "What is brick pointing and do you do it in NYC?",
-        "answer": "Brick pointing (also called tuckpointing or repointing) is the process of removing deteriorated mortar from joints between bricks and replacing it with fresh mortar. Over time, mortar erodes due to weather exposure, allowing water penetration and structural damage. We provide professional brick pointing services for brownstones, townhouses, commercial buildings, and high-rises throughout NYC.",
-        "metadata": [{"label": "Also Known As", "value": "Tuckpointing / Repointing"}, {"label": "Urgency", "value": "Prevents Water Intrusion"}],
-        "links": [{"label": "Brick Pointing NYC", "url": "/services/masonry-work"}]
+        "answer": "Brick pointing (tuckpointing or repointing) removes damaged or weathered mortar from joints between bricks and replaces it with fresh, high-durability mortar. This prevents moisture ingress and protects the structural integrity of your building.",
+        "metadata": [
+          {
+            "label": "Technique",
+            "value": "Mortar Grinding & Repointing"
+          },
+          {
+            "label": "Purpose",
+            "value": "Prevents Structural Moisture Intrusion"
+          }
+        ],
+        "links": [
+          {
+            "label": "NYC Brick Pointing & Grinding",
+            "text": "NYC Brick Pointing & Grinding",
+            "url": "/services/masonry-work/brick-grinding-pointing",
+            "href": "/services/masonry-work/brick-grinding-pointing"
+          }
+        ]
       },
       {
         "id": 23,
-        "category": "nyc-services",
+        "category": "masonry",
         "question": "Do you do foundation repair in NYC?",
-        "answer": "Yes, we handle foundation repair for residential and commercial buildings in NYC. Foundation issues are often caused by soil settlement, water infiltration, aging concrete, or nearby excavation. Our foundation repair services include crack sealing, waterproofing, underpinning, and structural reinforcement. Early foundation repair prevents far more costly structural damage — contact us for a free assessment.",
-        "metadata": [{"label": "Services", "value": "Sealing, Waterproofing, Underpinning"}, {"label": "Buildings", "value": "Residential & Commercial"}],
-        "links": [{"label": "Contact for Foundation Repair", "url": "/contact"}]
+        "answer": "Yes, we handle residential and commercial foundation repair in NYC. Common issues include settling, water intrusion, and surface cracking. Our services include crack injection, waterproofing, and structural reinforcement.",
+        "metadata": [
+          {
+            "label": "Methods",
+            "value": "Crack Injection, Underpinning, Waterproofing"
+          },
+          {
+            "label": "Properties",
+            "value": "Residential & Commercial"
+          }
+        ],
+        "links": [
+          {
+            "label": "Concrete & Foundation Repair NYC",
+            "text": "Concrete & Foundation Repair NYC",
+            "url": "/services/concrete-services",
+            "href": "/services/concrete-services"
+          }
+        ]
       },
       {
         "id": 24,
-        "category": "nyc-services",
+        "category": "roofing",
         "question": "Are you a waterproofing contractor in NYC?",
-        "answer": "Yes, waterproofing is one of our most in-demand services in New York. We provide interior and exterior waterproofing for basements, foundations, rooftops, terraces, retaining walls, and building envelopes. Our solutions include crystalline waterproofing, elastomeric coatings, drainage systems, and full membrane applications. Proper waterproofing protects your property from water damage, mold, and structural deterioration.",
-        "metadata": [{"label": "Applications", "value": "Basement, Foundation, Roof, Facade"}, {"label": "Methods", "value": "Crystalline, Membrane, Drainage"}],
-        "links": [{"label": "Contact for Waterproofing", "url": "/contact"}]
+        "answer": "Yes, waterproofing is a vital service in New York. We provide comprehensive waterproofing solutions for rooftops, foundations, exterior masonry walls, and below-grade areas to protect properties against chronic water intrusion.",
+        "metadata": [
+          {
+            "label": "Systems",
+            "value": "Elastomeric, Membrane, Crystalline"
+          },
+          {
+            "label": "Applications",
+            "value": "Roofs, Foundations, Masonry Facades"
+          }
+        ],
+        "links": [
+          {
+            "label": "Waterproofing Services NYC",
+            "text": "Waterproofing Services NYC",
+            "url": "/services/waterproofing-services",
+            "href": "/services/waterproofing-services"
+          }
+        ]
       }
     ],
     "knowledgeCard": {
@@ -1125,7 +1374,7 @@
     "section": {
       "badge": "GET STARTED",
       "headline": "Request Your <span class=\"font-black  text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Estimate</span>",
-      "description": "Every project starts with a conversation. Share your vision â€” our team will respond promptly."
+      "description": "Every project starts with a conversation. Share your vision — our team will respond promptly."
     },
     "services": [
       {
