@@ -3,6 +3,8 @@
 import { servicesData } from "@/data/servicesData";
 import { resolveCategory, resolveSubcategory, findSubcategoryAnywhere } from "@/lib/servicesResolver";
 import { getServiceDetailSeo } from "@/data/servicesSeoData";
+import { getProjectsByService } from "@/data/projectsData";
+import { getRelatedGuidesForService } from "@/data/blogsData";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -104,6 +106,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
 
   // Recommended Services
   const recommendedServices = service.subcategories.filter((sub) => sub.id !== slug).slice(0, 3);
+  const recentProjects = getProjectsByService(categoryId, slug);
+  const relatedGuides = getRelatedGuidesForService(categoryId, slug);
+  const serviceAreas = subCategory.boroughsServed && subCategory.boroughsServed.length > 0 ? subCategory.boroughsServed : null;
 
   return (
     <main className="min-h-screen bg-white selection:bg-red-600 selection:text-white font-body overflow-x-hidden relative">
@@ -563,7 +568,157 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
         </section>
       )}
 
-      {/* FINAL CTA */}
+      {/* 1. RECENT PROJECTS (MAX 3, HIDDEN WHEN EMPTY) */}
+      {recentProjects && recentProjects.length > 0 && (
+        <section className="py-12 md:py-16 bg-gray-50/50 border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-8 gap-4 text-center sm:text-left">
+              <SectionHeader
+                badge="Recent Work"
+                headline="Related <span class='text-red-600'>Projects</span>"
+                description={`Recent verified projects related to ${subCategory.title.toLowerCase()}.`}
+                center={false}
+                className="mb-0 text-left"
+              />
+              <Link href="/projects" className="inline-flex items-center gap-2 text-xs text-red-600 hover:text-red-700 transition-colors font-bold uppercase tracking-widest">
+                <span>All Projects</span> <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentProjects.map((project) => (
+                <div
+                  key={project.slug}
+                  className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                >
+                  <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                    <Image
+                      src={project.image}
+                      alt={project.photos?.[0]?.alt || project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    {project.borough && (
+                      <span className="absolute top-3 left-3 bg-black/75 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md backdrop-blur-sm">
+                        {project.borough}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2 text-left">
+                      <div className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider">
+                        {project.location}
+                      </div>
+                      <h3 className="text-base font-bold text-gray-900 leading-snug line-clamp-2">
+                        {project.title}
+                      </h3>
+                      {project.challenge && (
+                        <p className="text-xs text-gray-600 line-clamp-2">
+                          {project.challenge}
+                        </p>
+                      )}
+                    </div>
+                    <Link
+                      href={`/projects?selected=${project.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs text-red-600 font-bold uppercase tracking-wider hover:text-red-700"
+                    >
+                      <span>View Project Details</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 2. SERVICE AREAS (HIDDEN WHEN EMPTY) */}
+      {serviceAreas && serviceAreas.length > 0 && (
+        <section className="py-8 md:py-12 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              badge="Coverage"
+              headline="Service <span class='text-red-600'>Areas</span>"
+              description={`We provide ${subCategory.title.toLowerCase()} across these documented service locations.`}
+            />
+            <div className="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
+              {serviceAreas.map((area, idx) => (
+                <div
+                  key={idx}
+                  className="px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs sm:text-sm font-semibold text-gray-800 flex items-center gap-2"
+                >
+                  <span className="w-2 h-2 rounded-full bg-red-600" />
+                  <span>{area}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 3. RELATED GUIDES (MAX 3, HIDDEN WHEN EMPTY) */}
+      {relatedGuides && relatedGuides.length > 0 && (
+        <section className="py-12 md:py-16 bg-white border-t border-gray-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between mb-8 gap-4 text-center sm:text-left">
+              <SectionHeader
+                badge="Guides & Code"
+                headline="Related <span class='text-red-600'>Guides</span>"
+                description={`Practical guides and NYC building code insights for ${subCategory.title.toLowerCase()}.`}
+                center={false}
+                className="mb-0 text-left"
+              />
+              <Link href="/blog" className="inline-flex items-center gap-2 text-xs text-red-600 hover:text-red-700 transition-colors font-bold uppercase tracking-widest">
+                <span>All Guides</span> <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedGuides.map((guide) => (
+                <Link
+                  key={guide.slug}
+                  href={`/blog/${guide.slug}`}
+                  className="group block rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-red-500/40 transition-all flex flex-col justify-between text-left"
+                >
+                  <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+                    <Image
+                      src={guide.featuredImage || "/placeholder.svg"}
+                      alt={guide.imageAlt || guide.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md">
+                      {guide.category}
+                    </span>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-2">
+                      <div className="text-[11px] text-gray-400 font-semibold uppercase tracking-wider">
+                        {guide.readTime}
+                      </div>
+                      <h3 className="text-base font-bold text-gray-900 leading-snug group-hover:text-red-600 transition-colors">
+                        {guide.title}
+                      </h3>
+                      <p className="text-xs text-gray-600 line-clamp-2">
+                        {guide.excerpt}
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 text-xs text-red-600 font-bold uppercase tracking-wider pt-2">
+                      <span>Read Guide</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 4. FINAL CTA WITH PREFILLED ESTIMATE LINK */}
       <section className="pb-4 lg:pb-8 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ServiceCTA
@@ -571,7 +726,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               title: `Ready for Your Free Estimate?`,
               description: `Our team is ready to help you with your next ${subCategory.title.toLowerCase()} project in New York.`,
               buttons: [
-                { text: "Get Free Quote", href: "/contact", primary: true },
+                { text: "Request estimate", href: `/contact?service=${categoryId}/${slug}`, primary: true },
                 { text: `Call ${business.phone}`, href: `tel:${business.phoneE164}`, primary: false }
               ]
             }}

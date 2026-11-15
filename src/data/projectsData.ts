@@ -1,21 +1,34 @@
+export interface ProjectPhoto {
+  src: string;
+  alt: string;
+}
+
 export interface CaseStudyData {
   slug: string;
   title: string;
   location: string;
-  borough: string;
+  borough?: string;
+  neighborhood?: string;
+  serviceCategory?: string;
+  serviceSlug?: string;
   projectType: string;
-  completionDate: string;
-  problem: string;
-  scope: string[];
-  process: {
+  completionDate?: string;
+  year?: number;
+  problem?: string;
+  challenge?: string;
+  scope?: string[];
+  workPerformed?: string[];
+  process?: {
     step: string;
     description: string;
   }[];
-  materialsUsed: string[];
-  challenges: string;
-  result: string;
-  servicesUsed: { title: string; href: string }[];
+  materialsUsed?: string[];
+  challenges?: string;
+  result?: string;
+  servicesUsed?: { title: string; href: string }[];
   image: string;
+  photos?: ProjectPhoto[];
+  approvedForPublic?: boolean;
 }
 
 export const projectsData: Record<string, CaseStudyData> = {
@@ -24,9 +37,16 @@ export const projectsData: Record<string, CaseStudyData> = {
     title: "Bronx Multi-Family Parapet Rebuild & Flat Roof Replacement",
     location: "Grand Concourse, Bronx NY",
     borough: "The Bronx",
+    neighborhood: "Grand Concourse",
+    serviceCategory: "roofing-services",
+    serviceSlug: "roof-replacement",
     projectType: "Commercial Multi-Family Exterior Restoration",
     completionDate: "October 2024",
+    year: 2024,
+    approvedForPublic: true,
     problem: "Severe water intrusion along the top-floor residential units caused by deteriorated parapet mortar joints, fractured coping stones, and a 20-year-old built-up roof that had blistered and delaminated.",
+    challenge: "Executing a complete roof tear-off and heavy masonry reconstruction on a fully occupied 6-story apartment building during mid-autumn wind conditions without disrupting tenants or blocking sidewalk pedestrian flow.",
+    challenges: "Executing a complete roof tear-off and heavy masonry reconstruction on a fully occupied 6-story apartment building during mid-autumn wind conditions without disrupting tenants or blocking sidewalk pedestrian flow.",
     scope: [
       "Erected dedicated safety perimeter and suspended debris netting along building perimeter",
       "Demolished 180 linear feet of crumbling brick parapet down to structurally sound masonry substrate",
@@ -36,6 +56,16 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Installed 3-inch polyisocyanurate (R-18) rigid insulation board with tapered drainage slopes",
       "Mechanically fastened and hot-air welded 60-mil Carlisle Sure-Weld TPO single-ply roofing membrane",
       "Fabricated and installed 24-gauge galvanized edge metal and counter-flashing counter-sunk into parapet joints"
+    ],
+    workPerformed: [
+      "Erected safety perimeter and debris netting along building perimeter",
+      "Demolished deteriorated brick parapet down to sound masonry substrate",
+      "Rebuilt parapet wall using solid concrete face brick and Type S mortar",
+      "Installed precast concrete coping stones with stainless steel dowels",
+      "Full tear-off of 4,200 sq ft existing asphalt roof layers to concrete deck",
+      "Installed 3-inch polyisocyanurate (R-18) tapered roof insulation",
+      "Mechanically fastened and hot-air welded 60-mil Carlisle TPO roofing membrane",
+      "Fabricated and installed 24-gauge galvanized edge metal and counter-flashing"
     ],
     process: [
       {
@@ -63,25 +93,37 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Precast Concrete Coping Stones with Drip Edge Grooves",
       "24-Gauge Prefinished Kynar-Coated Galvanized Edge Metal"
     ],
-    challenges: "Executing a complete roof tear-off and heavy masonry reconstruction on a fully occupied 6-story apartment building during mid-autumn wind conditions without disrupting tenants or blocking sidewalk pedestrian flow.",
-    result: "100% moisture elimination with zero post-construction leaks through multiple winter freeze cycles. Energy bills reduced by 18% via solar-reflective white TPO, backed by our 10-year written workmanship warranty.",
+    result: "100% moisture elimination with zero post-construction leaks through multiple winter freeze cycles. Energy efficiency improved via solar-reflective white TPO, backed by written workmanship warranty.",
     servicesUsed: [
       { title: "Flat Roofing NYC", href: "/services/roofing-services/flat-roofing" },
       { title: "Parapet Wall Repair", href: "/services/masonry-work/parapet-wall" },
       { title: "Roof Replacement Bronx", href: "/services/roofing-services/roof-replacement" },
       { title: "DOB Violation Removal", href: "/services/concrete-services/dob-violation-removal" }
     ],
-    image: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg"
+    image: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg",
+    photos: [
+      {
+        src: "/assets/updatedservicesassets/megashingleroofingsupereal1.jpeg",
+        alt: "Carlisle white TPO single-ply membrane roofing and parapet brick masonry installation on Bronx apartment building"
+      }
+    ]
   },
 
   "brooklyn-commercial-build-out": {
     slug: "brooklyn-commercial-build-out",
     borough: "Brooklyn",
+    neighborhood: "Williamsburg",
+    serviceCategory: "masonry-work",
+    serviceSlug: "facade-restoration",
     title: "Brooklyn Commercial Facade Restoration & Tuckpointing",
     location: "Williamsburg, Brooklyn NY",
     projectType: "Commercial Historic Masonry Restoration",
     completionDate: "June 2024",
+    year: 2024,
+    approvedForPublic: true,
     problem: "A two-story commercial building exhibited widespread mortar wash-out, cracked brick piers, rusted steel window lintels, and municipal sidewalk safety violation notices.",
+    challenge: "Managing dust suppression, pedestrian safety, and active ground-floor retail operations along a busy commercial corridor while strictly adhering to municipal environmental noise ordinances.",
+    challenges: "Managing dust suppression, pedestrian safety, and active ground-floor retail operations along a busy commercial corridor while strictly adhering to municipal environmental noise ordinances.",
     scope: [
       "Installed pipe scaffolding and pedestrian sidewalk bridge per NYC DOT regulations",
       "Raked and ground deteriorated mortar joints to a minimum 3/4-inch depth without damaging adjacent brick edges",
@@ -89,6 +131,14 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Pointed 6,500 square feet of historic brick facade using custom color-matched Type N breathable mortar",
       "Replaced 320 spalled and cracked exterior facing bricks with salvaged vintage brick",
       "Applied breathable silicone-free water-repellent silane/siloxane barrier across entire facade"
+    ],
+    workPerformed: [
+      "Installed pipe scaffolding and pedestrian sidewalk bridge per NYC regulations",
+      "Raked and ground deteriorated mortar joints to minimum 3/4-inch depth",
+      "Treated rusted steel lintels with rust-inhibiting primer and epoxy topcoat",
+      "Repointed 6,500 square feet of brick facade with color-matched Type N mortar",
+      "Replaced 320 spalled and cracked facing bricks with matching salvage units",
+      "Applied breathable hydrophobic penetrating water repellent across facade"
     ],
     process: [
       {
@@ -115,14 +165,19 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Salvaged ASTM C62 Clay Facing Bricks",
       "Polyurethane Backer Rod & Dymonic 100 Window Perimeter Sealant"
     ],
-    challenges: "Managing dust suppression, pedestrian safety, and active ground-floor retail operations along a busy commercial corridor while strictly adhering to municipal environmental noise ordinances.",
     result: "Structural stability restored, violation notices formally dismissed with the Department of Buildings, and complete exterior aesthetic renewal matching the historic neighborhood character.",
     servicesUsed: [
       { title: "Facade Restoration NYC", href: "/services/masonry-work/facade-restoration" },
       { title: "Brick Pointing Bronx & Brooklyn", href: "/services/masonry-work/brick-grinding-pointing" },
       { title: "DOT Sidewalk Violation Removal", href: "/services/concrete-services/dot-violation-removal" }
     ],
-    image: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg"
+    image: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg",
+    photos: [
+      {
+        src: "/assets/updatedservicesassets/megabrickworkgridningpoiting.jpeg",
+        alt: "Historic brick masonry repointing and mortar joint tuckpointing on Williamsburg Brooklyn commercial building"
+      }
+    ]
   },
 
   "park-avenue-residence": {
@@ -130,9 +185,16 @@ export const projectsData: Record<string, CaseStudyData> = {
     title: "Manhattan Pre-War Co-op Structural Interior Renovation",
     location: "Upper East Side, Manhattan NY",
     borough: "Manhattan",
+    neighborhood: "Upper East Side",
+    serviceCategory: "home-renovation",
+    serviceSlug: "interior-remodeling",
     projectType: "Luxury Residential Co-op Renovation",
     completionDate: "February 2024",
+    year: 2024,
+    approvedForPublic: true,
     problem: "An outdated 1920s 3-bedroom residence required full electrical, plumbing, and structural layout modernization while strictly complying with rigorous building board alteration rules.",
+    challenge: "Strict Co-op board operating restrictions including rigid 9:00 AM – 4:30 PM working windows, elevator reservation limitations, and stringent building acoustic transmission thresholds.",
+    challenges: "Strict Co-op board operating restrictions including rigid 9:00 AM – 4:30 PM working windows, elevator reservation limitations, and stringent building acoustic transmission thresholds.",
     scope: [
       "Secured building board approval, DOB alteration permits, and comprehensive umbrella insurance binders",
       "Installed continuous floor and corridor acoustic protection throughout building common areas",
@@ -141,6 +203,15 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Replaced legacy galvanized plumbing lines with sound-insulated cast-iron waste and Type L copper supply",
       "Installed bespoke inset cabinetry, Calacatta marble slab countertops, and herringbone white oak flooring",
       "Rebuilt two master bathrooms featuring Schluter-KERDI continuous waterproofing and radiant floor heating"
+    ],
+    workPerformed: [
+      "Secured board approvals, DOB alteration filings, and insurance certificates",
+      "Installed floor protection and negative-air HEPA containment barriers",
+      "Removed non-bearing partitions to create open-plan living layout",
+      "Complete electrical re-wiring with 200-amp service and architectural lighting",
+      "Replaced plumbing supply and waste piping with Type L copper and cast iron",
+      "Installed custom inset wood cabinetry and Calacatta marble slab surfaces",
+      "Rebuilt two bathrooms with Schluter-KERDI continuous waterproofing systems"
     ],
     process: [
       {
@@ -168,14 +239,19 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Calacatta Gold Natural Marble Slabs",
       "Benjamin Moore Aura Zero-VOC Interior Enamels"
     ],
-    challenges: "Strict Co-op board operating restrictions including rigid 9:00 AM – 4:30 PM working windows, elevator reservation limitations, and stringent building acoustic transmission thresholds.",
     result: "Project delivered on schedule within 14 weeks with zero noise violations, full building sign-off, and exceptional luxury appraisal appreciation.",
     servicesUsed: [
       { title: "Home Renovation NYC", href: "/services/home-renovation" },
       { title: "Kitchen Renovation", href: "/services/home-renovation/kitchen-renovation" },
       { title: "Bathroom Renovation", href: "/services/home-renovation/bathroom-renovation" }
     ],
-    image: "/assets/commercialmega.jpg"
+    image: "/assets/commercialmega.jpg",
+    photos: [
+      {
+        src: "/assets/commercialmega.jpg",
+        alt: "Finished pre-war apartment interior renovation with herringbone white oak floors and architectural lighting in Manhattan"
+      }
+    ]
   },
 
   "westchester-estate-addition": {
@@ -183,9 +259,16 @@ export const projectsData: Record<string, CaseStudyData> = {
     title: "Pelham Manor Estate Architectural Roofing & Masonry Addition",
     location: "Pelham Manor / Bronx Border",
     borough: "The Bronx / Westchester",
+    neighborhood: "Pelham Manor",
+    serviceCategory: "roofing-services",
+    serviceSlug: "shingle-roofing",
     projectType: "High-End Residential Addition & Exterior Overhaul",
     completionDate: "August 2024",
+    year: 2024,
+    approvedForPublic: true,
     problem: "An expanding estate residence required an architectural shingle roof replacement paired with a 750 sq ft structural natural stone terrace and outdoor fireplace installation.",
+    challenge: "Seamlessly blending new natural fieldstone masonry and rooflines with the original 1930s estate architecture while managing active surface runoff on a downward-sloping grade.",
+    challenges: "Seamlessly blending new natural fieldstone masonry and rooflines with the original 1930s estate architecture while managing active surface runoff on a downward-sloping grade.",
     scope: [
       "Stripped aged roof down to tongue-and-groove wood plank decking and reinforced rafter framing",
       "Installed GAF Tiger Paw synthetic underlayment and WinterGuard ice-and-water protection at eaves and valleys",
@@ -193,6 +276,14 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Excavated and poured reinforced 4,000 PSI concrete footings below the 42-inch local frost line",
       "Constructed a structural blue stone patio over reinforced concrete slab with integrated French drains",
       "Built a custom outdoor fireplace with solid firebrick firebox and natural fieldstone veneer"
+    ],
+    workPerformed: [
+      "Stripped aged roof down to structural wood decking and inspected rafters",
+      "Installed synthetic underlayment and self-adhering ice-and-water barrier",
+      "Installed GAF Timberline HDZ architectural shingles with reinforced nailing",
+      "Excavated and poured reinforced 4,000 PSI concrete footings below frost line",
+      "Constructed structural thermal bluestone patio over reinforced concrete slab",
+      "Built custom outdoor fireplace with refractory firebrick and stone veneer"
     ],
     process: [
       {
@@ -215,14 +306,19 @@ export const projectsData: Record<string, CaseStudyData> = {
       "ASTM C109 High-Strength Setting Mortar",
       "Refractory High-Temperature Firebrick & Heat-Resistant Mortar"
     ],
-    challenges: "Seamlessly blending new natural fieldstone masonry and rooflines with the original 1930s estate architecture while managing active surface runoff on a downward-sloping grade.",
     result: "Flawless architectural transition between old and new structures, superior storm resistance, and an entertainer's outdoor stone living suite backed by comprehensive warranties.",
     servicesUsed: [
       { title: "Roofing Contractor Services", href: "/services/roofing-services" },
       { title: "Masonry & Stone Construction", href: "/services/masonry-work" },
       { title: "Patio & Concrete Services", href: "/services/masonry-work/patios" }
     ],
-    image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg"
+    image: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg",
+    photos: [
+      {
+        src: "/assets/updatedservicesassets/megafullhouserenovation1.jpeg",
+        alt: "Architectural shingle roofing installation and natural stone hardscape fireplace addition on residential estate"
+      }
+    ]
   },
 
   "long-island-kitchen-remodel": {
@@ -230,9 +326,16 @@ export const projectsData: Record<string, CaseStudyData> = {
     title: "Queens & Metro Full Kitchen Renovation & Structural Beam Install",
     location: "Bayside / Metro NY",
     borough: "Queens",
+    neighborhood: "Bayside",
+    serviceCategory: "home-renovation",
+    serviceSlug: "kitchen-renovation",
     projectType: "Full Structural Interior Transformation",
     completionDate: "December 2024",
+    year: 2024,
+    approvedForPublic: true,
     problem: "A compartmentalized 1950s kitchen layout with inadequate electrical capacity, outdated plumbing lines, and structural load-bearing walls preventing modern family living.",
+    challenge: "Safely hoisting and securing a 450-pound steel beam within finished interior living spaces without causing ceiling sheetrock cracking or exterior structural shifting.",
+    challenges: "Safely hoisting and securing a 450-pound steel beam within finished interior living spaces without causing ceiling sheetrock cracking or exterior structural shifting.",
     scope: [
       "Temporary hydraulic shoring and installation of a 16-foot structural W-section steel beam recessed into ceiling",
       "Complete demolition of load-bearing partition to unify kitchen, dining, and family gathering spaces",
@@ -240,6 +343,14 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Installation of solid wood shaker cabinetry with soft-close Blum hardware and integrated pull-out pantries",
       "Fabrication and precision seam installation of quartz waterfall island and seamless backsplash",
       "Installation of commercial-grade ventilation ducting vented directly through the roof deck"
+    ],
+    workPerformed: [
+      "Erected temporary hydraulic shoring and installed 16-foot structural steel W-beam",
+      "Demolished load-bearing partition to create unified open-concept living area",
+      "Rough-in of dedicated appliance circuits, plumbing lines, and gas manifold",
+      "Installed custom solid maple cabinetry with soft-close Blum hardware",
+      "Fabricated and set 3cm quartz waterfall island and matching backsplash",
+      "Installed commercial roof-vented exterior exhaust ventilation system"
     ],
     process: [
       {
@@ -262,12 +373,36 @@ export const projectsData: Record<string, CaseStudyData> = {
       "Commercial 10-Inch Galvanized Steel Exhaust Ducting",
       "Kohler Commercial-Style Fixtures & Ruvati Undermount Sink"
     ],
-    challenges: "Safely hoisting and securing a 450-pound steel beam within finished interior living spaces without causing ceiling sheetrock cracking or exterior structural shifting.",
-    result: "A stunning, light-filled culinary center with 60% increased countertop workspace, optimal entertaining flow, and fully permitted structural sign-off.",
+    result: "A light-filled culinary center with 60% increased countertop workspace, optimal entertaining flow, and fully permitted structural sign-off.",
     servicesUsed: [
       { title: "Kitchen Renovation Bronx & Queens", href: "/services/home-renovation/kitchen-renovation" },
       { title: "Complete Home Renovation", href: "/services/home-renovation" }
     ],
-    image: "/assets/megafullhouserenovation.jpg"
+    image: "/assets/megafullhouserenovation.jpg",
+    photos: [
+      {
+        src: "/assets/megafullhouserenovation.jpg",
+        alt: "Modern kitchen renovation with quartz waterfall island, custom maple cabinetry, and structural steel support in Queens residence"
+      }
+    ]
   }
 };
+
+export function getAllProjects(): CaseStudyData[] {
+  return Object.values(projectsData).filter((p) => p.approvedForPublic !== false);
+}
+
+export function getProjectBySlug(slug: string): CaseStudyData | undefined {
+  const p = projectsData[slug];
+  if (!p || p.approvedForPublic === false) return undefined;
+  return p;
+}
+
+export function getProjectsByService(category: string, slug?: string): CaseStudyData[] {
+  return getAllProjects().filter((p) => {
+    if (slug && p.serviceSlug === slug) return true;
+    if (p.serviceCategory === category) return true;
+    if (p.servicesUsed?.some((s) => (slug && s.href.includes(slug)) || s.href.includes(category))) return true;
+    return false;
+  }).slice(0, 3);
+}

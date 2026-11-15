@@ -30,6 +30,7 @@ export interface SubCategory {
   galleryImages?: string[];
   portfolioAvatars?: string[];
   heroHighlight?: string;
+  boroughsServed?: string[];
   metaTitle?: string;
   metaDescription?: string;
   canonical?: string;

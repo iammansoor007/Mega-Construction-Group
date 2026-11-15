@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { projectsData } from "@/data/projectsData";
+import { projectsData, getAllProjects } from "@/data/projectsData";
 import {
   ShieldCheck, MapPin, Calendar, ArrowRight,
   Layers, Award, FileCheck, HardHat,
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
 };
 
 const STATS = [
-  { value: "500+", label: "Projects Completed", icon: "HardHat" },
-  { value: "10yr", label: "Workmanship Warranty", icon: "ShieldCheck" },
-  { value: "5", label: "NYC Boroughs Covered", icon: "MapPin" },
-  { value: "100%", label: "DOB Code Compliant", icon: "FileCheck" },
+  { value: "NYC DOB", label: "GC #NYC-2005-8942", icon: "HardHat" },
+  { value: "Licensed", label: "& Insured Contractor", icon: "ShieldCheck" },
+  { value: "5", label: "NYC Boroughs Served", icon: "MapPin" },
+  { value: "Active", label: "Code-Compliant Projects", icon: "FileCheck" },
 ];
 
 export default function ProjectsIndexPage() {
-  const projects = Object.values(projectsData);
+  const projects = getAllProjects();
 
   return (
     <>

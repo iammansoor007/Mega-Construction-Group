@@ -717,3 +717,24 @@ export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   }
   return post;
 };
+
+export const getRelatedGuidesForService = (categoryId: string, slug?: string): BlogPost[] => {
+  const allPosts = getAllBlogPosts();
+  const target1 = `/services/${categoryId}/${slug}`;
+  const target2 = `${categoryId}/${slug}`;
+  const target3 = `/services/${categoryId}`;
+
+  return allPosts
+    .filter((post) => {
+      if (!post.relatedServices || post.relatedServices.length === 0) return false;
+      return post.relatedServices.some((s) => {
+        const href = typeof s === "string" ? s : (s as any).href || "";
+        return (
+          (slug && (href === target1 || href === target2 || href.includes(slug))) ||
+          href === target3 ||
+          href.includes(categoryId)
+        );
+      });
+    })
+    .slice(0, 3);
+};
