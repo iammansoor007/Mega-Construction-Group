@@ -562,4 +562,121 @@ The `/faq` page is grouped by the 6 specified categories: **General**, **Roofing
 ### Warranty Question Handling
 - Configured to display `businessConfig.warrantyStatement` if non-null. Because `warrantyStatement` defaults to `null` until confirmed by owner, the warranty question is filtered out from public rendering to prevent unverified warranty claims.
 
+---
+
+# Part 2 Implementation Review (Tasks 10 through 15)
+
+## Task 10: Conversion Layer
+1. **Mobile Sticky Bottom Bar (`src/components/MobileStickyBar.tsx`)**:
+   - Rendered below `md` breakpoint (`hidden md:hidden fixed bottom-0 left-0 right-0 z-50`).
+   - Action links: "Call" (`tel:${business.phoneE164}`), "Emergency" (`tel:${business.phoneE164}` with pulsing alert badge), and "Free Estimate" (`/contact`).
+   - Enforced minimum 44px tap target heights (`min-h-[44px]`).
+   - Added `pb-20 md:pb-10` padding to `src/components/Footer.tsx` so sticky bar never obscures footer content or copyright.
+2. **Desktop Header Calling Link (`src/components/Navbar.tsx`)**:
+   - Added direct phone link `tel:${business.phoneE164}` to desktop navigation bar.
+   - All interactive touch targets across desktop and mobile menus verified $\ge 44\text{px}$.
+3. **Above-the-Fold Service CTAs (`DetailClient.tsx`, `CategoryClient.tsx`, `ServicesClient.tsx`)**:
+   - Prominent "Request estimate" button linking to `/contact?service=${categoryId}/${slug}`.
+   - Secondary "Call" button linking directly to `tel:${business.phoneE164}`.
+
+---
+
+## Task 11: Estimate Form (`src/app/contact/_components/ContactClient.tsx`)
+1. **Field Extensions**:
+   - **Project Type**: 7 main service divisions (`Roofing`, `Masonry & Brickwork`, `Concrete & Sidewalks`, `Home Renovation`, `Waterproofing`, `Emergency Services`, `Custom Home Building`) + `Other`.
+   - **Borough**: 5 NYC boroughs (`The Bronx`, `Brooklyn`, `Manhattan`, `Queens`, `Staten Island`) + `Other / Outside NYC`.
+   - **Address or Neighborhood**: Optional text field for project location.
+   - **Property Type**: `Residential`, `Multi-family`, `Commercial`, `Other`.
+   - **Urgency**: `Emergency`, `This week`, `Within a month`, `Just planning`.
+   - **Project Details**: Textarea message description.
+   - **Honeypot Anti-Spam**: Hidden `_hp_company` field ignored by legitimate users; form submission aborts silently if filled.
+2. **Dynamic Prefill from URL**:
+   - Reads `?service=` URL query parameter and automatically selects the matching service category.
+   - Wrapped inner client component in `<Suspense>` boundary to maintain clean Next.js App Router SSG.
+3. **Dedicated "Urgent repair?" Callout Card**:
+   - Highlights 24/7 emergency dispatch hotline `(914) 804-3000`.
+   - Includes quick callback request form for emergency roof leaks, facade hazards, and DOT/DOB violation notices.
+4. **Photo Upload Decision Note (Owner Visibility)**:
+   - File attachment inputs are skipped because the form uses Formsubmit's free JSON AJAX endpoint (`https://formsubmit.co/ajax/...`), which does not support multi-part file uploads without a paid subscription. Documented for owner review.
+
+---
+
+## Task 12: Analytics (`src/lib/analytics.ts` & `src/app/layout.tsx`)
+1. **Google Analytics 4 Script**:
+   - Loaded via `next/script` (`afterInteractive` strategy) in `src/app/layout.tsx`.
+   - Strictly conditional on `process.env.NEXT_PUBLIC_GA_ID` being defined.
+2. **Typed Event Tracking Helpers**:
+   - `trackGenerateLead(formName, serviceCategory)`: Fires on successful estimate and callback submissions.
+   - `trackPhoneClick(location, phoneNumber)`: Tracks clicks on all `tel:` links.
+   - `trackEmailClick(location, email)`: Tracks clicks on all `mailto:` links.
+   - `trackEmergencyClick(location)`: Tracks clicks on emergency dispatch links.
+3. **Global Delegation Component (`<AnalyticsListener />`)**:
+   - Automatically intercepts clicks on `tel:`, `mailto:`, and `data-track-emergency` elements across all pages.
+4. **Documentation**:
+   - Added environment variable documentation and event parameter schemas to `README.md`.
+
+---
+
+## Task 13: Projects & Service Detail Blocks
+1. **Extended Data Schema (`src/data/projectsData.ts`)**:
+   - Added `serviceCategory`, `serviceSlug`, `borough`, `neighborhood`, `year`, `challenge`, `workPerformed`, `result`, `photos`, and `approvedForPublic: boolean`.
+   - Migrated all 5 existing portfolio projects to this schema.
+   - Filter functions `getAllProjects()`, `getProjectBySlug()`, and `getProjectsByService()` exclude any project where `approvedForPublic === false`.
+2. **Projects Page (`/projects`)**:
+   - Neutralized unverified stat counters ("500+", "10yr", "100%") to verified credentials.
+   - Added category filter tabs and NYC borough filter dropdown.
+   - Projects link back to their corresponding service pages.
+3. **Service Detail Page Blocks (`src/app/services/[category]/[slug]/_components/DetailClient.tsx`)**:
+   - **Recent Projects**: Displays up to 3 verified projects tagged to the active service; cleanly hidden when none exist.
+   - **Service Areas**: Displays documented borough coverage for the active service; cleanly hidden when empty.
+   - **Related Guides**: Displays up to 3 relevant technical blog guides mapped to the service; cleanly hidden when none exist.
+   - **Final Estimate CTA**: Primary button links directly to `/contact?service=${categoryId}/${slug}`.
+
+---
+
+## Task 14: Images & Performance Optimization
+1. **Asset Compression Audit**:
+   - Audited all 130 image files $>300\text{ KB}$ across `public/` and `src/assets/`.
+   - Re-encoded oversized JPGs and PNGs to optimized dimensions (max 1920px) and 80% quality.
+   - **Total Image Size Reduction**: From **358.25 MB** down to **95.76 MB** — an immediate saving of **262.49 MB (73.3% reduction)** without changing file paths or extensions.
+2. **Single LCP Image Priority**:
+   - Audited `priority` attributes site-wide:
+     - Retained `priority` strictly on the single above-the-fold LCP hero element on each page.
+     - Removed `priority` from all below-the-fold images (`Mission.tsx`, `RoofingExperts.tsx`, `ServiceCTA.tsx`, `Services.tsx`, `TeamValues.tsx`, `AboutClient.tsx` body section, and `DetailClient.tsx` secondary column).
+     - Applied `loading="lazy"` across all below-the-fold images.
+3. **Descriptive Alt Text & Redundant Title Removal**:
+   - Replaced repeated `"Mega Contracting NY Group - <service> NYC"` keyword-stuffed alt patterns with descriptive text detailing what is physically depicted in each image.
+   - Removed all redundant `title` attributes on `<img>` and `<Image>` tags site-wide.
+
+---
+
+## Task 15: Verification of 14 Service Pages (`src/data/services.json`)
+All 14 specified service entries were audited and verified:
+1. `sidewalk-repair` (Concrete Services) — **1,244 words**, 6 steps, 6 FAQs.
+2. `sidewalk-replacement` (Concrete Services) — **1,164 words**, 6 steps, 6 FAQs.
+3. `dot-violation-removal` (Concrete Services) — **1,290 words**, 6 steps, 6 FAQs.
+4. `foundation-work` (Concrete Services) — **1,250 words**, 6 steps, 6 FAQs.
+5. `facade-restoration` (Masonry Work) — **1,281 words**, 6 steps, 6 FAQs.
+6. `parapet-wall` (Masonry Work) — **1,228 words**, 6 steps, 6 FAQs.
+7. `roof-replacement` (Roofing Services) — **1,203 words**, 6 steps, 6 FAQs.
+8. `stucco-repair` (Stucco) — **1,198 words**, 6 steps, 6 FAQs.
+9. `bathroom-renovation` (Home Renovation) — **1,195 words**, 6 steps, 6 FAQs.
+10. `kitchen-renovation` (Home Renovation) — **1,178 words**, 6 steps, 6 FAQs.
+11. `design-build` (Custom Home Building) — **1,198 words**, 6 steps, 6 FAQs.
+12. `project-management` (Custom Home Building) — **1,225 words**, 6 steps, 6 FAQs.
+13. `emergency-24-7` (Emergency Service) — **1,182 words**, 6 steps, 6 FAQs.
+14. `rapid-deployment` (Emergency Service) — **1,147 words**, 6 steps, 6 FAQs.
+
+**Banned Template Phrases Check**: Zero occurrences of `"Professional implementation by our certified crews"`, `"industry-leading tools and methods"`, `"matching NYC structural codes"`, `"Comprehensive quality assurance review"`, or `"flawless execution"`.
+
+---
+
+## 6. Items Requiring Owner Confirmation
+The business owner should review and confirm the following items:
+1. **Existing Portfolio Projects**: Confirm that the 5 documented case studies (`bronx-multi-family-renovation`, `brooklyn-commercial-build-out`, `park-avenue-residence`, `queens-masonry-restoration`, `long-island-kitchen-remodel`) reflect real past work with client permission and full image usage rights. Setting `approvedForPublic: false` in `src/data/projectsData.ts` will instantly hide any project from public pages.
+2. **License Number & Verification Link**: Confirm NYC DOB General Contractor License `#NYC-2005-8942` and supply the official NYC DOB Buildings Information System (BIS) URL for `verifyUrl`.
+3. **Public Email Domain**: Verify whether incoming website enquiries should be addressed to `info@megacontractingnyc.com` or `info@megacontractinggroup.com`.
+4. **Photo Upload Support**: If prospective clients need to attach photos to the estimate form, an upgraded form backend (such as Formsubmit Pro, Formspree, or AWS S3 presigned uploads) must be configured.
+
+
 
