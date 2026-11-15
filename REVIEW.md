@@ -360,6 +360,28 @@ All duplicate HTML elements, duplicate mobile/desktop headings, and repetitive S
 - Automated re-scan verified **0 references** to any of the 51 old redirect sources remain in the codebase.
 
 
+## Task 5: SEO Retargeting (servicesSeoData.ts)
+
+The 10 specified service pages plus the missing entry (`/services/roofing-services/roof-waterproofing`) were retargeted with the exact requested `title`, `metaDescription`, and `h1`. Titles are configured via `title.absolute` to prevent duplicate brand appending, exactly one H1 per page, with self-referencing canonical URLs.
+
+### Retargeted Pages & Length Audit Table
+
+| URL Slug | Target SEO Title | Title Len | Target Meta Description | Meta Len | Target H1 |
+| :--- | :--- | :---: | :--- | :---: | :--- |
+| `/services/home-renovation/interior-remodeling` | `Apartment Renovation NYC \| Interior Remodeling Contractor` | 57 | `Apartment renovation in NYC: full gut renovations, kitchens, bathrooms and open floor plans. Licensed contractor. Free estimate!` | 128 | `Apartment Renovation and Interior Remodeling in NYC` |
+| `/services/home-renovation` | `Home Renovation Contractor NYC \| Kitchen, Bath, Basement` | 56 | `Home renovation contractor in NYC. Kitchen, bathroom, basement and apartment renovation. Licensed. Free estimate!` | 113 | `Home Renovation Contractor Services in NYC` |
+| `/services/home-renovation/kitchen-renovation` | `Kitchen Remodeling Bronx NY \| Kitchen Renovation` | 48 | `Kitchen remodeling and renovation in the Bronx NY. Full gut remodels, custom cabinets and countertops. Licensed. Free design consult!` | 133 | `Kitchen Remodeling and Renovation in the Bronx NY` |
+| `/services/roofing-services` | `Roofing Contractor NYC \| Flat, Shingle and Commercial Roofs` | 59 | `Roofing contractor in NYC. Roof replacement, installation, leak repair, flat roofing, TPO and shingles. Licensed. Free estimate!` | 128 | `Roofing Contractor Services in NYC` |
+| `/services/roofing-services/roof-leakage-repair` | `Emergency Roof Repair NYC \| Roof Leak Repair` | 44 | `Emergency roof repair and roof leak repair in NYC. All roof types. Stop water damage fast. Licensed. Free inspection! Call now.` | 127 | `Emergency Roof Repair and Roof Leak Repair in NYC` |
+| `/services/roofing-services/flat-roofing` | `Commercial Roofing NYC \| Flat Roof Contractor` | 45 | `Commercial and flat roofing in NYC. TPO, EPDM and built-up systems. Installation, repair and replacement. Licensed. Free estimate!` | 130 | `Commercial and Flat Roofing Services in NYC` |
+| `/services/masonry-work` | `Masonry Contractor NYC \| Brick Pointing, Facade, Parapet` | 56 | `Masonry contractor in NYC and the Bronx. Brick pointing, facade restoration, lintel and parapet repair. Licensed. Free estimate!` | 128 | `Masonry Contractor Services in NYC` |
+| `/services/masonry-work/brick-grinding-pointing` | `Brick Pointing Contractor Bronx NY \| Tuckpointing` | 49 | `Brick pointing contractor in the Bronx NY. Tuckpointing and repointing for residential and commercial buildings. Licensed. Free estimate!` | 137 | `Brick Pointing and Tuckpointing Contractor in the Bronx NY` |
+| `/services/concrete-services` | `Concrete Contractor NYC \| Sidewalk, Driveway, Slabs` | 51 | `Concrete contractor in NYC. Sidewalk repair and replacement, driveways, slabs and foundation work. Licensed. Free estimate!` | 123 | `Concrete Contractor Services in NYC` |
+| `/services/masonry-work/parapet-wall` | `Parapet Wall Contractor NYC \| Repair and Restoration` | 52 | `Parapet wall contractor in NYC and the Bronx. Brick, masonry and coping repair and restoration. Free estimate!` | 110 | `Parapet Wall Repair and Restoration in NYC` |
+| `/services/roofing-services/roof-waterproofing` | `Roof Waterproofing NYC \| Membranes and Coatings` | 47 | `Roof waterproofing in NYC. Membranes, coatings, flashing and drainage details to stop leaks. Licensed. Free estimate!` | 117 | `Roof Waterproofing Services in NYC` |
+
+---
+
 ## Task 7: SEO Files and Schema Verification
 
 ### 1. Roofing Waterproofing SEO Entry (`src/data/servicesSeoData.ts`)
