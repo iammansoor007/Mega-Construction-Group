@@ -1476,9 +1476,14 @@
       "title": "Our Services",
       "main": [
         {
-          "label": "General Contracting",
-          "href": "/services/custom-home-building",
-          "icon": "Building"
+          "label": "Roofing Services",
+          "href": "/services/roofing-services",
+          "icon": "Roofing"
+        },
+        {
+          "label": "Masonry Work",
+          "href": "/services/masonry-work",
+          "icon": "Masonry"
         },
         {
           "label": "Home Renovation",
@@ -1486,19 +1491,24 @@
           "icon": "Home"
         },
         {
-          "label": "Kitchen Remodeling",
-          "href": "/services/home-renovation/kitchen-renovation",
-          "icon": "Kitchen"
+          "label": "Concrete Services",
+          "href": "/services/concrete-services",
+          "icon": "Truck"
         },
         {
-          "label": "Bathroom Remodeling",
-          "href": "/services/home-renovation/bathroom-renovation",
-          "icon": "Bath"
+          "label": "Stucco Services",
+          "href": "/services/stucco",
+          "icon": "Shield"
         },
         {
-          "label": "Commercial Construction",
-          "href": "/services/custom-home-building/project-management",
-          "icon": "Commercial"
+          "label": "Custom Home Building",
+          "href": "/services/custom-home-building",
+          "icon": "Building"
+        },
+        {
+          "label": "Emergency Repairs",
+          "href": "/services/emergency-service",
+          "icon": "Emergency"
         },
         {
           "label": "Foundation Work",
@@ -1506,24 +1516,9 @@
           "icon": "Truck"
         },
         {
-          "label": "Concrete & Masonry",
-          "href": "/services/concrete-services",
-          "icon": "Masonry"
-        },
-        {
-          "label": "Roofing Services",
-          "href": "/services/roofing-services",
-          "icon": "Roofing"
-        },
-        {
           "label": "Interior Remodeling",
           "href": "/services/home-renovation/interior-remodeling",
           "icon": "Addition"
-        },
-        {
-          "label": "Emergency Repairs",
-          "href": "/services/emergency-service",
-          "icon": "Emergency"
         }
       ],
       "materials": {

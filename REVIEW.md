@@ -382,6 +382,39 @@ The 10 specified service pages plus the missing entry (`/services/roofing-servic
 
 ---
 
+## Task 9: Links, Labels, and Homepage Pathways
+
+### 1. Footer Services Standardization
+- Relabeled `"Excavation & Site Work"` to `"Foundation Work"` (`/services/concrete-services/foundation-work`).
+- Relabeled `"Home Additions"` to `"Interior Remodeling"` (`/services/home-renovation/interior-remodeling`).
+- Updated footer services list to include all 7 canonical service hubs:
+  1. Roofing Services (`/services/roofing-services`)
+  2. Masonry Work (`/services/masonry-work`)
+  3. Home Renovation (`/services/home-renovation`)
+  4. Concrete Services (`/services/concrete-services`)
+  5. Stucco Services (`/services/stucco`)
+  6. Custom Home Building (`/services/custom-home-building`)
+  7. Emergency Repairs (`/services/emergency-service`)
+  Plus direct specialized links for `"Foundation Work"` and `"Interior Remodeling"`.
+
+### 2. Elimination of 51 Keyword-Slug Redirect Links
+- Verified across entire codebase (`src/**/*.{ts,tsx,json}`) and built static HTML that exactly zero references point to any of the 51 old redirect sources. All internal links point directly to canonical `/services/...` paths.
+
+### 3. Reciprocal Hub-Child Linking
+- Every service hub (`/services/[category]`) renders card links to all child service subcategories.
+- Every child service page (`/services/[category]/[slug]`) renders visible breadcrumbs and navigation linking back to its parent hub (`/services/[category]`).
+
+### 4. Homepage Pathway Blocks (`src/components/HomepagePathways.tsx`)
+- Added three dedicated pathway blocks to the homepage (headings and link lists only, zero marketing paragraph text):
+  1. **"For building owners & property managers"**: Links to Facade Restoration, Parapet Wall Repair, Brick Pointing & Grinding, Foundation Work, Sidewalk Repair, and Roof Leak Repair.
+  2. **"For homeowners"**: Links to Kitchen Renovation, Bathroom Renovation, Basement Renovation, and Interior Remodeling.
+  3. **"Emergency repairs"**: Links to 24/7 Emergency Repairs, Rapid Deployment Response, Emergency Board-Up Service, and Building Safety Assessment.
+
+### 5. Blog "Related Services" Blocks
+- Every published technical guide (all 22 blog posts) contains a 5-link "Related services" section before the CTA, mapped to relevant canonical `/services/...` URLs with descriptive anchor text.
+
+---
+
 ## Task 8: Technical SEO and Structured Data Validation
 
 ### 1. Meta Keywords Removal Site-Wide

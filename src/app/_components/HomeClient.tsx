@@ -18,6 +18,7 @@ const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 const AggressiveRoofingSection = dynamic(() => import("@/components/RoofingExperts"), { ssr: true });
 const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true });
+const HomepagePathways = dynamic(() => import("@/components/HomepagePathways"), { ssr: true });
 
 export default function HomeClient() {
   const [loading, setLoading] = useState(false);
@@ -77,6 +78,8 @@ export default function HomeClient() {
           <section id="services">
             <Services />
           </section>
+          
+          <HomepagePathways />
           
           <TeamValues />
           <section id="portfolio">
