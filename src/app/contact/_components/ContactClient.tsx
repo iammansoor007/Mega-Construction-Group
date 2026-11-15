@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, Suspense } from "react";
+import { useRef, useEffect, useState, useCallback, Suspense } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -392,14 +392,21 @@ const URGENCY_OPTIONS = [
   { value: "Just planning", label: "Just planning" },
 ];
 
-// ─── Inner Form Component (Consumes searchParams) ──────────────────────────────
-function ContactFormContent() {
+// ─── Search Params Consumer Wrapped in Suspense ─────────────────────────────
+function ServiceParamSync({ onService }: { onService: (svc: string) => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const s = searchParams ? searchParams.get("service") : null;
+    if (s) onService(s);
+  }, [searchParams, onService]);
+  return null;
+}
+
+// ─── Main Contact Page Component (Full HTML Pre-rendered by App Router SSG) ───
+export default function ContactClient() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-  const searchParams = useSearchParams();
-  const serviceParam = searchParams ? searchParams.get("service") : null;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -423,8 +430,7 @@ function ContactFormContent() {
   const [urgentSuccess, setUrgentSuccess] = useState(false);
 
   // Prefill project type from ?service=
-  useEffect(() => {
-    if (!serviceParam) return;
+  const handleServiceParam = useCallback((serviceParam: string) => {
     const p = serviceParam.toLowerCase();
     if (p.includes("roof")) {
       setFormData((prev) => ({ ...prev, projectType: "Roofing Services" }));
@@ -443,7 +449,7 @@ function ContactFormContent() {
     } else {
       setFormData((prev) => ({ ...prev, projectType: "Other" }));
     }
-  }, [serviceParam]);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -567,6 +573,9 @@ ${formData.message}
 
   return (
     <>
+      <Suspense fallback={null}>
+        <ServiceParamSync onService={handleServiceParam} />
+      </Suspense>
       <Navbar />
       <main ref={containerRef} className="min-h-screen overflow-hidden bg-gray-50">
         <SuccessModal isOpen={showSuccess} onClose={() => setShowSuccess(false)} />
@@ -1097,14 +1106,5 @@ ${formData.message}
       </main>
       <Footer />
     </>
-  );
-}
-
-// ─── Main Export Wrapped in Suspense for App Router SSG ────────────────────────
-export default function ContactClient() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-gray-50" />}>
-      <ContactFormContent />
-    </Suspense>
   );
 }
