@@ -382,20 +382,12 @@ The 10 specified service pages plus the missing entry (`/services/roofing-servic
 
 ---
 
-## Task 7: SEO Files and Schema Verification
+## Task 8: Technical SEO and Structured Data Validation
 
-### 1. Roofing Waterproofing SEO Entry (`src/data/servicesSeoData.ts`)
-- Verified `/services/roofing-services/roof-waterproofing` configuration:
-  - `seoTitle`: `"Roof Waterproofing NYC | Membranes and Coatings"` (rendered as absolute title in metadata)
-  - `metaDescription`: `"Roof waterproofing in NYC. Membranes, coatings, flashing and drainage details to stop leaks. Licensed. Free estimate!"`
-  - `h1`: `"Roof Waterproofing Services in NYC"`
-  - Canonical: Self canonical (`https://www.megacontractingnyc.com/services/roofing-services/roof-waterproofing`)
-  - Integrated into dynamic routing in `src/app/services/[category]/[slug]/page.tsx`.
+### 1. Meta Keywords Removal Site-Wide
+- Stripped all `keywords` properties and metadata from the project (including Article schema in `src/app/blog/[slug]/page.tsx`). No meta `keywords` tags exist in head or metadata (verified 0 occurrences).
 
-### 2. Meta Keywords Removal Site-Wide
-- Stripped all `keywords` properties and metadata from the project (including Article schema in `src/app/blog/[slug]/page.tsx`). No meta `keywords` tags exist in head or metadata.
-
-### 3. Robots.txt and Non-WWW to WWW Redirection
+### 2. Robots.txt and Non-WWW to WWW Redirection
 - **`public/robots.txt`**:
   - Allows all standard search crawlers (`User-agent: *`, `Allow: /`).
   - Excludes internal API/Next routes (`Disallow: /api/`, `Disallow: /_next/`).
@@ -404,25 +396,28 @@ The 10 specified service pages plus the missing entry (`/services/roofing-servic
 - **`next.config.js`**:
   - Added permanent 301 host redirect from `megacontractingnyc.com` to `https://www.megacontractingnyc.com/:path*` for all incoming host traffic without `www`.
 
-### 4. Structured Data (JSON-LD) Verification
-- **Homepage GeneralContractor (`src/app/page.tsx` & `src/lib/schema.ts`)**:
-  - `@type`: `GeneralContractor`
-  - `name`: `"Mega Contracting NY Group"`
-  - `url`: `"https://www.megacontractingnyc.com"`
-  - `telephone`: `"+19148043000"`
-  - `email`: `"info@megacontractinggroup.com"`
-  - `address`: `3044 Radcliff Ave, Bronx, NY 10469`
-  - `areaServed`: Strictly five boroughs (Manhattan, Brooklyn, Queens, Bronx, Staten Island)
-  - `logo`: `"https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png"`
-  - `sameAs`: Footer social media URLs (Instagram, LinkedIn, Facebook)
-  - **Zero** `aggregateRating`, `reviews`, or `openingHours` in the schema.
-- **Service Detail BreadcrumbList (`src/app/services/[category]/[slug]/page.tsx`)**:
-  - Rendered on every `/services/...` subcategory page: Home (1) > Services (2) > Category (3) > Page (4).
-
-### 5. XML Sitemap (`src/app/sitemap.ts`)
+### 3. XML Sitemap (`src/app/sitemap.ts`)
 - Excludes all future-dated blog posts past `2026-11-02`.
 - Real `lastModified` timestamps clamped to `<= 2026-11-02` (or omitted for pages without explicit modification dates).
 - Includes `/blog` index route and all 22 published blog posts.
+
+### 4. Structured Data (JSON-LD) Verification
+- **Homepage GeneralContractor (`src/app/page.tsx` & `src/lib/schema.ts`)**:
+  - `@type`: `GeneralContractor`
+  - `name`: `business.name` (`"Mega Contracting NY Group"`)
+  - `url`: `"https://www.megacontractingnyc.com"`
+  - `telephone`: `business.phoneE164` (`"+19148043000"`)
+  - `email`: `business.email` (`"info@megacontractinggroup.com"`)
+  - `address`: `business.address` (`3044 Radcliff Ave, Bronx, NY 10469`)
+  - `areaServed`: Strictly five boroughs from `business.boroughs` (Manhattan, Brooklyn, Queens, Bronx, Staten Island)
+  - `logo`: `"https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png"`
+  - `sameAs`: Footer social media URLs from `business.social` (Instagram, LinkedIn, Facebook)
+  - `foundingDate`: Rendered only when `business.foundingYear` is non-null.
+  - **Zero** `aggregateRating`, `reviews`, `openingHours`, or `priceRange` site-wide.
+- **Service Detail Breadcrumb & Service Schema (`src/app/services/[category]/[slug]/page.tsx` & `DetailClient.tsx`)**:
+  - `Service` JSON-LD with `name = seo.h1`, `provider = GeneralContractor` from config, `areaServed` from config, and canonical URL.
+  - Visible breadcrumb navigation: `Home > Services > Category > Page`.
+  - `BreadcrumbList` JSON-LD rendered on every `/services/...` subcategory page matching the visible navigation.
 
 
 ## Task 8: Comprehensive Rewrite of 14 Service Pages in `src/data/services.json`

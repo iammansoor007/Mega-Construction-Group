@@ -133,6 +133,8 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
           >
             {/* Breadcrumb Navigation */}
             <div className="flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-widest text-white/60 font-bold">
+              <Link href="/" className="hover:text-red-500 transition-colors">Home</Link>
+              <ChevronRight className="w-3 h-3 text-white/40" />
               <Link href="/services" className="hover:text-red-500 transition-colors">Services</Link>
               <ChevronRight className="w-3 h-3 text-white/40" />
               <Link href={`/services/${categoryId}`} className="hover:text-red-500 transition-colors">{service.title}</Link>
