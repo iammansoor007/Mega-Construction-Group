@@ -36,6 +36,7 @@ import logo2nd from "../assets/Mega-Contracting-Logo.png";
 import { getServiceImage } from "@/data/serviceImages";
 import completeData from "@/data/completeData.json";
 import { servicesData } from "@/data/servicesData";
+import { businessConfig } from "@/config/business";
 
 // Icon mapping
 const iconMap = {
@@ -318,48 +319,59 @@ const Navbar = () => {
               </div>
             </div>
 
-            <motion.div
-              className="hidden lg:flex items-center flex-shrink-0"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <Link
-                href="/contact"
-                onClick={handleLinkClick}
-                onMouseEnter={() => setActiveMegaMenu(null)}
-                className={`
-                  group relative px-4 xl:px-6 py-2.5 xl:py-3 rounded-none font-bold text-[11px] xl:text-[12px] uppercase tracking-wider xl:tracking-[0.16em]
-                  transition-all duration-500 ease-out overflow-hidden whitespace-nowrap flex-shrink-0
-                  ${scrolled
-                    ? "bg-gradient-to-r from-red-600 to-red-800 text-white shadow-[0_15px_30px_-5px_rgba(220,38,38,0.4)]"
-                    : "bg-white text-red-600 shadow-2xl hover:bg-neutral-100"
-                  }
-                `}
+            <div className="hidden lg:flex items-center space-x-2.5 xl:space-x-4 flex-shrink-0">
+              <a
+                href={`tel:${businessConfig.phoneE164}`}
+                className="flex items-center space-x-1.5 text-white/90 hover:text-white font-bold text-[11px] xl:text-[12.5px] uppercase tracking-wider transition-colors px-2 py-2"
+                aria-label={`Call ${businessConfig.phone}`}
               >
-                {/* Shine Animation Effect */}
-                <span className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)] pointer-events-none">
-                  <span className="relative h-full w-8 bg-white/20 blur-xl animate-shine-slow" />
-                </span>
+                <Phone className="h-3.5 w-3.5 text-red-500 shrink-0" />
+                <span className="whitespace-nowrap">{businessConfig.phone}</span>
+              </a>
 
-                {/* Internal Glow for Non-Scrolled */}
-                {!scrolled && (
-                  <div className="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition-colors duration-500" />
-                )}
+              <motion.div
+                className="flex items-center flex-shrink-0"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
+              >
+                <Link
+                  href="/contact"
+                  onClick={handleLinkClick}
+                  onMouseEnter={() => setActiveMegaMenu(null)}
+                  className={`
+                    group relative px-4 xl:px-6 py-2.5 xl:py-3 rounded-none font-bold text-[11px] xl:text-[12px] uppercase tracking-wider xl:tracking-[0.16em]
+                    transition-all duration-500 ease-out overflow-hidden whitespace-nowrap flex-shrink-0
+                    ${scrolled
+                      ? "bg-gradient-to-r from-red-600 to-red-800 text-white shadow-[0_15px_30px_-5px_rgba(220,38,38,0.4)]"
+                      : "bg-white text-red-600 shadow-2xl hover:bg-neutral-100"
+                    }
+                  `}
+                >
+                  {/* Shine Animation Effect */}
+                  <span className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)] pointer-events-none">
+                    <span className="relative h-full w-8 bg-white/20 blur-xl animate-shine-slow" />
+                  </span>
 
-                {/* Animated Inner Shine Border */}
-                <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
+                  {/* Internal Glow for Non-Scrolled */}
+                  {!scrolled && (
+                    <div className="absolute inset-0 bg-red-500/5 group-hover:bg-red-500/10 transition-colors duration-500" />
+                  )}
 
-                <span className="relative z-10 flex items-center justify-center space-x-2">
-                  <Calendar className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "text-white" : "text-red-600"}`} />
-                  <span className="leading-none whitespace-nowrap">{cta.buttonText}</span>
-                </span>
-              </Link>
-            </motion.div>
+                  {/* Animated Inner Shine Border */}
+                  <span className="absolute inset-0 rounded-none border border-white/20 group-hover:border-white/40 transition-colors duration-500" />
+
+                  <span className="relative z-10 flex items-center justify-center space-x-2">
+                    <Calendar className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform duration-500 group-hover:scale-110 ${scrolled ? "text-white" : "text-red-600"}`} />
+                    <span className="leading-none whitespace-nowrap">{cta.buttonText}</span>
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
 
             <div className="flex items-center space-x-4 lg:hidden">
               <motion.button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 xs:p-2.5 rounded-xl transition-all duration-300 border bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-white"
+                className="min-w-[44px] min-h-[44px] p-2 xs:p-2.5 rounded-xl transition-all duration-300 border bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-white flex items-center justify-center"
                 aria-label="Toggle menu"
                 whileTap={{ scale: 0.9 }}
               >
@@ -568,7 +580,7 @@ const Navbar = () => {
                     </div>
                     <motion.button
                       onClick={() => setIsMenuOpen(false)}
-                      className="p-1.5 xs:p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                      className="min-w-[44px] min-h-[44px] p-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center"
                       whileHover={{ rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                     >

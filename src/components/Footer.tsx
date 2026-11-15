@@ -308,7 +308,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between py-6 xs:py-8 md:py-10 text-[8px] xs:text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] gap-4 md:gap-0 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center justify-between py-6 xs:py-8 md:py-10 text-[8px] xs:text-[9px] md:text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] gap-4 md:gap-0 text-center md:text-left pb-20 md:pb-10">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
             <span>{bottom.copyright}</span>
             <div className="hidden sm:block w-1 h-1 bg-primary rounded-full" />

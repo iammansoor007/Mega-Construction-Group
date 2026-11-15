@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../index.css";
 import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
+import MobileStickyBar from "@/components/MobileStickyBar";
 import { localBusinessSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({
         <Providers>
           <ScrollToTop />
           {children}
+          <MobileStickyBar />
         </Providers>
       </body>
     </html>

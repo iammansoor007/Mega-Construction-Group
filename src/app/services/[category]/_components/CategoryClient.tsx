@@ -72,6 +72,21 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
             <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">
               {service.description}
             </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link
+                href={`/contact?service=${categoryId}`}
+                className="px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 min-h-[44px] flex items-center justify-center"
+              >
+                Request estimate
+              </Link>
+              <a
+                href={`tel:${business.phoneE164}`}
+                className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-2xl border border-white/20 transition-all duration-300 min-h-[44px] flex items-center justify-center"
+              >
+                Call {business.phone}
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

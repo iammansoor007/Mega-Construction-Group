@@ -12,6 +12,7 @@ import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
 import { bronxSeoPages } from "@/data/bronxSeoPages";
 import { bronxSlugRedirectMap } from "@/lib/servicesResolver";
+import { business } from "@/config/business";
 import { useState } from "react";
 
 export default function ServicesClient() {
@@ -55,6 +56,21 @@ export default function ServicesClient() {
             <p className="text-base md:text-xl text-white/95 leading-relaxed max-w-2xl font-normal">
               Professional general contracting, certified roofing, masonry restoration, and luxury interior renovation across New York City.
             </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link
+                href="/contact"
+                className="px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300 min-h-[44px] flex items-center justify-center"
+              >
+                Request estimate
+              </Link>
+              <a
+                href={`tel:${business.phoneE164}`}
+                className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-2xl border border-white/20 transition-all duration-300 min-h-[44px] flex items-center justify-center"
+              >
+                Call {business.phone}
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

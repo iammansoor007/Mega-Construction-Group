@@ -274,7 +274,17 @@ const InfoCard = ({ icon, title, subtitle, lines, delay = 0 }: InfoCardProps) =>
         {lines.map((line, i) => (
           <div key={i} className="flex items-center gap-2.5">
             <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#C30505" }} />
-            <span className="text-gray-600 font-mono text-xs">{line}</span>
+            {line === business.phone ? (
+              <a href={`tel:${business.phoneE164}`} className="text-gray-600 font-mono text-xs hover:text-red-600 underline underline-offset-2">
+                {line}
+              </a>
+            ) : line === business.email ? (
+              <a href={`mailto:${business.email}`} className="text-gray-600 font-mono text-xs hover:text-red-600 underline underline-offset-2">
+                {line}
+              </a>
+            ) : (
+              <span className="text-gray-600 font-mono text-xs">{line}</span>
+            )}
           </div>
         ))}
       </div>

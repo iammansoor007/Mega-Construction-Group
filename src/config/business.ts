@@ -72,5 +72,6 @@ export const business: BusinessConfig = {
   ],
 };
 
+export const businessConfig = business;
 export default business;
 
