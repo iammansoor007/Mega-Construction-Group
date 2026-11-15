@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ServicesClient from "./_components/ServicesClient";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -47,17 +48,20 @@ export default function ServicesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
-    "name": "Mega Contracting NY Group",
+    "name": business.name,
     "url": "https://www.megacontractingnyc.com/services",
-    "telephone": "+1 (914) 804-3000",
-    "email": "info@megacontractinggroup.com",
+    "telephone": business.phoneE164,
+    "email": business.email,
+    ...(business.licenseLines.length > 0 ? {
+      "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+    } : {}),
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb1930060?q=80&w=1200&auto=format&fit=crop",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3044 Radcliff Ave",
-      "addressLocality": "Bronx",
-      "addressRegion": "NY",
-      "postalCode": "10469",
+      "streetAddress": business.address.street,
+      "addressLocality": business.address.city,
+      "addressRegion": business.address.state,
+      "postalCode": business.address.zip,
       "addressCountry": "US"
     },
     "geo": {
@@ -65,15 +69,7 @@ export default function ServicesPage() {
       "latitude": 40.886071,
       "longitude": -73.861787
     },
-    "priceRange": "$$",
-    "areaServed": [
-      "Manhattan",
-      "Brooklyn",
-      "Queens",
-      "Bronx",
-      "Staten Island",
-      "Long Island"
-    ],
+    "areaServed": [...business.boroughs],
     "knowsAbout": [
       "Facade Restoration NYC",
       "Roof Leak Repair NYC",

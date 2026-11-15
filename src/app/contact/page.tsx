@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ContactClient from "./_components/ContactClient";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -50,16 +51,19 @@ export default function ContactPage() {
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Mega Contracting NY Group",
+    "name": business.name,
     "image": "https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png",
-    "telephone": "+1 (914) 804-3000",
-    "email": "info@megacontractinggroup.com",
+    "telephone": business.phoneE164,
+    "email": business.email,
+    ...(business.licenseLines.length > 0 ? {
+      "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+    } : {}),
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3044 Radcliff Ave",
-      "addressLocality": "Bronx",
-      "addressRegion": "NY",
-      "postalCode": "10469",
+      "streetAddress": business.address.street,
+      "addressLocality": business.address.city,
+      "addressRegion": business.address.state,
+      "postalCode": business.address.zip,
       "addressCountry": "US"
     },
     "geo": {
@@ -68,10 +72,11 @@ export default function ContactPage() {
       "longitude": -73.861787
     },
     "url": "https://www.megacontractingnyc.com",
-    "priceRange": "$$",
-    "areaServed": [
-      "Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island",
-      "Westchester", "Long Island"
+    "areaServed": [...business.boroughs],
+    "sameAs": [
+      business.social.instagram,
+      business.social.linkedin,
+      business.social.facebook,
     ],
     "knowsAbout": [
       "Facade Restoration NYC",

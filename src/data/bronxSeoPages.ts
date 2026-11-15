@@ -40,7 +40,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
     faqs: [
       {
         question: "How do I choose the best roofing contractor in the Bronx NY?",
-        answer: "Always ensure your roofing contractor holds an active NYC Department of Buildings General Contractor license, carries multi-million dollar liability and workers' compensation coverage, and offers manufacturer-certified warranties. Mega Contracting NY Group has served the Bronx with distinction since 2005."
+        answer: "Always ensure your roofing contractor holds an active NYC Department of Buildings General Contractor license, carries multi-million dollar liability and workers' compensation coverage, and offers manufacturer-certified warranties. Mega Contracting NY Group serves the Bronx with distinction."
       },
       {
         question: "How much does a full roof replacement cost in the Bronx?",
@@ -56,7 +56,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
         heading: "Roofing Contractor Services in the Bronx NY",
         paragraphs: [
           "When property owners need an experienced roofing contractor in the Bronx NY, Mega Contracting NY Group delivers industrial-grade craftsmanship designed for the harsh northeastern climate. Our certified roofing teams handle residential single-family homes, multi-family brownstones, and large commercial facilities across Riverdale, Pelham Bay, Throggs Neck, Morris Park, and Grand Concourse.",
-          "Our full-service roofing division specializes in comprehensive roof replacement, targeted roof leak detection, commercial flat roofing, TPO single-ply membranes, traditional asphalt shingles, and chimney flashing rebuilds. With more than two decades of proven service in New York City, our work satisfies every NYC Department of Buildings code requirement."
+          "Our full-service roofing division specializes in comprehensive roof replacement, targeted roof leak detection, commercial flat roofing, TPO single-ply membranes, traditional asphalt shingles, and chimney flashing rebuilds. Our work satisfies every NYC Department of Buildings code requirement."
         ]
       },
       {
@@ -987,7 +987,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
       "Residential Brownstone & Single-Family Builds",
       "NYC DOB Expediting, Permitting & Inspections",
       "Transparent Milestone-Based Billing",
-      "Fully Bonded & Insured ($5M Liability)"
+      "Fully Bonded & Insured"
     ],
     faqs: [
       {
@@ -1000,7 +1000,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
         heading: "Full-Service Construction Company in the Bronx NY",
         paragraphs: [
           "Whether building an addition, managing a commercial capital improvement, or completing an extensive building restoration, Mega Contracting NY Group is the trusted construction company in the Bronx NY.",
-          "Since 2005, our licensed project managers ensure projects stay strictly on schedule, within budget, and in full compliance with NYC Building Codes."
+          "Our licensed project managers ensure projects stay strictly on schedule, within budget, and in full compliance with NYC Building Codes."
         ]
       }
     ],

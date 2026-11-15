@@ -7,6 +7,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
+import { business } from "@/config/business";
 import {
   Award, Shield, Clock, CheckCircle2, Users,
   Star, Phone, Mail, MapPin, ArrowRight, ArrowUpRight,
@@ -74,13 +75,13 @@ const Marquee = () => {
 
   const items = [
     { text: "Licensed & Insured", icon: Shield },
-    { text: "NYC DOB #NYC-2005-8942", icon: ShieldCheck },
+    ...(business.licenseLines.length > 0 ? [{ text: `NYC DOB ${business.licenseLines[0].number}`, icon: ShieldCheck }] : []),
     { text: "NYC Licensed Contractor", icon: Award },
-    { text: "Since 2005", icon: Clock },
+    ...(business.companyEstablished ? [{ text: business.companyEstablished, icon: Clock }] : []),
     { text: "Five Borough Service", icon: CheckCircle2 },
-    { text: "Family Owned Since 2005", icon: Users },
+    { text: "Family-Owned", icon: Users },
     { text: "Free Detailed Estimates", icon: ClipboardCheck },
-    { text: "24/7 Emergency Service", icon: Phone },
+    ...(business.emergency247 ? [{ text: "24/7 Emergency Service", icon: Phone }] : []),
   ];
 
   const displayItems = mounted ? [...items, ...items, ...items] : items;
@@ -118,18 +119,18 @@ export default function AboutPage() {
     { icon: Scale, title: "Integrity First", desc: "Honest pricing with zero hidden fees. Every quote is transparent, every invoice exact." },
     { icon: Gem, title: "Quality Craftsmanship", desc: "We treat every project like it's our own home — meticulous attention to detail, always." },
     { icon: Zap, title: "Fast & Reliable", desc: "On-time, on-budget delivery with rapid emergency response. We never miss a deadline." },
-    { icon: Heart, title: "Family Values", desc: "Family-owned since 2005. We bring care, trust, and personal accountability to every job." },
-    { icon: BadgeCheck, title: "Fully Licensed", desc: "NYC licensed general contractor #NYC-2005-8942. Fully insured with $5M comprehensive coverage." },
-    { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors since 2005." },
+    { icon: Heart, title: "Family Values", desc: "Family-owned. We bring care, trust, and personal accountability to every job." },
+    { icon: BadgeCheck, title: "Fully Licensed", desc: `NYC licensed general contractor ${business.licenseLines[0]?.number || ""}. Comprehensive insurance coverage.` },
+    { icon: Users, title: "Community Driven", desc: "Proud members of the New York construction community, serving our neighbors across the five boroughs." },
   ];
 
   const certs = [
     { cert: "Licensed & Insured", icon: Award, color: "from-amber-500/10 to-amber-600/5" },
-    { cert: "NY Licensed #NYC-2005-8942", icon: Shield, color: "from-blue-500/10 to-blue-600/5" },
+    ...(business.licenseLines.length > 0 ? [{ cert: `NY Licensed ${business.licenseLines[0].number}`, icon: Shield, color: "from-blue-500/10 to-blue-600/5" }] : []),
     { cert: "Family-Owned", icon: BadgeCheck, color: "from-green-500/10 to-green-600/5" },
     { cert: "Fully Insured", icon: ShieldCheck, color: "from-purple-500/10 to-purple-600/5" },
     { cert: "Five Boroughs", icon: CheckCircle2, color: "from-teal-500/10 to-teal-600/5" },
-    { cert: "Since 2005", icon: Building, color: "from-indigo-500/10 to-indigo-600/5" },
+    ...(business.companyEstablished ? [{ cert: business.companyEstablished, icon: Building, color: "from-indigo-500/10 to-indigo-600/5" }] : []),
   ];
 
   const processSteps = [
@@ -176,7 +177,9 @@ export default function AboutPage() {
                   className="flex items-center justify-center lg:justify-start gap-2 mb-2"
                 >
                   <span className="w-8 h-px bg-red-500" />
-                  <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-red-500">Established 2005 • NYC Contractor</span>
+                  <span className="text-[11px] font-bold tracking-[0.3em] uppercase text-red-500">
+                    {business.companyEstablished ? `${business.companyEstablished} • ` : ""}Family-Owned • NYC Contractor
+                  </span>
                 </motion.div>
 
                 <motion.h1
@@ -207,8 +210,8 @@ export default function AboutPage() {
                 >
                   {[
                     { icon: ShieldCheck, text: "NYC Licensed" },
-                    { icon: ShieldCheck, text: "$5M Insured & Bonded" },
-                    { icon: ClipboardCheck, text: "10-Year Warranty" },
+                    ...(business.insuranceStatement ? [{ icon: ShieldCheck, text: business.insuranceStatement }] : [{ icon: ShieldCheck, text: "Licensed & Insured" }]),
+                    ...(business.warrantyStatement ? [{ icon: ClipboardCheck, text: business.warrantyStatement }] : []),
                   ].map((pill, i) => (
                     <div key={i} className="flex items-center gap-2 px-3.5 py-2 bg-white/10 backdrop-blur-sm border border-white/10 text-[11px] font-bold text-white hover:bg-red-600 hover:text-white transition-all duration-300">
                       <pill.icon className="w-3.5 h-3.5 text-red-500 shrink-0" />
@@ -299,16 +302,18 @@ export default function AboutPage() {
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
-              badge="Established 2005"
+              badge={business.companyEstablished || "Family-Owned"}
               headline="Family-Owned <span class='text-red-600'>General Contracting</span>"
               description="Dedicated general contracting and exterior restoration across all five NYC boroughs."
             />
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { title: "Since 2005", label: "Family-Owned Business", icon: Clock },
+                ...(business.companyEstablished
+                  ? [{ title: business.companyEstablished, label: "Family-Owned Business", icon: Clock }]
+                  : [{ title: "Family-Owned", label: "Family-Owned Business", icon: Users }]),
                 { title: "5 Boroughs", label: "Full NYC Service Area", icon: Building },
-                { title: "#NYC-2005-8942", label: "NYC DOB General Contractor", icon: Shield },
+                { title: business.licenseLines[0]?.number || "Licensed", label: "NYC DOB General Contractor", icon: Shield },
                 { title: "Licensed & Insured", label: "Comprehensive NYC Coverage", icon: BadgeCheck },
               ].map((s, i) => {
                 const IconComp = s.icon;
@@ -349,9 +354,11 @@ export default function AboutPage() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
-                  <div className="absolute top-5 left-5 px-3 py-1.5 bg-white border border-gray-250 text-[10px] font-bold uppercase tracking-widest text-gray-700 shadow-sm">
-                    EST. 2005
-                  </div>
+                  {business.companyEstablished && (
+                    <div className="absolute top-5 left-5 px-3 py-1.5 bg-white border border-gray-250 text-[10px] font-bold uppercase tracking-widest text-gray-700 shadow-sm">
+                      {business.companyEstablished}
+                    </div>
+                  )}
                   <div className="absolute bottom-5 right-5 px-4 py-2 bg-white border border-gray-250 shadow-sm">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-gray-700">Licensed & Insured</span>
                   </div>
@@ -366,39 +373,46 @@ export default function AboutPage() {
                   center={false}
                 />
 
-                <blockquote className="relative pl-5">
-                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-red-600 rounded-none" />
-                  <p className="text-gray-600 text-lg leading-relaxed italic font-normal">
-                    &ldquo;Founded on over two decades of dedicated New York City construction trades craftsmanship beginning in 2005, formally incorporated as Mega Contracting NY Group in August 2023 with corporate headquarters at 3044 Radcliff Ave, Bronx NY.&rdquo;
-                  </p>
-                </blockquote>
+                {business.founderStatement && (
+                  <blockquote className="relative pl-5">
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-red-600 rounded-none" />
+                    <p className="text-gray-600 text-lg leading-relaxed italic font-normal">
+                      &ldquo;{business.founderStatement}&rdquo;
+                    </p>
+                  </blockquote>
+                )}
 
                 <div className="space-y-4 text-gray-500 text-sm sm:text-base leading-relaxed font-normal">
-                  <p>Adil Shamis established our exterior construction and masonry trades craftsmanship in New York City in 2005. To support expanding commercial and municipal operations across the five boroughs, the business was formally incorporated as Mega Contracting NY Group in New York on August 6, 2023 under founder Adil Shamis, maintaining continuous craftsman leadership and general contractor licensure #NYC-2005-8942 with corporate headquarters at 3044 Radcliff Ave, Bronx, NY 10469.</p>
-                  <p>With over two decades of hands-on experience in general contracting, exterior envelope restoration, and commercial construction, Adil personally oversees project scopes to ensure every building meets rigorous NYC Department of Buildings (DOB) and Department of Transportation (DOT) engineering standards.</p>
-                  <p>Under Adil's leadership, Mega Contracting NY Group has expanded its capabilities to provide comprehensive specialty services across Greater New York. We are the premier choice for <strong>facade restoration nyc</strong>, <strong>flat roofing nyc</strong>, and emergency <strong>roof leak repair nyc</strong>. Homeowners and property managers trust our expert teams for complex <strong>parapet wall repair nyc</strong>, structural <strong>chimney repair nyc</strong>, <strong>brick pointing nyc</strong>, and certified <strong>fire escape painting nyc</strong> to keep buildings safe and code-compliant.</p>
+                  <p>Mega Contracting NY Group provides comprehensive specialty construction services across Greater New York under founder Adil Shamis, maintaining general contractor licensure {business.licenseLines[0]?.number} with corporate headquarters at {business.address.formatted}.</p>
+                  <p>Adil personally oversees project scopes to ensure every building meets rigorous NYC Department of Buildings (DOB) and Department of Transportation (DOT) engineering standards.</p>
+                  <p>Under Adil&apos;s leadership, Mega Contracting NY Group provides comprehensive specialty services across Greater New York: <strong>facade restoration nyc</strong>, <strong>flat roofing nyc</strong>, and emergency <strong>roof leak repair nyc</strong>. Homeowners and property managers trust our expert teams for complex <strong>parapet wall repair nyc</strong>, structural <strong>chimney repair nyc</strong>, <strong>brick pointing nyc</strong>, and certified <strong>fire escape painting nyc</strong> to keep buildings safe and code-compliant.</p>
                   <p>As an established <strong>eifs contractor nyc</strong> and <strong>waterproofing contractor nyc</strong>, we resolve water intrusion and cladding issues on properties of any scale. We also provide professional <strong>stucco repair nyc</strong>, concrete <strong>sidewalk repair nyc</strong>, and structural <strong>foundation repair nyc</strong>. If your building has pending violations, our team performs detailed <strong>building safety assessment nyc</strong> inspections, handling both <strong>dob violation removal nyc</strong> and <strong>dot violation removal nyc</strong> from start to finish.</p>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 pt-2">
-                  {[
-                    { val: "2005", label: "Founded" },
+                {(() => {
+                  const stats = [
+                    ...(business.foundingYear ? [{ val: String(business.foundingYear), label: "Founded" }] : []),
                     { val: "NYC", label: "Headquartered" },
                     { val: "5 Boros", label: "Coverage" },
-                  ].map((s, i) => (
-                    <div key={i} className="text-center p-3 border border-gray-150 bg-gray-50/50">
-                      <div className="text-lg font-bold text-red-600">{s.val}</div>
-                      <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{s.label}</div>
+                  ];
+                  return (
+                    <div className={`grid grid-cols-${stats.length} gap-3 pt-2`}>
+                      {stats.map((s, i) => (
+                        <div key={i} className="text-center p-3 border border-gray-150 bg-gray-50/50">
+                          <div className="text-lg font-bold text-red-600">{s.val}</div>
+                          <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{s.label}</div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  );
+                })()}
 
                 <div className="flex items-center gap-3 pt-2">
-                  <a href="mailto:info@megacontractinggroup.com"
+                  <a href={`mailto:${business.email}`}
                     className="flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-bold text-xs uppercase tracking-wider rounded-none shadow-md hover:bg-primary/95 transition-all duration-300">
                     <Mail className="w-4 h-4" /> Get in Touch
                   </a>
-                  <a href="tel:+19148043000"
+                  <a href={`tel:${business.phoneE164}`}
                     className="flex items-center justify-center gap-2 px-6 py-3.5 bg-gray-100 text-gray-800 font-bold text-xs uppercase tracking-wider rounded-none hover:bg-gray-200 transition-all duration-300">
                     <Phone className="w-4 h-4" /> Call Us
                   </a>
@@ -526,18 +540,18 @@ export default function AboutPage() {
               <FadeIn>
                 <SectionHeader
                   badge="Why Choose Us"
-                  headline="New York's Most <span class='text-red-600'>Trusted Contractor</span>"
-                  description="When you choose Mega Contracting NY Group, you're choosing over two decades of proven expertise, transparent pricing, and a team that treats your property like their own. Here's what sets us apart:"
+                  headline="Dedicated NYC <span class='text-red-600'>General Contracting</span>"
+                  description="When you choose Mega Contracting NY Group, you're choosing dedicated trades craftsmanship, transparent pricing, and a team that treats your property like their own. Here's what sets us apart:"
                   center={false}
                 />
 
                 <div className="space-y-4">
                   {[
                     { title: "Transparent Pricing", desc: "Detailed, itemized estimates with zero hidden fees or surprise charges." },
-                    { title: "Licensed & Fully Insured", desc: "NYC Licensed contractor #NYC-2005-8942 with comprehensive insurance coverage." },
+                    { title: "Licensed & Fully Insured", desc: `NYC Licensed contractor ${business.licenseLines[0]?.number || ""} with comprehensive insurance coverage.` },
                     { title: "Quality Workmanship", desc: "Dedicated warranty on labor — we stand behind our work." },
-                    { title: "24/7 Emergency Response", desc: "Storm damage or urgent repairs? Our emergency team is always on call." },
-                    { title: "Local, Family-Owned", desc: "Not a franchise — a real family business invested in our community since 2005." },
+                    ...(business.emergency247 ? [{ title: "24/7 Emergency Response", desc: "Storm damage or urgent repairs? Our emergency team is available." }] : []),
+                    { title: "Local, Family-Owned", desc: "Not a franchise — a real family business invested in our community." },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -689,7 +703,7 @@ export default function AboutPage() {
                   rating: 5,
                 },
                 {
-                  quote: "After storm damage, they responded within hours. Their team worked tirelessly to restore our roof and siding. The 10-year warranty gave us complete peace of mind.",
+                  quote: "After storm damage, they responded within hours. Their team worked tirelessly to restore our roof and siding. Their comprehensive warranty gave us complete peace of mind.",
                   name: "Sarah K.",
                   location: "Queens, NY",
                   rating: 5,

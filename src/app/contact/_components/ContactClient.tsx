@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { business } from "@/config/business";
 import {
   Phone,
   Mail,
@@ -315,7 +316,7 @@ ${formData.message}
 ⏱️ Submitted: ${new Date().toLocaleString()}
     `;
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@megacontractinggroup.com", {
+      const res = await fetch(`https://formsubmit.co/ajax/${business.email}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -332,7 +333,7 @@ ${formData.message}
         return;
       }
     } catch { /* fallback */ }
-    window.location.href = `mailto:info@megacontractinggroup.com?subject=${encodeURIComponent(`Contact: ${formData.subject}`)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(`Contact: ${formData.subject}`)}&body=${encodeURIComponent(emailBody)}`;
     setShowSuccess(true);
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     setIsSubmitting(false);
@@ -406,8 +407,8 @@ ${formData.message}
               {[
                 { icon: <Shield className="w-3.5 h-3.5" />, text: "Licensed & Insured" },
                 { icon: <Star className="w-3.5 h-3.5" />, text: "Free Estimates" },
-                { icon: <Zap className="w-3.5 h-3.5" />, text: "24/7 Emergency" },
-                { icon: <CheckCircle2 className="w-3.5 h-3.5" />, text: "Since 2005" },
+                ...(business.emergency247 ? [{ icon: <Zap className="w-3.5 h-3.5" />, text: "24/7 Emergency" }] : []),
+                { icon: <CheckCircle2 className="w-3.5 h-3.5" />, text: business.companyEstablished || "Family-Owned" },
               ].map((badge, i) => (
                 <div key={i}
                   className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:border-red-200 hover:shadow-md transition-all duration-300"
@@ -427,21 +428,21 @@ ${formData.message}
               icon={<Phone className="w-7 h-7" />}
               title="Call Us"
               subtitle="Speak directly with our team during business hours"
-              lines={["+1 (914) 804-3000", "Mon – Sat: 8am – 7pm", "Emergency: 24/7 available"]}
+              lines={[business.phone, "Mon – Sat: 8am – 7pm", ...(business.emergency247 ? ["Emergency: 24/7 available"] : [])]}
               delay={0}
             />
             <InfoCard
               icon={<Mail className="w-7 h-7" />}
               title="Email Us"
               subtitle="We respond to every message within 4–8 hours"
-              lines={["info@megacontractinggroup.com", "Free estimates by email", "24/7 support available"]}
+              lines={[business.email, "Free estimates by email", ...(business.emergency247 ? ["24/7 support available"] : [])]}
               delay={0.1}
             />
             <InfoCard
               icon={<MapPin className="w-7 h-7" />}
               title="Our Location"
               subtitle="Serving all five boroughs and greater NY area"
-              lines={["3044 Radcliff Ave, Bronx NY 10469", "Manhattan • Brooklyn • Queens", "Westchester • Long Island"]}
+              lines={[business.address.formatted, "Manhattan • Brooklyn • Queens", "Bronx • Staten Island"]}
               delay={0.2}
             />
           </div>
@@ -469,7 +470,7 @@ ${formData.message}
                   <span className="text-red-600">Free Estimate</span>
                 </h2>
                 <p className="text-gray-500 text-sm leading-relaxed">
-                  No obligation. No pressure. Just honest answers and professional guidance from New York's dedicated construction and roofing team since 2005.
+                  No obligation. No pressure. Just honest answers and professional guidance from New York's dedicated construction and roofing team.
                 </p>
               </div>
 
@@ -478,8 +479,8 @@ ${formData.message}
                 {[
                   { icon: <Clock className="w-4 h-4" />, title: "Fast Response", desc: "Reply within 4–8 hours" },
                   { icon: <Star className="w-4 h-4" />, title: "Free Detailed Quote", desc: "Itemized estimate with no hidden fees" },
-                  { icon: <Shield className="w-4 h-4" />, title: "Fully Licensed", desc: "NYC-2005-8942 · $5M Insured" },
-                  { icon: <CheckCircle2 className="w-4 h-4" />, title: "Experienced Team", desc: "Family-owned since 2005" },
+                  { icon: <Shield className="w-4 h-4" />, title: "Fully Licensed", desc: `${business.licenseLines[0]?.number || "NYC DOB"} · Licensed & Insured` },
+                  { icon: <CheckCircle2 className="w-4 h-4" />, title: "Experienced Team", desc: "Family-owned" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
@@ -503,23 +504,23 @@ ${formData.message}
 
               {/* Direct contact links */}
               <div className="space-y-3 pt-2">
-                <a href="tel:19148043000"
+                <a href={`tel:${business.phoneE164}`}
                   className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm group hover:border-red-200 hover:shadow-md transition-all duration-300"
                 >
                   <Phone className="w-4 h-4 shrink-0 text-red-600" />
                   <div>
                     <p className="text-gray-400 text-[10px] uppercase tracking-widest">Call directly</p>
-                    <p className="text-gray-900 font-bold text-sm">+1 (914) 804-3000</p>
+                    <p className="text-gray-900 font-bold text-sm">{business.phone}</p>
                   </div>
                   <ChevronRight className="w-4 h-4 ml-auto text-gray-300 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-300" />
                 </a>
-                <a href="mailto:info@megacontractinggroup.com"
+                <a href={`mailto:${business.email}`}
                   className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-100 shadow-sm group hover:border-red-200 hover:shadow-md transition-all duration-300"
                 >
                   <Mail className="w-4 h-4 shrink-0 text-red-600" />
                   <div>
                     <p className="text-gray-400 text-[10px] uppercase tracking-widest">Email directly</p>
-                    <p className="text-gray-900 font-bold text-sm">info@megacontractinggroup.com</p>
+                    <p className="text-gray-900 font-bold text-sm">{business.email}</p>
                   </div>
                   <ChevronRight className="w-4 h-4 ml-auto text-gray-300 group-hover:text-red-500 group-hover:translate-x-1 transition-all duration-300" />
                 </a>
@@ -662,7 +663,9 @@ ${formData.message}
                 >
                   {[
                     { value: "5", label: "NYC Boroughs" },
-                    { value: "Since 2005", label: "Family-Owned" },
+                    ...(business.foundingYear
+                      ? [{ value: String(business.foundingYear), label: "Established" }]
+                      : [{ value: "Family", label: "Owned" }]),
                     { value: "Licensed", label: "& Insured" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center px-4 py-5 rounded-2xl" style={{ background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(8px)" }}>
@@ -684,10 +687,10 @@ ${formData.message}
                     Headquarters &amp; Dispatch Facility
                   </span>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">
-                    3044 Radcliff Ave, Bronx, NY 10469
+                    {business.address.formatted}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                    Serving all 5 NYC boroughs 24/7 • Licensed NYC General Contractor #NYC-2005-8942
+                    Serving all 5 NYC boroughs{business.emergency247 ? " 24/7" : ""} • Licensed NYC General Contractor {business.licenseLines[0]?.number}
                   </p>
                 </div>
                 <a
@@ -703,7 +706,7 @@ ${formData.message}
               <div className="relative w-full h-[360px] sm:h-[450px]">
                 <iframe
                   title="Mega Contracting NY Group Bronx Headquarters"
-                  src="https://maps.google.com/maps?q=3044+Radcliff+Ave,+Bronx,+NY+10469&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(business.address.formatted)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -776,7 +779,7 @@ ${formData.message}
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
                   <a
-                    href="tel:19148043000"
+                    href={`tel:${business.phoneE164}`}
                     className="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     style={{ background: "linear-gradient(135deg, #C30505, #A00404)", boxShadow: "0 6px 24px rgba(195,5,5,0.3)" }}
                   >
@@ -784,7 +787,7 @@ ${formData.message}
                     Call Now
                   </a>
                   <a
-                    href="mailto:info@megacontractinggroup.com"
+                    href={`mailto:${business.email}`}
                     className="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm text-red-600 bg-white border border-red-200 transition-all duration-300 hover:scale-105 hover:bg-red-50"
                   >
                     <Mail className="w-4 h-4" />

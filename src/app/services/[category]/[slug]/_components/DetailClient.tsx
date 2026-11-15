@@ -21,6 +21,7 @@ import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
 import SectionHeader from "@/components/SectionHeader";
+import { business } from "@/config/business";
 import { useState, useRef, useEffect, memo } from "react";
 import { useInView } from "framer-motion";
 
@@ -158,8 +159,8 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               <Link href="/contact" className="px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-2xl shadow-lg transition-all duration-300">
                 Get Free Quote
               </Link>
-              <a href="tel:+19148043000" className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-2xl border border-white/20 transition-all duration-300">
-                Call +1 (914) 804-3000
+              <a href={`tel:${business.phoneE164}`} className="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-2xl border border-white/20 transition-all duration-300">
+                Call {business.phone}
               </a>
             </div>
           </motion.div>
@@ -373,7 +374,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
           <SectionHeader
             badge="Client Confidence"
             headline="Why Clients <span class='text-red-600'>Trust Us</span>"
-            description="Licensed integrity, safety mastery, and two decades of NYC commercial and residential construction excellence."
+            description="Licensed integrity, safety mastery, and NYC commercial and residential construction excellence."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -450,10 +451,10 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                     <div>
                       <div className="text-[11px] uppercase tracking-wider text-gray-400 font-bold">Have a project question?</div>
                       <a
-                        href="tel:+19148043000"
+                        href={`tel:${business.phoneE164}`}
                         className="text-xl sm:text-2xl font-black text-gray-900 hover:text-red-600 transition-colors tracking-tight block mt-1"
                       >
-                        +1 (914) 804-3000
+                        {business.phone}
                       </a>
                       <p className="text-xs text-gray-500 mt-1">Available 24/7 across all 5 NYC boroughs</p>
                     </div>
@@ -569,7 +570,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               description: `Our team is ready to help you with your next ${subCategory.title.toLowerCase()} project in New York.`,
               buttons: [
                 { text: "Get Free Quote", href: "/contact", primary: true },
-                { text: "Call (914) 804-3000", href: "tel:+19148043000", primary: false }
+                { text: `Call ${business.phone}`, href: `tel:${business.phoneE164}`, primary: false }
               ]
             }}
           />

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogPost, isFutureDate, getBlogPostBySlug } from "@/data/blogsData";
+import { business } from "@/config/business";
 import {
   Calendar,
   Clock,
@@ -531,21 +532,23 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                     {post.author.name}
                   </h3>
                   <p className="text-xs text-white/60 leading-relaxed mb-3">
-                    Licensed NYC General Contractor (#NYC-2005-8942) providing
+                    Licensed NYC General Contractor ({business.licenseLines[0]?.number}) providing
                     commercial flat roofing, parapet wall rebuilding, facade
                     restoration, and DOB compliance across Manhattan, Brooklyn,
-                    Queens, the Bronx, and Staten Island since 2005.
+                    Queens, the Bronx, and Staten Island.
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center sm:justify-start text-[11px] font-mono text-white/50">
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
                       Licensed & Insured
                     </span>
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
-                      GC #NYC-2005-8942
+                      {business.licenseLines[0]?.number}
                     </span>
-                    <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
-                      Since 2005
-                    </span>
+                    {business.companyEstablished && (
+                      <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
+                        {business.companyEstablished}
+                      </span>
+                    )}
                     <span className="bg-white/5 px-2.5 py-1 rounded border border-white/5">
                       Family-Owned
                     </span>
@@ -678,11 +681,11 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
 
                 <div className="space-y-3">
                   <a
-                    href="tel:+19148043000"
+                    href={`tel:${business.phoneE164}`}
                     className="w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-2 shadow-lg shadow-red-950/40 active:scale-95 cursor-pointer"
                   >
                     <Phone className="w-4 h-4 text-white" />
-                    <span>Call (914) 804-3000</span>
+                    <span>Call {business.phone}</span>
                   </a>
                   <Link
                     href={post.ctaBox?.buttonHref || "/contact"}

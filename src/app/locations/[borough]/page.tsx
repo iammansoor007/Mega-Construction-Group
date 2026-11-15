@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { locationsData } from "@/data/locationsData";
+import { business } from "@/config/business";
 import {
   ShieldCheck, CheckCircle2, Phone, ArrowRight,
   ChevronRight, MapPin, Building, Wrench, Clock, Star
@@ -60,37 +61,40 @@ export default async function BoroughLocationPage({ params }: Props) {
 
   const BASE_URL = "https://www.megacontractingnyc.com";
 
-  // LocalBusiness + BreadcrumbList Schema for Borough
+  // GeneralContractor + BreadcrumbList Schema for Borough
   const schemas = [
     {
       "@context": "https://schema.org",
       "@type": "GeneralContractor",
-      "name": `Mega Contracting NY Group - ${data.boroughName} Division`,
-      "legalName": "Mega Contracting NY Group",
+      "name": `${business.name} - ${data.boroughName} Division`,
+      ...(business.legalName ? { "legalName": business.legalName } : {}),
       "url": `${BASE_URL}/locations/${data.slug}`,
-      "telephone": "+19148043000",
-      "email": "info@megacontractinggroup.com",
-      "foundingDate": "2005",
-      "founder": {
-        "@type": "Person",
-        "name": "Adil Shamis",
-        "jobTitle": "Managing Principal & Founder"
-      },
-      "license": "NYC Department of Buildings #NYC-2005-8942",
+      "telephone": business.phoneE164,
+      "email": business.email,
+      ...(business.foundingYear ? { "foundingDate": String(business.foundingYear) } : {}),
+      ...(business.founderStatement ? {
+        "founder": {
+          "@type": "Person",
+          "name": "Adil Shamis",
+          "jobTitle": "Managing Principal & Founder"
+        }
+      } : {}),
+      ...(business.licenseLines.length > 0 ? {
+        "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+      } : {}),
       "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "3044 Radcliff Ave",
-        "addressLocality": "Bronx",
-        "addressRegion": "NY",
-        "postalCode": "10469",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
         "addressCountry": "US"
       },
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": data.boroughName
-      },
-      "priceRange": "$$"
+      }
     },
     {
       "@context": "https://schema.org",
@@ -100,18 +104,6 @@ export default async function BoroughLocationPage({ params }: Props) {
         { "@type": "ListItem", "position": 2, "name": "Locations", "item": `${BASE_URL}/locations` },
         { "@type": "ListItem", "position": 3, "name": data.boroughName, "item": `${BASE_URL}/locations/${data.slug}` }
       ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": data.faqs.map((f) => ({
-        "@type": "Question",
-        "name": f.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.answer
-        }
-      }))
     }
   ];
 
@@ -179,11 +171,11 @@ export default async function BoroughLocationPage({ params }: Props) {
                   Request {data.boroughName} Estimate
                 </Link>
                 <a
-                  href="tel:+19148043000"
+                  href={`tel:${business.phoneE164}`}
                   className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-2xl border border-white/25 transition-all duration-300 flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-red-500" />
-                  <span>Call (914) 804-3000</span>
+                  <span>Call {business.phone}</span>
                 </a>
               </div>
 
@@ -353,7 +345,7 @@ export default async function BoroughLocationPage({ params }: Props) {
                 Dependable Construction Contracting in {data.boroughName}
               </h2>
               <p className="text-sm text-gray-400 leading-relaxed font-normal">
-                Mega Contracting NY Group is an active New York corporation headquartered at 3044 Radcliff Ave, Bronx, NY 10469, operating under NYC General Contractor License #NYC-2005-8942. We serve all residential, commercial, and multi-family property owners throughout {data.boroughName} with $5,000,000 liability insurance and 24/7 emergency dispatch.
+                {business.name} is an active New York corporation headquartered at {business.address.formatted}, operating under NYC General Contractor License {business.licenseLines[0]?.number}. We serve all residential, commercial, and multi-family property owners throughout {data.boroughName} with comprehensive liability insurance{business.emergency247 ? " and 24/7 emergency dispatch" : ""}.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
@@ -364,10 +356,10 @@ export default async function BoroughLocationPage({ params }: Props) {
                 Get Free Estimate
               </Link>
               <a
-                href="tel:+19148043000"
+                href={`tel:${business.phoneE164}`}
                 className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-xl border border-white/20 transition-all text-center"
               >
-                (914) 804-3000
+                {business.phone}
               </a>
             </div>
           </div>

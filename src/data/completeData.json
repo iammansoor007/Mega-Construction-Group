@@ -18,7 +18,7 @@
         "features": [
           "Licensed",
           "Insured",
-          "20+ Yrs Exp"
+          "Licensed & Insured"
         ]
       },
       {
@@ -167,7 +167,7 @@
     ],
     "stats": [
       {
-        "value": "Since 2005",
+        "value": "Licensed & Insured",
         "label": "Projects",
         "icon": "ClipboardCheck"
       },
@@ -182,7 +182,7 @@
         "icon": "Clock"
       },
       {
-        "value": "10-Year",
+        "value": "Workmanship",
         "label": "Warranty",
         "icon": "Shield"
       }
@@ -207,13 +207,13 @@
     }
   },
   "hero": {
-    "badge": "NYC Licensed General Contractor Since 2005",
+    "badge": "NYC Licensed General Contractor",
     "headlines": [
       "NYC General Contractor",
       "Trusted Construction Company",
       "Serving All 5 Boroughs"
     ],
-    "description": "Mega Contracting NY Group is a licensed general contractor, serving all 5 boroughs since 2005. As an established General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
+    "description": "Mega Contracting NY Group is a licensed general contractor, serving all 5 boroughs. As an established General Contractor NYC, we specialize in facade restoration, roof leak repair, flat roofing, chimney repair, brick pointing, parapet wall repair, DOB & DOT violation removal, sidewalk repair, stucco, waterproofing, and foundation repair. Family-owned, fully insured, and NYC code-compliant.",
     "buttons": [
       {
         "text": "Get Free Estimate",
@@ -230,12 +230,12 @@
     ],
     "stats": [
       {
-        "value": "Since 2005",
+        "value": "Licensed & Insured",
         "label": "Projects",
         "icon": "RiBuildingLine"
       },
       {
-        "value": "20+",
+        "value": "Family-Owned",
         "label": "Years",
         "icon": "FiStar"
       },
@@ -252,7 +252,7 @@
     ]
   },
   "about": {
-    "badge": "Since 2005",
+    "badge": "Licensed & Insured",
     "headline": {
       "prefix": "Craftsmen of",
       "highlight": "Roofing & Masonry",
@@ -262,7 +262,7 @@
     "image": {
       "src": "ConstructionExperience",
       "alt": "Mega Contracting NY Group construction team",
-      "badge": "Since 2005"
+      "badge": "Licensed & Insured"
     },
     "stats": [
       {
@@ -451,7 +451,7 @@
     "section": {
       "badge": "Our Leadership",
       "headline": "Guiding with <span class=\"font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80\">family values & integrity</span>",
-      "description": "Family-owned and operated since 2005, committed to excellence in every project across New York."
+      "description": "Family-owned and operated, committed to excellence in every project across New York."
     },
     "ceo": {
       "name": "Adil Shamis",
@@ -463,10 +463,10 @@
         "bottom": "LICENSED â€¢ INSURED â€¢ NYC-2005-8942"
       },
       "quotes": [
-        "Adil Shamis founded Mega Contracting NY Group in 2005 with a vision to provide quality construction services built on trust and integrity. As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability."
+        "Mega Contracting NY Group was established with a vision to provide quality construction services built on trust and integrity. As a family-owned business, Adil has personally overseen thousands of successful projects across New York, building a reputation for excellence and reliability."
       ],
       "description": [
-        "With over two decades of experience in the construction industry, Adil brings extensive knowledge in general contracting, renovation, and commercial construction. His hands-on approach ensures every project meets the highest standards of quality and craftsmanship.",
+        "Adil brings extensive knowledge in general contracting, renovation, and commercial construction. His hands-on approach ensures every project meets the highest standards of quality and craftsmanship.",
         "Adil is a proud member of the New York construction community and is committed to delivering exceptional service to families and businesses throughout the region."
       ],
       "social": {
@@ -552,7 +552,7 @@
       "badge": "Client Testimonials",
       "headline": "Real Stories from New York Clients",
       "description": "Hear what our clients have to say about their experience with Mega Contracting NY Group",
-      "featured": "Licensed & Insured â€¢ Family Owned Since 2005"
+      "featured": "Licensed & Insured â€¢ Family Owned"
     },
     "testimonials": [
       {
@@ -663,7 +663,7 @@
     "section": {
       "badge": "WHY CHOOSE US",
       "headline": "The Trusted Choice for <span class=\"text-primary\">Quality & Integrity</span>",
-      "description": "Since 2005, Mega Contracting NY Group has delivered exceptional construction and renovation services to homeowners and businesses across New York."
+      "description": "Mega Contracting NY Group has delivered exceptional construction and renovation services to homeowners and businesses across New York."
     },
     "features": [
       {
@@ -673,8 +673,8 @@
       },
       {
         "icon": "Experience",
-        "title": "Construction Excellence Since 2005",
-        "description": "Since 2005, our family-owned business has completed thousands of successful residential and commercial projects throughout New York."
+        "title": "Construction Excellence",
+        "description": "Our family-owned business has completed thousands of successful residential and commercial projects throughout New York."
       },
       {
         "icon": "Shield",
@@ -859,7 +859,7 @@
           },
           {
             "label": "Experience",
-            "value": "Since 2005"
+            "value": "Licensed & Insured"
           }
         ],
         "links": [
@@ -1221,7 +1221,7 @@
     "company": {
       "name": "Mega Contracting NY Group",
       "tagline": "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
-      "description": "Family-owned and operated since 2005, Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, we bring quality craftsmanship and integrity to every project."
+      "description": "Family-owned and operated, Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, we bring quality craftsmanship and integrity to every project."
     },
     "services": {
       "title": "Our Services",
@@ -1322,7 +1322,7 @@
     "certifications": [
       {
         "cert": "Insurance",
-        "number": "$5M Coverage",
+        "number": "Comprehensive Coverage",
         "icon": "Warranty"
       },
       {
@@ -1419,7 +1419,7 @@
     "marquee": {
       "texts": [
         "QUALITY â€¢ INTEGRITY â€¢ CRAFTSMANSHIP",
-        "FAMILY OWNED SINCE 2005",
+        "FAMILY OWNED",
         "SERVING ALL OF NEW YORK",
         "LICENSED • INSURED • NYC-2005-8942"
       ]

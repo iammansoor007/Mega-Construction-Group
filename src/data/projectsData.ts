@@ -134,7 +134,7 @@ export const projectsData: Record<string, CaseStudyData> = {
     completionDate: "February 2024",
     problem: "An outdated 1920s 3-bedroom residence required full electrical, plumbing, and structural layout modernization while strictly complying with rigorous building board alteration rules.",
     scope: [
-      "Secured building board approval, DOB alteration permits, and $5M specialized umbrella insurance binders",
+      "Secured building board approval, DOB alteration permits, and comprehensive umbrella insurance binders",
       "Installed continuous floor and corridor acoustic protection throughout building common areas",
       "Removed non-bearing partitions to create an expansive, open-concept chef's kitchen and living suite",
       "Rewired complete apartment with new 200-amp subpanel and Lutron smart architectural lighting",

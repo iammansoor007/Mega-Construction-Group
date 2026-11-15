@@ -1,26 +1,32 @@
+import { business } from "@/config/business";
+
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "GeneralContractor",
-  "name": "Mega Contracting NY Group",
-  "legalName": "Mega Contracting NY Group",
+  "name": business.name,
+  ...(business.legalName ? { "legalName": business.legalName } : {}),
   "url": "https://www.megacontractingnyc.com",
   "logo": "https://www.megacontractingnyc.com/assets/Mega-Contracting-Logo.png",
-  "telephone": "+19148043000",
-  "email": "info@megacontractinggroup.com",
-  "foundingDate": "2005",
-  "founder": {
-    "@type": "Person",
-    "name": "Adil Shamis",
-    "jobTitle": "Managing Principal & Founder"
-  },
-  "license": "NYC Department of Buildings #NYC-2005-8942",
-  "description": "Licensed general contractor serving all 5 boroughs of NYC. Rooted in trades craftsmanship since 2005, incorporated as Mega Contracting NY Group",
+  "telephone": business.phoneE164,
+  "email": business.email,
+  ...(business.foundingYear ? { "foundingDate": String(business.foundingYear) } : {}),
+  ...(business.founderStatement ? {
+    "founder": {
+      "@type": "Person",
+      "name": "Adil Shamis",
+      "jobTitle": "Managing Principal & Founder"
+    }
+  } : {}),
+  ...(business.licenseLines.length > 0 ? {
+    "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+  } : {}),
+  "description": `Licensed general contractor serving all 5 boroughs of NYC. Family-owned general contracting firm incorporated as ${business.name}`,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "3044 Radcliff Ave",
-    "addressLocality": "Bronx",
-    "addressRegion": "NY",
-    "postalCode": "10469",
+    "streetAddress": business.address.street,
+    "addressLocality": business.address.city,
+    "addressRegion": business.address.state,
+    "postalCode": business.address.zip,
     "addressCountry": "US"
   },
   "geo": {
@@ -29,17 +35,13 @@ export const localBusinessSchema = {
     "longitude": -73.8662
   },
   "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
-  "areaServed": [
-    { "@type": "Borough", "name": "Bronx" },
-    { "@type": "Borough", "name": "Brooklyn" },
-    { "@type": "Borough", "name": "Queens" },
-    { "@type": "Borough", "name": "Manhattan" },
-    { "@type": "Borough", "name": "Staten Island" }
-  ],
-  "priceRange": "$$",
+  "areaServed": business.boroughs.map((b) => ({
+    "@type": "Borough",
+    "name": b
+  })),
   "sameAs": [
-    "https://www.instagram.com/megacontractingny",
-    "https://www.linkedin.com/company/mega-contracting-ny-group",
-    "https://www.facebook.com/megacontractingnygroup"
+    business.social.instagram,
+    business.social.linkedin,
+    business.social.facebook
   ]
 };

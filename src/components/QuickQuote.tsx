@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, Mail, User, Phone, Home, MessageSquare, Zap, Award, ChevronRight } from 'lucide-react';
 import { useFormState } from '../context/FormContext';
+import { business } from '@/config/business';
 
 const QuickQuote = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +59,7 @@ ${formData.message}
 
         try {
             try {
-                const response = await fetch('https://formsubmit.co/ajax/info@megacontractinggroup.com', {
+                const response = await fetch(`https://formsubmit.co/ajax/${business.email}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -84,13 +85,13 @@ ${formData.message}
                 console.log('FormSubmit failed, using mailto fallback');
             }
 
-            const mailtoLink = `mailto:info@megacontractinggroup.com?subject=🔴 Quick Quote - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+            const mailtoLink = `mailto:${business.email}?subject=🔴 Quick Quote - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
             window.location.href = mailtoLink;
             showSuccess();
 
         } catch (error) {
             console.error('Submission error:', error);
-            alert('Please email us directly at info@megacontractinggroup.com');
+            alert(`Please email us directly at ${business.email}`);
         } finally {
             setIsSubmitting(false);
         }

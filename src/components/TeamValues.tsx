@@ -13,6 +13,7 @@ import ceo from "../assets/megaownerprinted.png";
 import vectoroverlay from "../assets/Frame.png";
 import completeData from "@/data/completeData.json";
 import SectionHeader from "@/components/SectionHeader";
+import { business } from "@/config/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -292,8 +293,10 @@ const Leadership = () => {
             </div>
 
             {/* Key Achievements */}
-            <div className="grid grid-cols-3 gap-3 pt-4">
-              <AchievementCard label="Established" value="Since 2005" />
+            <div className={`grid ${business.companyEstablished ? "grid-cols-3" : "grid-cols-2"} gap-3 pt-4`}>
+              {business.companyEstablished && (
+                <AchievementCard label="Established" value={business.companyEstablished} />
+              )}
               <AchievementCard label="Licensing" value="Licensed & Insured" />
               <AchievementCard label="Ownership" value="Family-Owned" />
             </div>

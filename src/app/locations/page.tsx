@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { locationsData } from "@/data/locationsData";
 import { MapPin, ArrowRight, ShieldCheck, Phone } from "lucide-react";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -41,7 +42,7 @@ export default function LocationsIndexPage() {
               NYC Construction Service Areas &amp; Borough Hubs
             </h1>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-normal">
-              Mega Contracting NY Group is an active NYC corporation headquartered at 3044 Radcliff Ave, Bronx NY. We provide licensed, insured, DOB-compliant exterior and interior construction services across every community in New York City.
+              {business.name} is an active NYC corporation headquartered at {business.address.formatted}. We provide licensed, insured, DOB-compliant exterior and interior construction services across every community in New York City.
             </p>
           </div>
 
@@ -113,10 +114,10 @@ export default function LocationsIndexPage() {
                 Request Consultation
               </Link>
               <a
-                href="tel:+19148043000"
+                href={`tel:${business.phoneE164}`}
                 className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-xl border border-white/20 transition-all text-center"
               >
-                (914) 804-3000
+                {business.phone}
               </a>
             </div>
           </div>

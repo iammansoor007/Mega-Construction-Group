@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getBlogPostBySlug, getAllBlogPosts, clampDate } from "@/data/blogsData";
+import { business } from "@/config/business";
 import BlogDetailClient from "./_components/BlogDetailClient";
 
 interface Props {
@@ -57,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: clampDate(post.publishDate),
       modifiedTime: clampDate(post.editDate || post.publishDate),
-      authors: ["Mega Contracting NY Group"],
+      authors: [business.name],
     },
     twitter: {
       card: "summary_large_image",
@@ -82,7 +83,7 @@ export default async function BlogPostPage({ params }: Props) {
     ? post.featuredImage
     : `${BASE_URL}${post.featuredImage}`;
 
-  // Multi-schema: Article, BreadcrumbList, FAQPage
+  // Multi-schema: Article, BreadcrumbList
   const schemas: any[] = [
     {
       "@context": "https://schema.org",
@@ -100,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
       },
       author: {
         "@type": "Organization",
-        name: "Mega Contracting NY Group",
+        name: business.name,
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",
@@ -109,7 +110,7 @@ export default async function BlogPostPage({ params }: Props) {
       },
       publisher: {
         "@type": "Organization",
-        name: "Mega Contracting NY Group",
+        name: business.name,
         url: BASE_URL,
         logo: {
           "@type": "ImageObject",
@@ -129,18 +130,6 @@ export default async function BlogPostPage({ params }: Props) {
         { "@type": "ListItem", position: 2, name: "Technical Guides", item: `${BASE_URL}/blog` },
         { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
       ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: post.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
     },
   ];
 

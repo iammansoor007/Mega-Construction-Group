@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { business } from "@/config/business";
 import {
   Home, Wrench, Building, HardHat, Phone,
   ArrowRight, ShieldCheck, Search, HelpCircle
@@ -106,11 +107,11 @@ export default function NotFound() {
               Request Free Estimate
             </Link>
             <a
-              href="tel:+19148043000"
+              href={`tel:${business.phoneE164}`}
               className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold text-xs uppercase tracking-widest rounded-xl border border-gray-300 transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-red-600" />
-              <span>Call (914) 804-3000</span>
+              <span>Call {business.phone}</span>
             </a>
           </div>
         </div>

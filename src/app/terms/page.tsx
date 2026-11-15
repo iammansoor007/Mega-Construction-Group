@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ShieldAlert, FileText, CheckCircle, Scale } from "lucide-react";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -113,10 +114,10 @@ export default function TermsPage() {
               For inquiries regarding contracts, billing, or legal notices, contact our headquarters:
             </p>
             <div className="mt-4 p-6 bg-gray-50 rounded-2xl border border-gray-200 text-sm space-y-2">
-              <p><strong>Mega Contracting NY Group</strong></p>
-              <p>3044 Radcliff Ave, Bronx, NY 10469</p>
-              <p>Phone: <a href="tel:+19148043000" className="text-red-600 font-bold hover:underline">+1 (914) 804-3000</a></p>
-              <p>Email: <a href="mailto:info@megacontractinggroup.com" className="text-red-600 font-bold hover:underline">info@megacontractinggroup.com</a></p>
+              <p><strong>{business.name}</strong></p>
+              <p>{business.address.formatted}</p>
+              <p>Phone: <a href={`tel:${business.phoneE164}`} className="text-red-600 font-bold hover:underline">{business.phone}</a></p>
+              <p>Email: <a href={`mailto:${business.email}`} className="text-red-600 font-bold hover:underline">{business.email}</a></p>
             </div>
           </div>
         </div>

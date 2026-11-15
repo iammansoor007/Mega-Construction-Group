@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import ServiceCTA from "@/components/ServiceCTA";
 import MarqueeSection from "@/components/MarqueeSection";
 import SectionHeader from "@/components/SectionHeader";
+import { business } from "@/config/business";
 import { useRef } from "react";
 
 export default function CategoryClient({ categoryId }: { categoryId: string }) {
@@ -177,7 +178,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
               description: `Our specialized teams are equipped to handle your most complex ${service.tag.toLowerCase()} requirements in NYC. Get an industrial-grade survey and estimate today.`,
               buttons: [
                 { text: "Request Free Quote", href: "/contact", primary: true },
-                { text: "Call Us Now", href: "tel:+19148043000", primary: false }
+                { text: `Call ${business.phone}`, href: `tel:${business.phoneE164}`, primary: false }
               ]
             }}
           />

@@ -12,6 +12,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
+import { business } from "@/config/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -185,16 +186,20 @@ const Footer = () => {
                 <span className="text-white font-bold text-lg md:text-2xl">MC</span>
               </div>
               <div>
-                <h2 className="text-base xs:text-lg md:text-xl font-bold tracking-tighter uppercase leading-none">{company.name}</h2>
+                <h2 className="text-base xs:text-lg md:text-xl font-bold tracking-tighter uppercase leading-none">{business.name}</h2>
                 <div className="h-1 w-10 xs:w-12 bg-primary mt-2" />
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed font-medium">
-              {company.description}
+              Family-owned and operated, Mega Contracting NY Group delivers exceptional construction and renovation services across New York. From residential remodeling to commercial build-outs, we bring quality craftsmanship and integrity to every project.
             </p>
             <div className="flex gap-4">
-              {completeData.footer.social.map((social) => {
-                const Icon = iconMap[social.icon as keyof typeof iconMap] || Icons.Linkedin;
+              {[
+                { platform: "LinkedIn", icon: Icons.Linkedin, href: business.social.linkedin },
+                { platform: "Instagram", icon: Icons.Instagram, href: business.social.instagram },
+                { platform: "Facebook", icon: Icons.Linkedin, href: business.social.facebook },
+              ].map((social) => {
+                const Icon = social.icon;
                 return (
                   <Link key={social.platform} href={social.href} className="p-3 bg-white/5 border border-white/10 hover:bg-primary transition-all duration-300 text-white/50 hover:text-white smooth-gpu">
                     <Icon />
@@ -225,17 +230,17 @@ const Footer = () => {
               Direct Contact
             </h4>
             <div className="space-y-5">
-              <a href={`tel:${contact.phone}`} className="flex items-center gap-4 group">
+              <a href={`tel:${business.phoneE164}`} className="flex items-center gap-4 group">
                 <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
                   <Icons.Phone />
                 </div>
-                <span className="text-sm font-bold">{contact.phone}</span>
+                <span className="text-sm font-bold">{business.phone}</span>
               </a>
-              <a href={`mailto:${contact.email}`} className="flex items-center gap-4 group">
+              <a href={`mailto:${business.email}`} className="flex items-center gap-4 group">
                 <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
                   <Icons.Mail />
                 </div>
-                <span className="text-sm font-bold">{contact.email}</span>
+                <span className="text-sm font-bold">{business.email}</span>
               </a>
               <a
                 href="https://share.google/cQGmz8WB5ogZiDLnE"
@@ -246,7 +251,7 @@ const Footer = () => {
                 <div className="w-10 h-10 bg-white/5 flex items-center justify-center group-hover:bg-primary transition-all">
                   <Icons.Location />
                 </div>
-                <span className="text-xs text-gray-400 group-hover:text-white font-medium leading-relaxed transition-colors">{contact.address}</span>
+                <span className="text-xs text-gray-400 group-hover:text-white font-medium leading-relaxed transition-colors">{business.address.formatted}</span>
               </a>
             </div>
           </div>
@@ -257,10 +262,15 @@ const Footer = () => {
               Accreditations
             </h4>
             <div className="grid grid-cols-2 gap-2">
-              {certifications.slice(0, 4).map((cert, i) => (
+              {[
+                { title: "Licensed & Insured", label: "NYC General Contractor" },
+                ...(business.licenseLines.length > 0 ? [{ title: business.licenseLines[0].number, label: "NYC DOB License" }] : []),
+                { title: "Family-Owned", label: "NYC Trades Craftsman" },
+                ...(business.insuranceStatement ? [{ title: business.insuranceStatement, label: "Comprehensive Insurance" }] : [{ title: "Comprehensive", label: "Insurance Coverage" }]),
+              ].map((cert, i) => (
                 <div key={i} className="p-1.5 xs:p-2 sm:p-3 bg-white/5 border border-white/10 text-center">
-                  <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.cert}</span>
-                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-0.5 xs:mt-1 block">Official</span>
+                  <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-bold block text-white/80">{cert.title}</span>
+                  <span className="text-[6px] xs:text-[7px] sm:text-[8px] text-primary uppercase tracking-tighter mt-0.5 xs:mt-1 block">{cert.label}</span>
                 </div>
               ))}
             </div>

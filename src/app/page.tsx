@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import HomeClient from "./_components/HomeClient";
+import { business } from "@/config/business";
 
 const BASE_URL = "https://www.megacontractingnyc.com";
 
@@ -65,12 +66,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const schemas = [
-    // ── 1. LocalBusiness / GeneralContractor (beast mode) ──────────────────────
+    // ── 1. LocalBusiness / GeneralContractor ──────────────────────
     {
       "@context": "https://schema.org",
       "@type": ["GeneralContractor", "LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": `${BASE_URL}/#business`,
-      "name": "Mega Contracting NY Group",
+      "name": business.name,
+      ...(business.legalName ? { "legalName": business.legalName } : {}),
       "alternateName": ["General Contractor NYC", "Mega Contracting NY", "Mega Contracting Group"],
       "description":
         "Mega Contracting NY Group is NYC's licensed general contractor specializing in facade restoration, roof leak repair, flat roofing, chimney repair, fire escape painting, parapet wall repair, stucco repair, EIFS, DOB violation removal, DOT violation removal, sidewalk repair, building safety assessments, brick pointing, foundation repair, and waterproofing across all 5 boroughs.",
@@ -82,14 +84,15 @@ export default function Home() {
         "height": 400,
       },
       "image": `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
-      "telephone": "+19148043000",
-      "email": "info@megacontractinggroup.com",
+      "telephone": business.phoneE164,
+      "email": business.email,
+      ...(business.foundingYear ? { "foundingDate": String(business.foundingYear) } : {}),
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "3044 Radcliff Ave",
-        "addressLocality": "Bronx",
-        "addressRegion": "NY",
-        "postalCode": "10469",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
         "addressCountry": "US",
       },
       "geo": {
@@ -98,28 +101,16 @@ export default function Home() {
         "longitude": "-73.8644",
       },
       "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "08:00",
-          "closes": "19:00",
-        },
-      ],
-      "priceRange": "$$",
       "paymentAccepted": "Cash, Credit Card, Check",
       "currenciesAccepted": "USD",
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Manhattan" },
-        { "@type": "AdministrativeArea", "name": "Brooklyn" },
-        { "@type": "AdministrativeArea", "name": "Queens" },
-        { "@type": "AdministrativeArea", "name": "Bronx" },
-        { "@type": "AdministrativeArea", "name": "Staten Island" },
-      ],
+      "areaServed": business.boroughs.map((b) => ({
+        "@type": "AdministrativeArea",
+        "name": b,
+      })),
       "sameAs": [
-        "https://www.instagram.com/megacontractingny",
-        "https://www.linkedin.com/company/mega-contracting-ny-group",
-        "https://www.facebook.com/megacontractingnygroup",
+        business.social.instagram,
+        business.social.linkedin,
+        business.social.facebook,
       ],
       "knowsAbout": [
         ...HOT_KEYWORDS,
@@ -156,15 +147,17 @@ export default function Home() {
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Construction NYC", "url": `${BASE_URL}/services/emergency-service` } },
         ],
       },
-      "founder": {
-        "@type": "Person",
-        "name": "Adil Shamis",
-        "jobTitle": "Founder & General Contractor",
-        "worksFor": { "@type": "Organization", "name": "Mega Contracting NY Group" },
-      },
-      "legalName": "Mega Contracting NY Group",
-      "license": "NYC License #NYC-2005-8942",
-      "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 20, "maxValue": 100 },
+      ...(business.founderStatement ? {
+        "founder": {
+          "@type": "Person",
+          "name": "Adil Shamis",
+          "jobTitle": "Founder & General Contractor",
+          "worksFor": { "@type": "Organization", "name": business.name },
+        }
+      } : {}),
+      ...(business.licenseLines.length > 0 ? {
+        "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+      } : {}),
     },
 
     // ── 2. WebSite schema (search box support) ─────────────────────────────────
@@ -172,7 +165,7 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "url": BASE_URL,
-      "name": "Mega Contracting NY Group",
+      "name": business.name,
       "potentialAction": {
         "@type": "SearchAction",
         "target": `${BASE_URL}/services?q={search_term_string}`,
@@ -185,20 +178,20 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "Organization",
       "@id": `${BASE_URL}/#organization`,
-      "name": "Mega Contracting NY Group",
+      "name": business.name,
       "url": BASE_URL,
       "logo": `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-914-804-3000",
+        "telephone": business.phoneE164,
         "contactType": "customer service",
         "areaServed": "US-NY",
         "availableLanguage": "English",
       },
       "sameAs": [
-        "https://www.instagram.com/megacontractingny",
-        "https://www.linkedin.com/company/mega-contracting-ny-group",
-        "https://www.facebook.com/megacontractingnygroup",
+        business.social.instagram,
+        business.social.linkedin,
+        business.social.facebook,
       ],
     },
   ];

@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import completeData from "@/data/completeData.json";
+import { business } from "@/config/business";
 import {
   Search, ChevronDown, Phone, Mail, ArrowRight,
   Shield, Star, Clock, CheckCircle2, Award,
@@ -155,9 +156,9 @@ export default function FAQPage() {
 
   // Quick info items for SEO
   const quickInfo = [
-    { icon: Phone, label: "Call Us", value: "+1 (914) 804-3000", href: "tel:+19148043000" },
-    { icon: Mail, label: "Email", value: "info@megacontractinggroup.com", href: "mailto:info@megacontractinggroup.com" },
-    { icon: Clock, label: "Response Time", value: "Within 24 Hours", href: null },
+    { icon: Phone, label: "Call Us", value: business.phone, href: `tel:${business.phoneE164}` },
+    { icon: Mail, label: "Email", value: business.email, href: `mailto:${business.email}` },
+    { icon: Clock, label: "Response Time", value: "Prompt Assistance", href: null },
     { icon: MapPin, label: "Service Area", value: "All 5 NYC Boroughs", href: null },
   ];
 
@@ -345,17 +346,29 @@ export default function FAQPage() {
                 {
                   icon: Shield,
                   title: "Licensing & Insurance",
-                  desc: "We are fully licensed (NYC-2005-8942) and insured ($5M comprehensive coverage). Your project is protected from start to finish.",
+                  desc: `We are fully licensed (${business.licenseLines[0]?.number || "NYC DOB"}) and insured. Your project is protected from start to finish.`,
                   link: "/about",
                   linkText: "View Credentials",
                 },
-                {
-                  icon: ClipboardCheck,
-                  title: "10-Year Warranty",
-                  desc: "Every project comes with quality workmanship assurance, plus full manufacturer warranties on all materials.",
-                  link: "/contact",
-                  linkText: "Learn More",
-                },
+                ...(business.warrantyStatement
+                  ? [
+                      {
+                        icon: ClipboardCheck,
+                        title: business.warrantyStatement,
+                        desc: "Every project comes with quality workmanship assurance, plus full manufacturer warranties on all materials.",
+                        link: "/contact",
+                        linkText: "Learn More",
+                      },
+                    ]
+                  : [
+                      {
+                        icon: ClipboardCheck,
+                        title: "Quality Workmanship",
+                        desc: "Every project comes with quality workmanship assurance, adhering strictly to NYC building codes.",
+                        link: "/contact",
+                        linkText: "Learn More",
+                      },
+                    ]),
                 {
                   icon: Zap,
                   title: "Emergency Services",
@@ -373,7 +386,7 @@ export default function FAQPage() {
                 {
                   icon: Users,
                   title: "Our Team & Story",
-                  desc: "Family-owned since 2005, learn how Mega Contracting NY Group has become an established NYC general contractor.",
+                  desc: "Family-owned, learn how Mega Contracting NY Group has become an established NYC general contractor.",
                   link: "/about",
                   linkText: "About Us",
                 },
@@ -412,10 +425,14 @@ export default function FAQPage() {
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Award, value: "Since", label: "2005", sub: "Family-owned & operated" },
-                { icon: ShieldCheck, value: "$5M", label: "Insured & Bonded", sub: "Comprehensive coverage" },
+                ...(business.foundingYear
+                  ? [{ icon: Award, value: String(business.foundingYear), label: "Established", sub: "Family-owned & operated" }]
+                  : [{ icon: Award, value: "Family", label: "Owned", sub: "Locally operated" }]),
+                ...(business.insuranceStatement
+                  ? [{ icon: ShieldCheck, value: business.insuranceStatement, label: "Insured & Bonded", sub: "Comprehensive coverage" }]
+                  : [{ icon: ShieldCheck, value: "Insured", label: "Fully Bonded", sub: "Comprehensive coverage" }]),
                 { icon: CheckCircle2, value: "5", label: "NYC Boroughs", sub: "All boroughs served" },
-                { icon: ShieldCheck, value: "Licensed", label: "NYC DOB", sub: "GC #NYC-2005-8942" },
+                { icon: ShieldCheck, value: "Licensed", label: "NYC DOB", sub: business.licenseLines[0]?.number || "GC License" },
               ].map((item, i) => {
                 const IconComp = item.icon;
                 return (
@@ -560,22 +577,22 @@ export default function FAQPage() {
 
                     {/* Contact cards */}
                     <div className="space-y-3">
-                      <a href="tel:+19148043000" className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
+                      <a href={`tel:${business.phoneE164}`} className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
                         <div className="w-11 h-11 bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
                           <Phone className="w-5 h-5 text-red-500 group-hover:text-white transition-colors duration-300" />
                         </div>
                         <div className="text-left">
                           <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Call Us Anytime</p>
-                          <p className="text-white font-bold text-sm">+1 (914) 804-3000</p>
+                          <p className="text-white font-bold text-sm">{business.phone}</p>
                         </div>
                       </a>
-                      <a href="mailto:info@megacontractinggroup.com" className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
+                      <a href={`mailto:${business.email}`} className="flex items-center gap-4 p-4 border border-white/5 bg-white/[0.04] hover:bg-white/[0.08] transition-all duration-300 group rounded-2xl">
                         <div className="w-11 h-11 bg-red-600/10 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
                           <Mail className="w-5 h-5 text-red-500 group-hover:text-white transition-colors duration-300" />
                         </div>
                         <div className="text-left">
                           <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold">Email Us</p>
-                          <p className="text-white font-bold text-sm">info@megacontractinggroup.com</p>
+                          <p className="text-white font-bold text-sm">{business.email}</p>
                         </div>
                       </a>
                     </div>
@@ -584,8 +601,8 @@ export default function FAQPage() {
                     <div className="flex flex-wrap gap-2">
                       {[
                         { icon: Shield, text: "Licensed & Insured" },
-                        { icon: ShieldCheck, text: "Licensed & Insured" },
-                        { icon: Clock, text: "24/7 Available" },
+                        { icon: ShieldCheck, text: business.licenseLines[0]?.number || "NYC Licensed" },
+                        ...(business.emergency247 ? [{ icon: Clock, text: "24/7 Available" }] : []),
                       ].map((badge, i) => {
                         const IconComp = badge.icon;
                         return (
@@ -639,12 +656,12 @@ export default function FAQPage() {
                             Get Free Estimate <ArrowRight className="w-4 h-4" />
                           </motion.div>
                         </Link>
-                        <a href="tel:+19148043000" className="block">
+                        <a href={`tel:${business.phoneE164}`} className="block">
                           <motion.div
                             whileHover={{ scale: 1.02 }}
                             className="flex items-center justify-center gap-2.5 w-full px-8 py-4 rounded-none bg-white/10 text-white font-bold text-sm cursor-pointer hover:bg-white/15 transition-all duration-300 border border-white/20"
                           >
-                            <Phone className="w-4 h-4" /> Call +1 (914) 804-3000
+                            <Phone className="w-4 h-4" /> Call {business.phone}
                           </motion.div>
                         </a>
                       </div>

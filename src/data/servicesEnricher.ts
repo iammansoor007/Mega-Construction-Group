@@ -189,11 +189,11 @@ const categoryProcessMap: Record<string, { title: string; description: string }[
 // Trade-specific Trust Benefits (6 cards each)
 const categoryBenefitsMap: Record<string, Benefit[]> = {
   "roofing-services": [
-    { title: "Licensed NYC General Contractor", description: "Directly licensed (#NYC-2005-8942) with the NYC Department of Buildings since 2005.", icon: "ShieldCheck" },
+    { title: "Licensed NYC General Contractor", description: "Directly licensed (#NYC-2005-8942) with the NYC Department of Buildings.", icon: "ShieldCheck" },
     { title: "Commercial Roofing Systems", description: "Installed to manufacturer specifications for flat roofs and commercial buildings.", icon: "Award" },
     { title: "130 MPH High-Wind Rating", description: "All roofing assemblies are engineered and fastened to exceed NYC coastal storm wind uplift requirements.", icon: "Wind" },
     { title: "Slope-to-Drain Insulation", description: "Tapered insulation layouts prevent stagnant ponding water on flat roofs.", icon: "Droplets" },
-    { title: "$5,000,000 Insurance Coverage", description: "Multi-million commercial general liability and workers' compensation coverage protecting property owners.", icon: "Shield" },
+    { title: "Comprehensive Insurance Coverage", description: "Multi-million commercial general liability and workers' compensation coverage protecting property owners.", icon: "Shield" },
     { title: "24/7 Emergency Storm Dispatch", description: "Dedicated rapid mobilization units deployed around the clock across all 5 boroughs during weather emergencies.", icon: "Clock" }
   ],
   "masonry-work": [
@@ -202,7 +202,7 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "316 Stainless Steel Reinforcement", description: "We use non-corrosive marine-grade stainless steel tieback anchors to permanently eliminate future wall bowing.", icon: "Gem" },
     { title: "Safety Rigging & Scaffolding", description: "Full safety protocol compliance with suspended scaffolding, boom lifts, and sidewalk shed protections.", icon: "HardHat" },
     { title: "Dustless HEPA Grinding Technology", description: "OSHA Table-1 compliant shrouded vacuum grinding systems protecting tenant health and building interiors.", icon: "ShieldAlert" },
-    { title: "Written 10-Year Water Resistance Warranty", description: "Complete exterior masonry restorations are backed by an ironclad multi-year written warranty.", icon: "Award" }
+    { title: "Written Workmanship Warranty", description: "Complete exterior masonry restorations are backed by an ironclad multi-year written warranty.", icon: "Award" }
   ],
   "concrete-services": [
     { title: "Licensed DOT Sidewalk Contractor", description: "Full authorization and active bond filings with the NYC Department of Transportation for street opening permits.", icon: "Truck" },
@@ -226,7 +226,7 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "Precision Architectural Color Matching", description: "On-site spectrophotometer color and aggregate analysis to seamlessly match existing building textures.", icon: "Paintbrush" },
     { title: "Enhanced R-Value Thermal Insulation", description: "Continuous exterior insulation eliminates thermal bridging and noticeably reduces winter heating costs.", icon: "Thermometer" },
     { title: "Integrated Drainage Drainage Channels", description: "Advanced drainage mats behind stucco prevent water entrapment and eliminate mold or wood rot risks.", icon: "CloudRain" },
-    { title: "15-Year Performance Workmanship Warranty", description: "Backed by our extensive written warranty against delamination, water infiltration, and surface flaking.", icon: "Award" }
+    { title: "Written Workmanship Warranty", description: "Backed by our extensive written warranty against delamination, water infiltration, and surface flaking.", icon: "Award" }
   ],
   "custom-home-building": [
     { title: "Full Turnkey Design-Build Capabilities", description: "Seamless collaboration between architects, structural engineers, and field craftsmen under one roof.", icon: "Compass" },
@@ -234,7 +234,7 @@ const categoryBenefitsMap: Record<string, Benefit[]> = {
     { title: "Ultra-High Energy Efficiency Standards", description: "Energy Star and Passive House building envelope detailing, continuous insulation, and thermal break framing.", icon: "Leaf" },
     { title: "Architectural Precision Millwork", description: "Custom in-house cabinetry, architectural steel stairs, and bespoke material craftsmanship.", icon: "Sparkles" },
     { title: "Smart Home Automation Ready", description: "Pre-wired low-voltage infrastructure for integrated lighting, climate, security, and acoustic automation.", icon: "Cpu" },
-    { title: "10-Year Major Structural Warranty", description: "Comprehensive structural warranty covering foundations, load-bearing frames, and building envelopes.", icon: "ShieldCheck" }
+    { title: "Major Structural Warranty", description: "Comprehensive structural warranty covering foundations, load-bearing frames, and building envelopes.", icon: "ShieldCheck" }
   ],
   "emergency-service": [
     { title: "Rapid NYC Arrival", description: "Prompt dispatch from localized staging points across the Bronx, Brooklyn, Queens, and Manhattan.", icon: "FastForward" },
@@ -256,7 +256,7 @@ const categoryFaqsMap: Record<string, FAQ[]> = {
     { question: "What is a 'Cool Roof' and is it required by NYC energy codes?", answer: "Yes, under the NYC Energy Conservation Code, low-slope roofs must achieve high solar reflectance (such as white TPO or reflective coatings) to reduce urban heat island effects and lower cooling costs." },
     { question: "How do you detect hidden leaks before replacing the entire roof?", answer: "We deploy non-destructive thermal infrared imaging and electrical impedance moisture meters to identify wet insulation pockets and track moisture travel paths without tearing up sound sections." },
     { question: "Can a roof replacement be completed during NYC winter months?", answer: "Yes. We utilize cold-weather adhesives, mechanical fasteners, and specialized hot-air welded single-ply membranes that can be reliably installed during freezing temperatures." },
-    { question: "What warranties do you provide on roofing projects?", answer: "We provide comprehensive written workmanship warranties of up to 10–25 years, complemented by 20 to 50-year manufacturer material warranties from GAF, Firestone, and Carlisle." },
+    { question: "What warranties do you provide on roofing projects?", answer: "We provide comprehensive written workmanship warranties complemented by manufacturer material warranties from GAF, Firestone, and Carlisle." },
     { question: "How long does a typical roof replacement take?", answer: "Residential roofs are typically completed in 2 to 3 days. Commercial flat roofs range from 1 to 3 weeks depending on square footage, insulation thickness, and parapet flashing complexity." },
     { question: "How do I request an on-site diagnostic roofing estimate?", answer: "Call our 24/7 client hotline at +1 (914) 804-3000 or fill out our online form. A licensed roofing specialist will visit your property within 24 to 48 hours for a full diagnostic inspection." }
   ],
@@ -317,7 +317,7 @@ const categoryFaqsMap: Record<string, FAQ[]> = {
     { question: "How do you navigate foundation challenges such as high water tables or bedrock?", answer: "NYC geology ranges from shallow Manhattan schist to high water tables in coastal Queens. We deploy specialized helical steel piles, reinforced grade beams, and bentonite waterproofing systems to ensure foundation stability." },
     { question: "Can smart home automation systems be integrated into the build?", answer: "Yes. We design and install centralized structured wiring, Lutron automated lighting and shading, multi-zone climate control, and enterprise-grade security and access control." },
     { question: "How are construction costs estimated and managed throughout the project?", answer: "We provide comprehensive cost estimates categorized by master construction divisions, coupled with open-book milestone tracking and maximum price (GMP) contract structures." },
-    { question: "What structural warranties accompany a new custom home build?", answer: "Every ground-up residence is accompanied by our comprehensive 10-year major structural warranty covering foundations and load-bearing framing, alongside 2-year mechanical and 1-year finish warranties." },
+    { question: "What structural warranties accompany a new custom home build?", answer: "Every ground-up residence is accompanied by our comprehensive structural warranty covering foundations and load-bearing framing, alongside mechanical and finish warranties." },
     { question: "How do I arrange a preliminary consultation for a new custom home project?", answer: "Contact our executive development team at +1 (914) 804-3000 to discuss your property location, architectural vision, and project timeline." }
   ],
   "emergency-service": [

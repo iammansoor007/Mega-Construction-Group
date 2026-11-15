@@ -3,20 +3,21 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ShieldCheck, Award, FileCheck, CheckCircle2, Phone, ArrowRight, Building, Hammer } from "lucide-react";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
     absolute: "Licenses, Certifications & Insurance Credentials | Mega Contracting NY",
   },
   description:
-    "Verify our full New York City contractor licensing credentials, DOB license #NYC-2005-8942, DOT permit qualifications, and $5,000,000 commercial liability insurance.",
+    "Verify our full New York City contractor licensing credentials, DOB license #NYC-2005-8942, DOT permit qualifications, and comprehensive commercial liability insurance.",
   alternates: {
     canonical: "https://www.megacontractingnyc.com/licenses",
   },
   openGraph: {
     title: "Licenses, Certifications & Insurance Credentials | Mega Contracting NY",
     description:
-      "Verify our full New York City contractor licensing credentials, DOB license #NYC-2005-8942, DOT permit qualifications, and $5,000,000 commercial liability insurance.",
+      "Verify our full New York City contractor licensing credentials, DOB license #NYC-2005-8942, DOT permit qualifications, and comprehensive commercial liability insurance.",
     url: "https://www.megacontractingnyc.com/licenses",
     siteName: "Mega Contracting NY Group",
     locale: "en_US",
@@ -42,8 +43,8 @@ export default function LicensesPage() {
   const credentials = [
     {
       title: "NYC Department of Buildings (DOB) License",
-      number: "GC License #NYC-2005-8942",
-      issuer: "NYC Department of Buildings",
+      number: business.licenseLines[0]?.number || "GC License #NYC-2005-8942",
+      issuer: business.licenseLines[0]?.agency || "NYC Department of Buildings",
       desc: "Authorized to pull general contracting, structural masonry, roofing, facade restoration, and scaffolding permits throughout NYC.",
       badge: "Active License",
     },
@@ -118,7 +119,7 @@ export default function LicensesPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs uppercase font-bold tracking-[0.25em] text-red-600">100% Insured &amp; Bonded</span>
+            <span className="text-xs uppercase font-bold tracking-[0.25em] text-red-600">Fully Insured &amp; Bonded</span>
             <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-gray-950 mt-2 font-heading">
               Our Active Regulatory Credentials
             </h2>
@@ -173,10 +174,10 @@ export default function LicensesPage() {
                 Request COI &amp; Estimate
               </Link>
               <a
-                href="tel:+19148043000"
+                href={`tel:${business.phoneE164}`}
                 className="px-8 py-4 bg-gray-900 hover:bg-black text-white font-bold text-xs uppercase tracking-widest rounded-full transition-all"
               >
-                Call +1 (914) 804-3000
+                Call {business.phone}
               </a>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import AboutClient from "./_components/AboutClient";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Our Licensed Construction Company | Bronx NY",
     description:
-      "Family-owned since 2005. Mega Contracting NY Group is NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
+      "Family-owned. Mega Contracting NY Group is NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
     url: "https://www.megacontractingnyc.com/about",
     siteName: "Mega Contracting NY Group",
     images: [
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     creator: "@megacontractingny",
     title: "About Our Licensed Construction Company | Bronx NY",
     description:
-      "Family-owned since 2005. NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
+      "Family-owned. NYC's licensed general contractor — roofing, masonry, concrete, and full renovations across all 5 boroughs.",
     images: ["https://www.megacontractingnyc.com/assets/megaabout.png"],
   },
 };
@@ -51,16 +52,21 @@ export default function AboutPage() {
   const businessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Mega Contracting NY Group",
+    "name": business.name,
+    ...(business.legalName ? { "legalName": business.legalName } : {}),
     "image": "https://www.megacontractingnyc.com/assets/megaabout.png",
-    "telephone": "+1 (914) 804-3000",
-    "email": "info@megacontractinggroup.com",
+    "telephone": business.phoneE164,
+    "email": business.email,
+    ...(business.foundingYear ? { "foundingDate": String(business.foundingYear) } : {}),
+    ...(business.licenseLines.length > 0 ? {
+      "license": `${business.licenseLines[0].label} ${business.licenseLines[0].number}`
+    } : {}),
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "3044 Radcliff Ave",
-      "addressLocality": "Bronx",
-      "addressRegion": "NY",
-      "postalCode": "10469",
+      "streetAddress": business.address.street,
+      "addressLocality": business.address.city,
+      "addressRegion": business.address.state,
+      "postalCode": business.address.zip,
       "addressCountry": "US"
     },
     "geo": {
@@ -69,10 +75,11 @@ export default function AboutPage() {
       "longitude": -73.861787
     },
     "url": "https://www.megacontractingnyc.com",
-    "priceRange": "$$",
-    "areaServed": [
-      "Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island",
-      "Westchester", "Long Island"
+    "areaServed": [...business.boroughs],
+    "sameAs": [
+      business.social.instagram,
+      business.social.linkedin,
+      business.social.facebook,
     ],
     "knowsAbout": [
       "Facade Restoration NYC",

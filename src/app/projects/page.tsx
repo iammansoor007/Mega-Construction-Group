@@ -10,6 +10,7 @@ import {
   Building2, TrendingUp, Star
 } from "lucide-react";
 import ProjectsClient from "./_components/ProjectsClient";
+import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
@@ -150,10 +151,10 @@ export default function ProjectsIndexPage() {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <a
-                    href="tel:+19148043000"
+                    href={`tel:${business.phoneE164}`}
                     className="px-10 py-4 bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest rounded-xl border border-white/15 transition-all duration-200"
                   >
-                    (914) 804-3000
+                    {business.phone}
                   </a>
                 </div>
               </div>

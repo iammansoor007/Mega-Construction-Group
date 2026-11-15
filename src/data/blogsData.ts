@@ -628,7 +628,7 @@ export const blogsData: Record<string, BlogPost> = {
         title: "7. How to Verify a Licensed NYC Roofing Contractor",
         paragraphs: [
           "Before awarding a roofing contract in the five boroughs, verify that your contractor satisfies every mandatory legal and technical prerequisite:",
-          "Always verify: 1) Active NYC DOB General Contractor Registration (#NYC-2005-8942 or equivalent); 2) Minimum $5,000,000 Commercial General Liability Insurance with comprehensive Action Over / Labor Law coverage; 3) Active Workers' Compensation coverage; 4) supervisory safety certification for on-site crew leaders; and 5) commercial applicator capabilities to deliver genuine 20-30 year non-prorated system warranties. Need a site evaluation? <a href=\"/contact\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Schedule a free roof inspection and estimate</a> with our project team."
+          "Always verify: 1) Active NYC DOB General Contractor Registration (#NYC-2005-8942 or equivalent); 2) Comprehensive Commercial General Liability Insurance with comprehensive Action Over / Labor Law coverage; 3) Active Workers' Compensation coverage; 4) supervisory safety certification for on-site crew leaders; and 5) commercial applicator capabilities to deliver genuine manufacturer-backed system warranties. Need a site evaluation? <a href=\"/contact\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Schedule a free roof inspection and estimate</a> with our project team."
         ],
         callout: {
           type: "warning",

@@ -454,3 +454,33 @@ An automated assertion script was executed against the built production site (`.
 ### Tooling & Build Optimization
 - **Linting Script (`package.json`)**: Configured `"lint": "eslint ."` and updated `eslint.config.js` to ignore build output (`.next`, `dist`), enabling clean and successful execution of `npm run lint`.
 - **Production Build (`npm run build`)**: Fully compiled and generated all 99 routes with zero TypeScript or build errors in Turbopack.
+
+---
+
+## Task 10: Business Facts Single Source of Truth (`src/config/business.ts`)
+
+| Config Field | Configured Value | Verification Required from Owner |
+| :--- | :--- | :--- |
+| `name` | `"Mega Contracting NY Group"` | Confirmed standard company branding across site. |
+| `phone` / `phoneE164` | `"(914) 804-3000"` / `"+19148043000"` | Confirmed direct calling hotline. |
+| `email` | `"info@megacontractinggroup.com"` | **Owner to confirm preferred domain:** Verify whether public enquiries should route to `@megacontractingnyc.com` or `@megacontractinggroup.com`. |
+| `address` | `3044 Radcliff Ave, Bronx, NY 10469` | Corporate headquarters address. |
+| `boroughs` | Manhattan, Brooklyn, Queens, Bronx, Staten Island | Five NYC boroughs served. |
+| `social` | Instagram, LinkedIn, Facebook | Social media profile URLs from footer. |
+| `emergency247` | `true` | **Owner to confirm:** 24/7 emergency availability as stated across site. Zero promised response times are stated. |
+| `legalName` | `null` | **Owner to confirm:** Official registered entity legal name with NY Department of State. Left null until documented. |
+| `foundingYear` | `null` | **Owner to confirm:** Documented founding year. Formerly hardcoded "Since 2005" / "20+ years" removed until verified with formal filing records. |
+| `companyEstablished` | `null` | **Owner to confirm:** Established date string. Omitted from public UI badges until confirmed. |
+| `founderStatement` | `null` | **Owner to confirm:** Founder biography and official statement for Adil Shamis. Omitted until confirmed. |
+| `insuranceStatement` | `null` | **Owner to confirm:** Exact policy limits and carrier name (formerly unverified "$5M Insured"). Omitted until confirmed. |
+| `warrantyStatement` | `null` | **Owner to confirm:** Exact written warranty duration and terms (formerly unverified "10-Year Warranty"). Omitted until confirmed. |
+| `licenseLines` | `GC License #NYC-2005-8942` | **Owner to confirm:** Agency (NYC Department of Buildings) and official license lookup verification URL. |
+
+### Removed Hardcoded Claims & Unverified Dates
+The following hardcoded phrases were removed or neutralized site-wide, rendering only when config fields are non-null:
+- Hardcoded `"Since 2005"`, `"since 2005"`, `"founded in 2005"`, `"Established 2005"`, `"EST. 2005"`, `"20+ years"`, `"two decades"`.
+- Hardcoded `"$5 million"` / `"$5M Insured & Bonded"`.
+- Hardcoded `"10-Year Warranty"`, `"15-Year Performance Workmanship Warranty"`.
+- Hardcoded founder bio narratives (`"Adil Shamis founded Mega Contracting NY Group in 2005..."`).
+- Retained clean `"Family-owned"` and `"Licensed & Insured"` wording with license `#NYC-2005-8942`.
+

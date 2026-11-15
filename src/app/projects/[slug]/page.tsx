@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { projectsData } from "@/data/projectsData";
+import { business } from "@/config/business";
 import {
   ShieldCheck, CheckCircle2, Phone, ArrowRight,
   ChevronRight, MapPin, Calendar, Wrench, Layers, Award
@@ -298,10 +299,10 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                       Request Free Quote
                     </Link>
                     <a
-                      href="tel:+19148043000"
+                      href={`tel:${business.phoneE164}`}
                       className="block w-full py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-widest text-center rounded-xl border border-white/20 transition-all"
                     >
-                      (914) 804-3000
+                      {business.phone}
                     </a>
                   </div>
                 </div>

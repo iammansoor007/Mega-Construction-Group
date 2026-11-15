@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { resolveCategory, resolveSubcategory } from "@/lib/servicesResolver";
 import { getServiceDetailSeo } from "@/data/servicesSeoData";
 import DetailClient from "./_components/DetailClient";
+import { business } from "@/config/business";
 
 type Props = {
   params: Promise<{ category: string; slug: string }>;
@@ -72,29 +73,27 @@ export default async function Page({ params }: Props) {
       "@type": "Service",
       "name": seo.h1,
       "description": seo.metaDescription,
+      "url": `https://www.megacontractingnyc.com/services/${category}/${slug}`,
       "provider": {
         "@type": "GeneralContractor",
-        "name": "Mega Contracting NY Group",
-        "legalName": "Mega Contracting NY Group",
+        "name": business.name,
+        ...(business.legalName ? { "legalName": business.legalName } : {}),
         "image": "https://www.megacontractingnyc.com/favicon.png",
-        "telephone": "+1 (914) 804-3000",
-        "email": "info@megacontractinggroup.com",
+        "telephone": business.phoneE164,
+        "email": business.email,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "3044 Radcliff Ave",
-          "addressLocality": "Bronx",
-          "addressRegion": "NY",
-          "postalCode": "10469",
+          "streetAddress": business.address.street,
+          "addressLocality": business.address.city,
+          "addressRegion": business.address.state,
+          "postalCode": business.address.zip,
           "addressCountry": "US"
         }
       },
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Manhattan" },
-        { "@type": "AdministrativeArea", "name": "Brooklyn" },
-        { "@type": "AdministrativeArea", "name": "Queens" },
-        { "@type": "AdministrativeArea", "name": "Bronx" },
-        { "@type": "AdministrativeArea", "name": "Staten Island" }
-      ]
+      "areaServed": business.boroughs.map((b) => ({
+        "@type": "AdministrativeArea",
+        "name": b
+      }))
     },
     {
       "@context": "https://schema.org",
@@ -127,21 +126,6 @@ export default async function Page({ params }: Props) {
       ]
     }
   ];
-
-  if (subCategory.faqs && subCategory.faqs.length > 0) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": subCategory.faqs.map((faq) => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    });
-  }
 
   return (
     <>

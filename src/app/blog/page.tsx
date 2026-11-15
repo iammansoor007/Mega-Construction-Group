@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAllBlogPosts } from "@/data/blogsData";
+import { business } from "@/config/business";
 import {
   Calendar,
   Clock,
@@ -103,7 +104,7 @@ export default function BlogIndexPage() {
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                   <HardHat className="w-4 h-4 text-red-500" />
-                  NYC General Contractor #NYC-2005-8942
+                  NYC General Contractor {business.licenseLines[0]?.number}
                 </span>
               </div>
             </div>
@@ -312,11 +313,11 @@ export default function BlogIndexPage() {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <a
-                    href="tel:+19148043000"
+                    href={`tel:${business.phoneE164}`}
                     className="px-10 py-4 bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest rounded-xl border border-white/15 transition-all duration-200 inline-flex items-center justify-center gap-2"
                   >
                     <Phone className="w-4 h-4 text-red-500" />
-                    <span>(914) 804-3000</span>
+                    <span>{business.phone}</span>
                   </a>
                 </div>
               </div>

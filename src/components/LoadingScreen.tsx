@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { business } from "@/config/business";
 
 const EASE = [0.65, 0, 0.35, 1] as const;
 
@@ -76,7 +77,7 @@ const LogoText = () => {
       <div className="text-center px-4">
         {/* Simple, clean text - NO ANIMATIONS on the text itself */}
         <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] text-foreground mb-4">
-          <span style={{ color: "hsl(var(--primary))" }}>Mega</span> Construction    <span style={{ color: "hsl(var(--primary))" }}>Group</span>
+          <span style={{ color: "hsl(var(--primary))" }}>Mega</span> Contracting NY <span style={{ color: "hsl(var(--primary))" }}>Group</span>
         </div>
 
         {/* Simple underline - using primary color */}
@@ -84,7 +85,7 @@ const LogoText = () => {
 
         {/* Simple subtitle */}
         <div className="mt-6 text-[10px] md:text-xs tracking-[0.25em] text-muted-foreground uppercase">
-          Since 2005
+          {business.companyEstablished || "Family-Owned"}
         </div>
       </div>
     </motion.div>

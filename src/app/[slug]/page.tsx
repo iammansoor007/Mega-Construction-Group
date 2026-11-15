@@ -9,6 +9,7 @@ import MarqueeSection from "@/components/MarqueeSection";
 import ServiceCTA from "@/components/ServiceCTA";
 import { bronxSeoPages } from "@/data/bronxSeoPages";
 import { bronxSlugRedirectMap } from "@/lib/servicesResolver";
+import { business } from "@/config/business";
 import {
   ShieldCheck, CheckCircle2, Phone, ArrowRight,
   ChevronRight, Award, Clock, Star, MapPin, Hammer
@@ -87,7 +88,7 @@ export default async function BronxSeoPage({ params }: Props) {
 
   const BASE_URL = "https://www.megacontractingnyc.com";
 
-  // Schema definitions: Service, LocalBusiness, Breadcrumbs, FAQPage
+  // Schema definitions: Service, LocalBusiness, Breadcrumbs
   const schemas: any[] = [
     {
       "@context": "https://schema.org",
@@ -99,17 +100,16 @@ export default async function BronxSeoPage({ params }: Props) {
       "image": `${BASE_URL}${page.image}`,
       "provider": {
         "@type": "LocalBusiness",
-        "name": "Mega Contracting NY Group",
+        "name": business.name,
         "url": BASE_URL,
-        "telephone": "+19148043000",
-        "email": "info@megacontractinggroup.com",
-        "priceRange": "$$",
+        "telephone": business.phoneE164,
+        "email": business.email,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "3044 Radcliff Ave",
-          "addressLocality": "Bronx",
-          "addressRegion": "NY",
-          "postalCode": "10469",
+          "streetAddress": business.address.street,
+          "addressLocality": business.address.city,
+          "addressRegion": business.address.state,
+          "postalCode": business.address.zip,
           "addressCountry": "US",
         },
         "geo": {
@@ -118,33 +118,29 @@ export default async function BronxSeoPage({ params }: Props) {
           "longitude": -73.8644,
         },
         "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
-        "areaServed": ["Bronx", "Brooklyn", "Queens", "Manhattan", "Staten Island"],
+        "areaServed": [...business.boroughs],
       },
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Bronx" },
-        { "@type": "AdministrativeArea", "name": "Brooklyn" },
-        { "@type": "AdministrativeArea", "name": "Manhattan" },
-        { "@type": "AdministrativeArea", "name": "Queens" },
-        { "@type": "AdministrativeArea", "name": "Staten Island" },
-      ],
+      "areaServed": business.boroughs.map((b) => ({
+        "@type": "AdministrativeArea",
+        "name": b,
+      })),
     },
     {
       "@context": "https://schema.org",
       "@type": ["GeneralContractor", "LocalBusiness"],
-      "name": "Mega Contracting NY Group",
+      "name": business.name,
       "url": `${BASE_URL}/${page.slug}`,
       "logo": `${BASE_URL}/assets/Mega-Contracting-Logo.png`,
       "image": `${BASE_URL}${page.image}`,
-      "telephone": "+19148043000",
-      "email": "info@megacontractinggroup.com",
-      "priceRange": "$$",
+      "telephone": business.phoneE164,
+      "email": business.email,
       "hasMap": "https://share.google/cQGmz8WB5ogZiDLnE",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "3044 Radcliff Ave",
-        "addressLocality": "Bronx",
-        "addressRegion": "NY",
-        "postalCode": "10469",
+        "streetAddress": business.address.street,
+        "addressLocality": business.address.city,
+        "addressRegion": business.address.state,
+        "postalCode": business.address.zip,
         "addressCountry": "US",
       },
       "geo": {
@@ -152,13 +148,10 @@ export default async function BronxSeoPage({ params }: Props) {
         "latitude": 40.8731,
         "longitude": -73.8644,
       },
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Bronx" },
-        { "@type": "AdministrativeArea", "name": "Brooklyn" },
-        { "@type": "AdministrativeArea", "name": "Manhattan" },
-        { "@type": "AdministrativeArea", "name": "Queens" },
-        { "@type": "AdministrativeArea", "name": "Staten Island" },
-      ],
+      "areaServed": business.boroughs.map((b) => ({
+        "@type": "AdministrativeArea",
+        "name": b,
+      })),
       "knowsAbout": [page.keyword, page.h1, "General Contractor NYC"],
     },
     {
@@ -186,21 +179,6 @@ export default async function BronxSeoPage({ params }: Props) {
       ],
     },
   ];
-
-  if (page.faqs && page.faqs.length > 0) {
-    schemas.push({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": page.faqs.map((faq) => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer,
-        },
-      })),
-    });
-  }
 
   return (
     <>
@@ -278,7 +256,7 @@ export default async function BronxSeoPage({ params }: Props) {
               <div className="flex flex-wrap gap-4 pt-4 border-t border-white/10 text-xs text-white/80">
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-green-400" />
-                  <span>$5M Commercial Liability</span>
+                  <span>Comprehensive Commercial Liability</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Award className="w-4 h-4 text-red-400" />

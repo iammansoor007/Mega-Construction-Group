@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { servicesData } from "@/data/servicesData";
 import { getServiceCategorySeo } from "@/data/servicesSeoData";
 import CategoryClient from "./_components/CategoryClient";
+import { business } from "@/config/business";
 
 type Props = {
   params: Promise<{ category: string }>;
@@ -72,27 +73,23 @@ export default async function Page({ params }: Props) {
       "description": seo.metaDescription,
       "provider": {
         "@type": "GeneralContractor",
-        "name": "Mega Contracting NY Group",
+        "name": business.name,
         "image": "https://www.megacontractingnyc.com/favicon.png",
-        "telephone": "+1 (914) 804-3000",
-        "email": "info@megacontractinggroup.com",
+        "telephone": business.phoneE164,
+        "email": business.email,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "3044 Radcliff Ave",
-          "addressLocality": "Bronx",
-          "addressRegion": "NY",
-          "postalCode": "10469",
+          "streetAddress": business.address.street,
+          "addressLocality": business.address.city,
+          "addressRegion": business.address.state,
+          "postalCode": business.address.zip,
           "addressCountry": "US"
-        },
-        "priceRange": "$$"
+        }
       },
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Manhattan" },
-        { "@type": "AdministrativeArea", "name": "Brooklyn" },
-        { "@type": "AdministrativeArea", "name": "Queens" },
-        { "@type": "AdministrativeArea", "name": "Bronx" },
-        { "@type": "AdministrativeArea", "name": "Staten Island" }
-      ]
+      "areaServed": business.boroughs.map((b) => ({
+        "@type": "AdministrativeArea",
+        "name": b
+      }))
     },
     // 2. BreadcrumbList Schema
     {
