@@ -189,7 +189,7 @@
     ],
     "cta": {
       "title": "Get Your Free Estimate",
-      "description": "Detailed quote within 24 hours",
+      "description": "Detailed quote provided promptly",
       "buttonText": "Get Free Estimate",
       "buttonLink": "/contact",
       "buttons": [
@@ -688,8 +688,8 @@
       },
       {
         "icon": "Clock",
-        "title": "Fast Turnaround for Violations & Repairs",
-        "description": "Rapid response for clearing DOT/DOB violations and performing urgent structural repairs."
+        "title": "Clear Path for Violations & Repairs",
+        "description": "Experienced coordination for clearing DOT/DOB violations and performing structural repairs."
       },
       {
         "icon": "Honest",
@@ -1125,7 +1125,7 @@
     "section": {
       "badge": "GET STARTED",
       "headline": "Request Your <span class=\"font-black  text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Free Estimate</span>",
-      "description": "Every project starts with a conversation. Share your vision â€” our team will respond within 24 hours."
+      "description": "Every project starts with a conversation. Share your vision â€” our team will respond promptly."
     },
     "services": [
       {
@@ -1213,7 +1213,7 @@
     "success": {
       "title": "Request Received",
       "message": "Your estimate request has been received by our team.",
-      "response": "We'll respond within 24 hours.",
+      "response": "We'll respond promptly.",
       "buttonText": "Close"
     }
   },

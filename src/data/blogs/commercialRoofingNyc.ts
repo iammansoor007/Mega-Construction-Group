@@ -230,7 +230,7 @@ export const commercialRoofingNycPost: BlogPost = {
     {
       question: "What insurance should a commercial roofer carry?",
       answer:
-        "A commercial roofing contractor in NYC must carry Commercial General Liability ($5M to $10M umbrella coverage), statutory Workers' Compensation, and dedicated 'Action Over' scaffolding coverage to protect the building owner from third-party labor law injury claims."
+        "A commercial roofing contractor in NYC must carry Commercial General Liability with umbrella coverage, statutory Workers' Compensation, and dedicated 'Action Over' scaffolding coverage to protect the building owner from third-party labor law injury claims."
     },
     {
       question: "Do I need a permit for commercial roofing?",

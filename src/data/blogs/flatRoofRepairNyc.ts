@@ -136,7 +136,7 @@ export const flatRoofRepairNycPost: BlogPost = {
         "Use the following checklist to evaluate your building’s roof condition:"
       ],
       listItems: [
-        "Age of the Roof: If the flat roof is under 12 years old and leaks are isolated, repair is cost-effective. If the membrane is over two decades old and brittle, replacement is necessary.",
+        "Age of the Roof: If the flat roof is under 12 years old and leaks are isolated, repair is cost-effective. If the membrane is over twenty years old and brittle, replacement is necessary.",
         "Insulation Saturation: If infrared moisture scans show that less than 15% of the polyiso insulation is wet, localized repairs suffice. If more than 25% is saturated, the entire roof must be torn off.",
         "Existing Layers: If your building already has two layers of roofing, NYC building code prohibits a third layer—a complete tear-off is legally mandated [VERIFY].",
         "Frequency of Repairs: If you have called a roofer more than three times in the past 12 months for different leak locations, the membrane has reached systemic failure."

@@ -39,7 +39,7 @@ export const generalContractorBronxPost: BlogPost = {
     },
     {
       label: "Insurance Verification",
-      text: "Always demand an insurance certificate naming you as an additional insured with at least $1M–$5M commercial general liability and workers' compensation."
+      text: "Always demand an insurance certificate naming you as an additional insured with commercial general liability and workers' compensation."
     },
     {
       label: "Deposit Limitations",
@@ -101,7 +101,7 @@ export const generalContractorBronxPost: BlogPost = {
       paragraphs: [
         "In New York City, contractor vetting requires checking credentials with two municipal agencies. For residential renovations in 1- to 4-family homes, the business must hold an active Home Improvement Contractor (HIC) license from the NYC Department of Consumer and Worker Protection (DCWP, formerly DCA).",
         "For major structural modifications, multi-family apartment buildings, and commercial work, the builder must maintain active General Contractor Registration with the NYC Department of Buildings (such as License #NYC-2005-8942).",
-        "Never accept a verbal assurance regarding insurance. Request a Certificate of Insurance (COI) issued directly by the broker naming you as additional insured. The policy must include Commercial General Liability ($1M to $5M minimum), statutory Workers' Compensation, Disability benefits, and dedicated Scaffold Law 'Action Over' coverage to protect you from third-party injury claims."
+        "Never accept a verbal assurance regarding insurance. Request a Certificate of Insurance (COI) issued directly by the broker naming you as additional insured. The policy must include commercial general liability, statutory Workers' Compensation, Disability benefits, and dedicated Scaffold Law 'Action Over' coverage to protect you from third-party injury claims."
       ]
     },
     {
@@ -129,7 +129,7 @@ export const generalContractorBronxPost: BlogPost = {
         headers: ["Bid Evaluation Factor", "Budget/Unlicensed Operator", "Qualified Licensed General Contractor"],
         rows: [
           ["DOB Licensing", "None or uses borrowed license", "Active DOB GC Registration & DCWP License"],
-          ["Insurance Coverage", "Minimal or missing Action Over clause", "$2M–$5M General Liability + Workers' Comp"],
+          ["Insurance Coverage", "Minimal or missing Action Over clause", "Comprehensive General Liability + Workers' Comp"],
           ["Contract Detail", "Vague lump-sum figure without allowances", "Fully itemized scope, specs, and materials"],
           ["Permit Handling", "Asks owner to pull permits or skips them", "Full management of DOB plan filing & sign-offs"],
           ["Payment Terms", "Large upfront cash deposit (30%–50%)", "Milestone-based draws tied to documented progress"]
@@ -190,7 +190,7 @@ export const generalContractorBronxPost: BlogPost = {
     {
       question: "What insurance should a Bronx contractor carry?",
       answer:
-        "A qualified Bronx contractor must carry Commercial General Liability insurance ($1M to $5M per occurrence), statutory Workers' Compensation, and New York Disability insurance. Critically, in NYC, policies must include an 'Action Over' indemnification endorsement that covers third-party scaffold and ladder injury claims governed by New York Labor Law 240."
+        "A qualified Bronx contractor must carry Commercial General Liability insurance, statutory Workers' Compensation, and New York Disability insurance. Critically, in NYC, policies must include an 'Action Over' indemnification endorsement that covers third-party scaffold and ladder injury claims governed by New York Labor Law 240."
     },
     {
       question: "How many estimates should I get?",

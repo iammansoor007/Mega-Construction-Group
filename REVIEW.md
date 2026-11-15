@@ -50,6 +50,14 @@ Every occurrence of the targeted unverified claims across the codebase and data 
 | **Guaranteed** | `src/data/servicesEnricher.ts:317` | `"guarantee foundation stability"` | `"ensure foundation stability"` |
 | **Guaranteed** | `src/data/servicesEnricher.ts:319` | `"guaranteed maximum price (GMP)"` | `"maximum price (GMP)"` |
 | **Guaranteed** | `src/data/services.json` (multiple subcategories) | `"title": "Guaranteed Violation Dismissals"`, `"title": "Guaranteed Milestone Completion Dates"`, `"title": "Guaranteed 120-Minute NYC Arrival"`, `"value": "Guaranteed"` | Replaced with `"Violation Dismissal Services"`, `"Milestone Project Tracking"`, `"Rapid NYC Arrival"`, `"Resolved"`. |
+| **Response Times / Turnaround** | `src/app/about/_components/AboutClient.tsx:138, 762` | `"within 24 hours"` | `"promptly"` |
+| **Response Times / Turnaround** | `src/app/faq/_components/FAQClient.tsx:342, 635, 669` | `"within 24 hours"` | `"promptly"` |
+| **Response Times / Turnaround** | `src/app/locations/page.tsx:106` | `"within 24 hours"` | `"promptly"` |
+| **Response Times / Turnaround** | `src/app/[slug]/page.tsx:267, 359` | `"24/7 Rapid Response"`, `"within 24 hours"` | `"24/7 Emergency Availability"`, `"promptly"` |
+| **Response Times / Turnaround** | `src/data/completeData.json:192, 691, 692, 1128, 1216` | `"within 24 hours"`, `"Fast Turnaround"`, `"Rapid response"` | `"promptly"`, `"Clear Path"`, `"Experienced coordination"` |
+| **Response Times / Turnaround** | `src/data/services.json:31, 448, 524, 819` | `"Rapid Response"`, `"Within 24 Hours"`, `"within 24 hours"` | `"Emergency Response"`, `"Active"`, `"coordinates promptly"`, `"Prompt"` |
+| **GAF / Manufacturer Warranty** | `src/data/services.json:482` | `"Factory-certified by GAF, Firestone, and Carlisle..."` | `"Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies."` |
+| **$5M / Two Decades Sweep** | `src/data/blogs/*.ts`, `src/data/blogsData.ts`, `src/data/locationsData.ts`, `src/data/resourcesData.ts`, `src/data/services.json`, `src/data/servicesEnricher.ts` | Hardcoded `"$5M"`, `"$5 million"`, `"two decades"` | Neutralized to `"commercial general liability"`, `"up to twenty years"`. |
 
 *(Note: The sole retained occurrence of the word "guaranteed" is in `src/data/blogsData.ts:358`, where it serves as a disclaimer: "The figures in this guide are broad planning references, not quotes or guaranteed market prices.")*
 

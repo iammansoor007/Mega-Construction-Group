@@ -264,7 +264,7 @@ export default async function BronxSeoPage({ params }: Props) {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4 text-blue-400" />
-                  <span>24/7 Rapid Response</span>
+                  <span>24/7 Emergency Availability</span>
                 </div>
               </div>
             </div>
@@ -356,7 +356,7 @@ export default async function BronxSeoPage({ params }: Props) {
                     Ready to discuss your {page.keyword} project?
                   </h3>
                   <p className="text-sm text-gray-300 leading-relaxed">
-                    Get an itemized quote within 24 hours. Our estimators visit your site, inspect structural conditions, and provide transparent pricing.
+                    Get an itemized quote promptly. Our estimators visit your site, inspect structural conditions, and provide transparent pricing.
                   </p>
                   <div className="space-y-3 pt-2">
                     <Link

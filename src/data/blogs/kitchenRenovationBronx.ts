@@ -143,7 +143,7 @@ export const kitchenRenovationBronxPost: BlogPost = {
       title: "Co-op and Condo Board Approvals in the Bronx",
       paragraphs: [
         "Renovating in a cooperative or condominium building introduces extensive administrative vetting. Building boards protect the physical integrity of common mechanical risers and enforce strict neighbor quality-of-life guidelines.",
-        "A typical alteration packet requires: architectural floor plans, contractor EPA Lead-Safe certificates, proof of active GC licensing, comprehensive COIs with $1M to $5M general liability and umbrella policies, a refundable security deposit ($2,500 to $5,000), and adherence to strict working hours (typically 9:00 AM to 4:30 PM on non-holiday weekdays)."
+        "A typical alteration packet requires: architectural floor plans, contractor EPA Lead-Safe certificates, proof of active GC licensing, comprehensive COIs with commercial general liability and umbrella policies, a refundable security deposit ($2,500 to $5,000), and adherence to strict working hours (typically 9:00 AM to 4:30 PM on non-holiday weekdays)."
       ]
     },
     {

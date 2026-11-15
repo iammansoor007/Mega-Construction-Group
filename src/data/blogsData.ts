@@ -166,7 +166,7 @@ export const blogsData: Record<string, BlogPost> = {
       },
       {
         label: "Contractor Verification",
-        text: "Always confirm active NYC DOB General Contractor registration, minimum $5M commercial liability, and Action Over insurance coverage before signing any renovation contract."
+        text: "Always confirm active NYC DOB General Contractor registration, commercial general liability, and Action Over insurance coverage before signing any renovation contract."
       }
     ],
     keyOutcomes: [
@@ -337,7 +337,7 @@ export const blogsData: Record<string, BlogPost> = {
         ],
         listItems: [
           "Registration and Credentials: Verify the contractor's current NYC Department of Buildings registration where required and confirm any trade-specific licenses through the relevant city or state agency.",
-          "Insurance Limits & Action Over: Request current certificates for the policies appropriate to the project ($5M+ commercial general liability). Confirm limits and endorsements with your insurance adviser; do not rely on verbal assurances.",
+          "Insurance Limits & Action Over: Request current certificates for the policies appropriate to the project (commercial general liability). Confirm limits and endorsements with your insurance adviser; do not rely on verbal assurances.",
           "Similar Project Experience: Ask for recent projects comparable in building type, scope, finish level, and borough. A contractor experienced in detached suburban homes may not be equally experienced in a landmark brownstone or pre-war co-op.",
           "References and Documentation: Speak with recent clients and, where practical, ask to see a completed project. Confirm that the work shown was actually delivered by the contractor being considered.",
           "Detailed Written Proposal: Require a line-item scope, material allowances, exclusions, schedule assumptions, payment milestones, change-order procedure, cleanup responsibilities, and warranty terms.",

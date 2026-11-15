@@ -28,7 +28,7 @@
         "icon": "ShieldCheck"
       },
       {
-        "title": "Rapid Response",
+        "title": "Emergency Response",
         "description": "Emergency repair teams ready for any weather-related damage with 24/7 availability across all five boroughs.",
         "icon": "Clock"
       }
@@ -83,7 +83,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -216,7 +216,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -348,7 +348,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -445,7 +445,7 @@
         "stats": [
           {
             "label": "Emergency Response",
-            "value": "Within 24 Hours"
+            "value": "Active"
           },
           {
             "label": "Detection Accuracy",
@@ -479,7 +479,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -521,7 +521,7 @@
           },
           {
             "question": "How quickly can you respond to an emergency roof leak?",
-            "answer": "Our emergency response team can be on-site within 24 hours, often same-day for urgent situations."
+            "answer": "Our emergency response team coordinates promptly to assess active leaks and install temporary weather protection."
           },
           {
             "question": "Will you need to tear apart my ceiling to find the leak?",
@@ -719,7 +719,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -816,7 +816,7 @@
           },
           {
             "label": "Report Delivery",
-            "value": "Within 24 Hours"
+            "value": "Active"
           },
           {
             "label": "Inspection Technology",
@@ -846,7 +846,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -973,7 +973,7 @@
           },
           {
             "title": "Quality Roof Installation",
-            "description": "Factory-certified by GAF, Firestone, and Carlisle ensuring genuine 20 to 50-year manufacturer warranties.",
+            "description": "Experienced with commercial single-ply, built-up, and residential asphalt roofing assemblies.",
             "icon": "Award"
           },
           {
@@ -4171,7 +4171,7 @@
           },
           {
             "question": "What is an Alteration Agreement and why is it needed for NYC Co-op renovations?",
-            "answer": "Co-op and condo boards require Alteration Agreements to define permitted work hours (usually 9 AM–4:30 PM), contractor insurance requirements ($5M+), security deposits, and architectural review protocols before work begins."
+            "answer": "Co-op and condo boards require Alteration Agreements to define permitted work hours (usually 9 AM–4:30 PM), commercial general liability requirements, security deposits, and architectural review protocols before work begins."
           },
           {
             "question": "When are NYC Department of Buildings (DOB) permits legally required for interior remodeling?",
@@ -4298,7 +4298,7 @@
           },
           {
             "question": "What is an Alteration Agreement and why is it needed for NYC Co-op renovations?",
-            "answer": "Co-op and condo boards require Alteration Agreements to define permitted work hours (usually 9 AM–4:30 PM), contractor insurance requirements ($5M+), security deposits, and architectural review protocols before work begins."
+            "answer": "Co-op and condo boards require Alteration Agreements to define permitted work hours (usually 9 AM–4:30 PM), commercial general liability requirements, security deposits, and architectural review protocols before work begins."
           },
           {
             "question": "When are NYC Department of Buildings (DOB) permits legally required for interior remodeling?",

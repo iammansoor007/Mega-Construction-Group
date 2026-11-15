@@ -146,7 +146,7 @@ export const bathroomRenovationBronxPost: BlogPost = {
       title: "Co-op and Condo Approval Requirements",
       paragraphs: [
         "Renovating in a Bronx cooperative or condominium building introduces strict administrative oversight. Co-op boards enforce detailed Alteration Agreements designed to protect the building's mechanical infrastructure and ensure neighbor comfort.",
-        "Standard requirements include: strict contractor insurance certificates with $1M to $5M umbrella coverage, a refundable security deposit ($2,500 to $10,000), adherence to 'wet-over-dry' zoning restrictions (preventing expansion of a bathroom over a neighbor's bedroom or living room), and rigid work hours (typically 9:00 AM to 4:00 PM, Monday through Friday, with no weekend construction)."
+        "Standard requirements include: strict contractor insurance certificates with commercial general liability and umbrella coverage, a refundable security deposit ($2,500 to $10,000), adherence to 'wet-over-dry' zoning restrictions (preventing expansion of a bathroom over a neighbor's bedroom or living room), and rigid work hours (typically 9:00 AM to 4:00 PM, Monday through Friday, with no weekend construction)."
       ]
     },
     {
@@ -205,7 +205,7 @@ export const bathroomRenovationBronxPost: BlogPost = {
     {
       question: "Do co-ops and condos require approval for bathroom renovations?",
       answer:
-        "Yes. Almost all NYC co-op and condo boards enforce strict Alteration Agreements requiring architectural plan submissions, proof of contractor licensing and insurance ($1M–$5M), refundable damage escrows, and adherence to 'wet-over-dry' rules before any work can begin."
+        "Yes. Almost all NYC co-op and condo boards enforce strict Alteration Agreements requiring architectural plan submissions, proof of contractor licensing and commercial general liability insurance, refundable damage escrows, and adherence to 'wet-over-dry' rules before any work can begin."
     },
     {
       question: "What is the best layout for a small bathroom?",

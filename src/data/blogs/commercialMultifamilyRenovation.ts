@@ -177,7 +177,7 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
       title: "Choosing a Commercial General Contractor in NYC",
       paragraphs: [
         "Selecting the right commercial builder requires verifying proven experience in commercial building management protocols. Standard residential remodelers lack the commercial bonding, union labor relationships, and safety credentials necessary for high-density commercial construction.",
-        "When vetting a commercial builder, verify active NYC DOB General Contractor registration, minimum $5M to $10M commercial liability coverage with 'Action Over' indemnification, and a proven track record delivering projects within Tenant Improvement (TI) allowance schedules. (For vetting guidelines, review our guide on <a href=\"/blog/hire-general-contractor-bronx\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">how to hire a general contractor in the Bronx</a>)."
+        "When vetting a commercial builder, verify active NYC DOB General Contractor registration, comprehensive commercial general liability coverage with 'Action Over' indemnification, and a proven track record delivering projects within Tenant Improvement (TI) allowance schedules. (For vetting guidelines, review our guide on <a href=\"/blog/hire-general-contractor-bronx\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">how to hire a general contractor in the Bronx</a>)."
       ]
     }
   ],
@@ -235,12 +235,12 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
     {
       question: "How do I vet a commercial general contractor?",
       answer:
-        "Verify active NYC DOB General Contractor registration, demand a Certificate of Insurance with at least $5M to $10M in liability coverage including 'Action Over' protection, check references from commercial building managers, and review past completed commercial projects in similar asset classes."
+        "Verify active NYC DOB General Contractor registration, demand a Certificate of Insurance with comprehensive commercial liability coverage including 'Action Over' protection, check references from commercial building managers, and review past completed commercial projects in similar asset classes."
     },
     {
       question: "What insurance should a commercial contractor carry in NYC?",
       answer:
-        "A commercial GC must carry Commercial General Liability ($5M to $10M umbrella), statutory Workers' Compensation, New York Disability, and dedicated contractual indemnification coverage that covers third-party scaffold and ladder claims under NY Labor Law 240."
+        "A commercial GC must carry Commercial General Liability with umbrella coverage, statutory Workers' Compensation, New York Disability, and dedicated contractual indemnification coverage that covers third-party scaffold and ladder claims under NY Labor Law 240."
     },
     {
       question: "What causes commercial renovation delays?",

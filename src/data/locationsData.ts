@@ -170,7 +170,7 @@ export const locationsData: Record<string, BoroughData> = {
       },
       {
         title: "Co-op & Condo Alteration Agreements",
-        description: "We navigate strict building management alteration agreements, insurance requirements ($5M+), sound mitigation schedules, and elevator protection."
+        description: "We navigate strict building management alteration agreements, commercial insurance requirements, sound mitigation schedules, and elevator protection."
       }
     ],
     primaryServices: [

@@ -413,7 +413,7 @@ export const resourcesData: Record<string, ResourceArticle> = {
       {
         heading: "Navigating Co-op & Condo Alteration Agreements",
         paragraphs: [
-          "Most NYC residential buildings require contractors to carry $5M liability insurance, provide detailed architectural drawings, submit lead/asbestos abatement testing, and adhere to strict designated working hours."
+          "Most NYC residential buildings require contractors to carry commercial liability insurance, provide detailed architectural drawings, submit lead/asbestos abatement testing, and adhere to strict designated working hours."
         ]
       }
     ],

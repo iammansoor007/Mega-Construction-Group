@@ -103,7 +103,7 @@ export default function LocationsIndexPage() {
                 Need Licensed Construction in Your Neighborhood?
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed font-normal">
-                Our estimators visit properties daily across all five boroughs. We provide comprehensive on-site inspections, photo diagnostics, and transparent itemized estimates within 24 hours.
+                Our estimators visit properties daily across all five boroughs. We provide comprehensive on-site inspections, photo diagnostics, and transparent itemized estimates promptly.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">

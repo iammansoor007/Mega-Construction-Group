@@ -135,7 +135,7 @@ export default function AboutPage() {
 
   const processSteps = [
     { num: "01", title: "Free Consultation", desc: "We visit your property, discuss your vision, and assess the scope of work — completely free.", icon: Phone },
-    { num: "02", title: "Detailed Estimate", desc: "Receive a transparent, itemized quote within 24 hours. No hidden costs, no surprises.", icon: ClipboardCheck },
+    { num: "02", title: "Detailed Estimate", desc: "Receive a transparent, itemized quote promptly. No hidden costs, no surprises.", icon: ClipboardCheck },
     { num: "03", title: "Expert Execution", desc: "Our skilled crews bring your project to life with precision, quality materials, and daily updates.", icon: HardHat },
     { num: "04", title: "Final Walkthrough", desc: "We inspect every detail together, ensuring complete satisfaction before project sign-off.", icon: CheckCircle2 },
   ];
@@ -759,7 +759,7 @@ export default function AboutPage() {
                   <span className="text-red-500">Something Great?</span>
                 </h2>
                 <p className="text-gray-400 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed font-normal">
-                  Get your free, no-obligation estimate today. Our team will visit your property, discuss your vision, and deliver a detailed quote within 24 hours.
+                  Get your free, no-obligation estimate today. Our team will visit your property, discuss your vision, and deliver a detailed quote promptly.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

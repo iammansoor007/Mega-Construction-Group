@@ -140,7 +140,7 @@ export const foundationRepairNycPost: BlogPost = {
       title: "Permits and PE-Stamped Plans",
       paragraphs: [
         "In New York City, any structural foundation alteration is strictly regulated by the Department of Buildings. Under NYC Administrative Code § 28-105.1, underpinning, footing enlargement, or load-bearing wall reinforcement requires an Alteration Type 2 filing with PE-stamped structural calculations.",
-        "Furthermore, if underpinning occurs adjacent to a shared party wall or neighboring building, the project must adhere to DOB Technical Policy and Procedure Notice (TPPN) #10/88. This mandates pre-construction structural surveys of neighboring properties, real-time optical monitoring, vibration seismographs, and mandatory $5M liability insurance."
+        "Furthermore, if underpinning occurs adjacent to a shared party wall or neighboring building, the project must adhere to DOB Technical Policy and Procedure Notice (TPPN) #10/88. This mandates pre-construction structural surveys of neighboring properties, real-time optical monitoring, vibration seismographs, and mandatory commercial general liability insurance."
       ]
     },
     {

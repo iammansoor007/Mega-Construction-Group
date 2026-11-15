@@ -339,7 +339,7 @@ export default function FAQPage() {
                 {
                   icon: FileText,
                   title: "Free Project Estimates",
-                  desc: "Get a detailed, transparent quote for your construction project within 24 hours — completely free, no obligation.",
+                  desc: "Get a detailed, transparent quote for your construction project promptly — completely free, no obligation.",
                   link: "/contact",
                   linkText: "Request Estimate",
                 },
@@ -632,9 +632,9 @@ export default function FAQPage() {
                       <div className="space-y-3">
                         {[
                           "Free on-site property assessment",
-                          "Detailed estimate within 24 hours",
+                          "Detailed estimate promptly",
                           "No obligation, no hidden fees",
-                          "workmanship warranty",
+                          "Licensed & insured service",
                         ].map((feat, i) => (
                           <div key={i} className="flex items-center gap-2.5">
                             <div className="w-5 h-5 rounded-none bg-white/20 flex items-center justify-center shrink-0">
@@ -666,7 +666,7 @@ export default function FAQPage() {
                         </a>
                       </div>
 
-                      <p className="text-red-200/40 text-[10px] font-bold text-center tracking-wide">Prompt response within 24 hours</p>
+                      <p className="text-red-200/40 text-[10px] font-bold text-center tracking-wide">Prompt response</p>
                     </div>
                   </div>
                 </div>

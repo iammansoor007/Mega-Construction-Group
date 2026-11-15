@@ -41,7 +41,7 @@ export const caulkingContractorsNycPost: BlogPost = {
     },
     {
       label: "Silicone vs Polyurethane",
-      text: "Neutral-cure silicone sealants provide two decades of UV resistance and ±50% joint movement, while polyurethane offers superior paintability and abrasion toughness."
+      text: "Neutral-cure silicone sealants provide up to twenty years of UV resistance and ±50% joint movement, while polyurethane offers superior paintability and abrasion toughness."
     },
     {
       label: "Mechanical Prep Priority",
@@ -183,7 +183,7 @@ export const caulkingContractorsNycPost: BlogPost = {
     {
       question: "How often should windows be recaulked?",
       answer:
-        "Exterior windows in NYC should be inspected every 5 to 7 years and typically recaulked every 10 to 20 years depending on the sealant chemistry used. High-grade neutral-cure silicones last two decades, while standard polyurethanes provide 10 to 12 years of weather resistance."
+        "Exterior windows in NYC should be inspected every 5 to 7 years and typically recaulked every 10 to 20 years depending on the sealant chemistry used. High-grade neutral-cure silicones last up to twenty years, while standard polyurethanes provide 10 to 12 years of weather resistance."
     },
     {
       question: "How much does window caulking cost in NYC?",
