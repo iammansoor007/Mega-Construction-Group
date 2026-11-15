@@ -25,3 +25,5 @@ build
 *.njsproj
 *.sln
 *.sw?
+scratch/
+scratch_prompt.txt
