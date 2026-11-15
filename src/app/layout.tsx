@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "../index.css";
 import { Providers } from "./providers";
 import ScrollToTop from "@/components/ScrollToTop";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import { AnalyticsListener } from "@/lib/analytics";
 import { localBusinessSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -39,6 +41,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang="en" className="scroll-smooth">
       <head>
@@ -48,6 +52,23 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans bg-white antialiased">
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
+        <AnalyticsListener />
         <Providers>
           <ScrollToTop />
           {children}

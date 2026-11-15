@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, Mail, User, Phone, Home, MessageSquare, Zap, Award, ChevronRight } from 'lucide-react';
 import { useFormState } from '../context/FormContext';
 import { business } from '@/config/business';
+import { trackGenerateLead } from '@/lib/analytics';
 
 const QuickQuote = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -98,6 +99,7 @@ ${formData.message}
     };
 
     const showSuccess = () => {
+        trackGenerateLead(projectTypes.find(t => t.value === formData.projectType)?.label || 'General', 'NYC', 'Standard');
         setIsSuccess(true);
         clearFormData();
         setStep(1);
