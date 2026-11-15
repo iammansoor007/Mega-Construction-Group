@@ -119,8 +119,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
         <div className="absolute inset-0 select-none grayscale opacity-40 z-0">
           <Image
             src={subCategory.image || "/placeholder.svg"}
-            alt={`${seo.h1} - Mega Contracting NY Group`}
-            title={`${seo.primaryKeyword} - ${seo.h1}`}
+            alt={`${seo.h1} - construction work on NYC site`}
             fill
             priority
             sizes="100vw"
@@ -244,11 +243,9 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               <div className="relative w-full h-full min-h-[320px] lg:min-h-full overflow-hidden rounded-[24px] md:rounded-[32px] shadow-2xl border border-gray-100 group">
                 <Image
                   src={subCategory.image || "/placeholder.svg"}
-                  alt={`${subCategory.title} NYC - Expert Craftsmanship by Mega Contracting NY Group`}
-                  title={`${subCategory.title} NYC - ${seo.primaryKeyword}`}
+                  alt={`${subCategory.title} field installation and construction execution`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
                   className="object-cover transition-transform duration-[5s] group-hover:scale-105"
                 />
               </div>
@@ -281,8 +278,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             >
               <Image
                 src={galleryImages[0] || subCategory.image || "/placeholder.svg"}
-                alt={`${subCategory.title} NYC Project Reference - Mega Contracting NY Group`}
-                title={`${subCategory.title} - ${seo.primaryKeyword} in NYC`}
+                alt={`${subCategory.title} completed project example`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover transition-transform duration-[10s] group-hover:scale-105"
@@ -305,8 +301,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                 >
                   <Image
                     src={img || "/placeholder.svg"}
-                    alt={`${subCategory.title} NYC Project Detail View ${i + 1} - Mega Contracting NY Group`}
-                    title={`${subCategory.title} Detail ${i + 1} - ${seo.primaryKeyword}`}
+                    alt={`${subCategory.title} project architectural and structural detail view ${i + 1}`}
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -546,8 +541,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                   <div className="aspect-[16/10] relative overflow-hidden">
                     <Image
                       src={rec.image || "/placeholder.svg"}
-                      alt={`${rec.title} NYC - Mega Contracting NY Group`}
-                      title={`${rec.title} NYC - Professional General Contracting`}
+                      alt={`${rec.title} service project`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

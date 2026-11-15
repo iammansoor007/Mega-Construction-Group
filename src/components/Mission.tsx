@@ -24,15 +24,14 @@ const Mission = () => {
           <div className="mission-image overflow-hidden aspect-[3/4] relative">
             <Image
               src={teamImage}
-              alt="Mega Contracting NY Group Team of Licensed NYC Construction Craftsmen"
-              title="NYC Roofing & Construction Craftsmen - Mega Contracting NY Group"
+              alt="Licensed NYC construction craftsmen on building exterior work"
               className="w-full h-full object-cover"
-              priority
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 bg-primary/90 backdrop-blur-sm p-5 border border-foreground/10">
               <div className="grid grid-cols-3 gap-4">
-                {[{ num: "1,200+", label: "Projects" }, { num: "17", label: "Years" }, { num: "100%", label: "Insured" }].map((stat) => (
+                {[{ num: "DOB GC", label: "Licensed" }, { num: "5", label: "Boroughs" }, { num: "Insured", label: "Coverage" }].map((stat) => (
                   <div key={stat.label} className="text-center">
                     <span className="block font-heading text-foreground text-lg font-medium">{stat.num}</span>
                     <span className="font-body text-muted-foreground text-[10px] uppercase tracking-wider">{stat.label}</span>

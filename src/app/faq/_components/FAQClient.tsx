@@ -490,7 +490,7 @@ export default function FAQPage() {
                       >
                         {/* BG image */}
                         <div className="absolute inset-0">
-                          <img src={svc.image} alt={`${svc.name} NYC - Mega Contracting NY Group`} title={`${svc.name} NYC Services`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
+                          <img src={svc.image} alt={`${svc.name} field project in New York`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 group-hover:from-black/95 transition-all duration-500" />
                         </div>
                         {/* Content */}
@@ -528,7 +528,7 @@ export default function FAQPage() {
                         className="group relative rounded-2xl overflow-hidden h-[220px] cursor-pointer shadow-sm hover:shadow-xl border border-gray-200 transition-all duration-500"
                       >
                         <div className="absolute inset-0">
-                          <img src={svc.image} alt={`${svc.name} NYC - Mega Contracting NY Group`} title={`${svc.name} NYC Services`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
+                          <img src={svc.image} alt={`${svc.name} field project in New York`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 group-hover:from-black/95 transition-all duration-500" />
                         </div>
                         <div className="relative z-10 h-full flex flex-col justify-end p-5">

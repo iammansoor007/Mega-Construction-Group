@@ -198,8 +198,7 @@ export default async function BronxSeoPage({ params }: Props) {
           <div className="absolute inset-0 select-none grayscale opacity-35 z-0">
             <Image
               src={page.image}
-              alt={`${page.keyword} service in New York by Mega Contracting NY Group`}
-              title={`${page.keyword} NYC - Professional General Contracting`}
+              alt={`${page.keyword} project site in New York`}
               fill
               priority
               sizes="100vw"
@@ -340,8 +339,7 @@ export default async function BronxSeoPage({ params }: Props) {
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
                   <Image
                     src={page.image}
-                    alt={`${page.h1} Project Photo - Mega Contracting NY Group NYC`}
-                    title={`${page.keyword} NYC Project Showcase`}
+                    alt={`${page.h1} work demonstration in New York`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover"

@@ -129,8 +129,7 @@ export default function BlogIndexPage() {
                   <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] overflow-hidden bg-black">
                     <Image
                       src={featuredPost.featuredImage}
-                      alt={featuredPost.imageAlt || `${featuredPost.title} - NYC Construction Guide`}
-                      title={`${featuredPost.title} - ${featuredPost.primaryKeyword}`}
+                      alt={featuredPost.imageAlt || `${featuredPost.title} - featured technical guide`}
                       fill
                       priority
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -243,8 +242,7 @@ export default function BlogIndexPage() {
                     <div className="relative h-52 w-full overflow-hidden bg-black">
                       <Image
                         src={post.featuredImage}
-                        alt={post.imageAlt || `${post.title} - NYC Construction Guide`}
-                        title={`${post.title} - ${post.primaryKeyword}`}
+                        alt={post.imageAlt || `${post.title} - guide illustration`}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, 33vw"

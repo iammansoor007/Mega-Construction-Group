@@ -14,6 +14,7 @@ import Link from "next/link";
 import serviceDetail from "../assets/megaprintedimage2.png";
 import vectoroverlay from "../assets/Frame - Copy.png";
 import { getServiceImage } from "@/data/serviceImages";
+import { business } from "@/config/business";
 
 import {
   Wrench,
@@ -176,11 +177,10 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
           <div className="relative h-60 overflow-hidden bg-gray-100">
             <Image
               src={getServiceImage(service.id)}
-              alt={`${service.title} - NYC Construction Services by Mega Contracting NY Group`}
-              title={`${service.title} NYC - Mega Contracting NY Group`}
+              alt={`${service.title} construction and restoration work in New York City`}
               fill
               className="object-cover transition-transform duration-700 group-hover/card:scale-110"
-              sizes="(max-w-768px) 100vw, 33vw"
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
             
@@ -363,13 +363,11 @@ const Services = () => {
                   >
                     <Image
                       src={serviceDetail}
-                      alt="Mega Contracting NY Group - NYC General Construction & Exterior Restoration"
-                      title="Mega Contracting NY Group - Full-Service NYC Contractor"
+                      alt="Exterior building restoration and general contracting project site in New York"
                       fill
                       className="object-cover"
                       style={{ scale: imageScale as any }}
-                      priority
-                      sizes="(max-w-1024px) 100vw, 50vw"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
 
                   <motion.div
@@ -381,13 +379,13 @@ const Services = () => {
                   >
                     <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-5 py-3 md:px-6 md:py-4 rounded-tr-2xl shadow-xl">
                       <div className="flex items-end gap-2">
-                        <div className="text-3xl md:text-4xl font-bold leading-none">20+</div>
+                        <div className="text-xl md:text-2xl font-bold leading-none">{business.companyEstablished || "NYC GC"}</div>
                         <div className="text-left">
                           <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
-                            Years of
+                            Licensed &amp; Insured
                           </div>
                           <div className="text-base md:text-lg font-bold leading-tight">
-                            Excellence
+                            Contractor
                           </div>
                         </div>
                       </div>
@@ -405,11 +403,10 @@ const Services = () => {
                 >
                   <img
                     src={vectoroverlay.src}
-                    alt="Mega Contracting NY Group Certified Construction Seal"
-                    title="Certified NYC Construction Craftsmen"
+                    alt="NYC General Contractor official badge seal"
                     className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
                     style={{ filter: "drop-shadow(0 15px 20px rgba(0,0,0,0.2))" }}
-                    loading="eager"
+                    loading="lazy"
                   />
                 </motion.div>
               </div>

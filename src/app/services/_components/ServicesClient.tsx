@@ -103,11 +103,10 @@ export default function ServicesClient() {
                     <div className="relative h-60 overflow-hidden bg-gray-100">
                       <Image
                         src={service.image || "/placeholder.svg"}
-                        alt={`${service.title} Services NYC - Mega Contracting NY Group`}
-                        title={`${service.title} NYC - Professional General Contractors`}
+                        alt={`${service.title} specialized construction and exterior restoration`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover/card:scale-110"
-                        sizes="(max-w-768px) 100vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
                       

@@ -227,8 +227,7 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
           <div className="relative h-[280px] sm:h-[420px] md:h-[500px] w-full rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)] bg-black">
             <Image
               src={post.featuredImage}
-              alt={post.imageAlt || `${post.title} - NYC Technical Guide`}
-              title={`${post.title} - ${post.primaryKeyword}`}
+              alt={post.imageAlt || `${post.title} - technical guide illustration`}
               fill
               priority
               className="object-cover"
@@ -374,7 +373,6 @@ export default function BlogDetailClient({ post }: BlogDetailClientProps) {
                         <Image
                           src={sec.image.src}
                           alt={sec.image.alt || `${post.title} - ${sec.title}`}
-                          title={`${sec.title} - ${post.primaryKeyword}`}
                           fill
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 800px"

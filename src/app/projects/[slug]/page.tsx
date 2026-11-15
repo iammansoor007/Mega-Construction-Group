@@ -97,8 +97,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
           <div className="absolute inset-0 select-none grayscale opacity-25 z-0">
             <Image
               src={project.image}
-              alt={`${project.title} - ${project.projectType} in ${project.location} by Mega Contracting NY Group`}
-              title={`${project.title} - ${project.projectType} NYC`}
+              alt={`${project.title} - ${project.projectType} project site in ${project.location}`}
               fill
               priority
               sizes="100vw"
@@ -237,8 +236,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
                   <Image
                     src={project.image}
-                    alt={`${project.title} - Project Photography, ${project.location}`}
-                    title={`${project.title} Construction Details - Mega Contracting NY Group`}
+                    alt={`${project.title} - completed construction detail in ${project.location}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
                     className="object-cover"

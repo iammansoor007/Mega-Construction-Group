@@ -125,8 +125,7 @@ export default async function BoroughLocationPage({ params }: Props) {
           <div className="absolute inset-0 select-none grayscale opacity-25 z-0">
             <Image
               src={data.image}
-              alt={`${data.boroughName} Construction & General Contracting Services - Mega Contracting NY Group`}
-              title={`${data.boroughName} NYC Construction, Roofing & Masonry Services`}
+              alt={`${data.boroughName} streetscape and architectural buildings in New York`}
               fill
               priority
               sizes="100vw"

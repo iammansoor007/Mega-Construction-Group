@@ -88,10 +88,9 @@ const CeoPortrait = () => {
           <div className="relative rounded-lg overflow-hidden border-2 border-gray-200">
             <Image
               src={ceo}
-              alt={ceoData.alt || "Founder & Leadership - Mega Contracting NY Group"}
-              title="Mega Contracting NY Group Leadership & NYC General Contractors"
+              alt={ceoData.alt || "Founder and general contractor leadership on construction site"}
               className="w-full h-[500px] md:h-[600px] object-cover"
-              priority
+              loading="lazy"
             />
 
             {/* Gradient overlay */}
@@ -161,8 +160,7 @@ const CeoPortrait = () => {
           >
             <Image
               src={vectoroverlay}
-              alt="Mega Contracting NY Group Professional Seal NYC"
-              title="Mega Contracting NY Group NYC Construction"
+              alt="General contractor badge emblem graphic"
               className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain pointer-events-auto"
               style={{
                 filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.35))',

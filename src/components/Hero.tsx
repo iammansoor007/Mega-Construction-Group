@@ -70,8 +70,7 @@ const Hero = () => {
       <div className="absolute inset-0 -z-10">
         <Image
           src={heroBg}
-          alt="Mega Contracting NY Group - General Contractor & Construction Services in NYC"
-          title="Mega Contracting NY Group - NYC Roofing, Masonry & Contracting"
+          alt="New York City skyline with architectural development and urban construction"
           className="w-full h-full object-cover smooth-gpu"
           priority
           fill

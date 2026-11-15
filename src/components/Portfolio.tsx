@@ -80,8 +80,7 @@ const MarqueeItem = ({ project }) => {
       <div className="relative w-full h-full rounded-lg overflow-hidden shadow-xl border-2 border-gray-200">
         <Image
           src={imageMap[project.image as keyof typeof imageMap]}
-          alt={`${project.title} - ${project.category} NYC Construction Project`}
-          title={`${project.title} - ${project.category} by Mega Contracting NY Group`}
+          alt={`${project.title} - ${project.category} construction site view`}
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
           fill
           sizes="(max-width: 640px) 200px, (max-width: 768px) 240px, 280px"
@@ -254,8 +253,7 @@ const PremiumLightbox = ({ image, onClose }) => {
       >
         <Image
           src={image}
-          alt="NYC Construction Project Portfolio Showcase - Mega Contracting NY Group"
-          title="NYC Construction Portfolio - Mega Contracting NY Group"
+          alt="Completed construction project full view showcase"
           className="object-contain rounded-lg shadow-2xl"
           fill
         />

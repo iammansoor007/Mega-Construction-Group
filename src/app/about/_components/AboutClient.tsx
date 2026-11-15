@@ -260,8 +260,7 @@ export default function AboutPage() {
                   <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden shadow-2xl border-2 border-white/20">
                     <Image
                       src="/assets/megaabout.png"
-                      alt="Mega Contracting NY Group - Premier NYC General Contractor Headquarters"
-                      title="Mega Contracting NY Group NYC Construction Headquarters"
+                      alt="Exterior of general contracting facility and project operations"
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       priority
@@ -278,8 +277,7 @@ export default function AboutPage() {
                   >
                     <Image
                       src="/assets/megaownerprinted.png"
-                      alt="Adil Shamis - Founder and Principal of Mega Contracting NY Group"
-                      title="Adil Shamis - Mega Contracting NY Group NYC Contractor"
+                      alt="Adil Shamis, Founder of Mega Contracting NY Group"
                       fill
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
@@ -347,11 +345,10 @@ export default function AboutPage() {
                 <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-xl aspect-[4/5]">
                   <Image
                     src="/assets/megaownerprinted.png"
-                    alt="Mega Contracting NY Group Leadership - NYC General Contracting Team"
-                    title="Mega Contracting NY Group Leadership - NYC Construction"
+                    alt="Adil Shamis reviewing architectural blueprints and construction project documentation"
                     fill
                     className="object-cover"
-                    priority
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   {business.companyEstablished && (
@@ -663,8 +660,7 @@ export default function AboutPage() {
                 <div className="relative border border-gray-200 rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                   <Image
                     src="/assets/megaabout.png"
-                    alt="Mega Contracting NY Group serves all five boroughs of New York City and surrounding areas"
-                    title="Five Boroughs NYC Construction Service Coverage - Mega Contracting NY Group"
+                    alt="Five boroughs service coverage in New York City"
                     fill
                     className="object-cover grayscale"
                   />

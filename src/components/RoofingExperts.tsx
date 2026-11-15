@@ -154,10 +154,8 @@ export default function ConstructionAboutSection() {
                             <div className="relative w-full h-full rounded-none overflow-hidden">
                                 <Image
                                     src={ConstructionAbout}
-                                    alt={image.alt || "Mega Contracting NY Group - NYC Roofing and Construction Experts"}
-                                    title="NYC Roofing & General Construction Specialists - Mega Contracting NY Group"
+                                    alt={image.alt || "Roofing installation crew working on commercial flat roof with heat welding equipment"}
                                     className="w-full h-full object-cover smooth-gpu"
-                                    priority
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
 
@@ -204,8 +202,7 @@ export default function ConstructionAboutSection() {
                             >
                                 <Image
                                     src={vectoroverlay}
-                                    alt="Mega Contracting NY Group Certified Roofing Specialists NYC"
-                                    title="Certified NYC Roofing Specialists - Mega Contracting NY Group"
+                                    alt="Licensed general contractor badge graphic"
                                     className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl pointer-events-auto smooth-gpu"
                                     style={{
                                         filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.25))'

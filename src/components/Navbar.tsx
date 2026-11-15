@@ -239,7 +239,6 @@ const Navbar = () => {
                     <Image
                       src={logo}
                       alt="Mega Contracting NY Group - NYC General Contractor & Roofing Logo"
-                      title="Mega Contracting NY Group - Official NYC Contractor Logo"
                       className="companylogo h-full w-full object-contain p-0.5 drop-shadow-2xl smooth-gpu"
                       priority
                       width={180}
@@ -500,8 +499,7 @@ const Navbar = () => {
                           <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group/img shadow-2xl transition-all duration-500 group-hover/img-link:shadow-red-500/20 group-hover/img-link:scale-[1.01]">
                             <Image
                               src={getServiceImage(fullService.id)}
-                              alt={`${fullService.title} NYC - Mega Contracting NY Group`}
-                              title={`${fullService.title} NYC - Professional Services`}
+                              alt={`${fullService.title} construction preview`}
                               fill
                               className="object-cover transition-transform duration-700 group-hover/img:scale-110"
                             />
@@ -571,7 +569,6 @@ const Navbar = () => {
                         <Image
                           src={logo2nd}
                           alt="Mega Contracting NY Group - Licensed NYC Contractor Logo"
-                          title="Mega Contracting NY Group Logo"
                           className="h-full w-full object-contain"
                           width={104}
                           height={64}
@@ -686,8 +683,7 @@ const Navbar = () => {
           <Image
             key={`preload-${s.id}`}
             src={getServiceImage(s.id)}
-            alt={`Mega Contracting NY Group - ${s.title} NYC`}
-            title={`Mega Contracting NY Group - ${s.title}`}
+            alt=""
             width={10}
             height={10}
             loading="eager"

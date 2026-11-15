@@ -548,8 +548,7 @@ const KnowledgeCard = () => {
               >
                 <Image
                   src={faqvector}
-                  alt="Mega Contracting NY Group Construction & FAQ Support NYC"
-                  title="Mega Contracting NY Group Support - NYC Construction Services"
+                  alt="Customer support and project FAQ illustration graphic"
                   className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </motion.div>
@@ -662,8 +661,7 @@ const KnowledgeCard = () => {
               >
                 <Image
                   src={faqvector}
-                  alt="Mega Contracting NY Group Construction & FAQ Support NYC"
-                  title="Mega Contracting NY Group FAQ & Customer Support"
+                  alt="Customer assistance consultation graphic"
                   className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
                 />
 
