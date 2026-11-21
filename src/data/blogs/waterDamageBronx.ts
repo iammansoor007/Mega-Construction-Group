@@ -94,7 +94,7 @@ export const waterDamageBronxPost: BlogPost = {
       paragraphs: [
         "When an emergency flood or pipe burst strikes, taking immediate safety precautions during the first few hours is critical. Water conducts electricity, saturates structural framing, and can transform an occupied building into an immediate collapse or fire hazard.",
         "Your first action must be shutting off the main water shut-off valve to arrest the flow of pressurized water. If water has risen above electrical outlets or submerged basement panels, do not enter the water; contact Con Edison or a licensed electrician immediately to cut power at the street service entry.",
-        "For properties requiring immediate structural stabilization or overhead weather protection, coordinating <a href=\"/services/emergency-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">emergency building repair in the Bronx</a> ensures that utility lines are safely isolated and buildings are secured."
+        "For properties requiring immediate structural stabilization or overhead weather protection, coordinating <a href=\"/services/emergency-service\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">emergency building repair in the Bronx</a> ensures that utility lines are safely isolated and buildings are secured."
       ],
       callout: {
         type: "warning",
@@ -146,7 +146,7 @@ export const waterDamageBronxPost: BlogPost = {
       title: "Structural Repairs After Water Damage",
       paragraphs: [
         "Once structural drying is certified, the second phase of restoration begins: physical reconstruction. Sustained water exposure causes wood joists to rot, drywall to disintegrate, and subfloors to delaminate.",
-        "Restoring structural integrity involves sistering compromised timber joists, replacing insulation with moisture-resistant rockwool, hanging mold-resistant drywall, and applying comprehensive <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a> across basement floor slabs and foundation perimeters. Just as with <a href=\"/services/emergency-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire damage restoration in NYC</a>, reconstruction must satisfy DOB fire separation codes and structural safety standards."
+        "Restoring structural integrity involves sistering compromised timber joists, replacing insulation with moisture-resistant rockwool, hanging mold-resistant drywall, and applying comprehensive <a href=\"/services/masonry-work/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a> across basement floor slabs and foundation perimeters. Just as with <a href=\"/services/emergency-service\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire damage restoration in NYC</a>, reconstruction must satisfy DOB fire separation codes and structural safety standards."
       ]
     },
     {

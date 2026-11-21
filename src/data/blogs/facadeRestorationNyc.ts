@@ -95,7 +95,7 @@ export const facadeRestorationNycPost: BlogPost = {
       paragraphs: [
         "In New York City’s harsh climate, freeze-thaw cycles, wind-driven acid rain, and vibrational stress from subways and traffic relentlessly erode exterior building envelopes. Property owners must identify early signs of deterioration before falling debris creates severe public hazards or structural damage.",
         "Key warning signs include: spalling brick (where the fired exterior face flakes or pops off), crumbling mortar joints that powder under thumb pressure, diagonal step-cracking along mortar lines, outward bulging or bowing of brick wythes, and rust bleeding around window headers. If unaddressed, moisture penetrates behind the facade, rotting structural wood joists and corroding embedded steel frames.",
-        "For buildings in the Bronx and Brooklyn, engaging a qualified <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">facade contractor in NYC</a> at the first sign of efflorescence (white mineral salt deposits) prevents costly emergency interventions."
+        "For buildings in the Bronx and Brooklyn, engaging a qualified <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">facade contractor in NYC</a> at the first sign of efflorescence (white mineral salt deposits) prevents costly emergency interventions."
       ],
       callout: {
         type: "warning",
@@ -136,7 +136,7 @@ export const facadeRestorationNycPost: BlogPost = {
       title: "Pointing, Lintels, Parapets and Caulking",
       paragraphs: [
         "Complete building facade repair addresses every exterior element that protects against water intrusion. The most critical envelope components include:",
-        "1. Precision Repointing: Performing <a href=\"/services/masonry-work/brick-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> ensures mortar joints remain sealed against water freezing.",
+        "1. Precision Repointing: Performing <a href=\"/services/masonry-work/brick-grinding-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> ensures mortar joints remain sealed against water freezing.",
         "2. Structural Lintel Replacement: Replacing rusted steel shelf angles with hot-dipped galvanized or stainless steel equipped with end dams and waterproof flashing membranes stops window leaks.",
         "3. Parapet Wall Rebuilding: Rebuilding damaged parapets with specialized <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet repair in the Bronx</a> secures roof perimeters against wind uplift.",
         "4. Polyurethane Perimeter Caulking: Replacing dried silicone and polyurethane sealants around window frames and expansion joints prevents air and moisture drafts."
@@ -178,7 +178,7 @@ export const facadeRestorationNycPost: BlogPost = {
       title: "Choosing a Masonry Contractor in NYC",
       paragraphs: [
         "Restoring historic masonry is an art form backed by structural engineering. Engaging an unqualified contractor risks irreversible damage to irreplaceable brick and stone.",
-        "When vetting an exterior contractor, confirm active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding insurance, and demonstrable experience in <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Local Law 11 compliance in Brooklyn</a> and the Bronx. At Mega Contracting NY Group, our master masons have restored dozens of pre-war facades, combining historic preservation standards with modern weatherproofing technology."
+        "When vetting an exterior contractor, confirm active NYC DOB General Contractor registration, dedicated 'Action Over' scaffolding insurance, and demonstrable experience in <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Local Law 11 compliance in Brooklyn</a> and the Bronx. At Mega Contracting NY Group, our master masons have restored dozens of pre-war facades, combining historic preservation standards with modern weatherproofing technology."
       ]
     }
   ],

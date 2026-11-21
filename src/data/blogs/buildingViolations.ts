@@ -93,10 +93,10 @@ export const buildingViolationsPost: BlogPost = {
       id: "dob-vs-ecb-vs-dot",
       title: "DOB vs ECB vs DOT Violations",
       paragraphs: [
-        "When dealing with <a href=\"/services/violation-removal\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">nyc building violations</a>, property owners often confuse the governing agencies. Each agency enforces distinct codes, imposes different penalty structures, and requires specific legal procedures for dismissal.",
+        "When dealing with <a href=\"/services/concrete-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">nyc building violations</a>, property owners often confuse the governing agencies. Each agency enforces distinct codes, imposes different penalty structures, and requires specific legal procedures for dismissal.",
         "A standard Department of Buildings (DOB) violation is an administrative notice indicating that a property condition does not comply with the NYC Construction Code. DOB violations remain open on the building's permanent record until certified as corrected.",
         "An Environmental Control Board (ECB) violation—now adjudicated through the NYC Office of Administrative Trials and Hearings (OATH)—is a judicial summons that carries substantial monetary fines. Crucially, paying the ECB fine does not remove the violation; you must separately submit proof of physical repair to the DOB's Administrative Enforcement Unit (AEU).",
-        "A Department of Transportation (DOT) violation pertains exclusively to public walkways, curbs, and pedestrian ramps. If you receive a notice for defective concrete or trip hazards, you need specialized <a href=\"/services/concrete-services/sidewalk-repair\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">sidewalk repair in the Bronx</a> and <a href=\"/services/violation-removal\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">dot violation removal nyc</a> to clear the cloud on your property deed."
+        "A Department of Transportation (DOT) violation pertains exclusively to public walkways, curbs, and pedestrian ramps. If you receive a notice for defective concrete or trip hazards, you need specialized <a href=\"/services/concrete-services/sidewalk-repair\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">sidewalk repair in the Bronx</a> and <a href=\"/services/concrete-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">dot violation removal nyc</a> to clear the cloud on your property deed."
       ]
     },
     {
@@ -105,7 +105,7 @@ export const buildingViolationsPost: BlogPost = {
       paragraphs: [
         "Every property owner in New York should regularly audit their building records for open violations nyc. Many owners discover active violations only when attempting to refinance a mortgage or finalize a property sale.",
         "To check your building's compliance status, navigate to the NYC DOB Building Information System (BIS) and the newer DOB NOW public portal. Search by your Borough, Block, and Lot (BBL) or street address. Review the 'Violations-DOB' and 'Violations-OATH/ECB' tabs. Each entry details the issuing inspector, specific code infractions, hearing dates, and current resolution status.",
-        "If you own property in Brooklyn, reviewing <a href=\"/services/violation-removal\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">DOB violation removal in Brooklyn</a> databases can reveal legacy tenant complaints, illegal basement conversion citations, or outdated scaffold permits that require formal sign-off."
+        "If you own property in Brooklyn, reviewing <a href=\"/services/concrete-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">DOB violation removal in Brooklyn</a> databases can reveal legacy tenant complaints, illegal basement conversion citations, or outdated scaffold permits that require formal sign-off."
       ],
       callout: {
         type: "tip",

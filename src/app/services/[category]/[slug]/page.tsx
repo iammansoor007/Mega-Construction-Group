@@ -12,14 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const { category, slug } = resolvedParams;
   const service = resolveCategory(category);
-  const subCategory = service ? resolveSubcategory(service, slug) : undefined;
+  const subCategory = resolveSubcategory(service, slug);
   const seo = getServiceDetailSeo(category, slug);
-
-  if (!service || !subCategory) {
-    return {
-      title: { absolute: "Service Details | Mega Contracting NY Group" },
-    };
-  }
 
   return {
     title: {
@@ -60,12 +54,8 @@ export default async function Page({ params }: Props) {
   const resolvedParams = await params;
   const { category, slug } = resolvedParams;
   const service = resolveCategory(category);
-  const subCategory = service ? resolveSubcategory(service, slug) : undefined;
+  const subCategory = resolveSubcategory(service, slug);
   const seo = getServiceDetailSeo(category, slug);
-
-  if (!service || !subCategory) {
-    return <DetailClient categoryId={category} slug={slug} />;
-  }
 
   const schemas: any[] = [
     {

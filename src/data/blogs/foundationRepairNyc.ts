@@ -166,7 +166,7 @@ export const foundationRepairNycPost: BlogPost = {
       title: "Waterproofing After Repair",
       paragraphs: [
         "A structural foundation repair is incomplete without comprehensive water management. Water is the underlying catalyst for over 80% of foundation failures. Hydrostatic pressure pushes against basement walls, washing away subsoil and dissolving lime mortar.",
-        "Following structural stabilization, contractors must apply heavy-duty sub-grade <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a>. This includes installing interior French drains, perforated sub-slab drainage pipes, vapor barriers, high-capacity dual sump pumps with battery backups, and exterior dimple drainage boards to direct water safely away from foundation footings."
+        "Following structural stabilization, contractors must apply heavy-duty sub-grade <a href=\"/services/masonry-work/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a>. This includes installing interior French drains, perforated sub-slab drainage pipes, vapor barriers, high-capacity dual sump pumps with battery backups, and exterior dimple drainage boards to direct water safely away from foundation footings."
       ],
       image: {
         src: "/assets/waterproofingmega.jpg",

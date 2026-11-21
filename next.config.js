@@ -82,6 +82,18 @@ const nextConfig = {
       { source: '/emergency-contractor-bronx', destination: '/services/emergency-service/emergency-24-7', permanent: true },
       { source: '/emergency-board-up-bronx', destination: '/services/emergency-service/board-up-service', permanent: true },
       { source: '/local-law-11-brooklyn', destination: '/services/emergency-service/safety-assessment', permanent: true },
+      // 11 Thin Alias URLs -> Canonical Service Pages
+      { source: '/services/commercial-renovation', destination: '/services/masonry-work/reconstruction-rebuilds', permanent: true },
+      { source: '/services/concrete-services/driveway-repair', destination: '/services/concrete-services/driveway-replacement', permanent: true },
+      { source: '/services/concrete-services/patios-installation', destination: '/services/masonry-work/patios', permanent: true },
+      { source: '/services/emergency-services', destination: '/services/emergency-service', permanent: true },
+      { source: '/services/facade-restoration', destination: '/services/masonry-work/facade-restoration', permanent: true },
+      { source: '/services/masonry-work/brick-pointing', destination: '/services/masonry-work/brick-grinding-pointing', permanent: true },
+      { source: '/services/masonry-work/brick-repair', destination: '/services/masonry-work/brick-replacement', permanent: true },
+      { source: '/services/masonry-work/chimney-repair', destination: '/services/masonry-work/chimney-caps-rebuilds', permanent: true },
+      { source: '/services/masonry-work/retaining-wall', destination: '/services/masonry-work/retaining-walls', permanent: true },
+      { source: '/services/violation-removal', destination: '/services/concrete-services', permanent: true },
+      { source: '/services/waterproofing', destination: '/services/masonry-work/waterproofing', permanent: true },
     ];
   },
 };

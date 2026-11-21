@@ -131,8 +131,8 @@ export const parapetWallRepairNycPost: BlogPost = {
       id: "repair-methods",
       title: "Repair Methods: Repointing, Rebuilding, Coping, and Bracing",
       paragraphs: [
-        "Professional <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet wall contractors in NYC</a> deploy specialized remediation protocols based on structural severity:",
-        "1. Precision Joint Repointing: Cutting out decaying mortar to a depth of 3/4 inch and tuckpointing with breathable Type N lime mortar using specialized <a href=\"/services/masonry-work/brick-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a>.",
+        "Professional <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet wall contractors in NYC</a> deploy specialized remediation protocols based on structural severity:",
+        "1. Precision Joint Repointing: Cutting out decaying mortar to a depth of 3/4 inch and tuckpointing with breathable Type N lime mortar using specialized <a href=\"/services/masonry-work/brick-grinding-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a>.",
         "2. Coping Stone Resealing & Flashing: Removing loose coping caps, installing a continuous elastomeric peel-and-stick waterproofing membrane across the top brick course, resetting coping stones with stainless steel anchor pins, and sealing joints with polyurethane sealant.",
         "3. Complete Teardown & Reconstruction: Dismantling unstable brick courses down to sound roof-deck level, installing stainless steel reinforcement ties, and rebuilding double-wythe masonry walls tied into structural framing.",
         "4. Diagonal Steel Tieback Bracing: Installing structural galvanized steel angle braces connecting the top of the parapet to the roof framing to arrest outward bowing."

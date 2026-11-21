@@ -118,7 +118,7 @@ export const localLaw11Post: BlogPost = {
       title: "What a Qualified Exterior Wall Inspector (QEWI) Checks",
       paragraphs: [
         "Only a New York State licensed Professional Engineer (PE) or Registered Architect (RA) certified by the DOB as a qualified exterior wall inspector can direct an official facade inspection. A QEWI cannot certify a building from the sidewalk with binoculars; physical hands-on evaluations are legally mandated.",
-        "The QEWI executes close-up examinations using motorized suspended scaffolds, industrial rope drops, or pipe scaffolding. The inspection encompasses comprehensive hammer sounding of masonry units, measuring parapet plumbness, inspecting mortar joints for required <a href=\"/services/masonry-work/brick-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a>, evaluating structural steel lintels for rust jacking, and opening physical cavity wall probes to inspect masonry tie spacing.",
+        "The QEWI executes close-up examinations using motorized suspended scaffolds, industrial rope drops, or pipe scaffolding. The inspection encompasses comprehensive hammer sounding of masonry units, measuring parapet plumbness, inspecting mortar joints for required <a href=\"/services/masonry-work/brick-grinding-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a>, evaluating structural steel lintels for rust jacking, and opening physical cavity wall probes to inspect masonry tie spacing.",
         "All building appurtenances—including fire escapes, balcony railings, air conditioner brackets, roof cornices, and coping stones requiring <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet wall repair in the Bronx</a>—must be individually documented and rated."
       ],
       image: {
@@ -176,7 +176,7 @@ export const localLaw11Post: BlogPost = {
       title: "How to Choose a Contractor for FISP Repairs",
       paragraphs: [
         "Executing exterior facade repairs on an occupied high-rise or mid-rise property requires specialized rigging certifications and comprehensive insurance. Standard residential contractors cannot legally rig suspended scaffolding or pull commercial facade permits in NYC.",
-        "When selecting a contractor for your FISP restoration, verify active DOB General Contractor registration, dedicated 'Action Over' scaffolding liability insurance coverage, and demonstrable experience in <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">NYC facade restoration services</a>. Working with an experienced contractor ensures that public sidewalk sheds, street permits, and engineering sign-offs are handled seamlessly."
+        "When selecting a contractor for your FISP restoration, verify active DOB General Contractor registration, dedicated 'Action Over' scaffolding liability insurance coverage, and demonstrable experience in <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">NYC facade restoration services</a>. Working with an experienced contractor ensures that public sidewalk sheds, street permits, and engineering sign-offs are handled seamlessly."
       ],
       image: {
         src: "/assets/parapetwallmega.webp",

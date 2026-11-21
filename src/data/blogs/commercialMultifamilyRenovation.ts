@@ -94,7 +94,7 @@ export const commercialMultifamilyRenovationPost: BlogPost = {
       id: "project-types",
       title: "Project Types: Offices, Retail, Common Areas, and Unit Turnovers",
       paragraphs: [
-        "In New York City’s fast-paced commercial real estate market, landlords, asset managers, and institutional investors must continually modernize spaces to attract premium tenants and retain property value. Engaging an experienced <a href=\"/services/commercial-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation in NYC</a> team ensures seamless project delivery across diverse asset classes.",
+        "In New York City’s fast-paced commercial real estate market, landlords, asset managers, and institutional investors must continually modernize spaces to attract premium tenants and retain property value. Engaging an experienced <a href=\"/services/masonry-work/reconstruction-rebuilds\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation in NYC</a> team ensures seamless project delivery across diverse asset classes.",
         "Core commercial project categories include: Class-A corporate office reconfigurations, ground-floor retail storefront build-outs, modern lobby and corridor capital upgrades, and high-volume multifamily apartment unit turnovers. Each project type presents distinct operational timelines, ADA accessibility standards, and mechanical system demands."
       ]
     },

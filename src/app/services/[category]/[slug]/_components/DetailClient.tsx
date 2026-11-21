@@ -55,31 +55,9 @@ const Counter = memo(({ value, suffix = "" }: { value: number; suffix: string })
 Counter.displayName = "Counter";
 
 export default function DetailClient({ categoryId, slug }: { categoryId: string; slug: string }) {
-  let service = resolveCategory(categoryId);
-  let subCategory = service ? resolveSubcategory(service, slug) : undefined;
-
-  if (!service || !subCategory) {
-    const fallback = findSubcategoryAnywhere(slug);
-    if (fallback) {
-      service = fallback.service;
-      subCategory = fallback.subCategory;
-    }
-  }
-
+  const service = resolveCategory(categoryId);
+  const subCategory = resolveSubcategory(service, slug);
   const seo = getServiceDetailSeo(categoryId, slug);
-
-  if (!service || !subCategory) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white font-heading px-4">
-        <div className="text-center">
-          <h1 className="text-2xl sm:text-4xl font-medium text-black mb-4 tracking-tighter uppercase">PAGE_NOT_FOUND</h1>
-          <Link href={`/services/${categoryId}`} className="text-red-600 hover:underline font-medium uppercase tracking-[0.3em] text-[10px] sm:text-[12px]">
-            [ BACK TO SERVICES ]
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   // Enforce data-driven defaults if missing with real existing assets
   const fallbackGallery = [

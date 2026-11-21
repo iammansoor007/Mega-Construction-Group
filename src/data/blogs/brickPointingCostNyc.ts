@@ -94,7 +94,7 @@ export const brickPointingCostNycPost: BlogPost = {
       paragraphs: [
         "In masonry construction, mortar serves as the flexible cushion between rigid clay bricks or cut stones. Mortar is designed to be the sacrificial component of the building envelope—it naturally absorbs building movement and weathers away slowly over decades to protect the brick itself from fracturing.",
         "Over time, exposure to New York’s harsh freeze-thaw winters, wind-driven acid rain, and vibrational stress erodes mortar. Water penetrates into microscopic hairline cracks; when it freezes, it expands by approximately 9%, fracturing the mortar bonds. Once joints recede more than 1/4 inch, water flows directly into the interior masonry core.",
-        "Restoring these joints through professional <a href=\"/services/masonry-work/brick-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> stops moisture migration and stabilizes the entire structural wall."
+        "Restoring these joints through professional <a href=\"/services/masonry-work/brick-grinding-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> stops moisture migration and stabilizes the entire structural wall."
       ]
     },
     {
@@ -145,7 +145,7 @@ export const brickPointingCostNycPost: BlogPost = {
       title: "How Long Pointing Lasts and Maintenance Lifecycles",
       paragraphs: [
         "A professionally executed repointing job using properly matched lime mortar and sound joint tooling lasts between 25 and 40 years. In contrast, substandard 'smear pointing'—where a contractor smears thin mortar over failed joints with a trowel without raking back 3/4 inch—fails within 2 to 5 years.",
-        "To maximize longevity, property owners should inspect mortar joints annually, maintain sound waterproof flashing on companion roofs and companion <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet repairs in the Bronx</a>, and keep companion <a href=\"/services/masonry-work/chimney-repair\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">chimney repair in the Bronx</a> in sound order."
+        "To maximize longevity, property owners should inspect mortar joints annually, maintain sound waterproof flashing on companion roofs and companion <a href=\"/services/masonry-work/parapet-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">parapet repairs in the Bronx</a>, and keep companion <a href=\"/services/masonry-work/chimney-caps-rebuilds\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">chimney repair in the Bronx</a> in sound order."
       ]
     },
     {
@@ -153,9 +153,9 @@ export const brickPointingCostNycPost: BlogPost = {
       title: "Dangerous Signs You Waited Too Long to Repoint",
       paragraphs: [
         "Postponing necessary masonry maintenance transforms a routine repointing project into an expensive structural crisis. Warning signs that deterioration has progressed beyond simple joint repair include:",
-        "1. Spalling and Cracking Bricks: Outer brick faces popping off, requiring structural <a href=\"/services/masonry-work/brick-repair\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick repair in the Bronx</a>.",
+        "1. Spalling and Cracking Bricks: Outer brick faces popping off, requiring structural <a href=\"/services/masonry-work/brick-replacement\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick repair in the Bronx</a>.",
         "2. Wall Bulging and Wythe Separation: Water washing away internal collar joints, causing the exterior brick wythe to separate and bow outward.",
-        "3. Rusted Steel Lintels: Expanding rust jacking that displaces window headers, requiring full steel replacement and companion <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">NYC facade restoration services</a>.",
+        "3. Rusted Steel Lintels: Expanding rust jacking that displaces window headers, requiring full steel replacement and companion <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">NYC facade restoration services</a>.",
         "4. Interior Plaster Ruin: Active brown water stains and mold ruining hardwood floors and interior paint."
       ]
     },

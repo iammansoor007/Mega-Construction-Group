@@ -1,57 +1,25 @@
+import { notFound } from "next/navigation";
 import { servicesData, Service, SubCategory } from "@/data/servicesData";
-import { bronxSeoPages } from "@/data/bronxSeoPages";
 
-// Category alias dictionary
-export const categoryAliases: Record<string, string> = {
-  roofing: "roofing-services",
-  "roofing-services": "roofing-services",
-  masonry: "masonry-work",
-  "masonry-work": "masonry-work",
-  concrete: "concrete-services",
-  "concrete-services": "concrete-services",
-  "home-renovation": "home-renovation",
-  renovation: "home-renovation",
-  stucco: "stucco",
-  waterproofing: "waterproofing",
-  commercial: "commercial-construction",
-  "commercial-construction": "commercial-construction",
-};
-
-// Subcategory alias dictionary
-export const subcategoryAliases: Record<string, string> = {
-  "roof-repair": "roof-leakage-repair",
-  "roof-leak-repair": "roof-leakage-repair",
-  "roof-waterproofing": "roof-waterproofing",
-  "roof-leakage-repair": "roof-leakage-repair",
-  "flat-roofing": "flat-roofing",
-  "tpo-roofing": "tpo-roofing",
-  "shingle-roofing": "shingle-roofing",
-  "roof-replacement": "roof-replacement",
-  "roof-installation": "roof-installation",
-  "roof-inspection": "roof-inspection",
-  "brick-pointing": "brick-pointing",
-  "brick-replacement": "brick-replacement",
-  "parapet-wall-repair": "parapet-wall-repair",
-  "facade-restoration": "facade-restoration",
-  "chimney-repair": "chimney-repair",
-  "lintel-replacement": "lintel-replacement",
-  "fire-escape-painting": "fire-escape-painting",
-  "sidewalk-repair": "sidewalk-repair",
-};
-
-export function resolveCategory(rawCategory: string): Service | undefined {
-  const normalizedCategory = categoryAliases[rawCategory.toLowerCase()] || rawCategory;
-  return servicesData.find((s) => s.id === normalizedCategory || s.id === rawCategory);
+export function resolveCategory(rawCategory: string): Service {
+  const service = servicesData.find((s) => s.id === rawCategory.toLowerCase());
+  if (!service) {
+    notFound();
+  }
+  return service;
 }
 
 export function resolveSubcategory(
   service: Service,
   rawSlug: string
-): SubCategory | undefined {
-  const normalizedSlug = subcategoryAliases[rawSlug.toLowerCase()] || rawSlug;
-  return service.subcategories.find(
-    (sub) => sub.id === normalizedSlug || sub.id === rawSlug
+): SubCategory {
+  const subCategory = service.subcategories.find(
+    (sub) => sub.id === rawSlug.toLowerCase()
   );
+  if (!subCategory) {
+    notFound();
+  }
+  return subCategory;
 }
 
 /**
@@ -60,15 +28,14 @@ export function resolveSubcategory(
 export function findSubcategoryAnywhere(slug: string): {
   service: Service;
   subCategory: SubCategory;
-} | undefined {
-  const normalizedSlug = subcategoryAliases[slug.toLowerCase()] || slug;
+} {
   for (const service of servicesData) {
     const found = service.subcategories.find(
-      (sub) => sub.id === normalizedSlug || sub.id === slug
+      (sub) => sub.id === slug.toLowerCase()
     );
     if (found) return { service, subCategory: found };
   }
-  return undefined;
+  notFound();
 }
 
 export const bronxSlugRedirectMap: Record<string, string> = {

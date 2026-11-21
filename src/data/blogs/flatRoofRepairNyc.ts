@@ -185,7 +185,7 @@ export const flatRoofRepairNycPost: BlogPost = {
       title: "How to Hire a Flat Roofer in NYC",
       paragraphs: [
         "When vetting flat roofing contractors, verify that the company holds manufacturer certifications (e.g., Carlisle SynTec, GAF Commercial, or Firestone Building Products). Manufacturer certification allows the roofer to issue 20- to 30-year non-prorated No Dollar Limit (NDL) warranties that cover both materials and labor.",
-        "Always demand proof of active NYC DOB General Contractor registration, dedicated roofing liability insurance with an 'Action Over' endorsement, and specific experience in commercial <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in NYC</a>."
+        "Always demand proof of active NYC DOB General Contractor registration, dedicated roofing liability insurance with an 'Action Over' endorsement, and specific experience in commercial <a href=\"/services/masonry-work/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in NYC</a>."
       ]
     }
   ],

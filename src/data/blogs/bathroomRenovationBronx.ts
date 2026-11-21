@@ -133,7 +133,7 @@ export const bathroomRenovationBronxPost: BlogPost = {
       title: "Plumbing and Waterproofing in Older Buildings",
       paragraphs: [
         "Older buildings across the Bronx and Brooklyn built between 1900 and 1960 frequently conceal galvanized steel water supply lines and cast-iron drain stacks that are near the end of their operational lifespan. During a <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">bathroom contractor Bronx</a> project, replacing old lines with modern copper or PEX tubing and cast-iron/PVC drains prevents costly pinhole leaks.",
-        "Furthermore, professional <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a> is vital. Shower stalls must feature a continuous sheet membrane (such as Schluter Kerdi) or liquid-applied waterproof barrier and undergo a mandatory 24-hour standing water flood test before tile installation."
+        "Furthermore, professional <a href=\"/services/masonry-work/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">waterproofing in the Bronx</a> is vital. Shower stalls must feature a continuous sheet membrane (such as Schluter Kerdi) or liquid-applied waterproof barrier and undergo a mandatory 24-hour standing water flood test before tile installation."
       ],
       image: {
         src: "/assets/megabathroom2.jpg",

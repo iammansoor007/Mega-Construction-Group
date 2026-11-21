@@ -119,7 +119,7 @@ export const concreteContractorBronxPost: BlogPost = {
       title: "Commercial Concrete: Leveling, Resurfacing, and Loading Areas",
       paragraphs: [
         "Commercial facilities in Bronx industrial hubs like Hunts Point, Mott Haven, and Pelham Bay require specialized concrete mixes. Heavy-traffic loading bays and forklift ramps demand high-early-strength 5000 PSI concrete reinforced with synthetic micro-fibers and welded wire mesh.",
-        "Experienced <a href=\"/services/commercial-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial concrete contractors in the Bronx</a> coordinate night pours and weekend installations to ensure that ongoing commercial logistics and warehouse operations experience zero business interruption."
+        "Experienced <a href=\"/services/masonry-work/reconstruction-rebuilds\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial concrete contractors in the Bronx</a> coordinate night pours and weekend installations to ensure that ongoing commercial logistics and warehouse operations experience zero business interruption."
       ],
       image: {
         src: "/assets/megaconcretework1.jpg",
@@ -131,8 +131,8 @@ export const concreteContractorBronxPost: BlogPost = {
       id: "residential-concrete-projects",
       title: "Residential Concrete: Driveways, Backyards, and Steps",
       paragraphs: [
-        "Residential flatwork enhances both curb appeal and functional outdoor living space. Installing a new <a href=\"/services/concrete-services/driveway-repair\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">concrete driveway in the Bronx</a> requires excavating poor clay subsoils, compacting 4 to 6 inches of crushed recycled concrete aggregate (RCA), and pouring a 4- to 5-inch thick slab with control joints spaced every 10 feet to manage thermal expansion.",
-        "For backyard entertainment, modern homeowners opt for textured broom finishes or stamped decorative borders on their <a href=\"/services/concrete-services/patios-installation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">concrete patio installations</a>, paired with sturdy <a href=\"/services/masonry-work/retaining-wall\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">retaining walls</a> to manage sloping Bronx yard terrain."
+        "Residential flatwork enhances both curb appeal and functional outdoor living space. Installing a new <a href=\"/services/concrete-services/driveway-replacement\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">concrete driveway in the Bronx</a> requires excavating poor clay subsoils, compacting 4 to 6 inches of crushed recycled concrete aggregate (RCA), and pouring a 4- to 5-inch thick slab with control joints spaced every 10 feet to manage thermal expansion.",
+        "For backyard entertainment, modern homeowners opt for textured broom finishes or stamped decorative borders on their <a href=\"/services/masonry-work/patios\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">concrete patio installations</a>, paired with sturdy <a href=\"/services/masonry-work/retaining-walls\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">retaining walls</a> to manage sloping Bronx yard terrain."
       ]
     },
     {

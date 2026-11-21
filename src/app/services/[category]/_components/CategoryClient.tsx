@@ -1,6 +1,6 @@
 "use client";
 
-import { servicesData } from "@/data/servicesData";
+import { resolveCategory } from "@/lib/servicesResolver";
 import { getServiceCategorySeo } from "@/data/servicesSeoData";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -15,22 +15,9 @@ import { business } from "@/config/business";
 import { useRef } from "react";
 
 export default function CategoryClient({ categoryId }: { categoryId: string }) {
-  const service = servicesData.find((s) => s.id === categoryId);
+  const service = resolveCategory(categoryId);
   const seo = getServiceCategorySeo(categoryId);
   const containerRef = useRef(null);
-
-  if (!service) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-white font-heading px-4">
-        <div className="text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tighter uppercase italic">Division_Missing</h1>
-          <Link href="/" className="text-red-600 hover:underline flex items-center justify-center gap-2 font-bold uppercase tracking-widest text-[10px] rounded-none">
-            <ArrowLeft className="w-4 h-4" /> Return to Command Center
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <main ref={containerRef} className="min-h-screen bg-white selection:bg-red-600 selection:text-white font-body overflow-x-hidden relative">

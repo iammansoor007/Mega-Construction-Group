@@ -177,7 +177,7 @@ export const commercialRoofingNycPost: BlogPost = {
       title: "Commercial Roofing Across the Five Boroughs",
       paragraphs: [
         "Commercial roofing demands vary across New York’s urban geography. In the Bronx and Queens, large-footprint industrial distribution centers prioritize high-reflectivity TPO roofs to minimize summer cooling loads.",
-        "In dense Manhattan and Brooklyn corridors, commercial flat roofs often feature high-density mechanical chillers, cellular communications towers, and residential rooftop amenities, requiring coordinated <a href=\"/services/commercial-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation services</a> and heavy-duty walkway protection pads."
+        "In dense Manhattan and Brooklyn corridors, commercial flat roofs often feature high-density mechanical chillers, cellular communications towers, and residential rooftop amenities, requiring coordinated <a href=\"/services/masonry-work/reconstruction-rebuilds\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation services</a> and heavy-duty walkway protection pads."
       ]
     }
   ],

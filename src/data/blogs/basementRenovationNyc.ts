@@ -102,7 +102,7 @@ export const basementRenovationNycPost: BlogPost = {
       title: "Waterproofing and Drainage Before Finishing",
       paragraphs: [
         "The single most expensive mistake a homeowner can make is framing finished walls over an un-waterproofed basement. Water will inevitably penetrate, saturating insulation and spawning toxic black mold within 48 hours (as outlined in our guide on <a href=\"/blog/water-damage-restoration-bronx\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">water damage restoration in the Bronx</a>).",
-        "A reliable below-grade moisture defense incorporates an interior perimeter French drain trench cut into the concrete slab, perforated corrugated piping surrounded by clean gravel, an airtight vapor barrier along foundation walls, and a heavy-duty dual-pump sump pit equipped with battery backup power. Pairing these with subgrade <a href=\"/services/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">basement waterproofing in the Bronx</a> guarantees a bone-dry substrate."
+        "A reliable below-grade moisture defense incorporates an interior perimeter French drain trench cut into the concrete slab, perforated corrugated piping surrounded by clean gravel, an airtight vapor barrier along foundation walls, and a heavy-duty dual-pump sump pit equipped with battery backup power. Pairing these with subgrade <a href=\"/services/masonry-work/waterproofing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">basement waterproofing in the Bronx</a> guarantees a bone-dry substrate."
       ],
       callout: {
         type: "warning",

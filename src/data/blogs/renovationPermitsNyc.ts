@@ -172,7 +172,7 @@ export const renovationPermitsNycPost: BlogPost = {
       title: "How to Check Permit and Violation History on Your Property",
       paragraphs: [
         "Every building owner should know how to verify their property's public record. Search the NYC Building Information System (BIS) and the digital DOB NOW public portal using your street address or Borough, Block, and Lot (BBL) number.",
-        "Review active permits under the 'Jobs/Filings' tab and check for unresolved citations under 'Violations-DOB' and 'Violations-OATH/ECB'. If you discover open legacy permits or uncertified violations, working with an experienced <a href=\"/services/violation-removal\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">code violation correction contractor</a> ensures that historical paperwork is closed out properly."
+        "Review active permits under the 'Jobs/Filings' tab and check for unresolved citations under 'Violations-DOB' and 'Violations-OATH/ECB'. If you discover open legacy permits or uncertified violations, working with an experienced <a href=\"/services/concrete-services\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">code violation correction contractor</a> ensures that historical paperwork is closed out properly."
       ]
     }
   ],

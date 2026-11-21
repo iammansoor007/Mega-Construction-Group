@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { servicesData } from "@/data/servicesData";
+import { resolveCategory } from "@/lib/servicesResolver";
 import { getServiceCategorySeo } from "@/data/servicesSeoData";
 import CategoryClient from "./_components/CategoryClient";
 import { business } from "@/config/business";
@@ -11,14 +11,8 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resolvedParams = await params;
   const categoryId = resolvedParams.category;
-  const service = servicesData.find((s) => s.id === categoryId);
+  const service = resolveCategory(categoryId);
   const seo = getServiceCategorySeo(categoryId);
-
-  if (!service) {
-    return {
-      title: { absolute: "Service Division | Mega Contracting NY Group" },
-    };
-  }
 
   return {
     title: {
@@ -58,10 +52,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const resolvedParams = await params;
   const categoryId = resolvedParams.category;
-  const service = servicesData.find((s) => s.id === categoryId);
+  const service = resolveCategory(categoryId);
   const seo = getServiceCategorySeo(categoryId);
-
-  if (!service) return <CategoryClient categoryId={categoryId} />;
 
   // Composite Schemas for maximum local crawlability & indexability
   const schemas = [

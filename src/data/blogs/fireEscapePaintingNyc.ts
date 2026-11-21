@@ -93,7 +93,7 @@ export const fireEscapePaintingNycPost: BlogPost = {
       title: "Why Fire Escapes Are Painted and Maintained",
       paragraphs: [
         "In New York City, exterior iron and steel fire escapes serve as the primary secondary emergency egress for hundreds of thousands of residential tenants in pre-war apartment buildings, brownstones, and tenements. Because these structures are directly exposed to rain, snow, salt air, and freeze-thaw cycles, unprotected carbon steel rapidly oxidizes into iron oxide (rust).",
-        "Engaging a professional for <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire escape painting in NYC</a> is not merely a cosmetic improvement—it is a critical life-safety requirement. A well-applied industrial enamel coating seals bare metal against moisture and atmospheric oxygen, halting structural steel thinning and preventing catastrophic platform collapses."
+        "Engaging a professional for <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire escape painting in NYC</a> is not merely a cosmetic improvement—it is a critical life-safety requirement. A well-applied industrial enamel coating seals bare metal against moisture and atmospheric oxygen, halting structural steel thinning and preventing catastrophic platform collapses."
       ],
       callout: {
         type: "code",
@@ -106,7 +106,7 @@ export const fireEscapePaintingNycPost: BlogPost = {
       title: "Rust and Loose Connections: When Painting Isn’t Enough",
       paragraphs: [
         "A common hazard in older NYC buildings is 'cosmetic coverup'—painting over advanced structural corrosion without addressing mechanical integrity. If the underlying steel is compromised, painting accomplishes nothing.",
-        "A qualified contractor must evaluate critical structural connections before picking up a paintbrush: wall anchor through-bolts (which embed into brick masonry walls), cantilever counter-balance weights, drop-ladder release mechanisms, handrail stanchions, and step-tread support brackets. If rust has caused steel to delaminate (flaking in thick scales) or if bolt heads have rusted away, physical <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire escape repair in NYC</a> involving structural steel welding or through-bolt replacement is mandatory."
+        "A qualified contractor must evaluate critical structural connections before picking up a paintbrush: wall anchor through-bolts (which embed into brick masonry walls), cantilever counter-balance weights, drop-ladder release mechanisms, handrail stanchions, and step-tread support brackets. If rust has caused steel to delaminate (flaking in thick scales) or if bolt heads have rusted away, physical <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">fire escape repair in NYC</a> involving structural steel welding or through-bolt replacement is mandatory."
       ],
       image: {
         src: "/assets/fireexitmega.jpg",

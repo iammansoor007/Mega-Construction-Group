@@ -152,7 +152,7 @@ export const generalContractorBronxPost: BlogPost = {
       title: "Typical Bronx Project Types and Timelines",
       paragraphs: [
         "From historical restoration in Riverdale and City Island to multi-family pre-war updates along Grand Concourse, construction in the Bronx presents unique logistical and structural conditions.",
-        "Standard project timelines vary by scope: a full <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Bronx home renovation</a> spanning a 3-bedroom apartment typically requires 3 to 5 months; a comprehensive gut rehabilitation of a multi-family property spans 6 to 12 months; while high-end <a href=\"/services/commercial-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation in the Bronx</a> requires 4 to 8 months depending on DOB plan approvals and mechanical system installations."
+        "Standard project timelines vary by scope: a full <a href=\"/services/home-renovation\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">Bronx home renovation</a> spanning a 3-bedroom apartment typically requires 3 to 5 months; a comprehensive gut rehabilitation of a multi-family property spans 6 to 12 months; while high-end <a href=\"/services/masonry-work/reconstruction-rebuilds\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">commercial renovation in the Bronx</a> requires 4 to 8 months depending on DOB plan approvals and mechanical system installations."
       ],
       image: {
         src: "/assets/luxuryfinsh.jpg",

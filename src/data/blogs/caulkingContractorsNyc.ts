@@ -95,7 +95,7 @@ export const caulkingContractorsNycPost: BlogPost = {
       title: "Where Buildings Need Sealant: Windows, Doors, Masonry, and Expansion Joints",
       paragraphs: [
         "In modern building envelopes, every transition between dissimilar building materials creates an inevitable joint. Because aluminum window frames, structural steel, brick masonry, and precast concrete expand and contract at radically different rates when exposed to temperature swings, these gaps must be sealed with flexible elastomeric sealants.",
-        "Experienced <a href=\"/services/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">caulking contractors in New York NY</a> seal critical architectural junctions: perimeter window and exterior door frames, vertical masonry expansion control joints, metal coping cap flashings, precast panel seams, and concrete sidewalk slab control joints."
+        "Experienced <a href=\"/services/masonry-work/facade-restoration\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">caulking contractors in New York NY</a> seal critical architectural junctions: perimeter window and exterior door frames, vertical masonry expansion control joints, metal coping cap flashings, precast panel seams, and concrete sidewalk slab control joints."
       ]
     },
     {
@@ -167,7 +167,7 @@ export const caulkingContractorsNycPost: BlogPost = {
       title: "How Often to Recaulk NYC Buildings",
       paragraphs: [
         "In New York’s coastal urban environment, commercial building envelopes should be audited for sealant failure every 5 to 7 years. High-grade architectural silicone joints typically provide 20 to 25 years of service, whereas polyurethane joints require renewal every 10 to 12 years.",
-        "Proactive recaulking prevents water from penetrating into structural masonry wythes, protecting companion <a href=\"/services/masonry-work/brick-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> and eliminating the root cause of window leaks."
+        "Proactive recaulking prevents water from penetrating into structural masonry wythes, protecting companion <a href=\"/services/masonry-work/brick-grinding-pointing\" class=\"text-red-400 hover:text-red-300 font-semibold underline underline-offset-2\">brick pointing in the Bronx</a> and eliminating the root cause of window leaks."
       ]
     },
     {
