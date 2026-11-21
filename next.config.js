@@ -94,6 +94,13 @@ const nextConfig = {
       { source: '/services/masonry-work/retaining-wall', destination: '/services/masonry-work/retaining-walls', permanent: true },
       { source: '/services/violation-removal', destination: '/services/concrete-services', permanent: true },
       { source: '/services/waterproofing', destination: '/services/masonry-work/waterproofing', permanent: true },
+      // Legacy FAQ Broken Paths -> Targets (Task 2)
+      { source: '/commercial', destination: '/projects', permanent: true },
+      { source: '/historic', destination: '/projects', permanent: true },
+      { source: '/portfolio', destination: '/projects', permanent: true },
+      { source: '/consultation', destination: '/contact', permanent: true },
+      { source: '/credentials', destination: '/licenses', permanent: true },
+      { source: '/design', destination: '/services/custom-home-building/design-build', permanent: true },
     ];
   },
 };

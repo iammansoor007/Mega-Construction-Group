@@ -17,6 +17,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
 import SectionHeader from "@/components/SectionHeader";
 import faqvector from "../assets/faqvector.png";
+import { business } from "@/config/business";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -688,13 +689,19 @@ const FAQ = () => {
 
   const { section, categories, items } = completeData.faq;
 
-  const filteredItems = items.filter(item => {
-    const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-    const matchesSearch = searchQuery === '' ||
-      item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.answer.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredItems = items
+    .filter(item => {
+      const isWarranty = item.question?.toLowerCase().includes("warranty") || item.category === "warranty";
+      if (isWarranty && !business.warrantyStatement) return false;
+      return true;
+    })
+    .filter(item => {
+      const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+      const matchesSearch = searchQuery === '' ||
+        item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.answer.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
 
   const handleToggle = (index) => {
     setOpenItems(prev =>
