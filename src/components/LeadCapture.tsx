@@ -227,6 +227,7 @@ const CTASection = () => {
             alt="Modern architectural construction silhouette"
             className="w-full h-full object-cover opacity-5"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-white via-white to-transparent" />
         </div>
@@ -239,6 +240,7 @@ const CTASection = () => {
             alt="Architectural construction details background"
             className="w-full h-full object-cover opacity-5"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
         </div>

@@ -188,6 +188,9 @@ const ServiceCTA = memo(({ cta }: ServiceCTAProps) => {
                                 <Image
                                     src={vectoroverlay}
                                     alt="General contracting service consultation illustration graphic"
+                                    width={500}
+                                    height={500}
+                                    sizes="(max-width: 768px) 100vw, 500px"
                                     className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
                                 />
                             </motion.div>

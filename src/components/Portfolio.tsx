@@ -256,6 +256,7 @@ const PremiumLightbox = ({ image, onClose }) => {
           alt="Completed construction project full view showcase"
           className="object-contain rounded-lg shadow-2xl"
           fill
+          sizes="(max-width: 1024px) 90vw, 1000px"
         />
       </motion.div>
     </motion.div>

@@ -240,7 +240,6 @@ const Navbar = () => {
                       src={logo}
                       alt="Mega Contracting NY Group - NYC General Contractor & Roofing Logo"
                       className="companylogo h-full w-full object-contain p-0.5 drop-shadow-2xl smooth-gpu"
-                      priority
                       width={180}
                       height={64}
                     />
@@ -501,6 +500,7 @@ const Navbar = () => {
                               src={getServiceImage(fullService.id)}
                               alt={`${fullService.title} construction preview`}
                               fill
+                              sizes="320px"
                               className="object-cover transition-transform duration-700 group-hover/img:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/img-link:opacity-100 transition-opacity" />

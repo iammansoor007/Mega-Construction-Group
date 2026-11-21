@@ -74,6 +74,7 @@ const Hero = () => {
           className="w-full h-full object-cover smooth-gpu"
           priority
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
         />
       </div>
 

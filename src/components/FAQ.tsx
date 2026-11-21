@@ -550,6 +550,9 @@ const KnowledgeCard = () => {
                 <Image
                   src={faqvector}
                   alt="Customer support and project FAQ illustration graphic"
+                  width={450}
+                  height={450}
+                  sizes="(max-width: 768px) 100vw, 450px"
                   className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
                 />
               </motion.div>
@@ -663,6 +666,9 @@ const KnowledgeCard = () => {
                 <Image
                   src={faqvector}
                   alt="Customer assistance consultation graphic"
+                  width={450}
+                  height={450}
+                  sizes="(max-width: 768px) 100vw, 450px"
                   className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
                 />
 

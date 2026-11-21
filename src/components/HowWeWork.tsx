@@ -557,6 +557,9 @@ const CTASection = memo(({ cta }: CTASectionProps) => {
                                 <Image
                                     src={vectoroverlay}
                                     alt="Licensed general contractor project workflow diagram"
+                                    width={500}
+                                    height={500}
+                                    sizes="(max-width: 768px) 100vw, 500px"
                                     className="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)]"
                                 />
                             </motion.div>

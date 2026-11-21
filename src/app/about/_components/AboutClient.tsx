@@ -262,6 +262,7 @@ export default function AboutPage() {
                       src="/assets/megaabout.png"
                       alt="Exterior of general contracting facility and project operations"
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       priority
                     />
@@ -279,6 +280,7 @@ export default function AboutPage() {
                       src="/assets/megaownerprinted.png"
                       alt="Adil Shamis, Founder of Mega Contracting NY Group"
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -347,6 +349,7 @@ export default function AboutPage() {
                     src="/assets/megaownerprinted.png"
                     alt="Adil Shamis reviewing architectural blueprints and construction project documentation"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                     loading="lazy"
                   />
@@ -662,6 +665,7 @@ export default function AboutPage() {
                     src="/assets/megaabout.png"
                     alt="Five boroughs service coverage in New York City"
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover grayscale"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />

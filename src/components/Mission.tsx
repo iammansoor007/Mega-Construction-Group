@@ -25,6 +25,9 @@ const Mission = () => {
             <Image
               src={teamImage}
               alt="Licensed NYC construction craftsmen on building exterior work"
+              width={600}
+              height={800}
+              sizes="(max-width: 768px) 100vw, 500px"
               className="w-full h-full object-cover"
               loading="lazy"
             />

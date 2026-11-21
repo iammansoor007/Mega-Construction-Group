@@ -89,6 +89,9 @@ const CeoPortrait = () => {
             <Image
               src={ceo}
               alt={ceoData.alt || "Founder and general contractor leadership on construction site"}
+              width={600}
+              height={600}
+              sizes="(max-width: 768px) 100vw, 500px"
               className="w-full h-[500px] md:h-[600px] object-cover"
               loading="lazy"
             />
@@ -161,6 +164,9 @@ const CeoPortrait = () => {
             <Image
               src={vectoroverlay}
               alt="General contractor badge emblem graphic"
+              width={160}
+              height={160}
+              sizes="160px"
               className="w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain pointer-events-auto"
               style={{
                 filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.35))',
