@@ -171,3 +171,24 @@ Every page title is standardized and strictly $\le 60$ characters. Blog post tit
   6. Installation of commercial-grade ventilation ducting vented directly through the roof deck
 - **Owner Confirmation / Flag:** **LOCATION DISCREPANCY FLAGGED FOR OWNER:** URL slug is `long-island-kitchen-remodel`, but card title is "Queens & Metro Full Kitchen Renovation & Structural Beam Install", and card location is "Bayside / Metro NY" (Queens). Historical marketing copy previously mentioned Garden City, Long Island vs Bayside, Queens. Owner must confirm whether this project is in Bayside, Queens or Garden City, Long Island.
 
+---
+
+## Task 6: 7 Service Hub Pages Content Expansion (400–600 Words)
+
+Each of the 7 service hub pages was expanded to 400–600 words with:
+1. Unique 150–250 word technical intro.
+2. Every child service listed with a 1–2 sentence neutral description and direct link.
+3. 4 technical FAQs per hub (60–120 words each) rendered in semantic `<details>` markup.
+4. Strictly zero claims, prices, statistics, laws, or guarantees.
+
+| Hub Route | Hub Title | Intro Words (150–250) | Child Services Count | FAQ Word Counts (60–120 each) | Total Words (400–600) | Compliance Status |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| `/services/roofing-services` | Roofing Commercial and Residential | 151 | 8 | [67, 61, 61, 61] | 550 | **PASS** |
+| `/services/masonry-work` | Masonry Work | 151 | 13 | [62, 60, 60, 61] | 578 | **PASS** |
+| `/services/concrete-services` | Concrete and Sidewalk Services | 152 | 8 | [61, 60, 60, 61] | 579 | **PASS** |
+| `/services/home-renovation` | Home Renovation | 150 | 4 | [63, 62, 65, 63] | 510 | **PASS** |
+| `/services/stucco` | Stucco Services | 153 | 5 | [65, 62, 61, 60] | 532 | **PASS** |
+| `/services/custom-home-building` | Custom Home Building | 153 | 4 | [60, 61, 60, 60] | 500 | **PASS** |
+| `/services/emergency-service` | Emergency Service | 154 | 4 | [60, 60, 61, 60] | 508 | **PASS** |
+
+

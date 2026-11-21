@@ -2,6 +2,7 @@
 
 import { resolveCategory } from "@/lib/servicesResolver";
 import { getServiceCategorySeo } from "@/data/servicesSeoData";
+import { getHubContent } from "@/data/hubsContentData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +18,7 @@ import { useRef } from "react";
 export default function CategoryClient({ categoryId }: { categoryId: string }) {
   const service = resolveCategory(categoryId);
   const seo = getServiceCategorySeo(categoryId);
+  const hubContent = getHubContent(categoryId);
   const containerRef = useRef(null);
 
   return (
@@ -80,6 +82,58 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
 
       {/* DYNAMIC MARQUEE */}
       <MarqueeSection text={`Industrial Grade ${service.tag} • Licensed NYC Contractors •`} />
+
+      {/* ====================== */}
+      {/* HUB OVERVIEW & DIRECTORY */}
+      {/* ====================== */}
+      {hubContent && (
+        <section className="py-12 md:py-16 bg-gray-50 border-y border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 xs:px-6 md:px-8">
+            <div className="max-w-4xl mx-auto text-left">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="w-6 h-px bg-red-600" />
+                <span className="text-red-600 uppercase tracking-widest text-xs font-bold">
+                  Overview & Scope of Work
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-heading mb-6">
+                Comprehensive {service.title} in New York City
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-normal mb-8">
+                {hubContent.intro}
+              </p>
+
+              {/* Child Services Directory */}
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4 font-heading">
+                  Available Service Divisions
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {hubContent.childServices.map((child) => (
+                    <Link
+                      key={child.id}
+                      href={child.href}
+                      className="group p-4 rounded-2xl bg-white border border-gray-200 hover:border-red-500/50 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <h4 className="text-sm font-bold text-gray-900 group-hover:text-red-600 transition-colors">
+                            {child.title}
+                          </h4>
+                          <ArrowRight className="w-4 h-4 text-red-500 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                        <p className="text-xs text-gray-600 leading-relaxed font-normal">
+                          {child.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ====================== */}
       {/* SERVICE SPECIALIZATIONS */}
@@ -167,6 +221,44 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
           </div>
         </div>
       </section>
+
+      {/* ====================== */}
+      {/* TECHNICAL FAQS (<details>) */}
+      {/* ====================== */}
+      {hubContent && hubContent.faqs && (
+        <section className="py-12 md:py-16 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 xs:px-6 md:px-8 text-left">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <span className="w-6 h-px bg-red-600" />
+              <span className="text-red-600 uppercase tracking-widest text-xs font-bold">
+                Common Technical Inquiries
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-heading mb-8">
+              Frequently Asked Questions About {service.title}
+            </h2>
+
+            <div className="space-y-4">
+              {hubContent.faqs.map((faq, index) => (
+                <details
+                  key={index}
+                  className="group rounded-2xl border border-gray-200 bg-gray-50/50 p-5 open:bg-white open:shadow-md transition-all duration-200 cursor-pointer"
+                >
+                  <summary className="text-base font-bold text-gray-900 flex items-center justify-between gap-4 select-none list-none font-heading">
+                    <span>{faq.question}</span>
+                    <span className="text-red-600 text-lg group-open:rotate-45 transition-transform duration-200 shrink-0 font-mono">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-sm text-gray-600 leading-relaxed font-normal border-t border-gray-100 pt-3">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ====================== */}
       {/* CINEMATIC CTA SECTION */}

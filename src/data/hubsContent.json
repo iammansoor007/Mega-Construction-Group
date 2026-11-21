@@ -1,0 +1,453 @@
+{
+  "roofing-services": {
+    "id": "roofing-services",
+    "title": "Roofing Services",
+    "intro": "Roofing assemblies on residential, commercial, and multi-family buildings throughout New York City serve as the primary protective barrier against weather exposure, heavy rainfall, freeze-thaw cycles, and prolonged solar radiation. Building envelopes require durable roof installations that combine structural decking, moisture retarders, continuous thermal insulation boards, and waterproof outer membranes or overlapping shingle configurations. On low-slope flat roofs and pitched residential structures alike, roofing components must maintain secure watertight terminations along perimeter parapet walls, eaves, drainage valleys, chimney flashings, and rooftop mechanical curbs. Over years of seasonal temperature swings, structural movement and ultraviolet degradation gradually affect membrane seams, flashing attachments, and sealant joints across the roof field. Regular visual assessments, scheduled maintenance programs, and timely structural corrections protect underlying roof framing from moisture intrusion, wood rot, and insulation saturation. Proper roof installation and preventative maintenance protocols uphold exterior building envelope integrity across diverse architectural designs and building scales throughout all five boroughs.",
+    "childServices": [
+      {
+        "id": "shingle-roofing",
+        "title": "Shingle Roofing",
+        "href": "/services/roofing-services/shingle-roofing",
+        "description": "Installation of asphalt composite shingles over sloped roof decking with synthetic underlayment."
+      },
+      {
+        "id": "flat-roofing",
+        "title": "Flat Roofing",
+        "href": "/services/roofing-services/flat-roofing",
+        "description": "Multi-ply modified bitumen and built-up assemblies for low-slope drainage efficiency."
+      },
+      {
+        "id": "tpo-roofing",
+        "title": "TPO Roofing",
+        "href": "/services/roofing-services/tpo-roofing",
+        "description": "Single-ply thermoplastic polyolefin membranes heat-welded along field seams for water resistance."
+      },
+      {
+        "id": "roof-leakage-repair",
+        "title": "Roof Leakage Repair",
+        "href": "/services/roofing-services/roof-leakage-repair",
+        "description": "Diagnostic evaluation and patching of punctures, open seams, and damaged base flashings."
+      },
+      {
+        "id": "roof-replacement",
+        "title": "Roof Replacement",
+        "href": "/services/roofing-services/roof-replacement",
+        "description": "Removal of aged roofing layers down to bare decking followed by new tapered insulation."
+      },
+      {
+        "id": "roof-installation",
+        "title": "Roof Installation",
+        "href": "/services/roofing-services/roof-installation",
+        "description": "New construction assembly including deck preparation, vapor retarders, and edge metal flashing."
+      },
+      {
+        "id": "roof-inspection",
+        "title": "Roof Inspection",
+        "href": "/services/roofing-services/roof-inspection",
+        "description": "Physical review of membranes, flashing terminations, drainage outlets, and skylight curbs."
+      },
+      {
+        "id": "roof-waterproofing",
+        "title": "Roof Waterproofing",
+        "href": "/services/roofing-services/roof-waterproofing",
+        "description": "Application of fluid-applied elastomeric coatings across rooftop contours and penetrations."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What criteria indicate whether a roof needs localized repair or complete replacement?",
+        "answer": "The decision depends on structural deck condition, overall membrane age, and the scope of underlying moisture damage across the roof. Isolated punctures, detached perimeter flashing, or minor seam separations can often be remediated through targeted patching. If physical core sampling reveals widespread insulation moisture, extensive membrane brittleness, or structural sagging across multiple decking sections, full roof removal and replacement becomes necessary to re-establish a durable weather envelope."
+      },
+      {
+        "question": "How are drainage slopes managed on low-slope flat roofs?",
+        "answer": "Flat roof structures utilize subtle structural framing pitches or factory-tapered rigid polyisocyanurate insulation panels to route surface water toward roof drains, scupper openings, and exterior downspouts. Proper drainage design prevents standing water from accumulating beyond reasonable drying periods following precipitation. Regular clearing of strainers, drain bowls, and scupper boxes prevents debris buildup that causes backup and increases hydrostatic pressure against seams."
+      },
+      {
+        "question": "What regular maintenance steps help prolong roofing system longevity?",
+        "answer": "Scheduled maintenance should occur twice annually, typically in spring and late autumn, as well as following severe wind or rain conditions. Essential maintenance includes clearing collected leaves and dirt from drains, checking perimeter counter-flashings along brick walls, inspecting pitch pockets and pipe boots, and verifying that gravel stops or coping caps remain firmly fastened to perimeter curbs without loose attachment fasteners."
+      },
+      {
+        "question": "What preparation occurs before applying a new commercial roof membrane?",
+        "answer": "Substrate preparation involves stripping all degraded gravel, loose coatings, and failed membranes down to the load-bearing deck. Any compromised plywood panels, timber planks, or concrete decking must be structurally repaired or replaced. The surface is thoroughly swept, dried, and checked for sharp fasteners before laying vapor barriers, mechanically fastening rigid insulation boards, and rolling out the new membrane across the roof."
+      }
+    ]
+  },
+  "masonry-work": {
+    "id": "masonry-work",
+    "title": "Masonry Work",
+    "intro": "Masonry construction forms the structural framework and exterior architectural appearance of multi-family buildings, commercial structures, and residential townhomes across New York City. Exterior facades, structural brick piers, window lintels, parapet walls, and mortar assemblies must withstand decades of thermal movement, environmental exposure, and moisture penetration. Mortar joints gradually deteriorate over time due to rainwater infiltration and seasonal freeze-thaw cycles, requiring mechanical grinding, raking, and repointing using properly matched compressive strength mortars. Structural elements such as steel shelf angles, window lintels, and roofline parapets require ongoing maintenance to prevent corrosion, outward wall displacement, and loose masonry units. Professional masonry restoration stabilizes exterior building envelopes by replacing spalled brick units, anchoring stone facades, resetting coping stones, and applying breathable penetrating water repellents. Consistent masonry maintenance preserves structural wall alignment and prevents exterior moisture from migrating into interior building cavities across all urban properties throughout the year, ensuring long-term facade stability and neighborhood safety.",
+    "childServices": [
+      {
+        "id": "brick-replacement",
+        "title": "Brick Replacement",
+        "href": "/services/masonry-work/brick-replacement",
+        "description": "Removal of spalled bricks and replacement with matched masonry units."
+      },
+      {
+        "id": "brick-grinding-pointing",
+        "title": "Brick Grinding & Pointing",
+        "href": "/services/masonry-work/brick-grinding-pointing",
+        "description": "Grinding deteriorated mortar joints to sound depth and repointing."
+      },
+      {
+        "id": "parapet-wall",
+        "title": "Parapet Wall",
+        "href": "/services/masonry-work/parapet-wall",
+        "description": "Rebuilding and stabilization of roofline parapet masonry and coping."
+      },
+      {
+        "id": "facade-restoration",
+        "title": "Facade Restoration",
+        "href": "/services/masonry-work/facade-restoration",
+        "description": "Historic brick cleaning, stone patch repairs, and wall stabilization."
+      },
+      {
+        "id": "retaining-walls",
+        "title": "Retaining Walls",
+        "href": "/services/masonry-work/retaining-walls",
+        "description": "Construction of structural concrete block and stone retaining walls."
+      },
+      {
+        "id": "patios",
+        "title": "Patios",
+        "href": "/services/masonry-work/patios",
+        "description": "Installation of bluestone, pavers, and stone outdoor flatwork."
+      },
+      {
+        "id": "steps-repair-construction",
+        "title": "Steps Repair & Construction",
+        "href": "/services/masonry-work/steps-repair-construction",
+        "description": "Rebuilding concrete, brownstone, and brick entry steps and stoops."
+      },
+      {
+        "id": "window-caulking",
+        "title": "Window Caulking",
+        "href": "/services/masonry-work/window-caulking",
+        "description": "Installation of elastomeric sealants around window and door frames."
+      },
+      {
+        "id": "lintel-replacement",
+        "title": "Lintel Replacement",
+        "href": "/services/masonry-work/lintel-replacement",
+        "description": "Replacement of rusted steel window lintels with primed steel."
+      },
+      {
+        "id": "fire-escape-painting",
+        "title": "Fire Escape Painting",
+        "href": "/services/masonry-work/fire-escape-painting",
+        "description": "Surface scraping, rust priming, and enamel coating on fire escapes."
+      },
+      {
+        "id": "chimney-caps-rebuilds",
+        "title": "Chimney Caps & Rebuilds",
+        "href": "/services/masonry-work/chimney-caps-rebuilds",
+        "description": "Chimney repointing, brick reconstruction, and flue cap mounting."
+      },
+      {
+        "id": "waterproofing",
+        "title": "Waterproofing",
+        "href": "/services/masonry-work/waterproofing",
+        "description": "Application of penetrating siloxane sealers and elastomeric coatings."
+      },
+      {
+        "id": "reconstruction-rebuilds",
+        "title": "Reconstruction & Rebuilds",
+        "href": "/services/masonry-work/reconstruction-rebuilds",
+        "description": "Structural rebuilding of compromised brick piers and corner walls."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Why is mortar type selection critical during brick repointing?",
+        "answer": "Selecting the correct mortar formulation ensures that the mortar remains slightly more flexible and vapor-permeable than adjacent brick units. Using excessively hard mortar on vintage brickwork causes thermal expansion stresses to concentrate inside the brick faces, resulting in spalling and surface fracturing. Standard historic restoration utilizes low-compressive lime mortars that permit normal building movement and moisture evaporation without damaging historic clay surfaces."
+      },
+      {
+        "question": "What causes structural steel lintels over windows to fail?",
+        "answer": "Steel lintels are subjected to moisture migration through surrounding brick joints and window frame perimeters over time. As unprotected steel oxidizes, the resulting rust scale expands up to several times the original metal thickness. This phenomenon, known as rust jacking, exerts upward force on adjacent masonry courses, creating diagonal step-cracking and displaced brickwork that requires lintel replacement and masonry resetting."
+      },
+      {
+        "question": "How do parapet walls become destabilized at rooflines?",
+        "answer": "Parapet walls project above the roof level and are exposed to environmental conditions on both their exterior and interior faces. Freeze-thaw cycles break down mortar joints between brick courses and coping stones, allowing water to infiltrate the wall interior. Without regular maintenance of coping joints and through-wall flashings, moisture saturation causes outward leaning, loose masonry units, and interior plaster damage."
+      },
+      {
+        "question": "What is the difference between tuckpointing and complete brick rebuilding?",
+        "answer": "Tuckpointing involves cutting out degraded mortar to a uniform depth, typically three-quarters of an inch, and packing fresh mortar into existing joints while keeping bricks in place. Complete rebuilding is required when masonry units have shifted, cracked internally, or separated from backing walls, demanding full dismantling of loose sections, substrate preparation, and re-laying bricks with fresh structural mortar across the assembly."
+      }
+    ]
+  },
+  "concrete-services": {
+    "id": "concrete-services",
+    "title": "Concrete Services",
+    "intro": "Concrete infrastructure across residential and commercial properties in New York City supports continuous pedestrian traffic, vehicular parking, and building foundation stability. Sidewalk flags, curbs, driveway aprons, structural footings, and backyard slabs must endure seasonal freezing temperatures, ground movement, de-icing salts, and tree root displacement. Concrete construction requires thorough ground excavation, compacted aggregate base preparation, reinforcement placement using rebar or welded wire mesh, and transit-mix pouring meeting specified compressive strengths. Surface finishing techniques such as light broom texturing provide traction and skid resistance while expansion joint tooling controls shrinkage cracking during curing. Regular maintenance includes cutting away uneven trip hazards, removing broken slabs, resetting curb lines, and resolving municipal sidewalk violation notices. Quality installation practices ensure exterior concrete surfaces remain level, drain water away from building foundations, and withstand daily urban traffic across all five boroughs throughout seasonal weather extremes, supporting dependable pedestrian transit and residential access across every residential and commercial borough.",
+    "childServices": [
+      {
+        "id": "sidewalk-repair",
+        "title": "Sidewalk Repair",
+        "href": "/services/concrete-services/sidewalk-repair",
+        "description": "Saw-cutting, excavation, and pouring of damaged concrete sidewalk flags to eliminate trip hazards and uneven pavement."
+      },
+      {
+        "id": "sidewalk-replacement",
+        "title": "Sidewalk Replacement",
+        "href": "/services/concrete-services/sidewalk-replacement",
+        "description": "Full-depth removal of decayed pedestrian walkways followed by compacted gravel base preparation and reinforced transit-mix pouring."
+      },
+      {
+        "id": "driveway-replacement",
+        "title": "Driveway Replacement",
+        "href": "/services/concrete-services/driveway-replacement",
+        "description": "Demolition and repouring of residential and commercial driveways using high-strength reinforced concrete with durable broom finishes."
+      },
+      {
+        "id": "sidewalk-violation-removal",
+        "title": "Sidewalk Violation Removal",
+        "href": "/services/concrete-services/sidewalk-violation-removal",
+        "description": "Restoration of flagged concrete conditions, permit filing, concrete pouring, and submission of dismissal inspection documentation."
+      },
+      {
+        "id": "dot-violation-removal",
+        "title": "DOT Violation Removal",
+        "href": "/services/concrete-services/dot-violation-removal",
+        "description": "Remediation of municipal pedestrian hazard notices through permitted concrete sidewalk flag replacement and curb restoration."
+      },
+      {
+        "id": "dob-violation-removal",
+        "title": "DOB Violation Removal",
+        "href": "/services/concrete-services/dob-violation-removal",
+        "description": "Corrective structural concrete and masonry repairs required to resolve building department notices and secure official dismissal."
+      },
+      {
+        "id": "foundation-work",
+        "title": "Foundation Work",
+        "href": "/services/concrete-services/foundation-work",
+        "description": "Excavation, formwork, reinforcement, and pouring of structural concrete footings, grade beams, and basement foundation walls."
+      },
+      {
+        "id": "backyard-concrete",
+        "title": "Backyard Concrete",
+        "href": "/services/concrete-services/backyard-concrete",
+        "description": "Installation of durable outdoor patios, walkways, equipment pads, and drainage slabs across residential property yards."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What compressive strength and thickness standards apply to urban concrete sidewalks?",
+        "answer": "Standard urban pedestrian sidewalk slabs are poured to a minimum thickness of four inches over a compacted granular base, while driveway crossings and loading areas require a thickness of seven inches. The concrete transit mix utilizes air-entrainment and meets four thousand pounds per square inch compressive strength to resist surface scaling, heavy vehicle impacts, and winter freeze-thaw cycles throughout urban seasons."
+      },
+      {
+        "question": "Why are expansion and control joints installed in newly poured concrete?",
+        "answer": "Concrete naturally shrinks slightly as moisture evaporates during the hydration curing process, and expands or contracts with seasonal temperature fluctuations. Control joints are placed at regular intervals to create planned relief planes that guide stress fractures along straight, clean grooves. Full-depth expansion joints containing compressible fibrous filler isolate slabs from curbs, light poles, and building walls to absorb thermal movement."
+      },
+      {
+        "question": "How are tree roots addressed when repairing concrete walkways?",
+        "answer": "When street tree roots displace sidewalk flags, work requires careful coordination to protect the tree while restoring pedestrian safety. Large roots are inspected, and where allowable under municipal urban forestry guidelines, carefully shaved or bridged with gravel beds. Concrete flags are then poured with slight elevation adjustments or root barrier wraps to prevent rapid re-lifting of the newly placed slabs."
+      },
+      {
+        "question": "What is the process for dismissing a municipal sidewalk violation notice?",
+        "answer": "Resolving a municipal sidewalk violation involves pulling required street work permits, saw-cutting the designated broken flags, and grading the sub-base. Crews pour concrete to municipal specifications, tool the joints, and broom-finish the surface. Once curing is complete, a formal inspection request and documentation package are filed with the agency to inspect the site and issue an official dismissal of the notice."
+      }
+    ]
+  },
+  "home-renovation": {
+    "id": "home-renovation",
+    "title": "Home Renovation",
+    "intro": "Interior home renovation in New York City residences involves comprehensive architectural updating, structural space reconfiguration, and modernization of mechanical, electrical, and plumbing infrastructure. Pre-war co-ops, townhouses, condominiums, and standalone residences present distinct physical conditions, including legacy piping, outdated distribution panels, non-standard structural framing, and shared building partitions. Comprehensive remodeling requires careful architectural layout planning, coordination with residential building rules, structural partition assessment, and precise trade synchronization. Renovation projects encompass complete kitchen redesigns, bathroom waterproofing, basement conversions, and full interior floor plan modernization. Utilizing durable modern materials, sound isolation underlayments, energy-efficient fixtures, and moisture-resistant tile backer assemblies creates functional living spaces suited to modern family requirements while respecting existing building structures and neighboring residents. Thorough site evaluation and skilled execution ensure that renovated living spaces maintain long-term structural reliability, improved airflow, and dependable utility systems throughout each residential unit across all boroughs, enhancing everyday comfort energy performance, and long-term structural longevity.",
+    "childServices": [
+      {
+        "id": "kitchen-renovation",
+        "title": "Kitchen Renovation",
+        "href": "/services/home-renovation/kitchen-renovation",
+        "description": "Cabinetry installation, countertop fabrication, dedicated appliance wiring circuits, plumbing rough-ins, and ventilation ducting."
+      },
+      {
+        "id": "bathroom-renovation",
+        "title": "Bathroom Renovation",
+        "href": "/services/home-renovation/bathroom-renovation",
+        "description": "Substrate waterproofing, walk-in shower construction, vanity installation, plumbing rough-ins, and precision wall and floor tiling."
+      },
+      {
+        "id": "basement-renovation",
+        "title": "Basement Renovation",
+        "href": "/services/home-renovation/basement-renovation",
+        "description": "Subterranean moisture barrier installation, framing, insulation, egress compliance, and finished recreational space construction."
+      },
+      {
+        "id": "interior-remodeling",
+        "title": "Interior Remodeling",
+        "href": "/services/home-renovation/interior-remodeling",
+        "description": "Whole-home architectural remodeling, partition removal, hardwood floor installation, electrical service upgrades, and millwork."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What preliminary steps are necessary before starting an apartment renovation in a multi-unit building?",
+        "answer": "Multi-family buildings require review of building alteration agreements, submission of contractor insurance certificates naming the building corporation, and architectural plan approval. Work permits are filed where plumbing, electrical, or structural partitions are altered. Coordinating work hour restrictions, service elevator reservations, and hall protection measures is essential before beginning any interior demolition work inside occupied residential properties across the city prior to starting work."
+      },
+      {
+        "question": "Why is moisture barrier waterproofing critical in bathroom renovation assemblies?",
+        "answer": "Bathrooms experience frequent surface water exposure and high humidity levels on a daily basis. In modern bathroom assemblies, sheet or liquid waterproofing membranes are applied continuously behind tile installations, covering shower walls, curbs, and floors. This continuous moisture envelope prevents moisture from penetrating porous cementitious grout and migrating into subfloor framing, wall cavities, or adjoining living units below in multi-story residential buildings."
+      },
+      {
+        "question": "What considerations are essential when opening or removing interior walls?",
+        "answer": "Prior to removing any interior partition, an examination must confirm whether the wall supports structural floor or ceiling joists above, or serves as a mechanical chase housing building vent stacks, electrical risers, or gas lines. If a partition is load-bearing, an engineered steel or timber beam and temporary shoring posts must be installed to distribute loads safely across structural bearing points without compromising building stability."
+      },
+      {
+        "question": "How are plumbing and electrical upgrades handled during full interior renovations?",
+        "answer": "Full interior renovations provide direct access to exposed wall framing, allowing legacy galvanized supply pipes to be replaced with copper or cross-linked polyethylene, and cast-iron waste lines to be evaluated. Electrical work involves running dedicated home-run circuits, installing sub-panels, updating outlets to ground-fault protection, and wiring energy-efficient architectural lighting systems across all living spaces for modern convenience, operational reliability, and long-term household safety."
+      }
+    ]
+  },
+  "stucco": {
+    "id": "stucco",
+    "title": "Stucco Services",
+    "intro": "Exterior stucco cladding provides a continuous, durable weather envelope for residential homes, apartment complexes, and commercial properties throughout New York City. Traditional portland cement plaster and synthetic exterior insulation and finish systems protect exterior framing from moisture penetration while creating clean architectural textures. Over years of environmental exposure, building settlement, and seasonal freeze-thaw cycles, stucco surfaces can develop hairline fractures, water staining, or mechanical impact damage. Stucco maintenance and restoration involve inspecting backing lath, cutting back loose or hollow plaster sections, fastening rust-resistant wire mesh, and applying multiple cementitious base coats with acrylic finish coats. Properly applied stucco claddings feature integrated drainage planes, flexible expansion joints, and vapor-permeable moisture barriers that prevent water from becoming trapped against exterior wood sheathing or concrete masonry substrates. Regular exterior inspections identify surface fissures early, allowing targeted sealant application and mesh patching that preserve wall insulation and prevent water penetration into building framing assemblies across urban neighborhoods.",
+    "childServices": [
+      {
+        "id": "stucco-repair",
+        "title": "Stucco Repair",
+        "href": "/services/stucco/stucco-repair",
+        "description": "Removal of spalled, hollow, or cracked exterior stucco followed by structural mesh patching and weather-resistant base coating."
+      },
+      {
+        "id": "traditional-stucco",
+        "title": "Traditional Stucco",
+        "href": "/services/stucco/traditional-stucco",
+        "description": "Application of three-coat portland cement plaster systems over galvanized metal lath, building paper, and solid masonry."
+      },
+      {
+        "id": "color-matching",
+        "title": "Color Matching",
+        "href": "/services/stucco/color-matching",
+        "description": "Custom color pigment blending and texture replication to blend patch repairs invisibly with existing textured walls."
+      },
+      {
+        "id": "californian-stucco",
+        "title": "Californian Stucco",
+        "href": "/services/stucco/californian-stucco",
+        "description": "Smooth and lightly troweled architectural stucco finishes offering a modern, clean aesthetic for exterior building facades."
+      },
+      {
+        "id": "eifs-systems",
+        "title": "EIFS Systems",
+        "href": "/services/stucco/eifs-systems",
+        "description": "Multi-layered exterior insulation and finish systems combining continuous foam board insulation with reinforced base coats."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What is the structural difference between traditional three-coat stucco and EIFS?",
+        "answer": "Traditional stucco consists of three layers of portland cement, sand, and lime plaster applied over metal lath and weather-resistant barrier paper, creating a hard, dense masonry shell. Exterior Insulation and Finish Systems incorporate rigid polystyrene insulation boards fastened directly to wall sheathing, followed by an acrylic polymer base coat embedded with fiberglass mesh and a textured synthetic finish coat for building exteriors across diverse climates."
+      },
+      {
+        "question": "What causes cracks to form on exterior stucco facades?",
+        "answer": "Stucco cracking typically results from structural building settlement, seasonal thermal expansion and contraction, shrinkage during initial curing, or seismic and traffic vibrations. Minor hairline cracks are often superficial and can be sealed with elastomeric coatings, while wider diagonal cracks indicate underlying structural movement that requires lath inspection, structural anchoring, and multi-layer patching across affected surfaces on the building to restore weather resistance."
+      },
+      {
+        "question": "How is proper water drainage managed behind exterior stucco walls?",
+        "answer": "Modern stucco installations incorporate a drainage cavity and water-resistive barrier between the exterior cladding and structural sheathing. Weep screeds installed along the foundation base provide a drainage exit for incidental moisture that penetrates the outer skin, preventing dampness from reaching underlying wood framing, insulation, or interior gypsum boards inside the building structure over extended periods of outdoor weather exposure and moisture."
+      },
+      {
+        "question": "How are custom colors and textured finishes maintained during stucco repairs?",
+        "answer": "Repair technicians take physical wall samples to analyze aggregate size, base binder type, and existing pigment tones. Acrylic polymer finish coats are custom formulated to replicate the existing color and texture, whether sand float, dash, heavy lace, or smooth troweled finish, allowing patched sections to integrate with surrounding wall surfaces cleanly across the entire facade plane without obvious demarcation lines."
+      }
+    ]
+  },
+  "custom-home-building": {
+    "id": "custom-home-building",
+    "title": "Custom Home Building",
+    "intro": "Custom home construction in the New York City metropolitan area requires specialized architectural design coordination, strict municipal permitting compliance, and rigorous engineering oversight from foundation excavation to final interior detailing. Constructing a standalone single-family residence, substantial residential addition, or complete structural reconstruction involves complex site logistics, soil bearing evaluations, utility service connections, and high-performance building envelope assemblies. The process unites architectural planning, structural steel or timber framing, advanced building mechanical systems, and bespoke architectural millwork under a single coordinated workflow. Construction managers oversee sub-contractors, manage municipal inspections, maintain detailed project timelines, and ensure that every phase of construction satisfies approved architectural blueprints. Custom home building transforms site plans into durable, energy-efficient residences built to high standards of craftsmanship and modern structural performance. Integrating skilled trades, verified construction practices, and reliable project administration ensures that new residential structures fulfill architectural visions while delivering enduring value across diverse urban and suburban neighborhoods throughout the region.",
+    "childServices": [
+      {
+        "id": "design-build",
+        "title": "Design-Build",
+        "href": "/services/custom-home-building/design-build",
+        "description": "Unified architectural design, structural engineering, municipal filing, and construction management under a single contract."
+      },
+      {
+        "id": "luxury-finishes",
+        "title": "Luxury Finishes",
+        "href": "/services/custom-home-building/luxury-finishes",
+        "description": "Installation of high-grade architectural woodwork, imported stone slabs, custom cabinetry, and precision artisan trim detailing."
+      },
+      {
+        "id": "project-management",
+        "title": "Project Management",
+        "href": "/services/custom-home-building/project-management",
+        "description": "Comprehensive jobsite oversight, trade coordination, municipal inspection scheduling, and construction quality control."
+      },
+      {
+        "id": "smart-homes",
+        "title": "Smart Homes",
+        "href": "/services/custom-home-building/smart-homes",
+        "description": "Integration of automated lighting controls, multi-zone climate management, security surveillance, and low-voltage structured wiring."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What advantages does the design-build project delivery model offer homeowners?",
+        "answer": "The design-build model consolidates architectural planning, engineering specifications, and construction execution under one responsible entity. This integrated structure enhances communication between designers and field managers, reduces delays caused by separate bidding cycles, and allows material selections and budget parameters to be addressed concurrently during early schematic design stages before breaking ground on the residential property for excavation and foundation work."
+      },
+      {
+        "question": "What municipal approvals and site surveys are required before ground excavation?",
+        "answer": "Before construction begins, land surveyors complete boundary and topographical surveys. Geotechnical engineers conduct soil borings to determine load-bearing capacity and groundwater depth. Architectural plans and structural calculations are submitted to municipal building authorities for zoning approval, foundation permits, utility connection clearances, and environmental reviews necessary for legal building construction on the site prior to commencing heavy excavation equipment operations on site."
+      },
+      {
+        "question": "How are modern custom homes engineered for thermal efficiency and durability?",
+        "answer": "Modern construction employs continuous exterior insulation, airtight vapor membranes, and high-performance multi-pane glazing to minimize thermal bridging. Mechanical systems include high-efficiency heat pumps, energy recovery ventilators for continuous fresh air circulation, and sealed building envelopes that reduce heating and cooling demands while protecting structural framing over decades of residential occupancy in all seasons across varying seasonal climates throughout the region."
+      },
+      {
+        "question": "How are quality control and trade coordination managed on custom residential builds?",
+        "answer": "Project managers maintain daily jobsite supervision and digital schedule tracking across all sub-trades, from excavation and concrete forming through electrical, plumbing, framing, and finish millwork. Milestone inspections are coordinated with structural engineers and municipal inspectors at critical stages before enclosing wall cavities, pouring concrete, or installing finishes throughout the residential structure to maintain complete quality assurance and structural code compliance."
+      }
+    ]
+  },
+  "emergency-service": {
+    "id": "emergency-service",
+    "title": "Emergency Service",
+    "intro": "Structural building emergencies across New York City require immediate stabilization, site safety containment, and rapid deployment of trained construction personnel. Severe storm events, falling facade masonry, roof membrane blow-offs, active water pipe bursts, vehicular building impacts, and fire damage demand prompt physical intervention to protect property and public safety. Emergency response operations focus on eliminating immediate structural hazards, erecting protective sidewalk bridges or overhead debris netting, boarding exposed window or doorway openings, and installing temporary weatherproofing tarps across compromised roof decks. Field crews conduct immediate physical assessments to determine the stability of load-bearing walls, parapets, roof rafters, and foundation elements. Stabilizing damaged structures promptly mitigates secondary water intrusion, prevents further physical degradation, and establishes safe working conditions for subsequent permanent restoration and municipal compliance filing. Rapid mobilization of equipment, materials, and skilled labor ensures that active hazards are quickly neutralized, safeguarding occupants, adjacent structures, and pedestrian thoroughfares throughout the five boroughs around the clock.",
+    "childServices": [
+      {
+        "id": "rapid-deployment",
+        "title": "Rapid Deployment",
+        "href": "/services/emergency-service/rapid-deployment",
+        "description": "Rapid mobilization of field repair personnel, emergency shoring equipment, and temporary weatherproofing materials."
+      },
+      {
+        "id": "safety-assessment",
+        "title": "Safety Assessment",
+        "href": "/services/emergency-service/safety-assessment",
+        "description": "Visual physical evaluation of damaged building envelopes, parapets, cracked brickwork, and structural framing elements."
+      },
+      {
+        "id": "board-up-service",
+        "title": "Board-Up Service",
+        "href": "/services/emergency-service/board-up-service",
+        "description": "Secure board-up of shattered storefronts, damaged doors, broken windows, and open roof apertures to protect properties."
+      },
+      {
+        "id": "emergency-24-7",
+        "title": "24/7 Emergency Services",
+        "href": "/services/emergency-service/emergency-24-7",
+        "description": "Around-the-clock emergency structural response, water intrusion mitigation, and overhead hazard containment across NYC."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What immediate measures are taken when exterior facade masonry becomes loose or dislodged?",
+        "answer": "Initial response focuses on securing the immediate ground area using safety barriers and pedestrian diversions to protect sidewalks. Crews deploy suspended scaffolding or lift equipment to inspect the facade, remove loose or fractured masonry units, install protective netting over compromised sections, and apply temporary mechanical tie-backs to prevent further displacement of wall materials toward the sidewalk and public street below."
+      },
+      {
+        "question": "How are building apertures secured following fire, collision, or storm damage?",
+        "answer": "Crews secure exposed openings by installing structural timber framing and heavy exterior-grade plywood sheets fastened to interior structural studs without causing unnecessary damage to surrounding trim. Access points are equipped with secure entry doors and heavy hardware to maintain site security against weather and unauthorized entry until permanent repairs can begin on the property under standard, permanently scheduled construction conditions."
+      },
+      {
+        "question": "What temporary measures halt water intrusion following severe roof blow-offs or punctures?",
+        "answer": "Emergency roofing response involves clearing broken debris and surface water, identifying puncture locations or torn seams, and mechanically anchoring heavy reinforced waterproof tarps or cold-applied mastic patches over the affected areas. Sandbags and batten strips secure membrane edges against wind lift until permanent roof restoration can be executed on the structure safely without allowing secondary leaks to penetrate interior finished ceilings."
+      },
+      {
+        "question": "What role does emergency stabilization play in municipal compliance and safety notices?",
+        "answer": "When municipal building inspectors identify an unsafe structural condition, immediate emergency stabilization is required to mitigate active hazards. Documenting the emergency repairs, installing required sidewalk protection sheds, and submitting engineer inspection reports demonstrate corrective action, paving the way for permanent repair filings and violation dismissals with municipal agencies across the city without unnecessary project delays or municipal administrative penalty notices."
+      }
+    ]
+  }
+}
