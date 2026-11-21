@@ -7,11 +7,12 @@ import { locationsData } from "@/data/locationsData";
 const BASE_URL = "https://www.megacontractingnyc.com";
 
 /**
- * Clean canonical sitemap generator:
- * - Lists ALL real content pages: homepage, core utility pages, all 52 canonical /services/... pages,
- *   all 22 published blog posts, all 5 project case studies, and 5 borough location pages.
- * - Excludes all 51 redirected keyword slugs, /sitemap, /privacy, /terms.
- * - Omits fake build-time lastModified stamps (real dates used only when known).
+ * Clean canonical sitemap generator (Task 4 audit):
+ * - Lists ALL real content pages: homepage, core utility pages (/licenses, /locations, /projects, /blog, /services, /about, /contact, /faq),
+ *   all 52 canonical /services/... pages, all published blog posts (guarded against future dates),
+ *   all 5 project case studies (/projects/[slug]), and all 5 borough location pages (/locations/[borough]).
+ * - Excludes all redirected keyword slugs, thin aliases, /sitemap, /privacy, /terms.
+ * - Omits fake build-time lastModified stamps (real dates used only when known, clamped <= 2026-11-02).
  * - Excludes changefreq and priority (ignored by Google).
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
