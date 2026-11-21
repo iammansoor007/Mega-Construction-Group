@@ -22,7 +22,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "NYC Construction & Roofing Blog | Technical Guides & DOB Codes | Mega Contracting NY Group",
+    absolute: "NYC Construction Guides | Roofing, Masonry, DOB",
   },
   description:
     "Technical construction insights, NYC DOB code updates, Local Law 97 energy compliance guides, and commercial roofing best practices from Mega Contracting NY Group",

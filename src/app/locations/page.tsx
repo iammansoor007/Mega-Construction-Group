@@ -9,7 +9,7 @@ import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "NYC Construction Service Areas & Locations | Mega Contracting NY Group",
+    absolute: "NYC Service Areas | Mega Contracting NY Group",
   },
   description:
     "Explore our licensed general contracting locations across all five NYC boroughs — The Bronx, Brooklyn, Manhattan, Queens, and Staten Island.",

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: {
-      absolute: `${post.seoTitle} | Mega Contracting NY Group`,
+      absolute: post.seoTitle,
     },
     description: post.metaDescription,
     alternates: {

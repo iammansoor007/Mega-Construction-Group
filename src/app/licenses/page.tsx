@@ -7,7 +7,7 @@ import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Licenses, Certifications & Insurance Credentials | Mega Contracting NY",
+    absolute: "Licenses and Insurance | Mega Contracting NY Group",
   },
   description:
     "Verify our full New York City contractor licensing credentials, DOB license #NYC-2005-8942, DOT permit qualifications, and comprehensive commercial liability insurance.",

@@ -10,7 +10,7 @@ import { ChevronRight, ArrowRight, ExternalLink, MapPin, FolderOpen, BookOpen } 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "HTML Website Sitemap & Service Directory | Mega Contracting NY Group",
+    absolute: "Website Sitemap | Mega Contracting NY Group",
   },
   description:
     "Complete navigation directory and HTML sitemap of all construction services, borough hubs, technical licensing, and customer service pages for Mega Contracting NY Group.",

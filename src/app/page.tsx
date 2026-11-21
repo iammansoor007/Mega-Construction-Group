@@ -24,7 +24,9 @@ const HOT_KEYWORDS = [
 ];
 
 export const metadata: Metadata = {
-  title: "General Contractor NYC | Licensed Construction Company",
+  title: {
+    absolute: "General Contractor NYC | Mega Contracting NY Group",
+  },
   description:
     "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
 
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   openGraph: {
-    title: "General Contractor NYC | Licensed Construction Company",
+    title: "General Contractor NYC | Mega Contracting NY Group",
     description:
       "NYC trusted general contractor — roofing, masonry, renovation, sidewalks & violations. Licensed & insured. All 5 boroughs. Free estimate!",
     url: BASE_URL,

@@ -4,7 +4,7 @@ import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Construction Services Bronx NY | All Services — Licensed Contractor",
+    absolute: "Construction Services Bronx NY | All Services",
   },
   description: "Full range of construction services in the Bronx NY. Roofing, masonry, renovation, sidewalks, waterproofing, violations & more. Licensed. Free estimate!",
   alternates: {

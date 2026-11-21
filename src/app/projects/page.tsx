@@ -14,7 +14,7 @@ import { business } from "@/config/business";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Documented Construction Projects & Case Studies NYC | Mega Contracting NY Group",
+    absolute: "Project Case Studies | Mega Contracting NY Group",
   },
   description:
     "Explore real, documented construction case studies across NYC. Roofing tear-offs, facade restorations, brownstone repointing, and luxury renovations by Mega Contracting NY Group",

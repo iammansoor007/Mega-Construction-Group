@@ -32,7 +32,7 @@ export const locationsData: Record<string, BoroughData> = {
   "bronx": {
     slug: "bronx",
     boroughName: "The Bronx",
-    title: "Licensed General Contractor The Bronx NY | Mega Contracting NY Group",
+    title: "General Contractor Bronx | Mega Contracting NY Group",
     metaDesc: "Licensed general contractor headquartered at 3044 Radcliff Ave in the Bronx. Roofing, brick pointing, facade restoration & sidewalk repair across all Bronx neighborhoods.",
     h1: "Licensed NYC General Contractor Serving The Bronx",
     intro: "Headquartered at 3044 Radcliff Ave, Mega Contracting NY Group is proud to be a hometown general contractor for the Bronx. From historic pre-war multi-family properties along the Grand Concourse to single-family residential homes in Riverdale, Pelham Bay, Throggs Neck, and Morris Park, we provide fully licensed, code-compliant exterior restoration, roofing, masonry, and interior renovation services.",
@@ -96,7 +96,7 @@ export const locationsData: Record<string, BoroughData> = {
   "brooklyn": {
     slug: "brooklyn",
     boroughName: "Brooklyn",
-    title: "Licensed General Contractor Brooklyn NY | Mega Contracting NY Group",
+    title: "General Contractor Brooklyn | Mega Contracting NY Group",
     metaDesc: "Expert Brooklyn general contractor specializing in brownstone facade restoration, stoop repair, flat roofing, and landmark district masonry. Free estimates.",
     h1: "Licensed Brooklyn General Contractor & Brownstone Restoration",
     intro: "Brooklyn's architectural heritage requires specialized construction craftsmanship. Mega Contracting NY Group delivers museum-grade brownstone restoration, historic stoop repair, rubber flat roofing, and comprehensive interior remodeling across Brooklyn's landmark and modern residential neighborhoods.",
@@ -150,7 +150,7 @@ export const locationsData: Record<string, BoroughData> = {
   "manhattan": {
     slug: "manhattan",
     boroughName: "Manhattan",
-    title: "Licensed General Contractor Manhattan NY | Mega Contracting NY Group",
+    title: "General Contractor Manhattan | Mega Contracting NY Group",
     metaDesc: "High-end Manhattan general contractor. Facade restoration, Local Law 11 FISP compliance, commercial roofing & luxury interior renovation. Fully insured.",
     h1: "Licensed Manhattan General Contractor & Commercial Construction",
     intro: "Operating in Manhattan demands high-density urban logistics, rigorous building department compliance, and strict building board protocols. Mega Contracting NY Group provides facade restoration, FISP Local Law 11 repairs, commercial flat roofing, and luxury interior renovations throughout Manhattan.",
@@ -203,7 +203,7 @@ export const locationsData: Record<string, BoroughData> = {
   "queens": {
     slug: "queens",
     boroughName: "Queens",
-    title: "Licensed General Contractor Queens NY | Mega Contracting NY Group",
+    title: "General Contractor Queens | Mega Contracting NY Group",
     metaDesc: "Licensed general contractor serving Queens NY. Roof replacement, stucco & EIFS claddings, concrete driveways, sidewalk violation removals, and renovations.",
     h1: "Licensed Queens General Contractor & Exterior Specialist",
     intro: "Queens features a wide variety of residential homes, multi-family garden complexes, and busy commercial strips. Mega Contracting NY Group delivers durable exterior contracting, pitched and flat roof replacements, traditional stucco and EIFS insulated finishes, and DOT concrete repairs across all Queens communities.",
@@ -256,7 +256,7 @@ export const locationsData: Record<string, BoroughData> = {
   "staten-island": {
     slug: "staten-island",
     boroughName: "Staten Island",
-    title: "Licensed General Contractor Staten Island NY | Mega Contracting NY Group",
+    title: "General Contractor Staten Island | Mega Contracting Group",
     metaDesc: "Reliable Staten Island general contractor. Architectural shingle roofing, commercial flat roofs, structural foundations, and masonry retaining walls.",
     h1: "Licensed Staten Island General Contractor & Roofing Specialists",
     intro: "Staten Island's suburban topography and maritime coastal climate present distinct construction challenges, from high wind loads along the South Shore to foundation drainage on sloping terrain. Mega Contracting NY Group delivers rugged, hurricane-rated roofing, concrete foundations, retaining walls, and custom residential renovations.",
