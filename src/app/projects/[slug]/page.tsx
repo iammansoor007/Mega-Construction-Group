@@ -33,11 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `https://www.megacontractingnyc.com/projects/${project.slug}`;
 
   return {
-    title: { absolute: `${project.title} | Case Study | Mega Contracting NY Group` },
+    title: { absolute: `${project.title} | Project Case Study` },
     description: `Case study: ${project.title} in ${project.location}. Diagnostic problem, materials used, NYC DOB code compliance, and final result by Mega Contracting NY Group`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${project.title} | Case Study`,
+      title: `${project.title} | Project Case Study`,
       description: project.problem,
       url: canonicalUrl,
       siteName: "Mega Contracting NY Group",
