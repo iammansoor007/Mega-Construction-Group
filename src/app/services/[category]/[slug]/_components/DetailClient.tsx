@@ -548,7 +548,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
               <SectionHeader
                 badge="Recent Work"
                 headline="Related <span class='text-red-600'>Projects</span>"
-                description={`Recent verified projects related to ${subCategory.title.toLowerCase()}.`}
+                description={`Recent projects related to ${subCategory.title.toLowerCase()}.`}
                 center={false}
                 className="mb-0 text-left"
               />
@@ -592,7 +592,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
                       )}
                     </div>
                     <Link
-                      href={`/projects?selected=${project.slug}`}
+                      href="/projects"
                       className="inline-flex items-center gap-1.5 text-xs text-red-600 font-bold uppercase tracking-wider hover:text-red-700"
                     >
                       <span>View Project Details</span>
@@ -613,7 +613,7 @@ export default function DetailClient({ categoryId, slug }: { categoryId: string;
             <SectionHeader
               badge="Coverage"
               headline="Service <span class='text-red-600'>Areas</span>"
-              description={`We provide ${subCategory.title.toLowerCase()} across these documented service locations.`}
+              description={`We provide ${subCategory.title.toLowerCase()} across these service locations.`}
             />
             <div className="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
               {serviceAreas.map((area, idx) => (

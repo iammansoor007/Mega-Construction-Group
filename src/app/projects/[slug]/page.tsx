@@ -33,11 +33,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `https://www.megacontractingnyc.com/projects/${project.slug}`;
 
   return {
-    title: { absolute: `${project.title} | Project Case Study` },
+    title: { absolute: `${project.title} | Case Study | Mega Contracting NY Group` },
     description: `Case study: ${project.title} in ${project.location}. Diagnostic problem, materials used, NYC DOB code compliance, and final result by Mega Contracting NY Group`,
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${project.title} | Project Case Study`,
+      title: `${project.title} | Case Study`,
       description: project.problem,
       url: canonicalUrl,
       siteName: "Mega Contracting NY Group",
@@ -121,7 +125,7 @@ export default async function ProjectCaseStudyPage({ params }: Props) {
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold uppercase tracking-wider">
                   <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Documented Case Study</span>
+                  <span>Project Case Study</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-medium">
                   <MapPin className="w-3.5 h-3.5 text-red-500" />

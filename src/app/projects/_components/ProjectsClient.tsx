@@ -138,7 +138,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
         {/* Results Count Bar */}
         <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
           <p className="text-xs font-mono uppercase tracking-wider text-white/50">
-            Showing <span className="text-red-500 font-bold">{filteredProjects.length}</span> documented case studies
+            Showing <span className="text-red-500 font-bold">{filteredProjects.length}</span> case studies
           </p>
           {(selectedCategory !== "All" || selectedBorough !== "All" || searchQuery) && (
             <button
@@ -280,7 +280,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
                         href={`/projects/${p.slug}`}
                         className="inline-flex items-center justify-between text-xs font-bold uppercase tracking-wider text-white hover:text-red-400 transition-colors pt-2"
                       >
-                        <span>View Documented Case Study</span>
+                        <span>View Case Study</span>
                         <ArrowRight className="w-4 h-4 text-red-500 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>

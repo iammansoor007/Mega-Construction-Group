@@ -267,9 +267,9 @@ export default async function BoroughLocationPage({ params }: Props) {
           <section className="py-16 bg-gray-50 border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
               <SectionHeader
-                badge="Documented Evidence"
+                badge="Project Case Studies"
                 headline={`Recent Work Completed in <span class='text-red-600'>${data.boroughName}</span>`}
-                description="Real local case studies with documented scopes of work and DOB sign-offs."
+                description="Real local case studies with itemized scopes of work and DOB sign-offs."
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

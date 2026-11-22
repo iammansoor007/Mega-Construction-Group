@@ -1,7 +1,6 @@
 import { MetadataRoute } from "next";
 import { servicesSeoMap } from "@/data/servicesSeoData";
 import { getAllBlogPosts, clampDate } from "@/data/blogsData";
-import { projectsData } from "@/data/projectsData";
 import { locationsData } from "@/data/locationsData";
 
 const BASE_URL = "https://www.megacontractingnyc.com";
@@ -46,15 +45,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return entry;
   });
 
-  // Real project case study pages
-  const projectPages: MetadataRoute.Sitemap = Object.keys(projectsData).map((slug) => ({
-    url: `${BASE_URL}/projects/${slug}`,
-  }));
-
   // Borough location pages
   const locationPages: MetadataRoute.Sitemap = Object.keys(locationsData).map((borough) => ({
     url: `${BASE_URL}/locations/${borough}`,
   }));
 
-  return [...corePages, ...servicePages, ...blogPages, ...projectPages, ...locationPages];
+  return [...corePages, ...servicePages, ...blogPages, ...locationPages];
 }

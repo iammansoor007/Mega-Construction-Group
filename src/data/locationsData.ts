@@ -67,7 +67,7 @@ export const locationsData: Record<string, BoroughData> = {
         title: "Bronx Multi-Family Parapet & Roof Rebuild",
         location: "Grand Concourse, Bronx NY",
         scope: "Complete tear-off of 4,200 sq ft flat roof, structural parapet wall rebuild, and GAF TPO installation.",
-        href: "/projects/bronx-multi-family-renovation"
+        href: "/projects"
       },
       {
         title: "Pelham Bay Historic Brick Pointing",
@@ -131,7 +131,7 @@ export const locationsData: Record<string, BoroughData> = {
         title: "Park Slope Brownstone Facade & Stoop Restoration",
         location: "Park Slope, Brooklyn NY",
         scope: "Full brownstone facade resurfacing, decorative lintel casting, and three-flight stoop rebuilding.",
-        href: "/projects/brooklyn-commercial-build-out"
+        href: "/projects"
       }
     ],
     faqs: [
@@ -184,7 +184,7 @@ export const locationsData: Record<string, BoroughData> = {
         title: "Park Avenue Historic Co-op Renovation",
         location: "Upper East Side, Manhattan NY",
         scope: "Complete structural interior renovation, bespoke millwork, and luxury bathroom suites.",
-        href: "/projects/park-avenue-residence"
+        href: "/projects"
       }
     ],
     faqs: [

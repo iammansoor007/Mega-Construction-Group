@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     absolute: "Project Case Studies | Mega Contracting NY Group",
   },
   description:
-    "Explore real, documented construction case studies across NYC. Roofing tear-offs, facade restorations, brownstone repointing, and luxury renovations by Mega Contracting NY Group",
+    "Explore real construction case studies across NYC. Roofing tear-offs, facade restorations, brownstone repointing, and luxury renovations by Mega Contracting NY Group",
   alternates: {
     canonical: "https://www.megacontractingnyc.com/projects",
   },
   openGraph: {
-    title: "Documented Projects & Case Studies | Mega Contracting NY Group",
-    description: "Documented project evidence, materials used, and NYC DOB code compliance sign-offs.",
+    title: "Projects & Case Studies | Mega Contracting NY Group",
+    description: "Project evidence, materials used, and NYC DOB code compliance sign-offs.",
     url: "https://www.megacontractingnyc.com/projects",
   },
 };
@@ -64,7 +64,7 @@ export default function ProjectsIndexPage() {
             <div className="max-w-4xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-600/30 bg-red-600/10 text-red-400 text-xs font-bold uppercase tracking-widest mb-6">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>E-E-A-T Documented Case Studies</span>
+                <span>Project Case Studies</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight leading-[0.95] text-white mb-6 font-heading">
@@ -75,7 +75,7 @@ export default function ProjectsIndexPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-2xl font-normal mb-10">
-                Every project is real. Real diagnostic findings, real materials, real DOB sign-offs. Browse documented case studies from roofing tear-offs and facade restorations to luxury interior transformations across all five NYC boroughs.
+                Every project is real. Real diagnostic findings, real materials, real DOB sign-offs. Browse case studies from roofing tear-offs and facade restorations to luxury interior transformations across all five NYC boroughs.
               </p>
 
               {/* Stats strip */}
@@ -107,7 +107,7 @@ export default function ProjectsIndexPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: <Award className="w-6 h-6" />, title: "Fully Documented Projects", desc: "Every case study includes documented scopes, materials used, and final NYC DOB sign-off documentation." },
+                { icon: <Award className="w-6 h-6" />, title: "Detailed Project Records", desc: "Every case study includes itemized scopes, materials used, and final NYC DOB sign-off details." },
                 { icon: <TrendingUp className="w-6 h-6" />, title: "Proven Structural Outcomes", desc: "Zero post-construction moisture failures. Our thermal-welded systems last decades beyond code minimums." },
                 { icon: <Building2 className="w-6 h-6" />, title: "All Property Classes", desc: "From pre-war residential co-ops to active commercial facades — we've engineered solutions for every building type." },
               ].map((item, i) => (
