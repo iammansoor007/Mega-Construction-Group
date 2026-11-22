@@ -7,8 +7,6 @@ import {
   useInView,
   useMotionValue,
 } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import serviceDetail from "../assets/megaprintedimage2.png";
@@ -41,8 +39,6 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import completeData from "@/data/completeData.json";
-
-gsap.registerPlugin(ScrollTrigger);
 
 
 

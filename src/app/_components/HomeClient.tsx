@@ -9,15 +9,14 @@ import LoadingScreen from "@/components/LoadingScreen";
 
 // Dynamic imports for bundle splitting
 const Services = dynamic(() => import("@/components/Services"), { ssr: true });
-const Portfolio = dynamic(() => import("@/components/Portfolio"), { ssr: true });
-const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
-const Mission = dynamic(() => import("@/components/Mission"), { ssr: true });
-const TeamValues = dynamic(() => import("@/components/TeamValues"), { ssr: true });
-const QAForm = dynamic(() => import("@/components/QAForm"), { ssr: true });
+const Portfolio = dynamic(() => import("@/components/Portfolio"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const TeamValues = dynamic(() => import("@/components/TeamValues"), { ssr: false });
+const QAForm = dynamic(() => import("@/components/QAForm"), { ssr: false });
 const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 const AggressiveRoofingSection = dynamic(() => import("@/components/RoofingExperts"), { ssr: true });
-const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: true });
+const HowWeWork = dynamic(() => import("@/components/HowWeWork"), { ssr: false });
 const HomepagePathways = dynamic(() => import("@/components/HomepagePathways"), { ssr: true });
 
 export default function HomeClient() {
@@ -63,12 +62,7 @@ export default function HomeClient() {
         {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       </AnimatePresence>
 
-      <motion.div 
-        className="relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: loading ? 0 : 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
+      <div className="relative z-10">
         <Navbar />
         <Hero />
         
@@ -97,7 +91,7 @@ export default function HomeClient() {
             <FAQ />
           </section>
           <Footer />
-      </motion.div>
+      </div>
     </main>
   );
 }

@@ -19,12 +19,14 @@ export const MouseProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const springY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 

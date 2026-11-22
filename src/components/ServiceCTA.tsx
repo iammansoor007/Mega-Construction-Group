@@ -4,7 +4,7 @@ import { memo, useMemo } from "react";
 import { motion, useReducedMotion, Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import vectoroverlay from "@/assets/ctavector.png";
+import vectoroverlay from "@/assets/ctavector.webp";
 
 // ============================================================================
 // Constants

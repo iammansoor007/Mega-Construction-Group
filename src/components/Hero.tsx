@@ -4,7 +4,7 @@ import { motion, useTransform, useMotionValue } from "framer-motion";
 import { useRef, memo, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import heroBg from '../assets/newherobg.png';
+import heroBg from '../assets/newherobg.webp';
 import { FiArrowRight, FiChevronDown, FiStar, FiThumbsUp } from "react-icons/fi";
 import { RiBuildingLine, RiShieldCheckLine } from "react-icons/ri";
 import completeData from "@/data/completeData.json";
@@ -73,6 +73,7 @@ const Hero = () => {
           alt="New York City skyline with architectural development and urban construction"
           className="w-full h-full object-cover smooth-gpu"
           priority
+          fetchPriority="high"
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
         />
@@ -85,21 +86,19 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-black/30 z-0" />
 
-      {/* Decorative Animated Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div
-          className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl smooth-gpu"
-          animate={{ opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          style={{ x: x03, y: y03 }}
-        />
-        <motion.div
-          className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl smooth-gpu"
-          animate={{ opacity: [0.03, 0.07, 0.03] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          style={{ x: xNeg02, y: yNeg02 }}
-        />
-      </div>
+      {/* Decorative Animated Elements - Desktop Only */}
+      {isMounted && windowSize.width >= 768 && (
+        <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
+          <motion.div
+            className="absolute top-[20%] right-[15%] w-[40rem] h-[40rem] bg-white/5 rounded-full blur-3xl smooth-gpu"
+            style={{ x: x03, y: y03 }}
+          />
+          <motion.div
+            className="absolute bottom-[10%] left-[10%] w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-3xl smooth-gpu"
+            style={{ x: xNeg02, y: yNeg02 }}
+          />
+        </div>
+      )}
 
       {/* Grid Pattern */}
       <div className="absolute inset-0 opacity-10 pointer-events-none z-0">
@@ -125,77 +124,49 @@ const Hero = () => {
         </svg>
       </div>
 
-      {/* Decorative Parallax Elements - Streamlined for Performance */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <motion.div
-          className="absolute top-[15%] right-[10%] w-64 h-64 border border-white/5 rounded-full smooth-gpu"
-          style={{ x: x04, y: y04 }}
-        />
-        <motion.div
-          className="absolute bottom-[20%] left-[5%] w-96 h-96 border border-white/5 rounded-full smooth-gpu"
-          style={{ x: xNeg03, y: yNeg03 }}
-        />
-      </div>
+      {/* Decorative Parallax Elements - Desktop Only */}
+      {isMounted && windowSize.width >= 768 && (
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden hidden md:block">
+          <motion.div
+            className="absolute top-[15%] right-[10%] w-64 h-64 border border-white/5 rounded-full smooth-gpu"
+            style={{ x: x04, y: y04 }}
+          />
+          <motion.div
+            className="absolute bottom-[20%] left-[5%] w-96 h-96 border border-white/5 rounded-full smooth-gpu"
+            style={{ x: xNeg03, y: yNeg03 }}
+          />
+        </div>
+      )}
 
 
 
       {/* Main Content */}
       <div className="section-padding w-full relative z-20 pb-20 md:pb-28">
         <div className="max-w-7xl mx-auto lg:mx-0 lg:max-w-6xl py-4 sm:py-1">
-          <motion.div
-            className="flex items-center justify-center md:justify-start gap-2 mb-2 mt-4 md:-mt-4"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
+          <div className="flex items-center justify-center md:justify-start gap-2 mb-2 mt-4 md:-mt-4">
             <div className="w-8 h-px bg-white/60 md:w-16" />
             <span className="font-body text-white/90 text-xs md:text-sm uppercase tracking-[0.3em] font-light">
               {badge}
             </span>
-          </motion.div>
+          </div>
 
           <h1 className="heading-xl text-white mb-4 leading-[1.1] tracking-tight drop-shadow-lg text-center md:text-left">
             {headlines.map((line, i) => (
-              <motion.span
-                key={i}
-                className="block overflow-hidden"
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.1 + 0.1 * i,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-              >
+              <span key={i} className="block overflow-hidden">
                 {line}
-              </motion.span>
+              </span>
             ))}
           </h1>
 
-          <motion.p
-            className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md text-center md:text-left mx-auto md:mx-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed font-light drop-shadow-md text-center md:text-left mx-auto md:mx-0">
             {description}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-5"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
             {buttons.map((button, idx) => {
               const Icon = iconComponents[button.icon as keyof typeof iconComponents];
               return button.primary ? (
-                <motion.div
-                  key={idx}
-                  whileHover={{ scale: 1.03, x: 4 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto"
-                >
+                <div key={idx} className="w-full sm:w-auto">
                   <Link
                     href={button.href}
                     className="group bg-primary text-white px-8 py-4 font-bold text-lg flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 rounded-none hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl"
@@ -203,14 +174,9 @@ const Hero = () => {
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />}
                   </Link>
-                </motion.div>
+                </div>
               ) : (
-                <motion.div
-                  key={idx}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto"
-                >
+                <div key={idx} className="w-full sm:w-auto">
                   <Link
                     href={button.href}
                     className="group backdrop-blur-sm bg-white/10 border border-white/30 text-white px-8 py-4 font-bold text-lg flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 rounded-none hover:bg-white/20 hover:border-white/40 transition-all duration-300"
@@ -218,17 +184,12 @@ const Hero = () => {
                     {button.text}
                     {Icon && <Icon className="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />}
                   </Link>
-                </motion.div>
+                </div>
               );
             })}
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center md:justify-start gap-y-6 xs:gap-y-10 gap-x-5 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
-          >
+          <div className="grid grid-cols-2 md:flex md:flex-wrap items-center justify-center md:justify-start gap-y-6 xs:gap-y-10 gap-x-5 md:gap-14 lg:gap-20 mt-8 md:mt-12 pt-6 border-t border-white/20">
             {stats.map((stat, idx) => {
               const StatIcon = iconComponents[stat.icon as keyof typeof iconComponents];
               return (
@@ -250,33 +211,19 @@ const Hero = () => {
                 </motion.div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        className="absolute hidden sm:flex bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 z-20"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.2, duration: 0.6 }}
-      >
+      <div className="absolute hidden sm:flex bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-3 z-20">
         <span className="text-white/60 text-[10px] uppercase tracking-[0.3em] font-light">
           Discover
         </span>
-        <motion.div
-          animate={{
-            y: [0, 6, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
+        <div className="animate-bounce">
           <FiChevronDown className="w-5 h-5 text-white/70" />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 };

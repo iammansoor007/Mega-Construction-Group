@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { memo, useState, useEffect } from "react";
 
 interface MarqueeSectionProps {
@@ -20,16 +19,7 @@ const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
   return (
     <section className="py-2.5 bg-red-600 overflow-hidden border-none select-none">
       <div className="relative flex items-center">
-        <motion.div
-          initial={{ x: 0 }}
-          animate={{ x: "-50%" }}
-          transition={{
-            duration: 120, // Premium slow speed
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex whitespace-nowrap gap-4 md:gap-8 items-center"
-        >
+        <div className="marquee-track flex whitespace-nowrap gap-4 md:gap-8 items-center">
           {items.map((_, i) => (
             <div
               key={i}
@@ -45,7 +35,7 @@ const MarqueeSection = memo(({ text }: MarqueeSectionProps) => {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

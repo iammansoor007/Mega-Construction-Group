@@ -32,12 +32,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left space-y-6"
-          >
+          <div className="max-w-3xl flex flex-col items-center md:items-start text-center md:text-left space-y-6">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center md:justify-start gap-2 text-[10px] uppercase tracking-[0.3em] text-white/50 font-bold">
               <Link href="/" className="hover:text-red-500 transition-colors">Home</Link>
@@ -76,7 +71,7 @@ export default function CategoryClient({ categoryId }: { categoryId: string }) {
                 Call {business.phone}
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

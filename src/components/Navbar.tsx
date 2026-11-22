@@ -31,8 +31,8 @@ import {
   AlertTriangle,
   PaintBucket,
 } from "lucide-react";
-import logo from "../assets/Mega-Contracting-Logo.png";
-import logo2nd from "../assets/Mega-Contracting-Logo.png";
+import logo from "../assets/Mega-Contracting-Logo-small.webp";
+import logo2nd from "../assets/Mega-Contracting-Logo-small.webp";
 import { getServiceImage } from "@/data/serviceImages";
 import completeData from "@/data/completeData.json";
 import { servicesData } from "@/data/servicesData";

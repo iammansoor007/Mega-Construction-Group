@@ -14,7 +14,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
 import SectionHeader from "@/components/SectionHeader";
-import vectoroverlay from "../assets/ctavector.png";
+import vectoroverlay from "../assets/ctavector.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 

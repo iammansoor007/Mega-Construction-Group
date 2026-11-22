@@ -9,12 +9,8 @@ import {
   useTransform,
   AnimatePresence
 } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import completeData from "@/data/completeData.json";
 import { business } from "@/config/business";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Icons = {
   Linkedin: () => (
