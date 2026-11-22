@@ -142,7 +142,7 @@ const Footer = () => {
     <footer ref={sectionRef} className="relative bg-[#050505] text-white overflow-hidden border-t-4 border-primary">
       {/* Structural Blueprint Grid (Subtle) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none blueprint-grid" />
-      
+
       {/* Dynamic Quantum Blobs (Visual Depth) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -174,7 +174,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 xs:px-5 md:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 xs:gap-10 md:gap-12 py-8 xs:py-12 md:py-24">
-          
+
           {/* Column 1: Identity */}
           <div className="space-y-6 xs:space-y-8">
             <div className="flex items-center gap-3 xs:gap-4">

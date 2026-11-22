@@ -179,7 +179,7 @@ const ServiceCard = memo(({ service, index }: { service: any; index: number }) =
               sizes="(max-width: 768px) 100vw, 33vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
-            
+
             <div className="absolute top-6 left-6 z-20">
               <div className="bg-black/40 backdrop-blur-xl px-4 py-1.5 rounded-full text-[10px] font-bold text-white border border-white/30 uppercase tracking-widest shadow-xl">
                 {service.tag}
@@ -316,7 +316,7 @@ const Services = () => {
 
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-10 border-t border-gray-100">
                 {stats.map((stat: any, i: number) => (
-                  <motion.div 
+                  <motion.div
                     key={stat.label}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -353,18 +353,18 @@ const Services = () => {
           <div className="lg:col-span-7">
             <div className="relative">
               <div className="relative rounded-3xl overflow-visible">
-                  <motion.div
-                    className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"
-                    style={{ clipPath: clipPathLeftToRight }}
-                  >
-                    <Image
-                      src={serviceDetail}
-                      alt="Exterior building restoration and general contracting project site in New York"
-                      fill
-                      className="object-cover"
-                      style={{ scale: imageScale as any }}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
+                <motion.div
+                  className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl"
+                  style={{ clipPath: clipPathLeftToRight }}
+                >
+                  <Image
+                    src={serviceDetail}
+                    alt="Exterior building restoration and general contracting project site in New York"
+                    fill
+                    className="object-cover"
+                    style={{ scale: imageScale as any }}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -490,9 +490,9 @@ const Services = () => {
               <h3 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 transition-colors">
                 {cta.title}
               </h3>
-            <p className="text-gray-600 text-base max-w-2xl mx-auto mb-6">
-              {cta.description}
-            </p>
+              <p className="text-gray-600 text-base max-w-2xl mx-auto mb-6">
+                {cta.description}
+              </p>
               <motion.a
                 href={cta.buttonLink}
                 whileHover={{ scale: 1.05, y: -2 }}
@@ -502,12 +502,12 @@ const Services = () => {
                 <span>{cta.buttonText}</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </motion.a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 export default Services;
