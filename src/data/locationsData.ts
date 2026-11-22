@@ -256,7 +256,7 @@ export const locationsData: Record<string, BoroughData> = {
   "staten-island": {
     slug: "staten-island",
     boroughName: "Staten Island",
-    title: "General Contractor Staten Island | Mega Contracting Group",
+    title: "General Contractor Staten Island | Mega Contracting NY Group",
     metaDesc: "Reliable Staten Island general contractor. Architectural shingle roofing, commercial flat roofs, structural foundations, and masonry retaining walls.",
     h1: "Licensed Staten Island General Contractor & Roofing Specialists",
     intro: "Staten Island's suburban topography and maritime coastal climate present distinct construction challenges, from high wind loads along the South Shore to foundation drainage on sloping terrain. Mega Contracting NY Group delivers rugged, hurricane-rated roofing, concrete foundations, retaining walls, and custom residential renovations.",

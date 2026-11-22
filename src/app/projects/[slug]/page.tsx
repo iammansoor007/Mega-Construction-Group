@@ -22,6 +22,14 @@ export async function generateStaticParams() {
   }));
 }
 
+const projectSeoTitles: Record<string, string> = {
+  "bronx-multi-family-renovation": "Bronx Parapet & Flat Roof | Mega Contracting NY Group",
+  "brooklyn-commercial-build-out": "Brooklyn Facade Restoration | Mega Contracting NY Group",
+  "park-avenue-residence": "Manhattan Co-op Renovation | Mega Contracting NY Group",
+  "westchester-estate-addition": "Pelham Manor Roof & Masonry | Mega Contracting NY Group",
+  "long-island-kitchen-remodel": "Queens Kitchen Renovation | Mega Contracting NY Group",
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projectsData[slug];
@@ -31,9 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const canonicalUrl = `https://www.megacontractingnyc.com/projects/${project.slug}`;
+  const pageTitle = projectSeoTitles[slug] || `${project.title.slice(0, 31)} | Mega Contracting NY Group`;
 
   return {
-    title: { absolute: `${project.title} | Case Study | Mega Contracting NY Group` },
+    title: { absolute: pageTitle },
     description: `Case study: ${project.title} in ${project.location}. Diagnostic problem, materials used, NYC DOB code compliance, and final result by Mega Contracting NY Group`,
     robots: {
       index: false,

@@ -75,7 +75,7 @@ export default function Home() {
       "@id": `${BASE_URL}/#business`,
       "name": business.name,
       ...(business.legalName ? { "legalName": business.legalName } : {}),
-      "alternateName": ["General Contractor NYC", "Mega Contracting NY", "Mega Contracting Group"],
+      "alternateName": ["General Contractor NYC", "Mega Contracting NY", "Mega Contracting NY Group"],
       "description":
         "Mega Contracting NY Group is NYC's licensed general contractor specializing in facade restoration, roof leak repair, flat roofing, chimney repair, fire escape painting, parapet wall repair, stucco repair, EIFS, DOB violation removal, DOT violation removal, sidewalk repair, building safety assessments, brick pointing, foundation repair, and waterproofing across all 5 boroughs.",
       "url": BASE_URL,

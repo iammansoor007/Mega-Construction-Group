@@ -222,7 +222,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "waterproofing": {
     slug: "waterproofing",
     keyword: "waterproofing services bronx ny",
-    seoTitle: "Waterproofing Services Bronx NY | Licensed Waterproofing Contractor",
+    seoTitle: "Waterproofing Services Bronx NY | Waterproofing Experts",
     metaDesc: "Expert waterproofing services in the Bronx NY. Basement, exterior, foundation waterproofing & window caulking. Licensed. Free estimate!",
     h1: "Waterproofing Services in the Bronx NY",
     categoryHub: "/services/masonry-work/waterproofing",
@@ -305,7 +305,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "chimney-repair-bronx": {
     slug: "chimney-repair-bronx",
     keyword: "chimney repair bronx ny",
-    seoTitle: "Chimney Repair Bronx NY | Licensed Masonry Chimney Contractors",
+    seoTitle: "Chimney Repair Bronx NY | Masonry Chimney Contractors",
     metaDesc: "Expert chimney repair in the Bronx NY. Repointing, crown repair, flashing & full rebuilds. Licensed masonry contractors. Free inspection! Call now.",
     h1: "Professional Chimney Repair Services in the Bronx NY",
     categoryHub: "/services/masonry-work",
@@ -406,7 +406,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "smart-home-brooklyn": {
     slug: "smart-home-brooklyn",
     keyword: "home automation brooklyn ny",
-    seoTitle: "Home Automation Brooklyn NY | Smart Home Installation Experts",
+    seoTitle: "Home Automation Brooklyn NY | Smart Home Installation",
     metaDesc: "Expert smart home & home automation in Brooklyn NY. Lighting, security, audio & climate automation. Certified installers. Free estimate!",
     h1: "Smart Home & Home Automation Services in Brooklyn NY",
     categoryHub: "/services/home-renovation",
@@ -446,7 +446,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "facade-restoration-nyc": {
     slug: "facade-restoration-nyc",
     keyword: "facade restoration nyc",
-    seoTitle: "Facade Restoration NYC | Commercial & Residential Building Facades",
+    seoTitle: "Facade Restoration NYC | Commercial & Building Facades",
     metaDesc: "Professional facade restoration in NYC. Brownstone, limestone, brick & terra cotta restoration. Local Law 11 compliant. Licensed contractor. Free estimate!",
     h1: "Facade Restoration & Repair Services in NYC",
     categoryHub: "/services/masonry-work",
@@ -491,7 +491,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "dot-violation-removal-nyc": {
     slug: "dot-violation-removal-nyc",
     keyword: "nyc dot sidewalk violation",
-    seoTitle: "NYC DOT Sidewalk Violation Removal | Repair Order Cleared Fast",
+    seoTitle: "NYC DOT Sidewalk Violation Removal | Cleared Fast",
     metaDesc: "Remove your NYC DOT sidewalk violation fast. Licensed contractors clear repair orders & restore compliance in all boroughs. Free estimate!",
     h1: "DOT Sidewalk Violation Removal & Compliance in NYC",
     categoryHub: "/services/concrete-services",
@@ -532,7 +532,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "fire-escape-painting-nyc": {
     slug: "fire-escape-painting-nyc",
     keyword: "fire escape painting nyc",
-    seoTitle: "Fire Escape Painting NYC | DOB Compliant Fire Escape Services",
+    seoTitle: "Fire Escape Painting NYC | DOB Fire Escape Services",
     metaDesc: "Professional fire escape painting & maintenance in NYC. DOB-compliant rust treatment & restoration. All boroughs. Licensed contractor. Free quote!",
     h1: "Fire Escape Painting & Maintenance Services in NYC",
     categoryHub: "/services/masonry-work",
@@ -612,7 +612,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "foundation-repair-brooklyn": {
     slug: "foundation-repair-brooklyn",
     keyword: "foundation repair brooklyn ny",
-    seoTitle: "Foundation Repair Brooklyn NY | Structural Foundation Contractors",
+    seoTitle: "Foundation Repair Brooklyn NY | Foundation Contractors",
     metaDesc: "Expert foundation repair in Brooklyn NY. Cracks, settlement & waterproofing solutions. Licensed structural contractors. All boroughs. Free inspection!",
     h1: "Foundation Repair & Restoration Services in Brooklyn NY",
     categoryHub: "/services/concrete-services",
@@ -652,7 +652,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "flat-roofing-nyc": {
     slug: "flat-roofing-nyc",
     keyword: "flat roofing nyc",
-    seoTitle: "Flat Roofing NYC | Commercial & Residential Flat Roof Experts",
+    seoTitle: "Flat Roofing NYC | Commercial & Flat Roof Experts",
     metaDesc: "Flat roofing specialists in NYC. TPO, EPDM & built-up systems. Installation, repair & replacement. Commercial & residential. Free estimate!",
     h1: "Flat Roofing Installation & Repair Services in NYC",
     categoryHub: "/services/roofing-services",
@@ -854,7 +854,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "emergency-building-repair-bronx": {
     slug: "emergency-building-repair-bronx",
     keyword: "water damage restoration bronx ny",
-    seoTitle: "Water Damage Restoration Bronx NY | Emergency Building Repair",
+    seoTitle: "Water Damage Restoration Bronx NY | Emergency Repairs",
     metaDesc: "24/7 water damage restoration & emergency building repair in the Bronx NY. Flood cleanup, structural drying & repairs. Licensed. Call now!",
     h1: "Water Damage Restoration & Emergency Repair in the Bronx NY",
     categoryHub: "/services/concrete-services",
@@ -1014,7 +1014,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "general-contractor-bronx": {
     slug: "general-contractor-bronx",
     keyword: "general contractor bronx ny",
-    seoTitle: "General Contractor Bronx NY | Commercial & Residential Building",
+    seoTitle: "General Contractor Bronx NY | Commercial & Building",
     metaDesc: "Premier general contractor in the Bronx NY. Residential & commercial construction, renovations, roofing & masonry. Licensed & insured. Free quote!",
     h1: "General Contractor in the Bronx NY — Residential & Commercial",
     categoryHub: "/services/home-renovation",
@@ -1095,7 +1095,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "roof-replacement-bronx-ny": {
     slug: "roof-replacement-bronx-ny",
     keyword: "roof replacement bronx ny",
-    seoTitle: "Roof Replacement Bronx NY | Full Roof Installation Contractor",
+    seoTitle: "Roof Replacement Bronx NY | Roof Installation Experts",
     metaDesc: "Complete roof replacement in the Bronx NY. Shingle, flat, TPO & EPDM roofs. Licensed & insured roofers. Warranties included. Free estimate!",
     h1: "Complete Roof Replacement Services in the Bronx NY",
     categoryHub: "/services/roofing-services",
@@ -1169,7 +1169,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "shingle-roofing-bronx": {
     slug: "shingle-roofing-bronx",
     keyword: "shingle roofing bronx ny",
-    seoTitle: "Shingle Roofing Bronx NY | Asphalt & Residential Roof Experts",
+    seoTitle: "Shingle Roofing Bronx NY | Asphalt Roofing Experts",
     metaDesc: "Expert shingle roofing in the Bronx NY. Asphalt & architectural shingles. Licensed. Free quote!",
     h1: "Asphalt & Architectural Shingle Roofing in the Bronx NY",
     categoryHub: "/services/roofing-services",
@@ -1265,7 +1265,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "sidewalk-violation-bronx": {
     slug: "sidewalk-violation-bronx",
     keyword: "sidewalk violation bronx ny",
-    seoTitle: "Sidewalk Violation Bronx NY | Clear DOT Notice of Violation Fast",
+    seoTitle: "Sidewalk Violation Bronx NY | Clear DOT Violations",
     metaDesc: "Fast sidewalk violation repair in the Bronx NY. Dismiss DOT notices, clear violations & pass inspection. Free estimate!",
     h1: "Bronx Sidewalk Violation Removal & DOT Permitting",
     categoryHub: "/services/concrete-services",
@@ -1281,7 +1281,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "sidewalk-replacement-bronx": {
     slug: "sidewalk-replacement-bronx",
     keyword: "sidewalk replacement bronx ny",
-    seoTitle: "Sidewalk Replacement Bronx NY | Full Concrete Sidewalk Pouring",
+    seoTitle: "Sidewalk Replacement Bronx NY | Concrete Sidewalks",
     metaDesc: "Complete sidewalk replacement in the Bronx NY. DOT-spec 4000 PSI concrete, curb replacement & permits handled. Free quote!",
     h1: "Concrete Sidewalk Replacement Services in the Bronx NY",
     categoryHub: "/services/concrete-services",
@@ -1313,7 +1313,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "patio-contractor-bronx": {
     slug: "patio-contractor-bronx",
     keyword: "patio contractor bronx ny",
-    seoTitle: "Patio Contractor Bronx NY | Concrete & Paver Patio Installation",
+    seoTitle: "Patio Contractor Bronx NY | Paver Patio Installation",
     metaDesc: "Custom patio contractor in the Bronx NY. Stamped concrete, flagstone, paving stones & outdoor living spaces. Free design consultation!",
     h1: "Custom Patio Installation & Hardscaping in the Bronx NY",
     categoryHub: "/services/concrete-services",
@@ -1329,7 +1329,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "stoop-repair-brooklyn": {
     slug: "stoop-repair-brooklyn",
     keyword: "stoop repair brooklyn",
-    seoTitle: "Stoop Repair Brooklyn NY | Brownstone Steps & Concrete Stoops",
+    seoTitle: "Stoop Repair Brooklyn NY | Brownstone Steps & Stoop",
     metaDesc: "Expert brownstone stoop repair in Brooklyn NY. Concrete steps, brownstone resurfacing & iron railings. Licensed contractor. Free estimate!",
     h1: "Brownstone Stoop & Step Repair in Brooklyn NY",
     categoryHub: "/services/masonry-work",
@@ -1345,7 +1345,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "driveway-bronx": {
     slug: "driveway-bronx",
     keyword: "driveway contractor bronx ny",
-    seoTitle: "Driveway Contractor Bronx NY | Concrete Driveway Installation",
+    seoTitle: "Driveway Contractor Bronx NY | Concrete Driveways",
     metaDesc: "Durable concrete driveway installation in the Bronx NY. Wire-mesh reinforced, decorative borders & curb cuts. Free estimate!",
     h1: "Reinforced Concrete Driveway Paving in the Bronx NY",
     categoryHub: "/services/concrete-services",
@@ -1393,7 +1393,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "stucco-restoration-brooklyn": {
     slug: "stucco-restoration-brooklyn",
     keyword: "stucco restoration brooklyn",
-    seoTitle: "Stucco Restoration Brooklyn NY | Historic & Brownstone Stucco",
+    seoTitle: "Stucco Restoration Brooklyn NY | Brownstone Stucco",
     metaDesc: "Historic and brownstone stucco restoration in Brooklyn NY. Color matching, architectural detail repair & breathable finishes. Free quote!",
     h1: "Exterior Stucco Restoration & Texture Matching in Brooklyn NY",
     categoryHub: "/services/masonry-work",
@@ -1409,7 +1409,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "eifs-contractor-brooklyn": {
     slug: "eifs-contractor-brooklyn",
     keyword: "eifs contractor brooklyn",
-    seoTitle: "EIFS Contractor Brooklyn NY | Exterior Insulation & Finish Systems",
+    seoTitle: "EIFS Contractor Brooklyn NY | Exterior Insulation",
     metaDesc: "Certified EIFS contractor in Brooklyn NY. Continuous insulation, moisture drainage systems & synthetic stucco installation. Free estimate!",
     h1: "Certified EIFS & Synthetic Stucco Contractors in Brooklyn NY",
     categoryHub: "/services/masonry-work",
@@ -1425,7 +1425,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "smooth-stucco-brooklyn": {
     slug: "smooth-stucco-brooklyn",
     keyword: "smooth stucco brooklyn",
-    seoTitle: "Smooth Stucco Brooklyn NY | Santa Barbara & Modern Smooth Finish",
+    seoTitle: "Smooth Stucco Brooklyn NY | Modern Smooth Finishes",
     metaDesc: "Modern smooth stucco and Santa Barbara finishes in Brooklyn NY. Ultra-flat, contemporary look for residential & commercial facades. Free quote!",
     h1: "Smooth Finish & California Stucco in Brooklyn NY",
     categoryHub: "/services/masonry-work",
@@ -1441,7 +1441,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "basement-renovation-bronx": {
     slug: "basement-renovation-bronx",
     keyword: "basement renovation bronx ny",
-    seoTitle: "Basement Renovation Bronx NY | Finished Basements & Legal Apartments",
+    seoTitle: "Basement Renovation Bronx NY | Finished Basements",
     metaDesc: "Complete basement renovation in the Bronx NY. Waterproofing, legal apartment conversions, framing, drywall & flooring. Licensed. Free estimate!",
     h1: "Basement Finishing & Remodeling in the Bronx NY",
     categoryHub: "/services/home-renovation",
@@ -1457,7 +1457,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "interior-remodeling-bronx": {
     slug: "interior-remodeling-bronx",
     keyword: "interior remodeling bronx ny",
-    seoTitle: "Interior Remodeling Bronx NY | Full Home Renovation Contractor",
+    seoTitle: "Interior Remodeling Bronx NY | Full Home Renovation",
     metaDesc: "Full-service interior remodeling in the Bronx NY. Open-concept floor plans, framing, drywall, electrical, plumbing & painting. Free estimate!",
     h1: "Apartment Renovation & Interior Remodeling in the Bronx NY",
     categoryHub: "/services/home-renovation",
@@ -1473,7 +1473,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "luxury-renovation-brooklyn": {
     slug: "luxury-renovation-brooklyn",
     keyword: "luxury renovation brooklyn",
-    seoTitle: "Luxury Renovation Brooklyn NY | High-End Residential Remodeling",
+    seoTitle: "Luxury Renovation Brooklyn NY | High-End Remodeling",
     metaDesc: "High-end luxury renovation in Brooklyn NY. Brownstones, townhouses, penthouses. Architectural millwork, custom stone & smart home. Free consultation!",
     h1: "High-End Luxury Home & Brownstone Renovation in Brooklyn NY",
     categoryHub: "/services/home-renovation",
@@ -1489,7 +1489,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "commercial-renovation-bronx": {
     slug: "commercial-renovation-bronx",
     keyword: "commercial renovation bronx ny",
-    seoTitle: "Commercial Renovation Bronx NY | Office, Retail & Restaurant Buildouts",
+    seoTitle: "Commercial Renovation Bronx NY | Retail Buildouts",
     metaDesc: "Commercial renovation in the Bronx NY. Retail fit-outs, office buildouts, restaurant construction & DOB-compliant tenant improvements. Free quote!",
     h1: "Commercial Building Renovation & Fit-Outs in the Bronx NY",
     categoryHub: "/services/home-renovation",
@@ -1505,7 +1505,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "dob-violation-brooklyn": {
     slug: "dob-violation-brooklyn",
     keyword: "dob violation brooklyn",
-    seoTitle: "DOB Violation Brooklyn NY | Clear Stop Work Orders & DOB Summonses",
+    seoTitle: "DOB Violation Brooklyn NY | Clear Stop Work Orders",
     metaDesc: "Clear DOB violations fast in Brooklyn NY. Stop Work Orders lifted, ECB hearings, Certificate of Correction & permit resolution. Call now!",
     h1: "NYC DOB Violation Removal Services in Brooklyn NY",
     categoryHub: "/services/concrete-services",
@@ -1521,7 +1521,7 @@ export const bronxSeoPages: Record<string, BronxSeoPageData> = {
   "emergency-board-up-bronx": {
     slug: "emergency-board-up-bronx",
     keyword: "emergency board up bronx ny",
-    seoTitle: "Emergency Board Up Bronx NY | 24/7 Fire & Storm Securing Service",
+    seoTitle: "Emergency Board Up Bronx NY | 24/7 Securing Service",
     metaDesc: "Immediate 24/7 board-up service in the Bronx NY. Fire damage, storm damage, vehicle impacts & broken storefronts secured fast. Call 24/7!",
     h1: "24/7 Emergency Board-Up & Securing in the Bronx NY",
     categoryHub: "/services/concrete-services",
